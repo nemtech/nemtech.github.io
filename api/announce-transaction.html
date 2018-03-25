@@ -1,0 +1,344 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Announcing transactions &mdash; nem2-docs Master documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="nem2-docs Master documentation" href="../index.html"/>
+        <link rel="next" title="WebSockets" href="websockets.html"/>
+        <link rel="prev" title="Overview" href="overview.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+    
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo-nem.svg" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                Master
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+    <!--<div class="sidebar-links">
+        <a href="#">API Reference</a> · <a href="#">SDK References</a>
+    </div>-->
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">Setting up your workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">Writing your first application</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Fundamentals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">Multisig Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/transaction.html">Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/mosaic.html">Mosaic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/block.html">Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/node.html">Node</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guides/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/account.html">Interacting with accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/blockchain.html">Monitoring blockchain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/namespace.html">Registering namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/mosaic.html">Interacting with mosaics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/transaction.html">Sending transactions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">NEM2-CLI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/commands.html">Commands</a></li>
+</ul>
+<p class="caption"><span class="caption-text">NEM2-SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/languages.html">Languages &amp; References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">NIS2-API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Announcing transactions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#announcing-a-transaction">Announcing a transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#announcing-an-aggregate-bonded-transaction">Announcing an aggregate bonded transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="websockets.html">WebSockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="errors.html">Error Handling</a></li>
+</ul>
+<p class="caption"><span class="caption-text">NEM2 Libraries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/overview.html">Extending NEM capabilities</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/feedback.html">Feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nem2-docs</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Announcing transactions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/announce-transaction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="announcing-transactions">
+<h1>Announcing transactions<a class="headerlink" href="#announcing-transactions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="announcing-a-transaction">
+<h2>Announcing a transaction<a class="headerlink" href="#announcing-a-transaction" title="Permalink to this headline">¶</a></h2>
+<p>When a transaction is initiated through the API, it always returns an OK. It is still unconfirmed and thus not yet accepted by the network.</p>
+<p>To know the status of the transaction, which can be OK or Failure, you have to:</p>
+<ol class="arabic simple">
+<li>Check the status via API endpoint</li>
+<li>Listen to the different WebSocket channels.</li>
+</ol>
+<p>Once it is included in a <a class="reference internal" href="../concepts/block.html"><span class="doc">block</span></a>, the transaction gets processed.</p>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/transaction-cycle.png"><img alt="../_images/transaction-cycle.png" src="../_images/transaction-cycle.png" style="width: 900px;" /></a>
+<p class="caption"><span class="caption-text">Transaction cycle</span></p>
+</div>
+</div>
+<div class="section" id="announcing-an-aggregate-bonded-transaction">
+<h2>Announcing an aggregate bonded transaction<a class="headerlink" href="#announcing-an-aggregate-bonded-transaction" title="Permalink to this headline">¶</a></h2>
+<p>Until an aggregate is signed by all cosignatories, it is unknown if all inner transactions will be included in a block.</p>
+<p>For that reason, aggregate bonded transactions are announced through a different endpoint.</p>
+<p>Once an aggregate is announced, it reaches partial state and notifies its status through WebSockets or HTTP API calls.</p>
+<p>Every time a cosignatory signs and announces an aggregate bonded cosignature, the network checks if all required cosigners have already signed. If it is the case, the transaction changes to unconfirmed state until the network accepts it, and is included in a block once processed.</p>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/aggregate-bonded-transaction-cycle.png"><img alt="../_images/aggregate-bonded-transaction-cycle.png" src="../_images/aggregate-bonded-transaction-cycle.png" style="width: 900px;" /></a>
+<p class="caption"><span class="caption-text">Aggregate bonded transaction cycle</span></p>
+</div>
+<p>In <a class="reference internal" href="../sdk/overview.html"><span class="doc">NEM2-SDK</span></a>, transactions are announced using <code class="docutils literal"><span class="pre">TransactionHttp</span></code>.</p>
+<table border="1" class="docutils" id="id3">
+<caption><span class="caption-text">NIS2-API vs SDK TransactionHttp</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>PUT /transaction</td>
+<td><code class="docutils literal"><span class="pre">announce(signedTransaction:</span> <span class="pre">SignedTransaction):</span> <span class="pre">Observable&lt;TransactionAnnounceResponse&gt;</span></code></td>
+</tr>
+<tr class="row-even"><td>PUT /transaction/partial</td>
+<td><code class="docutils literal"><span class="pre">announceAggregateBonded(signedTransaction:</span> <span class="pre">SignedTransaction):</span> <span class="pre">Observable&lt;TransactionAnnounceResponse&gt;</span></code></td>
+</tr>
+<tr class="row-odd"><td>PUT /transaction/cosignature</td>
+<td><code class="docutils literal"><span class="pre">announceAggregateBondedCosignature(cosignatureSignedTransaction:</span> <span class="pre">CosignatureSignedTransaction):</span> <span class="pre">Observable&lt;TransactionAnnounceResponse&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="websockets.html" class="btn btn-neutral float-right" title="WebSockets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="overview.html" class="btn btn-neutral" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, NEM.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'Master',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/examplecode.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

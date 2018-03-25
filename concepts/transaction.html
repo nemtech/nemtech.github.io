@@ -1,0 +1,530 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Transaction &mdash; nem2-docs Master documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="nem2-docs Master documentation" href="../index.html"/>
+        <link rel="next" title="Namespace" href="namespace.html"/>
+        <link rel="prev" title="Multisig Account" href="multisig-account.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+    
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo-nem.svg" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                Master
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+    <!--<div class="sidebar-links">
+        <a href="#">API Reference</a> · <a href="#">SDK References</a>
+    </div>-->
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">Setting up your workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">Writing your first application</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Fundamentals</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account.html">Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Transaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#fields">Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transaction-types">Transaction types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#transfer-transaction">Transfer transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#register-namespace-transaction">Register namespace transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mosaic-definition-transaction">Mosaic definition transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mosaic-supply-change-transaction">Mosaic supply change transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modify-multisig-account-transaction">Modify multisig account transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aggregate-transaction">Aggregate transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cosignature-transaction">Cosignature transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lock-funds-transaction">Lock funds transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#secret-lock-transaction">Secret lock transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#secret-proof-transaction">Secret proof transaction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic.html">Mosaic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="block.html">Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="node.html">Node</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guides/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/account.html">Interacting with accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/blockchain.html">Monitoring blockchain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/namespace.html">Registering namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/mosaic.html">Interacting with mosaics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/transaction.html">Sending transactions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">NEM2-CLI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/commands.html">Commands</a></li>
+</ul>
+<p class="caption"><span class="caption-text">NEM2-SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/languages.html">Languages &amp; References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">NIS2-API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/announce-transaction.html">Announcing transactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/websockets.html">WebSockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/errors.html">Error Handling</a></li>
+</ul>
+<p class="caption"><span class="caption-text">NEM2 Libraries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/overview.html">Extending NEM capabilities</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/feedback.html">Feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nem2-docs</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Transaction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/concepts/transaction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="transaction">
+<h1>Transaction<a class="headerlink" href="#transaction" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The configuration presented is NOT intended to be used on the public network. These are the parameters used for the Catapult Testnet version (MIJIN_TEST).</p>
+</div>
+<p>Transactions are actions taken on the blockchain that change its state.</p>
+<p>Once a transaction is initiated, it is still unconfirmed and thus not yet accepted by the network. At this point, it is not clear if it will get included in a block. Never rely on a transaction which has the state unconfirmed.</p>
+<div class="figure align-center" id="id12">
+<a class="reference internal image-reference" href="../_images/transaction-cycle1.png"><img alt="../_images/transaction-cycle1.png" src="../_images/transaction-cycle1.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text">Transaction cycle</span></p>
+</div>
+<p>Once it is included in a <a class="reference internal" href="block.html"><span class="doc">block</span></a>, the transaction gets processed and, in case of a transfer transaction, the amount stated in the transaction gets transferred from the sender’s account to the recipient’s account. Additionally, the transaction fee is deducted from the sender’s account.</p>
+<p>The transaction is said to have 0 confirmations at this point. When another block is added to the blockchain, the transaction has 1 confirmation. The next block added to the chain will give it 2 confirmations and so on.</p>
+<p>Cryptocurrencies have the ability to roll back part of the blockchain. This is essential for being able to resolve forks of the blockchain.</p>
+<p>There is, however, a maximum number of blocks that can be rolled back, which is called the “rewrite limit”. Hence, forks can only be resolved up to a certain depth too.</p>
+<p>NEM has a rewrite limit of 360 blocks. Once a transaction has more than 360 confirmations, it cannot be reversed.</p>
+<p>In real life, forks that are deeper than 20 blocks do not happen, unless there are some severe problem with the blockchain due to a bug in the code or an attack of some kind.</p>
+<div class="section" id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h2>
+<p>Transactions share the following properties:</p>
+<blockquote>
+<div><p><strong>Type</strong></p>
+<p>NEM defines some types of transactions that can be performed. See <a class="reference internal" href="#transaction-types"><span class="std std-ref">transaction types</span></a>.</p>
+<p><strong>Version number</strong></p>
+<p>The version of the structure.</p>
+<p><strong>Deadline</strong></p>
+<p>The maximum amount of time to include the transaction in the blockchain.</p>
+<p><strong>Fee</strong></p>
+<p>How many XEM costs announcing the transaction. The higher the fee, the higher the priority of the transaction. Transactions with high priority get included in a block before transactions with lower priority.</p>
+<p><strong>Signature</strong></p>
+<p>The transaction signature.</p>
+<p><strong>Signer</strong></p>
+<p>The account of the transaction creator public key.</p>
+</div></blockquote>
+</div>
+<div class="section" id="transaction-types">
+<span id="id1"></span><h2>Transaction types<a class="headerlink" href="#transaction-types" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="transfer-transaction">
+<span id="id2"></span><h3>Transfer transaction<a class="headerlink" href="#transfer-transaction" title="Permalink to this headline">¶</a></h3>
+<p>Transfer transaction is used to send <a class="reference internal" href="mosaic.html"><span class="doc">assets</span></a> between two accounts. It can hold a message of length <code class="docutils literal"><span class="pre">1024</span></code>.</p>
+<p>Following parameters are required:</p>
+<blockquote>
+<div><p><strong>Recipient</strong></p>
+<p>The address of the recipient account.</p>
+<p><strong>Mosaics</strong></p>
+<p>The array of mosaic to be sent.</p>
+<p><strong>Message</strong></p>
+<p>The transaction message of <code class="docutils literal"><span class="pre">1024</span></code> characters.</p>
+</div></blockquote>
+</div>
+<div class="section" id="register-namespace-transaction">
+<span id="id3"></span><h3>Register namespace transaction<a class="headerlink" href="#register-namespace-transaction" title="Permalink to this headline">¶</a></h3>
+<p>Register namespace transaction is used to create and re-rental a <a class="reference internal" href="namespace.html"><span class="doc">namespace</span></a> or subnamespace.</p>
+<blockquote>
+<div><p><strong>Type</strong></p>
+<p>The namespace type could be namespace or subnamespace.</p>
+<p><strong>Name</strong></p>
+<p>A namespace name must be unique and may have a maximum length of <code class="docutils literal"><span class="pre">64</span></code> characters.</p>
+<p>Allowed characters are a, b, c, …, z, 0, 1, 2, …, 9, ‘, _ , -.</p>
+<p><strong>Duration</strong></p>
+<p>Renting duration represents the number of confirmed blocks we would like to rent our namespace for.</p>
+<p>During the renting period, there is the possibility to extend the rental by sending a <code class="docutils literal"><span class="pre">RegisterNamespaceTransaction</span></code> with the extra-confirmed block to rent the namespace.</p>
+<p>When a renting period ends, the namespace will become inactive, and you will have <code class="docutils literal"><span class="pre">N</span></code> blocks to re-rent it.</p>
+<p><strong>Parent namespace</strong></p>
+<p>If it is a subdomain, a reference to parent namespace name is required.</p>
+</div></blockquote>
+</div>
+<div class="section" id="mosaic-definition-transaction">
+<span id="id4"></span><h3>Mosaic definition transaction<a class="headerlink" href="#mosaic-definition-transaction" title="Permalink to this headline">¶</a></h3>
+<p>Mosaic definition transaction is used to create a new <a class="reference internal" href="mosaic.html"><span class="doc">mosaic</span></a>.</p>
+<blockquote>
+<div><p><strong>Name</strong></p>
+<p>Name of the mosaic, up to a size limit of <code class="docutils literal"><span class="pre">64</span></code> characters; must be unique under the domain name.</p>
+<p><strong>Namespace name</strong></p>
+<p>To be able to create a mosaic definition, an account must rent at least one root namespace which the mosaic definition can then refer to.</p>
+<p><strong>Mosaic properties</strong></p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">divisibility</span></code>: Determines up to what decimal place the mosaic can be divided. Divisibility of 3 means that a mosaic can be divided into smallest parts of 0.001 mosaics. The divisibility must be in the range of 0 and 6.</li>
+<li><code class="docutils literal"><span class="pre">duration</span></code>: The number of confirmed blocks we would like to rent our namespace for. Should be inferior or equal to namespace duration.</li>
+<li><code class="docutils literal"><span class="pre">supply</span></code>: The amount of mosaic in circulation. The creator can specify an initial supply of mosaics when creating the definition. The initial supply must be in the range of 0 and 9,000,000,000.</li>
+<li><code class="docutils literal"><span class="pre">supply</span> <span class="pre">mutable</span></code>: The creator can choose between a definition that allows a mosaic supply change at a later point or a <strong>immutable</strong> supply. In the first case the creator is only allowed to decrease the supply within the limits of mosaics owned.</li>
+<li><code class="docutils literal"><span class="pre">transferability</span></code>: The creator can choose if the mosaic can be transferred to and from arbitrary accounts, or only allowing itself to be the recipient once transferred for the first time.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="mosaic-supply-change-transaction">
+<span id="id5"></span><h3>Mosaic supply change transaction<a class="headerlink" href="#mosaic-supply-change-transaction" title="Permalink to this headline">¶</a></h3>
+<p>Mosaic supply change transaction is used to assign supply to a <a class="reference internal" href="mosaic.html"><span class="doc">mosaic</span></a>.</p>
+<blockquote>
+<div><p><strong>Mosaic Id</strong></p>
+<p>Combination of namepsace name and mosaic name. For example “foo.bar:token”.</p>
+<p><strong>Direction</strong></p>
+<p>Could be Increase (0) or Decrease (1).</p>
+<p><strong>Delta</strong></p>
+<p>The amount of supply to increase or decrease.</p>
+</div></blockquote>
+</div>
+<div class="section" id="modify-multisig-account-transaction">
+<span id="id6"></span><h3>Modify multisig account transaction<a class="headerlink" href="#modify-multisig-account-transaction" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If cosignatories keys get lost, and minimum approval is not reached, this would currently result in the permanent loss of access to the funds held by the multisig account.</p>
+</div>
+<p>Modify multisig account transaction is used to change properties of a <a class="reference internal" href="multisig-account.html"><span class="doc">multisig account</span></a>.</p>
+<blockquote>
+<div><p><strong>Minimum Approval Delta</strong></p>
+<p>The number of signatures needed to approve a transaction. If we are modifying an existing multisignature account this indicates the relative change of the minimum cosignatories.</p>
+<p><strong>Minimum Removal Delta</strong></p>
+<p>The number of signatures needed to remove a cosignatory. If we are modifying an existing multisignature account this indicates the relative change of the minimum cosignatories.</p>
+<p><strong>Modifications</strong></p>
+<p>Array of cosigner accounts added or removed from the multisignature account.</p>
+</div></blockquote>
+</div>
+<div class="section" id="aggregate-transaction">
+<span id="id7"></span><h3>Aggregate transaction<a class="headerlink" href="#aggregate-transaction" title="Permalink to this headline">¶</a></h3>
+<p>Aggregate transactions contain multiple transactions that can be initiated by different <a class="reference internal" href="account.html"><span class="doc">accounts</span></a>. The Aggregate transaction is used when all transactions need to be included in a block or none of them.</p>
+<blockquote>
+<div><p><strong>Inner Transaction</strong></p>
+<p>Transactions initiated by different accounts. Other aggregate transactions are not allowed as inner transactions.</p>
+<p><strong>Cosignatures</strong></p>
+<p>The array of transaction cosigners signatures.</p>
+</div></blockquote>
+<p>An aggregate transaction is  <strong>complete</strong> if before announcing it to the network, all cosigners have signed it. If valid, it will be included in a block.</p>
+<div class="figure align-center" id="id13">
+<img alt="../_images/guides-transactions-sending-payouts.png" src="../_images/guides-transactions-sending-payouts.png" />
+<p class="caption"><span class="caption-text">Sending payouts with aggregate complete transactions</span></p>
+</div>
+<p>In case that it requires signatures from other participants but announced to the network, then the transaction is considered Aggregate <strong>bonded</strong>.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="45%" />
+<col width="55%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure align-center" id="id14">
+<img alt="../_images/guides-transactions-escrow.png" src="../_images/guides-transactions-escrow.png" />
+<p class="caption"><span class="caption-text">Multi-Asset Escrowed Transactions</span></p>
+</div>
+</td>
+<td><div class="first last figure align-center" id="id15">
+<img alt="../_images/guides-transactions-paying-for-others-fees.png" src="../_images/guides-transactions-paying-for-others-fees.png" />
+<p class="caption"><span class="caption-text">Automatic Transaction Fee Payment</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">When sending an <strong>aggregate bonded transaction</strong>, an account should first send and get confirmed a Lock Funds Transaction for this aggregate with at least <code class="docutils literal"><span class="pre">10</span></code> XEM.</p>
+</div>
+<p>Once an aggregate bonded is announced, it reaches partial state and notifies its status through WebSockets or HTTP API calls.</p>
+<p>Every time a cosignatory signs and announces an aggregate bonded cosignature, the network checks if all required cosigners have already signed. If it is the case, the transaction changes to unconfirmed state until the network accepts it, and is included in a block once processed.</p>
+<div class="figure align-center" id="id16">
+<a class="reference internal image-reference" href="../_images/aggregate-bonded-transaction-cycle1.png"><img alt="../_images/aggregate-bonded-transaction-cycle1.png" src="../_images/aggregate-bonded-transaction-cycle1.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text">Aggregate bonded transaction cycle</span></p>
+</div>
+</div>
+<div class="section" id="cosignature-transaction">
+<span id="id8"></span><h3>Cosignature transaction<a class="headerlink" href="#cosignature-transaction" title="Permalink to this headline">¶</a></h3>
+<p>Cosignature transaction is used to sign <a class="reference internal" href="#aggregate-transaction"><span class="std std-ref">announced aggregate bonded transactions</span></a> with missing cosignatures.</p>
+<blockquote>
+<div><p><strong>Transaction to cosign</strong></p>
+<p>Aggregate bonded transaction to cosign.</p>
+</div></blockquote>
+</div>
+<div class="section" id="lock-funds-transaction">
+<span id="id9"></span><h3>Lock funds transaction<a class="headerlink" href="#lock-funds-transaction" title="Permalink to this headline">¶</a></h3>
+<p>Announce a lock funds transaction before sending an <a class="reference internal" href="#aggregate-transaction"><span class="std std-ref">announced aggregate bonded transactions</span></a>.</p>
+<p>Once the related aggregate bonded transaction is confirmed, funds locked become available again in the account that signed the initial lock funds transaction.</p>
+<p>If the aggregate bonded transaction duration is reached without being signed by all cosignatories, the locked amount is collected by the block harvester at the height where the lock expires.</p>
+<blockquote>
+<div><p><strong>Mosaic</strong></p>
+<p>Locked mosaic.</p>
+<p><strong>Duration</strong></p>
+<p>The funds lock duration.</p>
+<p><strong>Hash</strong></p>
+<p>Aggregate bonded has to be confirmed before unlocking funds.</p>
+</div></blockquote>
+</div>
+<div class="section" id="secret-lock-transaction">
+<span id="id10"></span><h3>Secret lock transaction<a class="headerlink" href="#secret-lock-transaction" title="Permalink to this headline">¶</a></h3>
+<p>Use secret lock transaction to send mosaics to a recipient once an account discovers an attached secret message, known as <em>proof</em>.</p>
+<p>Once announced, the specified mosaics are locked at blockchain level using the <em>hashed secret</em> message.</p>
+<p>Funds are unlocked and transferred when an account announces a  valid <a class="reference internal" href="#secret-proof-transaction"><span class="std std-ref">Secret Proof Transaction</span></a>. The account should demonstrate that knows the <em>proof</em> that unlocks the transaction. That means applying <code class="docutils literal"><span class="pre">hashing</span> <span class="pre">algorithm</span></code> to <code class="docutils literal"><span class="pre">proof</span></code> and obtaining hashed <code class="docutils literal"><span class="pre">secret</span></code> message.</p>
+<p>If the transaction duration is reached and not proved, the locked amount is returned to the initiator of the lock funds transaction.</p>
+<div class="figure align-center" id="id17">
+<img alt="../_images/guides-transactions-atomic-cross-chain-swap.png" src="../_images/guides-transactions-atomic-cross-chain-swap.png" />
+<p class="caption"><span class="caption-text">Atomic cross-chain trading between public and private network</span></p>
+</div>
+<p>Secret lock and proof transactions enable <a class="reference internal" href="../guides/transaction.html#guide-using-secret-lock-for-atomic-cross-chain-swap"><span class="std std-ref">atomic cross-chain trading</span></a>, without the necessity of trusting a third party.</p>
+<blockquote>
+<div><p><strong>Mosaic</strong></p>
+<p>Locked mosaic.</p>
+<p><strong>Duration</strong></p>
+<p>The duration for the funds to be released or returned.</p>
+<p><strong>Hash Type</strong></p>
+<p>Hash algorithm used, with which secret is generated.</p>
+<p><strong>Secret</strong></p>
+<p>The proof hashed.</p>
+<p><strong>Recipient</strong></p>
+<p>The address who will receive the funds once unlocked.</p>
+</div></blockquote>
+<p>Based on <a class="reference external" href="https://en.bitcoin.it/wiki/Atomic_cross-chain_trading">Bitcoin Atomic Cross Chain Trading</a>.</p>
+</div>
+<div class="section" id="secret-proof-transaction">
+<span id="id11"></span><h3>Secret proof transaction<a class="headerlink" href="#secret-proof-transaction" title="Permalink to this headline">¶</a></h3>
+<p>Secret proof transaction is used to unlock <a class="reference internal" href="#secret-lock-transaction"><span class="std std-ref">secret lock transactions</span></a>.</p>
+<p>To unlock a secret lock transaction, the account should demonstrate that knows the <em>proof</em> that unlocks the transaction.</p>
+<blockquote>
+<div><p><strong>Hash Type</strong></p>
+<p>Hash algorithm used, to check that proof hashed equals secret.</p>
+<p><strong>Secret</strong></p>
+<p>The proof hashed.</p>
+<p><strong>Proof</strong></p>
+<p>The proof seed.</p>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="namespace.html" class="btn btn-neutral float-right" title="Namespace" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="multisig-account.html" class="btn btn-neutral" title="Multisig Account" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, NEM.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'Master',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/examplecode.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

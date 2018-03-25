@@ -1,0 +1,336 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Block &mdash; nem2-docs Master documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="nem2-docs Master documentation" href="../index.html"/>
+        <link rel="next" title="Node" href="node.html"/>
+        <link rel="prev" title="Mosaic" href="mosaic.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+    
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo-nem.svg" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                Master
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+    <!--<div class="sidebar-links">
+        <a href="#">API Reference</a> · <a href="#">SDK References</a>
+    </div>-->
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">Setting up your workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">Writing your first application</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Fundamentals</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account.html">Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transaction.html">Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic.html">Mosaic</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Block</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#fields">Fields</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="node.html">Node</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guides/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/account.html">Interacting with accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/blockchain.html">Monitoring blockchain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/namespace.html">Registering namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/mosaic.html">Interacting with mosaics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/transaction.html">Sending transactions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">NEM2-CLI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/commands.html">Commands</a></li>
+</ul>
+<p class="caption"><span class="caption-text">NEM2-SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/languages.html">Languages &amp; References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">NIS2-API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/announce-transaction.html">Announcing transactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/websockets.html">WebSockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/errors.html">Error Handling</a></li>
+</ul>
+<p class="caption"><span class="caption-text">NEM2 Libraries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/overview.html">Extending NEM capabilities</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/feedback.html">Feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nem2-docs</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Block</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/concepts/block.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="block">
+<h1>Block<a class="headerlink" href="#block" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The configuration presented is NOT intended to be used on the public network. These are the parameters used for the Catapult Testnet version (MIJIN_TEST).</p>
+</div>
+<p>The central element of every cryptocurrency is a public ledger called the blockchain that links blocks together. Each NEM block can contain up to <code class="docutils literal"><span class="pre">200000</span></code> <a class="reference internal" href="transaction.html"><span class="doc">transactions</span></a>.</p>
+<p>Since the blocks in the chain and the transactions in the blocks ordered, the complete transaction history is held in the blockchain. Subsequent blocks in the blockchain have increasing heights that differ by one.</p>
+<p>Blocks are stored in a database as permanent medium. NEM calls the first block in the chain the nemesis block.</p>
+<p>Blocks are generated by accounts. If an account generates a block and the block gets included in the blockchain, the generating account, called the harvester, gets all the transaction fees for transactions that are included in the block. A harvester will therefore usually include as many transactions as possible.</p>
+<p>NEM blocks complete every <code class="docutils literal"><span class="pre">15</span></code> seconds, making transactions confirm quickly enough for everyday use.</p>
+<div class="section" id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h2>
+<p>A block has the following properties:</p>
+<blockquote>
+<div><p><strong>Timestamp</strong></p>
+<p>The number of seconds elapsed since the creation of the nemesis block.</p>
+<p><strong>Previous block hash</strong></p>
+<p>The sha3-256 hash of the last blockchain as an hexadecimal string.</p>
+<p><strong>Signature</strong></p>
+<p>The signature of the block. The signature was generated by the signer and can be used to validate that the block data was not modified by a node.</p>
+<p><strong>Type</strong></p>
+<p>The nemesis block has type -1. The rest of the blocks have type 1.</p>
+<p><strong>Transactions</strong></p>
+<p>The array of transaction included in the block.</p>
+<p><strong>Version</strong></p>
+<p>The block version. It can represent:</p>
+<ul class="simple">
+<li>Main network</li>
+<li>Test network</li>
+<li>Mijin network</li>
+<li>Mijin Test network (Catapult)</li>
+</ul>
+<p><strong>Signer</strong></p>
+<p>The public key of the harvester of the block as a hexadecimal number.</p>
+<p><strong>Height</strong></p>
+<p>The height of the blockchain. Each blockchain has a unique height. Subsequent blocks differ in height by 1.</p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="node.html" class="btn btn-neutral float-right" title="Node" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="mosaic.html" class="btn btn-neutral" title="Mosaic" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, NEM.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'Master',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/examplecode.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

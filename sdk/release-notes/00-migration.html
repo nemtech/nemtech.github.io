@@ -1,0 +1,584 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Preparing for NEM2-SDK 1.0.0 &mdash; nem2-docs Master documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon-32x32.png"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/examplecode.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="nem2-docs Master documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+    
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo-nem.svg" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                Master
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+    <!--<div class="sidebar-links">
+        <a href="#">API Reference</a> · <a href="#">SDK References</a>
+    </div>-->
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/setup-workstation.html">Setting up your workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/first-application.html">Writing your first application</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Fundamentals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">Multisig Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/transaction.html">Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">Mosaic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/block.html">Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/node.html">Node</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/account.html">Interacting with accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/blockchain.html">Monitoring blockchain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/namespace.html">Registering namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/mosaic.html">Interacting with mosaics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/transaction.html">Sending transactions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">NEM2-CLI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cli/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli/commands.html">Commands</a></li>
+</ul>
+<p class="caption"><span class="caption-text">NEM2-SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../languages.html">Languages &amp; References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">NIS2-API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/announce-transaction.html">Announcing transactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/websockets.html">WebSockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/errors.html">Error Handling</a></li>
+</ul>
+<p class="caption"><span class="caption-text">NEM2 Libraries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../libraries/overview.html">Extending NEM capabilities</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../support/feedback.html">Feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support/contributing.html">Contributing</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">nem2-docs</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Preparing for NEM2-SDK 1.0.0</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/sdk/release-notes/00-migration.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="preparing-for-nem2-sdk-1-0-0">
+<h1>Preparing for NEM2-SDK 1.0.0<a class="headerlink" href="#preparing-for-nem2-sdk-1-0-0" title="Permalink to this headline">¶</a></h1>
+<p>We are pleased to present NEM-2SDK 0.9.1. These release notes include NEM2-SDK new features and breaking changes over its predecessor NEM-Library.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The SDKs methods could change until it reaches the stable version 1.0.0. For now, Catapult is only available in a test net environment. Consider it before applying changes and uploading your software to production.</p>
+</div>
+<div class="section" id="install-latest-version">
+<h2>Install latest version<a class="headerlink" href="#install-latest-version" title="Permalink to this headline">¶</a></h2>
+<p>Select your <a class="reference internal" href="../languages.html"><span class="doc">programming language</span></a> and <a class="reference internal" href="../../getting-started/setup-workstation.html#setup-development-environment"><span class="std std-ref">install the latest version</span></a>. Make sure to uninstall previous versions of NEM2-SDK or NEM Library.</p>
+</div>
+<div class="section" id="what-is-new">
+<h2>What is new?<a class="headerlink" href="#what-is-new" title="Permalink to this headline">¶</a></h2>
+<p>NEM2-SDK shares the same design/architecture between <a class="reference internal" href="../languages.html"><span class="doc">programming languages</span></a>. That means fast language adaptation, cohesion and shared knowledge between NEM developers, most rapid SDK updates and fewer bugs.</p>
+<p>NEM-SDK does not add features that are not 100% related to NIS2-API. Instead, it permits to be extended by the use of new standalone <a class="reference internal" href="../../libraries/overview.html"><span class="doc">libraries</span></a>.</p>
+<p>The new SDK implements the new features available in Catapult.</p>
+</div>
+</div>
+<div class="section" id="aggregate-transactions">
+<h1>Aggregate transactions<a class="headerlink" href="#aggregate-transactions" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference internal" href="../../concepts/transaction.html#aggregate-transaction"><span class="std std-ref">Aggegate Transaction</span></a> contains multiple transactions that can be initiated by different accounts. Use an Aggregate transaction when all transactions need to be included in a block or none of them.</p>
+</div>
+<div class="section" id="locks-fund-transactions">
+<h1>Locks fund transactions<a class="headerlink" href="#locks-fund-transactions" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference internal" href="../../concepts/transaction.html#lock-funds-transaction"><span class="std std-ref">Locks funds transaction</span></a> is used as a deposit to announce announced aggregate bonded transactions.</p>
+<p>Once the related aggregate bonded transaction is confirmed, funds locked become available again in the account that had signed the initial lock funds transaction.</p>
+</div>
+<div class="section" id="multi-level-multisig-accounts-mlma">
+<h1>Multi-level multisig accounts (MLMA)<a class="headerlink" href="#multi-level-multisig-accounts-mlma" title="Permalink to this headline">¶</a></h1>
+<p>NEM2-SDK adds support to <a class="reference internal" href="../../concepts/multisig-account.html"><span class="doc">multi-level multisig accounts</span></a>.</p>
+<p>An MLMA is a multisig that has a cosigner that is another multisig.</p>
+</div>
+<div class="section" id="secret-lock-and-secret-proof-transactions">
+<h1>Secret lock and secret proof transactions<a class="headerlink" href="#secret-lock-and-secret-proof-transactions" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference internal" href="../../concepts/transaction.html#secret-lock-transaction"><span class="std std-ref">Secret lock transaction</span></a> is used to send mosaics to a recipient once an account discovers an attached secret message, known as <em>proof</em>.</p>
+<p>Funds are unlocked and transferred when an account announces a valid <a class="reference internal" href="../../concepts/transaction.html#secret-proof-transaction"><span class="std std-ref">Secret proof transaction</span></a>.</p>
+<p>Secret lock and proof transactions enable <a class="reference internal" href="../../guides/transaction.html#guide-using-secret-lock-for-atomic-cross-chain-swap"><span class="std std-ref">atomic cross-chain trading</span></a>, without the necessity of trusting a third party.</p>
+</div>
+<div class="section" id="details">
+<h1>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h1>
+<p><strong>Repositories</strong></p>
+<blockquote>
+<div><p><strong>BlockChainHttp</strong></p>
+<ul class="simple">
+<li>Added getBlocksByHeightWithLimit method.</li>
+<li>Added getBlockTransactions method.</li>
+<li>Added getDiagnosticStorage method.</li>
+</ul>
+<p><strong>AccountHttp</strong></p>
+<ul class="simple">
+<li>Added getAccountsInfo to get multiple accounts information at once.</li>
+</ul>
+<p><strong>MosaicHttp</strong></p>
+<ul class="simple">
+<li>Added getMosaics to get multiple mosaics information at once.</li>
+<li>Added getMosaicsName to get multiple mosaic names.</li>
+</ul>
+<p><strong>NamespaceHttp</strong></p>
+<ul class="simple">
+<li>Added getNamespacesFromAccount to get account owned namespaces information.</li>
+<li>Added getNamespacesFromAccounts to get multiple accounts owned namespaces information at once.</li>
+<li>Added getNamespacesName to get multiple mosaics name.</li>
+</ul>
+<p><strong>TransactionHttp</strong></p>
+<ul class="simple">
+<li>Added getTransactions to get multiple transactions at once.</li>
+<li>Added getTransactionStatus to get transaction status.</li>
+<li>Added getTransactionsStatuses to get multiple transactions status.</li>
+<li>Added  announceAggregateBonded to announce aggregate bonded transactions.</li>
+<li>Added announceAggregateBondedCosignature to announce AggregateCosignatureTransaction.</li>
+</ul>
+<p><strong>Listeners</strong></p>
+<ul class="simple">
+<li>Added new listeners.</li>
+</ul>
+</div></blockquote>
+<p><strong>Models</strong></p>
+<blockquote>
+<div><p><strong>Account</strong></p>
+<ul class="simple">
+<li>Added access private key of the account.</li>
+<li>Added generate a new account.</li>
+<li>Added signCosignatureTransaction.</li>
+<li>Added signTransactionWithCosignatories.</li>
+</ul>
+<p><strong>Address</strong></p>
+<ul class="simple">
+<li>Added static constructor createFromPublicKey.</li>
+</ul>
+<p><strong>BlockchainStorageInfo</strong></p>
+<ul class="simple">
+<li>New model.</li>
+</ul>
+<p><strong>BlockchainScore</strong></p>
+<ul class="simple">
+<li>New model.</li>
+</ul>
+<p><strong>MosaicName</strong></p>
+<ul class="simple">
+<li>New model.</li>
+</ul>
+<p><strong>NamespaceId</strong></p>
+<ul class="simple">
+<li>New model.</li>
+</ul>
+<p><strong>NamespaceName</strong></p>
+<ul class="simple">
+<li>New model.</li>
+</ul>
+<p><strong>Public Account</strong></p>
+<ul class="simple">
+<li>Added equals method.</li>
+</ul>
+<p><strong>Transaction</strong></p>
+<ul class="simple">
+<li>Added is unconfirmed method.</li>
+<li>Added is confirmed method.</li>
+<li>Added is partial method.</li>
+<li>Added is unannounced method.</li>
+</ul>
+<p><strong>AggregateTransaction</strong></p>
+<ul class="simple">
+<li>New Model.</li>
+</ul>
+<p><strong>LockFundsTransaction</strong></p>
+<ul class="simple">
+<li>New model.</li>
+</ul>
+<p><strong>SecretLockTransaction</strong></p>
+<ul class="simple">
+<li>New Model.</li>
+</ul>
+<p><strong>SecretProofTransaction</strong>
+* New model</p>
+<p><strong>MultisigAccountInfo</strong></p>
+<ul class="simple">
+<li>New model.</li>
+</ul>
+<p><strong>MultisigAccountGraphInfo</strong></p>
+<ul class="simple">
+<li>New Model.</li>
+</ul>
+<p><strong>XEM</strong></p>
+<ul class="simple">
+<li>Added two static constructors, createRelative and createAbsolute.</li>
+</ul>
+</div></blockquote>
+<div class="section" id="breaking-changes">
+<h2>Breaking changes<a class="headerlink" href="#breaking-changes" title="Permalink to this headline">¶</a></h2>
+<p>NEM Library inspires NEM2-SDK architecture.  However, several architectural improvements have been made.</p>
+<p>If you were using NEM-Library for NIS 1, consider reviewing the following breaking changes when considering upgrading to NEM2-SDK.</p>
+<p><strong>General</strong></p>
+<blockquote>
+<div><p><strong>Package name</strong></p>
+<p>Import nem2-sdk rather than nem-library.</p>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;nem2-sdk&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Removed network bootstrapping</strong></p>
+<p>When using NEM Library, the network was selected when initiating a project.</p>
+<p>In this new version, bootstrapping the network is not needed anymore.</p>
+<p>NEM2-SDK allows you create transactions for different networks in the same project by providing the network when creating transactions.</p>
+</div></blockquote>
+<p><strong>Repositories</strong></p>
+<blockquote>
+<div><p><strong>AccountHttp</strong></p>
+<ul class="simple">
+<li>Changed getFromAddress and getFromPublicKey to getAccountInfo.</li>
+<li>Moved getNamespaceOwnedByAddress to NamespaceHttp.</li>
+<li>Moved getMosaicCreatedByAddress and getMosaicOwnedByAddress to MosaicHttp.</li>
+</ul>
+<p><strong>BlockChainHttp</strong></p>
+<ul class="simple">
+<li>Merged BlockHttp and ChainHttp into BlockChainHttp repository.</li>
+</ul>
+<p><strong>MosaicHttp</strong></p>
+<ul class="simple">
+<li>Changed getMosaicDefinition to getMosaic.</li>
+<li>Changed getAllMosaicsGivenNamespace to getMosaicsFromNamespace.</li>
+</ul>
+<p><strong>NamespaceHttp</strong></p>
+<ul class="simple">
+<li>Removed getRootNamespaces.</li>
+</ul>
+<p><strong>TransactionHttp</strong></p>
+<ul class="simple">
+<li>Changed getByHash to getTransaction.</li>
+<li>Changed announceTransaction to announce.</li>
+</ul>
+<p><strong>Listener</strong></p>
+<ul class="simple">
+<li>Changed returned types.</li>
+<li>Grouped all listeners: AccountListener, ConfirmedTransactionListener, UnconfirmedTransactionListener and BlockchainListener into Listener class.</li>
+</ul>
+</div></blockquote>
+<p><strong>Models</strong></p>
+<blockquote>
+<div><p><strong>Account</strong></p>
+<ul class="simple">
+<li>Changed signTransactions -&gt; sign.</li>
+<li>Changed createWithPrivateKey -&gt; createFromPrivateKey, now we need to introduce networkType of the account.</li>
+</ul>
+<p><strong>Account Info</strong></p>
+<ul class="simple">
+<li>Changed balance -&gt; mosaics, being mosaic an array of mosaics with the amount holded of each mosaic.</li>
+<li>Removed multisig account information from account info, now available with MultisigAccountGraphInfo, MultisigAccountInfo due to introduction of multilevel multisignature accounts.</li>
+</ul>
+<p><strong>Address</strong></p>
+<ul class="simple">
+<li>Changed constructor to be createFromRawAddress.</li>
+<li>Changed network method name to property networkType.</li>
+</ul>
+<p><strong>Public Account</strong></p>
+<ul class="simple">
+<li>Changed constructor name createWithPublicKey to createFromPublicKey.</li>
+<li>Changed public account will always have public key, removed nem-library hasPublicKey method.</li>
+</ul>
+<p><strong>Block</strong></p>
+<ul class="simple">
+<li>Changed name from Block to BlockInfo</li>
+<li>Added current hash information.</li>
+<li>Removed transactions not returned within blockInfo, must be queried using BlockHttp getBlockTransactions method.</li>
+</ul>
+<p><strong>Mosaic</strong></p>
+<ul class="simple">
+<li>Changed quantity name to amount.</li>
+<li>Changed mosaicId name to id.</li>
+<li>Changed types.</li>
+</ul>
+<p><strong>MosaicId</strong></p>
+<ul class="simple">
+<li>Changed properties from namespaceId (string) and name (string) to Id.</li>
+<li>Changed constructor.</li>
+</ul>
+<p><strong>MosaicDefinition</strong></p>
+<ul class="simple">
+<li>Changed name from MosaicDefinition to MosaicInfo.</li>
+</ul>
+<p><strong>Namespace</strong></p>
+<ul class="simple">
+<li>Changed name from Namespace to NamespaceInfo.</li>
+</ul>
+<p><strong>TimeWindow</strong></p>
+<ul class="simple">
+<li>Changed model to Deadline.</li>
+</ul>
+<p><strong>Transaction</strong></p>
+<ul class="simple">
+<li>Changed property names and types.</li>
+</ul>
+<p><strong>TransactionInfo</strong></p>
+<ul class="simple">
+<li>Changed property names and types.</li>
+</ul>
+<p><strong>SignedTransaction</strong></p>
+<ul class="simple">
+<li>Changed property names and types.</li>
+</ul>
+<p><strong>TransferTransaction</strong></p>
+<ul class="simple">
+<li>Unified create and createWithMosaics constructors to create.</li>
+<li>Create constructor needs network type as a property.</li>
+<li>Unified xem and mosaics properties to mosaics array.</li>
+<li>Changed other property names and types.</li>
+</ul>
+<p><strong>ProvisionNamespaceTransaction</strong></p>
+<ul class="simple">
+<li>Changed name from ProvisionNamespaceTransaction to RegisterNamespaceTransaction.</li>
+<li>Changed createRoot constructor name to createRootNamespace.</li>
+<li>Changed createSub constructor name to createSubNamespace.</li>
+<li>Changed other property names and types.</li>
+</ul>
+<p><strong>MosaicDefinitionCreationTransaction</strong></p>
+<ul class="simple">
+<li>Changed name from MosaicDefinitionCreationTransaction to MosaicDefinitionCreationTransaction.</li>
+<li>Changed other property names and types.</li>
+</ul>
+<p><strong>MosaicSupplyChangeTransaction</strong></p>
+<ul class="simple">
+<li>Changed other property names and types.</li>
+</ul>
+<p><strong>ModifyMultisigAccountTransaction</strong></p>
+<ul class="simple">
+<li>Changed MultisigAggregateModificationTransaction name to ModifyMultisigAccountTransaction</li>
+<li>Added minRemovalDelta.</li>
+<li>Changed other property names and types.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="under-development">
+<h2>Under development<a class="headerlink" href="#under-development" title="Permalink to this headline">¶</a></h2>
+<p>Some features are not yet implemented in this version of the SDK.</p>
+<ul class="simple">
+<li>Encrypt and decrypt messages.</li>
+<li>Mosaic Levies.</li>
+<li>Connection pool.</li>
+<li>Harvesting.</li>
+<li>Pageables.</li>
+<li>NodeHttp.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, NEM.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'Master',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/examplecode.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

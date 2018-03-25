@@ -1,0 +1,354 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>WebSockets &mdash; nem2-docs Master documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="nem2-docs Master documentation" href="../index.html"/>
+        <link rel="next" title="Error Handling" href="errors.html"/>
+        <link rel="prev" title="Announcing transactions" href="announce-transaction.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+    
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo-nem.svg" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                Master
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+    <!--<div class="sidebar-links">
+        <a href="#">API Reference</a> · <a href="#">SDK References</a>
+    </div>-->
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">Setting up your workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">Writing your first application</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Fundamentals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">Multisig Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/transaction.html">Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/mosaic.html">Mosaic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/block.html">Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/node.html">Node</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guides/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/account.html">Interacting with accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/blockchain.html">Monitoring blockchain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/namespace.html">Registering namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/mosaic.html">Interacting with mosaics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/transaction.html">Sending transactions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">NEM2-CLI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/commands.html">Commands</a></li>
+</ul>
+<p class="caption"><span class="caption-text">NEM2-SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/languages.html">Languages &amp; References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">NIS2-API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="announce-transaction.html">Announcing transactions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">WebSockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="errors.html">Error Handling</a></li>
+</ul>
+<p class="caption"><span class="caption-text">NEM2 Libraries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/overview.html">Extending NEM capabilities</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/feedback.html">Feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nem2-docs</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>WebSockets</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/websockets.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="websockets">
+<h1>WebSockets<a class="headerlink" href="#websockets" title="Permalink to this headline">¶</a></h1>
+<p>WebSockets make possible receiving notifications when a transaction or event occurs in the blockchain.</p>
+<p>The notification is received in real time without having to poll the API waiting for a reply.</p>
+<blockquote>
+<div><p><strong>block</strong></p>
+<p>The block channel notifies for every new block. The message contains the block information.</p>
+<p><strong>confirmedAdded/&lt;ADDRESS&gt;</strong></p>
+<p>The confirmedAdded channel notifies when a transaction related to an address is included in a block. The message contains the transaction.</p>
+<p><strong>unconfirmedAdded/&lt;ADDRESS&gt;</strong></p>
+<p>The unconfirmedAdded channel notifies when a transaction related to an address is in unconfirmed state and waiting to be included in a block. The message contains the transaction.</p>
+<p>Possible scenarios when this channel notifies are, the transaction is announced to the network via <code class="docutils literal"><span class="pre">PUT</span> <span class="pre">/transaction</span></code> HTTP endpoint or an aggregate bonded transaction has all required cosigners and change the state from <em>partial</em> to <em>unconfirmed</em>.</p>
+<p><strong>unconfirmedRemoved/&lt;ADDRESS&gt;</strong></p>
+<p>The unconfirmedRemoved channel notifies when a transaction related to an address was in unconfirmed state but not anymore. The message contains the transaction hash.</p>
+<p>Possible scenarios when this channel notifies are, the transaction now is confirmed or the deadline has been reached and it was not included in a block.</p>
+<p><strong>partialAdded/&lt;ADDRESS&gt;</strong></p>
+<p>The partialAdded channel notifies when an aggregate bonded transaction related to an address is in <em>partial</em> state and waiting to have all <em>required cosigners</em>. The message contains a transaction.</p>
+<p>The scenario when this channel notifies is when an aggregate bonded transaction is announced to the network via <code class="docutils literal"><span class="pre">PUT</span> <span class="pre">/transaction/partial</span></code> HTTP endpoint.</p>
+<p><strong>partialRemoved/&lt;ADDRESS&gt;</strong></p>
+<p>The partialRemoved channel notifies when a transaction related to an address was in partial state but not anymore. The message contains the transaction hash.</p>
+<p>Possible scenarios when this channel notifies are, the transaction now is in unconfirmed or the deadline has been reached and it was not included in a block.</p>
+<p><strong>cosignature/&lt;ADDRESS&gt;</strong></p>
+<p>The partialRemoved channel notifies when a <em>cosignature signed transaction</em> related to an address is added to an aggregate bonded transaction with partial state. The message contains the cosignature signed transaction.</p>
+<p><strong>status/&lt;ADDRESS&gt;</strong></p>
+<p>The status channel notifies when a transaction related to an address rises an error. The message contains the error message and the transaction hash.</p>
+</div></blockquote>
+<p>Interaction with WebSockets in <a class="reference internal" href="../sdk/overview.html"><span class="doc">NEM2-SDK</span></a> is done with <code class="docutils literal"><span class="pre">Listeners</span></code>.</p>
+<table border="1" class="docutils" id="id1">
+<caption><span class="caption-text">WebSockets vs SDK Listeners</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>block</td>
+<td><code class="docutils literal"><span class="pre">newBlock():</span> <span class="pre">Observable&lt;BlockInfo&gt;</span></code></td>
+</tr>
+<tr class="row-even"><td>confirmedAdded/&lt;ADDRESS&gt;</td>
+<td><code class="docutils literal"><span class="pre">confirmed(address:</span> <span class="pre">Address):</span> <span class="pre">Observable&lt;Transaction&gt;</span></code></td>
+</tr>
+<tr class="row-odd"><td>unconfirmedAdded/&lt;ADDRESS&gt;</td>
+<td><code class="docutils literal"><span class="pre">unconfirmedAdded(address:</span> <span class="pre">Address):</span> <span class="pre">Observable&lt;Transaction&gt;</span></code></td>
+</tr>
+<tr class="row-even"><td>unconfirmedRemoved/&lt;ADDRESS&gt;</td>
+<td><code class="docutils literal"><span class="pre">unconfirmedRemoved(address:</span> <span class="pre">Address):</span> <span class="pre">Observable&lt;string&gt;</span></code></td>
+</tr>
+<tr class="row-odd"><td>partialAdded/&lt;ADDRESS&gt;</td>
+<td><code class="docutils literal"><span class="pre">aggregateBondedAdded(address:</span> <span class="pre">Address):</span> <span class="pre">Observable&lt;AggregateTransaction&gt;</span></code></td>
+</tr>
+<tr class="row-even"><td>partialRemoved/&lt;ADDRESS&gt;</td>
+<td><code class="docutils literal"><span class="pre">aggregateBondedRemoved(address:</span> <span class="pre">Address):</span> <span class="pre">Observable&lt;string&gt;</span></code></td>
+</tr>
+<tr class="row-odd"><td>cosignature/&lt;ADDRESS&gt;</td>
+<td><code class="docutils literal"><span class="pre">cosignatureAdded(address:</span> <span class="pre">Address):</span> <span class="pre">Observable&lt;CosignatureSignedTransaction&gt;</span></code></td>
+</tr>
+<tr class="row-even"><td>status/&lt;ADDRESS&gt;</td>
+<td><code class="docutils literal"><span class="pre">status(address:</span> <span class="pre">Address):</span> <span class="pre">Observable&lt;TransactionStatusError&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="errors.html" class="btn btn-neutral float-right" title="Error Handling" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="announce-transaction.html" class="btn btn-neutral" title="Announcing transactions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, NEM.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'Master',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/examplecode.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

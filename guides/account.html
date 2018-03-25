@@ -1,0 +1,1782 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Interacting with accounts &mdash; nem2-docs Master documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="nem2-docs Master documentation" href="../index.html"/>
+        <link rel="next" title="Monitoring blockchain" href="blockchain.html"/>
+        <link rel="prev" title="Overview" href="overview.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+    
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo-nem.svg" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                Master
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+    <!--<div class="sidebar-links">
+        <a href="#">API Reference</a> · <a href="#">SDK References</a>
+    </div>-->
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">Setting up your workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">Writing your first application</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Fundamentals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">Multisig Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/transaction.html">Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/mosaic.html">Mosaic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/block.html">Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/node.html">Node</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Interacting with accounts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creating-and-opening-an-account">Creating and opening an account</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lets-get-into-some-code">Let’s get into some code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-account-information">Getting account information</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Let’s get into some code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#whats-next">What’s next?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-the-amount-of-xem-sent-to-an-account">Getting the amount of XEM sent to an account</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Let’s get into some code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">What’s next?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#receiving-transactions-of-an-account">Receiving transactions of an account</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#background">Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Let’s get into some code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-s-next">What’s next</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#converting-an-account-to-multisig">Converting an account to multisig</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">Let’s get into some code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">What’s next?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modifying-a-multisig-account">Modifying a multisig account</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id12">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">Let’s get into some code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">What’s next?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-multilevel-multisig-account-mlma">Creating a multilevel multisig account (MLMA)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id15">Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">Let’s get into some code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">What’s next?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="blockchain.html">Monitoring blockchain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">Registering namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic.html">Interacting with mosaics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transaction.html">Sending transactions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">NEM2-CLI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/commands.html">Commands</a></li>
+</ul>
+<p class="caption"><span class="caption-text">NEM2-SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/languages.html">Languages &amp; References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">NIS2-API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/announce-transaction.html">Announcing transactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/websockets.html">WebSockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/errors.html">Error Handling</a></li>
+</ul>
+<p class="caption"><span class="caption-text">NEM2 Libraries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/overview.html">Extending NEM capabilities</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/feedback.html">Feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nem2-docs</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Interacting with accounts</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/guides/account.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="interacting-with-accounts">
+<h1>Interacting with accounts<a class="headerlink" href="#interacting-with-accounts" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="creating-and-opening-an-account">
+<span id="guide-creating-and-opening-an-account"></span><h2>Creating and opening an account<a class="headerlink" href="#creating-and-opening-an-account" title="Permalink to this headline">¶</a></h2>
+<p>You are going to create a new <a class="reference internal" href="../concepts/account.html"><span class="doc">account</span></a> and open it.</p>
+<div class="section" id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Finish the <a class="reference internal" href="../getting-started/setup-workstation.html"><span class="doc">getting started section</span></a></li>
+<li>Text editor or IDE</li>
+<li>NEM2-SDK or CLI</li>
+</ul>
+</div>
+<div class="section" id="lets-get-into-some-code">
+<h3>Let’s get into some code<a class="headerlink" href="#lets-get-into-some-code" title="Permalink to this headline">¶</a></h3>
+<p>An account is a key pair (private and public key) associated to a mutable state stored on the NEM blockchain.</p>
+<div class="example-code container">
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">generateNewAccount</span><span class="p">(</span><span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Your new account address is:&#39;</span><span class="p">,</span> <span class="nx">account</span><span class="p">.</span><span class="nx">address</span><span class="p">.</span><span class="nx">pretty</span><span class="p">(),</span> <span class="s1">&#39;and its private key&#39;</span><span class="p">,</span> <span class="nx">account</span><span class="p">.</span><span class="nx">privateKey</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">generateNewAccount</span><span class="p">(</span><span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Your new account address is:&#39;</span><span class="p">,</span> <span class="nx">account</span><span class="p">.</span><span class="nx">address</span><span class="p">.</span><span class="nx">pretty</span><span class="p">(),</span> <span class="s1">&#39;and its private key&#39;</span><span class="p">,</span> <span class="nx">account</span><span class="p">.</span><span class="nx">privateKey</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account generate --network MIJIN_TEST
+</pre></div>
+</div>
+</div>
+<p>The <strong>private key</strong> uniquely identifies a NEM account, holds all its power.  It is a priority to make sure it is stored safely somewhere <strong>offline</strong> and do not share it with anyone.</p>
+<p>The <strong>public key</strong> is cryptographically derived from the private key and safe to be shared. Although that, it is preferable to share the <strong>address</strong>, which contains further information such as network and validity check.</p>
+<p>In case you already have a private key, not needing to generate a new account:</p>
+<div class="example-code container">
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="c1">// Replace with a private key</span>
+<span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Your account address is:&#39;</span><span class="p">,</span> <span class="nx">account</span><span class="p">.</span><span class="nx">address</span><span class="p">.</span><span class="nx">pretty</span><span class="p">(),</span> <span class="s1">&#39;and its private key&#39;</span><span class="p">,</span> <span class="nx">account</span><span class="p">.</span><span class="nx">privateKey</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="c1">// Replace with a private key</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">privateKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+
+        <span class="kd">final</span> <span class="n">Account</span> <span class="n">account</span> <span class="o">=</span> <span class="n">Account</span><span class="o">.</span><span class="na">createFromPrivateKey</span><span class="o">(</span><span class="n">privateKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// Replace with a private key</span>
+<span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Your account address is:&#39;</span><span class="p">,</span> <span class="nx">account</span><span class="p">.</span><span class="nx">address</span><span class="p">.</span><span class="nx">pretty</span><span class="p">(),</span> <span class="s1">&#39;and its private key&#39;</span><span class="p">,</span> <span class="nx">account</span><span class="p">.</span><span class="nx">privateKey</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Using a Wallet</strong></p>
+<p>If the programming language of the SDK you are using allows client-side development, you will be able to create a new account by creating a new wallet.</p>
+<p>A wallet grants using an account for signing transactions, encrypting your credentials with a password.</p>
+<div class="example-code container">
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">password</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Password</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">wallet</span> <span class="o">=</span> <span class="nx">SimpleWallet</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;wallet-name&#39;</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">wallet</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">password</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Your new account address is:&#39;</span><span class="p">,</span> <span class="nx">account</span><span class="p">.</span><span class="nx">address</span><span class="p">.</span><span class="nx">pretty</span><span class="p">(),</span> <span class="s1">&#39;and its private key&#39;</span><span class="p">,</span> <span class="nx">account</span><span class="p">.</span><span class="nx">privateKey</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">password</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Password</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">wallet</span> <span class="o">=</span> <span class="nx">SimpleWallet</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;wallet-name&#39;</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">wallet</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">password</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Your new account address is:&#39;</span><span class="p">,</span> <span class="nx">account</span><span class="p">.</span><span class="nx">address</span><span class="p">.</span><span class="nx">pretty</span><span class="p">(),</span> <span class="s1">&#39;and its private key&#39;</span><span class="p">,</span> <span class="nx">account</span><span class="p">.</span><span class="nx">privateKey</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account generate --network MIJIN_TEST --save --url http://localhost:3000 --profile <span class="nb">test</span>
+</pre></div>
+</div>
+</div>
+<p>In case you already have a private key, not needing to generate a new account:</p>
+<div class="example-code container">
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">password</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Password</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">);</span>
+
+<span class="c1">// Replace with a private key</span>
+<span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">wallet</span> <span class="o">=</span> <span class="nx">SimpleWallet</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="s1">&#39;wallet-name&#39;</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">wallet</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">password</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Your account address is:&#39;</span><span class="p">,</span> <span class="nx">account</span><span class="p">.</span><span class="nx">address</span><span class="p">.</span><span class="nx">pretty</span><span class="p">(),</span> <span class="s1">&#39;and its private key&#39;</span><span class="p">,</span> <span class="nx">account</span><span class="p">.</span><span class="nx">privateKey</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">password</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Password</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">);</span>
+
+<span class="c1">// Replace with a private key</span>
+<span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span> <span class="nx">as</span> <span class="nx">string</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">wallet</span> <span class="o">=</span> <span class="nx">SimpleWallet</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="s1">&#39;wallet-name&#39;</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">wallet</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">password</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Your account address is:&#39;</span><span class="p">,</span> <span class="nx">account</span><span class="p">.</span><span class="nx">address</span><span class="p">.</span><span class="nx">pretty</span><span class="p">(),</span> <span class="s1">&#39;and its private key&#39;</span><span class="p">,</span> <span class="nx">account</span><span class="p">.</span><span class="nx">privateKey</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli profile create --privatekey your_private_key --network MIJIN_TEST --url http://localhost:3000 --profile <span class="nb">test</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="getting-account-information">
+<span id="guide-getting-account-information"></span><h2>Getting account information<a class="headerlink" href="#getting-account-information" title="Permalink to this headline">¶</a></h2>
+<p>You are going to develop a program to get the public key, height, balance and importance of an <a class="reference internal" href="../concepts/account.html"><span class="doc">account</span></a>.</p>
+<div class="section" id="id1">
+<h3>Prerequisites<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Finish the <a class="reference internal" href="../getting-started/setup-workstation.html"><span class="doc">getting started section</span></a></li>
+<li>Text editor or IDE</li>
+<li>NEM2-SDK or CLI</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3>Let’s get into some code<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Calling <code class="docutils literal"><span class="pre">accountHttp.getAccountInfo</span></code> you can get account information just passing address and network as a parameter.</p>
+<div class="example-code container">
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">accountHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AccountHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000/&#39;</span><span class="p">);</span>
+
+<span class="c1">// Replace with address</span>
+<span class="kr">const</span> <span class="nx">address</span> <span class="o">=</span> <span class="s1">&#39;SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54&#39;</span><span class="p">;</span>
+
+<span class="nx">accountHttp</span><span class="p">.</span><span class="nx">getAccountInfo</span><span class="p">(</span>
+    <span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="nx">address</span><span class="p">)</span>
+<span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">accountInfo</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">accountInfo</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="kd">final</span> <span class="n">AccountHttp</span> <span class="n">accountHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AccountHttp</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
+
+        <span class="c1">// Replace with address</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">address</span> <span class="o">=</span> <span class="s">&quot;SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54&quot;</span><span class="o">;</span>
+
+        <span class="kd">final</span> <span class="n">AccountInfo</span> <span class="n">accountInfo</span> <span class="o">=</span> <span class="n">accountHttp</span><span class="o">.</span><span class="na">getAccountInfo</span><span class="o">(</span><span class="n">Address</span><span class="o">.</span><span class="na">createFromRawAddress</span><span class="o">(</span><span class="n">address</span><span class="o">)).</span><span class="na">toFuture</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">accountInfo</span><span class="o">);</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">accountHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AccountHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000/&#39;</span><span class="p">);</span>
+
+<span class="c1">// Replace with address</span>
+<span class="kr">const</span> <span class="nx">address</span> <span class="o">=</span> <span class="s1">&#39;SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54&#39;</span><span class="p">;</span>
+
+<span class="nx">accountHttp</span><span class="p">.</span><span class="nx">getAccountInfo</span><span class="p">(</span>
+    <span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="nx">address</span><span class="p">)</span>
+<span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">accountInfo</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">accountInfo</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account info --address SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54
+</pre></div>
+</div>
+</div>
+<p>Can you spot account’s public key?</p>
+<blockquote>
+<div>publicKey: ‘F33152059827EAA4D7D67C6E27A59851AF09FBD0926C35150FA44D2A9A5E4CAA’,</div></blockquote>
+<p>Which block was the first one where account address and public key appeared?</p>
+<blockquote>
+<div>publicKeyHeight: UInt64 { lower: 401575, higher: 0 },
+addressHeight: UInt64 { lower: 288598, higher: 0 },</div></blockquote>
+<p>Does the account have an importance?</p>
+<blockquote>
+<div>importance: UInt64 { lower: 1100282, higher: 0 },</div></blockquote>
+<p><strong>Checking account’s balance</strong></p>
+<p>Check account’s balance using <code class="docutils literal"><span class="pre">mosaicService</span></code>. The balance is the amount of the different mosaics stored in the account.</p>
+<div class="example-code container">
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="s1">&#39;http://localhost:3000/&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">accountHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AccountHttp</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">mosaicHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicHttp</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">namespaceHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NamespaceHttp</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">mosaicService</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicService</span><span class="p">(</span><span class="nx">accountHttp</span><span class="p">,</span> <span class="nx">mosaicHttp</span><span class="p">,</span> <span class="nx">namespaceHttp</span><span class="p">);</span>
+
+<span class="c1">// Replace with address</span>
+<span class="kr">const</span> <span class="nx">address</span> <span class="o">=</span> <span class="s1">&#39;SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54&#39;</span><span class="p">;</span>
+
+<span class="nx">mosaicService</span><span class="p">.</span><span class="nx">mosaicsAmountViewFromAddress</span><span class="p">(</span><span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="nx">address</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">flatMap</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">_</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">mosaic</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;You have&#39;</span><span class="p">,</span> <span class="nx">mosaic</span><span class="p">.</span><span class="nx">relativeAmount</span><span class="p">(),</span> <span class="nx">mosaic</span><span class="p">.</span><span class="nx">fullName</span><span class="p">());</span>
+    <span class="p">});</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="s1">&#39;http://localhost:3000/&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">accountHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AccountHttp</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">mosaicHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicHttp</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">namespaceHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NamespaceHttp</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">mosaicService</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicService</span><span class="p">(</span><span class="nx">accountHttp</span><span class="p">,</span> <span class="nx">mosaicHttp</span><span class="p">,</span> <span class="nx">namespaceHttp</span><span class="p">);</span>
+
+<span class="c1">// Replace with address</span>
+<span class="kr">const</span> <span class="nx">address</span> <span class="o">=</span> <span class="s2">&quot;SDBDG4IT43MPCW2W4CBBCSJJT42AYALQN7A4VVWL&quot;</span><span class="p">;</span>
+
+<span class="nx">mosaicService</span><span class="p">.</span><span class="nx">mosaicsAmountViewFromAddress</span><span class="p">(</span><span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="nx">address</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">flatMap</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">_</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">mosaic</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;You have&#39;</span><span class="p">,</span> <span class="nx">mosaic</span><span class="p">.</span><span class="nx">relativeAmount</span><span class="p">(),</span> <span class="nx">mosaic</span><span class="p">.</span><span class="nx">fullName</span><span class="p">());</span>
+    <span class="p">});</span>
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account info --address SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="whats-next">
+<h3>What’s next?<a class="headerlink" href="#whats-next" title="Permalink to this headline">¶</a></h3>
+<p>Try to repeat retrieving the balance by only filtering XEM amount.</p>
+</div>
+</div>
+<div class="section" id="getting-the-amount-of-xem-sent-to-an-account">
+<span id="guide-getting-the-amount-of-xem-sent-to-an-account"></span><h2>Getting the amount of XEM sent to an account<a class="headerlink" href="#getting-the-amount-of-xem-sent-to-an-account" title="Permalink to this headline">¶</a></h2>
+<p>You are going to develop a program to check the amount of XEM you have sent to some account.</p>
+<div class="section" id="id3">
+<h3>Prerequisites<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Finish the <a class="reference internal" href="../getting-started/setup-workstation.html"><span class="doc">getting started section</span></a></li>
+<li>Text editor or IDE</li>
+<li>NEM2-SDK or CLI</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>Let’s get into some code<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>After obtaining all outgoing <a class="reference internal" href="../concepts/transaction.html"><span class="doc">transactions</span></a> from an account, apply a filter to distinguish target recipient.</p>
+<div class="example-code container">
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="c1">// Replace with public key</span>
+<span class="kr">const</span> <span class="nx">originPublicKey</span> <span class="o">=</span> <span class="s1">&#39;7D08373CFFE4154E129E04F0827E5F3D6907587E348757B0F87D2F839BF88246&#39;</span><span class="p">;</span>
+
+<span class="c1">// Replace with recipient address</span>
+<span class="kr">const</span> <span class="nx">recipientAddress</span> <span class="o">=</span> <span class="s1">&#39;SDG4WG-FS7EQJ-KFQKXM-4IUCQG-PXUW5H-DJVIJB-OXJG&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">originAccount</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">originPublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="c1">// Replace with address</span>
+<span class="kr">const</span> <span class="nx">address</span> <span class="o">=</span> <span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="nx">recipientAddress</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">accountHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AccountHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000/&#39;</span><span class="p">);</span>
+
+<span class="nx">accountHttp</span>
+    <span class="p">.</span><span class="nx">outgoingTransactions</span><span class="p">(</span><span class="nx">originAccount</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">flatMap</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">_</span><span class="p">)</span> <span class="c1">// Transform transaction array to single transactions to process them</span>
+    <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">_</span><span class="p">.</span><span class="nx">type</span> <span class="o">===</span> <span class="nx">TransactionType</span><span class="p">.</span><span class="nx">TRANSFER</span><span class="p">)</span> <span class="c1">// Filter transfer transactions</span>
+    <span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">_</span> <span class="kr">as</span> <span class="nx">TransferTransaction</span><span class="p">)</span> <span class="c1">// Map transaction as transfer transaction</span>
+    <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">_</span><span class="p">.</span><span class="nx">recipient</span><span class="p">.</span><span class="nx">equals</span><span class="p">(</span><span class="nx">address</span><span class="p">))</span> <span class="c1">// Filter transactions from to account</span>
+    <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">_</span><span class="p">.</span><span class="nx">mosaics</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">_</span><span class="p">.</span><span class="nx">mosaics</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">id</span><span class="p">.</span><span class="nx">equals</span><span class="p">(</span><span class="nx">XEM</span><span class="p">.</span><span class="nx">MOSAIC_ID</span><span class="p">))</span> <span class="c1">// Filter xem transactions</span>
+    <span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">_</span><span class="p">.</span><span class="nx">mosaics</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">amount</span><span class="p">.</span><span class="nx">compact</span><span class="p">()</span> <span class="o">/</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nx">XEM</span><span class="p">.</span><span class="nx">DIVISIBILITY</span><span class="p">))</span> <span class="c1">// Map only amount in xem</span>
+    <span class="p">.</span><span class="nx">toArray</span><span class="p">()</span> <span class="c1">// Add all mosaics amounts into one array</span>
+    <span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">_</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">total</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Total xem send to account&#39;</span><span class="p">,</span> <span class="nx">address</span><span class="p">.</span><span class="nx">pretty</span><span class="p">(),</span> <span class="s1">&#39;is:&#39;</span><span class="p">,</span> <span class="nx">total</span><span class="p">);</span>
+    <span class="p">});</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="c1">// Replace with public key</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">originPublicKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+
+        <span class="c1">// Replace with recipient address</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">recipientAddress</span> <span class="o">=</span> <span class="s">&quot;SB2RPH-EMTFMB-KELX2Y-Q3MZTD-RV7DQG-UZEADV-CYKC&quot;</span><span class="o">;</span>
+
+        <span class="c1">// Replace with public key</span>
+        <span class="kd">final</span> <span class="n">PublicAccount</span> <span class="n">originAccount</span> <span class="o">=</span> <span class="n">PublicAccount</span><span class="o">.</span><span class="na">createFromPublicKey</span><span class="o">(</span><span class="n">originPublicKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
+
+        <span class="c1">// Replace with address</span>
+        <span class="kd">final</span> <span class="n">Address</span> <span class="n">address</span> <span class="o">=</span> <span class="n">Address</span><span class="o">.</span><span class="na">createFromRawAddress</span><span class="o">(</span><span class="n">recipientAddress</span><span class="o">);</span>
+
+        <span class="kd">final</span> <span class="n">AccountHttp</span> <span class="n">accountHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AccountHttp</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
+
+        <span class="kd">final</span> <span class="n">BigInteger</span> <span class="n">total</span> <span class="o">=</span> <span class="n">accountHttp</span><span class="o">.</span><span class="na">outgoingTransactions</span><span class="o">(</span><span class="n">originAccount</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">flatMapIterable</span><span class="o">(</span><span class="n">tx</span> <span class="o">-&gt;</span> <span class="n">tx</span><span class="o">)</span> <span class="c1">// Transform transaction array to single transactions to process them</span>
+                <span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">tx</span> <span class="o">-&gt;</span> <span class="n">tx</span><span class="o">.</span><span class="na">getType</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">TransactionType</span><span class="o">.</span><span class="na">TRANSFER</span><span class="o">))</span> <span class="c1">// Filter transfer transactions</span>
+                <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">tx</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">TransferTransaction</span><span class="o">)</span> <span class="n">tx</span><span class="o">)</span> <span class="c1">// Map transaction as transfer transaction</span>
+                <span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">tx</span> <span class="o">-&gt;</span> <span class="n">tx</span><span class="o">.</span><span class="na">getRecipient</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">address</span><span class="o">))</span> <span class="c1">// Filter transactions from to account</span>
+                <span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">tx</span> <span class="o">-&gt;</span> <span class="n">tx</span><span class="o">.</span><span class="na">getMosaics</span><span class="o">().</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">tx</span><span class="o">.</span><span class="na">getMosaics</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">getId</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">XEM</span><span class="o">.</span><span class="na">MOSAICID</span><span class="o">))</span> <span class="c1">// Filter xem transactions</span>
+                <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">tx</span> <span class="o">-&gt;</span> <span class="n">tx</span><span class="o">.</span><span class="na">getMosaics</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">getAmount</span><span class="o">().</span><span class="na">divide</span><span class="o">(</span><span class="n">BigDecimal</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="n">XEM</span><span class="o">.</span><span class="na">DIVISIBILITY</span><span class="o">)).</span><span class="na">toBigInteger</span><span class="o">()))</span> <span class="c1">// Map only amount in xem</span>
+                <span class="o">.</span><span class="na">toList</span><span class="o">()</span> <span class="c1">// Add all mosaics amounts into one array</span>
+                <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">amounts</span> <span class="o">-&gt;</span> <span class="n">amounts</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">reduce</span><span class="o">(</span><span class="n">BigInteger</span><span class="o">.</span><span class="na">ZERO</span><span class="o">,</span> <span class="n">BigInteger</span><span class="o">::</span><span class="n">add</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">toFuture</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">get</span><span class="o">();</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Total xem send to account &quot;</span> <span class="o">+</span> <span class="n">address</span><span class="o">.</span><span class="na">pretty</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; is: &quot;</span> <span class="o">+</span> <span class="n">total</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// Replace with public key</span>
+<span class="kr">const</span> <span class="nx">originPublicKey</span> <span class="o">=</span> <span class="s1">&#39;7D08373CFFE4154E129E04F0827E5F3D6907587E348757B0F87D2F839BF88246&#39;</span><span class="p">;</span>
+
+<span class="c1">// Replace with recipient address</span>
+<span class="kr">const</span> <span class="nx">recipientAddress</span> <span class="o">=</span> <span class="s1">&#39;SDG4WG-FS7EQJ-KFQKXM-4IUCQG-PXUW5H-DJVIJB-OXJG&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">originAccount</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">originPublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="c1">// Replace with address</span>
+<span class="kr">const</span> <span class="nx">address</span> <span class="o">=</span> <span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="nx">recipientAddress</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">accountHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AccountHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000/&#39;</span><span class="p">);</span>
+
+<span class="nx">accountHttp</span>
+    <span class="p">.</span><span class="nx">outgoingTransactions</span><span class="p">(</span><span class="nx">originAccount</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">flatMap</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">_</span><span class="p">)</span> <span class="c1">// Transform transaction array to single transactions to process them</span>
+    <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">_</span><span class="p">.</span><span class="nx">type</span> <span class="o">===</span> <span class="nx">TransactionType</span><span class="p">.</span><span class="nx">TRANSFER</span><span class="p">)</span> <span class="c1">// Filter transfer transactions</span>
+    <span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">_</span> <span class="nx">as</span> <span class="nx">TransferTransaction</span><span class="p">)</span> <span class="c1">// Map transaction as transfer transaction</span>
+    <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">_</span><span class="p">.</span><span class="nx">recipient</span><span class="p">.</span><span class="nx">equals</span><span class="p">(</span><span class="nx">address</span><span class="p">))</span> <span class="c1">// Filter transactions from to account</span>
+    <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">_</span><span class="p">.</span><span class="nx">mosaics</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">_</span><span class="p">.</span><span class="nx">mosaics</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">id</span><span class="p">.</span><span class="nx">equals</span><span class="p">(</span><span class="nx">XEM</span><span class="p">.</span><span class="nx">MOSAIC_ID</span><span class="p">))</span> <span class="c1">// Filter xem transactions</span>
+    <span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">_</span><span class="p">.</span><span class="nx">mosaics</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">amount</span><span class="p">.</span><span class="nx">compact</span><span class="p">()</span> <span class="o">/</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nx">XEM</span><span class="p">.</span><span class="nx">DIVISIBILITY</span><span class="p">))</span> <span class="c1">// Map only amount in xem</span>
+    <span class="p">.</span><span class="nx">toArray</span><span class="p">()</span> <span class="c1">// Add all mosaics amounts into one array</span>
+    <span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">_</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">total</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Total xem send to account&#39;</span><span class="p">,</span> <span class="nx">address</span><span class="p">.</span><span class="nx">pretty</span><span class="p">(),</span> <span class="s1">&#39;is:&#39;</span><span class="p">,</span> <span class="nx">total</span><span class="p">);</span>
+    <span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<p>The amount of sent XEM in transfer transactions is displayed.</p>
+</div>
+<div class="section" id="id5">
+<h3>What’s next?<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Try to repeat the example by changing NEM filter for another <a class="reference internal" href="../concepts/mosaic.html"><span class="doc">mosaic</span></a> .</p>
+</div>
+</div>
+<div class="section" id="receiving-transactions-of-an-account">
+<span id="guide-receiving-transactions-of-an-account"></span><h2>Receiving transactions of an account<a class="headerlink" href="#receiving-transactions-of-an-account" title="Permalink to this headline">¶</a></h2>
+<p>You are going to develop a program to get the list of <a class="reference internal" href="../concepts/transaction.html"><span class="doc">transactions</span></a> where an <a class="reference internal" href="../concepts/account.html"><span class="doc">account</span></a> is involved.</p>
+<div class="section" id="background">
+<h3>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h3>
+<p>By default, the SDK provides up to 10 transactions. This parameter is increasable up to 100 transactions.</p>
+</div>
+<div class="section" id="id6">
+<h3>Prerequisites<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Finish the <a class="reference internal" href="../getting-started/setup-workstation.html"><span class="doc">getting started section</span></a></li>
+<li>Text editor or IDE</li>
+<li>NEM2-SDK or CLI</li>
+<li>An account that has received some transaction</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h3>Let’s get into some code<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>In this example, we will fetch confirmed transactions for a given account using <code class="docutils literal"><span class="pre">accountHttp</span></code> repository.</p>
+<p>A transaction is confirmed if it is included in a block and validated by the network.</p>
+<div class="example-code container">
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">accountHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AccountHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000/&#39;</span><span class="p">);</span>
+
+<span class="c1">// Replace with public key</span>
+<span class="kr">const</span> <span class="nx">publicKey</span> <span class="o">=</span> <span class="s1">&#39;7D08373CFFE4154E129E04F0827E5F3D6907587E348757B0F87D2F839BF88246&#39;</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Page size between 10 and 100, otherwise 10</span>
+<span class="cm"> */</span>
+<span class="kr">const</span> <span class="nx">pageSize</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="nx">accountHttp</span><span class="p">.</span><span class="nx">transactions</span><span class="p">(</span>
+    <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">publicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">),</span>
+    <span class="k">new</span> <span class="nx">QueryParams</span><span class="p">(</span><span class="nx">pageSize</span><span class="p">)</span>
+<span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">transactions</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">transactions</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="kd">final</span> <span class="n">AccountHttp</span> <span class="n">accountHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AccountHttp</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
+
+        <span class="c1">// Replace with public key</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">publicKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+
+        <span class="kd">final</span> <span class="n">PublicAccount</span> <span class="n">publicAccount</span> <span class="o">=</span> <span class="n">PublicAccount</span><span class="o">.</span><span class="na">createFromPublicKey</span><span class="o">(</span><span class="n">publicKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
+
+        <span class="c1">// Page size between 10 and 100, otherwise 10</span>
+        <span class="kt">int</span> <span class="n">pageSize</span> <span class="o">=</span> <span class="mi">20</span><span class="o">;</span>
+
+        <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Transaction</span><span class="o">&gt;</span> <span class="n">transactions</span> <span class="o">=</span> <span class="n">accountHttp</span><span class="o">.</span><span class="na">transactions</span><span class="o">(</span><span class="n">publicAccount</span><span class="o">,</span> <span class="k">new</span> <span class="n">QueryParams</span><span class="o">(</span><span class="n">pageSize</span><span class="o">,</span> <span class="kc">null</span><span class="o">)).</span><span class="na">toFuture</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">transactions</span><span class="o">);</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">accountHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AccountHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000/&#39;</span><span class="p">);</span>
+
+<span class="c1">// Replace with public key</span>
+<span class="kr">const</span> <span class="nx">publicKey</span> <span class="o">=</span> <span class="s1">&#39;7D08373CFFE4154E129E04F0827E5F3D6907587E348757B0F87D2F839BF88246&#39;</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Page size between 10 and 100, otherwise 10</span>
+<span class="cm"> */</span>
+<span class="kr">const</span> <span class="nx">pageSize</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="nx">accountHttp</span><span class="p">.</span><span class="nx">transactions</span><span class="p">(</span>
+    <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">publicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">),</span>
+    <span class="k">new</span> <span class="nx">QueryParams</span><span class="p">(</span><span class="nx">pageSize</span><span class="p">)</span>
+<span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">transactions</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">transactions</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account transactions --publickey 7D08373CFFE4154E129E04F0827E5F3D6907587E348757B0F87D2F839BF88246 --numtransactions 10
+</pre></div>
+</div>
+</div>
+<p>Notice that you can also retrieve aggregate bonded, unconfirmed, incoming and outgoing transactions for a given account. See available <code class="docutils literal"><span class="pre">accountHttp</span></code> methods here.</p>
+</div>
+<div class="section" id="what-s-next">
+<h3>What’s next<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h3>
+<p>Try to get more than 10 transactions per request.</p>
+</div>
+</div>
+<div class="section" id="converting-an-account-to-multisig">
+<span id="guide-converting-an-account-to-multisig"></span><h2>Converting an account to multisig<a class="headerlink" href="#converting-an-account-to-multisig" title="Permalink to this headline">¶</a></h2>
+<p>The purpose of this guide is to create a 1-of-2 <a class="reference internal" href="../concepts/multisig-account.html"><span class="doc">multisig account</span></a>, by adding two cosignatories.</p>
+<div class="section" id="id8">
+<h3>Background<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>Alice and Bob live together and have separate <a class="reference internal" href="../concepts/account.html"><span class="doc">accounts</span></a>. They also have a shared account so that if Bob is out shopping, he can buy groceries for both him and Alice.</p>
+<p>This shared account is in NEM translated as 1-of-2 multisig, meaning that one cosignatory needs to cosign the transaction to be included in a block.</p>
+<div class="figure align-center" id="id19">
+<img alt="../_images/guides-accounts-multisig-1-of-2.png" src="../_images/guides-accounts-multisig-1-of-2.png" />
+<p class="caption"><span class="caption-text">1-of-2 multisig account example</span></p>
+</div>
+<p>Remember that a multisig account has cosignatories accounts, and it cannot start transactions itself. Only the cosignatories can initiate transactions.</p>
+</div>
+<div class="section" id="id9">
+<h3>Prerequisites<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Finish <a class="reference internal" href="#guide-creating-and-opening-an-account"><span class="std std-ref">creating and opening accounts guide</span></a></li>
+<li>Text editor or IDE</li>
+<li>NEM2-SDK or CLI</li>
+<li>Two accounts (public keys)</li>
+<li>One account with XEM</li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h3>Let’s get into some code<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>The first step is to define who will be the cosignatories of the multisig account. Then, open the account that will be converted into multisig by providing its private key.</p>
+<div class="example-code container">
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="c1">// Replace with the private key of the account that you want to convert into multisig</span>
+<span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
+
+<span class="c1">// Replace with cosignatories public keys</span>
+<span class="kr">const</span> <span class="nx">cosignatory1PublicKey</span> <span class="o">=</span> <span class="s1">&#39;7D08373CFFE4154E129E04F0827E5F3D6907587E348757B0F87D2F839BF88246&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">cosignatory2PublicKey</span> <span class="o">=</span> <span class="s1">&#39;F82527075248B043994F1CAFD965F3848324C9ABFEC506BC05FBCF5DD7307C9D&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">cosignatory1</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">cosignatory1PublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">cosignatory2</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">cosignatory2PublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="c1">// Replace with the private key of the account that you want to convert into multisig</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">privateKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+
+        <span class="c1">// Replace with cosignatories public keys</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">cosignatory1PublicKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">cosignatory2PublicKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+
+        <span class="kd">final</span> <span class="n">Account</span> <span class="n">account</span> <span class="o">=</span> <span class="n">Account</span><span class="o">.</span><span class="na">createFromPrivateKey</span><span class="o">(</span><span class="n">privateKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
+
+        <span class="kd">final</span> <span class="n">PublicAccount</span> <span class="n">cosignatory1PublicAccount</span> <span class="o">=</span> <span class="n">PublicAccount</span><span class="o">.</span><span class="na">createFromPublicKey</span><span class="o">(</span><span class="n">cosignatory1PublicKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
+        <span class="kd">final</span> <span class="n">PublicAccount</span> <span class="n">cosignatory2PublicAccount</span> <span class="o">=</span> <span class="n">PublicAccount</span><span class="o">.</span><span class="na">createFromPublicKey</span><span class="o">(</span><span class="n">cosignatory2PublicKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// Replace with the private key of the account that you want to convert into multisig</span>
+<span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span><span class="p">;</span>
+
+<span class="c1">// Replace with cosignatories public keys</span>
+<span class="kr">const</span> <span class="nx">cosignatory1PublicKey</span> <span class="o">=</span> <span class="s1">&#39;7D08373CFFE4154E129E04F0827E5F3D6907587E348757B0F87D2F839BF88246&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">cosignatory2PublicKey</span> <span class="o">=</span> <span class="s1">&#39;F82527075248B043994F1CAFD965F3848324C9ABFEC506BC05FBCF5DD7307C9D&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">cosignatory1</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">cosignatory1PublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">cosignatory2</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">cosignatory2PublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<p>The next step is to convert the account into a multisig account by setting a <a class="reference internal" href="../concepts/transaction.html#modify-multisig-account-transaction"><span class="std std-ref">modify multisig account transaction</span></a>. As it is a 1-of-2 multisig account, set the minimum signatures to 1.</p>
+<div class="example-code container">
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">convertIntoMultisigTransaction</span> <span class="o">=</span> <span class="nx">ModifyMultisigAccountTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="mi">1</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="k">new</span> <span class="nx">MultisigCosignatoryModification</span><span class="p">(</span>
+            <span class="nx">MultisigCosignatoryModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span>
+            <span class="nx">cosignatory1</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="k">new</span> <span class="nx">MultisigCosignatoryModification</span><span class="p">(</span>
+            <span class="nx">MultisigCosignatoryModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span>
+            <span class="nx">cosignatory2</span><span class="p">,</span>
+        <span class="p">)],</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="kd">final</span> <span class="n">ModifyMultisigAccountTransaction</span> <span class="n">convertIntoMultisigTransaction</span> <span class="o">=</span> <span class="n">ModifyMultisigAccountTransaction</span><span class="o">.</span><span class="na">create</span><span class="o">(</span>
+            <span class="n">Deadline</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">HOURS</span><span class="o">),</span>
+            <span class="mi">1</span><span class="o">,</span>
+            <span class="mi">1</span><span class="o">,</span>
+            <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span>
+                <span class="k">new</span> <span class="n">MultisigCosignatoryModification</span><span class="o">(</span>
+                    <span class="n">MultisigCosignatoryModificationType</span><span class="o">.</span><span class="na">ADD</span><span class="o">,</span>
+                    <span class="n">cosignatory1PublicAccount</span>
+                <span class="o">),</span>
+                <span class="k">new</span> <span class="n">MultisigCosignatoryModification</span><span class="o">(</span>
+                    <span class="n">MultisigCosignatoryModificationType</span><span class="o">.</span><span class="na">ADD</span><span class="o">,</span>
+                    <span class="n">cosignatory2PublicAccount</span>
+                <span class="o">)</span>
+            <span class="o">),</span>
+            <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span>
+        <span class="o">);</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">convertIntoMultisigTransaction</span> <span class="o">=</span> <span class="nx">ModifyMultisigAccountTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="mi">1</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="k">new</span> <span class="nx">MultisigCosignatoryModification</span><span class="p">(</span>
+            <span class="nx">MultisigCosignatoryModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span>
+            <span class="nx">cosignatory1</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="k">new</span> <span class="nx">MultisigCosignatoryModification</span><span class="p">(</span>
+            <span class="nx">MultisigCosignatoryModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span>
+            <span class="nx">cosignatory2</span><span class="p">,</span>
+        <span class="p">)],</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<p>Finally, multisig account signs and announces the transaction.</p>
+<div class="example-code container">
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">convertIntoMultisigTransaction</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000/&#39;</span><span class="p">);</span>
+<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">));</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="kd">final</span> <span class="n">TransactionHttp</span> <span class="n">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TransactionHttp</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
+        <span class="kd">final</span> <span class="n">SignedTransaction</span> <span class="n">signedTransaction</span> <span class="o">=</span> <span class="n">account</span><span class="o">.</span><span class="na">sign</span><span class="o">(</span><span class="n">convertIntoMultisigTransaction</span><span class="o">);</span>
+        <span class="n">transactionHttp</span><span class="o">.</span><span class="na">announce</span><span class="o">(</span><span class="n">signedTransaction</span><span class="o">).</span><span class="na">toFuture</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">convertIntoMultisigTransaction</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000/&#39;</span><span class="p">);</span>
+<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<p id="guide-get-multisig-account-info">If everything goes well, Alice and Bob should be cosignatories of the multisig account.</p>
+<div class="example-code container">
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">accountHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AccountHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000/&#39;</span><span class="p">);</span>
+
+<span class="c1">// Replace with address</span>
+<span class="kr">const</span> <span class="nx">address</span> <span class="o">=</span> <span class="s1">&#39;SCSGBN-HYJD6P-KJHACX-3R2BI3-QUMMOY-QSNW5J-ICLK&#39;</span><span class="p">;</span>
+
+<span class="nx">accountHttp</span><span class="p">.</span><span class="nx">getMultisigAccountInfo</span><span class="p">(</span>
+    <span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="nx">address</span><span class="p">)</span>
+<span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">accountInfo</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">accountInfo</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="kd">final</span> <span class="n">AccountHttp</span> <span class="n">accountHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AccountHttp</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
+
+        <span class="c1">// Replace with address</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">addressRaw</span> <span class="o">=</span> <span class="s">&quot;SB2RPH-EMTFMB-KELX2Y-Q3MZTD-RV7DQG-UZEADV-CYKC&quot;</span><span class="o">;</span>
+
+        <span class="kd">final</span> <span class="n">Address</span> <span class="n">address</span> <span class="o">=</span> <span class="n">Address</span><span class="o">.</span><span class="na">createFromRawAddress</span><span class="o">(</span><span class="n">addressRaw</span><span class="o">);</span>
+
+        <span class="kd">final</span> <span class="n">MultisigAccountInfo</span> <span class="n">multisigAccountInfo</span> <span class="o">=</span> <span class="n">accountHttp</span><span class="o">.</span><span class="na">getMultisigAccountInfo</span><span class="o">(</span><span class="n">address</span><span class="o">).</span><span class="na">toFuture</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">multisigAccountInfo</span><span class="o">);</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You could also get the list of the multisig accounts where Alice or Bob are cosignatories using <code class="docutils literal"><span class="pre">getMultisigAccountInfo</span></code> method.</p>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>What’s next?<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>Try to modify the account, converting it into a 2-of-2 multisig following <a class="reference internal" href="#guide-modifying-a-multisig-account"><span class="std std-ref">modifying a multisig account</span></a> guide.</p>
+</div>
+</div>
+<div class="section" id="modifying-a-multisig-account">
+<span id="guide-modifying-a-multisig-account"></span><h2>Modifying a multisig account<a class="headerlink" href="#modifying-a-multisig-account" title="Permalink to this headline">¶</a></h2>
+<p>After reviewing this guide, you will learn how to modify an existing <a class="reference internal" href="../concepts/multisig-account.html"><span class="doc">multisig account</span></a>.</p>
+<p>Specifically, you are going to convert a 1-of-2 into a 2-of-2 multisig account.</p>
+<div class="figure align-center" id="id20">
+<img alt="../_images/guides-accounts-multisig-2-of-2.png" src="../_images/guides-accounts-multisig-2-of-2.png" />
+<p class="caption"><span class="caption-text">2-of-2 multisig account example</span></p>
+</div>
+<p>Then, you will add a new cosignatory, becoming a 2-of-3.</p>
+<div class="figure align-center" id="id21">
+<img alt="../_images/guides-accounts-multisig-2-of-3.png" src="../_images/guides-accounts-multisig-2-of-3.png" />
+<p class="caption"><span class="caption-text">2-of-3 multisig account example</span></p>
+</div>
+<div class="section" id="id12">
+<h3>Prerequisites<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Finish <a class="reference internal" href="#guide-converting-an-account-to-multisig"><span class="std std-ref">converting an account to multisig guide</span></a></li>
+<li>Text editor or IDE</li>
+<li>NEM2-SDK or CLI</li>
+<li>One multisig account</li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h3>Let’s get into some code<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>Alice and Bob are cosignatories of the 1-of-2 multisig account.</p>
+<p>One of them, announces a <a class="reference internal" href="../concepts/transaction.html#modify-multisig-account-transaction"><span class="std std-ref">modify multisig account transaction</span></a> wrapped in an <a class="reference internal" href="../concepts/transaction.html#aggregate-transaction"><span class="std std-ref">aggregate transaction</span></a>.</p>
+<ol class="arabic simple">
+<li>Create a modify multisig account transaction,  increasing <code class="docutils literal"><span class="pre">minAprovalDelta</span></code> in one unit.</li>
+</ol>
+<div class="example-code container">
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="c1">// Replace with the multisig public key</span>
+<span class="kr">const</span> <span class="nx">cosignatoryPrivateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">COSIGNATORY_1_PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">multisigAccountPublicKey</span> <span class="o">=</span> <span class="s1">&#39;202B3861F34F6141E120742A64BC787D6EBC59C9EFB996F4856AA9CBEE11CD31&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">cosignatoryAccount</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">cosignatoryPrivateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">multisigAccount</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">multisigAccountPublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">modifyMultisigAccountTransaction</span> <span class="o">=</span> <span class="nx">ModifyMultisigAccountTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="mi">1</span><span class="p">,</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="p">[],</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="c1">// Replace with the multisig public key</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">cosignatoryPrivateKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">multisigAccountPublicKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+
+        <span class="kd">final</span> <span class="n">Account</span> <span class="n">cosignatoryAccount</span> <span class="o">=</span> <span class="n">Account</span><span class="o">.</span><span class="na">createFromPrivateKey</span><span class="o">(</span><span class="n">cosignatoryPrivateKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
+        <span class="kd">final</span> <span class="n">PublicAccount</span> <span class="n">multisigAccount</span> <span class="o">=</span> <span class="n">PublicAccount</span><span class="o">.</span><span class="na">createFromPublicKey</span><span class="o">(</span><span class="n">multisigAccountPublicKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
+
+        <span class="kd">final</span> <span class="n">ModifyMultisigAccountTransaction</span> <span class="n">modifyMultisigAccountTransaction</span> <span class="o">=</span> <span class="n">ModifyMultisigAccountTransaction</span><span class="o">.</span><span class="na">create</span><span class="o">(</span>
+                <span class="n">Deadline</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">HOURS</span><span class="o">),</span>
+                <span class="mi">1</span><span class="o">,</span>
+                <span class="mi">0</span><span class="o">,</span>
+                <span class="n">Collections</span><span class="o">.</span><span class="na">emptyList</span><span class="o">(),</span>
+                <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span>
+        <span class="o">);</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// Replace with the multisig public key</span>
+<span class="kr">const</span> <span class="nx">cosignatoryPrivateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">COSIGNATORY_1_PRIVATE_KEY</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">multisigAccountPublicKey</span> <span class="o">=</span> <span class="s1">&#39;202B3861F34F6141E120742A64BC787D6EBC59C9EFB996F4856AA9CBEE11CD31&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">cosignatoryAccount</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">cosignatoryPrivateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">multisigAccount</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">multisigAccountPublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">modifyMultisigAccountTransaction</span> <span class="o">=</span> <span class="nx">ModifyMultisigAccountTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="mi">1</span><span class="p">,</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="p">[],</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li>Wrap the modify multisig account transaction under an aggregate transaction, attaching multisig public key as the signer.</li>
+</ol>
+<p>An aggregate transaction is <em>complete</em> if before announcing it to the network, all required cosignatories have signed it. If valid, it will be included in a block.</p>
+<div class="example-code container">
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createComplete</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="p">[</span>
+        <span class="nx">modifyMultisigAccountTransaction</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">multisigAccount</span><span class="p">),</span>
+    <span class="p">],</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">,</span>
+    <span class="p">[]</span>
+<span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000/&#39;</span><span class="p">);</span>
+
+<span class="c1">// announce signed transaction</span>
+<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">));</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="kd">final</span> <span class="n">AggregateTransaction</span> <span class="n">aggregateTransaction</span> <span class="o">=</span> <span class="n">AggregateTransaction</span><span class="o">.</span><span class="na">createComplete</span><span class="o">(</span>
+                <span class="n">Deadline</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">HOURS</span><span class="o">),</span>
+                <span class="n">Collections</span><span class="o">.</span><span class="na">singletonList</span><span class="o">(</span><span class="n">modifyMultisigAccountTransaction</span><span class="o">.</span><span class="na">toAggregate</span><span class="o">(</span><span class="n">multisigAccount</span><span class="o">)),</span>
+                <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span>
+        <span class="o">);</span>
+
+        <span class="kd">final</span> <span class="n">SignedTransaction</span> <span class="n">signedTransaction</span> <span class="o">=</span> <span class="n">cosignatoryAccount</span><span class="o">.</span><span class="na">sign</span><span class="o">(</span><span class="n">aggregateTransaction</span><span class="o">);</span>
+
+        <span class="kd">final</span> <span class="n">TransactionHttp</span> <span class="n">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TransactionHttp</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
+
+        <span class="n">transactionHttp</span><span class="o">.</span><span class="na">announce</span><span class="o">(</span><span class="n">signedTransaction</span><span class="o">).</span><span class="na">toFuture</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createComplete</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="p">[</span>
+        <span class="nx">modifyMultisigAccountTransaction</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">multisigAccount</span><span class="p">),</span>
+    <span class="p">],</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">,</span>
+    <span class="p">[]</span>
+<span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000/&#39;</span><span class="p">);</span>
+
+<span class="c1">// announce signed transaction</span>
+<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<p>Announce the aggregate transaction.</p>
+<p><strong>Adding a new cosignatory</strong></p>
+<p>Suddenly, Alice and Bob want to add their daughter Hannah as a cosignatory of the multisig account.</p>
+<p>Alice creates a <a class="reference internal" href="../concepts/transaction.html#modify-multisig-account-transaction"><span class="std std-ref">modify multisig account transaction</span></a> adding in a <code class="docutils literal"><span class="pre">MultisigCosignatoryModification</span></code> Hannah as a cosignatory.</p>
+<ol class="arabic simple">
+<li>Create a multisig cosignatory modification:</li>
+</ol>
+<div class="example-code container">
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="c1">// Replace with the multisig public key</span>
+<span class="kr">const</span> <span class="nx">cosignatoryPrivateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">COSIGNATORY_1_PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">multisigAccountPublicKey</span> <span class="o">=</span> <span class="s1">&#39;202B3861F34F6141E120742A64BC787D6EBC59C9EFB996F4856AA9CBEE11CD31&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">newCosignatoryPublicKey</span> <span class="o">=</span> <span class="s1">&#39;CD4EE677BD0642C93910CB93214954A9D70FBAAE1FFF1FF530B1FB52389568F1&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">cosignatoryAccount</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">cosignatoryPrivateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">newCosignatoryAccount</span> <span class="o">=</span>  <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">newCosignatoryPublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">multisigAccount</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">multisigAccountPublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">multisigCosignatoryModification</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MultisigCosignatoryModification</span><span class="p">(</span><span class="nx">MultisigCosignatoryModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span><span class="nx">newCosignatoryAccount</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="c1">// Replace with the multisig public key</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">cosignatoryPrivateKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">multisigAccountPublicKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">newCosignatoryPublicKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+
+        <span class="kd">final</span> <span class="n">Account</span> <span class="n">cosignatoryAccount</span> <span class="o">=</span> <span class="n">Account</span><span class="o">.</span><span class="na">createFromPrivateKey</span><span class="o">(</span><span class="n">cosignatoryPrivateKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
+        <span class="kd">final</span> <span class="n">PublicAccount</span> <span class="n">newCosignatoryAccount</span> <span class="o">=</span> <span class="n">PublicAccount</span><span class="o">.</span><span class="na">createFromPublicKey</span><span class="o">(</span><span class="n">newCosignatoryPublicKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
+        <span class="kd">final</span> <span class="n">PublicAccount</span> <span class="n">multisigAccount</span> <span class="o">=</span> <span class="n">PublicAccount</span><span class="o">.</span><span class="na">createFromPublicKey</span><span class="o">(</span><span class="n">multisigAccountPublicKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
+
+        <span class="kd">final</span> <span class="n">MultisigCosignatoryModification</span> <span class="n">multisigCosignatoryModification</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MultisigCosignatoryModification</span><span class="o">(</span>
+            <span class="n">MultisigCosignatoryModificationType</span><span class="o">.</span><span class="na">ADD</span><span class="o">,</span>
+            <span class="n">newCosignatoryAccount</span>
+        <span class="o">);</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// Replace with the multisig public key</span>
+<span class="kr">const</span> <span class="nx">cosignatoryPrivateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">COSIGNATORY_1_PRIVATE_KEY</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">multisigAccountPublicKey</span> <span class="o">=</span> <span class="s1">&#39;202B3861F34F6141E120742A64BC787D6EBC59C9EFB996F4856AA9CBEE11CD31&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">newCosignatoryPublicKey</span> <span class="o">=</span> <span class="s1">&#39;CD4EE677BD0642C93910CB93214954A9D70FBAAE1FFF1FF530B1FB52389568F1&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">cosignatoryAccount</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">cosignatoryPrivateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">newCosignatoryAccount</span> <span class="o">=</span>  <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">newCosignatoryPublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">multisigAccount</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">multisigAccountPublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">multisigCosignatoryModification</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MultisigCosignatoryModification</span><span class="p">(</span><span class="nx">MultisigCosignatoryModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span><span class="nx">newCosignatoryAccount</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li>Create a modify multisig account transaction:</li>
+</ol>
+<div class="example-code container">
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">modifyMultisigAccountTransaction</span> <span class="o">=</span> <span class="nx">ModifyMultisigAccountTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="nx">multisigCosignatoryModification</span>
+    <span class="p">],</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="kd">final</span> <span class="n">ModifyMultisigAccountTransaction</span> <span class="n">modifyMultisigAccountTransaction</span> <span class="o">=</span> <span class="n">ModifyMultisigAccountTransaction</span><span class="o">.</span><span class="na">create</span><span class="o">(</span>
+            <span class="n">Deadline</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">HOURS</span><span class="o">),</span>
+            <span class="mi">0</span><span class="o">,</span>
+            <span class="mi">0</span><span class="o">,</span>
+            <span class="n">Collections</span><span class="o">.</span><span class="na">singletonList</span><span class="o">(</span><span class="n">multisigCosignatoryModification</span><span class="o">),</span>
+            <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span>
+        <span class="o">);</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">modifyMultisigAccountTransaction</span> <span class="o">=</span> <span class="nx">ModifyMultisigAccountTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="nx">multisigCosignatoryModification</span>
+    <span class="p">],</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Create an aggregate bonded transaction:</li>
+</ol>
+<div class="example-code container">
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createBonded</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="p">[</span>
+        <span class="nx">modifyMultisigAccountTransaction</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">multisigAccount</span><span class="p">),</span>
+    <span class="p">],</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span>
+<span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="kd">final</span> <span class="n">AggregateTransaction</span> <span class="n">aggregateTransaction</span> <span class="o">=</span> <span class="n">AggregateTransaction</span><span class="o">.</span><span class="na">createBonded</span><span class="o">(</span>
+            <span class="n">Deadline</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">HOURS</span><span class="o">),</span>
+            <span class="n">Collections</span><span class="o">.</span><span class="na">singletonList</span><span class="o">(</span><span class="n">modifyMultisigAccountTransaction</span><span class="o">.</span><span class="na">toAggregate</span><span class="o">(</span><span class="n">multisigAccount</span><span class="o">)),</span>
+            <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span>
+        <span class="o">);</span>
+
+        <span class="kd">final</span> <span class="n">SignedTransaction</span> <span class="n">signedTransaction</span> <span class="o">=</span> <span class="n">cosignatoryAccount</span><span class="o">.</span><span class="na">sign</span><span class="o">(</span><span class="n">aggregateTransaction</span><span class="o">);</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createBonded</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="p">[</span>
+        <span class="nx">modifyMultisigAccountTransaction</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">multisigAccount</span><span class="p">),</span>
+    <span class="p">],</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span>
+<span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<p>Alice needs to lock at least 10 XEM.</p>
+<p>Once Bob cosigns the transaction, the amount of XEM becomes available again on Alice’s account.</p>
+<p>After lock funds transaction has been confirmed, Alice announces the aggregate transaction.</p>
+<div class="example-code container">
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">lockFundsTransaction</span> <span class="o">=</span> <span class="nx">LockFundsTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="nx">XEM</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+    <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">480</span><span class="p">),</span>
+    <span class="nx">signedTransaction</span><span class="p">,</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">lockFundsTransactionSigned</span> <span class="o">=</span> <span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">lockFundsTransaction</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000/&#39;</span><span class="p">);</span>
+
+<span class="c1">// announce signed transaction</span>
+<span class="kr">const</span> <span class="nx">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Listener</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
+
+<span class="nx">listener</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+    <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">lockFundsTransactionSigned</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">));</span>
+
+    <span class="nx">listener</span><span class="p">.</span><span class="nx">confirmed</span><span class="p">(</span><span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">transaction</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span> <span class="o">&amp;&amp;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span><span class="p">.</span><span class="nx">hash</span> <span class="o">==</span> <span class="nx">lockFundsTransactionSigned</span><span class="p">.</span><span class="nx">hash</span><span class="p">)</span> <span class="p">{</span>
+
+            <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBonded</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="kd">final</span> <span class="n">LockFundsTransaction</span> <span class="n">lockFundsTransaction</span> <span class="o">=</span> <span class="n">LockFundsTransaction</span><span class="o">.</span><span class="na">create</span><span class="o">(</span>
+            <span class="n">Deadline</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">HOURS</span><span class="o">),</span>
+            <span class="n">XEM</span><span class="o">.</span><span class="na">createRelative</span><span class="o">(</span><span class="n">BigInteger</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="mi">10</span><span class="o">)),</span>
+            <span class="n">BigInteger</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="mi">480</span><span class="o">),</span>
+            <span class="n">signedTransaction</span><span class="o">,</span>
+            <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span>
+        <span class="o">);</span>
+
+        <span class="kd">final</span> <span class="n">SignedTransaction</span> <span class="n">lockFundsTransactionSigned</span> <span class="o">=</span> <span class="n">cosignatoryAccount</span><span class="o">.</span><span class="na">sign</span><span class="o">(</span><span class="n">lockFundsTransaction</span><span class="o">);</span>
+
+        <span class="kd">final</span> <span class="n">TransactionHttp</span> <span class="n">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TransactionHttp</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
+
+        <span class="n">transactionHttp</span><span class="o">.</span><span class="na">announce</span><span class="o">(</span><span class="n">lockFundsTransactionSigned</span><span class="o">).</span><span class="na">toFuture</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
+
+        <span class="c1">// announce signed transaction</span>
+        <span class="kd">final</span> <span class="n">Listener</span> <span class="n">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Listener</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
+
+        <span class="n">listener</span><span class="o">.</span><span class="na">open</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
+
+        <span class="kd">final</span> <span class="n">Transaction</span> <span class="n">transaction</span> <span class="o">=</span> <span class="n">listener</span><span class="o">.</span><span class="na">confirmed</span><span class="o">(</span><span class="n">cosignatoryAccount</span><span class="o">.</span><span class="na">getAddress</span><span class="o">()).</span><span class="na">toFuture</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
+
+        <span class="n">transactionHttp</span><span class="o">.</span><span class="na">announceAggregateBonded</span><span class="o">(</span><span class="n">signedTransaction</span><span class="o">).</span><span class="na">toFuture</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">lockFundsTransaction</span> <span class="o">=</span> <span class="nx">LockFundsTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="nx">XEM</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+    <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">480</span><span class="p">),</span>
+    <span class="nx">signedTransaction</span><span class="p">,</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">lockFundsTransactionSigned</span> <span class="o">=</span> <span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">lockFundsTransaction</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000/&#39;</span><span class="p">);</span>
+
+<span class="c1">// announce signed transaction</span>
+<span class="kr">const</span> <span class="nx">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Listener</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
+
+<span class="nx">listener</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+    <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">lockFundsTransactionSigned</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">));</span>
+
+    <span class="nx">listener</span><span class="p">.</span><span class="nx">confirmed</span><span class="p">(</span><span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">transaction</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span> <span class="o">&amp;&amp;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span><span class="p">.</span><span class="nx">hash</span> <span class="o">==</span> <span class="nx">lockFundsTransactionSigned</span><span class="p">.</span><span class="nx">hash</span><span class="p">)</span> <span class="p">{</span>
+
+            <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBonded</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id14">
+<h3>What’s next?<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<p>Bob didn’t cosign the transaction yet. Follow <a class="reference internal" href="transaction.html#guide-signing-announced-aggregate-bonded-transactions"><span class="std std-ref">signing announced aggregate bonded transactions guide</span></a>.</p>
+<p>Once you have finished this guide, try to delete a cosignatory from the multisig. Notice that multisig accounts can be converted again to regular accounts by removing all cosignatories, just make sure you own the multisig private key!</p>
+<p>The following shows how to remove a cosignatory of a 2-of-3 multisig account with minimum removal set to 1.</p>
+<div class="example-code container">
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="c1">// Replace with the multisig public key</span>
+<span class="kr">const</span> <span class="nx">multisigAccountPublicKey</span> <span class="o">=</span> <span class="s1">&#39;202B3861F34F6141E120742A64BC787D6EBC59C9EFB996F4856AA9CBEE11CD31&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">multisigAccount</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">multisigAccountPublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="c1">// Replace with the cosignatory public key to be deleted</span>
+<span class="kr">const</span> <span class="nx">cosignatoryToRemovePublicKey</span> <span class="o">=</span> <span class="s1">&#39;CD4EE677BD0642C93910CB93214954A9D70FBAAE1FFF1FF530B1FB52389568F1&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">cosignatoryToRemove</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">cosignatoryToRemovePublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="c1">// Replace with the cosignatory private key</span>
+<span class="kr">const</span> <span class="nx">cosignatoryPrivateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">COSIGNATORY_1_PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">cosignatoryAccount</span> <span class="o">=</span>  <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">cosignatoryPrivateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">multisigCosignatoryModification</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MultisigCosignatoryModification</span><span class="p">(</span><span class="nx">MultisigCosignatoryModificationType</span><span class="p">.</span><span class="nx">Remove</span><span class="p">,</span><span class="nx">cosignatoryToRemove</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">modifyMultisigAccountTransaction</span> <span class="o">=</span> <span class="nx">ModifyMultisigAccountTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="nx">multisigCosignatoryModification</span>
+    <span class="p">],</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span>
+<span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createComplete</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="p">[</span>
+        <span class="nx">modifyMultisigAccountTransaction</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">multisigAccount</span><span class="p">),</span>
+    <span class="p">],</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">,</span>
+    <span class="p">[]</span>
+<span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000/&#39;</span><span class="p">);</span>
+
+<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">));</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="c1">// Replace with the multisig public key</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">multisigAccountPublicKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+
+        <span class="c1">// Replace with the cosignatory private key</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">cosignatoryPrivateKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+
+        <span class="kd">final</span> <span class="n">Account</span> <span class="n">cosignatoryAccount</span> <span class="o">=</span> <span class="n">Account</span><span class="o">.</span><span class="na">createFromPrivateKey</span><span class="o">(</span><span class="n">cosignatoryPrivateKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
+        <span class="kd">final</span> <span class="n">PublicAccount</span> <span class="n">multisigPublicAccount</span> <span class="o">=</span> <span class="n">PublicAccount</span><span class="o">.</span><span class="na">createFromPublicKey</span><span class="o">(</span><span class="n">multisigAccountPublicKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
+
+        <span class="kd">final</span> <span class="n">MultisigCosignatoryModification</span> <span class="n">multisigCosignatoryModification</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MultisigCosignatoryModification</span><span class="o">(</span>
+            <span class="n">MultisigCosignatoryModificationType</span><span class="o">.</span><span class="na">REMOVE</span><span class="o">,</span>
+                <span class="n">PublicAccount</span><span class="o">.</span><span class="na">createFromPublicKey</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">)</span>
+        <span class="o">);</span>
+
+        <span class="kd">final</span> <span class="n">ModifyMultisigAccountTransaction</span> <span class="n">modifyMultisigAccountTransaction</span> <span class="o">=</span> <span class="n">ModifyMultisigAccountTransaction</span><span class="o">.</span><span class="na">create</span><span class="o">(</span>
+            <span class="n">Deadline</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">HOURS</span><span class="o">),</span>
+            <span class="mi">0</span><span class="o">,</span>
+            <span class="mi">0</span><span class="o">,</span>
+            <span class="n">Collections</span><span class="o">.</span><span class="na">singletonList</span><span class="o">(</span><span class="n">multisigCosignatoryModification</span><span class="o">),</span>
+            <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span>
+        <span class="o">);</span>
+
+        <span class="kd">final</span> <span class="n">AggregateTransaction</span> <span class="n">aggregateTransaction</span> <span class="o">=</span> <span class="n">AggregateTransaction</span><span class="o">.</span><span class="na">createComplete</span><span class="o">(</span>
+            <span class="n">Deadline</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">HOURS</span><span class="o">),</span>
+            <span class="n">Collections</span><span class="o">.</span><span class="na">singletonList</span><span class="o">(</span><span class="n">modifyMultisigAccountTransaction</span><span class="o">.</span><span class="na">toAggregate</span><span class="o">(</span><span class="n">multisigPublicAccount</span><span class="o">)),</span>
+            <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span>
+        <span class="o">);</span>
+
+        <span class="kd">final</span> <span class="n">SignedTransaction</span> <span class="n">signedTransaction</span> <span class="o">=</span> <span class="n">cosignatoryAccount</span><span class="o">.</span><span class="na">sign</span><span class="o">(</span><span class="n">aggregateTransaction</span><span class="o">);</span>
+
+        <span class="kd">final</span> <span class="n">TransactionHttp</span> <span class="n">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TransactionHttp</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
+
+        <span class="n">transactionHttp</span><span class="o">.</span><span class="na">announce</span><span class="o">(</span><span class="n">signedTransaction</span><span class="o">).</span><span class="na">toFuture</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// Replace with the multisig public key</span>
+<span class="kr">const</span> <span class="nx">multisigAccountPublicKey</span> <span class="o">=</span> <span class="s1">&#39;202B3861F34F6141E120742A64BC787D6EBC59C9EFB996F4856AA9CBEE11CD31&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">multisigAccount</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">multisigAccountPublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="c1">// Replace with the cosignatory public key to be deleted</span>
+<span class="kr">const</span> <span class="nx">cosignatoryToRemovePublicKey</span> <span class="o">=</span> <span class="s1">&#39;CD4EE677BD0642C93910CB93214954A9D70FBAAE1FFF1FF530B1FB52389568F1&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">cosignatoryToRemove</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">cosignatoryToRemovePublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="c1">// Replace with the cosignatory private key</span>
+<span class="kr">const</span> <span class="nx">cosignatoryPrivateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">COSIGNATORY_1_PRIVATE_KEY</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">cosignatoryAccount</span> <span class="o">=</span>  <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">cosignatoryPrivateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">multisigCosignatoryModification</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MultisigCosignatoryModification</span><span class="p">(</span><span class="nx">MultisigCosignatoryModificationType</span><span class="p">.</span><span class="nx">Remove</span><span class="p">,</span><span class="nx">cosignatoryToRemove</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">modifyMultisigAccountTransaction</span> <span class="o">=</span> <span class="nx">ModifyMultisigAccountTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="nx">multisigCosignatoryModification</span>
+    <span class="p">],</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span>
+<span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createComplete</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="p">[</span>
+        <span class="nx">modifyMultisigAccountTransaction</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">multisigAccount</span><span class="p">),</span>
+    <span class="p">],</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">,</span>
+    <span class="p">[]</span>
+<span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000/&#39;</span><span class="p">);</span>
+
+<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="creating-a-multilevel-multisig-account-mlma">
+<span id="guide-creating-a-mlma"></span><h2>Creating a multilevel multisig account (MLMA)<a class="headerlink" href="#creating-a-multilevel-multisig-account-mlma" title="Permalink to this headline">¶</a></h2>
+<p>Following this tutorial, you will create a <a class="reference internal" href="../concepts/multisig-account.html"><span class="doc">multi-level multisig account</span></a>.</p>
+<div class="figure align-center" id="id22">
+<img alt="../_images/concepts-multisig-multilevel-11.png" src="../_images/concepts-multisig-multilevel-11.png" />
+<p class="caption"><span class="caption-text">Three-level multisig account example</span></p>
+</div>
+<div class="section" id="id15">
+<h3>Background<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<p>A multi-level multisig is a multisig that has a cosignatory that is another multisig.</p>
+<p>Consider the following constraints:</p>
+<ul class="simple">
+<li>The maximum number of levels is <code class="docutils literal"><span class="pre">3</span></code>.</li>
+<li>The maximum of no-multisig cosignatories (leaf) is <code class="docutils literal"><span class="pre">15</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="id16">
+<h3>Prerequisites<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Finish <a class="reference internal" href="#guide-converting-an-account-to-multisig"><span class="std std-ref">converting an account to multisig guide</span></a></li>
+<li>Text editor or IDE</li>
+<li>NEM2-SDK or CLI</li>
+</ul>
+</div>
+<div class="section" id="id17">
+<h3>Let’s get into some code<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Creating multisig account #2</li>
+</ol>
+<div class="example-code container">
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="c1">// Create multisig #2 (1-of-2)</span>
+
+<span class="c1">// Replace with the private key of the account that you want to convert into multisig</span>
+<span class="kr">const</span> <span class="nx">multisig2PrivateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">MULTISIG_2_PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
+
+<span class="c1">// Replace with cosignatories public keys</span>
+<span class="kr">const</span> <span class="nx">cosignatoryAccount5PublicKey</span> <span class="o">=</span> <span class="s1">&#39;7D08373CFFE4154E129E04F0827E5F3D6907587E348757B0F87D2F839BF88246&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">cosignatoryAccount6PublicKey</span> <span class="o">=</span> <span class="s1">&#39;28AE57EC0E81967880C483BE99D4B6AF38E5DCD9F8B89D41F2E7619CFDB447C5&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">multisigAccount2</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">multisig2PrivateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">cosignatory5</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">cosignatoryAccount5PublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">cosignatory6</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">cosignatoryAccount6PublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">convertMultisigAccount2Transaction</span> <span class="o">=</span> <span class="nx">ModifyMultisigAccountTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="mi">1</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="k">new</span> <span class="nx">MultisigCosignatoryModification</span><span class="p">(</span>
+            <span class="nx">MultisigCosignatoryModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span>
+            <span class="nx">cosignatory5</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="k">new</span> <span class="nx">MultisigCosignatoryModification</span><span class="p">(</span>
+            <span class="nx">MultisigCosignatoryModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span>
+            <span class="nx">cosignatory6</span><span class="p">,</span>
+        <span class="p">)],</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span>
+<span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000/&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">signedTransaction2</span> <span class="o">=</span> <span class="nx">multisigAccount2</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">convertMultisigAccount2Transaction</span><span class="p">);</span>
+
+<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction2</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">));</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="c1">// Create multisig #2 (1-of-2)</span>
+
+        <span class="c1">// Replace with the private key of the account that you want to convert into multisig</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">multisig2PrivateKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+
+        <span class="c1">// Replace with cosignatories public keys</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">cosignatory5PublicKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">cosignatory6PublicKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+
+        <span class="kd">final</span> <span class="n">Account</span> <span class="n">multisigAccount2</span> <span class="o">=</span> <span class="n">Account</span><span class="o">.</span><span class="na">createFromPrivateKey</span><span class="o">(</span><span class="n">multisig2PrivateKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
+
+        <span class="kd">final</span> <span class="n">PublicAccount</span> <span class="n">cosignatory5PublicAccount</span> <span class="o">=</span> <span class="n">PublicAccount</span><span class="o">.</span><span class="na">createFromPublicKey</span><span class="o">(</span><span class="n">cosignatory5PublicKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
+        <span class="kd">final</span> <span class="n">PublicAccount</span> <span class="n">cosignatory6PublicAccount</span> <span class="o">=</span> <span class="n">PublicAccount</span><span class="o">.</span><span class="na">createFromPublicKey</span><span class="o">(</span><span class="n">cosignatory6PublicKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
+
+        <span class="kd">final</span> <span class="n">ModifyMultisigAccountTransaction</span> <span class="n">convertMultisigAccount2Transaction</span> <span class="o">=</span> <span class="n">ModifyMultisigAccountTransaction</span><span class="o">.</span><span class="na">create</span><span class="o">(</span>
+                <span class="n">Deadline</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">HOURS</span><span class="o">),</span>
+                <span class="mi">1</span><span class="o">,</span>
+                <span class="mi">1</span><span class="o">,</span>
+                <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span>
+                    <span class="k">new</span> <span class="n">MultisigCosignatoryModification</span><span class="o">(</span>
+                        <span class="n">MultisigCosignatoryModificationType</span><span class="o">.</span><span class="na">ADD</span><span class="o">,</span>
+                        <span class="n">cosignatory5PublicAccount</span>
+                    <span class="o">),</span>
+                    <span class="k">new</span> <span class="n">MultisigCosignatoryModification</span><span class="o">(</span>
+                        <span class="n">MultisigCosignatoryModificationType</span><span class="o">.</span><span class="na">ADD</span><span class="o">,</span>
+                        <span class="n">cosignatory6PublicAccount</span>
+                    <span class="o">)</span>
+                <span class="o">),</span>
+                <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span>
+        <span class="o">);</span>
+
+
+        <span class="kd">final</span> <span class="n">SignedTransaction</span> <span class="n">signedTransaction2</span> <span class="o">=</span> <span class="n">multisigAccount2</span><span class="o">.</span><span class="na">sign</span><span class="o">(</span><span class="n">convertMultisigAccount2Transaction</span><span class="o">);</span>
+
+        <span class="n">transactionHttp</span><span class="o">.</span><span class="na">announce</span><span class="o">(</span><span class="n">signedTransaction2</span><span class="o">).</span><span class="na">toFuture</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// Create multisig #2 (1-of-2)</span>
+
+<span class="c1">// Replace with the private key of the account that you want to convert into multisig</span>
+<span class="kr">const</span> <span class="nx">multisig2PrivateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">MULTISIG_2_PRIVATE_KEY</span><span class="p">;</span>
+
+<span class="c1">// Replace with cosignatories public keys</span>
+<span class="kr">const</span> <span class="nx">cosignatoryAccount5PublicKey</span> <span class="o">=</span> <span class="s1">&#39;7D08373CFFE4154E129E04F0827E5F3D6907587E348757B0F87D2F839BF88246&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">cosignatoryAccount6PublicKey</span> <span class="o">=</span> <span class="s1">&#39;28AE57EC0E81967880C483BE99D4B6AF38E5DCD9F8B89D41F2E7619CFDB447C5&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">multisigAccount2</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">multisig2PrivateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">cosignatory5</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">cosignatoryAccount5PublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">cosignatory6</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">cosignatoryAccount6PublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">convertMultisigAccount2Transaction</span> <span class="o">=</span> <span class="nx">ModifyMultisigAccountTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="mi">1</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="k">new</span> <span class="nx">MultisigCosignatoryModification</span><span class="p">(</span>
+            <span class="nx">MultisigCosignatoryModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span>
+            <span class="nx">cosignatory5</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="k">new</span> <span class="nx">MultisigCosignatoryModification</span><span class="p">(</span>
+            <span class="nx">MultisigCosignatoryModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span>
+            <span class="nx">cosignatory6</span><span class="p">,</span>
+        <span class="p">)],</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span>
+<span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000/&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">signedTransaction2</span> <span class="o">=</span> <span class="nx">multisigAccount2</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">convertMultisigAccount2Transaction</span><span class="p">);</span>
+
+<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction2</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li>Creating multisig account #3</li>
+</ol>
+<div class="example-code container">
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="c1">// Create multisig #3 (2-of-3)</span>
+
+<span class="c1">// Replace with the private key of the account that you want to convert into multisig</span>
+<span class="kr">const</span> <span class="nx">multisig3PrivateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">MULTISIG_3_PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
+
+<span class="c1">// Replace with cosignatories public keys</span>
+<span class="kr">const</span> <span class="nx">cosignatoryAccount7PublicKey</span> <span class="o">=</span> <span class="s1">&#39;DAD5B5B7F7AE4ACEAB3F6A5FE05EA3186208D219A04B6C047C39A2B0EFF49511&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">cosignatoryAccount8PublicKey</span> <span class="o">=</span> <span class="s1">&#39;E29302E0AF530292EABEDADF2DE2953BBFBB0BDD9A1F51FA0C857E87828BABA9&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">cosignatoryAccount4PublicKey</span> <span class="o">=</span> <span class="s1">&#39;473233D6B89671DCA4D334CF1059C31356CBF18120E484E33EEA9BDC09EEA515&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">multisigAccount3</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">multisig3PrivateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">cosignatory7</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">cosignatoryAccount7PublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">cosignatory8</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">cosignatoryAccount8PublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">cosignatory4</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">cosignatoryAccount4PublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">convertMultisigAccount3Transaction</span> <span class="o">=</span> <span class="nx">ModifyMultisigAccountTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="mi">2</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="k">new</span> <span class="nx">MultisigCosignatoryModification</span><span class="p">(</span>
+            <span class="nx">MultisigCosignatoryModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span>
+            <span class="nx">cosignatory7</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="k">new</span> <span class="nx">MultisigCosignatoryModification</span><span class="p">(</span>
+            <span class="nx">MultisigCosignatoryModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span>
+            <span class="nx">cosignatory8</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="k">new</span> <span class="nx">MultisigCosignatoryModification</span><span class="p">(</span>
+            <span class="nx">MultisigCosignatoryModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span>
+            <span class="nx">cosignatory4</span><span class="p">,</span>
+        <span class="p">)],</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span>
+<span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">signedTransaction3</span> <span class="o">=</span> <span class="nx">multisigAccount3</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">convertMultisigAccount3Transaction</span><span class="p">);</span>
+
+<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction3</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">));</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="c1">// Replace with the private key of the account that you want to convert into multisig</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">multisig3PrivateKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+
+        <span class="c1">// Replace with cosignatories public keys</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">cosignatory7PublicKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">cosignatory8PublicKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">cosignatory4PublicKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+
+        <span class="kd">final</span> <span class="n">Account</span> <span class="n">multisigAccount3</span> <span class="o">=</span> <span class="n">Account</span><span class="o">.</span><span class="na">createFromPrivateKey</span><span class="o">(</span><span class="n">multisig3PrivateKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
+
+        <span class="kd">final</span> <span class="n">PublicAccount</span> <span class="n">cosignatory7PublicAccount</span> <span class="o">=</span> <span class="n">PublicAccount</span><span class="o">.</span><span class="na">createFromPublicKey</span><span class="o">(</span><span class="n">cosignatory7PublicKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
+        <span class="kd">final</span> <span class="n">PublicAccount</span> <span class="n">cosignatory8PublicAccount</span> <span class="o">=</span> <span class="n">PublicAccount</span><span class="o">.</span><span class="na">createFromPublicKey</span><span class="o">(</span><span class="n">cosignatory8PublicKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
+        <span class="kd">final</span> <span class="n">PublicAccount</span> <span class="n">cosignatory4PublicAccount</span> <span class="o">=</span> <span class="n">PublicAccount</span><span class="o">.</span><span class="na">createFromPublicKey</span><span class="o">(</span><span class="n">cosignatory4PublicKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
+
+        <span class="kd">final</span> <span class="n">ModifyMultisigAccountTransaction</span> <span class="n">convertMultisigAccount3Transaction</span> <span class="o">=</span> <span class="n">ModifyMultisigAccountTransaction</span><span class="o">.</span><span class="na">create</span><span class="o">(</span>
+                <span class="n">Deadline</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">HOURS</span><span class="o">),</span>
+                <span class="mi">2</span><span class="o">,</span>
+                <span class="mi">1</span><span class="o">,</span>
+                <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span>
+                        <span class="k">new</span> <span class="n">MultisigCosignatoryModification</span><span class="o">(</span>
+                                <span class="n">MultisigCosignatoryModificationType</span><span class="o">.</span><span class="na">ADD</span><span class="o">,</span>
+                                <span class="n">cosignatory7PublicAccount</span>
+                                <span class="o">),</span>
+                        <span class="k">new</span> <span class="n">MultisigCosignatoryModification</span><span class="o">(</span>
+                                <span class="n">MultisigCosignatoryModificationType</span><span class="o">.</span><span class="na">ADD</span><span class="o">,</span>
+                                <span class="n">cosignatory8PublicAccount</span>
+                                <span class="o">),</span>
+                        <span class="k">new</span> <span class="n">MultisigCosignatoryModification</span><span class="o">(</span>
+                                <span class="n">MultisigCosignatoryModificationType</span><span class="o">.</span><span class="na">ADD</span><span class="o">,</span>
+                                <span class="n">cosignatory4PublicAccount</span>
+                                <span class="o">)</span>
+                <span class="o">),</span>
+                <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span>
+        <span class="o">);</span>
+
+        <span class="kd">final</span> <span class="n">SignedTransaction</span> <span class="n">signedTransaction3</span> <span class="o">=</span> <span class="n">multisigAccount3</span><span class="o">.</span><span class="na">sign</span><span class="o">(</span><span class="n">convertMultisigAccount3Transaction</span><span class="o">);</span>
+
+        <span class="n">transactionHttp</span><span class="o">.</span><span class="na">announce</span><span class="o">(</span><span class="n">signedTransaction3</span><span class="o">).</span><span class="na">toFuture</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// Create multisig #3 (2-of-3)</span>
+
+<span class="c1">// Replace with the private key of the account that you want to convert into multisig</span>
+<span class="kr">const</span> <span class="nx">multisig3PrivateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">MULTISIG_3_PRIVATE_KEY</span><span class="p">;</span>
+
+<span class="c1">// Replace with cosignatories public keys</span>
+<span class="kr">const</span> <span class="nx">cosignatoryAccount7PublicKey</span> <span class="o">=</span> <span class="s1">&#39;DAD5B5B7F7AE4ACEAB3F6A5FE05EA3186208D219A04B6C047C39A2B0EFF49511&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">cosignatoryAccount8PublicKey</span> <span class="o">=</span> <span class="s1">&#39;E29302E0AF530292EABEDADF2DE2953BBFBB0BDD9A1F51FA0C857E87828BABA9&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">cosignatoryAccount4PublicKey</span> <span class="o">=</span> <span class="s1">&#39;473233D6B89671DCA4D334CF1059C31356CBF18120E484E33EEA9BDC09EEA515&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">multisigAccount3</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">multisig3PrivateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">cosignatory7</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">cosignatoryAccount7PublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">cosignatory8</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">cosignatoryAccount8PublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">cosignatory4</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">cosignatoryAccount4PublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">convertMultisigAccount3Transaction</span> <span class="o">=</span> <span class="nx">ModifyMultisigAccountTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="mi">2</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="k">new</span> <span class="nx">MultisigCosignatoryModification</span><span class="p">(</span>
+            <span class="nx">MultisigCosignatoryModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span>
+            <span class="nx">cosignatory7</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="k">new</span> <span class="nx">MultisigCosignatoryModification</span><span class="p">(</span>
+            <span class="nx">MultisigCosignatoryModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span>
+            <span class="nx">cosignatory8</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="k">new</span> <span class="nx">MultisigCosignatoryModification</span><span class="p">(</span>
+            <span class="nx">MultisigCosignatoryModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span>
+            <span class="nx">cosignatory4</span><span class="p">,</span>
+        <span class="p">)],</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span>
+<span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">signedTransaction3</span> <span class="o">=</span> <span class="nx">multisigAccount3</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">convertMultisigAccount3Transaction</span><span class="p">);</span>
+
+<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction3</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Creating multisig account #1</li>
+</ol>
+<div class="example-code container">
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="c1">// Create multisig #1 (3-of-3)</span>
+
+<span class="c1">// Replace with the private key of the account that you want to convert into multisig</span>
+<span class="kr">const</span> <span class="nx">multisig1PrivateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">MULTISIG_1_PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">multisigAccount1</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">multisig1PrivateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">convertMultisigAccount1Transaction</span> <span class="o">=</span> <span class="nx">ModifyMultisigAccountTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="mi">3</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="k">new</span> <span class="nx">MultisigCosignatoryModification</span><span class="p">(</span>
+            <span class="nx">MultisigCosignatoryModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span>
+            <span class="nx">multisigAccount2</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="k">new</span> <span class="nx">MultisigCosignatoryModification</span><span class="p">(</span>
+            <span class="nx">MultisigCosignatoryModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span>
+            <span class="nx">multisigAccount3</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="k">new</span> <span class="nx">MultisigCosignatoryModification</span><span class="p">(</span>
+            <span class="nx">MultisigCosignatoryModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span>
+            <span class="nx">cosignatory4</span><span class="p">,</span>
+        <span class="p">)],</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span>
+<span class="p">);</span>
+
+
+<span class="kr">const</span> <span class="nx">signedTransaction1</span> <span class="o">=</span> <span class="nx">multisigAccount1</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">convertMultisigAccount1Transaction</span><span class="p">);</span>
+
+<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction1</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">));</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="c1">// Replace with the private key of the account that you want to convert into multisig</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">multisig1PrivateKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+
+        <span class="kd">final</span> <span class="n">Account</span> <span class="n">multisigAccount1</span> <span class="o">=</span> <span class="n">Account</span><span class="o">.</span><span class="na">createFromPrivateKey</span><span class="o">(</span><span class="n">multisig1PrivateKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
+
+        <span class="kd">final</span> <span class="n">ModifyMultisigAccountTransaction</span> <span class="n">convertMultisigAccount1Transaction</span> <span class="o">=</span> <span class="n">ModifyMultisigAccountTransaction</span><span class="o">.</span><span class="na">create</span><span class="o">(</span>
+                <span class="n">Deadline</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">HOURS</span><span class="o">),</span>
+                <span class="mi">3</span><span class="o">,</span>
+                <span class="mi">1</span><span class="o">,</span>
+                <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span>
+                        <span class="k">new</span> <span class="n">MultisigCosignatoryModification</span><span class="o">(</span>
+                                <span class="n">MultisigCosignatoryModificationType</span><span class="o">.</span><span class="na">ADD</span><span class="o">,</span>
+                                <span class="n">multisigAccount2</span><span class="o">.</span><span class="na">getPublicAccount</span><span class="o">()</span>
+                        <span class="o">),</span>
+                        <span class="k">new</span> <span class="n">MultisigCosignatoryModification</span><span class="o">(</span>
+                                <span class="n">MultisigCosignatoryModificationType</span><span class="o">.</span><span class="na">ADD</span><span class="o">,</span>
+                                <span class="n">multisigAccount3</span><span class="o">.</span><span class="na">getPublicAccount</span><span class="o">()</span>
+                        <span class="o">),</span>
+                        <span class="k">new</span> <span class="n">MultisigCosignatoryModification</span><span class="o">(</span>
+                                <span class="n">MultisigCosignatoryModificationType</span><span class="o">.</span><span class="na">ADD</span><span class="o">,</span>
+                                <span class="n">cosignatory4PublicAccount</span>
+                        <span class="o">)</span>
+                <span class="o">),</span>
+                <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span>
+        <span class="o">);</span>
+
+        <span class="kd">final</span> <span class="n">SignedTransaction</span> <span class="n">signedTransaction1</span> <span class="o">=</span> <span class="n">multisigAccount1</span><span class="o">.</span><span class="na">sign</span><span class="o">(</span><span class="n">convertMultisigAccount1Transaction</span><span class="o">);</span>
+
+        <span class="n">transactionHttp</span><span class="o">.</span><span class="na">announce</span><span class="o">(</span><span class="n">signedTransaction1</span><span class="o">).</span><span class="na">toFuture</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// Create multisig #1 (3-of-3)</span>
+
+<span class="c1">// Replace with the private key of the account that you want to convert into multisig</span>
+<span class="kr">const</span> <span class="nx">multisig1PrivateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">MULTISIG_1_PRIVATE_KEY</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">multisigAccount1</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">multisig1PrivateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">convertMultisigAccount1Transaction</span> <span class="o">=</span> <span class="nx">ModifyMultisigAccountTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="mi">3</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="k">new</span> <span class="nx">MultisigCosignatoryModification</span><span class="p">(</span>
+            <span class="nx">MultisigCosignatoryModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span>
+            <span class="nx">multisigAccount2</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="k">new</span> <span class="nx">MultisigCosignatoryModification</span><span class="p">(</span>
+            <span class="nx">MultisigCosignatoryModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span>
+            <span class="nx">multisigAccount3</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="k">new</span> <span class="nx">MultisigCosignatoryModification</span><span class="p">(</span>
+            <span class="nx">MultisigCosignatoryModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span>
+            <span class="nx">cosignatory4</span><span class="p">,</span>
+        <span class="p">)],</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span>
+<span class="p">);</span>
+
+
+<span class="kr">const</span> <span class="nx">signedTransaction1</span> <span class="o">=</span> <span class="nx">multisigAccount1</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">convertMultisigAccount1Transaction</span><span class="p">);</span>
+
+<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction1</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id18">
+<h3>What’s next?<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<p>Who should cosign the transaction if Account #5 initiates an aggregate bonded transaction? Notice that multisig accounts are not capable of cosigning transactions, being responsible for doing so cosignatories.</p>
+<div class="figure align-center" id="id23">
+<img alt="../_images/concepts-multisig-multilevel-21.png" src="../_images/concepts-multisig-multilevel-21.png" />
+<p class="caption"><span class="caption-text">Sending an aggregate bonded transaction from a MLMA</span></p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="blockchain.html" class="btn btn-neutral float-right" title="Monitoring blockchain" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="overview.html" class="btn btn-neutral" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, NEM.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'Master',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/examplecode.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

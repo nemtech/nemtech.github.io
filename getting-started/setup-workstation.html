@@ -1,0 +1,361 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Setting up your workstation &mdash; nem2-docs Master documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="nem2-docs Master documentation" href="../index.html"/>
+        <link rel="next" title="Writing your first application" href="first-application.html"/>
+        <link rel="prev" title="NEM Developer Documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+    
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo-nem.svg" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                Master
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+    <!--<div class="sidebar-links">
+        <a href="#">API Reference</a> · <a href="#">SDK References</a>
+    </div>-->
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Setting up your workstation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-test-account">Create a test account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-xem-and-how-to-get-it">What is XEM and how to get it?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-up-the-development-environment">Set up the development environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#typescript-javascript">TypeScript/JavaScript</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="first-application.html">Writing your first application</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Fundamentals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">Multisig Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/transaction.html">Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/mosaic.html">Mosaic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/block.html">Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/node.html">Node</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guides/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/account.html">Interacting with accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/blockchain.html">Monitoring blockchain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/namespace.html">Registering namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/mosaic.html">Interacting with mosaics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/transaction.html">Sending transactions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">NEM2-CLI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/commands.html">Commands</a></li>
+</ul>
+<p class="caption"><span class="caption-text">NEM2-SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/languages.html">Languages &amp; References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">NIS2-API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/announce-transaction.html">Announcing transactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/websockets.html">WebSockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/errors.html">Error Handling</a></li>
+</ul>
+<p class="caption"><span class="caption-text">NEM2 Libraries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/overview.html">Extending NEM capabilities</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/feedback.html">Feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nem2-docs</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Setting up your workstation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/getting-started/setup-workstation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="setting-up-your-workstation">
+<h1>Setting up your workstation<a class="headerlink" href="#setting-up-your-workstation" title="Permalink to this headline">¶</a></h1>
+<p>This guide will walk you through the installation step-by-step, by showing you how to use the tools to start developing with NEM Catapult.</p>
+<div class="section" id="create-a-test-account">
+<h2>Create a test account<a class="headerlink" href="#create-a-test-account" title="Permalink to this headline">¶</a></h2>
+<p>An account is a key pair (private and public key) associated to a mutable state stored on the NEM blockchain. Simply put, you have a deposit box on the blockchain, which only you can modify with your key pair. As the name suggests, the private key has to be kept secret at all times. Anyone with access to the private key, ultimately has control over the account.</p>
+<p>The <strong>public key</strong> is cryptographically derived from the private key. It would take millions of years to do the reverse process and therefore, the public key is safe to be shared.</p>
+<p>Finally, the account address is generated with the public key, following the NEM Blockchain protocol. It is better to share this address than just the public key, as it contains more information, such as a validity check and which network it uses (public, private or testnet).</p>
+<p><a class="reference internal" href="../cli/overview.html"><span class="doc">NEM2-CLI</span></a> conveniently allows you to perform the most commonly used commands from your terminal i.e. using it to interact with the blockchain, setting up an account and sending funds, etc.</p>
+<p>Install NEM2-CLI using <code class="docutils literal"><span class="pre">npm</span></code>.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; npm i -g nem2-cli
+</pre></div>
+</div>
+<p>Create an account with the command line tool.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account generate --network MIJIN_TEST --save --url http://localhost:3000/
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">network</span> <span class="pre">flag</span></code> is set to MIJIN_TEST. Test network is an alternative NEM blockchain used for development and testing purposes.</p>
+<p>Use <code class="docutils literal"><span class="pre">save</span> <span class="pre">flag</span></code> to store the account in your computer. NEM2-CLI uses stored account to sign transactions you start.</p>
+<p>You should be able to see the following lines in your terminal, containing the account credentials:</p>
+<blockquote>
+<div><p>New Account:    SCVG35-ZSPMYP-L2POZQ-JGSVEG-RYOJ3V-BNIU3U-N2E6</p>
+<p>Public Key:     33E0…6ED</p>
+<p>Private Key:    0168…595</p>
+</div></blockquote>
+</div>
+<div class="section" id="what-is-xem-and-how-to-get-it">
+<h2>What is XEM and how to get it?<a class="headerlink" href="#what-is-xem-and-how-to-get-it" title="Permalink to this headline">¶</a></h2>
+<p>The underlying cryptocurrency of the NEM network is called <strong>XEM</strong>. Every action on the NEM blockchain costs XEM, in order to provide an incentive for those who validate and secure the network.</p>
+<p>Once you have created an account, ask for some XEM from our faucet, by simply sharing your address.</p>
+<p>XEM will appear in your account’s balance after the transaction is confirmed by the network.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">There is a bot listening to requests. It might be occasionally offline. Please contact support if the problem persists.</p>
+</div>
+</div>
+<div class="section" id="set-up-the-development-environment">
+<span id="setup-development-environment"></span><h2>Set up the development environment<a class="headerlink" href="#set-up-the-development-environment" title="Permalink to this headline">¶</a></h2>
+<p>By that time, you should have created an account and have received some XEM. Then it is time to choose a programming language. Pick the one you feel most comfortable with, or just follow project requirements.</p>
+<p>Afterwards, create a folder for your new project and run the instructions for the selected language.</p>
+<div class="section" id="typescript-javascript">
+<h3>TypeScript/JavaScript<a class="headerlink" href="#typescript-javascript" title="Permalink to this headline">¶</a></h3>
+<p>Create a <code class="docutils literal"><span class="pre">package.json</span></code> file and check the npm repository for the latest updates. The minimum required Node.js version is 8.9.X.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; npm install nem2-sdk rxjs --save
+</pre></div>
+</div>
+<p><a class="reference internal" href="../sdk/overview.html"><span class="doc">nem2-sdk</span></a> is build with TypeScript language.</p>
+<p>It is recommended to use <strong>TypeScript instead of JavaScript</strong> when building applications for NEM blockchain.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; npm install -g typescript
+</pre></div>
+</div>
+<p>Make sure you have at least version 2.5.X installed.</p>
+<p>Use <a class="reference external" href="https://www.npmjs.com/package/ts-node">ts-node</a> to execute TypeScript files with node.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; npm install -g ts-node
+</pre></div>
+</div>
+<p>If you want to use javascript directly, you can execute node to run js files.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="first-application.html" class="btn btn-neutral float-right" title="Writing your first application" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="NEM Developer Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, NEM.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'Master',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/examplecode.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
