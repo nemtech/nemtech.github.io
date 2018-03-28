@@ -167,7 +167,6 @@
 </ul>
 <p class="caption"><span class="caption-text">Support</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../support/feedback.html">Feedback</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing</a></li>
 </ul>
 
@@ -261,7 +260,7 @@
 <p><strong>Deadline</strong></p>
 <p>The maximum amount of time to include the transaction in the blockchain.</p>
 <p><strong>Fee</strong></p>
-<p>How many XEM costs announcing the transaction. The higher the fee, the higher the priority of the transaction. Transactions with high priority get included in a block before transactions with lower priority.</p>
+<p>How many XEM costs announcing the transaction.</p>
 <p><strong>Signature</strong></p>
 <p>The transaction signature.</p>
 <p><strong>Signer</strong></p>
@@ -323,7 +322,7 @@
 <p>Mosaic supply change transaction is used to assign supply to a <a class="reference internal" href="mosaic.html"><span class="doc">mosaic</span></a>.</p>
 <blockquote>
 <div><p><strong>Mosaic Id</strong></p>
-<p>Combination of namepsace name and mosaic name. For example “foo.bar:token”.</p>
+<p>Combination of namespace name and mosaic name. For example “foo.bar:token”.</p>
 <p><strong>Direction</strong></p>
 <p>Could be Increase (0) or Decrease (1).</p>
 <p><strong>Delta</strong></p>
@@ -403,10 +402,10 @@
 <span id="id9"></span><h3>Lock funds transaction<a class="headerlink" href="#lock-funds-transaction" title="Permalink to this headline">¶</a></h3>
 <p>Announce a lock funds transaction before sending an <a class="reference internal" href="#aggregate-transaction"><span class="std std-ref">announced aggregate bonded transactions</span></a>.</p>
 <p>Once the related aggregate bonded transaction is confirmed, funds locked become available again in the account that signed the initial lock funds transaction.</p>
-<p>If the aggregate bonded transaction duration is reached without being signed by all cosignatories, the locked amount is collected by the block harvester at the height where the lock expires.</p>
+<p>If the aggregate bonded transaction deadline is reached without being signed by all cosignatories, the locked amount is collected by the block harvester at the height where the lock expires.</p>
 <blockquote>
 <div><p><strong>Mosaic</strong></p>
-<p>Locked mosaic.</p>
+<p>Locked mosaic, must be at least <code class="docutils literal"><span class="pre">10</span> <span class="pre">nem:xem`</span></code>.</p>
 <p><strong>Duration</strong></p>
 <p>The funds lock duration.</p>
 <p><strong>Hash</strong></p>
@@ -418,7 +417,7 @@
 <p>Use secret lock transaction to send mosaics to a recipient once an account discovers an attached secret message, known as <em>proof</em>.</p>
 <p>Once announced, the specified mosaics are locked at blockchain level using the <em>hashed secret</em> message.</p>
 <p>Funds are unlocked and transferred when an account announces a  valid <a class="reference internal" href="#secret-proof-transaction"><span class="std std-ref">Secret Proof Transaction</span></a>. The account should demonstrate that knows the <em>proof</em> that unlocks the transaction. That means applying <code class="docutils literal"><span class="pre">hashing</span> <span class="pre">algorithm</span></code> to <code class="docutils literal"><span class="pre">proof</span></code> and obtaining hashed <code class="docutils literal"><span class="pre">secret</span></code> message.</p>
-<p>If the transaction duration is reached and not proved, the locked amount is returned to the initiator of the lock funds transaction.</p>
+<p>If the transaction duration is reached and not proved, the locked amount is returned to the initiator of the secret lock transaction.</p>
 <div class="figure align-center" id="id17">
 <img alt="../_images/guides-transactions-atomic-cross-chain-swap.png" src="../_images/guides-transactions-atomic-cross-chain-swap.png" />
 <p class="caption"><span class="caption-text">Atomic cross-chain trading between public and private network</span></p>
