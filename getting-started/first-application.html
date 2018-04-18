@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                0.9.1
+                0.9.2
               </div>
             
           
@@ -248,12 +248,16 @@
 <div><p>New Account: SCVG35-ZSPMYP-L2POZQ-JGSVEG-RYOJ3V-BNIU3U-N2E6</p>
 <p>[…]</p>
 <p>Mosaics</p>
-<p>3628d0b327fb1dd8:       1000000.00</p>
+<p>3628d0b327fb1dd8:       1000000</p>
 </div></blockquote>
-<p>Our account owns 1000000.00 XEM. If your row after mosaics is empty, try to <a class="reference internal" href="setup-workstation.html"><span class="doc">ask for some XEM again</span></a>.</p>
+<p>Our account owns 1.000.000 XEM. If your row after mosaics is empty, try to <a class="reference internal" href="setup-workstation.html"><span class="doc">ask for some XEM again</span></a>.</p>
 <p><strong>Monitoring the blockchain</strong></p>
 <p>It is advisable to see what happens when sending and receiving transactions to the blockchain.</p>
-<p>We suggest opening two new terminals, and type the following commands:</p>
+<p>We suggest opening three new terminals, and type the following commands:</p>
+<p>The first terminal <a class="reference internal" href="../guides/blockchain.html#guide-debugging-transactions"><span class="std std-ref">monitors account transactions</span></a> validation errors.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor status
+</pre></div>
+</div>
 <p>Monitoring <code class="docutils literal"><span class="pre">unconfirmed</span></code> shows you in real-time which transactions have reached the network, but are not valid yet.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor unconfirmed
 </pre></div>
@@ -271,7 +275,7 @@
 </div>
 <p>Is the namespace available? Try to register it before someone else does it!</p>
 <p>To register a new namespace, you should specify a namespace name and its renting duration.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction namespace --name foo --rootnamespace --duration 10000
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction namespace --name foo --rootnamespace --duration 1000
 </pre></div>
 </div>
 <p>Did you check what happened in terminals where you are monitoring your account transactions? The transaction first appeared in <code class="docutils literal"><span class="pre">unconfirmedTransaction</span></code> and when confirmed in <code class="docutils literal"><span class="pre">confirmedTransaction</span></code>.</p>
@@ -280,7 +284,7 @@
 <p>Mosaics can be used to create cryptocurrencies but also to represent any asset in the blockchain such as objects, tickets, coupons and even stock share representation. Possibilities are endless!</p>
 <p>The first step is to choose a name for your mosaic. The name of the mosaic, up to a size limit of <code class="docutils literal"><span class="pre">64</span></code> characters, must be unique under the domain name.</p>
 <p>Our mosaic will be called <code class="docutils literal"><span class="pre">token</span></code>, and its parent namespace will be <code class="docutils literal"><span class="pre">foo</span></code>, with a total supply of <code class="docutils literal"><span class="pre">1.000.000</span></code>.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction mosaic --mosaicname token --namespacename foo --amount <span class="m">1000000</span> --transferable --supplymutable --divisibility <span class="m">0</span> --duration  100000
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction mosaic --mosaicname token --namespacename foo --amount <span class="m">1000000</span> --transferable --supplymutable --divisibility <span class="m">0</span> --duration 1000
 </pre></div>
 </div>
 <p><strong>Send your first transfer transaction</strong></p>
@@ -303,7 +307,7 @@
     <span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="s1">&#39;SC7A4H-7CYCSH-4CP4XI-ZS4G2G-CDZ7JP-PR5FRG-2VBU&#39;</span><span class="p">),</span>
     <span class="p">[</span><span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span><span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;foo:token&#39;</span><span class="p">),</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">10</span><span class="p">))],</span>
     <span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;my first transfer transaction!&#39;</span><span class="p">),</span>
-    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">,</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span>
 <span class="p">);</span>
 </pre></div>
 </div>
@@ -347,7 +351,7 @@
     <span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="s1">&#39;SC7A4H-7CYCSH-4CP4XI-ZS4G2G-CDZ7JP-PR5FRG-2VBU&#39;</span><span class="p">),</span>
     <span class="p">[</span><span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span><span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;foo:token&#39;</span><span class="p">),</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">10</span><span class="p">))],</span>
     <span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;my first transfer transaction!&#39;</span><span class="p">),</span>
-    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">,</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span>
 <span class="p">);</span>
 </pre></div>
 </div>

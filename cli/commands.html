@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                0.9.1
+                0.9.2
               </div>
             
           
@@ -152,12 +152,13 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#transaction">Transaction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cosign-aggregate-bonded-transaction">Cosign aggregate bonded transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transaction-info">Transaction info</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#send-transfer-transaction">Send transfer transaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#send-pull-transaction">Send pull transaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#register-root-namespace">Register root namespace</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#register-subnamespace">Register subnamespace</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#create-a-mosaic">Create a mosaic</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#transaction-info">Transaction info</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#namespace">Namespace</a><ul>
@@ -419,6 +420,30 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 <div class="section" id="transaction">
 <h2>Transaction<a class="headerlink" href="#transaction" title="Permalink to this headline">¶</a></h2>
 <p>Transactions are signed with the profiles configured with <code class="docutils literal"><span class="pre">nem2-cli</span> <span class="pre">profile</span> <span class="pre">create</span></code>.</p>
+<div class="section" id="cosign-aggregate-bonded-transaction">
+<h3>Cosign aggregate bonded transaction<a class="headerlink" href="#cosign-aggregate-bonded-transaction" title="Permalink to this headline">¶</a></h3>
+<p>Cosign and announce an <a class="reference internal" href="../concepts/transaction.html#aggregate-transaction"><span class="std std-ref">aggregate bonded transaction</span></a>.</p>
+<p>Options</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-h, --hash &lt;hash&gt;       - Aggregate bonded transaction <span class="nb">hash</span> to be signed
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction cosign --hash AF92D0A1DC40F786DF455A54F3754E6ACBCEC1B590646404B5ACC85403A92690
+</pre></div>
+</div>
+</div>
+<div class="section" id="transaction-info">
+<h3>Transaction info<a class="headerlink" href="#transaction-info" title="Permalink to this headline">¶</a></h3>
+<p>Gets a <a class="reference internal" href="../concepts/transaction.html"><span class="doc">transaction</span></a> by its ID.</p>
+<p>Options</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-h, --hash &lt;hash&gt;       - Transaction <span class="nb">hash</span>
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction info --hash AF92D0A1DC40F786DF455A54F3754E6ACBCEC1B590646404B5ACC85403A92690
+</pre></div>
+</div>
+</div>
 <div class="section" id="send-transfer-transaction">
 <h3>Send transfer transaction<a class="headerlink" href="#send-transfer-transaction" title="Permalink to this headline">¶</a></h3>
 <p>Send a <a class="reference internal" href="../concepts/transaction.html#transfer-transaction"><span class="std std-ref">transfer transaction</span></a> to an account exchanging value and/or data. For this transaction provide recipient, message and <a class="reference internal" href="../concepts/mosaic.html"><span class="doc">mosaics</span></a>.</p>
@@ -493,18 +518,6 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 </div>
 <p>Command</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction mosaic --mosaicname token --namespacename new-namespace --amount <span class="m">1000000</span> --transferable --supplymutable --divisibility <span class="m">0</span> --duration  100000
-</pre></div>
-</div>
-</div>
-<div class="section" id="transaction-info">
-<h3>Transaction info<a class="headerlink" href="#transaction-info" title="Permalink to this headline">¶</a></h3>
-<p>Gets a <a class="reference internal" href="../concepts/transaction.html"><span class="doc">transaction</span></a> by its ID.</p>
-<p>Options</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>-h, --hash &lt;hash&gt;       - Transaction <span class="nb">hash</span>
-</pre></div>
-</div>
-<p>Command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction info --hash AF92D0A1DC40F786DF455A54F3754E6ACBCEC1B590646404B5ACC85403A92690
 </pre></div>
 </div>
 </div>
