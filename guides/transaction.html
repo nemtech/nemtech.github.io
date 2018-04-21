@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                0.9.2
+                0.9.3
               </div>
             
           
@@ -379,10 +379,8 @@
 <div class="example-code container">
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 
-<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
-    <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
-    <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-<span class="p">);</span>
+<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
+    <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 </pre></div>
 </div>
 <div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="kd">final</span> <span class="n">TransactionHttp</span> <span class="n">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TransactionHttp</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
@@ -392,10 +390,8 @@
 </div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 
-<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
-    <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
-    <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-<span class="p">);</span>
+<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
+    <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 </pre></div>
 </div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span> nem2-cli transaction transfer --recipient SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54 --mosaics nem:xem::10000000 --message <span class="s2">&quot;Welcome to NEM&quot;</span>
@@ -495,6 +491,8 @@
         <span class="kd">final</span> <span class="n">String</span> <span class="n">recipientAddress</span> <span class="o">=</span> <span class="s">&quot;SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54&quot;</span><span class="o">;</span>
 
         <span class="kd">final</span> <span class="n">Account</span> <span class="n">cosignatoryAccount</span> <span class="o">=</span> <span class="n">Account</span><span class="o">.</span><span class="na">createFromPrivateKey</span><span class="o">(</span><span class="n">cosignatoryPrivateKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
+
+        <span class="kd">final</span> <span class="n">PublicAccount</span> <span class="n">multisigPublicAccount</span> <span class="o">=</span> <span class="n">PublicAccount</span><span class="o">.</span><span class="na">createFromPublicKey</span><span class="o">(</span><span class="n">multisigAccountPublicKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
 </pre></div>
 </div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// Replace with the cosignatory private key</span>
@@ -519,7 +517,7 @@
 <li>Mosaics: [10 XEM]</li>
 </ul>
 <div class="example-code container">
-<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transferTransaction</span><span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transferTransaction</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="nx">recipientAddress</span><span class="p">),</span>
     <span class="p">[</span><span class="nx">XEM</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">10</span><span class="p">)],</span>
@@ -537,7 +535,7 @@
         <span class="o">);</span>
 </pre></div>
 </div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transferTransaction</span><span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transferTransaction</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="nx">recipientAddress</span><span class="p">),</span>
     <span class="p">[</span><span class="nx">XEM</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">10</span><span class="p">)],</span>
@@ -583,40 +581,28 @@
 </div>
 <p>Then, he signs and announces the transaction.</p>
 <div class="example-code container">
-<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="c1">//Signing the aggregate transaction</span>
-<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">);</span>
-
-<span class="c1">//Creating the lock funds transaction and announce it</span>
-
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 
-
-<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
-    <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
-    <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-<span class="p">);</span>
+<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
+    <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 </pre></div>
 </div>
 <div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="kd">final</span> <span class="n">SignedTransaction</span> <span class="n">aggregateSignedTransaction</span> <span class="o">=</span> <span class="n">cosignatoryAccount</span><span class="o">.</span><span class="na">sign</span><span class="o">(</span><span class="n">aggregateTransaction</span><span class="o">);</span>
 
 
         <span class="kd">final</span> <span class="n">TransactionHttp</span> <span class="n">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TransactionHttp</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
+
+        <span class="n">transactionHttp</span><span class="o">.</span><span class="na">announce</span><span class="o">(</span><span class="n">aggregateSignedTransaction</span><span class="o">).</span><span class="na">toFuture</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
 </pre></div>
 </div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">//Signing the aggregate transaction</span>
-<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">);</span>
-
-<span class="c1">//Creating the lock funds transaction and announce it</span>
-
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 
-
-<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
-    <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
-    <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-<span class="p">);</span>
+<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
+    <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 </pre></div>
 </div>
 </div>
@@ -687,20 +673,14 @@
 
 <span class="nx">listener</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
 
-    <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">lockFundsTransactionSigned</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
-        <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
-        <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-    <span class="p">);</span>
+    <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">lockFundsTransactionSigned</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
+        <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 
     <span class="nx">listener</span><span class="p">.</span><span class="nx">confirmed</span><span class="p">(</span><span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">)</span>
         <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">transaction</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span> <span class="o">!==</span> <span class="kc">undefined</span>
             <span class="o">&amp;&amp;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span><span class="p">.</span><span class="nx">hash</span> <span class="o">===</span> <span class="nx">lockFundsTransactionSigned</span><span class="p">.</span><span class="nx">hash</span><span class="p">)</span>
-        <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">ignored</span> <span class="o">=&gt;</span> <span class="p">{</span>
-                <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBonded</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
-                    <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
-                    <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-                <span class="p">);</span>
-            <span class="p">},</span>
+        <span class="p">.</span><span class="nx">flatMap</span><span class="p">(</span><span class="nx">ignored</span> <span class="o">=&gt;</span> <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBonded</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">))</span>
+        <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">announcedAggregateBonded</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">announcedAggregateBonded</span><span class="p">),</span>
             <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 <span class="p">});</span>
 </pre></div>
@@ -757,20 +737,14 @@
 
 <span class="nx">listener</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
 
-    <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">lockFundsTransactionSigned</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
-        <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
-        <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-    <span class="p">);</span>
+    <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">lockFundsTransactionSigned</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
+        <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 
     <span class="nx">listener</span><span class="p">.</span><span class="nx">confirmed</span><span class="p">(</span><span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">)</span>
         <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">transaction</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span> <span class="o">!==</span> <span class="kc">undefined</span>
             <span class="o">&amp;&amp;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span><span class="p">.</span><span class="nx">hash</span> <span class="o">===</span> <span class="nx">lockFundsTransactionSigned</span><span class="p">.</span><span class="nx">hash</span><span class="p">)</span>
-        <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">ignored</span> <span class="o">=&gt;</span> <span class="p">{</span>
-                <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBonded</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
-                    <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
-                    <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-                <span class="p">);</span>
-            <span class="p">},</span>
+        <span class="p">.</span><span class="nx">flatMap</span><span class="p">(</span><span class="nx">ignored</span> <span class="o">=&gt;</span> <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBonded</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">))</span>
+        <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">announcedAggregateBonded</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">announcedAggregateBonded</span><span class="p">),</span>
             <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 <span class="p">});</span>
 </pre></div>
@@ -903,10 +877,8 @@
 
 <span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">);</span>
 
-<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
-    <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
-    <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-<span class="p">);</span>
+<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
+        <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 </pre></div>
 </div>
 <div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="kd">final</span> <span class="n">TransactionHttp</span> <span class="n">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TransactionHttp</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
@@ -920,10 +892,8 @@
 
 <span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">);</span>
 
-<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
-    <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
-    <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-<span class="p">);</span>
+<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
+        <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 </pre></div>
 </div>
 </div>
@@ -1149,20 +1119,14 @@
 
 <span class="nx">listener</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
 
-    <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">lockFundsTransactionSigned</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
-        <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
-        <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-    <span class="p">);</span>
+    <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">lockFundsTransactionSigned</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
+        <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 
     <span class="nx">listener</span><span class="p">.</span><span class="nx">confirmed</span><span class="p">(</span><span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">)</span>
         <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">transaction</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span> <span class="o">!==</span> <span class="kc">undefined</span>
             <span class="o">&amp;&amp;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span><span class="p">.</span><span class="nx">hash</span> <span class="o">===</span> <span class="nx">lockFundsTransactionSigned</span><span class="p">.</span><span class="nx">hash</span><span class="p">)</span>
-        <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">ignored</span> <span class="o">=&gt;</span> <span class="p">{</span>
-                <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBonded</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
-                    <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
-                    <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-                <span class="p">);</span>
-            <span class="p">},</span>
+        <span class="p">.</span><span class="nx">flatMap</span><span class="p">(</span><span class="nx">ignored</span> <span class="o">=&gt;</span> <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBonded</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">))</span>
+        <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">announcedAggregateBonded</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">announcedAggregateBonded</span><span class="p">),</span>
             <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 <span class="p">});</span>
 </pre></div>
@@ -1212,20 +1176,14 @@
 
 <span class="nx">listener</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
 
-    <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">lockFundsTransactionSigned</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
-        <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
-        <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-    <span class="p">);</span>
+    <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">lockFundsTransactionSigned</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
+        <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 
     <span class="nx">listener</span><span class="p">.</span><span class="nx">confirmed</span><span class="p">(</span><span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">)</span>
         <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">transaction</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span> <span class="o">!==</span> <span class="kc">undefined</span>
             <span class="o">&amp;&amp;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span><span class="p">.</span><span class="nx">hash</span> <span class="o">===</span> <span class="nx">lockFundsTransactionSigned</span><span class="p">.</span><span class="nx">hash</span><span class="p">)</span>
-        <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">ignored</span> <span class="o">=&gt;</span> <span class="p">{</span>
-                <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBonded</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
-                    <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
-                    <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-                <span class="p">);</span>
-            <span class="p">},</span>
+        <span class="p">.</span><span class="nx">flatMap</span><span class="p">(</span><span class="nx">ignored</span> <span class="o">=&gt;</span> <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBonded</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">))</span>
+        <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">announcedAggregateBonded</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">announcedAggregateBonded</span><span class="p">),</span>
             <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 <span class="p">});</span>
 </pre></div>
@@ -1395,18 +1353,13 @@
 
     <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">lockFundsTransactionSigned</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
         <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
-        <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-    <span class="p">);</span>
+        <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 
     <span class="nx">listener</span><span class="p">.</span><span class="nx">confirmed</span><span class="p">(</span><span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">)</span>
         <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">transaction</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span> <span class="o">!==</span> <span class="kc">undefined</span>
             <span class="o">&amp;&amp;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span><span class="p">.</span><span class="nx">hash</span> <span class="o">===</span> <span class="nx">lockFundsTransactionSigned</span><span class="p">.</span><span class="nx">hash</span><span class="p">)</span>
-        <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">ignored</span> <span class="o">=&gt;</span> <span class="p">{</span>
-                <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBonded</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
-                    <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
-                    <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-                <span class="p">);</span>
-            <span class="p">},</span>
+        <span class="p">.</span><span class="nx">flatMap</span><span class="p">(</span><span class="nx">ignored</span> <span class="o">=&gt;</span> <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBonded</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">))</span>
+        <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">announcedAggregateBonded</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">announcedAggregateBonded</span><span class="p">),</span>
             <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 <span class="p">});</span>
 </pre></div>
@@ -1459,18 +1412,13 @@
 
     <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">lockFundsTransactionSigned</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
         <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
-        <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-    <span class="p">);</span>
+        <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 
     <span class="nx">listener</span><span class="p">.</span><span class="nx">confirmed</span><span class="p">(</span><span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">)</span>
         <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">transaction</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span> <span class="o">!==</span> <span class="kc">undefined</span>
             <span class="o">&amp;&amp;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span><span class="p">.</span><span class="nx">hash</span> <span class="o">===</span> <span class="nx">lockFundsTransactionSigned</span><span class="p">.</span><span class="nx">hash</span><span class="p">)</span>
-        <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">ignored</span> <span class="o">=&gt;</span> <span class="p">{</span>
-                <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBonded</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
-                    <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
-                    <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-                <span class="p">);</span>
-            <span class="p">},</span>
+        <span class="p">.</span><span class="nx">flatMap</span><span class="p">(</span><span class="nx">ignored</span> <span class="o">=&gt;</span> <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBonded</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">))</span>
+        <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">announcedAggregateBonded</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">announcedAggregateBonded</span><span class="p">),</span>
             <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 <span class="p">});</span>
 </pre></div>
@@ -1501,19 +1449,44 @@
 </div>
 <div class="section" id="id16">
 <h3>Let’s get into some code<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
-<p>Fetch all aggregate bonded transactions that require being signed by your account.</p>
+<p>Create a function to cosign any aggregate bonded transaction.</p>
 <div class="example-code container">
-<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="c1">// Replace with a private key</span>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">cosignAggregateBondedTransaction</span> <span class="o">=</span> <span class="p">(</span><span class="nx">transaction</span>:<span class="kt">AggregateTransaction</span><span class="p">,</span> <span class="nx">account</span>: <span class="kt">Account</span><span class="p">)</span> <span class="o">:</span> <span class="nx">CosignatureSignedTransaction</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">cosignatureTransaction</span> <span class="o">=</span> <span class="nx">CosignatureTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">transaction</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">account</span><span class="p">.</span><span class="nx">signCosignatureTransaction</span><span class="p">(</span><span class="nx">cosignatureTransaction</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">cosignAggregateBondedTransaction</span> <span class="o">=</span> <span class="p">(</span><span class="nx">transaction</span><span class="p">,</span> <span class="nx">account</span><span class="p">)</span>  <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">cosignatureTransaction</span> <span class="o">=</span> <span class="nx">CosignatureTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">transaction</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">account</span><span class="p">.</span><span class="nx">signCosignatureTransaction</span><span class="p">(</span><span class="nx">cosignatureTransaction</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<p>Fetch all aggregate bonded transactions pending to be signed by your account.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To fetch aggregate bonded transactions that should be signed by multisig cosignatories, refer to the multisig public key instead. See <a class="reference internal" href="account.html#guide-get-multisig-account-info"><span class="std std-ref">how to get multisig accounts where an account is cosignatory</span></a>.</p>
+</div>
+<p>For each transaction, check if you have not already signed it. Cosign each pending transaction using the previously created function.</p>
+<p>Did you realise that we are using RxJS operators intensively? Announce <code class="docutils literal"><span class="pre">CosignatureSignedTransaction</span></code> to the network using the <code class="docutils literal"><span class="pre">TransactionHttp</span></code> repository.</p>
+<div class="example-code container">
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="c1">// Replace with private key</span>
 <span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
 
 <span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">accountHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AccountHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 
+
 <span class="nx">accountHttp</span><span class="p">.</span><span class="nx">aggregateBondedTransactions</span><span class="p">(</span><span class="nx">account</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">flatMap</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">_</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="o">!</span><span class="nx">_</span><span class="p">.</span><span class="nx">signedByAccount</span><span class="p">(</span><span class="nx">account</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">))</span>
-    <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">transaction</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">transaction</span> <span class="o">=&gt;</span> <span class="nx">cosignAggregateBondedTransaction</span><span class="p">(</span><span class="nx">transaction</span><span class="p">,</span> <span class="nx">account</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">flatMap</span><span class="p">(</span><span class="nx">cosignatureSignedTransaction</span> <span class="o">=&gt;</span> <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBondedCosignature</span><span class="p">(</span><span class="nx">cosignatureSignedTransaction</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">announcedTransaction</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">announcedTransaction</span><span class="p">),</span>
+        <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 </pre></div>
 </div>
 <div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="c1">// Replace with a private key</span>
@@ -1528,69 +1501,32 @@
         <span class="n">accountHttp</span><span class="o">.</span><span class="na">aggregateBondedTransactions</span><span class="o">(</span><span class="n">account</span><span class="o">.</span><span class="na">getPublicAccount</span><span class="o">())</span>
                 <span class="o">.</span><span class="na">flatMapIterable</span><span class="o">(</span><span class="n">tx</span> <span class="o">-&gt;</span> <span class="n">tx</span><span class="o">)</span> <span class="c1">// Transform transaction array to single transactions to process them</span>
                 <span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">tx</span> <span class="o">-&gt;</span> <span class="o">!</span><span class="n">tx</span><span class="o">.</span><span class="na">signedByAccount</span><span class="o">(</span><span class="n">account</span><span class="o">.</span><span class="na">getPublicAccount</span><span class="o">()))</span>
+                <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">tx</span> <span class="o">-&gt;</span> <span class="o">{</span>
+                  <span class="kd">final</span> <span class="n">CosignatureTransaction</span> <span class="n">cosignatureTransaction</span> <span class="o">=</span> <span class="n">CosignatureTransaction</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">tx</span><span class="o">);</span>
+
+                  <span class="kd">final</span> <span class="n">CosignatureSignedTransaction</span> <span class="n">cosignatureSignedTransaction</span> <span class="o">=</span> <span class="n">account</span><span class="o">.</span><span class="na">signCosignatureTransaction</span><span class="o">(</span><span class="n">cosignatureTransaction</span><span class="o">);</span>
+
+                  <span class="k">return</span> <span class="n">transactionHttp</span><span class="o">.</span><span class="na">announceAggregateBondedCosignature</span><span class="o">(</span><span class="n">cosignatureSignedTransaction</span><span class="o">).</span><span class="na">toFuture</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
+                <span class="o">})</span>
+                <span class="o">.</span><span class="na">toFuture</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">get</span><span class="o">();</span>
 </pre></div>
 </div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// Replace with a private key</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// Replace with private key</span>
 <span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span><span class="p">;</span>
 
 <span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">accountHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AccountHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 
+
 <span class="nx">accountHttp</span><span class="p">.</span><span class="nx">aggregateBondedTransactions</span><span class="p">(</span><span class="nx">account</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">flatMap</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">_</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="o">!</span><span class="nx">_</span><span class="p">.</span><span class="nx">signedByAccount</span><span class="p">(</span><span class="nx">account</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">))</span>
-    <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">transaction</span> <span class="o">=&gt;</span> <span class="p">{</span>
-</pre></div>
-</div>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">To fetch aggregate bonded transactions that should be signed by multisig cosignatories, refer to the multisig public key instead. See <a class="reference internal" href="account.html#guide-get-multisig-account-info"><span class="std std-ref">how to get multisig accounts where an account is cosignatory</span></a>.</p>
-</div>
-<p>For each aggregate bonded transaction that you want to sign, create a <a class="reference internal" href="../concepts/transaction.html#cosignature-transaction"><span class="std std-ref">cosignature transaction</span></a> with it.</p>
-<div class="example-code container">
-<div class="highlight-typescript"><div class="highlight"><pre><span></span>            <span class="kr">const</span> <span class="nx">cosignatureTransaction</span> <span class="o">=</span> <span class="nx">CosignatureTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">transaction</span><span class="p">);</span>
-</pre></div>
-</div>
-<div class="highlight-java"><div class="highlight"><pre><span></span>                  <span class="kd">final</span> <span class="n">CosignatureTransaction</span> <span class="n">cosignatureTransaction</span> <span class="o">=</span> <span class="n">CosignatureTransaction</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">tx</span><span class="o">);</span>
-</pre></div>
-</div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span>            <span class="kr">const</span> <span class="nx">cosignatureTransaction</span> <span class="o">=</span> <span class="nx">CosignatureTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">transaction</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<p>Sign the transaction using your account.</p>
-<div class="example-code container">
-<div class="highlight-typescript"><div class="highlight"><pre><span></span>            <span class="kr">const</span> <span class="nx">cosignatureSignedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">signCosignatureTransaction</span><span class="p">(</span><span class="nx">cosignatureTransaction</span><span class="p">);</span>
-</pre></div>
-</div>
-<div class="highlight-java"><div class="highlight"><pre><span></span>                  <span class="kd">final</span> <span class="n">CosignatureSignedTransaction</span> <span class="n">cosignatureSignedTransaction</span> <span class="o">=</span> <span class="n">account</span><span class="o">.</span><span class="na">signCosignatureTransaction</span><span class="o">(</span><span class="n">cosignatureTransaction</span><span class="o">);</span>
-</pre></div>
-</div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span>            <span class="kr">const</span> <span class="nx">cosignatureSignedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">signCosignatureTransaction</span><span class="p">(</span><span class="nx">cosignatureTransaction</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<p>And announce the <code class="docutils literal"><span class="pre">CosignatureSignedTransaction</span></code> to the network using the <code class="docutils literal"><span class="pre">TransactionHttp</span></code> repository.</p>
-<div class="example-code container">
-<div class="highlight-typescript"><div class="highlight"><pre><span></span>            <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBondedCosignature</span><span class="p">(</span><span class="nx">cosignatureSignedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
-                <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
-                <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-            <span class="p">);</span>
-        <span class="p">},</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-    <span class="p">);</span>
-</pre></div>
-</div>
-<div class="highlight-java"><div class="highlight"><pre><span></span>                  <span class="k">return</span> <span class="n">transactionHttp</span><span class="o">.</span><span class="na">announceAggregateBondedCosignature</span><span class="o">(</span><span class="n">cosignatureSignedTransaction</span><span class="o">).</span><span class="na">toFuture</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
-</pre></div>
-</div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span>            <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBondedCosignature</span><span class="p">(</span><span class="nx">cosignatureSignedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
-                <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
-                <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-            <span class="p">);</span>
-        <span class="p">},</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-    <span class="p">);</span>
+    <span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">transaction</span> <span class="o">=&gt;</span> <span class="nx">cosignAggregateBondedTransaction</span><span class="p">(</span><span class="nx">transaction</span><span class="p">,</span> <span class="nx">account</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">flatMap</span><span class="p">(</span><span class="nx">cosignatureSignedTransaction</span> <span class="o">=&gt;</span> <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBondedCosignature</span><span class="p">(</span><span class="nx">cosignatureSignedTransaction</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">announcedTransaction</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">announcedTransaction</span><span class="p">),</span>
+        <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 </pre></div>
 </div>
 </div>
@@ -1598,8 +1534,8 @@
 </div>
 <div class="section" id="signing-announced-aggregate-bonded-transactions-automatically">
 <span id="guide-signing-announced-aggregate-bonded-transactions-automatically"></span><h2>Signing announced aggregate bonded transactions automatically<a class="headerlink" href="#signing-announced-aggregate-bonded-transactions-automatically" title="Permalink to this headline">¶</a></h2>
-<p>Following this guide, you will create an application to sign  <a class="reference internal" href="../concepts/transaction.html#aggregate-transaction"><span class="std std-ref">aggregate bonded transactions</span></a> automatically.</p>
-<p>The app will be notified every time a new aggregate bonded transaction is sent to your account, sign the transaction and send it to the network.</p>
+<p>Following this guide, you will create an application that is notified every time your account receives a transaction pending to be cosigned.</p>
+<p>Automatically, the app will cosign the transaction and announce it to the network.</p>
 <div class="section" id="id17">
 <h3>Prerequisites<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -1612,96 +1548,93 @@
 </div>
 <div class="section" id="id18">
 <h3>Let’s get into some code<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
-<p>Create a new listener to get notified every time a new aggregate bonded transaction is sent to your account.</p>
+<p>Create a function to cosign any aggregate bonded transaction.</p>
 <div class="example-code container">
-<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Listener</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">cosignAggregateBondedTransaction</span> <span class="o">=</span> <span class="p">(</span><span class="nx">transaction</span>:<span class="kt">AggregateTransaction</span><span class="p">,</span> <span class="nx">account</span>: <span class="kt">Account</span><span class="p">)</span> <span class="o">:</span> <span class="nx">CosignatureSignedTransaction</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">cosignatureTransaction</span> <span class="o">=</span> <span class="nx">CosignatureTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">transaction</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">account</span><span class="p">.</span><span class="nx">signCosignatureTransaction</span><span class="p">(</span><span class="nx">cosignatureTransaction</span><span class="p">);</span>
+<span class="p">};</span>
 </pre></div>
 </div>
-<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="kd">final</span> <span class="n">Listener</span> <span class="n">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Listener</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">cosignAggregateBondedTransaction</span> <span class="o">=</span> <span class="p">(</span><span class="nx">transaction</span><span class="p">,</span> <span class="nx">account</span><span class="p">)</span>  <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">cosignatureTransaction</span> <span class="o">=</span> <span class="nx">CosignatureTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">transaction</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">account</span><span class="p">.</span><span class="nx">signCosignatureTransaction</span><span class="p">(</span><span class="nx">cosignatureTransaction</span><span class="p">);</span>
+<span class="p">};</span>
 </pre></div>
 </div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Listener</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
-</pre></div>
 </div>
-</div>
+<p>Create a new listener to get notified every time a new aggregate bonded transaction requires the signature of your account.</p>
 <p>Open the connection. You only need to open the connection once and then connect to all desired channels.</p>
-<div class="example-code container">
-<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="nx">listener</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-</pre></div>
-</div>
-<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="n">listener</span><span class="o">.</span><span class="na">open</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
-</pre></div>
-</div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">listener</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-</pre></div>
-</div>
-</div>
-<p>Start listening for new transactions to cosign by your account. To do this, subscribe to the <code class="docutils literal"><span class="pre">aggregateBondedAdded</span></code> channel using your account’s address.</p>
+<p>Start listening for new transactions, subscribing to the <code class="docutils literal"><span class="pre">aggregateBondedAdded</span></code> channel using your account’s address.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">To sign automatically aggregate bonded transactions that should be signed by multisig cosignatories, refer to the multisig address instead. See <a class="reference internal" href="account.html#guide-get-multisig-account-info"><span class="std std-ref">how to get multisig accounts where an account is cosignatory</span></a>.</p>
 </div>
+<p>For each received transaction, check if you have not already signed it.  Cosign each pending aggregate bonded transaction using the previously created function.</p>
+<p>Did you realise that we are using RxJS operators intensively? Announce <code class="docutils literal"><span class="pre">CosignatureSignedTransaction</span></code> to the network using the <code class="docutils literal"><span class="pre">TransactionHttp</span></code> repository.</p>
 <div class="example-code container">
-<div class="highlight-typescript"><div class="highlight"><pre><span></span>    <span class="nx">listener</span><span class="p">.</span><span class="nx">aggregateBondedAdded</span><span class="p">(</span><span class="nx">account</span><span class="p">.</span><span class="nx">address</span><span class="p">)</span>
-        <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="o">!</span><span class="nx">_</span><span class="p">.</span><span class="nx">signedByAccount</span><span class="p">(</span><span class="nx">account</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">))</span>
-        <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">aggregateTransaction</span> <span class="o">=&gt;</span> <span class="p">{</span>
-</pre></div>
-</div>
-<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="kd">final</span> <span class="n">AggregateTransaction</span> <span class="n">transaction</span> <span class="o">=</span> <span class="n">listener</span><span class="o">.</span><span class="na">aggregateBondedAdded</span><span class="o">(</span><span class="n">account</span><span class="o">.</span><span class="na">getAddress</span><span class="o">()).</span><span class="na">take</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">toFuture</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="c1">// Replace with private key</span>
+<span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
 
-        <span class="k">if</span> <span class="o">(!</span><span class="n">transaction</span><span class="o">.</span><span class="na">signedByAccount</span><span class="o">(</span><span class="n">account</span><span class="o">.</span><span class="na">getPublicAccount</span><span class="o">()))</span> <span class="o">{</span>
-</pre></div>
-</div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span>    <span class="nx">listener</span><span class="p">.</span><span class="nx">aggregateBondedAdded</span><span class="p">(</span><span class="nx">account</span><span class="p">.</span><span class="nx">address</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Listener</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
+
+<span class="nx">listener</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+    <span class="nx">listener</span><span class="p">.</span><span class="nx">aggregateBondedAdded</span><span class="p">(</span><span class="nx">account</span><span class="p">.</span><span class="nx">address</span><span class="p">)</span>
         <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="o">!</span><span class="nx">_</span><span class="p">.</span><span class="nx">signedByAccount</span><span class="p">(</span><span class="nx">account</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">))</span>
-        <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">aggregateTransaction</span> <span class="o">=&gt;</span> <span class="p">{</span>
-</pre></div>
-</div>
-</div>
-<p>Now that you can get a new transaction, take the aggregate bonded transaction and create a <a class="reference internal" href="../concepts/transaction.html#cosignature-transaction"><span class="std std-ref">cosignature transaction</span></a> with it.</p>
-<div class="example-code container">
-<div class="highlight-typescript"><div class="highlight"><pre><span></span>                <span class="kr">const</span> <span class="nx">cosignatureTransaction</span> <span class="o">=</span> <span class="nx">CosignatureTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">);</span>
-</pre></div>
-</div>
-<div class="highlight-java"><div class="highlight"><pre><span></span>            <span class="kd">final</span> <span class="n">CosignatureTransaction</span> <span class="n">cosignatureTransaction</span> <span class="o">=</span> <span class="n">CosignatureTransaction</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">transaction</span><span class="o">);</span>
-</pre></div>
-</div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span>                <span class="kr">const</span> <span class="nx">cosignatureTransaction</span> <span class="o">=</span> <span class="nx">CosignatureTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<p>Sign the transaction using your account.</p>
-<div class="example-code container">
-<div class="highlight-typescript"><div class="highlight"><pre><span></span>                <span class="kr">const</span> <span class="nx">cosignatureSignedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">signCosignatureTransaction</span><span class="p">(</span><span class="nx">cosignatureTransaction</span><span class="p">);</span>
-</pre></div>
-</div>
-<div class="highlight-java"><div class="highlight"><pre><span></span>            <span class="kd">final</span> <span class="n">CosignatureSignedTransaction</span> <span class="n">cosignatureSignedTransaction</span> <span class="o">=</span> <span class="n">account</span><span class="o">.</span><span class="na">signCosignatureTransaction</span><span class="o">(</span><span class="n">cosignatureTransaction</span><span class="o">);</span>
-</pre></div>
-</div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span>                <span class="kr">const</span> <span class="nx">cosignatureSignedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">signCosignatureTransaction</span><span class="p">(</span><span class="nx">cosignatureTransaction</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<p>And announce the <code class="docutils literal"><span class="pre">CosignatureSignedTransaction</span></code> to the network using the <code class="docutils literal"><span class="pre">TransactionHttp</span></code> repository.</p>
-<div class="example-code container">
-<div class="highlight-typescript"><div class="highlight"><pre><span></span>                <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBondedCosignature</span><span class="p">(</span><span class="nx">cosignatureSignedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
-                    <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
-                    <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-                <span class="p">);</span>
-            <span class="p">},</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-        <span class="p">);</span>
+        <span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">transaction</span> <span class="o">=&gt;</span> <span class="nx">cosignAggregateBondedTransaction</span><span class="p">(</span><span class="nx">transaction</span><span class="p">,</span> <span class="nx">account</span><span class="p">))</span>
+        <span class="p">.</span><span class="nx">flatMap</span><span class="p">(</span><span class="nx">cosignatureSignedTransaction</span> <span class="o">=&gt;</span> <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBondedCosignature</span><span class="p">(</span><span class="nx">cosignatureSignedTransaction</span><span class="p">))</span>
+        <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">announcedTransaction</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">announcedTransaction</span><span class="p">),</span>
+            <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 <span class="p">});</span>
 </pre></div>
 </div>
-<div class="highlight-java"><div class="highlight"><pre><span></span>            <span class="n">transactionHttp</span><span class="o">.</span><span class="na">announceAggregateBondedCosignature</span><span class="o">(</span><span class="n">cosignatureSignedTransaction</span><span class="o">).</span><span class="na">toFuture</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
+<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="c1">// Replace with a private key</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">privateKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+
+        <span class="kd">final</span> <span class="n">Account</span> <span class="n">account</span> <span class="o">=</span> <span class="n">Account</span><span class="o">.</span><span class="na">createFromPrivateKey</span><span class="o">(</span><span class="n">privateKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
+
+        <span class="kd">final</span> <span class="n">AccountHttp</span> <span class="n">accountHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AccountHttp</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
+
+        <span class="kd">final</span> <span class="n">TransactionHttp</span> <span class="n">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TransactionHttp</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
+
+        <span class="kd">final</span> <span class="n">Listener</span> <span class="n">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Listener</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
+
+        <span class="n">listener</span><span class="o">.</span><span class="na">open</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
+
+        <span class="kd">final</span> <span class="n">AggregateTransaction</span> <span class="n">transaction</span> <span class="o">=</span> <span class="n">listener</span><span class="o">.</span><span class="na">aggregateBondedAdded</span><span class="o">(</span><span class="n">account</span><span class="o">.</span><span class="na">getAddress</span><span class="o">()).</span><span class="na">take</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">toFuture</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
+
+        <span class="k">if</span> <span class="o">(!</span><span class="n">transaction</span><span class="o">.</span><span class="na">signedByAccount</span><span class="o">(</span><span class="n">account</span><span class="o">.</span><span class="na">getPublicAccount</span><span class="o">()))</span> <span class="o">{</span>
+            <span class="c1">// Filter aggregates that need my signature</span>
+            <span class="kd">final</span> <span class="n">CosignatureTransaction</span> <span class="n">cosignatureTransaction</span> <span class="o">=</span> <span class="n">CosignatureTransaction</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">transaction</span><span class="o">);</span>
+
+            <span class="kd">final</span> <span class="n">CosignatureSignedTransaction</span> <span class="n">cosignatureSignedTransaction</span> <span class="o">=</span> <span class="n">account</span><span class="o">.</span><span class="na">signCosignatureTransaction</span><span class="o">(</span><span class="n">cosignatureTransaction</span><span class="o">);</span>
+
+            <span class="n">transactionHttp</span><span class="o">.</span><span class="na">announceAggregateBondedCosignature</span><span class="o">(</span><span class="n">cosignatureSignedTransaction</span><span class="o">).</span><span class="na">toFuture</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
+        <span class="o">}</span>
 </pre></div>
 </div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span>                <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBondedCosignature</span><span class="p">(</span><span class="nx">cosignatureSignedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
-                    <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
-                    <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-                <span class="p">);</span>
-            <span class="p">},</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-        <span class="p">);</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// Replace with private key</span>
+<span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Listener</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
+
+<span class="nx">listener</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+    <span class="nx">listener</span><span class="p">.</span><span class="nx">aggregateBondedAdded</span><span class="p">(</span><span class="nx">account</span><span class="p">.</span><span class="nx">address</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="o">!</span><span class="nx">_</span><span class="p">.</span><span class="nx">signedByAccount</span><span class="p">(</span><span class="nx">account</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">))</span>
+        <span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">transaction</span> <span class="o">=&gt;</span> <span class="nx">cosignAggregateBondedTransaction</span><span class="p">(</span><span class="nx">transaction</span><span class="p">,</span> <span class="nx">account</span><span class="p">))</span>
+        <span class="p">.</span><span class="nx">flatMap</span><span class="p">(</span><span class="nx">cosignatureSignedTransaction</span> <span class="o">=&gt;</span> <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBondedCosignature</span><span class="p">(</span><span class="nx">cosignatureSignedTransaction</span><span class="p">))</span>
+        <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">announcedTransaction</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">announcedTransaction</span><span class="p">),</span>
+            <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 <span class="p">});</span>
 </pre></div>
 </div>
@@ -1718,7 +1651,21 @@
 </ul>
 <p>Try it yourself! Here you have the implementation:</p>
 <div class="example-code container">
-<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">validTransaction</span> <span class="o">=</span> <span class="p">(</span><span class="nx">transaction</span>: <span class="kt">Transaction</span><span class="p">,</span> <span class="nx">publicAccount</span>: <span class="kt">PublicAccount</span><span class="p">)</span><span class="o">:</span> <span class="kr">boolean</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">transaction</span> <span class="k">instanceof</span> <span class="nx">TransferTransaction</span> <span class="o">&amp;&amp;</span>
+        <span class="nx">transaction</span><span class="p">.</span><span class="nx">signer</span><span class="o">!</span><span class="p">.</span><span class="nx">equals</span><span class="p">(</span><span class="nx">publicAccount</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+        <span class="nx">transaction</span><span class="p">.</span><span class="nx">mosaics</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span>
+        <span class="nx">transaction</span><span class="p">.</span><span class="nx">mosaics</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">id</span><span class="p">.</span><span class="nx">equals</span><span class="p">(</span><span class="nx">XEM</span><span class="p">.</span><span class="nx">MOSAIC_ID</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+        <span class="nx">transaction</span><span class="p">.</span><span class="nx">mosaics</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">amount</span><span class="p">.</span><span class="nx">compact</span><span class="p">()</span> <span class="o">&lt;</span> <span class="nx">XEM</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">100</span><span class="p">).</span><span class="nx">amount</span><span class="p">.</span><span class="nx">compact</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="kr">const</span> <span class="nx">cosignAggregateBondedTransaction</span> <span class="o">=</span> <span class="p">(</span><span class="nx">transaction</span>: <span class="kt">AggregateTransaction</span><span class="p">,</span> <span class="nx">account</span>: <span class="kt">Account</span><span class="p">)</span><span class="o">:</span> <span class="nx">CosignatureSignedTransaction</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">cosignatureTransaction</span> <span class="o">=</span> <span class="nx">CosignatureTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">transaction</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">account</span><span class="p">.</span><span class="nx">signCosignatureTransaction</span><span class="p">(</span><span class="nx">cosignatureTransaction</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="c1">// Replace with private key</span>
+<span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
 
 <span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
@@ -1732,27 +1679,11 @@
         <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">_</span><span class="p">.</span><span class="nx">innerTransactions</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
         <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="o">!</span><span class="nx">_</span><span class="p">.</span><span class="nx">signedByAccount</span><span class="p">(</span><span class="nx">account</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">))</span>
         <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">validTransaction</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">innerTransactions</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">account</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">)</span> <span class="o">||</span> <span class="nx">validTransaction</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">innerTransactions</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nx">account</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">))</span>
-        <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">aggregateTransaction</span> <span class="o">=&gt;</span> <span class="p">{</span>
-
-                <span class="kr">const</span> <span class="nx">cosignatureTransaction</span> <span class="o">=</span> <span class="nx">CosignatureTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">);</span>
-                <span class="kr">const</span> <span class="nx">cosignatureSignedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">signCosignatureTransaction</span><span class="p">(</span><span class="nx">cosignatureTransaction</span><span class="p">);</span>
-
-                <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBondedCosignature</span><span class="p">(</span><span class="nx">cosignatureSignedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
-                    <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
-                    <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-                <span class="p">);</span>
-
-            <span class="p">},</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-        <span class="p">);</span>
+        <span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">transaction</span> <span class="o">=&gt;</span> <span class="nx">cosignAggregateBondedTransaction</span><span class="p">(</span><span class="nx">transaction</span><span class="p">,</span> <span class="nx">account</span><span class="p">))</span>
+        <span class="p">.</span><span class="nx">flatMap</span><span class="p">(</span><span class="nx">cosignatureSignedTransaction</span> <span class="o">=&gt;</span> <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBondedCosignature</span><span class="p">(</span><span class="nx">cosignatureSignedTransaction</span><span class="p">))</span>
+        <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">announcedTransaction</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">announcedTransaction</span><span class="p">),</span>
+            <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 <span class="p">});</span>
-
-<span class="kd">function</span> <span class="nx">validTransaction</span><span class="p">(</span><span class="nx">transaction</span>: <span class="kt">Transaction</span><span class="p">,</span> <span class="nx">publicAccount</span>: <span class="kt">PublicAccount</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">transaction</span> <span class="k">instanceof</span> <span class="nx">TransferTransaction</span> <span class="o">&amp;&amp;</span>
-        <span class="nx">transaction</span><span class="p">.</span><span class="nx">signer</span><span class="o">!</span><span class="p">.</span><span class="nx">equals</span><span class="p">(</span><span class="nx">publicAccount</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
-        <span class="nx">transaction</span><span class="p">.</span><span class="nx">mosaics</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span>
-        <span class="nx">transaction</span><span class="p">.</span><span class="nx">mosaics</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">id</span><span class="p">.</span><span class="nx">equals</span><span class="p">(</span><span class="nx">XEM</span><span class="p">.</span><span class="nx">MOSAIC_ID</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
-        <span class="nx">transaction</span><span class="p">.</span><span class="nx">mosaics</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">amount</span><span class="p">.</span><span class="nx">compact</span><span class="p">()</span> <span class="o">&lt;</span> <span class="nx">XEM</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">100</span><span class="p">).</span><span class="nx">amount</span><span class="p">.</span><span class="nx">compact</span><span class="p">();</span>
-<span class="p">}</span>
 </pre></div>
 </div>
 <div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="kd">final</span> <span class="n">String</span> <span class="n">privateKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
@@ -1790,7 +1721,21 @@
     <span class="o">}</span>
 </pre></div>
 </div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span><span class="p">;</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">validTransaction</span> <span class="o">=</span> <span class="p">(</span><span class="nx">transaction</span><span class="p">,</span> <span class="nx">publicAccount</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">transaction</span> <span class="k">instanceof</span> <span class="nx">TransferTransaction</span> <span class="o">&amp;&amp;</span>
+        <span class="nx">transaction</span><span class="p">.</span><span class="nx">signer</span><span class="p">.</span><span class="nx">equals</span><span class="p">(</span><span class="nx">publicAccount</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+        <span class="nx">transaction</span><span class="p">.</span><span class="nx">mosaics</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span>
+        <span class="nx">transaction</span><span class="p">.</span><span class="nx">mosaics</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">id</span><span class="p">.</span><span class="nx">equals</span><span class="p">(</span><span class="nx">XEM</span><span class="p">.</span><span class="nx">MOSAIC_ID</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+        <span class="nx">transaction</span><span class="p">.</span><span class="nx">mosaics</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">amount</span><span class="p">.</span><span class="nx">compact</span><span class="p">()</span> <span class="o">&lt;</span> <span class="nx">XEM</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">100</span><span class="p">).</span><span class="nx">amount</span><span class="p">.</span><span class="nx">compact</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="kr">const</span> <span class="nx">cosignAggregateBondedTransaction</span> <span class="o">=</span> <span class="p">(</span><span class="nx">transaction</span><span class="p">,</span> <span class="nx">account</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">cosignatureTransaction</span> <span class="o">=</span> <span class="nx">CosignatureTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">transaction</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">account</span><span class="p">.</span><span class="nx">signCosignatureTransaction</span><span class="p">(</span><span class="nx">cosignatureTransaction</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="c1">// Replace with private key</span>
+<span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span><span class="p">;</span>
 
 <span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
@@ -1804,27 +1749,11 @@
         <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">_</span><span class="p">.</span><span class="nx">innerTransactions</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
         <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="o">!</span><span class="nx">_</span><span class="p">.</span><span class="nx">signedByAccount</span><span class="p">(</span><span class="nx">account</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">))</span>
         <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">validTransaction</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">innerTransactions</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">account</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">)</span> <span class="o">||</span> <span class="nx">validTransaction</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">innerTransactions</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nx">account</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">))</span>
-        <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">aggregateTransaction</span> <span class="o">=&gt;</span> <span class="p">{</span>
-
-                <span class="kr">const</span> <span class="nx">cosignatureTransaction</span> <span class="o">=</span> <span class="nx">CosignatureTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">);</span>
-                <span class="kr">const</span> <span class="nx">cosignatureSignedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">signCosignatureTransaction</span><span class="p">(</span><span class="nx">cosignatureTransaction</span><span class="p">);</span>
-
-                <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBondedCosignature</span><span class="p">(</span><span class="nx">cosignatureSignedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
-                    <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
-                    <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-                <span class="p">);</span>
-
-            <span class="p">},</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-        <span class="p">);</span>
+        <span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">transaction</span> <span class="o">=&gt;</span> <span class="nx">cosignAggregateBondedTransaction</span><span class="p">(</span><span class="nx">transaction</span><span class="p">,</span> <span class="nx">account</span><span class="p">))</span>
+        <span class="p">.</span><span class="nx">flatMap</span><span class="p">(</span><span class="nx">cosignatureSignedTransaction</span> <span class="o">=&gt;</span> <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBondedCosignature</span><span class="p">(</span><span class="nx">cosignatureSignedTransaction</span><span class="p">))</span>
+        <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">announcedTransaction</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">announcedTransaction</span><span class="p">),</span>
+            <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 <span class="p">});</span>
-
-<span class="kd">function</span> <span class="nx">validTransaction</span><span class="p">(</span><span class="nx">transaction</span><span class="p">,</span> <span class="nx">publicAccount</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">transaction</span> <span class="k">instanceof</span> <span class="nx">TransferTransaction</span> <span class="o">&amp;&amp;</span>
-        <span class="nx">transaction</span><span class="p">.</span><span class="nx">signer</span><span class="p">.</span><span class="nx">equals</span><span class="p">(</span><span class="nx">publicAccount</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
-        <span class="nx">transaction</span><span class="p">.</span><span class="nx">mosaics</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span>
-        <span class="nx">transaction</span><span class="p">.</span><span class="nx">mosaics</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">id</span><span class="p">.</span><span class="nx">equals</span><span class="p">(</span><span class="nx">XEM</span><span class="p">.</span><span class="nx">MOSAIC_ID</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
-        <span class="nx">transaction</span><span class="p">.</span><span class="nx">mosaics</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">amount</span><span class="p">.</span><span class="nx">compact</span><span class="p">()</span> <span class="o">&lt;</span> <span class="nx">XEM</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">100</span><span class="p">).</span><span class="nx">amount</span><span class="p">.</span><span class="nx">compact</span><span class="p">();</span>
-<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -1835,7 +1764,7 @@
 <p>The goal of this guide is to show you how to exchange tokens between different blockchains atomically using <a class="reference internal" href="../concepts/transaction.html#secret-lock-transaction"><span class="std std-ref">secret lock</span></a> and <a class="reference internal" href="../concepts/transaction.html#secret-proof-transaction"><span class="std std-ref">secret proof transactions</span></a>.</p>
 <div class="section" id="id20">
 <h3>Background<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
-<p>Alice and Bob want to change 10 alice:token per 10 bob:token. The problem is that they are not in the same blockchain: Alice uses NEM public network, whereas Bob is using MIJIN private network.</p>
+<p>Alice and Bob want to exchange 10 alice:token for 10 bob:token. The problem is that they are not in the same blockchain: Alice uses NEM public network, whereas Bob is using MIJIN private network.</p>
 <p>One non-atomic solution could be:</p>
 <ol class="arabic simple">
 <li>Alice sends to Bob 10 alice:token in PUBLIC chain</li>
@@ -1864,7 +1793,7 @@
 </div>
 <div class="section" id="id22">
 <h3>Let’s get into some code?<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
-<p>Alice picks a random number, which we call proof, and applies a sha512 hash, obtaining the secret.</p>
+<p>Alice picks a random number, which we call <code class="docutils literal"><span class="pre">proof</span></code>. Applies SHA512 hash algorithm to it, obtaining the <code class="docutils literal"><span class="pre">secret</span></code>.</p>
 <div class="example-code container">
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="c1">// Alice is a PUBLIC net user</span>
 <span class="kr">const</span> <span class="nx">alicePrivateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">ALICE_PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
@@ -1905,7 +1834,7 @@
 <ul class="simple">
 <li>The mosaic and amount to be sent: 10 alice:token</li>
 <li>A recipient address: Bob’s address in public chain</li>
-<li>The secret that should be achieved in to unlock the funds.</li>
+<li>The secret: Hashed proof.</li>
 <li>The amount of time while funds can be unlocked: 96h</li>
 </ul>
 <div class="example-code container">
