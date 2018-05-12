@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                0.9.3
+                0.9.4
               </div>
             
           
@@ -104,12 +104,12 @@
             
               <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/nem-overview.html">NEM Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">Setting up your workstation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">Writing your first application</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Fundamentals</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="account.html">Account</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Multisig Account</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#fields">Fields</a></li>
@@ -225,8 +225,21 @@
 <p class="first admonition-title">Warning</p>
 <p class="last">The configuration presented is NOT intended to be used on the public network. These are the parameters used for the Catapult Testnet version (MIJIN_TEST).</p>
 </div>
-<p>A NEM <a class="reference internal" href="account.html"><span class="doc">account</span></a> can be converted to multisig account at the blockchain level, assigning rights of a certain account to other accounts.</p>
-<p>This unlocks various advantages and interesting possibilities for the user. For example, enables several people to administrate the activity of an account, control assets such as XEM from one account, other mosaics, or create additional  <a class="reference internal" href="transaction.html"><span class="doc">transactions</span></a> such as creating a new token.</p>
+<p>Editable on-chain contracts, the most powerful way to secure funds and enable joint accounts.</p>
+<p>A NEM <a class="reference internal" href="account.html"><span class="doc">account</span></a> can be <a class="reference internal" href="../guides/account.html#guide-converting-an-account-to-multisig"><span class="std std-ref">converted to multisig</span></a>. From that moment on, the account cannot announce transactions by itself, requiring other accounts to announce transactions for them.  These other accounts are the multisig <code class="docutils literal"><span class="pre">cosignatories</span></code>.</p>
+<p>Besides, it is not always necessary to force all cosignatories to cosign the transaction. NEM allows to set up the minimum number of cosignatories agreement. These properties can be edited afterwards to suit almost any needs.</p>
+<p>Some important considerations to keep in mind:</p>
+<ul class="simple">
+<li>Once you convert an account to a multisig, you can no longer initiate transactions from that account. Only the cosignatories can initiate transactions for the account.</li>
+<li>NEM’s current implementation of multisig is <em>“M-of-N”</em>, meaning M can be any number equal to or less than N, i.e., 1-of-4, 2-of-2, 4-of-9, 9-of-10 and so on.</li>
+<li>Multisig accounts can have up to <code class="docutils literal"><span class="pre">10</span></code> cosignatories.</li>
+<li>An account can be cosigner of up to <code class="docutils literal"><span class="pre">5</span></code> multisig accounts.</li>
+<li>The number of minimum cosignatures to approve transactions and remove cosignatories is editable.</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Multisig accounts are a powerful tool, but please use this tool with caution.  If cosignatories keys get lost, and minimum approval is not reached, this would result in the permanent loss of access to the funds held by the multisig account. Choose wisely <code class="docutils literal"><span class="pre">minimum</span> <span class="pre">removal</span></code> parameter to avoid this situation.</p>
+</div>
 <div class="section" id="fields">
 <h2>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h2>
 <p>A multisig account has the following properties:</p>
@@ -235,61 +248,63 @@
 <p>The number of signatures needed to approve a transaction.</p>
 <p><strong>Minimum Removal</strong></p>
 <p>The number of signatures needed to remove a cosignatory.</p>
-<p><strong>Modifications</strong></p>
-<p>List of cosigner accounts involved in the multisignature account.</p>
+<p><strong>Cosignatories</strong></p>
+<p>List of <a class="reference internal" href="account.html"><span class="doc">accounts</span></a> enabled to announce and cosign transactions for its approval.</p>
 </div></blockquote>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">Multisig accounts are a powerful tool, but please use this tool with caution.  If cosignatories keys get lost, and minimum approval is not reached, this would currently result in the permanent loss of access to the funds held by the multisig account.</p>
-</div>
-<p>Multisig accounts permissions can be edited to suit almost any needs. Despite that, you should consider the following:</p>
-<ul class="simple">
-<li>Once you convert an account to a multisig account, you can no longer initiate transactions from that account. All transactions from the multisig account must be initiated by one of the cosignatories.</li>
-<li>NEM’s current implementation of multisig is <em>“M-of-N”</em>, meaning M can be any number equal to or less than N, i.e., 1-of-4, 2-of-2, 4-of-9, 11-of-12 and so on.</li>
-<li>You can create multisig accounts with up to <code class="docutils literal"><span class="pre">10</span></code> cosignatories.</li>
-<li>You can choose the number of minimum cosignatories to approve transactions and remove cosignatories.</li>
-</ul>
 <p>There is a broad range of useful applications for multisig accounts. Let’s take a look at some of the common use cases.</p>
 <ol class="arabic simple">
 <li>Alice and Bob live together, they have separate accounts, but they also need a shared account so that if Bob is out shopping, he can buy groceries for both him and Alice.</li>
 </ol>
 <div class="figure align-center" id="id1">
-<a class="reference internal image-reference" href="../_images/concepts-multisig-figure-1.png"><img alt="../_images/concepts-multisig-figure-1.png" src="../_images/concepts-multisig-figure-1.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../_images/concepts-multisig-figure-1.png"><img alt="../_images/concepts-multisig-figure-1.png" src="../_images/concepts-multisig-figure-1.png" style="width: 300px;" /></a>
 <p class="caption"><span class="caption-text">M-of-N multisig account example</span></p>
 </div>
 <ol class="arabic simple" start="2">
 <li>Several families are members of the local philatelist society and use a shared account to buy stamps. To ensure that all agree on which old stamps they should buy and for the right price, they use a multisig account such that all members of the society need to approve a transaction before it can be sent and included in the blockchain as a valid transaction.</li>
 </ol>
 <div class="figure align-center" id="id2">
-<a class="reference internal image-reference" href="../_images/concepts-multisig-figure-2.png"><img alt="../_images/concepts-multisig-figure-2.png" src="../_images/concepts-multisig-figure-2.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../_images/concepts-multisig-figure-2.png"><img alt="../_images/concepts-multisig-figure-2.png" src="../_images/concepts-multisig-figure-2.png" style="width: 350px;" /></a>
 <p class="caption"><span class="caption-text">N-of-N multisig account example</span></p>
 </div>
 <ol class="arabic simple" start="3">
 <li>Security is another critical aspect of multisig accounts. Alice wants to make sure his funds are not compromised in any way. Therefore he sets up a multisig account with his funds and attaches two accounts (signer accounts) to control his multisig account as a form of 2-factor authentication. Both of his signer accounts need to approve the transaction, and his signer accounts are located on different computer platforms with different passwords. This means that even if an evil hacker or virus should compromise one of his accounts, his funds are still kept secure.</li>
 </ol>
 <div class="figure align-center" id="id3">
-<a class="reference internal image-reference" href="../_images/concepts-multisig-figure-3.png"><img alt="../_images/concepts-multisig-figure-3.png" src="../_images/concepts-multisig-figure-3.png" style="width: 250px;" /></a>
+<a class="reference internal image-reference" href="../_images/concepts-multisig-figure-3.png"><img alt="../_images/concepts-multisig-figure-3.png" src="../_images/concepts-multisig-figure-3.png" style="width: 300px;" /></a>
 <p class="caption"><span class="caption-text">Multi-factor authorization using multisig accounts</span></p>
 </div>
-<p>To convert a normal account to a multisig account or edit an existent one, announce a <a class="reference internal" href="transaction.html"><span class="doc">modify multisig account transaction</span></a>.</p>
+<ol class="arabic simple" start="4">
+<li>Multisig accounts can be used to represent the ownership of assets. A company could create a 1-of-1 multisig account for each of their products, adding themselves as the cosignatory. When the company sells the product to Alice, she becomes the owner, being the company removed in the same transaction.</li>
+</ol>
+<div class="figure align-center" id="id4">
+<a class="reference internal image-reference" href="../_images/concepts-multisig-figure-4.png"><img alt="../_images/concepts-multisig-figure-4.png" src="../_images/concepts-multisig-figure-4.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Transferring an account</span></p>
+</div>
 </div>
 <div class="section" id="multi-level-multisig-accounts-mlma">
 <h2>Multi-Level Multisig Accounts (MLMA)<a class="headerlink" href="#multi-level-multisig-accounts-mlma" title="Permalink to this headline">¶</a></h2>
-<p>A Multi-Level Multisig Account is a multisig that has a cosigner that is another multisig. MLMA accounts add “AND/OR” logic to multi-signature transactions.</p>
-<p>Consider the following constraints:</p>
-<ul class="simple">
-<li>The maximum number of levels is <code class="docutils literal"><span class="pre">3</span></code>.</li>
-<li>The maximum of no-multisig cosigners (leaf) is <code class="docutils literal"><span class="pre">5</span></code>.</li>
-</ul>
-<p>Let’s see a three-level multisig account example.</p>
-<div class="figure align-center" id="id4">
-<a class="reference internal image-reference" href="../_images/concepts-multisig-multilevel-1.png"><img alt="../_images/concepts-multisig-multilevel-1.png" src="../_images/concepts-multisig-multilevel-1.png" style="width: 750px;" /></a>
-<p class="caption"><span class="caption-text">Three-level multisig account example</span></p>
-</div>
-<p>Who should cosign the transaction if <em>Account #5</em> initiates an aggregate bonded transaction? Notice that multisig accounts are not capable of cosigning transactions, being responsible for doing so no-multisig cosigners.</p>
+<p>Multisig accounts can have as a cosigner another multisig, up to <code class="docutils literal"><span class="pre">3</span></code> levels. Multi-level multisig accounts add “AND/OR” logic to multi-signature transactions.</p>
+<p>MLMA allow a huge variety of business logic:</p>
+<ol class="arabic simple">
+<li>In this example, a manufacturer is shipping a product such as a pharmaceutical. The product receives its quality approval <a class="reference internal" href="mosaic.html"><span class="doc">mosaic</span></a> only when its blockchain record shows it has a production date, safety inspection, and was shipped at the correct temperature. Sensors in the shipping container report temperature data every 5 minutes and consolidate it into a daily report.</li>
+</ol>
 <div class="figure align-center" id="id5">
-<a class="reference internal image-reference" href="../_images/concepts-multisig-multilevel-2.png"><img alt="../_images/concepts-multisig-multilevel-2.png" src="../_images/concepts-multisig-multilevel-2.png" style="width: 750px;" /></a>
-<p class="caption"><span class="caption-text">Sending an aggregate bonded transaction from an MLMA</span></p>
+<a class="reference internal image-reference" href="../_images/concepts-mlma-figure-1.png"><img alt="../_images/concepts-mlma-figure-1.png" src="../_images/concepts-mlma-figure-1.png" style="width: 750px;" /></a>
+<p class="caption"><span class="caption-text">Manufacturing and Supply Chains</span></p>
+</div>
+<ol class="arabic simple" start="2">
+<li>This example shows how a high-security account can be made easier to use. Transactions are only approved from a hardware wallet OR your phone AND a fraud detection AI. MLMA allows a variety of security configurations at the protocol level to keep businesses and their customers hack-free.</li>
+</ol>
+<div class="figure align-center" id="id6">
+<a class="reference internal image-reference" href="../_images/concepts-mlma-figure-2.png"><img alt="../_images/concepts-mlma-figure-2.png" src="../_images/concepts-mlma-figure-2.png" style="width: 550px;" /></a>
+<p class="caption"><span class="caption-text">Fraud Detection</span></p>
+</div>
+<ol class="arabic simple" start="3">
+<li>You can set up your account so it can be recovered only with the approval of signatures from specified accounts, such as your friends and family. Combine the branches any way you like.</li>
+</ol>
+<div class="figure align-center" id="id7">
+<a class="reference internal image-reference" href="../_images/concepts-mlma-figure-3.png"><img alt="../_images/concepts-mlma-figure-3.png" src="../_images/concepts-mlma-figure-3.png" style="width: 750px;" /></a>
+<p class="caption"><span class="caption-text">Account Recovery</span></p>
 </div>
 </div>
 </div>

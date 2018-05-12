@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                0.9.3
+                0.9.4
               </div>
             
           
@@ -104,12 +104,12 @@
             
               <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/nem-overview.html">NEM Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">Setting up your workstation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">Writing your first application</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Fundamentals</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/transaction.html">Transaction</a></li>
@@ -379,7 +379,7 @@
 </div>
 <div class="section" id="getting-account-information">
 <span id="guide-getting-account-information"></span><h2>Getting account information<a class="headerlink" href="#getting-account-information" title="Permalink to this headline">¶</a></h2>
-<p>You are going to develop a program to get the public key, height, balance and importance of an <a class="reference internal" href="../concepts/account.html"><span class="doc">account</span></a>.</p>
+<p>Get the public key, height, balance and importance of an <a class="reference internal" href="../concepts/account.html"><span class="doc">account</span></a>.</p>
 <div class="section" id="id1">
 <h3>Prerequisites<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -486,12 +486,12 @@ addressHeight: UInt64 { lower: 288598, higher: 0 },</div></blockquote>
 </div>
 <div class="section" id="whats-next">
 <h3>What’s next?<a class="headerlink" href="#whats-next" title="Permalink to this headline">¶</a></h3>
-<p>Try to repeat retrieving the balance by only filtering XEM amount.</p>
+<p>Try to retrieve the balance by only filtering XEM amount.</p>
 </div>
 </div>
 <div class="section" id="getting-the-amount-of-xem-sent-to-an-account">
 <span id="guide-getting-the-amount-of-xem-sent-to-an-account"></span><h2>Getting the amount of XEM sent to an account<a class="headerlink" href="#getting-the-amount-of-xem-sent-to-an-account" title="Permalink to this headline">¶</a></h2>
-<p>You are going to develop a program to check the amount of XEM you have sent to some account.</p>
+<p>Check the amount of XEM you have sent to some account.</p>
 <div class="section" id="id3">
 <h3>Prerequisites<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -502,7 +502,7 @@ addressHeight: UInt64 { lower: 288598, higher: 0 },</div></blockquote>
 </div>
 <div class="section" id="id4">
 <h3>Let’s get into some code<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<p>After obtaining all outgoing <a class="reference internal" href="../concepts/transaction.html"><span class="doc">transactions</span></a> from an account, apply a filter to distinguish target recipient.</p>
+<p>After obtaining all outgoing <a class="reference internal" href="../concepts/transaction.html"><span class="doc">transactions</span></a> from an account, apply the following operators to identify the target recipient.</p>
 <div class="example-code container">
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="c1">// Replace with public key</span>
 <span class="kr">const</span> <span class="nx">originPublicKey</span> <span class="o">=</span> <span class="s1">&#39;7D08373CFFE4154E129E04F0827E5F3D6907587E348757B0F87D2F839BF88246&#39;</span><span class="p">;</span>
@@ -596,12 +596,12 @@ addressHeight: UInt64 { lower: 288598, higher: 0 },</div></blockquote>
 </div>
 <div class="section" id="id5">
 <h3>What’s next?<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<p>Try to repeat the example by changing NEM filter for another <a class="reference internal" href="../concepts/mosaic.html"><span class="doc">mosaic</span></a> .</p>
+<p>Repeat the example by changing NEM filter for another <a class="reference internal" href="../concepts/mosaic.html"><span class="doc">mosaic</span></a> .</p>
 </div>
 </div>
 <div class="section" id="receiving-transactions-of-an-account">
 <span id="guide-receiving-transactions-of-an-account"></span><h2>Receiving transactions of an account<a class="headerlink" href="#receiving-transactions-of-an-account" title="Permalink to this headline">¶</a></h2>
-<p>You are going to develop a program to get the list of <a class="reference internal" href="../concepts/transaction.html"><span class="doc">transactions</span></a> where an <a class="reference internal" href="../concepts/account.html"><span class="doc">account</span></a> is involved.</p>
+<p>Get the list of <a class="reference internal" href="../concepts/transaction.html"><span class="doc">transactions</span></a> where an <a class="reference internal" href="../concepts/account.html"><span class="doc">account</span></a> is involved.</p>
 <div class="section" id="background">
 <h3>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h3>
 <p>By default, the SDK provides up to 10 transactions. This parameter is increasable up to 100 transactions.</p>
@@ -1139,8 +1139,7 @@ addressHeight: UInt64 { lower: 288598, higher: 0 },</div></blockquote>
 </pre></div>
 </div>
 </div>
-<p>Alice needs to lock at least 10 XEM.</p>
-<p>Once Bob cosigns the transaction, the amount of XEM becomes available again on Alice’s account.</p>
+<p>Before sending an aggregate bonded transaction, Alice needs to lock at least <code class="docutils literal"><span class="pre">10</span></code> XEM. This mechanism is required to prevent network spamming and ensure that transactions are cosigned. Once Bob cosigns the transaction, the amount of XEM becomes available again on Alice’s account.</p>
 <p>After lock funds transaction has been confirmed, Alice announces the aggregate transaction.</p>
 <div class="example-code container">
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">lockFundsTransaction</span> <span class="o">=</span> <span class="nx">LockFundsTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
@@ -1371,17 +1370,12 @@ addressHeight: UInt64 { lower: 288598, higher: 0 },</div></blockquote>
 <span id="guide-creating-a-mlma"></span><h2>Creating a multilevel multisig account (MLMA)<a class="headerlink" href="#creating-a-multilevel-multisig-account-mlma" title="Permalink to this headline">¶</a></h2>
 <p>Following this tutorial, you will create a <a class="reference internal" href="../concepts/multisig-account.html"><span class="doc">multi-level multisig account</span></a>.</p>
 <div class="figure align-center" id="id22">
-<a class="reference internal image-reference" href="../_images/concepts-multisig-multilevel-11.png"><img alt="../_images/concepts-multisig-multilevel-11.png" src="../_images/concepts-multisig-multilevel-11.png" style="width: 750px;" /></a>
+<a class="reference internal image-reference" href="../_images/concepts-multisig-multilevel-1.png"><img alt="../_images/concepts-multisig-multilevel-1.png" src="../_images/concepts-multisig-multilevel-1.png" style="width: 750px;" /></a>
 <p class="caption"><span class="caption-text">Three-level multisig account example</span></p>
 </div>
 <div class="section" id="id15">
 <h3>Background<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
-<p>A multi-level multisig is a multisig that has a cosignatory that is another multisig.</p>
-<p>Consider the following constraints:</p>
-<ul class="simple">
-<li>The maximum number of levels is <code class="docutils literal"><span class="pre">3</span></code>.</li>
-<li>The maximum of no-multisig cosignatories (leaf) is <code class="docutils literal"><span class="pre">15</span></code>.</li>
-</ul>
+<p>Multisig accounts can have as a cosigner another multisig, up to <code class="docutils literal"><span class="pre">3</span></code> levels. Multi-level multisig accounts add “AND/OR” logic to multi-signature transactions.</p>
 </div>
 <div class="section" id="id16">
 <h3>Prerequisites<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
@@ -1761,7 +1755,7 @@ addressHeight: UInt64 { lower: 288598, higher: 0 },</div></blockquote>
 <h3>What’s next?<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
 <p>Who should cosign the transaction if Account #5 initiates an aggregate bonded transaction? Notice that multisig accounts are not capable of cosigning transactions, being responsible for doing so cosignatories.</p>
 <div class="figure align-center" id="id23">
-<a class="reference internal image-reference" href="../_images/concepts-multisig-multilevel-21.png"><img alt="../_images/concepts-multisig-multilevel-21.png" src="../_images/concepts-multisig-multilevel-21.png" style="width: 750px;" /></a>
+<a class="reference internal image-reference" href="../_images/concepts-multisig-multilevel-2.png"><img alt="../_images/concepts-multisig-multilevel-2.png" src="../_images/concepts-multisig-multilevel-2.png" style="width: 750px;" /></a>
 <p class="caption"><span class="caption-text">Sending an aggregate bonded transaction from a MLMA</span></p>
 </div>
 </div>

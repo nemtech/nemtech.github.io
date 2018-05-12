@@ -4,7 +4,13 @@ Transaction
 
 .. warning:: The configuration presented is NOT intended to be used on the public network. These are the parameters used for the Catapult Testnet version (MIJIN_TEST).
 
-Transactions are actions taken on the blockchain that change its state.
+Transactions are actions taken on the blockchain that change its state. In other words, how your Smart Assets are put into action.
+
+Transactions let you transfer :doc:`mosaics <mosaic>` between :doc:`account <account>`, transfer or configure ownership of accounts (including the use of :doc:`multisig <multisig-account>` rules), send messages and more. NEMs blockchain includes a built-in consensus-driven timekeeping facility, so transactions are automatically and accurately time stamped.
+
+**********************
+Transaction life-cycle
+**********************
 
 Once a transaction is initiated, it is still unconfirmed and thus not yet accepted by the network. At this point, it is not clear if it will get included in a block. Never rely on a transaction which has the state unconfirmed.
 
@@ -67,7 +73,7 @@ Transaction types
 Transfer transaction
 ====================
 
-Transfer transaction is used to send :doc:`assets <mosaic>` between two accounts. It can hold a message of length ``1024``.
+Transfer transaction is used to send :doc:`mosaics <mosaic>` between two accounts. It can hold a message of length ``1024``.
 
 Following parameters are required:
 
@@ -131,7 +137,7 @@ Mosaic definition transaction is used to create a new :doc:`mosaic<mosaic>`.
 
     * ``divisibility``: Determines up to what decimal place the mosaic can be divided. Divisibility of 3 means that a mosaic can be divided into smallest parts of 0.001 mosaics. The divisibility must be in the range of 0 and 6.
 
-    * ``duration``: The number of confirmed blocks we would like to rent our namespace for. Should be inferior or equal to namespace duration.
+    * ``duration``: The number of confirmed blocks we would like to rent our namespace for.
 
     * ``supply``: The amount of mosaic in circulation. The creator can specify an initial supply of mosaics when creating the definition. The initial supply must be in the range of 0 and 9,000,000,000.
 
@@ -169,15 +175,15 @@ Modify multisig account transaction is used to change properties of a :doc:`mult
 
     **Minimum Approval Delta**
 
-    The number of signatures needed to approve a transaction. If we are modifying an existing multisignature account this indicates the relative change of the minimum cosignatories.
+    The number of signatures needed to approve a transaction. If we are modifying an existing multisig account this indicates the relative change of the minimum cosignatories.
 
     **Minimum Removal Delta**
 
-    The number of signatures needed to remove a cosignatory. If we are modifying an existing multisignature account this indicates the relative change of the minimum cosignatories.
+    The number of signatures needed to remove a cosignatory. If we are modifying an existing multisig account this indicates the relative change of the minimum cosignatories.
 
     **Modifications**
 
-    Array of cosigner accounts added or removed from the multisignature account.
+    Array of cosigner accounts added or removed from the multisig account.
 
 .. _aggregate-transaction:
 
@@ -240,9 +246,9 @@ Cosignature transaction is used to sign :ref:`announced aggregate bonded transac
 Lock funds transaction
 ======================
 
-Announce a lock funds transaction before sending an :ref:`announced aggregate bonded transactions<aggregate-transaction>`.
+Announce a lock funds transaction before sending a signed :ref:`aggregate bonded transaction<aggregate-transaction>`. This mechanism is required to prevent network spamming and ensure that transactions are cosigned.
 
-Once the related aggregate bonded transaction is confirmed, funds locked become available again in the account that signed the initial lock funds transaction.
+Once the related aggregate bonded transaction is confirmed, locked funds become available again in the account that signed the initial lock funds transaction.
 
 If the aggregate bonded transaction deadline is reached without being signed by all cosignatories, the locked amount is collected by the block harvester at the height where the lock expires.
 

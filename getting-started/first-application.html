@@ -40,7 +40,7 @@
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="nem2-docs Master documentation" href="../index.html"/>
-        <link rel="next" title="Overview" href="../concepts/overview.html"/>
+        <link rel="next" title="Account" href="../concepts/account.html"/>
         <link rel="prev" title="Setting up your workstation" href="setup-workstation.html"/> 
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                0.9.3
+                0.9.4
               </div>
             
           
@@ -104,17 +104,20 @@
             
               <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="nem-overview.html">NEM Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup-workstation.html">Setting up your workstation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Writing your first application</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lets-get-into-some-code">Let’s get into some code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#what-s-next">What’s next?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#background">Background</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lets-get-into-some-code">Let’s get into some code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-s-next">What’s next?</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 <p class="caption"><span class="caption-text">Fundamentals</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/transaction.html">Transaction</a></li>
@@ -223,27 +226,29 @@
   <div class="section" id="writing-your-first-application">
 <h1>Writing your first application<a class="headerlink" href="#writing-your-first-application" title="Permalink to this headline">¶</a></h1>
 <p>This first guide will run you through some <a class="reference internal" href="../concepts/account.html"><span class="doc">NEM general concepts</span></a>. Once you find a new one, it is advisable to read more about it by clicking on the provided link.</p>
-<p>After finishing this guide, you will have created your cryptocurrency and made a first <a class="reference internal" href="../concepts/transaction.html#transfer-transaction"><span class="std std-ref">transaction</span></a> in less than 15 minutes.</p>
-<p>At first glance, it may seem difficult to imagine that you can do all of this in such a short time. It is possible because NEM tools reduce as much as possible blockchain development complexity, letting developers focus on their product.</p>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="../concepts/mosaic.html"><span class="doc">Mosaics</span></a> can be used to represent any asset in the blockchain such as objects, tickets, coupons, stock share representation, and even your cryptocurrency.</p>
+<p>After finishing this guide, you will create a mosaic and send your first <a class="reference internal" href="../concepts/transaction.html#transfer-transaction"><span class="std std-ref">transfer transaction</span></a> in less than 15 minutes.</p>
+<p>At first glance, it may seem difficult to imagine that you can do all of this in such a short time. NEM tools make it possible by reducing blockchain development complexity, letting developers focus on their product.</p>
 <div class="section" id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>15 minutes to spare</li>
-<li>Finished <a class="reference internal" href="setup-workstation.html"><span class="doc">getting started section</span></a></li>
+<li>Finish <a class="reference internal" href="setup-workstation.html"><span class="doc">getting started section</span></a></li>
 <li>Text editor or IDE</li>
 <li>NEM2-SDK and CLI</li>
 <li>An account with XEM</li>
 </ul>
 </div>
 <div class="section" id="lets-get-into-some-code">
-<h2>Let’s get into some code<a class="headerlink" href="#lets-get-into-some-code" title="Permalink to this headline">¶</a></h2>
+<h3>Let’s get into some code<a class="headerlink" href="#lets-get-into-some-code" title="Permalink to this headline">¶</a></h3>
 <p><strong>Checking your balance</strong></p>
-<p>Have you registered an account and requested XEM? If it is not the case, go back to <a class="reference internal" href="setup-workstation.html"><span class="doc">getting started section</span></a>.</p>
+<p>Have you created an account and requested XEM? If it is not the case, go back to <a class="reference internal" href="setup-workstation.html"><span class="doc">getting started section</span></a>.</p>
 <p>First of all, let’s check if you have received XEM into your account.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account info
 </pre></div>
 </div>
-<p>After running the command, you should see on your screen something similar to:</p>
+<p>After running the command, you should see on your screen a line similar to:</p>
 <blockquote>
 <div><p>New Account: SCVG35-ZSPMYP-L2POZQ-JGSVEG-RYOJ3V-BNIU3U-N2E6</p>
 <p>[…]</p>
@@ -252,43 +257,47 @@
 </div></blockquote>
 <p>Our account owns 1.000.000 XEM. If your row after mosaics is empty, try to <a class="reference internal" href="setup-workstation.html"><span class="doc">ask for some XEM again</span></a>.</p>
 <p><strong>Monitoring the blockchain</strong></p>
-<p>It is advisable to see what happens when sending and receiving transactions to the blockchain.</p>
-<p>We suggest opening three new terminals, and type the following commands:</p>
-<p>The first terminal <a class="reference internal" href="../guides/blockchain.html#guide-debugging-transactions"><span class="std std-ref">monitors account transactions</span></a> validation errors.</p>
+<p>Accounts change the blockchain state through transactions. Once an account announces a transaction, if properly formed, the server will return an OK response.</p>
+<p>Receiving an OK response doesn’t mean the transaction is valid, hence not included in a block. A good practice is to monitor transactions before being announced.</p>
+<p>We suggest opening three new terminals. The first terminal <a class="reference internal" href="../guides/blockchain.html#guide-debugging-transactions"><span class="std std-ref">monitors announced transactions</span></a> validation errors.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor status
 </pre></div>
 </div>
-<p>Monitoring <code class="docutils literal"><span class="pre">unconfirmed</span></code> shows you in real-time which transactions have reached the network, but are not valid yet.</p>
+<p>Monitoring <code class="docutils literal"><span class="pre">unconfirmed</span></code> shows you which transactions have reached the network, but not yet included in a block.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor unconfirmed
 </pre></div>
 </div>
-<p>See when a transaction involving the provided address gets <code class="docutils literal"><span class="pre">confirmed</span></code>.</p>
+<p>Once a transaction is included, you will see it under the <code class="docutils literal"><span class="pre">confirmed</span></code> terminal.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor confirmed
 </pre></div>
 </div>
 <p><strong>Creating a namespace</strong></p>
-<p>Before creating your cryptocurrency, you need to register a namespace. A <a class="reference internal" href="../concepts/namespace.html"><span class="doc">namespace</span></a> is an on-chain unique domain for your assets.</p>
-<p>Register your namespace, choosing a name you like. One common option is to choose your company’s or own name.</p>
-<p>This name should be available, as it is unique. In this example, we will register a namespace called <code class="docutils literal"><span class="pre">foo</span></code>. Let’s check if this name is available.</p>
+<p>Before creating your mosaic, you need to register a namespace.</p>
+<p>A <a class="reference internal" href="../concepts/namespace.html"><span class="doc">namespace</span></a> is an on-chain unique domain for your assets. The easiest way to appreciate it is the domain and file analogy on the internet. Imagine that a domain address has to be unique in a root (lowest level).</p>
+<p>A mosaic is like a file hosted on a domain and represents an asset. Like a website and directory, a mosaic can have the same name as other files on other domains. However,  a namespace + mosaic is always unique, as the root namespace was unique even if the rest of it is not.</p>
+<p>Register your namespace, choosing a name you like. One common option is to use your company’s or own name.  In this example, we will register a namespace called <code class="docutils literal"><span class="pre">foo</span></code>. Let’s check if this name is available.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli namespace info --name foo
 </pre></div>
 </div>
 <p>Is the namespace available? Try to register it before someone else does it!</p>
-<p>To register a new namespace, you should specify a namespace name and its renting duration.</p>
+<p>To register it, specify the namespace name and its renting duration expressed in blocks.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In Catapult, NEM blocks are complete every <code class="docutils literal"><span class="pre">15</span></code> seconds in average.</p>
+</div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction namespace --name foo --rootnamespace --duration 1000
 </pre></div>
 </div>
-<p>Did you check what happened in terminals where you are monitoring your account transactions? The transaction first appeared in <code class="docutils literal"><span class="pre">unconfirmedTransaction</span></code> and when confirmed in <code class="docutils literal"><span class="pre">confirmedTransaction</span></code>.</p>
+<p>Did you check what happened in terminals where you are monitoring your account transactions? The transaction first appeared under <code class="docutils literal"><span class="pre">unconfirmed</span></code> terminal and after a while got <code class="docutils literal"><span class="pre">confirmed</span></code>.</p>
 <p><strong>Creating a mosaic</strong></p>
-<p>A  <a class="reference internal" href="../concepts/mosaic.html"><span class="doc">mosaic</span></a> allows to create configurable smart assets in the blockchain. In that case, it will represent your cryptocurrency.</p>
-<p>Mosaics can be used to create cryptocurrencies but also to represent any asset in the blockchain such as objects, tickets, coupons and even stock share representation. Possibilities are endless!</p>
-<p>The first step is to choose a name for your mosaic. The name of the mosaic, up to a size limit of <code class="docutils literal"><span class="pre">64</span></code> characters, must be unique under the domain name.</p>
+<p>Choose the name for your mosaic. The name of the mosaic, up to a size limit of <code class="docutils literal"><span class="pre">64</span></code> characters, must be unique under the domain name.</p>
 <p>Our mosaic will be called <code class="docutils literal"><span class="pre">token</span></code>, and its parent namespace will be <code class="docutils literal"><span class="pre">foo</span></code>, with a total supply of <code class="docutils literal"><span class="pre">1.000.000</span></code>.</p>
+<p>Reference this mosaic in future transactions as <code class="docutils literal"><span class="pre">foo:token</span></code>.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction mosaic --mosaicname token --namespacename foo --amount <span class="m">1000000</span> --transferable --supplymutable --divisibility <span class="m">0</span> --duration 1000
 </pre></div>
 </div>
 <p><strong>Send your first transfer transaction</strong></p>
-<p>Let’s send some of the mosaics you have created to another account by sending a <a class="reference internal" href="../concepts/transaction.html#transfer-transaction"><span class="std std-ref">transfer transaction</span></a>, one of the most commonly used actions in NEM.</p>
+<p>Congratulations! You are the owner of the mosaic. Now send some <code class="docutils literal"><span class="pre">foo:token</span></code> to another account announcing a <a class="reference internal" href="../concepts/transaction.html#transfer-transaction"><span class="std std-ref">transfer transaction</span></a>, one of the most commonly used actions in NEM.</p>
 <p>A transfer transaction is composed of three essential attributes:</p>
 <ul class="simple">
 <li>The recipient address.</li>
@@ -409,8 +418,9 @@ transactionHttp.announceTransaction(signedTransaction).toFuture().get();
 </div>
 </div>
 <div class="section" id="what-s-next">
-<h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
-<p>That’s it! Easy right? Now you have finished this guide, continue reviewing <a class="reference internal" href="../concepts/account.html"><span class="doc">general concepts</span></a> or practicing with more step by step <a class="reference internal" href="../guides/overview.html"><span class="doc">guides</span></a>.</p>
+<h3>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h3>
+<p>Continue reviewing <a class="reference internal" href="../concepts/account.html"><span class="doc">general concepts</span></a> or practicing with more step by step <a class="reference internal" href="../guides/overview.html"><span class="doc">guides</span></a>.</p>
+</div>
 </div>
 </div>
 
@@ -424,7 +434,7 @@ transactionHttp.announceTransaction(signedTransaction).toFuture().get();
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../concepts/overview.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../concepts/account.html" class="btn btn-neutral float-right" title="Account" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="setup-workstation.html" class="btn btn-neutral" title="Setting up your workstation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                0.9.3
+                0.9.4
               </div>
             
           
@@ -104,12 +104,12 @@
             
               <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/nem-overview.html">NEM Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">Setting up your workstation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">Writing your first application</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Fundamentals</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/transaction.html">Transaction</a></li>
@@ -274,8 +274,7 @@
 <h1>Sending transactions<a class="headerlink" href="#sending-transactions" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="sending-a-transfer-transaction">
 <span id="guide-sending-a-transfer-transaction"></span><h2>Sending a transfer transaction<a class="headerlink" href="#sending-a-transfer-transaction" title="Permalink to this headline">¶</a></h2>
-<p>The goal of this guide is to create a <a class="reference internal" href="../concepts/transaction.html#transfer-transaction"><span class="std std-ref">transfer transaction</span></a>, one of the most commonly used actions in NEM.</p>
-<p>Then, you will sign and announce the transaction to the network.</p>
+<p>The goal of this announce a <a class="reference internal" href="../concepts/transaction.html#transfer-transaction"><span class="std std-ref">transfer transaction</span></a>, one of the most commonly used actions in NEM.</p>
 <div class="section" id="prerequisites">
 <h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -291,21 +290,20 @@
 <a class="reference internal image-reference" href="../_images/guides-transactions-transfer.png"><img alt="../_images/guides-transactions-transfer.png" src="../_images/guides-transactions-transfer.png" style="width: 450px;" /></a>
 <p class="caption"><span class="caption-text">Sending a transfer Transaction</span></p>
 </div>
-<p>Alice wants to send 10 XEM to Bob, who just created a NEM account with address <code class="docutils literal"><span class="pre">SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54</span></code>.</p>
-<p>The transfer transaction is used to send mosaics between two accounts. It can hold a message of length <code class="docutils literal"><span class="pre">1024</span></code>.</p>
+<p>Alice wants to send 10 XEM to Bob, who just created the following NEM account with address <code class="docutils literal"><span class="pre">SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54</span></code>.</p>
 <p><strong>Monitoring the transaction</strong></p>
-<p>Before starting this example, it is advisable to see what happens when sending transactions to the blockchain.</p>
-<p>We suggest opening three new terminals, and type the following commands:</p>
-<p>The first terminal <a class="reference internal" href="blockchain.html#guide-debugging-transactions"><span class="std std-ref">monitors account transactions</span></a> validation errors.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor status --address &lt;your-address-here&gt;
+<p>Once an account announces a transaction, if properly formed, the server will return an OK response.</p>
+<p>Receiving an OK response doesn’t mean the transaction is valid, hence not included in a block. A good practice is to monitor transactions before being announced.</p>
+<p>We suggest opening three new terminals. The first terminal <a class="reference internal" href="blockchain.html#guide-debugging-transactions"><span class="std std-ref">monitors announced transactions</span></a> validation errors.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor status
 </pre></div>
 </div>
-<p>Monitoring <code class="docutils literal"><span class="pre">unconfirmed</span></code> shows you in real-time which transactions have reached the network, but are not valid yet.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor unconfirmed --address &lt;your-address-here&gt;
+<p>Monitoring <code class="docutils literal"><span class="pre">unconfirmed</span></code> shows you which transactions have reached the network, but not yet included in a block.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor unconfirmed
 </pre></div>
 </div>
-<p>See when a transaction involving the provided address gets <code class="docutils literal"><span class="pre">confirmed</span></code>.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor confirmed --address &lt;your-address-here&gt;
+<p>Once a transaction is included, you will see it under the <code class="docutils literal"><span class="pre">confirmed</span></code> terminal.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor confirmed
 </pre></div>
 </div>
 </div>
@@ -400,18 +398,18 @@
 </div>
 <p>Open the terminal where you are monitoring account transactions <code class="docutils literal"><span class="pre">status</span></code>, it should be empty. If you see an error, check <a class="reference internal" href="../api/errors.html"><span class="doc">HTTP Error Codes</span></a> and their meaning.</p>
 <p>A new transaction should have appeared in the terminal where you are monitoring <code class="docutils literal"><span class="pre">unconfirmed</span></code>. At this point, the transaction has reached the network, but it is not clear if it will get included in a block.</p>
-<p>If it is included in a block, the transaction gets processed, and the amount stated in the transaction gets transferred from the sender’s account to the recipient’s account. Additionally, the transaction fee is deducted from the sender’s account.</p>
+<p>If it is included in a block, the transaction gets processed, and the amount stated in the transaction gets transferred from the sender’s account to the recipient’s account.</p>
 </div>
 <div class="section" id="what-s-next">
 <h3>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h3>
-<p>Afterwards, try to send new transfer transactions by altering your code to send multiple mosaics in the same transaction.</p>
+<p>Send a new transfer transactions by altering your code to send multiple mosaics in the same transaction.</p>
 <p><strong>Adding multiple mosaics</strong></p>
 <div class="figure align-center" id="id24">
 <a class="reference internal image-reference" href="../_images/guides-transactions-transfer-multiple.png"><img alt="../_images/guides-transactions-transfer-multiple.png" src="../_images/guides-transactions-transfer-multiple.png" style="width: 450px;" /></a>
 <p class="caption"><span class="caption-text">Sending multiple mosaics in the same transaction</span></p>
 </div>
 <p>As you may have noticed, transfer transactions require an array of mosaics as a parameter, allowing to create transfer transactions with multiple mosaics at a time.</p>
-<p>If you own more than one mosaic, try to send them together in the same transaction by changing the array:</p>
+<p>If you own more than one mosaic, try to send them together in the same transaction:</p>
 <div class="example-code container">
 <div class="highlight-typescript"><div class="highlight"><pre><span></span>    <span class="p">[</span>
         <span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;alice:token&#39;</span><span class="p">),</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">10</span><span class="p">)),</span>
@@ -439,8 +437,7 @@
 </div>
 <div class="section" id="sending-a-multisig-transaction">
 <span id="guide-sending-a-multisig-transaction"></span><h2>Sending a multisig transaction<a class="headerlink" href="#sending-a-multisig-transaction" title="Permalink to this headline">¶</a></h2>
-<p>The purpose of this guide is to create a <a class="reference internal" href="../concepts/multisig-account.html"><span class="doc">multisig</span></a> transaction, learning how <a class="reference internal" href="../concepts/transaction.html#aggregate-transaction"><span class="std std-ref">aggregate bonded transaction</span></a> works.</p>
-<p>Then, you will sign and announce the transaction to the network.</p>
+<p>Send a transaction involving a <a class="reference internal" href="../concepts/multisig-account.html"><span class="doc">multisig</span></a>, learning how <a class="reference internal" href="../concepts/transaction.html#aggregate-transaction"><span class="std std-ref">aggregate bonded transaction</span></a> works.</p>
 <div class="section" id="id1">
 <h3>Background<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-center" id="id25">
@@ -648,8 +645,7 @@
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor aggregatebonded --address &lt;your-address-here&gt;
 </pre></div>
 </div>
-<p>When an aggregate transaction is bonded, Bob needs to lock at least 10 XEM.</p>
-<p>Once all cosigners sign the transaction, the amount of XEM becomes available again on Bob’s account.</p>
+<p>When an aggregate transaction is bonded, Bob needs to lock at least 10 XEM to avoid network spamming. Once all cosigners sign the transaction, the amount of XEM becomes available again on Bob’s account.</p>
 <p>After <a class="reference internal" href="../concepts/transaction.html#lock-funds-transaction"><span class="std std-ref">locks fund transaction</span></a> has been confirmed, <a class="reference internal" href="../api/announce-transaction.html"><span class="doc">announce the aggregate bonded transaction</span></a>.</p>
 <div class="example-code container">
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="c1">//Signing the aggregate transaction</span>
@@ -755,7 +751,7 @@
 </div>
 <div class="section" id="sending-payouts-with-aggregate-complete-transaction">
 <span id="guide-sending-payouts-with-aggregate-complete-transaction"></span><h2>Sending payouts with aggregate complete transaction<a class="headerlink" href="#sending-payouts-with-aggregate-complete-transaction" title="Permalink to this headline">¶</a></h2>
-<p>This guide explains how to send transactions to different accounts atomically, using an <a class="reference internal" href="../concepts/transaction.html#aggregate-transaction"><span class="std std-ref">aggregate complete transaction</span></a>.</p>
+<p>Send transactions to different accounts atomically, using an <a class="reference internal" href="../concepts/transaction.html#aggregate-transaction"><span class="std std-ref">aggregate complete transaction</span></a>.</p>
 <div class="section" id="id5">
 <h3>Background<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <p>It is Christmas, and uncle Dan wants to send money to their nephews Alice and Bob.</p>
@@ -952,7 +948,7 @@
 <p class="caption"><span class="caption-text">Multi-Asset Escrowed Transactions</span></p>
 </div>
 <p><strong>Setting up the required accounts and mosaics</strong></p>
-<p>In this example, Alice and a ticket distributor want to swap the following assets.</p>
+<p>In this example, Alice and a ticket distributor want to swap the following mosaics.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="33%" />
@@ -1210,7 +1206,7 @@
 </div>
 <div class="section" id="asking-for-mosaics-with-aggregate-bonded-transaction">
 <span id="guide-asking-for-mosaics-with-aggregate-bonded-transaction"></span><h2>Asking for mosaics with aggregate bonded transaction<a class="headerlink" href="#asking-for-mosaics-with-aggregate-bonded-transaction" title="Permalink to this headline">¶</a></h2>
-<p>This guide shows you how to ask an account to send you some mosaics using an <a class="reference internal" href="../concepts/transaction.html#aggregate-transaction"><span class="std std-ref">aggregate bonded transaction</span></a>.</p>
+<p>Ask an account to send you funds using an <a class="reference internal" href="../concepts/transaction.html#aggregate-transaction"><span class="std std-ref">aggregate bonded transaction</span></a>.</p>
 <div class="section" id="id12">
 <h3>Prerequisites<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -1436,7 +1432,7 @@
 <div class="section" id="signing-announced-aggregate-bonded-transactions">
 <span id="guide-signing-announced-aggregate-bonded-transactions"></span><h2>Signing announced aggregate bonded transactions<a class="headerlink" href="#signing-announced-aggregate-bonded-transactions" title="Permalink to this headline">¶</a></h2>
 <p>You probably have announced an <a class="reference internal" href="../concepts/transaction.html#aggregate-transaction"><span class="std std-ref">aggregate bonded transaction</span></a>, but all cosigners have not signed it yet.</p>
-<p>This guide will help you to cosign aggregate bonded transactions that require being signed by your account.</p>
+<p>This guide will show you how to cosign aggregate bonded transactions that require being signed by your account.</p>
 <div class="section" id="id15">
 <h3>Prerequisites<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -1761,7 +1757,7 @@
 </div>
 <div class="section" id="using-secret-lock-for-atomic-cross-chain-swap-transactions">
 <span id="guide-using-secret-lock-for-atomic-cross-chain-swap"></span><h2>Using secret lock for atomic cross-chain swap transactions<a class="headerlink" href="#using-secret-lock-for-atomic-cross-chain-swap-transactions" title="Permalink to this headline">¶</a></h2>
-<p>The goal of this guide is to show you how to exchange tokens between different blockchains atomically using <a class="reference internal" href="../concepts/transaction.html#secret-lock-transaction"><span class="std std-ref">secret lock</span></a> and <a class="reference internal" href="../concepts/transaction.html#secret-proof-transaction"><span class="std std-ref">secret proof transactions</span></a>.</p>
+<p>Exchange tokens between different blockchains atomically using <a class="reference internal" href="../concepts/transaction.html#secret-lock-transaction"><span class="std std-ref">secret lock</span></a> and <a class="reference internal" href="../concepts/transaction.html#secret-proof-transaction"><span class="std std-ref">secret proof transactions</span></a>.</p>
 <div class="section" id="id20">
 <h3>Background<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
 <p>Alice and Bob want to exchange 10 alice:token for 10 bob:token. The problem is that they are not in the same blockchain: Alice uses NEM public network, whereas Bob is using MIJIN private network.</p>
@@ -1773,7 +1769,7 @@
 <li>Alice receives the transaction</li>
 </ol>
 <p>But they don’t trust each other that much. Ideally, they want to exchange their tokens between different blockchains atomically.</p>
-<p>Following this guide, you will swap transactions between different blockchain platforms atomically using secret lock transaction.</p>
+<p>Following this guide, you will swap tokens between different blockchain platforms atomically using secret lock transaction.</p>
 <div class="figure align-center" id="id31">
 <a class="reference internal image-reference" href="../_images/guides-transactions-atomic-cross-chain-swap1.png"><img alt="../_images/guides-transactions-atomic-cross-chain-swap1.png" src="../_images/guides-transactions-atomic-cross-chain-swap1.png" style="width: 700px;" /></a>
 <p class="caption"><span class="caption-text">Atomic cross-chain trading between public and private network</span></p>

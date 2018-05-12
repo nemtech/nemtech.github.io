@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                0.9.3
+                0.9.4
               </div>
             
           
@@ -104,12 +104,12 @@
             
               <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/nem-overview.html">NEM Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">Setting up your workstation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">Writing your first application</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Fundamentals</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">Transaction</a></li>
@@ -224,26 +224,31 @@
 <p class="first admonition-title">Warning</p>
 <p class="last">The configuration presented is NOT intended to be used on the public network. These are the parameters used for the Catapult Testnet version (MIJIN_TEST).</p>
 </div>
-<p><a class="reference internal" href="namespace.html"><span class="doc">Namespaces</span></a> give rise to a unique naming convention. Mosaics give rise to the creation of assets.</p>
-<p>Mosaics can be used to represent any asset in the blockchain such as objects, tickets, coupons, stock share representation, and even your cryptocurrency.</p>
-<p>A mosaic is like a file hosted on a domain, and represents an asset.  Like a website and directory, a mosaic can have the same name as other files on other domains. However,  a namespace + mosaic is always unique, as the root namespace was unique even if the rest of it is not.</p>
+<p>Mosaics are part of what makes the Smart Asset System unique and flexible. Mosaics are fixed assets on the NEM blockchain that can represent a set of multiple identical things that do not change.</p>
+<p>A mosaic could be as simple as a token, but it could also represent a set of more specialized assets like: reward points, shares of stock, signatures, status flags, votes or even other currencies.</p>
+<p>Each Mosaic is defined by a variety of attributes such as name, description, quantity, divisibility, transferability and more.</p>
+<p>Mosaics are held within <a class="reference internal" href="account.html"><span class="doc">accounts</span></a>, and can be transferred between them to represent a surprising variety of transactions such as: registering a signature, updating the status of an item, casting a vote, or simply passing coins or points between accounts.</p>
 <div class="section" id="fields">
 <h2>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h2>
 <p>The basic data for a mosaic definition consists of:</p>
 <blockquote>
 <div><p><strong>Namespace</strong></p>
-<p>To be able to create a mosaic definition, an account must rent at least one root namespace which the mosaic definition can then refer to.</p>
+<p>A mosaic is always linked to a namespace, like a file hosted on a domain.</p>
 <p><strong>Name</strong></p>
-<p>Name of the mosaic, up to a size limit of <code class="docutils literal"><span class="pre">64</span></code> characters; must be unique under the domain name.</p>
-<p>Allowed characters are a, b, c, …, z, 0, 1, 2, …, 9, ‘, _ , -.</p>
-<p>Mosaics are usually identified by the joining the namepace name with the mosaic name using ‘:’ symbol. For example, if we create a namespace called <code class="docutils literal"><span class="pre">nem</span></code> and a mosaic called <code class="docutils literal"><span class="pre">xem</span></code> under it, mosaic is referenced as <code class="docutils literal"><span class="pre">nem:xem</span></code>.</p>
+<p>Like a website and directory, a mosaic can have the same name as other files on other domains. However,  a namespace + mosaic is always unique, as the root namespace was unique even if the rest of it is not.</p>
+<p>Mosaics are named joining the namespace name with the mosaic name using ‘:’ symbol. Renting a namespace called <code class="docutils literal"><span class="pre">nem</span></code> and a mosaic called <code class="docutils literal"><span class="pre">xem</span></code> under it, the mosaic is referenced as <code class="docutils literal"><span class="pre">nem:xem</span></code>.</p>
+<p>Consider the following restrictions:</p>
+<ul class="simple">
+<li>The name of the mosaic has a size limit of <code class="docutils literal"><span class="pre">64</span></code> characters and must be unique under the domain name.</li>
+<li>Allowed characters are a, b, c, …, z, 0, 1, 2, …, 9, ‘, _ , -.</li>
+</ul>
 <p><strong>Owner</strong></p>
 <p>The public key of the mosaic creator.</p>
 <p><strong>Properties</strong></p>
 <p>The behavior of a mosaic can be customized by a set of properties. Supported properties are:</p>
 <ul class="simple">
 <li>Divisibility: Determines up to what decimal place the mosaic can be divided. Divisibility of 3 means that a mosaic can be divided into smallest parts of 0.001 mosaics. The divisibility must be in the range of 0 and 6.</li>
-<li>Duration: The number of confirmed blocks we would like to rent our namespace for. Should be inferior or equal to namespace duration.</li>
+<li>Duration: The number of confirmed blocks we would like to rent our namespace for.</li>
 <li>Supply: The amount of mosaic in circulation. The creator can specify an initial supply of mosaics when creating the definition. The initial supply must be in the range of 0 and 9,000,000,000.</li>
 <li>Supply mutable: The creator can choose between a definition that allows a mosaic supply change at a later point or a <strong>immutable</strong> supply. In the first case the creator is only allowed to decrease the supply within the limits of mosaics owned.</li>
 <li>Transferability: The creator can choose if the mosaic can be transferred to and from arbitrary accounts, or only allowing itself to be the recipient once transferred.</li>
