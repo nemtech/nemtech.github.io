@@ -1,120 +1,350 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Registering namespaces &mdash; nem2-docs Master documentation</title>
-  
 
-  
-  
-    <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Registering namespaces &#8212; nem2-docs Master documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
-  
-
-  
     <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
-  
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'Master',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../_static/examplecode.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Interacting with mosaics" href="mosaic.html" />
+    <link rel="prev" title="Monitoring blockchain" href="blockchain.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
 
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="nem2-docs Master documentation" href="../index.html"/>
-        <link rel="next" title="Interacting with mosaics" href="mosaic.html"/>
-        <link rel="prev" title="Monitoring blockchain" href="blockchain.html"/> 
+  </head>
+  <body>
 
-  
-  <script src="../_static/js/modernizr.min.js"></script>
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
+          developer center</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.0</b></span>
+      </div>
 
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
-   
-  <div class="wy-grid-for-nav">
-
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-    
-
-          
-            <a href="../index.html">
-          
-
-          
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
             
-            <img src="../_static/logo-nem.svg" class="logo" />
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                0.9.4
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-    <!--<div class="sidebar-links">
-        <a href="#">API Reference</a> · <a href="#">SDK References</a>
-    </div>-->
-
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
+                <li><a href="overview.html">Guides</a></li>
+                <li><a href="../concepts/account.html">Built-in Features</a></li>
+                <li><a href="../sdk/overview.html">References</a></li>
             
             
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/what-is-nem.html">What is NEM?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/what-is-nem.html#the-smart-asset-system">The Smart Asset System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/what-is-nem.html#architecting-on-nem">Architecting on NEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/what-is-nem.html#public-and-private">Public and Private</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">Setting up your workstation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#create-a-test-account">Create a test account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#what-is-xem-and-how-to-get-it">What is XEM and how to get it?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#set-up-the-development-environment">Set up the development environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#typescript-javascript">TypeScript/JavaScript</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#java">Java</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">Writing your first application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/first-application.html#background">Background</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting-started/first-application.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting-started/first-application.html#lets-get-into-some-code">Let’s get into some code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting-started/first-application.html#what-s-next">What’s next?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">Multisig Account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/multisig-account.html#modify-multisig-account-transaction">Modify multisig account transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/multi-level-multisig-account.html">Multi-Level Multisig Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/transaction.html">Transaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#transaction-life-cycle">Transaction life-cycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#transaction-types">Transaction types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">Namespace</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/namespace.html#subnamespaces">Subnamespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/namespace.html#register-namespace-transaction">Register namespace transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/mosaic.html">Mosaic</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mosaic.html#mosaic-definition-transaction">Mosaic definition transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mosaic.html#mosaic-supply-change-transaction">Mosaic supply change transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/transfer-transaction.html">Transfer Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/aggregate-transaction.html">Aggregate transaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#aggregate-complete">Aggregate complete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#aggregate-bonded">Aggregate bonded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#cosignature-transaction">Cosignature transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#lock-funds-transaction">Lock funds transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/cross-chain-transaction.html">Cross-Chain Transaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/cross-chain-transaction.html#secret-lock-transaction">Secret lock transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/cross-chain-transaction.html#secret-proof-transaction">Secret proof transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/block.html">Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/node.html">Node</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/node.html#layer-01-the-blockchain-network">Layer 01 - The blockchain network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/node.html#layer-02-api-gateway-server">Layer 02 - API Gateway Server</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#how-to-run-an-example">How to run an example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#cli">Cli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#typescript">TypeScript</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#javascript">JavaScript</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#java">Java</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="account.html">Interacting with accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blockchain.html">Monitoring blockchain</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Registering namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic.html">Interacting with mosaics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transaction.html">Sending transactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running-catapult-in-local.html">Running Catapult in local</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="running-catapult-in-local.html#evironment-dependencies">Evironment Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running-catapult-in-local.html#installation-startup-instructions">Installation &amp; Startup Instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running-catapult-in-local.html#keys-setup">Keys Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running-catapult-in-local.html#starting-as-a-background-process">Starting as a Background Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running-catapult-in-local.html#resetting-your-catapult-server">Resetting your Catapult Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running-catapult-in-local.html#known-issues">Known Issues</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">NEM2-CLI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/overview.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/overview.html#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/overview.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/commands.html">Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/commands.html#profile">Profile</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#create">Create</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#list">List</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/commands.html#account">Account</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#generate-new-account">Generate new account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#get-account-info">Get account info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#get-confirmed-transactions">Get confirmed transactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#get-incoming-transactions">Get incoming transactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#get-outgoing-transactions">Get outgoing transactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#get-unconfirmed-transactions">Get unconfirmed transactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#get-aggregate-bonded-transactions">Get Aggregate bonded transactions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/commands.html#blockchain">Blockchain</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#blockchain-height">Blockchain height</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#blockchain-score">Blockchain score</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/commands.html#transaction">Transaction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#cosign-aggregate-bonded-transaction">Cosign aggregate bonded transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#transaction-info">Transaction info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#send-transfer-transaction">Send transfer transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#send-pull-transaction">Send pull transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#register-root-namespace">Register root namespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#register-subnamespace">Register subnamespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#create-a-mosaic">Create a mosaic</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/commands.html#namespace">Namespace</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#info">Info</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/commands.html#mosaic">Mosaic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#id1">Info</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/commands.html#monitoring">Monitoring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#block">Block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#confirmed-transactions">Confirmed transactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#unconfirmed-transactions">Unconfirmed transactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#aggregate-bonded-transactions">Aggregate bonded transactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#transaction-status">Transaction status</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">NEM2-SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sdk/overview.html#backward-compatibility-with-nis1-sdks">Backward compatibility with NIS1 SDKs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdk/overview.html#languages-references">Languages &amp; References</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/overview.html#typescript-javascript">Typescript &amp; JavaScript</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/overview.html#jvm-java-kotlin">JVM: Java &amp; Kotlin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/overview.html#planned-languages-to-give-support">Planned languages to give support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/architecture.html">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sdk/architecture.html#characteristics">Characteristics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdk/architecture.html#reactive">Reactive</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/architecture.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sdk/architecture.html#package-organization">Package Organization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/architecture.html#infrastructure">Infrastructure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/architecture.html#models">Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/architecture.html#services">Services</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">NIS2-API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/overview.html#interacting-with-the-api">Interacting with the API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/overview.html#tools">Tools</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/overview.html#swagger-ui">Swagger UI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/overview.html#insomnia">Insomnia</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api/announce-transaction.html">Announcing transactions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/announce-transaction.html#announcing-a-transaction">Announcing a transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/announce-transaction.html#announcing-an-aggregate-bonded-transaction">Announcing an aggregate bonded transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api/websockets.html">WebSockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/errors.html">Error Handling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/errors.html#error-list">Error list</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">NEM2 Libraries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/overview.html">Extending NEM capabilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/overview.html#nip-library">NIP Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/overview.html#non-nip-library">non-NIP Library</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../support/contributing.html#error-reports">Error reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../support/contributing.html#requests">Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../support/contributing.html#contributing-code-and-documentation-changes">Contributing code and documentation changes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../support/contributing.html#contributing-license-notice">Contributing License Notice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../support/contributing.html#fork-and-clone-the-repository">Fork and clone the repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../support/contributing.html#submitting-your-changes">Submitting your changes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contributors.html">Contributors</a></li>
+</ul>
+</ul>
+</li>
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../getting-started/nem-overview.html">NEM Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/what-is-nem.html">What is NEM?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">Setting up your workstation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">Writing your first application</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Fundamentals</span></p>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">Multisig Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/multi-level-multisig-account.html">Multi-Level Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/transaction.html">Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/mosaic.html">Mosaic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/transfer-transaction.html">Transfer Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/aggregate-transaction.html">Aggregate transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/cross-chain-transaction.html">Cross-Chain Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/block.html">Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/node.html">Node</a></li>
 </ul>
@@ -123,24 +353,10 @@
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="account.html">Interacting with accounts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blockchain.html">Monitoring blockchain</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Registering namespaces</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#registering-a-namespace">Registering a namespace</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#background">Background</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#lets-get-into-some-code">Let’s get into some code</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#what-s-next">What’s next?</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#registering-a-subnamespace">Registering a subnamespace</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Background</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">Prerequisites</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">Let’s get into some code</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Registering namespaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">Interacting with mosaics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">Sending transactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running-catapult-in-local.html">Running Catapult in local</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2-CLI</span></p>
 <ul>
@@ -151,7 +367,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../sdk/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk/architecture.html">Architecture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../sdk/languages.html">Languages &amp; References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NIS2-API</span></p>
 <ul>
@@ -167,403 +382,37 @@
 <p class="caption"><span class="caption-text">Support</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contributors.html">Contributors</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
+    <div class="col-md-9 content">
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">nem2-docs</a>
-        
-      </nav>
-
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-      <li>Registering namespaces</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="../_sources/guides/namespace.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
   <div class="section" id="registering-namespaces">
 <h1>Registering namespaces<a class="headerlink" href="#registering-namespaces" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="registering-a-namespace">
-<span id="guide-registering-a-namespace"></span><h2>Registering a namespace<a class="headerlink" href="#registering-a-namespace" title="Permalink to this headline">¶</a></h2>
-<p>The purpose of this guide is to register your own <a class="reference internal" href="../concepts/namespace.html"><span class="doc">namespace</span></a>.</p>
-<div class="section" id="background">
-<h3>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h3>
-<p>A namespace is an on-chain unique domain for your assets.</p>
-<p>The easiest way to appreciate it is the domain and file analogy on the internet. Imagine that a domain address has to be unique in a root (lowest level).</p>
-<p>If one <a class="reference internal" href="account.html"><span class="doc">account</span></a> creates a namespace, that namespace will appear unique in the NEM ecosystem. For example, if one were to create a namespace called <code class="docutils literal"><span class="pre">foo</span></code>, a second person cannot create the same namespace.</p>
-</div>
-<div class="section" id="prerequisites">
-<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>Finish the <a class="reference internal" href="../getting-started/setup-workstation.html"><span class="doc">getting started section</span></a></li>
-<li>NEM2-SDK or CLI</li>
-<li>A text editor or IDE</li>
-<li>An account with XEM</li>
+<li><a class="reference internal" href="namespace/registering-a-namespace.html"><span class="doc">Registering a namespace</span></a></li>
+<li><a class="reference internal" href="namespace/registering-a-subnamespace.html"><span class="doc">Registering a subnamespace</span></a></li>
 </ul>
 </div>
-<div class="section" id="lets-get-into-some-code">
-<h3>Let’s get into some code<a class="headerlink" href="#lets-get-into-some-code" title="Permalink to this headline">¶</a></h3>
-<p>A <a class="reference internal" href="../concepts/namespace.html"><span class="doc">namespace</span></a> is an on-chain unique domain for your assets. The easiest way to appreciate it is the domain and file analogy on the internet. Imagine that a domain address has to be unique in a root (lowest level).</p>
-<p>A mosaic is like a file hosted on a domain and represents an asset. Like a website and directory, a mosaic can have the same name as other files on other domains. However,  a namespace + mosaic is always unique, as the root namespace was unique even if the rest of it is not.</p>
-<p>Register your namespace, choosing a name you like. One common option is to use your company’s or own name.  In this example, we will register a namespace called <code class="docutils literal"><span class="pre">foo</span></code>. Let’s check if this name is available.</p>
-<div class="example-code container">
-<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">namespaceHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NamespaceHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
-
-<span class="c1">//Replace with namespaceId</span>
-<span class="kr">const</span> <span class="nx">namespace</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NamespaceId</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>
-
-<span class="nx">namespaceHttp</span><span class="p">.</span><span class="nx">getNamespace</span><span class="p">(</span><span class="nx">namespace</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
-    <span class="nx">namespace</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">namespace</span><span class="p">),</span>
-    <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-<span class="p">);</span>
-</pre></div>
-</div>
-<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="kd">final</span> <span class="n">NamespaceId</span> <span class="n">namespaceId</span> <span class="o">=</span> <span class="k">new</span> <span class="n">NamespaceId</span><span class="o">(</span><span class="s">&quot;foo&quot;</span><span class="o">);</span>
-
-        <span class="kd">final</span> <span class="n">NamespaceHttp</span> <span class="n">namespaceHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">NamespaceHttp</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
-
-        <span class="kd">final</span> <span class="n">NamespaceInfo</span> <span class="n">namespaceInfo</span> <span class="o">=</span> <span class="n">namespaceHttp</span><span class="o">.</span><span class="na">getNamespace</span><span class="o">(</span><span class="n">namespaceId</span><span class="o">).</span><span class="na">toFuture</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
-
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">namespaceInfo</span><span class="o">);</span>
-</pre></div>
-</div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">namespaceHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NamespaceHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
-
-<span class="c1">//Replace with namespaceId</span>
-<span class="kr">const</span> <span class="nx">namespace</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NamespaceId</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>
-
-<span class="nx">namespaceHttp</span><span class="p">.</span><span class="nx">getNamespace</span><span class="p">(</span><span class="nx">namespace</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
-    <span class="nx">namespace</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">namespace</span><span class="p">),</span>
-    <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-<span class="p">);</span>
-</pre></div>
-</div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli namespace info --name foo
-</pre></div>
-</div>
-</div>
-<p>Is the namespace available? Try to register it before someone else does it!</p>
-<p>To register a new namespace, announce a <a class="reference internal" href="../concepts/transaction.html#register-namespace-transaction"><span class="std std-ref">register namespace transaction</span></a> with the chosen name and renting duration expressed in blocks.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">In Catapult, NEM blocks are complete every <code class="docutils literal"><span class="pre">15</span></code> seconds in average.</p>
-</div>
-<div class="example-code container">
-<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="c1">//Replace with private key</span>
-<span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
-
-<span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
-
-<span class="c1">//Replace with namespace name</span>
-<span class="kr">const</span> <span class="nx">namespace</span> <span class="o">=</span> <span class="s2">&quot;foo&quot;</span><span class="p">;</span>
-
-<span class="kr">const</span> <span class="nx">registerNamespaceTransaction</span> <span class="o">=</span> <span class="nx">RegisterNamespaceTransaction</span><span class="p">.</span><span class="nx">createRootNamespace</span><span class="p">(</span>
-    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
-    <span class="nx">namespace</span><span class="p">,</span> <span class="c1">// use your own namespace name</span>
-    <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
-    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">,</span>
-<span class="p">);</span>
-
-<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">registerNamespaceTransaction</span><span class="p">);</span>
-
-<span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
-
-<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
-    <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
-    <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-<span class="p">);</span>
-</pre></div>
-</div>
-<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="c1">// Replace with private key</span>
-        <span class="kd">final</span> <span class="n">String</span> <span class="n">privateKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
-
-        <span class="kd">final</span> <span class="n">Account</span> <span class="n">account</span> <span class="o">=</span> <span class="n">Account</span><span class="o">.</span><span class="na">createFromPrivateKey</span><span class="o">(</span><span class="n">privateKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
-
-        <span class="c1">// Replace with namespace name</span>
-        <span class="kd">final</span> <span class="n">String</span> <span class="n">namespaceName</span> <span class="o">=</span> <span class="s">&quot;foo&quot;</span><span class="o">;</span>
-
-        <span class="kd">final</span> <span class="n">RegisterNamespaceTransaction</span> <span class="n">registerNamespaceTransaction</span> <span class="o">=</span> <span class="n">RegisterNamespaceTransaction</span><span class="o">.</span><span class="na">createRootNamespace</span><span class="o">(</span>
-                <span class="n">Deadline</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">ChronoUnit</span><span class="o">.</span><span class="na">HOURS</span><span class="o">),</span>
-                <span class="n">namespaceName</span><span class="o">,</span>
-                <span class="n">BigInteger</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="mi">1000</span><span class="o">),</span>
-                <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span>
-        <span class="o">);</span>
-
-        <span class="kd">final</span> <span class="n">SignedTransaction</span> <span class="n">signedTransaction</span> <span class="o">=</span> <span class="n">account</span><span class="o">.</span><span class="na">sign</span><span class="o">(</span><span class="n">registerNamespaceTransaction</span><span class="o">);</span>
-
-        <span class="kd">final</span> <span class="n">TransactionHttp</span> <span class="n">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TransactionHttp</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
-
-        <span class="n">transactionHttp</span><span class="o">.</span><span class="na">announce</span><span class="o">(</span><span class="n">signedTransaction</span><span class="o">).</span><span class="na">toFuture</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
-</pre></div>
-</div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">//Replace with private key</span>
-<span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span><span class="p">;</span>
-
-<span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
-
-<span class="c1">//Replace with namespace name</span>
-<span class="kr">const</span> <span class="nx">namespace</span> <span class="o">=</span> <span class="s2">&quot;foo&quot;</span><span class="p">;</span>
-
-<span class="kr">const</span> <span class="nx">registerNamespaceTransaction</span> <span class="o">=</span> <span class="nx">RegisterNamespaceTransaction</span><span class="p">.</span><span class="nx">createRootNamespace</span><span class="p">(</span>
-    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
-    <span class="nx">namespace</span><span class="p">,</span> <span class="c1">// use your own namespace name</span>
-    <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
-    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">,</span>
-<span class="p">);</span>
-
-<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">registerNamespaceTransaction</span><span class="p">);</span>
-
-<span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
-
-<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
-    <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
-    <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-<span class="p">);</span>
-</pre></div>
-</div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli transaction namespace --name foo --rootnamespace --duration 1000
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="what-s-next">
-<h3>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h3>
-<p>Now that you have registered your namespace, check how you can  <a class="reference internal" href="mosaic.html#guide-creating-a-mosaic"><span class="std std-ref">create mosaics</span></a>.</p>
-<p>When the transaction is confirmed, you will be able to  <a class="reference internal" href="#guide-registering-a-subnamespace"><span class="std std-ref">register a subnamespace</span></a> following the next guide.</p>
-</div>
-</div>
-<div class="section" id="registering-a-subnamespace">
-<span id="guide-registering-a-subnamespace"></span><h2>Registering a subnamespace<a class="headerlink" href="#registering-a-subnamespace" title="Permalink to this headline">¶</a></h2>
-<p>Register a <a class="reference internal" href="../concepts/namespace.html"><span class="doc">subnamespace</span></a> following this guide.</p>
-<div class="section" id="id1">
-<h3>Background<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p>Having a root namespace registered, you can create up to <code class="docutils literal"><span class="pre">3</span></code> levels of subnamespaces.</p>
-<p>Subnamespaces do not have a renting duration by its own. They have the same one as their parent namespace.</p>
-<p>It is possible to create multiple subnamespaces with the same name in different namespaces (example: <code class="docutils literal"><span class="pre">foo.bar</span></code> and <code class="docutils literal"><span class="pre">foo2.bar</span></code>).</p>
-</div>
-<div class="section" id="id2">
-<h3>Prerequisites<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li>Finish <a class="reference internal" href="#guide-registering-a-namespace"><span class="std std-ref">registering a namespace guide</span></a></li>
-<li>NEM2-SDK or CLI</li>
-<li>A text editor or IDE</li>
-<li>An account with XEM and at least one namespace</li>
-</ul>
-</div>
-<div class="section" id="id3">
-<h3>Let’s get into some code<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<p>The first step is to choose a name for your subnamespace.</p>
-<p>In this example, we will register a namespace called <code class="docutils literal"><span class="pre">bar</span></code> under <code class="docutils literal"><span class="pre">foo</span></code> namespace.</p>
-<div class="example-code container">
-<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="c1">// Replace with private key</span>
-<span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
-
-<span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
-
-<span class="c1">//Replace with root namespace name</span>
-<span class="kr">const</span> <span class="nx">rootNamespaceName</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span><span class="p">;</span>
-
-<span class="c1">//Replace with subnamespace name</span>
-<span class="kr">const</span> <span class="nx">subnamespace</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">;</span>
-
-<span class="kr">const</span> <span class="nx">registerNamespaceTransaction</span> <span class="o">=</span> <span class="nx">RegisterNamespaceTransaction</span><span class="p">.</span><span class="nx">createSubNamespace</span><span class="p">(</span>
-    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
-    <span class="nx">subnamespace</span><span class="p">,</span>
-    <span class="nx">rootNamespaceName</span><span class="p">,</span>
-    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span>
-<span class="p">);</span>
-
-<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">registerNamespaceTransaction</span><span class="p">);</span>
-
-<span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
-
-<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
-    <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
-    <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-<span class="p">);</span>
-</pre></div>
-</div>
-<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="c1">// Replace with private key</span>
-        <span class="kd">final</span> <span class="n">String</span> <span class="n">privateKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
-
-        <span class="kd">final</span> <span class="n">Account</span> <span class="n">account</span> <span class="o">=</span> <span class="n">Account</span><span class="o">.</span><span class="na">createFromPrivateKey</span><span class="o">(</span><span class="n">privateKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
-
-        <span class="c1">// Replace with root namespace name</span>
-        <span class="kd">final</span> <span class="n">NamespaceId</span> <span class="n">rootNamespaceId</span> <span class="o">=</span> <span class="k">new</span> <span class="n">NamespaceId</span><span class="o">(</span><span class="s">&quot;foo&quot;</span><span class="o">);</span>
-
-        <span class="c1">//Replace with subnamespace name</span>
-        <span class="kd">final</span> <span class="n">String</span> <span class="n">subnamespaceName</span> <span class="o">=</span> <span class="s">&quot;bar&quot;</span><span class="o">;</span>
-
-        <span class="kd">final</span> <span class="n">RegisterNamespaceTransaction</span> <span class="n">registerNamespaceTransaction</span> <span class="o">=</span> <span class="n">RegisterNamespaceTransaction</span><span class="o">.</span><span class="na">createSubNamespace</span><span class="o">(</span>
-                <span class="n">Deadline</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">ChronoUnit</span><span class="o">.</span><span class="na">HOURS</span><span class="o">),</span>
-                <span class="n">subnamespaceName</span><span class="o">,</span>
-                <span class="n">rootNamespaceId</span><span class="o">,</span>
-                <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span>
-        <span class="o">);</span>
-
-        <span class="kd">final</span> <span class="n">SignedTransaction</span> <span class="n">signedTransaction</span> <span class="o">=</span> <span class="n">account</span><span class="o">.</span><span class="na">sign</span><span class="o">(</span><span class="n">registerNamespaceTransaction</span><span class="o">);</span>
-
-        <span class="kd">final</span> <span class="n">TransactionHttp</span> <span class="n">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TransactionHttp</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
-
-        <span class="n">transactionHttp</span><span class="o">.</span><span class="na">announce</span><span class="o">(</span><span class="n">signedTransaction</span><span class="o">).</span><span class="na">toFuture</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
-</pre></div>
-</div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// Replace with private key</span>
-<span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span><span class="p">;</span>
-
-<span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
-
-<span class="c1">//Replace with root namespace name</span>
-<span class="kr">const</span> <span class="nx">rootNamespaceName</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span><span class="p">;</span>
-
-<span class="c1">//Replace with subnamespace name</span>
-<span class="kr">const</span> <span class="nx">subnamespace</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">;</span>
-
-<span class="kr">const</span> <span class="nx">registerNamespaceTransaction</span> <span class="o">=</span> <span class="nx">RegisterNamespaceTransaction</span><span class="p">.</span><span class="nx">createSubNamespace</span><span class="p">(</span>
-    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
-    <span class="nx">subnamespace</span><span class="p">,</span>
-    <span class="nx">rootNamespaceName</span><span class="p">,</span>
-    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span>
-<span class="p">);</span>
-
-<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">registerNamespaceTransaction</span><span class="p">);</span>
-
-<span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
-
-<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
-    <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
-    <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-<span class="p">);</span>
-</pre></div>
-</div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli transaction namespace --subnamespace --parentname foo --name bar
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
 
 
-           </div>
-           <div class="articleComments">
-            
-           </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="mosaic.html" class="btn btn-neutral float-right" title="Interacting with mosaics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="blockchain.html" class="btn btn-neutral" title="Monitoring blockchain" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
     </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
     <p>
-        &copy; Copyright 2018, NEM.
-
+        &copy; Copyright 2018, NEM.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.<br/>
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'Master',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/examplecode.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
-      });
-  </script>
-   
-
-</body>
+  </body>
 </html>

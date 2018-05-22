@@ -1,118 +1,348 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Preparing for NEM2-SDK 1.0.0 &mdash; nem2-docs Master documentation</title>
-  
 
-  
-  
-    <link rel="shortcut icon" href="../../_static/favicon-32x32.png"/>
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Preparing for NEM2-SDK 1.0.0 &#8212; nem2-docs Master documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
-  
-
-  
     <link rel="stylesheet" href="../../_static/examplecode.css" type="text/css" />
-  
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     'Master',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../../_static/examplecode.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon-32x32.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
 
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="nem2-docs Master documentation" href="../../index.html"/> 
+  </head>
+  <body>
 
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/logo-nem.svg"></span>
+          developer center</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.0</b></span>
+      </div>
 
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
-   
-  <div class="wy-grid-for-nav">
-
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-    
-
-          
-            <a href="../../index.html">
-          
-
-          
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
             
-            <img src="../../_static/logo-nem.svg" class="logo" />
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                0.9.4
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-    <!--<div class="sidebar-links">
-        <a href="#">API Reference</a> · <a href="#">SDK References</a>
-    </div>-->
-
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
+                <li><a href="../../guides/overview.html">Guides</a></li>
+                <li><a href="../../concepts/account.html">Built-in Features</a></li>
+                <li><a href="../overview.html">References</a></li>
             
             
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/what-is-nem.html">What is NEM?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/what-is-nem.html#the-smart-asset-system">The Smart Asset System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/what-is-nem.html#architecting-on-nem">Architecting on NEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/what-is-nem.html#public-and-private">Public and Private</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/setup-workstation.html">Setting up your workstation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#create-a-test-account">Create a test account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#what-is-xem-and-how-to-get-it">What is XEM and how to get it?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#set-up-the-development-environment">Set up the development environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started/setup-workstation.html#typescript-javascript">TypeScript/JavaScript</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started/setup-workstation.html#java">Java</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/first-application.html">Writing your first application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/first-application.html#background">Background</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started/first-application.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started/first-application.html#lets-get-into-some-code">Let’s get into some code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started/first-application.html#what-s-next">What’s next?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">Multisig Account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/multisig-account.html#modify-multisig-account-transaction">Modify multisig account transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/multi-level-multisig-account.html">Multi-Level Multisig Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/transaction.html">Transaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/transaction.html#transaction-life-cycle">Transaction life-cycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/transaction.html#transaction-types">Transaction types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">Namespace</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/namespace.html#subnamespaces">Subnamespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/namespace.html#register-namespace-transaction">Register namespace transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">Mosaic</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/mosaic.html#mosaic-definition-transaction">Mosaic definition transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/mosaic.html#mosaic-supply-change-transaction">Mosaic supply change transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">Transfer Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">Aggregate transaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/aggregate-transaction.html#aggregate-complete">Aggregate complete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/aggregate-transaction.html#aggregate-bonded">Aggregate bonded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/aggregate-transaction.html#cosignature-transaction">Cosignature transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/aggregate-transaction.html#lock-funds-transaction">Lock funds transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-transaction.html">Cross-Chain Transaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/cross-chain-transaction.html#secret-lock-transaction">Secret lock transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/cross-chain-transaction.html#secret-proof-transaction">Secret proof transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/block.html">Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/node.html">Node</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/node.html#layer-01-the-blockchain-network">Layer 01 - The blockchain network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/node.html#layer-02-api-gateway-server">Layer 02 - API Gateway Server</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/overview.html#how-to-run-an-example">How to run an example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/overview.html#cli">Cli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/overview.html#typescript">TypeScript</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/overview.html#javascript">JavaScript</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/overview.html#java">Java</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/account.html">Interacting with accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/blockchain.html">Monitoring blockchain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/namespace.html">Registering namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/mosaic.html">Interacting with mosaics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/transaction.html">Sending transactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/running-catapult-in-local.html">Running Catapult in local</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/running-catapult-in-local.html#evironment-dependencies">Evironment Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/running-catapult-in-local.html#installation-startup-instructions">Installation &amp; Startup Instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/running-catapult-in-local.html#keys-setup">Keys Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/running-catapult-in-local.html#starting-as-a-background-process">Starting as a Background Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/running-catapult-in-local.html#resetting-your-catapult-server">Resetting your Catapult Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/running-catapult-in-local.html#known-issues">Known Issues</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">NEM2-CLI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cli/overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/overview.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/overview.html#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/overview.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli/commands.html">Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/commands.html#profile">Profile</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/commands.html#create">Create</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/commands.html#list">List</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/commands.html#account">Account</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/commands.html#generate-new-account">Generate new account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/commands.html#get-account-info">Get account info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/commands.html#get-confirmed-transactions">Get confirmed transactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/commands.html#get-incoming-transactions">Get incoming transactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/commands.html#get-outgoing-transactions">Get outgoing transactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/commands.html#get-unconfirmed-transactions">Get unconfirmed transactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/commands.html#get-aggregate-bonded-transactions">Get Aggregate bonded transactions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/commands.html#blockchain">Blockchain</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/commands.html#blockchain-height">Blockchain height</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/commands.html#blockchain-score">Blockchain score</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/commands.html#transaction">Transaction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/commands.html#cosign-aggregate-bonded-transaction">Cosign aggregate bonded transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/commands.html#transaction-info">Transaction info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/commands.html#send-transfer-transaction">Send transfer transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/commands.html#send-pull-transaction">Send pull transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/commands.html#register-root-namespace">Register root namespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/commands.html#register-subnamespace">Register subnamespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/commands.html#create-a-mosaic">Create a mosaic</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/commands.html#namespace">Namespace</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/commands.html#info">Info</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/commands.html#mosaic">Mosaic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/commands.html#id1">Info</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/commands.html#monitoring">Monitoring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/commands.html#block">Block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/commands.html#confirmed-transactions">Confirmed transactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/commands.html#unconfirmed-transactions">Unconfirmed transactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/commands.html#aggregate-bonded-transactions">Aggregate bonded transactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/commands.html#transaction-status">Transaction status</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">NEM2-SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#backward-compatibility-with-nis1-sdks">Backward compatibility with NIS1 SDKs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#languages-references">Languages &amp; References</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../overview.html#typescript-javascript">Typescript &amp; JavaScript</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview.html#jvm-java-kotlin">JVM: Java &amp; Kotlin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview.html#planned-languages-to-give-support">Planned languages to give support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture.html">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#characteristics">Characteristics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#reactive">Reactive</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#package-organization">Package Organization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#infrastructure">Infrastructure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#models">Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#services">Services</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">NIS2-API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/overview.html#interacting-with-the-api">Interacting with the API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/overview.html#tools">Tools</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/overview.html#swagger-ui">Swagger UI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/overview.html#insomnia">Insomnia</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/announce-transaction.html">Announcing transactions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/announce-transaction.html#announcing-a-transaction">Announcing a transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/announce-transaction.html#announcing-an-aggregate-bonded-transaction">Announcing an aggregate bonded transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/websockets.html">WebSockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/errors.html">Error Handling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/errors.html#error-list">Error list</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">NEM2 Libraries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../libraries/overview.html">Extending NEM capabilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../libraries/overview.html#nip-library">NIP Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libraries/overview.html#non-nip-library">non-NIP Library</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../support/contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../support/contributing.html#error-reports">Error reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../support/contributing.html#requests">Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../support/contributing.html#contributing-code-and-documentation-changes">Contributing code and documentation changes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../support/contributing.html#contributing-license-notice">Contributing License Notice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../support/contributing.html#fork-and-clone-the-repository">Fork and clone the repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../support/contributing.html#submitting-your-changes">Submitting your changes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../support/contributors.html">Contributors</a></li>
+</ul>
+</ul>
+</li>
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../getting-started/nem-overview.html">NEM Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/what-is-nem.html">What is NEM?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting-started/setup-workstation.html">Setting up your workstation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting-started/first-application.html">Writing your first application</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Fundamentals</span></p>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">Multisig Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/multi-level-multisig-account.html">Multi-Level Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transaction.html">Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">Mosaic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">Transfer Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">Aggregate transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-transaction.html">Cross-Chain Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/block.html">Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/node.html">Node</a></li>
 </ul>
@@ -124,6 +354,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../guides/namespace.html">Registering namespaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/mosaic.html">Interacting with mosaics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/transaction.html">Sending transactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/running-catapult-in-local.html">Running Catapult in local</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2-CLI</span></p>
 <ul>
@@ -134,7 +365,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../architecture.html">Architecture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../languages.html">Languages &amp; References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NIS2-API</span></p>
 <ul>
@@ -150,69 +380,13 @@
 <p class="caption"><span class="caption-text">Support</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../support/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support/contributors.html">Contributors</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
+    <div class="col-md-9 content">
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">nem2-docs</a>
-        
-      </nav>
-
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-      <li>Preparing for NEM2-SDK 1.0.0</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="../../_sources/sdk/release-notes/00-migration.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
   <div class="section" id="preparing-for-nem2-sdk-1-0-0">
 <h1>Preparing for NEM2-SDK 1.0.0<a class="headerlink" href="#preparing-for-nem2-sdk-1-0-0" title="Permalink to this headline">¶</a></h1>
 <p>We are pleased to present NEM-2SDK 0.9.1. These release notes include NEM2-SDK new features and breaking changes over its predecessor NEM-Library.</p>
@@ -222,40 +396,18 @@
 </div>
 <div class="section" id="install-latest-version">
 <h2>Install latest version<a class="headerlink" href="#install-latest-version" title="Permalink to this headline">¶</a></h2>
-<p>Select your <a class="reference internal" href="../languages.html"><span class="doc">programming language</span></a> and <a class="reference internal" href="../../getting-started/setup-workstation.html#setup-development-environment"><span class="std std-ref">install the latest version</span></a>. Make sure to uninstall previous versions of NEM2-SDK or NEM Library.</p>
+<p>Select your <a class="reference internal" href="../overview.html"><span class="doc">programming language</span></a> and <a class="reference internal" href="../../getting-started/setup-workstation.html#setup-development-environment"><span class="std std-ref">install the latest version</span></a>. Make sure to uninstall previous versions of NEM2-SDK or NEM Library.</p>
 </div>
 <div class="section" id="what-is-new">
 <h2>What is new?<a class="headerlink" href="#what-is-new" title="Permalink to this headline">¶</a></h2>
-<p>NEM2-SDK shares the same design/architecture between <a class="reference internal" href="../languages.html"><span class="doc">programming languages</span></a>. That means fast language adaptation, cohesion and shared knowledge between NEM developers, most rapid SDK updates and fewer bugs.</p>
+<p>NEM2-SDK shares the same design/architecture between programming languages. That means fast language adaptation, cohesion and shared knowledge between NEM developers, most rapid SDK updates and fewer bugs.</p>
 <p>NEM-SDK does not add features that are not 100% related to NIS2-API. Instead, it permits to be extended by the use of new standalone <a class="reference internal" href="../../libraries/overview.html"><span class="doc">libraries</span></a>.</p>
 <p>The new SDK implements the new features available in Catapult.</p>
 </div>
 </div>
-<div class="section" id="aggregate-transactions">
-<h1>Aggregate transactions<a class="headerlink" href="#aggregate-transactions" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference internal" href="../../concepts/transaction.html#aggregate-transaction"><span class="std std-ref">Aggegate Transaction</span></a> contains multiple transactions that can be initiated by different accounts. Use an Aggregate transaction when all transactions need to be included in a block or none of them.</p>
-</div>
-<div class="section" id="locks-fund-transactions">
-<h1>Locks fund transactions<a class="headerlink" href="#locks-fund-transactions" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference internal" href="../../concepts/transaction.html#lock-funds-transaction"><span class="std std-ref">Locks funds transaction</span></a> is used as a deposit to announce announced aggregate bonded transactions.</p>
-<p>Once the related aggregate bonded transaction is confirmed, funds locked become available again in the account that had signed the initial lock funds transaction.</p>
-</div>
-<div class="section" id="multi-level-multisig-accounts-mlma">
-<h1>Multi-level multisig accounts (MLMA)<a class="headerlink" href="#multi-level-multisig-accounts-mlma" title="Permalink to this headline">¶</a></h1>
-<p>NEM2-SDK adds support to <a class="reference internal" href="../../concepts/multisig-account.html"><span class="doc">multi-level multisig accounts</span></a>.</p>
-<p>An MLMA is a multisig that has a cosigner that is another multisig.</p>
-</div>
-<div class="section" id="secret-lock-and-secret-proof-transactions">
-<h1>Secret lock and secret proof transactions<a class="headerlink" href="#secret-lock-and-secret-proof-transactions" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference internal" href="../../concepts/transaction.html#secret-lock-transaction"><span class="std std-ref">Secret lock transaction</span></a> is used to send mosaics to a recipient once an account discovers an attached secret message, known as <em>proof</em>.</p>
-<p>Funds are unlocked and transferred when an account announces a valid <a class="reference internal" href="../../concepts/transaction.html#secret-proof-transaction"><span class="std std-ref">Secret proof transaction</span></a>.</p>
-<p>Secret lock and proof transactions enable <a class="reference internal" href="../../guides/transaction.html#guide-using-secret-lock-for-atomic-cross-chain-swap"><span class="std std-ref">atomic cross-chain trading</span></a>, without the necessity of trusting a third party.</p>
-</div>
-<div class="section" id="details">
-<h1>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h1>
-<p><strong>Repositories</strong></p>
-<blockquote>
-<div><p><strong>BlockChainHttp</strong></p>
+<div class="section" id="repositories">
+<h1>Repositories<a class="headerlink" href="#repositories" title="Permalink to this headline">¶</a></h1>
+<p><strong>BlockChainHttp</strong></p>
 <ul class="simple">
 <li>Added getBlocksByHeightWithLimit method.</li>
 <li>Added getBlockTransactions method.</li>
@@ -284,14 +436,16 @@
 <li>Added  announceAggregateBonded to announce aggregate bonded transactions.</li>
 <li>Added announceAggregateBondedCosignature to announce AggregateCosignatureTransaction.</li>
 </ul>
-<p><strong>Listeners</strong></p>
+</div>
+<div class="section" id="listeners">
+<h1>Listeners<a class="headerlink" href="#listeners" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li>Added new listeners.</li>
 </ul>
-</div></blockquote>
-<p><strong>Models</strong></p>
-<blockquote>
-<div><p><strong>Account</strong></p>
+</div>
+<div class="section" id="models">
+<h1>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h1>
+<p><strong>Account</strong></p>
 <ul class="simple">
 <li>Added access private key of the account.</li>
 <li>Added generate a new account.</li>
@@ -345,8 +499,10 @@
 <ul class="simple">
 <li>New Model.</li>
 </ul>
-<p><strong>SecretProofTransaction</strong>
-* New model</p>
+<p><strong>SecretProofTransaction</strong></p>
+<ul class="simple">
+<li>New model</li>
+</ul>
 <p><strong>MultisigAccountInfo</strong></p>
 <ul class="simple">
 <li>New model.</li>
@@ -359,14 +515,15 @@
 <ul class="simple">
 <li>Added two static constructors, createRelative and createAbsolute.</li>
 </ul>
-</div></blockquote>
 <div class="section" id="breaking-changes">
 <h2>Breaking changes<a class="headerlink" href="#breaking-changes" title="Permalink to this headline">¶</a></h2>
 <p>NEM Library inspires NEM2-SDK architecture.  However, several architectural improvements have been made.</p>
 <p>If you were using NEM-Library for NIS 1, consider reviewing the following breaking changes when considering upgrading to NEM2-SDK.</p>
-<p><strong>General</strong></p>
-<blockquote>
-<div><p><strong>Package name</strong></p>
+</div>
+</div>
+<div class="section" id="general">
+<h1>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h1>
+<p><strong>Package name</strong></p>
 <p>Import nem2-sdk rather than nem-library.</p>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;nem2-sdk&#39;</span><span class="p">;</span>
 </pre></div>
@@ -375,10 +532,10 @@
 <p>When using NEM Library, the network was selected when initiating a project.</p>
 <p>In this new version, bootstrapping the network is not needed anymore.</p>
 <p>NEM2-SDK allows you create transactions for different networks in the same project by providing the network when creating transactions.</p>
-</div></blockquote>
-<p><strong>Repositories</strong></p>
-<blockquote>
-<div><p><strong>AccountHttp</strong></p>
+</div>
+<div class="section" id="id1">
+<h1>Repositories<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p><strong>AccountHttp</strong></p>
 <ul class="simple">
 <li>Changed getFromAddress and getFromPublicKey to getAccountInfo.</li>
 <li>Moved getNamespaceOwnedByAddress to NamespaceHttp.</li>
@@ -407,10 +564,10 @@
 <li>Changed returned types.</li>
 <li>Grouped all listeners: AccountListener, ConfirmedTransactionListener, UnconfirmedTransactionListener and BlockchainListener into Listener class.</li>
 </ul>
-</div></blockquote>
-<p><strong>Models</strong></p>
-<blockquote>
-<div><p><strong>Account</strong></p>
+</div>
+<div class="section" id="id2">
+<h1>Models<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h1>
+<p><strong>Account</strong></p>
 <ul class="simple">
 <li>Changed signTransactions -&gt; sign.</li>
 <li>Changed createWithPrivateKey -&gt; createFromPrivateKey, now we need to introduce networkType of the account.</li>
@@ -500,8 +657,6 @@
 <li>Added minRemovalDelta.</li>
 <li>Changed other property names and types.</li>
 </ul>
-</div></blockquote>
-</div>
 <div class="section" id="under-development">
 <h2>Under development<a class="headerlink" href="#under-development" title="Permalink to this headline">¶</a></h2>
 <p>Some features are not yet implemented in this version of the SDK.</p>
@@ -517,67 +672,21 @@
 </div>
 
 
-           </div>
-           <div class="articleComments">
-            
-           </div>
-          </div>
-          <footer>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
     <p>
-        &copy; Copyright 2018, NEM.
-
+        &copy; Copyright 2018, NEM.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.<br/>
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
-            VERSION:'Master',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../_static/examplecode.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
-
-  
-  
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
-      });
-  </script>
-   
-
-</body>
+  </body>
 </html>
