@@ -33,11 +33,22 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Overview" href="../cli/overview.html" />
     <link rel="prev" title="Sending transactions" href="transaction.html" />
+        
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
+
+       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119775843-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-119775843-1');
+        </script>
+    
   </head>
   <body>
 
@@ -52,7 +63,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -137,8 +148,12 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/block.html">Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/node.html">Node</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/node.html#layer-01-the-blockchain-network">Layer 01 - The blockchain network</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/node.html#layer-02-api-gateway-server">Layer 02 - API Gateway Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/node.html#catapult-server-the-blockchain-network">Catapult Server: The blockchain network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/node.html#catapult-rest-mongodb-api-server">Catapult REST: MongoDB &amp; API Server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/listener.html">Listener</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/listener.html#channels">Channels</a></li>
 </ul>
 </li>
 </ul>
@@ -234,6 +249,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../sdk/overview.html#languages-references">Languages &amp; References</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../sdk/overview.html#typescript-javascript">Typescript &amp; JavaScript</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sdk/overview.html#jvm-java-kotlin">JVM: Java &amp; Kotlin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/overview.html#c">C#</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sdk/overview.html#planned-languages-to-give-support">Planned languages to give support</a></li>
 </ul>
 </li>
@@ -254,11 +270,11 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">NIS2-API</span></p>
+<p class="caption"><span class="caption-text">Catapult REST API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api/overview.html">Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../api/overview.html#interacting-with-the-api">Interacting with the API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../api/overview.html#tools">Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/overview.html#reference-tools">Reference &amp; Tools</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../api/overview.html#swagger-ui">Swagger UI</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/overview.html#insomnia">Insomnia</a></li>
 </ul>
@@ -267,16 +283,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../api/announce-transaction.html">Announcing transactions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/announce-transaction.html#announcing-a-transaction">Announcing a transaction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/announce-transaction.html#announcing-an-aggregate-bonded-transaction">Announcing an aggregate bonded transaction</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../api/websockets.html">WebSockets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/errors.html">Error Handling</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/errors.html#error-list">Error list</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../api/error.html">Error List</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2 Libraries</span></p>
 <ul>
@@ -347,6 +354,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/cross-chain-transaction.html">Cross-Chain Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/block.html">Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/node.html">Node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/listener.html">Listener</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Guides</span></p>
 <ul class="current">
@@ -376,12 +384,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../sdk/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk/architecture.html">Architecture</a></li>
 </ul>
-<p class="caption"><span class="caption-text">NIS2-API</span></p>
+<p class="caption"><span class="caption-text">Catapult REST API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api/overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/announce-transaction.html">Announcing transactions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/websockets.html">WebSockets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/errors.html">Error Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/error.html">Error List</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2 Libraries</span></p>
 <ul>
@@ -427,7 +433,7 @@ peer-node-1_1             <span class="p">|</span> 2018-05-18 18:52:12.068932 0x
 peer-node-0_1             <span class="p">|</span> 2018-05-18 18:52:12.477647 0x00007f35d4de4700: &lt;debug&gt; <span class="o">(</span>src::NetworkHeightService.cpp@45<span class="o">)</span> network chain height increased from <span class="m">120</span> to 121
 </pre></div>
 </div>
-<p>You can verify things are running by doing a quick curl request to get block information: <cite>curl localhost:3000/blocks/1</cite></p>
+<p>You can verify things are running by doing a quick curl request to get block information: <cite>curl localhost:3000/block/1</cite></p>
 <p>To stop the server simply press <code class="docutils literal"><span class="pre">Ctrl+c</span></code> to kill/stop the foreground docker process.</p>
 </div>
 <div class="section" id="keys-setup">
@@ -468,7 +474,7 @@ addresses.yaml  raw-addresses.txt  README.md
 </div>
 <div class="section" id="known-issues">
 <h2>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h2>
-<p>The Catapult cache and query engine is powered by mongodb.  There are some known issues with the latest storage engine in some docker environments.  We have provided a backup docker compose file to use if you run into mongo <cite>wiredtiger</cite> errors on start.  You can use the backup file by running:</p>
+<p>The Catapult cache and query engine is powered by mongodb. There are some known issues with the latest storage engine in some docker environments.  We have provided a backup docker compose file to use if you run into mongo <cite>wiredtiger</cite> errors on start.  You can use the backup file by running:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>docker-compose up -f docker-compose-mmapv1.yml
 </pre></div>
 </div>

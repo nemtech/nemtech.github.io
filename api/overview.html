@@ -31,13 +31,24 @@
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Announcing transactions" href="announce-transaction.html" />
+    <link rel="next" title="Error List" href="error.html" />
     <link rel="prev" title="Architecture" href="../sdk/architecture.html" />
+        
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
+
+       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119775843-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-119775843-1');
+        </script>
+    
   </head>
   <body>
 
@@ -52,7 +63,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -137,8 +148,12 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/block.html">Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/node.html">Node</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/node.html#layer-01-the-blockchain-network">Layer 01 - The blockchain network</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/node.html#layer-02-api-gateway-server">Layer 02 - API Gateway Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/node.html#catapult-server-the-blockchain-network">Catapult Server: The blockchain network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/node.html#catapult-rest-mongodb-api-server">Catapult REST: MongoDB &amp; API Server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/listener.html">Listener</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/listener.html#channels">Channels</a></li>
 </ul>
 </li>
 </ul>
@@ -234,6 +249,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../sdk/overview.html#languages-references">Languages &amp; References</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../sdk/overview.html#typescript-javascript">Typescript &amp; JavaScript</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sdk/overview.html#jvm-java-kotlin">JVM: Java &amp; Kotlin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/overview.html#c">C#</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sdk/overview.html#planned-languages-to-give-support">Planned languages to give support</a></li>
 </ul>
 </li>
@@ -254,11 +270,11 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">NIS2-API</span></p>
+<p class="caption"><span class="caption-text">Catapult REST API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#interacting-with-the-api">Interacting with the API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#tools">Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reference-tools">Reference &amp; Tools</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#swagger-ui">Swagger UI</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#insomnia">Insomnia</a></li>
 </ul>
@@ -267,16 +283,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="announce-transaction.html">Announcing transactions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="announce-transaction.html#announcing-a-transaction">Announcing a transaction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="announce-transaction.html#announcing-an-aggregate-bonded-transaction">Announcing an aggregate bonded transaction</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="websockets.html">WebSockets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="errors.html">Error Handling</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="errors.html#error-list">Error list</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="error.html">Error List</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2 Libraries</span></p>
 <ul>
@@ -347,6 +354,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/cross-chain-transaction.html">Cross-Chain Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/block.html">Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/node.html">Node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/listener.html">Listener</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Guides</span></p>
 <ul>
@@ -368,11 +376,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../sdk/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk/architecture.html">Architecture</a></li>
 </ul>
-<p class="caption"><span class="caption-text">NIS2-API</span></p>
+<p class="caption"><span class="caption-text">Catapult REST API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#interacting-with-the-api">Interacting with the API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#tools">Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reference-tools">Reference &amp; Tools</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#swagger-ui">Swagger UI</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#insomnia">Insomnia</a></li>
 </ul>
@@ -381,9 +389,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="announce-transaction.html">Announcing transactions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="websockets.html">WebSockets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="errors.html">Error Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error.html">Error List</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2 Libraries</span></p>
 <ul>
@@ -401,31 +407,30 @@
       
   <div class="section" id="overview">
 <h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
-<p>NIS2-API is a REST API that combines HTTP and WebSockets to perform read and write actions in the NEM blockchain through <a class="reference internal" href="../concepts/node.html"><span class="doc">NEM Infrastructure Server</span></a>.</p>
+<p>Catapult REST API combines HTTP and WebSockets to perform read and write actions in the NEM blockchain.</p>
 <div class="section" id="interacting-with-the-api">
 <h2>Interacting with the API<a class="headerlink" href="#interacting-with-the-api" title="Permalink to this headline">¶</a></h2>
-<p>NIS uses port <code class="docutils literal"><span class="pre">3000</span></code> to communicate with its clients. It accepts both HTTP <code class="docutils literal"><span class="pre">GET</span></code>, <code class="docutils literal"><span class="pre">PUT</span></code> and <code class="docutils literal"><span class="pre">POST</span></code> requests.</p>
-<p>Assuming that the NIS is running locally, HTTP GET requests can be executed from a browser and have the form:</p>
+<p>Catapult REST API uses port <code class="docutils literal"><span class="pre">3000</span></code>. It accepts both HTTP <code class="docutils literal"><span class="pre">GET</span></code>, <code class="docutils literal"><span class="pre">PUT</span></code> and <code class="docutils literal"><span class="pre">POST</span></code> requests.</p>
+<p>Assuming that the <a class="reference internal" href="../concepts/node.html"><span class="doc">Catapult server</span></a> Catapult server and <a class="reference internal" href="../concepts/node.html"><span class="doc">Catapult REST</span></a> are <a class="reference internal" href="../guides/running-catapult-in-local.html"><span class="doc">running locally</span></a>, HTTP GET requests can be executed from a browser and have the form:</p>
 <p><a class="reference external" href="http://localhost:3000">http://localhost:3000</a>/&lt;path-to-API-request&gt; for example:</p>
 <p><a class="reference external" href="http://localhost:3000/account/7D08373CFFE4154E129E04F0827E5F3D6907587E348757B0F87D2F839BF88246/transactions">http://localhost:3000/account/7D08373CFFE4154E129E04F0827E5F3D6907587E348757B0F87D2F839BF88246/transactions</a></p>
-<p>HTTP PUT and POST requests use JSON structures in the request body to supply data to NIS.</p>
-<p>Both request types return data (if any is returned) using JSON structures.</p>
-<div class="section" id="tools">
-<h3>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h3>
-<p>We recommend using one of the following tools to interact with NIS2-API, especially for PUT and POST methods.</p>
+<p>HTTP PUT and POST requests use JSON structures in the request body. Request return data (if any is returned) using JSON structures.</p>
+<div class="section" id="reference-tools">
+<h3>Reference &amp; Tools<a class="headerlink" href="#reference-tools" title="Permalink to this headline">¶</a></h3>
+<p>We recommend using one of the following tools to interact with Catapult REST API, especially for PUT and POST methods.</p>
 <p>This kind of request usually cannot be executed from within the browser unless you use a plugin which enables you to do it.</p>
 <div class="section" id="swagger-ui">
 <h4>Swagger UI<a class="headerlink" href="#swagger-ui" title="Permalink to this headline">¶</a></h4>
 <p>Open <a class="reference external" href="https://swagger.io/swagger-editor/">Swagger online editor</a> and import:</p>
 <ul class="simple">
-<li><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/collections/" target="_blank">NIS-2-API-Endpoints Swagger</a></li>
+<li><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/collections/" target="_blank">Catapult REST API Endpoints Swagger</a></li>
 </ul>
 </div>
 <div class="section" id="insomnia">
 <h4>Insomnia<a class="headerlink" href="#insomnia" title="Permalink to this headline">¶</a></h4>
 <p>Download <a class="reference external" href="https://insomnia.rest/">Insomnia app</a> for your operative system and import:</p>
 <ul class="simple">
-<li><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/collections/" target="_blank">NIS-2-API-Endpoints Insomnia</a></li>
+<li><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/collections/" target="_blank">Catapult REST API Endpoints Insomnia</a></li>
 </ul>
 </div>
 </div>

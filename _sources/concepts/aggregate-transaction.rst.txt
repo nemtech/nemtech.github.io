@@ -8,6 +8,12 @@ Aggregate transaction
 
 Aggregated Transactions merge multiple transactions into one, allowing trustless swaps, automatic cross-chain transactions, and other advanced logic. NEM does this by generating a one-time disposable smart contract. When all involved :doc:`accounts<../concepts/account>` have cosigned the transaction, all of them are executed at once.
 
+.. raw:: html
+
+    <h2>Parameters</h2>
+
+Aggregate transactions accept the following parameters:
+
     **Inner Transaction**
 
     Transactions initiated by different accounts. An aggregate transaction can contain up to ``1000`` inner transactions. Other aggregate transactions are not allowed as inner transactions.
@@ -37,6 +43,12 @@ In case that it requires signatures from other participants but announced to the
 .. note:: When sending an **aggregate bonded transaction**, an account should first send and get confirmed a Lock Funds Transaction for this aggregate with at least ``10`` XEM.
 
 Once an aggregate bonded is announced, it reaches partial state and notifies its status through WebSockets or HTTP API calls.
+
+.. figure:: ../resources/images/aggregate-bonded-transaction-cycle.png
+    :width: 900px
+    :align: center
+
+    Aggregate bonded transaction cycle
 
 Every time a cosignatory signs and announces an aggregate bonded cosignature, the network checks if all required cosigners have already signed. If it is the case, the transaction changes to unconfirmed state until the network accepts it, and is included in a block once processed.
 

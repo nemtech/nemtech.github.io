@@ -31,11 +31,22 @@
     <link rel="shortcut icon" href="../../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+        
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
+
+       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119775843-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-119775843-1');
+        </script>
+    
   </head>
   <body>
 
@@ -50,7 +61,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -135,8 +146,12 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/block.html">Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/node.html">Node</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/node.html#layer-01-the-blockchain-network">Layer 01 - The blockchain network</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/node.html#layer-02-api-gateway-server">Layer 02 - API Gateway Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/node.html#catapult-server-the-blockchain-network">Catapult Server: The blockchain network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/node.html#catapult-rest-mongodb-api-server">Catapult REST: MongoDB &amp; API Server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/listener.html">Listener</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/listener.html#channels">Channels</a></li>
 </ul>
 </li>
 </ul>
@@ -232,6 +247,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../sdk/overview.html#languages-references">Languages &amp; References</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../sdk/overview.html#typescript-javascript">Typescript &amp; JavaScript</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../sdk/overview.html#jvm-java-kotlin">JVM: Java &amp; Kotlin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sdk/overview.html#c">C#</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../sdk/overview.html#planned-languages-to-give-support">Planned languages to give support</a></li>
 </ul>
 </li>
@@ -252,11 +268,11 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">NIS2-API</span></p>
+<p class="caption"><span class="caption-text">Catapult REST API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../api/overview.html">Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../api/overview.html#interacting-with-the-api">Interacting with the API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../api/overview.html#tools">Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/overview.html#reference-tools">Reference &amp; Tools</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../api/overview.html#swagger-ui">Swagger UI</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../api/overview.html#insomnia">Insomnia</a></li>
 </ul>
@@ -265,16 +281,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../api/announce-transaction.html">Announcing transactions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../api/announce-transaction.html#announcing-a-transaction">Announcing a transaction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/announce-transaction.html#announcing-an-aggregate-bonded-transaction">Announcing an aggregate bonded transaction</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../api/websockets.html">WebSockets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../api/errors.html">Error Handling</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../api/errors.html#error-list">Error list</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/error.html">Error List</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2 Libraries</span></p>
 <ul>
@@ -345,6 +352,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-transaction.html">Cross-Chain Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/block.html">Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/node.html">Node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/listener.html">Listener</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Guides</span></p>
 <ul>
@@ -366,12 +374,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../sdk/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sdk/architecture.html">Architecture</a></li>
 </ul>
-<p class="caption"><span class="caption-text">NIS2-API</span></p>
+<p class="caption"><span class="caption-text">Catapult REST API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../api/overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../api/announce-transaction.html">Announcing transactions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../api/websockets.html">WebSockets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../api/errors.html">Error Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/error.html">Error List</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2 Libraries</span></p>
 <ul>
@@ -488,7 +494,7 @@
 </pre></div>
 </div>
 </div>
-<p>Once signed, Alice can <a class="reference internal" href="../../api/announce-transaction.html"><span class="doc">announce the transaction</span></a> to the network.</p>
+<p>Once signed, Alice can <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">announce the transaction</span></a> to the network.</p>
 <div class="example-code container">
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 
@@ -511,7 +517,7 @@
 </pre></div>
 </div>
 </div>
-<p>Open the terminal where you are monitoring account transactions <code class="docutils literal"><span class="pre">status</span></code>, it should be empty. If you see an error, check <a class="reference internal" href="../../api/errors.html"><span class="doc">HTTP Error Codes</span></a> and their meaning.</p>
+<p>Open the terminal where you are monitoring account transactions <code class="docutils literal"><span class="pre">status</span></code>, it should be empty. If you see an error, check <a class="reference internal" href="../../api/error.html"><span class="doc">HTTP Error Codes</span></a> and their meaning.</p>
 <p>A new transaction should have appeared in the terminal where you are monitoring <code class="docutils literal"><span class="pre">unconfirmed</span></code>. At this point, the transaction has reached the network, but it is not clear if it will get included in a block.</p>
 <p>If it is included in a block, the transaction gets processed, and the amount stated in the transaction gets transferred from the sender’s account to the recipient’s account.</p>
 </div>

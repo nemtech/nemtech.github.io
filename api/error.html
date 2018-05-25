@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>WebSockets &#8212; nem2-docs Master documentation</title>
+    <title>Error List &#8212; nem2-docs Master documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" type="text/css" />
@@ -31,13 +31,24 @@
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Error Handling" href="errors.html" />
-    <link rel="prev" title="Announcing transactions" href="announce-transaction.html" />
+    <link rel="next" title="Extending NEM capabilities" href="../libraries/overview.html" />
+    <link rel="prev" title="Overview" href="overview.html" />
+        
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
+
+       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119775843-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-119775843-1');
+        </script>
+    
   </head>
   <body>
 
@@ -52,7 +63,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -137,8 +148,12 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/block.html">Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/node.html">Node</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/node.html#layer-01-the-blockchain-network">Layer 01 - The blockchain network</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/node.html#layer-02-api-gateway-server">Layer 02 - API Gateway Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/node.html#catapult-server-the-blockchain-network">Catapult Server: The blockchain network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/node.html#catapult-rest-mongodb-api-server">Catapult REST: MongoDB &amp; API Server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/listener.html">Listener</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/listener.html#channels">Channels</a></li>
 </ul>
 </li>
 </ul>
@@ -234,6 +249,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../sdk/overview.html#languages-references">Languages &amp; References</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../sdk/overview.html#typescript-javascript">Typescript &amp; JavaScript</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sdk/overview.html#jvm-java-kotlin">JVM: Java &amp; Kotlin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/overview.html#c">C#</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sdk/overview.html#planned-languages-to-give-support">Planned languages to give support</a></li>
 </ul>
 </li>
@@ -254,11 +270,11 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">NIS2-API</span></p>
+<p class="caption"><span class="caption-text">Catapult REST API</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="overview.html#interacting-with-the-api">Interacting with the API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="overview.html#tools">Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#reference-tools">Reference &amp; Tools</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="overview.html#swagger-ui">Swagger UI</a></li>
 <li class="toctree-l4"><a class="reference internal" href="overview.html#insomnia">Insomnia</a></li>
 </ul>
@@ -267,16 +283,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="announce-transaction.html">Announcing transactions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="announce-transaction.html#announcing-a-transaction">Announcing a transaction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="announce-transaction.html#announcing-an-aggregate-bonded-transaction">Announcing an aggregate bonded transaction</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">WebSockets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="errors.html">Error Handling</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="errors.html#error-list">Error list</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Error List</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2 Libraries</span></p>
 <ul>
@@ -347,6 +354,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/cross-chain-transaction.html">Cross-Chain Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/block.html">Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/node.html">Node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/listener.html">Listener</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Guides</span></p>
 <ul>
@@ -368,12 +376,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../sdk/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk/architecture.html">Architecture</a></li>
 </ul>
-<p class="caption"><span class="caption-text">NIS2-API</span></p>
+<p class="caption"><span class="caption-text">Catapult REST API</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="announce-transaction.html">Announcing transactions</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">WebSockets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="errors.html">Error Handling</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Error List</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2 Libraries</span></p>
 <ul>
@@ -389,63 +395,308 @@
       </div>
     <div class="col-md-9 content">
       
-  <div class="section" id="websockets">
-<h1>WebSockets<a class="headerlink" href="#websockets" title="Permalink to this headline">¶</a></h1>
-<p>WebSockets make possible receiving notifications when a transaction or event occurs in the blockchain.</p>
-<p>The notification is received in real time without having to poll the API waiting for a reply.</p>
-<blockquote>
-<div><p><strong>block</strong></p>
-<p>The block channel notifies for every new block. The message contains the block information.</p>
-<p><strong>confirmedAdded/&lt;ADDRESS&gt;</strong></p>
-<p>The confirmedAdded channel notifies when a transaction related to an address is included in a block. The message contains the transaction.</p>
-<p><strong>unconfirmedAdded/&lt;ADDRESS&gt;</strong></p>
-<p>The unconfirmedAdded channel notifies when a transaction related to an address is in unconfirmed state and waiting to be included in a block. The message contains the transaction.</p>
-<p>Possible scenarios when this channel notifies are, the transaction is announced to the network via <code class="docutils literal"><span class="pre">PUT</span> <span class="pre">/transaction</span></code> HTTP endpoint or an aggregate bonded transaction has all required cosigners and change the state from <em>partial</em> to <em>unconfirmed</em>.</p>
-<p><strong>unconfirmedRemoved/&lt;ADDRESS&gt;</strong></p>
-<p>The unconfirmedRemoved channel notifies when a transaction related to an address was in unconfirmed state but not anymore. The message contains the transaction hash.</p>
-<p>Possible scenarios when this channel notifies are, the transaction now is confirmed or the deadline has been reached and it was not included in a block.</p>
-<p><strong>partialAdded/&lt;ADDRESS&gt;</strong></p>
-<p>The partialAdded channel notifies when an aggregate bonded transaction related to an address is in <em>partial</em> state and waiting to have all <em>required cosigners</em>. The message contains a transaction.</p>
-<p>The scenario when this channel notifies is when an aggregate bonded transaction is announced to the network via <code class="docutils literal"><span class="pre">PUT</span> <span class="pre">/transaction/partial</span></code> HTTP endpoint.</p>
-<p><strong>partialRemoved/&lt;ADDRESS&gt;</strong></p>
-<p>The partialRemoved channel notifies when a transaction related to an address was in partial state but not anymore. The message contains the transaction hash.</p>
-<p>Possible scenarios when this channel notifies are, the transaction now is in unconfirmed or the deadline has been reached and it was not included in a block.</p>
-<p><strong>cosignature/&lt;ADDRESS&gt;</strong></p>
-<p>The partialRemoved channel notifies when a <em>cosignature signed transaction</em> related to an address is added to an aggregate bonded transaction with partial state. The message contains the cosignature signed transaction.</p>
-<p><strong>status/&lt;ADDRESS&gt;</strong></p>
-<p>The status channel notifies when a transaction related to an address rises an error. The message contains the error message and the transaction hash.</p>
-</div></blockquote>
-<p>Interaction with WebSockets in <a class="reference internal" href="../sdk/overview.html"><span class="doc">NEM2-SDK</span></a> is done with <code class="docutils literal"><span class="pre">Listeners</span></code>.</p>
-<table border="1" class="docutils" id="id1">
-<caption><span class="caption-text">WebSockets vs SDK Listeners</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+  <div class="section" id="error-list">
+<h1>Error List<a class="headerlink" href="#error-list" title="Permalink to this headline">¶</a></h1>
+<p>This section describes the errors messages that can be returned via <code class="docutils literal"><span class="pre">status</span></code> <a class="reference internal" href="../concepts/listener.html"><span class="doc">channel</span></a>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The configuration presented is NOT intended to be used on the public network. These are the parameters used for the Catapult Testnet version (MIJIN_TEST).</p>
+</div>
+<table border="1" class="docutils">
 <colgroup>
 <col width="50%" />
 <col width="50%" />
 </colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Error code</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
 <tbody valign="top">
-<tr class="row-odd"><td>block</td>
-<td><code class="docutils literal"><span class="pre">newBlock()</span></code> : <code class="docutils literal"><span class="pre">Observable&lt;BlockInfo&gt;</span></code></td>
+<tr class="row-even"><td>Neutral</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td>confirmedAdded/&lt;ADDRESS&gt;</td>
-<td><code class="docutils literal"><span class="pre">confirmed(address:</span> <span class="pre">Address)</span></code> : <code class="docutils literal"><span class="pre">Observable&lt;Transaction&gt;</span></code></td>
+<tr class="row-odd"><td>Failure</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>unconfirmedAdded/&lt;ADDRESS&gt;</td>
-<td><code class="docutils literal"><span class="pre">unconfirmedAdded(address:</span> <span class="pre">Address)</span></code> : <code class="docutils literal"><span class="pre">Observable&lt;Transaction&gt;</span></code></td>
+<tr class="row-even"><td>Failure_Core_Past_Deadline</td>
+<td>The deadline lies too far in the future. Deadlines are only allowed to lie up to <code class="docutils literal"><span class="pre">24</span></code> hours in the future.</td>
 </tr>
-<tr class="row-even"><td>unconfirmedRemoved/&lt;ADDRESS&gt;</td>
-<td><code class="docutils literal"><span class="pre">unconfirmedRemoved(address:</span> <span class="pre">Address)</span></code> : <code class="docutils literal"><span class="pre">Observable&lt;string&gt;</span></code></td>
+<tr class="row-odd"><td>Failure_Core_Future_Deadline</td>
+<td>The deadline lies in the past.</td>
 </tr>
-<tr class="row-odd"><td>partialAdded/&lt;ADDRESS&gt;</td>
-<td><code class="docutils literal"><span class="pre">aggregateBondedAdded(address:</span> <span class="pre">Address)</span></code> : <code class="docutils literal"><span class="pre">Observable&lt;AggregateTransaction&gt;</span></code></td>
+<tr class="row-even"><td>Failure_Core_Insufficient_Balance</td>
+<td>The account does not have enough funds.</td>
 </tr>
-<tr class="row-even"><td>partialRemoved/&lt;ADDRESS&gt;</td>
-<td><code class="docutils literal"><span class="pre">aggregateBondedRemoved(address:</span> <span class="pre">Address)</span></code>: <code class="docutils literal"><span class="pre">Observable&lt;string&gt;</span></code></td>
+<tr class="row-odd"><td>Failure_Core_Timestamp_Too_Far_In_Future</td>
+<td>The timestamp of the entity lies too far in the future.</td>
 </tr>
-<tr class="row-odd"><td>cosignature/&lt;ADDRESS&gt;</td>
-<td><code class="docutils literal"><span class="pre">cosignatureAdded(address:</span> <span class="pre">Address)</span></code> : <code class="docutils literal"><span class="pre">Observable&lt;CosignatureSignedTransaction&gt;</span></code></td>
+<tr class="row-even"><td>Failure_Core_Too_Many_Transactions</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td>status/&lt;ADDRESS&gt;</td>
-<td><code class="docutils literal"><span class="pre">status(address:</span> <span class="pre">Address)</span></code> : <code class="docutils literal"><span class="pre">Observable&lt;TransactionStatusError&gt;</span></code></td>
+<tr class="row-odd"><td>Failure_Core_Nemesis_Account_Signed_After_Nemesis_Block</td>
+<td>The supplied transaction has the nemesis account as the sender and cannot be included in a normal block.</td>
+</tr>
+<tr class="row-even"><td>Failure_Core_Wrong_Network</td>
+<td>The entity was rejected because it has the wrong network specified.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Core_Invalid_Address</td>
+<td>An account specified in the request is not valid.</td>
+</tr>
+<tr class="row-even"><td>Failure_Core_Block_Harvester_Ineligible</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Failure_Hash_Exists</td>
+<td>The hash of the entity already exists either in the cache or the database.</td>
+</tr>
+<tr class="row-even"><td>Failure_Signature_Not_Verifiable</td>
+<td>The signature of the entity failed upon verification.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Aggregate_Too_Many_Transactions</td>
+<td>The aggregate transaction exceeds the maximum number of inner transactions. An aggregate transaction can contain up to <code class="docutils literal"><span class="pre">1000</span></code> inner transactions.</td>
+</tr>
+<tr class="row-even"><td>Failure_Aggregate_No_Transactions</td>
+<td>The aggregate transaction does not contain any inner transactions.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Aggregate_Too_Many_Cosignatures</td>
+<td>The aggregate transaction contains too many cosignatories. The maximum number of cosignatories allowed is <code class="docutils literal"><span class="pre">15</span></code>.</td>
+</tr>
+<tr class="row-even"><td>Failure_Aggregate_Redundant_Cosignatures</td>
+<td>The aggregate transaction contains the cosignature of the account who signed the transaction.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Aggregate_Ineligible_Cosigners</td>
+<td>The account who signed the aggregate transaction is not an eligible cosigner.</td>
+</tr>
+<tr class="row-even"><td>Failure_Aggregate_Missing_Cosigners</td>
+<td>The aggregate transaction was announced as complete but there are missing signatures.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Lock_Invalid_Hash_Algorithm</td>
+<td>The hash algorithm used is not defined.</td>
+</tr>
+<tr class="row-even"><td>Failure_Lock_Invalid_Mosaic_Id</td>
+<td>The locks funds transaction failed because locked mosaic is not XEM.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Lock_Invalid_Mosaic_Amount</td>
+<td>The amount of locked XEM is insufficient. The minimum amount is <code class="docutils literal"><span class="pre">10</span></code>.</td>
+</tr>
+<tr class="row-even"><td>Failure_Lock_Hash_Exists</td>
+<td>The locks funds transaction failed because the hash of the aggregate transaction already exists either in the cache or in the database.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Lock_Hash_Does_Not_Exist</td>
+<td>The aggregate transaction failed because its hash has not been locked previously.</td>
+</tr>
+<tr class="row-even"><td>Failure_Lock_Missing_Secret_Padding</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Failure_Lock_Hash_Not_Implemented</td>
+<td>The secret lock and the secret proof hash algorithm used is different.</td>
+</tr>
+<tr class="row-even"><td>Failure_Lock_Proof_Size_Out_Of_Bounds</td>
+<td>The proof length is invalid. It should be between <code class="docutils literal"><span class="pre">10</span> <span class="pre">and</span> <span class="pre">1000</span> <span class="pre">bytes</span></code>.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Lock_Secret_Mismatch</td>
+<td>The proof hashed does not equal to the secret.</td>
+</tr>
+<tr class="row-even"><td>Failure_Lock_Unknown_Secret</td>
+<td>The secret proof transaction specifies a secret that has not been found in the cache.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Lock_Inactive_Hash</td>
+<td>The aggregate bonded transaction has been sent after the secret lock funds transactions for this hash expired.</td>
+</tr>
+<tr class="row-even"><td>Failure_Lock_Inactive_Secret</td>
+<td>The secret proof transaction has been sent after the secret lock transaction expired.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Lock_Hash_Algorithm_Mismatch</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>Failure_Lock_Hash_Already_Used</td>
+<td>The lock funds transaction failed because the aggregate transaction hash has already been locked.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Lock_Secret_Already_Used</td>
+<td>The secret lock transaction failed because the hash has already been used.</td>
+</tr>
+<tr class="row-even"><td>Failure_Lock_Invalid_Duration</td>
+<td>Duration lies too far in the future or refers to past. Duration is allowed to lie up to <code class="docutils literal"><span class="pre">N</span></code> blocks in the future.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Multisig_Modify_Account_In_Both_Sets</td>
+<td>Adding and removing the same account in a single transaction is not possible.</td>
+</tr>
+<tr class="row-even"><td>Failure_Multisig_Modify_Multiple_Deletes</td>
+<td>It is not possible to remove multiple cosignatories at a time.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Multisig_Modify_Redundant_Modifications</td>
+<td>The transaction tries to add the same cosignatory more than once.</td>
+</tr>
+<tr class="row-even"><td>Failure_Multisig_Modify_Unknown_Multisig_Account</td>
+<td>The multisig has not been created yet and the transaction includes a delete modification.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Multisig_Modify_Not_A_Cosigner</td>
+<td>The account who signed the transaction is not a cosignatory of the multisig account.</td>
+</tr>
+<tr class="row-even"><td>Failure_Multisig_Modify_Already_A_Cosigner</td>
+<td>A cosignatory added is already cosignatory of that multisig account.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Multisig_Modify_Min_Setting_Out_Of_Range</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>Failure_Multisig_Modify_Min_Setting_Larger_Than_Num_Cosignatories</td>
+<td>It is not possible to set more required signatures than cosignatories has the multisig.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Multisig_Modify_Unsupported_Modification_Type</td>
+<td>The modification type is different than add (0) or remove (1).</td>
+</tr>
+<tr class="row-even"><td>Failure_Multisig_Modify_Max_Cosigned_Accounts</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Failure_Multisig_Modify_Max_Cosigners</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>Failure_Multisig_Modify_Loop</td>
+<td>A multisig account cannot be cosignatory of itself. Neither an account can be turned into multisig having as cosignatory another multisig where the account is cosignatory.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Multisig_Modify_Max_Multisig_Depth</td>
+<td>The maximum number of a multilevel multisig account is <code class="docutils literal"><span class="pre">3</span></code>.</td>
+</tr>
+<tr class="row-even"><td>Failure_Multisig_Operation_Not_Permitted_By_Account</td>
+<td>A multisig account cannot be converted into a multisig account again.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Namespace_Invalid_Duration</td>
+<td>Duration lies too far in the future or refers to past. Duration is allowed to lie up to <code class="docutils literal"><span class="pre">N</span></code> blocks in the future.</td>
+</tr>
+<tr class="row-even"><td>Failure_Mosaic_Invalid_Duration</td>
+<td>Duration lies too far in the future or refers to past. Duration is allowed to lie up to <code class="docutils literal"><span class="pre">N</span></code> blocks in the future.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Namespace_Invalid_Name</td>
+<td>The namespace name is invalid. See namespace.</td>
+</tr>
+<tr class="row-even"><td>Failure_Mosaic_Invalid_Name</td>
+<td>The name for the mosaic is invalid. See mosaics.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Namespace_Name_Id_Mismatch</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>Failure_Mosaic_Name_Id_Mismatch</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Failure_Namespace_Expired</td>
+<td>Validation failed because the namespace has expired.</td>
+</tr>
+<tr class="row-even"><td>Failure_Mosaic_Expired</td>
+<td>Validation failed because the mosaic has expired.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Namespace_Owner_Conflict</td>
+<td>The signer of the transaction is not the owner of the namespace.</td>
+</tr>
+<tr class="row-even"><td>Failure_Mosaic_Owner_Conflict</td>
+<td>The signer of the transaction is not the owner of the mosaic.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Namespace_Invalid_Namespace_Type</td>
+<td>The namespace type is different than rootnamespace (0) or subnamesapce (1).</td>
+</tr>
+<tr class="row-even"><td>Failure_Namespace_Root_Name_Reserved</td>
+<td>Certain strings are reserved and thus not allowed as namespace parts.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Namespace_Too_Deep</td>
+<td>Namespaces can have up to <code class="docutils literal"><span class="pre">3</span></code> levels.</td>
+</tr>
+<tr class="row-even"><td>Failure_Namespace_Parent_Unknown</td>
+<td>The provided parent namespace is unknown.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Namespace_Already_Exists</td>
+<td>The namespace already exists.</td>
+</tr>
+<tr class="row-even"><td>Failure_Namespace_Already_Active</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Failure_Namespace_Eternal_After_Nemesis_Block</td>
+<td>The namespace duration is set to 0.</td>
+</tr>
+<tr class="row-even"><td>Failure_Mosaic_Parent_Id_Conflict</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Failure_Mosaic_Invalid_Property</td>
+<td>Transaction payload is invalid as it contains invalid property.</td>
+</tr>
+<tr class="row-even"><td>Failure_Mosaic_Invalid_Flags</td>
+<td>Transaction payload is invalid as it contains an invalid flag.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Mosaic_Invalid_Divisibility</td>
+<td>The specified divisibility is greater than <code class="docutils literal"><span class="pre">6</span></code> or negative.</td>
+</tr>
+<tr class="row-even"><td>Failure_Mosaic_Invalid_Supply_Change_Direction</td>
+<td>The supply change direction is different than decrease (0) or increase (1).</td>
+</tr>
+<tr class="row-odd"><td>Failure_Mosaic_Invalid_Supply_Change_Amount</td>
+<td>The provided supply change amount is not greater than 0.</td>
+</tr>
+<tr class="row-even"><td>Failure_Mosaic_Name_Reserved</td>
+<td>Certain strings are reserved and thus not allowed as mosaic parts.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Mosaic_Modification_Disallowed</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>Failure_Mosaic_Modification_No_Changes</td>
+<td>Mosaic modification transaction did not alter the mosaic as it has the same definition.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Mosaic_Supply_Immutable</td>
+<td>Validation failed because the mosaic supply is immutable.</td>
+</tr>
+<tr class="row-even"><td>Failure_Mosaic_Supply_Negative</td>
+<td>Validation failed because the resulting mosaic supply would be negative.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Mosaic_Supply_Exceeded</td>
+<td>The provided mosaic supply is not in the range of 0 and 9.000.000.000.</td>
+</tr>
+<tr class="row-even"><td>Failure_Mosaic_Non_Transferable</td>
+<td>Only the creator of the mosaic is eligible to be the recipient of a non-transferable mosaic once transferred.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Transfer_Message_Too_Large</td>
+<td>The message for the transaction exceeds the limit of <code class="docutils literal"><span class="pre">1024</span></code> bytes.</td>
+</tr>
+<tr class="row-even"><td>Failure_Transfer_Out_Of_Order_Mosaics</td>
+<td>Mosaics on a transfer transaction should be ordered by id value.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Chain_Unlinked</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>Failure_Chain_Block_Not_Hit</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Failure_Consumer_Empty_Input</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>Failure_Consumer_Block_Transactions_Hash_Mismatch</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Failure_Consumer_Hash_In_Recency_Cache</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>Failure_Consumer_Remote_Chain_Too_Many_Blocks</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Failure_Consumer_Remote_Chain_Improper_Link</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>Failure_Consumer_Remote_Chain_Duplicate_Transactions</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Failure_Consumer_Remote_Chain_Unlinked</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>Failure_Consumer_Remote_Chain_Mismatched_Difficulties</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Failure_Consumer_Remote_Chain_Score_Not_Better</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>Failure_Consumer_Remote_Chain_Too_Far_Behind</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Failure_Extension_Partial_Transaction_Cache_Prune</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>Failure_Extension_Partial_Transaction_Dependency_Removed</td>
+<td>&#160;</td>
 </tr>
 </tbody>
 </table>
