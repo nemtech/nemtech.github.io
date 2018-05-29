@@ -31,7 +31,7 @@
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Error List" href="error.html" />
+    <link rel="next" title="Websockets" href="websockets.html" />
     <link rel="prev" title="Architecture" href="../sdk/architecture.html" />
         
 <meta charset='utf-8'>
@@ -63,7 +63,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.2</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -174,15 +174,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../guides/namespace.html">Registering namespaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/mosaic.html">Interacting with mosaics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/transaction.html">Sending transactions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guides/running-catapult-in-local.html">Running Catapult in local</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../guides/running-catapult-in-local.html#evironment-dependencies">Evironment Dependencies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../guides/running-catapult-in-local.html#installation-startup-instructions">Installation &amp; Startup Instructions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../guides/running-catapult-in-local.html#keys-setup">Keys Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../guides/running-catapult-in-local.html#starting-as-a-background-process">Starting as a Background Process</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../guides/running-catapult-in-local.html#resetting-your-catapult-server">Resetting your Catapult Server</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../guides/running-catapult-in-local.html#known-issues">Known Issues</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/running-a-node.html">Running a node</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2-CLI</span></p>
 <ul>
@@ -273,17 +265,20 @@
 <p class="caption"><span class="caption-text">Catapult REST API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#interacting-with-the-api">Interacting with the API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#reference-tools">Reference &amp; Tools</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#swagger-ui">Swagger UI</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#insomnia">Insomnia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#interacting-with-the-api">Interacting with the API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reference-tools">Reference &amp; Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#swagger-ui">Swagger UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#insomnia">Insomnia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#http-status-codes">HTTP Status Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#http-errors">HTTP Errors</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="websockets.html">Websockets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="websockets.html#status-errors">Status Errors</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="error.html">Error List</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2 Libraries</span></p>
 <ul>
@@ -364,7 +359,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../guides/namespace.html">Registering namespaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/mosaic.html">Interacting with mosaics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/transaction.html">Sending transactions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guides/running-catapult-in-local.html">Running Catapult in local</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/running-a-node.html">Running a node</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2-CLI</span></p>
 <ul>
@@ -379,17 +374,17 @@
 <p class="caption"><span class="caption-text">Catapult REST API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#interacting-with-the-api">Interacting with the API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#reference-tools">Reference &amp; Tools</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#swagger-ui">Swagger UI</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#insomnia">Insomnia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#interacting-with-the-api">Interacting with the API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reference-tools">Reference &amp; Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#swagger-ui">Swagger UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#insomnia">Insomnia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#http-status-codes">HTTP Status Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#http-errors">HTTP Errors</a></li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="error.html">Error List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="websockets.html">Websockets</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2 Libraries</span></p>
 <ul>
@@ -411,27 +406,90 @@
 <div class="section" id="interacting-with-the-api">
 <h2>Interacting with the API<a class="headerlink" href="#interacting-with-the-api" title="Permalink to this headline">¶</a></h2>
 <p>Catapult REST API uses port <code class="docutils literal"><span class="pre">3000</span></code>. It accepts both HTTP <code class="docutils literal"><span class="pre">GET</span></code>, <code class="docutils literal"><span class="pre">PUT</span></code> and <code class="docutils literal"><span class="pre">POST</span></code> requests.</p>
-<p>Assuming that the <a class="reference internal" href="../concepts/node.html"><span class="doc">Catapult server</span></a> Catapult server and <a class="reference internal" href="../concepts/node.html"><span class="doc">Catapult REST</span></a> are <a class="reference internal" href="../guides/running-catapult-in-local.html"><span class="doc">running locally</span></a>, HTTP GET requests can be executed from a browser and have the form:</p>
+<p>Assuming that the <a class="reference internal" href="../concepts/node.html"><span class="doc">Catapult server</span></a> Catapult server and <a class="reference internal" href="../concepts/node.html"><span class="doc">Catapult REST</span></a> are <a class="reference internal" href="../guides/running-a-node.html"><span class="doc">running locally</span></a>, HTTP GET requests can be executed from a browser and have the form:</p>
 <p><a class="reference external" href="http://localhost:3000">http://localhost:3000</a>/&lt;path-to-API-request&gt; for example:</p>
 <p><a class="reference external" href="http://localhost:3000/account/7D08373CFFE4154E129E04F0827E5F3D6907587E348757B0F87D2F839BF88246/transactions">http://localhost:3000/account/7D08373CFFE4154E129E04F0827E5F3D6907587E348757B0F87D2F839BF88246/transactions</a></p>
 <p>HTTP PUT and POST requests use JSON structures in the request body. Request return data (if any is returned) using JSON structures.</p>
+</div>
 <div class="section" id="reference-tools">
-<h3>Reference &amp; Tools<a class="headerlink" href="#reference-tools" title="Permalink to this headline">¶</a></h3>
+<h2>Reference &amp; Tools<a class="headerlink" href="#reference-tools" title="Permalink to this headline">¶</a></h2>
 <p>We recommend using one of the following tools to interact with Catapult REST API, especially for PUT and POST methods.</p>
 <p>This kind of request usually cannot be executed from within the browser unless you use a plugin which enables you to do it.</p>
 <div class="section" id="swagger-ui">
-<h4>Swagger UI<a class="headerlink" href="#swagger-ui" title="Permalink to this headline">¶</a></h4>
+<h3>Swagger UI<a class="headerlink" href="#swagger-ui" title="Permalink to this headline">¶</a></h3>
 <p>Open <a class="reference external" href="https://swagger.io/swagger-editor/">Swagger online editor</a> and import:</p>
 <ul class="simple">
-<li><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/collections/" target="_blank">Catapult REST API Endpoints Swagger</a></li>
+<li><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/collections/" target="_blank">Catapult REST API Swagger</a></li>
 </ul>
 </div>
 <div class="section" id="insomnia">
-<h4>Insomnia<a class="headerlink" href="#insomnia" title="Permalink to this headline">¶</a></h4>
+<h3>Insomnia<a class="headerlink" href="#insomnia" title="Permalink to this headline">¶</a></h3>
 <p>Download <a class="reference external" href="https://insomnia.rest/">Insomnia app</a> for your operative system and import:</p>
 <ul class="simple">
-<li><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/collections/" target="_blank">Catapult REST API Endpoints Insomnia</a></li>
+<li><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/collections/" target="_blank">Catapult REST API Insomnia</a></li>
 </ul>
+</div>
+<div class="section" id="http-status-codes">
+<h3>HTTP Status Codes<a class="headerlink" href="#http-status-codes" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Status code</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>200</td>
+<td>Ok. The request has succeeded.</td>
+</tr>
+<tr class="row-odd"><td>202</td>
+<td>Accepted. The request has been accepted for processing but the processing has not been completed.</td>
+</tr>
+<tr class="row-even"><td>400</td>
+<td>Bad request. Check your request syntax.</td>
+</tr>
+<tr class="row-odd"><td>404</td>
+<td>Not found. The resource does not exist.</td>
+</tr>
+<tr class="row-even"><td>409</td>
+<td>Conflict. Check your arguments.</td>
+</tr>
+<tr class="row-odd"><td>500</td>
+<td>Internal error. Unexpected condition.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="http-errors">
+<h3>HTTP Errors<a class="headerlink" href="#http-errors" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Key</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>code</td>
+<td>Error identifier in camelCase.</td>
+</tr>
+<tr class="row-odd"><td>message</td>
+<td>Error explained in human-readable format.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;InvalidArgument&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;accountId has an invalid format&quot;</span>
+<span class="p">}</span>
+</pre></div>
 </div>
 </div>
 </div>

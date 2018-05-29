@@ -61,7 +61,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.2</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -172,15 +172,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../namespace.html">Registering namespaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mosaic.html">Interacting with mosaics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../transaction.html">Sending transactions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../running-catapult-in-local.html">Running Catapult in local</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../running-catapult-in-local.html#evironment-dependencies">Evironment Dependencies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../running-catapult-in-local.html#installation-startup-instructions">Installation &amp; Startup Instructions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../running-catapult-in-local.html#keys-setup">Keys Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../running-catapult-in-local.html#starting-as-a-background-process">Starting as a Background Process</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../running-catapult-in-local.html#resetting-your-catapult-server">Resetting your Catapult Server</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../running-catapult-in-local.html#known-issues">Known Issues</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../running-a-node.html">Running a node</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2-CLI</span></p>
 <ul>
@@ -271,17 +263,20 @@
 <p class="caption"><span class="caption-text">Catapult REST API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../api/overview.html">Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../api/overview.html#interacting-with-the-api">Interacting with the API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../api/overview.html#reference-tools">Reference &amp; Tools</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../api/overview.html#swagger-ui">Swagger UI</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../api/overview.html#insomnia">Insomnia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/overview.html#interacting-with-the-api">Interacting with the API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/overview.html#reference-tools">Reference &amp; Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/overview.html#swagger-ui">Swagger UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/overview.html#insomnia">Insomnia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/overview.html#http-status-codes">HTTP Status Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/overview.html#http-errors">HTTP Errors</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/websockets.html">Websockets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/websockets.html#status-errors">Status Errors</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../api/error.html">Error List</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2 Libraries</span></p>
 <ul>
@@ -362,7 +357,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../namespace.html">Registering namespaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mosaic.html">Interacting with mosaics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../transaction.html">Sending transactions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../running-catapult-in-local.html">Running Catapult in local</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running-a-node.html">Running a node</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2-CLI</span></p>
 <ul>
@@ -377,7 +372,7 @@
 <p class="caption"><span class="caption-text">Catapult REST API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../api/overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../api/error.html">Error List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/websockets.html">Websockets</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2 Libraries</span></p>
 <ul>
@@ -400,7 +395,7 @@
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
 <p>If you are used to NIS1 API calls, after announcing a transaction you received a success message or some error indicating the reason why the transaction has not been included in the block.</p>
 <p>The new Catapult REST API works differently, being <em>asynchronous</em>. When a user announces a transaction through the API, it always returns an OK.</p>
-<p>To know the status of the transaction, which can be OK or <a class="reference internal" href="../../api/error.html"><span class="doc">Failure</span></a>, you have to:</p>
+<p>To know the status of the transaction, which can be OK or <a class="reference internal" href="../../api/websockets.html#status-error"><span class="std std-ref">Failure</span></a>, you have to:</p>
 <ol class="loweralpha simple">
 <li>Check the status via API endpoint.</li>
 <li>Listen to the different <a class="reference internal" href="../../concepts/listener.html"><span class="doc">WebSocket</span></a> channels.</li>

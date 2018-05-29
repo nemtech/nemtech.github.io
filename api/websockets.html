@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Error List &#8212; nem2-docs Master documentation</title>
+    <title>Websockets &#8212; nem2-docs Master documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" type="text/css" />
@@ -63,7 +63,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.2</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -174,15 +174,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../guides/namespace.html">Registering namespaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/mosaic.html">Interacting with mosaics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/transaction.html">Sending transactions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guides/running-catapult-in-local.html">Running Catapult in local</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../guides/running-catapult-in-local.html#evironment-dependencies">Evironment Dependencies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../guides/running-catapult-in-local.html#installation-startup-instructions">Installation &amp; Startup Instructions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../guides/running-catapult-in-local.html#keys-setup">Keys Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../guides/running-catapult-in-local.html#starting-as-a-background-process">Starting as a Background Process</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../guides/running-catapult-in-local.html#resetting-your-catapult-server">Resetting your Catapult Server</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../guides/running-catapult-in-local.html#known-issues">Known Issues</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/running-a-node.html">Running a node</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2-CLI</span></p>
 <ul>
@@ -273,17 +265,20 @@
 <p class="caption"><span class="caption-text">Catapult REST API</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#interacting-with-the-api">Interacting with the API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="overview.html#reference-tools">Reference &amp; Tools</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="overview.html#swagger-ui">Swagger UI</a></li>
-<li class="toctree-l4"><a class="reference internal" href="overview.html#insomnia">Insomnia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#interacting-with-the-api">Interacting with the API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#reference-tools">Reference &amp; Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#swagger-ui">Swagger UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#insomnia">Insomnia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#http-status-codes">HTTP Status Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#http-errors">HTTP Errors</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Websockets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#status-errors">Status Errors</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Error List</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2 Libraries</span></p>
 <ul>
@@ -364,7 +359,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../guides/namespace.html">Registering namespaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/mosaic.html">Interacting with mosaics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/transaction.html">Sending transactions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guides/running-catapult-in-local.html">Running Catapult in local</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/running-a-node.html">Running a node</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2-CLI</span></p>
 <ul>
@@ -379,7 +374,10 @@
 <p class="caption"><span class="caption-text">Catapult REST API</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Error List</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Websockets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#status-errors">Status Errors</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2 Libraries</span></p>
 <ul>
@@ -395,9 +393,49 @@
       </div>
     <div class="col-md-9 content">
       
-  <div class="section" id="error-list">
-<h1>Error List<a class="headerlink" href="#error-list" title="Permalink to this headline">¶</a></h1>
-<p>This section describes the errors messages that can be returned via <code class="docutils literal"><span class="pre">status</span></code> <a class="reference internal" href="../concepts/listener.html"><span class="doc">channel</span></a>.</p>
+  <div class="section" id="websockets">
+<h1>Websockets<a class="headerlink" href="#websockets" title="Permalink to this headline">¶</a></h1>
+<p>Interaction with <a class="reference internal" href="overview.html"><span class="doc">API</span></a> WebSockets in <a class="reference internal" href="../sdk/overview.html"><span class="doc">NEM2-SDK</span></a> is done with <code class="docutils literal"><span class="pre">Listeners</span></code>.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">API WebSockets</th>
+<th class="head">SDK Listeners</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>block</td>
+<td><code class="docutils literal"><span class="pre">newBlock()</span></code> : <code class="docutils literal"><span class="pre">Observable&lt;BlockInfo&gt;</span></code></td>
+</tr>
+<tr class="row-odd"><td>confirmedAdded/&lt;ADDRESS&gt;</td>
+<td><code class="docutils literal"><span class="pre">confirmed(address:</span> <span class="pre">Address)</span></code> : <code class="docutils literal"><span class="pre">Observable&lt;Transaction&gt;</span></code></td>
+</tr>
+<tr class="row-even"><td>unconfirmedAdded/&lt;ADDRESS&gt;</td>
+<td><code class="docutils literal"><span class="pre">unconfirmedAdded(address:</span> <span class="pre">Address)</span></code> : <code class="docutils literal"><span class="pre">Observable&lt;Transaction&gt;</span></code></td>
+</tr>
+<tr class="row-odd"><td>unconfirmedRemoved/&lt;ADDRESS&gt;</td>
+<td><code class="docutils literal"><span class="pre">unconfirmedRemoved(address:</span> <span class="pre">Address)</span></code> : <code class="docutils literal"><span class="pre">Observable&lt;string&gt;</span></code></td>
+</tr>
+<tr class="row-even"><td>partialAdded/&lt;ADDRESS&gt;</td>
+<td><code class="docutils literal"><span class="pre">aggregateBondedAdded(address:</span> <span class="pre">Address)</span></code> : <code class="docutils literal"><span class="pre">Observable&lt;AggregateTransaction&gt;</span></code></td>
+</tr>
+<tr class="row-odd"><td>partialRemoved/&lt;ADDRESS&gt;</td>
+<td><code class="docutils literal"><span class="pre">aggregateBondedRemoved(address:</span> <span class="pre">Address)</span></code>: <code class="docutils literal"><span class="pre">Observable&lt;string&gt;</span></code></td>
+</tr>
+<tr class="row-even"><td>cosignature/&lt;ADDRESS&gt;</td>
+<td><code class="docutils literal"><span class="pre">cosignatureAdded(address:</span> <span class="pre">Address)</span></code> : <code class="docutils literal"><span class="pre">Observable&lt;CosignatureSignedTransaction&gt;</span></code></td>
+</tr>
+<tr class="row-odd"><td>status/&lt;ADDRESS&gt;</td>
+<td><code class="docutils literal"><span class="pre">status(address:</span> <span class="pre">Address)</span></code> : <code class="docutils literal"><span class="pre">Observable&lt;TransactionStatusError&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="status-errors">
+<span id="status-error"></span><h2>Status Errors<a class="headerlink" href="#status-errors" title="Permalink to this headline">¶</a></h2>
+<p>This section describes the errors messages that can be returned via <code class="docutils literal"><span class="pre">status</span></code> <a class="reference internal" href="../concepts/listener.html"><span class="doc">channel</span></a> after announcing a transaction.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">The configuration presented is NOT intended to be used on the public network. These are the parameters used for the Catapult Testnet version (MIJIN_TEST).</p>
@@ -409,7 +447,7 @@
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Error code</th>
-<th class="head">Meaning</th>
+<th class="head">Description</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -700,6 +738,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 </div>
 
 
