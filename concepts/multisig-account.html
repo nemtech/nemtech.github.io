@@ -315,13 +315,11 @@
 
           
             
-<form class="navbar-form navbar-right" action="../search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
+<div class="navbar-right hidden-sm hidden-xs">
+    <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
+    <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts/multisig-account.rst"
+       rel="nofollow"> <i class="fab fa-github"></i> Edit on GitHub</a>
+</div>
           
         </div>
     </div>
@@ -431,28 +429,28 @@
 <li>Alice and Bob live together, they have separate accounts, but they also need a shared account so that if Bob is out shopping, he can buy groceries for both him and Alice.</li>
 </ol>
 <div class="figure align-center" id="id2">
-<a class="reference internal image-reference" href="../_images/concepts-multisig-figure-1.png"><img alt="../_images/concepts-multisig-figure-1.png" src="../_images/concepts-multisig-figure-1.png" style="width: 300px;" /></a>
+<img alt="../_images/concepts-multisig-figure-1.png" src="../_images/concepts-multisig-figure-1.png" style="width: 300px;" />
 <p class="caption"><span class="caption-text">M-of-N multisig account example</span></p>
 </div>
 <ol class="arabic simple" start="2">
 <li>Several families are members of the local philatelist society and use a shared account to buy stamps. To ensure that all agree on which old stamps they should buy and for the right price, they use a multisig account such that all members of the society need to approve a transaction before it can be sent and included in the blockchain as a valid transaction.</li>
 </ol>
 <div class="figure align-center" id="id3">
-<a class="reference internal image-reference" href="../_images/concepts-multisig-figure-2.png"><img alt="../_images/concepts-multisig-figure-2.png" src="../_images/concepts-multisig-figure-2.png" style="width: 350px;" /></a>
+<img alt="../_images/concepts-multisig-figure-2.png" src="../_images/concepts-multisig-figure-2.png" style="width: 350px;" />
 <p class="caption"><span class="caption-text">N-of-N multisig account example</span></p>
 </div>
 <ol class="arabic simple" start="3">
 <li>Security is another critical aspect of multisig accounts. Alice wants to make sure his funds are not compromised in any way. Therefore he sets up a multisig account with his funds and attaches two accounts (signer accounts) to control his multisig account as a form of 2-factor authentication. Both of his signer accounts need to approve the transaction, and his signer accounts are located on different computer platforms with different passwords. This means that even if an evil hacker or virus should compromise one of his accounts, his funds are still kept secure.</li>
 </ol>
 <div class="figure align-center" id="id4">
-<a class="reference internal image-reference" href="../_images/concepts-multisig-figure-3.png"><img alt="../_images/concepts-multisig-figure-3.png" src="../_images/concepts-multisig-figure-3.png" style="width: 300px;" /></a>
+<img alt="../_images/concepts-multisig-figure-3.png" src="../_images/concepts-multisig-figure-3.png" style="width: 300px;" />
 <p class="caption"><span class="caption-text">Multi-factor authorization using multisig accounts</span></p>
 </div>
 <ol class="arabic simple" start="4">
 <li>Multisig accounts can be used to represent the ownership of assets. A company could create a 1-of-1 multisig account for each of their products, adding themselves as the cosignatory. When the company sells the product to Alice, she becomes the owner, being the company removed in the same transaction.</li>
 </ol>
 <div class="figure align-center" id="id5">
-<a class="reference internal image-reference" href="../_images/concepts-multisig-figure-4.png"><img alt="../_images/concepts-multisig-figure-4.png" src="../_images/concepts-multisig-figure-4.png" style="width: 300px;" /></a>
+<img alt="../_images/concepts-multisig-figure-4.png" src="../_images/concepts-multisig-figure-4.png" style="width: 300px;" />
 <p class="caption"><span class="caption-text">Transferring an account</span></p>
 </div>
 </div>
@@ -464,16 +462,17 @@
   </div>
 </div>
 <footer class="footer">
-  <div class="container">
-    <p class="pull-right">
-      <a href="#">Back to top</a>
-      
-    </p>
-    <p>
-        &copy; Copyright 2018, NEM.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.<br/>
-    </p>
-  </div>
+    <div class="container">
+        <!--<p class="pull-right">-->
+            <!--<a href="#">Back to top</a>-->
+            <!---->
+        <!--</p>-->
+        <p>
+            &copy; Copyright 2018, NEM.
+            Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.<br/>
+        </p>
+    </div>
 </footer>
+
   </body>
 </html>

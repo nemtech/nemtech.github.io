@@ -315,13 +315,11 @@
 
           
             
-<form class="navbar-form navbar-right" action="../search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
+<div class="navbar-right hidden-sm hidden-xs">
+    <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
+    <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts/aggregate-transaction.rst"
+       rel="nofollow"> <i class="fab fa-github"></i> Edit on GitHub</a>
+</div>
           
         </div>
     </div>
@@ -402,7 +400,7 @@
 <p class="first admonition-title">Warning</p>
 <p class="last">The configuration presented is NOT intended to be used on the public network. These are the parameters used for the Catapult Testnet version (MIJIN_TEST).</p>
 </div>
-<p id="id1">Aggregated Transactions merge multiple transactions into one, allowing trustless swaps, automatic cross-chain transactions, and other advanced logic. NEM does this by generating a one-time disposable smart contract. When all involved <a class="reference internal" href="account.html"><span class="doc">accounts</span></a> have cosigned the transaction, all of them are executed at once.</p>
+<p id="id1">Aggregated Transactions merge multiple transactions into one, allowing trustless swaps, and other advanced logic. NEM does this by generating a one-time disposable smart contract. When all involved <a class="reference internal" href="account.html"><span class="doc">accounts</span></a> have cosigned the transaction, all of them are executed at once.</p>
 <h2>Parameters</h2><p>Aggregate transactions accept the following parameters:</p>
 <blockquote>
 <div><p><strong>Inner Transaction</strong></p>
@@ -414,7 +412,7 @@
 <h2>Aggregate complete<a class="headerlink" href="#aggregate-complete" title="Permalink to this headline">¶</a></h2>
 <p>An aggregate transaction is  <strong>complete</strong> if before announcing it to the network, all cosigners have signed it. If valid, it will be included in a block.</p>
 <div class="figure align-center" id="id4">
-<a class="reference internal image-reference" href="../_images/guides-transactions-sending-payouts.png"><img alt="../_images/guides-transactions-sending-payouts.png" src="../_images/guides-transactions-sending-payouts.png" style="width: 450px;" /></a>
+<img alt="../_images/guides-transactions-sending-payouts.png" src="../_images/guides-transactions-sending-payouts.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">Sending payouts with aggregate complete transactions</span></p>
 </div>
 </div>
@@ -427,17 +425,17 @@
 </div>
 <p>Once an aggregate bonded is announced, it reaches partial state and notifies its status through WebSockets or HTTP API calls.</p>
 <div class="figure align-center" id="id5">
-<a class="reference internal image-reference" href="../_images/aggregate-bonded-transaction-cycle.png"><img alt="../_images/aggregate-bonded-transaction-cycle.png" src="../_images/aggregate-bonded-transaction-cycle.png" style="width: 900px;" /></a>
+<img alt="../_images/aggregate-bonded-transaction-cycle.png" src="../_images/aggregate-bonded-transaction-cycle.png" style="width: 900px;" />
 <p class="caption"><span class="caption-text">Aggregate bonded transaction cycle</span></p>
 </div>
 <p>Every time a cosignatory signs and announces an aggregate bonded cosignature, the network checks if all required cosigners have already signed. If it is the case, the transaction changes to unconfirmed state until the network accepts it, and is included in a block once processed.</p>
 <div class="figure align-center" id="id6">
-<a class="reference internal image-reference" href="../_images/guides-transactions-escrow.png"><img alt="../_images/guides-transactions-escrow.png" src="../_images/guides-transactions-escrow.png" style="width: 450px;" /></a>
+<img alt="../_images/guides-transactions-escrow.png" src="../_images/guides-transactions-escrow.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">Multi-Asset Escrowed Transactions</span></p>
 </div>
 <p>In this example, Alice is buying tickets with currency:euro. When the ticket distributor cosigns the aggregate transaction, the swap will happen atomically.</p>
 <div class="figure align-center" id="id7">
-<a class="reference internal image-reference" href="../_images/guides-transactions-paying-for-others-fees.png"><img alt="../_images/guides-transactions-paying-for-others-fees.png" src="../_images/guides-transactions-paying-for-others-fees.png" style="width: 450px;" /></a>
+<img alt="../_images/guides-transactions-paying-for-others-fees.png" src="../_images/guides-transactions-paying-for-others-fees.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">Paying for others fees</span></p>
 </div>
 <p>Alice sends 10 € to Bob using a payment app. But she doesn’t have any XEM to pay the blockchain transaction fee. Creating an aggregate bonded transaction, she can convert USD to XEM to pay the fee.</p>
@@ -473,16 +471,17 @@
   </div>
 </div>
 <footer class="footer">
-  <div class="container">
-    <p class="pull-right">
-      <a href="#">Back to top</a>
-      
-    </p>
-    <p>
-        &copy; Copyright 2018, NEM.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.<br/>
-    </p>
-  </div>
+    <div class="container">
+        <!--<p class="pull-right">-->
+            <!--<a href="#">Back to top</a>-->
+            <!---->
+        <!--</p>-->
+        <p>
+            &copy; Copyright 2018, NEM.
+            Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.<br/>
+        </p>
+    </div>
 </footer>
+
   </body>
 </html>
