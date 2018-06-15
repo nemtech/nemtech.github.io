@@ -33,22 +33,22 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Monitoring blockchain" href="blockchain.html" />
     <link rel="prev" title="Overview" href="overview.html" />
-        
+
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
 
-       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119775843-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119775843-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-            gtag('config', 'UA-119775843-1');
-        </script>
-    
+    gtag('config', 'UA-119775843-1');
+</script>
+
   </head>
   <body>
 
@@ -63,7 +63,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.2</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.3</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -169,11 +169,21 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Interacting with accounts</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Interacting with accounts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#account">Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multisig-account">Multisig Account</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="blockchain.html">Monitoring blockchain</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Registering namespaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">Interacting with mosaics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="transaction.html">Sending transactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transaction.html">Sending transactions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#transfer-transaction">Transfer Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#aggregate-transaction">Aggregate Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#cross-chain-transaction">Cross Chain Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#monitoring">Monitoring</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="running-a-node.html">Running a node</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2-CLI</span></p>
@@ -288,6 +298,25 @@
 </ul>
 </li>
 </ul>
+<p class="caption"><span class="caption-text">NEM2 Prototyping Tool</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/overview.html#node-red">Node-RED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/overview.html#installation">Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/configuring-nodes.html">Configuring Nodes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/configuring-nodes.html#running-a-flow">Running a flow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#basics">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#advanced">Advanced</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#importing-a-flow">Importing a flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#contributing">Contributing</a></li>
+</ul>
+</li>
+</ul>
 <p class="caption"><span class="caption-text">Support</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing</a><ul>
@@ -352,7 +381,11 @@
 <p class="caption"><span class="caption-text">Guides</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Interacting with accounts</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Interacting with accounts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#account">Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multisig-account">Multisig Account</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="blockchain.html">Monitoring blockchain</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Registering namespaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">Interacting with mosaics</a></li>
@@ -378,6 +411,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/overview.html">Extending NEM capabilities</a></li>
 </ul>
+<p class="caption"><span class="caption-text">NEM2 Prototyping Tool</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/configuring-nodes.html">Configuring Nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/examples.html">Examples</a></li>
+</ul>
 <p class="caption"><span class="caption-text">Support</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing</a></li>
@@ -390,15 +429,23 @@
       
   <div class="section" id="interacting-with-accounts">
 <h1>Interacting with accounts<a class="headerlink" href="#interacting-with-accounts" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="account">
+<h2>Account<a class="headerlink" href="#account" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference internal" href="account/creating-and-opening-an-account.html"><span class="doc">Creating and opening an account</span></a></li>
 <li><a class="reference internal" href="account/getting-account-information.html"><span class="doc">Getting account information</span></a></li>
 <li><a class="reference internal" href="account/receiving-transactions-from-an-account.html"><span class="doc">Receiving transactions from an account</span></a></li>
 <li><a class="reference internal" href="account/getting-the-amount-of-XEM-sent-to-an-account.html"><span class="doc">Getting the amount of XEM sent to an account</span></a></li>
+</ul>
+</div>
+<div class="section" id="multisig-account">
+<h2>Multisig Account<a class="headerlink" href="#multisig-account" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
 <li><a class="reference internal" href="account/converting-an-account-to-multisig.html"><span class="doc">Converting an account to multisig</span></a></li>
 <li><a class="reference internal" href="account/modifying-a-multisig-account.html"><span class="doc">Modifying a multisig account</span></a></li>
 <li><a class="reference internal" href="account/creating-a-multi-level-multisig-account.html"><span class="doc">Creating a multi-level multisig account</span></a></li>
 </ul>
+</div>
 </div>
 
 
@@ -409,8 +456,8 @@
 <footer class="footer">
     <div class="container">
         <!--<p class="pull-right">-->
-            <!--<a href="#">Back to top</a>-->
-            <!---->
+        <!--<a href="#">Back to top</a>-->
+        <!---->
         <!--</p>-->
         <p>
             &copy; Copyright 2018, NEM.

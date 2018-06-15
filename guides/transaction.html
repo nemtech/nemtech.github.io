@@ -33,22 +33,22 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Running a node" href="running-a-node.html" />
     <link rel="prev" title="Interacting with mosaics" href="mosaic.html" />
-        
+
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
 
-       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119775843-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119775843-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-            gtag('config', 'UA-119775843-1');
-        </script>
-    
+    gtag('config', 'UA-119775843-1');
+</script>
+
   </head>
   <body>
 
@@ -63,7 +63,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.2</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.3</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -169,11 +169,21 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="account.html">Interacting with accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account.html">Interacting with accounts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="account.html#account">Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account.html#multisig-account">Multisig Account</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="blockchain.html">Monitoring blockchain</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Registering namespaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">Interacting with mosaics</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Sending transactions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sending transactions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#transfer-transaction">Transfer Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aggregate-transaction">Aggregate Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cross-chain-transaction">Cross Chain Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#monitoring">Monitoring</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="running-a-node.html">Running a node</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2-CLI</span></p>
@@ -288,6 +298,25 @@
 </ul>
 </li>
 </ul>
+<p class="caption"><span class="caption-text">NEM2 Prototyping Tool</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/overview.html#node-red">Node-RED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/overview.html#installation">Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/configuring-nodes.html">Configuring Nodes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/configuring-nodes.html#running-a-flow">Running a flow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#basics">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#advanced">Advanced</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#importing-a-flow">Importing a flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#contributing">Contributing</a></li>
+</ul>
+</li>
+</ul>
 <p class="caption"><span class="caption-text">Support</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing</a><ul>
@@ -356,7 +385,13 @@
 <li class="toctree-l1"><a class="reference internal" href="blockchain.html">Monitoring blockchain</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Registering namespaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">Interacting with mosaics</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Sending transactions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sending transactions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#transfer-transaction">Transfer Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aggregate-transaction">Aggregate Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cross-chain-transaction">Cross Chain Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#monitoring">Monitoring</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="running-a-node.html">Running a node</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2-CLI</span></p>
@@ -378,6 +413,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/overview.html">Extending NEM capabilities</a></li>
 </ul>
+<p class="caption"><span class="caption-text">NEM2 Prototyping Tool</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/configuring-nodes.html">Configuring Nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/examples.html">Examples</a></li>
+</ul>
 <p class="caption"><span class="caption-text">Support</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing</a></li>
@@ -390,16 +431,36 @@
       
   <div class="section" id="sending-transactions">
 <h1>Sending transactions<a class="headerlink" href="#sending-transactions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="transfer-transaction">
+<h2>Transfer Transaction<a class="headerlink" href="#transfer-transaction" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference internal" href="transaction/sending-a-transfer-transaction.html"><span class="doc">Sending a transfer transaction</span></a></li>
+</ul>
+</div>
+<div class="section" id="aggregate-transaction">
+<h2>Aggregate Transaction<a class="headerlink" href="#aggregate-transaction" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
 <li><a class="reference internal" href="transaction/sending-a-multisig-transaction.html"><span class="doc">Sending a multisig transaction</span></a></li>
 <li><a class="reference internal" href="transaction/sending-payouts-with-aggregate-complete-transaction.html"><span class="doc">Sending payouts with aggregate complete transaction</span></a></li>
 <li><a class="reference internal" href="transaction/creating-an-escrow-with-aggregate-bonded-transaction.html"><span class="doc">Creating an escrow with aggregate bonded transaction</span></a></li>
 <li><a class="reference internal" href="transaction/asking-for-mosaics-with-aggregate-bonded-transaction.html"><span class="doc">Asking for mosaics with aggregate bonded transaction</span></a></li>
 <li><a class="reference internal" href="transaction/signing-announced-aggregate-bonded-transactions.html"><span class="doc">Signing announced aggregate bonded transactions</span></a></li>
 <li><a class="reference internal" href="transaction/signing-announced-aggregate-bonded-transactions-automatically.html"><span class="doc">Signing announced aggregate bonded transactions automatically</span></a></li>
+</ul>
+</div>
+<div class="section" id="cross-chain-transaction">
+<h2>Cross Chain Transaction<a class="headerlink" href="#cross-chain-transaction" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
 <li><a class="reference internal" href="transaction/using-secret-lock-transaction-for-atomic-cross-chain-swap.html"><span class="doc">Using secret lock transaction for atomic cross-chain swap</span></a></li>
 </ul>
+</div>
+<div class="section" id="monitoring">
+<h2>Monitoring<a class="headerlink" href="#monitoring" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="transaction/debugging-transactions.html"><span class="doc">Debugging transactions</span></a></li>
+<li><a class="reference internal" href="transaction/turning-the-asynchronous-transaction-announcement-into-synchronous.html"><span class="doc">Turning the asynchronous transaction announcement into synchronous</span></a></li>
+</ul>
+</div>
 </div>
 
 
@@ -410,8 +471,8 @@
 <footer class="footer">
     <div class="container">
         <!--<p class="pull-right">-->
-            <!--<a href="#">Back to top</a>-->
-            <!---->
+        <!--<a href="#">Back to top</a>-->
+        <!---->
         <!--</p>-->
         <p>
             &copy; Copyright 2018, NEM.
