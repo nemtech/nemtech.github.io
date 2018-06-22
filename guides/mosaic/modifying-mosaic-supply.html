@@ -375,13 +375,7 @@
 <p>If you have followed the previous guide, right now you should own a <code class="docutils literal"><span class="pre">supply</span> <span class="pre">mutable</span></code> mosaic.</p>
 <p>Let’s increase <code class="docutils literal"><span class="pre">2.000.000</span></code> the initial supply. Just sign and announce a <a class="reference internal" href="../../concepts/mosaic.html#mosaic-supply-change-transaction"><span class="std std-ref">mosaic supply change transaction</span></a>.</p>
 <div class="example-code container">
-<div class="highlight-typescript"><div class="highlight"><pre><span></span>    <span class="nx">MosaicSupplyType</span><span class="p">,</span>
-    <span class="nx">NetworkType</span><span class="p">,</span>
-    <span class="nx">TransactionHttp</span><span class="p">,</span>
-    <span class="nx">UInt64</span>
-<span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;nem2-sdk&#39;</span><span class="p">;</span>
-
-<span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
