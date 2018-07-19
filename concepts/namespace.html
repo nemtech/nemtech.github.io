@@ -63,14 +63,14 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.4</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.5</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
             
+                <li><a href="../getting-started/what-is-nem.html">Getting Started</a></li>
                 <li><a href="../guides/overview.html">Guides</a></li>
-                <li><a href="account.html">Built-in Features</a></li>
                 <li><a href="../sdk/overview.html">References</a></li>
             
             
@@ -91,9 +91,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">Setting up your workstation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#create-a-test-account">Create a test account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#running-catapult-service-bootstrap">Running Catapult Service Bootstrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#creating-a-test-account">Creating a test account</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#what-is-xem-and-how-to-get-it">What is XEM and how to get it?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#set-up-the-development-environment">Set up the development environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#setting-up-the-development-environment">Setting up the development environment</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#typescript-javascript">TypeScript/JavaScript</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#java">Java</a></li>
 </ul>
@@ -114,7 +115,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="multisig-account.html#modify-multisig-account-transaction">Modify multisig account transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig-account.html#modifying-multisig-account-transaction">Modifying multisig account transaction</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="multi-level-multisig-account.html">Multi-Level Multisig Account</a></li>
@@ -433,9 +434,9 @@
 <p class="first admonition-title">Warning</p>
 <p class="last">The configuration presented is NOT intended to be used on the public network. These are the parameters used for the Catapult Testnet version (MIJIN_TEST).</p>
 </div>
-<p>Namespaces let you create an on-chain unique place for your business and your assets on the NEM blockchain.</p>
-<p>A namespace starts with a unique name that you choose, similar to an internet domain name. If one <a class="reference internal" href="account.html"><span class="doc">account</span></a> creates a namespace, that namespace will appear unique in the NEM ecosystem.</p>
-<p>After registering your namespace, you have the ability to define your own subdomains, as well as names for your <a class="reference internal" href="mosaic.html"><span class="doc">mosaics</span></a>. This makes your assets unique, easy to use, and trustable.</p>
+<p>Namespaces allow you to create an on-chain unique place for your business and your assets on the NEM blockchain.</p>
+<p>A namespace starts with a name that you choose, similar to an internet domain name. If one <a class="reference internal" href="account.html"><span class="doc">account</span></a> creates a namespace, that namespace will appear as unique in the NEM ecosystem.</p>
+<p>After registering your namespace, you have the ability to define your own subdomains, as well as the names for your <a class="reference internal" href="mosaic.html"><span class="doc">mosaics</span></a>. This makes your assets unique, easy to use, and trustable.</p>
 <div class="section" id="subnamespaces">
 <h2>Subnamespaces<a class="headerlink" href="#subnamespaces" title="Permalink to this headline">¶</a></h2>
 <p>Just like on the internet, where a domain can have a sub-domain, namespaces can have subnamespaces.</p>
@@ -444,7 +445,7 @@
 </div>
 <div class="section" id="register-namespace-transaction">
 <span id="id1"></span><h2>Register namespace transaction<a class="headerlink" href="#register-namespace-transaction" title="Permalink to this headline">¶</a></h2>
-<p>Register namespace transaction is used to create and re-rental a namespace or subnamespace.</p>
+<p>Register namespace transaction is used to create and re-rent a namespace or subnamespace.</p>
 <blockquote>
 <div><p><strong>Name</strong></p>
 <p>A namespace name must be unique and may have a maximum length of <code class="docutils literal"><span class="pre">64</span></code> characters.</p>
@@ -457,7 +458,7 @@
 <p>The public key of the namespace creator.</p>
 <p><strong>Renting duration</strong></p>
 <p>Renting duration represents the number of confirmed blocks we would like to rent our namespace for.</p>
-<p>During the renting period, there is the possibility to extend the rental by sending a <a class="reference internal" href="#register-namespace-transaction"><span class="std std-ref">register namespace transaction</span></a> with the extra-confirmed block to rent the namespace.</p>
+<p>During the renting period, it is possible to extend the rental by sending a <a class="reference internal" href="#register-namespace-transaction"><span class="std std-ref">register namespace transaction</span></a> with the extra-confirmed block to rent the namespace.</p>
 <p>When a renting period ends, the namespace will become inactive, and you will have <code class="docutils literal"><span class="pre">N</span></code> blocks to re-rent it.</p>
 </div></blockquote>
 </div>

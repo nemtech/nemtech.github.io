@@ -63,14 +63,14 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.4</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.5</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
             
+                <li><a href="../getting-started/what-is-nem.html">Getting Started</a></li>
                 <li><a href="../guides/overview.html">Guides</a></li>
-                <li><a href="account.html">Built-in Features</a></li>
                 <li><a href="../sdk/overview.html">References</a></li>
             
             
@@ -91,9 +91,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">Setting up your workstation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#create-a-test-account">Create a test account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#running-catapult-service-bootstrap">Running Catapult Service Bootstrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#creating-a-test-account">Creating a test account</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#what-is-xem-and-how-to-get-it">What is XEM and how to get it?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#set-up-the-development-environment">Set up the development environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#setting-up-the-development-environment">Setting up the development environment</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#typescript-javascript">TypeScript/JavaScript</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#java">Java</a></li>
 </ul>
@@ -114,7 +115,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="multisig-account.html#modify-multisig-account-transaction">Modify multisig account transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig-account.html#modifying-multisig-account-transaction">Modifying multisig account transaction</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="multi-level-multisig-account.html">Multi-Level Multisig Account</a></li>
@@ -435,7 +436,7 @@
 </div>
 <p>Mosaics are part of what makes the Smart Asset System unique and flexible. They are fixed assets on the NEM blockchain that can represent a set of multiple identical things that do not change.</p>
 <p>Each mosaic is defined by a variety of attributes such as name, quantity, divisibility and transferability.</p>
-<p>A mosaic could be as simple as a token, but it could also represent a set of more specialized assets like: reward points, shares of stock, signatures, status flags, votes or even other currencies.</p>
+<p>A mosaic could be as simple as a token, but it could also represent a set of more specialized assets such as: reward points, shares of stock, signatures, status flags, votes or even other currencies.</p>
 <div class="section" id="mosaic-definition-transaction">
 <span id="id1"></span><h2>Mosaic definition transaction<a class="headerlink" href="#mosaic-definition-transaction" title="Permalink to this headline">¶</a></h2>
 <p>Mosaic definition transaction is used to create a new mosaic.</p>
@@ -443,11 +444,11 @@
 <div><p><strong>Namespace</strong></p>
 <p>A mosaic is always linked to a namespace, like a file hosted on a domain.</p>
 <p><strong>Name</strong></p>
-<p>Like a website and directory, a mosaic can have the same name as other files on other domains. However,  a namespace + mosaic is always unique, as the root namespace was unique even if the rest of it is not.</p>
-<p>Mosaics are named joining the namespace name with the mosaic name using ‘:’ symbol. Renting a namespace called <code class="docutils literal"><span class="pre">nem</span></code> and a mosaic called <code class="docutils literal"><span class="pre">xem</span></code> under it, the mosaic is referenced as <code class="docutils literal"><span class="pre">nem:xem</span></code>.</p>
+<p>Like a website and directory, a mosaic can have the same name as other files on other domains. However,  a namespace + mosaic is always unique, as the root namespace was unique, even if the rest of it is not.</p>
+<p>Mosaics are named joining the namespace name with the mosaic name using the ‘:’ symbol. Renting a namespace called <code class="docutils literal"><span class="pre">nem</span></code> and a mosaic called <code class="docutils literal"><span class="pre">xem</span></code> under it, the mosaic is referenced as <code class="docutils literal"><span class="pre">nem:xem</span></code>.</p>
 <p>Consider the following restrictions:</p>
 <ul class="simple">
-<li>The name of the mosaic has a size limit of <code class="docutils literal"><span class="pre">64</span></code> characters and must be unique under the domain name.</li>
+<li>Mosaic names have a size limit of <code class="docutils literal"><span class="pre">64</span></code> characters and must be unique under the domain name.</li>
 <li>Allowed characters are a, b, c, …, z, 0, 1, 2, …, 9, ‘, _ , -.</li>
 </ul>
 <p><strong>Owner</strong></p>
@@ -458,8 +459,8 @@
 <li>Divisibility: Determines up to what decimal place the mosaic can be divided. Divisibility of 3 means that a mosaic can be divided into smallest parts of 0.001 mosaics. The divisibility must be in the range of 0 and 6.</li>
 <li>Duration: The number of confirmed blocks we would like to rent our namespace for.</li>
 <li>Supply: The amount of mosaic in circulation. The creator can specify an initial supply of mosaics when creating the definition. The initial supply must be in the range of 0 and 9,000,000,000.</li>
-<li>Supply mutable: The creator can choose between a definition that allows a mosaic supply change at a later point or a <strong>immutable</strong> supply. In the first case the creator is only allowed to decrease the supply within the limits of mosaics owned.</li>
-<li>Transferability: The creator can choose if the mosaic can be transferred to and from arbitrary accounts, or only allowing itself to be the recipient once transferred.</li>
+<li>Supply mutable: The creator can choose between a definition that allows a mosaic supply to change at a later point or an <strong>immutable</strong> supply. In the first case, the creator is only allowed to decrease the supply within the limits of mosaics owned.</li>
+<li>Transferability: The creator can choose whether the mosaic can be transferred to and from arbitrary accounts, or only allowing him/herself to be the recipient once transferred.</li>
 </ul>
 </div></blockquote>
 </div>

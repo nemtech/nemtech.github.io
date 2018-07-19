@@ -61,14 +61,14 @@
         </button>
         <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.4</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.5</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
             
+                <li><a href="../../getting-started/what-is-nem.html">Getting Started</a></li>
                 <li><a href="../overview.html">Guides</a></li>
-                <li><a href="../../concepts/account.html">Built-in Features</a></li>
                 <li><a href="../../sdk/overview.html">References</a></li>
             
             
@@ -89,9 +89,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting-started/setup-workstation.html">Setting up your workstation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#create-a-test-account">Create a test account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#running-catapult-service-bootstrap">Running Catapult Service Bootstrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#creating-a-test-account">Creating a test account</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#what-is-xem-and-how-to-get-it">What is XEM and how to get it?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#set-up-the-development-environment">Set up the development environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#setting-up-the-development-environment">Setting up the development environment</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../getting-started/setup-workstation.html#typescript-javascript">TypeScript/JavaScript</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../getting-started/setup-workstation.html#java">Java</a></li>
 </ul>
@@ -112,7 +113,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">Multisig Account</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/multisig-account.html#modify-multisig-account-transaction">Modify multisig account transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/multisig-account.html#modifying-multisig-account-transaction">Modifying multisig account transaction</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/multi-level-multisig-account.html">Multi-Level Multisig Account</a></li>
@@ -358,15 +359,15 @@
       
   <div class="section" id="creating-an-escrow-with-aggregate-bonded-transaction">
 <h1>Creating an escrow with aggregate bonded transaction<a class="headerlink" href="#creating-an-escrow-with-aggregate-bonded-transaction" title="Permalink to this headline">¶</a></h1>
-<p>This guide will run you through NEM general concepts, and precisely <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate bonded transaction</span></a>, by creating an escrow.</p>
+<p>Learn about <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate bonded transactions</span></a>, by creating an escrow.</p>
 <div class="section" id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
 <p>An <strong>escrow</strong> is a <code class="docutils literal"><span class="pre">contractual</span> <span class="pre">arrangement</span></code> in which a <code class="docutils literal"><span class="pre">third</span> <span class="pre">party</span> <span class="pre">receives</span> <span class="pre">and</span> <span class="pre">disburses</span> <span class="pre">money</span></code> or documents for the <code class="docutils literal"><span class="pre">primary</span> <span class="pre">transacting</span> <span class="pre">parties</span></code>, with the disbursement dependent on <code class="docutils literal"><span class="pre">conditions</span> <span class="pre">agreed</span> <span class="pre">to</span> <span class="pre">by</span> <span class="pre">the</span> <span class="pre">transacting</span> <span class="pre">parties</span></code>, or an <code class="docutils literal"><span class="pre">account</span> <span class="pre">established</span> <span class="pre">by</span> <span class="pre">a</span> <span class="pre">broker</span> <span class="pre">for</span> <span class="pre">holding</span> <span class="pre">funds</span></code> on behalf of the broker’s principal or some other person <code class="docutils literal"><span class="pre">until</span> <span class="pre">the</span> <span class="pre">consummation</span> <span class="pre">or</span> <span class="pre">termination</span> <span class="pre">of</span> <span class="pre">a</span> <span class="pre">transaction</span></code>; or, a trust account held in the borrower’s name to pay obligations such as property taxes and insurance premiums.</p>
 <p>See full description at <a href="https://en.wikipedia.org/wiki/Escrow" target="_blank">Wikipedia</a>.</p>
-<p>In this example, imagine the two parties agree in a virtual service, implying that the <strong>escrow can be immediate</strong>.</p>
+<p>In this example, imagine the two parties agree on a virtual service, implying that the <strong>escrow can be immediate</strong>.</p>
 <p><strong>How does it work?</strong></p>
 <ol class="arabic simple">
-<li>Buyer and seller agree to terms</li>
+<li>Buyer and seller agree on terms</li>
 <li>Buyer submits payment to escrow</li>
 <li>Seller delivers goods or service to Buyer</li>
 <li>Buyer approves goods or service</li>
@@ -386,7 +387,7 @@
 <dt><strong>account established by a broker for holding funds</strong></dt>
 <dd>No account, just an atomic swap</dd>
 <dt><strong>until the consummation or termination of a transaction</strong></dt>
-<dd>The transaction included in a block</dd>
+<dd>The transaction gets included in a block</dd>
 </dl>
 </div>
 <div class="section" id="prerequisites">
@@ -429,7 +430,7 @@
 </tr>
 </tbody>
 </table>
-<p>Before continuing, practise by setting up set up the namespaces and mosaics required.</p>
+<p>Before continuing, practise by setting up the namespaces and mosaics required.</p>
 <p><strong>Mosaics swap</strong></p>
 <p>Alice will send a transaction to the ticket distributor exchanging 100 nem:xem with 1 museum:ticket.</p>
 <p>Create two  <a class="reference internal" href="../../concepts/transfer-transaction.html#id1"><span class="std std-ref">transfer transaction</span></a>:</p>
@@ -439,7 +440,7 @@
 </ol>
 <p>Add them as <code class="docutils literal"><span class="pre">innerTransactions</span></code> under an <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate transaction</span></a>.</p>
 <p>An aggregate Transaction is <em>complete</em> if before announcing it to the network, all required cosigners have signed it. If valid, it will be included in a block.</p>
-<p>In case that requires signatures from other participants but announced to the network, then the transaction is considered <em>aggregate bonded</em>.</p>
+<p>In case that signatures are required from other participants and the transaction is announced to the network, it is considered an aggregate bonded.</p>
 <div class="example-code container">
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">nodeUrl</span> <span class="o">=</span> <span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
@@ -449,7 +450,7 @@
 <span class="kr">const</span> <span class="nx">aliceAccount</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">alicePrivateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">ticketDistributorPublicKey</span> <span class="o">=</span> <span class="s1">&#39;F82527075248B043994F1CAFD965F3848324C9ABFEC506BC05FBCF5DD7307C9D&#39;</span><span class="p">;</span>
-<span class="kr">const</span> <span class="nx">ticketDistributorPublicAccount</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span> <span class="nx">ticketDistributorPublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">ticketDistributorPublicAccount</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">ticketDistributorPublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">aliceToTicketDistributorTx</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
@@ -461,7 +462,7 @@
 <span class="kr">const</span> <span class="nx">ticketDistributorToAliceTx</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">,</span>
-    <span class="p">[</span><span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;museum:ticket&#39;</span><span class="p">),</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">1</span><span class="p">))],</span>
+    <span class="p">[</span><span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span><span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;museum:ticket&#39;</span><span class="p">),</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">1</span><span class="p">))],</span>
     <span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;send 1 museum:ticket to alice&#39;</span><span class="p">),</span>
     <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 </pre></div>
@@ -556,9 +557,11 @@
 
     <span class="nx">listener</span>
         <span class="p">.</span><span class="nx">confirmed</span><span class="p">(</span><span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">)</span>
-        <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">transaction</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span> <span class="o">!==</span> <span class="kc">undefined</span>
-            <span class="o">&amp;&amp;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span><span class="p">.</span><span class="nx">hash</span> <span class="o">===</span> <span class="nx">lockFundsTransactionSigned</span><span class="p">.</span><span class="nx">hash</span><span class="p">)</span>
-        <span class="p">.</span><span class="nx">flatMap</span><span class="p">(</span><span class="nx">ignored</span> <span class="o">=&gt;</span> <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBonded</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">))</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
+            <span class="nx">filter</span><span class="p">((</span><span class="nx">transaction</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span> <span class="o">!==</span> <span class="kc">undefined</span>
+                <span class="o">&amp;&amp;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span><span class="p">.</span><span class="nx">hash</span> <span class="o">===</span> <span class="nx">lockFundsTransactionSigned</span><span class="p">.</span><span class="nx">hash</span><span class="p">),</span>
+            <span class="nx">mergeMap</span><span class="p">(</span><span class="nx">ignored</span> <span class="o">=&gt;</span> <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBonded</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">))</span>
+        <span class="p">)</span>
         <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">announcedAggregateBonded</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">announcedAggregateBonded</span><span class="p">),</span>
             <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 <span class="p">});</span>
@@ -615,9 +618,11 @@
 
     <span class="nx">listener</span>
         <span class="p">.</span><span class="nx">confirmed</span><span class="p">(</span><span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">)</span>
-        <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">transaction</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span> <span class="o">!==</span> <span class="kc">undefined</span>
-            <span class="o">&amp;&amp;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span><span class="p">.</span><span class="nx">hash</span> <span class="o">===</span> <span class="nx">lockFundsTransactionSigned</span><span class="p">.</span><span class="nx">hash</span><span class="p">)</span>
-        <span class="p">.</span><span class="nx">flatMap</span><span class="p">(</span><span class="nx">ignored</span> <span class="o">=&gt;</span> <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBonded</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">))</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
+            <span class="nx">filter</span><span class="p">((</span><span class="nx">transaction</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span> <span class="o">!==</span> <span class="kc">undefined</span>
+                <span class="o">&amp;&amp;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span><span class="p">.</span><span class="nx">hash</span> <span class="o">===</span> <span class="nx">lockFundsTransactionSigned</span><span class="p">.</span><span class="nx">hash</span><span class="p">),</span>
+            <span class="nx">mergeMap</span><span class="p">(</span><span class="nx">ignored</span> <span class="o">=&gt;</span> <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBonded</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">))</span>
+        <span class="p">)</span>
         <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">announcedAggregateBonded</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">announcedAggregateBonded</span><span class="p">),</span>
             <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 <span class="p">});</span>
@@ -627,15 +632,15 @@
 </div>
 <div class="section" id="is-it-possible-without-aggregate-transactions">
 <h2>Is it possible without aggregate transactions?<a class="headerlink" href="#is-it-possible-without-aggregate-transactions" title="Permalink to this headline">¶</a></h2>
-<p><strong>It is not secure</strong>, since something of the next list could happen:</p>
+<p><strong>It is not secure</strong>, since any event of the next list may happen:</p>
 <ul class="simple">
-<li>The buyer doesn’t pay.</li>
-<li>The seller doesn’t send the virtual goods.</li>
+<li>The buyer does not pay.</li>
+<li>The seller does not send the virtual goods.</li>
 </ul>
 </div>
 <div class="section" id="what-s-next">
 <h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
-<p>The distributor didn’t sign the aggregate bonded transaction yet, so exchange has not been completed. Consider reading <a class="reference internal" href="signing-announced-aggregate-bonded-transactions.html"><span class="doc">signing announced aggregate bonded transactions guide</span></a>.</p>
+<p>The distributor has not signed the aggregate bonded transaction yet, so exchange has not been completed. Consider reading <a class="reference internal" href="signing-announced-aggregate-bonded-transactions.html"><span class="doc">signing announced aggregate bonded transactions guide</span></a>.</p>
 <p>Afterwards, swap mosaics between multiple participants.</p>
 <div class="figure align-center" id="id2">
 <img alt="../../_images/guides-transactions-escrow-2.png" src="../../_images/guides-transactions-escrow-2.png" style="width: 600px;" />

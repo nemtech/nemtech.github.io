@@ -63,14 +63,14 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.4</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.5</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
             
+                <li><a href="../getting-started/what-is-nem.html">Getting Started</a></li>
                 <li><a href="../guides/overview.html">Guides</a></li>
-                <li><a href="account.html">Built-in Features</a></li>
                 <li><a href="../sdk/overview.html">References</a></li>
             
             
@@ -91,9 +91,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">Setting up your workstation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#create-a-test-account">Create a test account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#running-catapult-service-bootstrap">Running Catapult Service Bootstrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#creating-a-test-account">Creating a test account</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#what-is-xem-and-how-to-get-it">What is XEM and how to get it?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#set-up-the-development-environment">Set up the development environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#setting-up-the-development-environment">Setting up the development environment</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#typescript-javascript">TypeScript/JavaScript</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#java">Java</a></li>
 </ul>
@@ -114,7 +115,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="multisig-account.html#modify-multisig-account-transaction">Modify multisig account transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig-account.html#modifying-multisig-account-transaction">Modifying multisig account transaction</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="multi-level-multisig-account.html">Multi-Level Multisig Account</a></li>
@@ -453,17 +454,17 @@
 </div>
 <div class="section" id="aggregate-bonded">
 <h2>Aggregate bonded<a class="headerlink" href="#aggregate-bonded" title="Permalink to this headline">¶</a></h2>
-<p>In case that it requires signatures from other participants but announced to the network, then the transaction is considered Aggregate <strong>bonded</strong>.</p>
+<p>In case that the transaction requires signatures from other participants, then the transaction is considered Aggregate <strong>bonded</strong>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">When sending an <strong>aggregate bonded transaction</strong>, an account should first send and get confirmed a Lock Funds Transaction for this aggregate with at least <code class="docutils literal"><span class="pre">10</span></code> XEM.</p>
+<p class="last">When sending an <strong>aggregate bonded transaction</strong>, an account must first send and get confirmed a Lock Funds Transaction for this aggregate with at least <code class="docutils literal"><span class="pre">10</span></code> XEM.</p>
 </div>
 <p>Once an aggregate bonded is announced, it reaches partial state and notifies its status through WebSockets or HTTP API calls.</p>
 <div class="figure align-center" id="id5">
 <img alt="../_images/aggregate-bonded-transaction-cycle.png" src="../_images/aggregate-bonded-transaction-cycle.png" style="width: 900px;" />
 <p class="caption"><span class="caption-text">Aggregate bonded transaction cycle</span></p>
 </div>
-<p>Every time a cosignatory signs and announces an aggregate bonded cosignature, the network checks if all required cosigners have already signed. If it is the case, the transaction changes to unconfirmed state until the network accepts it, and is included in a block once processed.</p>
+<p>Every time a cosignatory signs and announces an aggregate bonded cosignature, the network checks if all the required cosigners have already signed. If it is the case, the transaction changes to unconfirmed state until the network accepts it, and it is included in a block once processed.</p>
 <div class="figure align-center" id="id6">
 <img alt="../_images/guides-transactions-escrow.png" src="../_images/guides-transactions-escrow.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">Multi-Asset Escrowed Transactions</span></p>
@@ -473,7 +474,7 @@
 <img alt="../_images/guides-transactions-paying-for-others-fees.png" src="../_images/guides-transactions-paying-for-others-fees.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">Paying for others fees</span></p>
 </div>
-<p>Alice sends 10 € to Bob using a payment app. But she doesn’t have any XEM to pay the blockchain transaction fee. Creating an aggregate bonded transaction, she can convert USD to XEM to pay the fee.</p>
+<p>Alice sends 10 € to Bob using a payment app. But she doesn’t have any XEM to pay the blockchain transaction fee. By creating an aggregate bonded transaction, she can convert USD to XEM to pay the fee.</p>
 <p>Now Alice and Bob can use NEM blockchain without ever having to buy or hold XEM. Since the app creator can put their own branding on the open source payment app, Alice and Bob may not even know they are using blockchain.</p>
 </div>
 <div class="section" id="cosignature-transaction">
@@ -486,7 +487,7 @@
 </div>
 <div class="section" id="lock-funds-transaction">
 <span id="id3"></span><h2>Lock funds transaction<a class="headerlink" href="#lock-funds-transaction" title="Permalink to this headline">¶</a></h2>
-<p>Announce a lock funds transaction before sending a signed <a class="reference internal" href="#id1"><span class="std std-ref">aggregate bonded transaction</span></a>. This mechanism is required to prevent network spamming and ensure that transactions are cosigned.</p>
+<p>Announce a lock funds transaction before sending a signed <a class="reference internal" href="#id1"><span class="std std-ref">aggregate bonded transaction</span></a>. This mechanism is required to prevent network spamming and to ensure that transactions are cosigned.</p>
 <p>Once the related aggregate bonded transaction is confirmed, locked funds become available again in the account that signed the initial lock funds transaction.</p>
 <p>If the aggregate bonded transaction deadline is reached without being signed by all cosignatories, the locked amount is collected by the block harvester at the height where the lock expires.</p>
 <blockquote>

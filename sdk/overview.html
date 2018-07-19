@@ -63,14 +63,14 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.4</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.5</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
             
+                <li><a href="../getting-started/what-is-nem.html">Getting Started</a></li>
                 <li><a href="../guides/overview.html">Guides</a></li>
-                <li><a href="../concepts/account.html">Built-in Features</a></li>
                 <li><a href="#">References</a></li>
             
             
@@ -91,9 +91,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">Setting up your workstation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#create-a-test-account">Create a test account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#running-catapult-service-bootstrap">Running Catapult Service Bootstrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#creating-a-test-account">Creating a test account</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#what-is-xem-and-how-to-get-it">What is XEM and how to get it?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#set-up-the-development-environment">Set up the development environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#setting-up-the-development-environment">Setting up the development environment</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#typescript-javascript">TypeScript/JavaScript</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#java">Java</a></li>
 </ul>
@@ -114,7 +115,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">Multisig Account</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/multisig-account.html#modify-multisig-account-transaction">Modify multisig account transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/multisig-account.html#modifying-multisig-account-transaction">Modifying multisig account transaction</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/multi-level-multisig-account.html">Multi-Level Multisig Account</a></li>
@@ -435,25 +436,25 @@
       
   <div class="section" id="overview">
 <h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
-<p>The NEM2 Software Development Kit is the primary software development tool to create NEM2 components, like more tools, libraries or applications. All, or almost all, components should use <strong>NEM2-SDK</strong> instead of raw API.</p>
+<p>The NEM2 Software Development Kit is the primary software development tool to create NEM2 components, such as additional tools, libraries or applications. Almost all, if not all, components should use <strong>NEM2-SDK</strong> instead of raw API.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">The SDKs methods could change until it reaches the stable version 1.0.0.</p>
 </div>
-<p>The new SDK enables the developers to focus on their product rather than the NEM2 Blockchain specific API details due to its higher abstraction.</p>
-<p>NEM2-SDK share the same design/architecture between programming languages to accomplish the next properties:</p>
+<p>The new SDK enables developers to focus on their product rather than on the NEM2 Blockchain specific API details due to its higher abstraction.</p>
+<p>NEM2-SDK shares the same design/architecture between programming languages to accomplish the next properties:</p>
 <ul class="simple">
-<li><strong>Fast language adaptation</strong>: There is a library for Java, but you needed it for C# for example, because both SDKs share the same design, you can re-write the library faster, just adapting the syntax to your language. Also applies to examples, projects, applications…</li>
-<li><strong>Cohesion/shared knowledge cross NEM developers</strong>: Be able to change between projects that use NEM, sharing the same design accompanied by best practices.</li>
-<li><strong>Fast SDK updates</strong>: Migrating one improvement from a NEM2-SDK implementation to the rest is faster.</li>
-<li><strong>Fewer bugs</strong>: If some bug appears in one language, it is faster to check and fix it.</li>
+<li><strong>Fast language adaptation</strong>: There is a library for Java, but you need it for C# for example, because both SDKs share the same design, you can re-write the library faster, just adapting the syntax to your language. It also applies to examples, projects, applications…</li>
+<li><strong>Cohesion/shared knowledge cross NEM developers</strong>: Be able to change between projects that use NEM, sharing the same design accompanied by the best practices.</li>
+<li><strong>Fast SDK updates</strong>: Migrating any improvement from a NEM2-SDK implementation to the rest is faster.</li>
+<li><strong>Fewer bugs</strong>: If any bug appears in one language, it is faster to check and fix it.</li>
 </ul>
 <p>The best way to learn about the SDKs is through <a class="reference internal" href="../guides/overview.html"><span class="doc">guides</span></a>, we encourage you to check them.</p>
 <div class="section" id="backward-compatibility-with-nis1-sdks">
 <h2>Backward compatibility with NIS1 SDKs<a class="headerlink" href="#backward-compatibility-with-nis1-sdks" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Final information regarding compatibility with NIS1 is not yet available.</p>
+<p class="last">Final information regarding compatibility with NIS1 is not available yet.</p>
 </div>
 <p>Start planning the migration to NEM2-SDK to take advantage of new Catapult features and future releases.</p>
 <p>Check <a class="reference internal" href="release-notes/00-migration.html"><span class="doc">Preparing for NEM2-SDK 1.0.0</span></a> to see new features and changes that break backward compatibility with NEM-Library.</p>

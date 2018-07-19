@@ -63,14 +63,14 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.4</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.5</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
             
+                <li><a href="../getting-started/what-is-nem.html">Getting Started</a></li>
                 <li><a href="../guides/overview.html">Guides</a></li>
-                <li><a href="../concepts/account.html">Built-in Features</a></li>
                 <li><a href="../sdk/overview.html">References</a></li>
             
             
@@ -91,9 +91,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">Setting up your workstation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#create-a-test-account">Create a test account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#running-catapult-service-bootstrap">Running Catapult Service Bootstrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#creating-a-test-account">Creating a test account</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#what-is-xem-and-how-to-get-it">What is XEM and how to get it?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#set-up-the-development-environment">Set up the development environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#setting-up-the-development-environment">Setting up the development environment</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#typescript-javascript">TypeScript/JavaScript</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#java">Java</a></li>
 </ul>
@@ -114,7 +115,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">Multisig Account</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/multisig-account.html#modify-multisig-account-transaction">Modify multisig account transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/multisig-account.html#modifying-multisig-account-transaction">Modifying multisig account transaction</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/multi-level-multisig-account.html">Multi-Level Multisig Account</a></li>
@@ -455,12 +456,12 @@
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <p>To start using NEM2-CLI, configure a profile.</p>
-<p>Profile holds an account and a node url for a specific network. Profiles are used to set a base url and have an account to sign transactions.</p>
+<p>A profile holds an account and a node url for a specific network. Profiles are used to set a base url and have an account to sign transactions.</p>
 <p>Configure default profile.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli profile create --privatekey your_private_key --network MIJIN_TEST --url http://localhost:3000
 </pre></div>
 </div>
-<p>NEM2-CLI supports names profiles. You can configure additional profiles by using the –profile option.</p>
+<p>NEM2-CLI supports named profiles. You can configure additional profiles by using the –profile option.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli profile create --privatekey your_private_key --network MIJIN_TEST --url http://localhost:3000 --profile mijin_test_net_profile
 </pre></div>
 </div>
@@ -472,7 +473,7 @@
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; <span class="nb">export</span> <span class="nv">NEM2_PROFILE</span><span class="o">=</span>mijin_test_net_profile
 </pre></div>
 </div>
-<p>If you don’t have a private key to create a profile you can generate a new account, add a node url and save it as default or named profile.</p>
+<p>If you do not have a private key to create a profile you can generate a new account, add a node url and save it as default or named profile.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account generate --network MIJIN_TEST -s --url http://localhost:3000 --profile mijin_test_net_profile
 </pre></div>
 </div>

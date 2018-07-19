@@ -63,14 +63,14 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.4</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.5</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
             
+                <li><a href="../getting-started/what-is-nem.html">Getting Started</a></li>
                 <li><a href="../guides/overview.html">Guides</a></li>
-                <li><a href="../concepts/account.html">Built-in Features</a></li>
                 <li><a href="../sdk/overview.html">References</a></li>
             
             
@@ -91,9 +91,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">Setting up your workstation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#create-a-test-account">Create a test account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#running-catapult-service-bootstrap">Running Catapult Service Bootstrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#creating-a-test-account">Creating a test account</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#what-is-xem-and-how-to-get-it">What is XEM and how to get it?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#set-up-the-development-environment">Set up the development environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#setting-up-the-development-environment">Setting up the development environment</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#typescript-javascript">TypeScript/JavaScript</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#java">Java</a></li>
 </ul>
@@ -114,7 +115,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">Multisig Account</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/multisig-account.html#modify-multisig-account-transaction">Modify multisig account transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/multisig-account.html#modifying-multisig-account-transaction">Modifying multisig account transaction</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/multi-level-multisig-account.html">Multi-Level Multisig Account</a></li>
@@ -442,13 +443,13 @@
 <p>Assuming that the <a class="reference internal" href="../concepts/node.html"><span class="doc">Catapult server</span></a> Catapult server and <a class="reference internal" href="../concepts/node.html"><span class="doc">Catapult REST</span></a> are <a class="reference internal" href="../guides/running-a-node.html"><span class="doc">running locally</span></a>, HTTP GET requests can be executed from a browser and have the form:</p>
 <p><a class="reference external" href="http://localhost:3000">http://localhost:3000</a>/&lt;path-to-API-request&gt; for example:</p>
 <p><a class="reference external" href="http://localhost:3000/account/7D08373CFFE4154E129E04F0827E5F3D6907587E348757B0F87D2F839BF88246/transactions">http://localhost:3000/account/7D08373CFFE4154E129E04F0827E5F3D6907587E348757B0F87D2F839BF88246/transactions</a></p>
-<p>HTTP PUT and POST requests use JSON structures in the request body. Request return data (if any is returned) using JSON structures.</p>
+<p>HTTP PUT and POST requests use JSON structures in the request body. Request returns data (if any is returned) using JSON structures.</p>
 </div>
 <div class="section" id="reference-tools">
 <h2>Reference &amp; Tools<a class="headerlink" href="#reference-tools" title="Permalink to this headline">¶</a></h2>
 <p><a href="https://app.swaggerhub.com/apis/nemtech/catapult-rest-api/" target="_blank">Catapult REST API Reference</a></p>
 <p>We recommend using one of the following tools to interact with Catapult REST API, especially for PUT and POST methods.</p>
-<p>This kind of request usually cannot be executed from within the browser unless you use a plugin which enables you to do it.</p>
+<p>This kind of request cannot usually be executed from within the browser unless you use a plugin which enables you to do it.</p>
 <div class="section" id="swagger-ui">
 <h3>Swagger UI<a class="headerlink" href="#swagger-ui" title="Permalink to this headline">¶</a></h3>
 <p>Open <a class="reference external" href="https://swagger.io/tools/swagger-editor/">Swagger online editor</a> and import:</p>

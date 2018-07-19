@@ -63,14 +63,14 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.4</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.5</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
             
+                <li><a href="../getting-started/what-is-nem.html">Getting Started</a></li>
                 <li><a href="../guides/overview.html">Guides</a></li>
-                <li><a href="account.html">Built-in Features</a></li>
                 <li><a href="../sdk/overview.html">References</a></li>
             
             
@@ -91,9 +91,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">Setting up your workstation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#create-a-test-account">Create a test account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#running-catapult-service-bootstrap">Running Catapult Service Bootstrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#creating-a-test-account">Creating a test account</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#what-is-xem-and-how-to-get-it">What is XEM and how to get it?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#set-up-the-development-environment">Set up the development environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#setting-up-the-development-environment">Setting up the development environment</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#typescript-javascript">TypeScript/JavaScript</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#java">Java</a></li>
 </ul>
@@ -114,7 +115,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="multisig-account.html#modify-multisig-account-transaction">Modify multisig account transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig-account.html#modifying-multisig-account-transaction">Modifying multisig account transaction</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="multi-level-multisig-account.html">Multi-Level Multisig Account</a></li>
@@ -428,7 +429,7 @@
       
   <div class="section" id="listener">
 <h1>Listener<a class="headerlink" href="#listener" title="Permalink to this headline">¶</a></h1>
-<p>Listeners make possible receiving notifications when a transaction or event occurs in the blockchain.</p>
+<p>Listeners make receiving notifications possible when a transaction or event occurs in the blockchain.</p>
 <p>The notification is received in real time without having to poll the API waiting for a reply.</p>
 <div class="section" id="channels">
 <h2>Channels<a class="headerlink" href="#channels" title="Permalink to this headline">¶</a></h2>
@@ -439,16 +440,16 @@
 <p>The confirmedAdded channel notifies when a transaction related to an address is included in a block. The message contains the transaction.</p>
 <p><strong>unconfirmedAdded/&lt;ADDRESS&gt;</strong></p>
 <p>The unconfirmedAdded channel notifies when a transaction related to an address is in unconfirmed state and waiting to be included in a block. The message contains the transaction.</p>
-<p>Possible scenarios when this channel notifies are, the transaction is announced to the network via <code class="docutils literal"><span class="pre">PUT</span> <span class="pre">/transaction</span></code> HTTP endpoint or an aggregate bonded transaction has all required cosigners and change the state from <em>partial</em> to <em>unconfirmed</em>.</p>
+<p>Possible scenarios when this channel notifies are: the transaction is announced to the network via <code class="docutils literal"><span class="pre">PUT</span> <span class="pre">/transaction</span></code> HTTP endpoint or an aggregate bonded transaction has all required cosigners and change its state from <em>partial</em> to <em>unconfirmed</em>.</p>
 <p><strong>unconfirmedRemoved/&lt;ADDRESS&gt;</strong></p>
-<p>The unconfirmedRemoved channel notifies when a transaction related to an address was in unconfirmed state but not anymore. The message contains the transaction hash.</p>
-<p>Possible scenarios when this channel notifies are, the transaction now is confirmed or the deadline has been reached and it was not included in a block.</p>
+<p>The unconfirmedRemoved channel notifies when a transaction related to an address was in unconfirmed state but is not anymore. The message contains the transaction hash.</p>
+<p>Possible scenarios when this channel notifies are: the transaction now is confirmed or the deadline has been reached and it was not included in a block.</p>
 <p><strong>partialAdded/&lt;ADDRESS&gt;</strong></p>
 <p>The partialAdded channel notifies when an aggregate bonded transaction related to an address is in <em>partial</em> state and waiting to have all <em>required cosigners</em>. The message contains a transaction.</p>
 <p>The scenario when this channel notifies is when an aggregate bonded transaction is announced to the network via <code class="docutils literal"><span class="pre">PUT</span> <span class="pre">/transaction/partial</span></code> HTTP endpoint.</p>
 <p><strong>partialRemoved/&lt;ADDRESS&gt;</strong></p>
-<p>The partialRemoved channel notifies when a transaction related to an address was in partial state but not anymore. The message contains the transaction hash.</p>
-<p>Possible scenarios when this channel notifies are, the transaction now is in unconfirmed or the deadline has been reached and it was not included in a block.</p>
+<p>The partialRemoved channel notifies when a transaction related to an address was in partial state but is not anymore. The message contains the transaction hash.</p>
+<p>Possible scenarios when this channel notifies are: the transaction now is in unconfirmed or the deadline has been reached and it was not included in a block.</p>
 <p><strong>cosignature/&lt;ADDRESS&gt;</strong></p>
 <p>The cosignature channel notifies when a <em>cosignature signed transaction</em> related to an address is added to an aggregate bonded transaction with partial state. The message contains the cosignature signed transaction.</p>
 <p><strong>status/&lt;ADDRESS&gt;</strong></p>

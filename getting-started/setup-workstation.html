@@ -63,14 +63,14 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.4</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.5</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
             
+                <li><a href="what-is-nem.html">Getting Started</a></li>
                 <li><a href="../guides/overview.html">Guides</a></li>
-                <li><a href="../concepts/account.html">Built-in Features</a></li>
                 <li><a href="../sdk/overview.html">References</a></li>
             
             
@@ -91,9 +91,10 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Setting up your workstation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#create-a-test-account">Create a test account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-catapult-service-bootstrap">Running Catapult Service Bootstrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-test-account">Creating a test account</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#what-is-xem-and-how-to-get-it">What is XEM and how to get it?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#set-up-the-development-environment">Set up the development environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-the-development-environment">Setting up the development environment</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#typescript-javascript">TypeScript/JavaScript</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#java">Java</a></li>
 </ul>
@@ -114,7 +115,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">Multisig Account</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/multisig-account.html#modify-multisig-account-transaction">Modify multisig account transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/multisig-account.html#modifying-multisig-account-transaction">Modifying multisig account transaction</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/multi-level-multisig-account.html">Multi-Level Multisig Account</a></li>
@@ -361,9 +362,10 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="what-is-nem.html">What is NEM?</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Setting up your workstation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#create-a-test-account">Create a test account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-catapult-service-bootstrap">Running Catapult Service Bootstrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-test-account">Creating a test account</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#what-is-xem-and-how-to-get-it">What is XEM and how to get it?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#set-up-the-development-environment">Set up the development environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-the-development-environment">Setting up the development environment</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#typescript-javascript">TypeScript/JavaScript</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#java">Java</a></li>
 </ul>
@@ -434,13 +436,31 @@
       
   <div class="section" id="setting-up-your-workstation">
 <h1>Setting up your workstation<a class="headerlink" href="#setting-up-your-workstation" title="Permalink to this headline">¶</a></h1>
-<p>This guide will walk you through the installation step-by-step, by showing you how to use the tools to start developing with NEM Catapult.</p>
-<div class="section" id="create-a-test-account">
-<h2>Create a test account<a class="headerlink" href="#create-a-test-account" title="Permalink to this headline">¶</a></h2>
-<p>An account is a key pair (private and public key) associated to a mutable state stored on the NEM blockchain. Simply put, you have a deposit box on the blockchain, which only you can modify with your key pair. As the name suggests, the private key has to be kept secret at all times. Anyone with access to the private key, ultimately has control over the account.</p>
+<p>This guide will walk you through a step-by-step installation of the required tools to start developing on NEM Catapult.</p>
+<div class="section" id="running-catapult-service-bootstrap">
+<h2>Running Catapult Service Bootstrap<a class="headerlink" href="#running-catapult-service-bootstrap" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center">
+<img alt="../_images/four-layer-architecture1.png" src="../_images/four-layer-architecture1.png" style="width: 650px;" />
+</div>
+<p><strong>Catapult Server nodes</strong> (layer 1) build the peer-to-peer blockchain network. <strong>Catapult Rest nodes</strong> (layer 2) provide the API gateway that the applications may use to access the blockchain and its features.</p>
+<p>You are going to run a private chain for learning purposes using Catapult Service Bootstrap in less than 5 minutes. This service runs Catapult server instances and Catapult REST nodes locally.</p>
+<p>Make sure you have <a class="reference external" href="http://www.oracle.com/technetwork/es/java/javase/downloads/index.html">docker</a> and <a class="reference external" href="https://docs.docker.com/compose/install/">docker-compose</a> installed before running the following commands:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; git clone https://github.com/tech-bureau/catapult-service-bootstrap
+$&gt; <span class="nb">cd</span> catapult-service-bootstrap
+$&gt; docker-compose up
+</pre></div>
+</div>
+<p>After the image has been downloaded and the service is running, check if you can get the first block information:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; curl localhost:3000/block/1
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-a-test-account">
+<h2>Creating a test account<a class="headerlink" href="#creating-a-test-account" title="Permalink to this headline">¶</a></h2>
+<p>An account is a key pair (private and public key) associated to a mutable state stored in the NEM blockchain. Simply put, you have a deposit box on the blockchain, which only you can modify with your key pair. As the name suggests, the private key has to be kept secret at all times. Anyone with access to the private key, ultimately has control over the account.</p>
 <p>The <strong>public key</strong> is cryptographically derived from the private key. It would take millions of years to do the reverse process and therefore, the public key is safe to be shared.</p>
-<p>Finally, the account address is generated with the public key, following the NEM blockchain protocol. It is better to share this address than just the public key, as it contains more information, such as a validity check and which network it uses (public, testnet or private).</p>
-<p><a class="reference internal" href="../cli/overview.html"><span class="doc">NEM2-CLI</span></a> conveniently allows you to perform the most commonly used commands from your terminal i.e. using it to interact with the blockchain, setting up an account and sending funds, etc.</p>
+<p>Finally, the account address is generated with the public key, following the NEM blockchain protocol. It is better to share this address than just the public key, as it contains more information, such as a validity check or which network it uses (public, testnet or private).</p>
+<p><a class="reference internal" href="../cli/overview.html"><span class="doc">NEM2-CLI</span></a> conveniently allows you to perform the most commonly used commands from your terminal i.e. using it to interact with the blockchain, setting up an account, sending funds, etc.</p>
 <p>Install NEM2-CLI using <code class="docutils literal"><span class="pre">npm</span></code>.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; npm i -g nem2-cli
 </pre></div>
@@ -450,7 +470,7 @@
 </pre></div>
 </div>
 <p>The <code class="docutils literal"><span class="pre">network</span> <span class="pre">flag</span></code> is set to MIJIN_TEST. Test network is an alternative NEM blockchain used for development and testing purposes.</p>
-<p>Use <code class="docutils literal"><span class="pre">save</span> <span class="pre">flag</span></code> to store the account in your computer. NEM2-CLI uses stored account to sign transactions you start.</p>
+<p>Use <code class="docutils literal"><span class="pre">save</span> <span class="pre">flag</span></code> to store the account on your computer. NEM2-CLI uses stored account to sign the transactions that you start.</p>
 <p>You should be able to see the following lines in your terminal, containing the account credentials:</p>
 <blockquote>
 <div><p>New Account:    SCVG35-ZSPMYP-L2POZQ-JGSVEG-RYOJ3V-BNIU3U-N2E6</p>
@@ -461,17 +481,27 @@
 <div class="section" id="what-is-xem-and-how-to-get-it">
 <h2>What is XEM and how to get it?<a class="headerlink" href="#what-is-xem-and-how-to-get-it" title="Permalink to this headline">¶</a></h2>
 <p>The underlying cryptocurrency of the NEM network is called <strong>XEM</strong>. Every action on the NEM blockchain costs XEM, in order to provide an incentive for those who validate and secure the network.</p>
-<p>Once you have created an account, ask for some XEM from our faucet, by simply sharing your address.</p>
-<p>XEM will appear in your account’s balance after the transaction is confirmed by the network.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">There is a bot listening to requests. It might be occasionally offline. Please contact support if the problem persists.</p>
+<p>Let’s use an account which already has XEM. We will need it to register the namespace and mosaic.</p>
+<p>Open a terminal, and go to the directory where you have download Catapult Bootstrap Service.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; <span class="nb">cd</span>  build/generated-addresses/
+$&gt; cat addresses.yaml
+</pre></div>
+</div>
+<p>Under the section <code class="docutils literal"><span class="pre">nemesis_addresses</span></code>, you will find the key pairs which contain XEM.</p>
+<p>Load the first account as a profile in NEM2-CLI. This account identifies the company.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli profile create
+
+Introduce network <span class="nb">type</span> <span class="o">(</span>MIJIN_TEST, MIJIN, MAIN_NET, TEST_NET<span class="o">)</span>: MIJIN_TEST
+Introduce your private key: 41************************************************************FF
+Introduce NEM <span class="m">2</span> Node URL. <span class="o">(</span>Example: http://localhost:3000<span class="o">)</span>: http://localhost:3000
+Insert profile name <span class="o">(</span>blank means default and it could overwrite the previous profile<span class="o">)</span>:
+</pre></div>
 </div>
 </div>
-<div class="section" id="set-up-the-development-environment">
-<span id="setup-development-environment"></span><h2>Set up the development environment<a class="headerlink" href="#set-up-the-development-environment" title="Permalink to this headline">¶</a></h2>
-<p>By that time, you should have created an account and have received some XEM. Then it is time to choose a programming language. Pick the one you feel most comfortable with, or just follow project requirements.</p>
-<p>Afterwards, create a folder for your new project and run the instructions for the selected language.</p>
+<div class="section" id="setting-up-the-development-environment">
+<span id="setup-development-environment"></span><h2>Setting up the development environment<a class="headerlink" href="#setting-up-the-development-environment" title="Permalink to this headline">¶</a></h2>
+<p>By then, you should have loaded an account with some XEM. Then, it is time to choose a programming language. Pick the one you feel most comfortable with, or just follow project requirements.</p>
+<p>After that, create a folder for your new project and run the instructions for the selected language.</p>
 <div class="section" id="typescript-javascript">
 <h3>TypeScript/JavaScript<a class="headerlink" href="#typescript-javascript" title="Permalink to this headline">¶</a></h3>
 <p>Create a <code class="docutils literal"><span class="pre">package.json</span></code> file and check the npm repository for the latest updates. The minimum required Node.js version is 8.9.X.</p>

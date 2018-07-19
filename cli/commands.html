@@ -63,14 +63,14 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.4</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.5</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
             
+                <li><a href="../getting-started/what-is-nem.html">Getting Started</a></li>
                 <li><a href="../guides/overview.html">Guides</a></li>
-                <li><a href="../concepts/account.html">Built-in Features</a></li>
                 <li><a href="../sdk/overview.html">References</a></li>
             
             
@@ -91,9 +91,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">Setting up your workstation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#create-a-test-account">Create a test account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#running-catapult-service-bootstrap">Running Catapult Service Bootstrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#creating-a-test-account">Creating a test account</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#what-is-xem-and-how-to-get-it">What is XEM and how to get it?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#set-up-the-development-environment">Set up the development environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#setting-up-the-development-environment">Setting up the development environment</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#typescript-javascript">TypeScript/JavaScript</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#java">Java</a></li>
 </ul>
@@ -114,7 +115,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">Multisig Account</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/multisig-account.html#modify-multisig-account-transaction">Modify multisig account transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/multisig-account.html#modifying-multisig-account-transaction">Modifying multisig account transaction</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/multi-level-multisig-account.html">Multi-Level Multisig Account</a></li>
@@ -499,7 +500,7 @@
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">By default NEM2-CLI will always use the default profile to connect to a node and set default options such as: address, public key and sign transactions with private key. To use a named profile, add the –profile option to any command.</p>
+<p class="last">By default, NEM2-CLI will always use the default profile to connect to a node and set default options such as: address, public key and sign transactions with private key. To use a named profile, add the –profile option to any command.</p>
 </div>
 </div>
 </div>
@@ -508,7 +509,7 @@
 <div class="section" id="generate-new-account">
 <h3>Generate new account<a class="headerlink" href="#generate-new-account" title="Permalink to this headline">¶</a></h3>
 <p>Generate a new <a class="reference internal" href="../concepts/account.html"><span class="doc">account</span></a> in a network. This command generates a private key, public key and address.</p>
-<p>As seen in the configuration section, generated account can be stored as named profiles by adding node url.</p>
+<p>As seen in the configuration section, generated account can be stored as named profiles by adding a node url.</p>
 <p>Options</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-s, --save              - <span class="o">(</span>Optional<span class="o">)</span> Save profile
 -u, --url &lt;url&gt;         - <span class="o">(</span>Optional<span class="o">)</span> When saving profile, provide a NEM2 Node URL
@@ -535,7 +536,7 @@
 </div>
 <div class="section" id="get-confirmed-transactions">
 <h3>Get confirmed transactions<a class="headerlink" href="#get-confirmed-transactions" title="Permalink to this headline">¶</a></h3>
-<p>Gets an array of confirmed <a class="reference internal" href="../concepts/transaction.html"><span class="doc">transaction</span></a> for which an account is signer or recipient.</p>
+<p>Get an array of confirmed <a class="reference internal" href="../concepts/transaction.html"><span class="doc">transaction</span></a> for which an account is signer or recipient.</p>
 <p>Options</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-p, --publickey &lt;publickey&gt;             - Account public key
 -n, --numtransactions &lt;numtransactions&gt; - <span class="o">(</span>optional<span class="o">)</span> Number of transactions
@@ -551,7 +552,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 </div>
 <div class="section" id="get-incoming-transactions">
 <h3>Get incoming transactions<a class="headerlink" href="#get-incoming-transactions" title="Permalink to this headline">¶</a></h3>
-<p>Gets an array of <a class="reference internal" href="../concepts/transaction.html"><span class="doc">transactions</span></a> for which an account is the recipient. A transaction is said to be <code class="docutils literal"><span class="pre">incoming</span></code> regarding an account if the account is the recipient of a transaction.</p>
+<p>Get an array of <a class="reference internal" href="../concepts/transaction.html"><span class="doc">transactions</span></a> for which an account is the recipient. A transaction is said to be <code class="docutils literal"><span class="pre">incoming</span></code> regarding an account if the account is the recipient of a transaction.</p>
 <p>Options</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-p, --publickey &lt;publickey&gt;             - Account public key
 -n, --numtransactions &lt;numtransactions&gt; - <span class="o">(</span>optional<span class="o">)</span> Number of transactions
@@ -565,7 +566,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 </div>
 <div class="section" id="get-outgoing-transactions">
 <h3>Get outgoing transactions<a class="headerlink" href="#get-outgoing-transactions" title="Permalink to this headline">¶</a></h3>
-<p>Gets an array of <a class="reference internal" href="../concepts/transaction.html"><span class="doc">transactions</span></a> for which an account is the sender. A transaction is said to be <code class="docutils literal"><span class="pre">outgoing</span></code> regarding an account if the account is the sender of a transaction.</p>
+<p>Get an array of <a class="reference internal" href="../concepts/transaction.html"><span class="doc">transactions</span></a> for which an account is the sender. A transaction is said to be <code class="docutils literal"><span class="pre">outgoing</span></code> regarding an account if the account is the sender of a transaction.</p>
 <p>Options</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-p, --publickey &lt;publickey&gt;             - Account public key<span class="sb">`</span>
 -n, --numtransactions &lt;numtransactions&gt; - <span class="o">(</span>optional<span class="o">)</span> Number of transactions
@@ -579,7 +580,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 </div>
 <div class="section" id="get-unconfirmed-transactions">
 <h3>Get unconfirmed transactions<a class="headerlink" href="#get-unconfirmed-transactions" title="Permalink to this headline">¶</a></h3>
-<p>Gets the array of <a class="reference internal" href="../concepts/transaction.html"><span class="doc">transactions</span></a> for which an account is the sender or receiver and which have not yet been included in a block.</p>
+<p>Get the array of <a class="reference internal" href="../concepts/transaction.html"><span class="doc">transactions</span></a> for which an account is the sender or receiver and have not been included in a block yet.</p>
 <p>Options</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-p, --publickey &lt;publickey&gt;             - Account public key
 -n, --numtransactions &lt;numtransactions&gt; - <span class="o">(</span>optional<span class="o">)</span> Number of transactions
@@ -593,7 +594,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 </div>
 <div class="section" id="get-aggregate-bonded-transactions">
 <h3>Get Aggregate bonded transactions<a class="headerlink" href="#get-aggregate-bonded-transactions" title="Permalink to this headline">¶</a></h3>
-<p>Gets an array of <a class="reference internal" href="../concepts/transaction.html"><span class="doc">aggregate bonded transactions</span></a> for which an account is the sender or has signed the transaction. A transaction is said to be <code class="docutils literal"><span class="pre">aggregate</span> <span class="pre">bonded</span></code> regarding an account if announced but there are missing signatures.</p>
+<p>Get an array of <a class="reference internal" href="../concepts/transaction.html"><span class="doc">aggregate bonded transactions</span></a> for which an account is the sender or has signed the transaction. A transaction is said to be <code class="docutils literal"><span class="pre">aggregate</span> <span class="pre">bonded</span></code> regarding an account if it is announced, but there still are missing signatures.</p>
 <p>Options</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-p, --publickey &lt;publickey&gt;             - Account public key
 -n, --numtransactions &lt;numtransactions&gt; - <span class="o">(</span>optional<span class="o">)</span> Number of transactions
@@ -642,7 +643,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 </div>
 <div class="section" id="transaction-info">
 <h3>Transaction info<a class="headerlink" href="#transaction-info" title="Permalink to this headline">¶</a></h3>
-<p>Gets a <a class="reference internal" href="../concepts/transaction.html"><span class="doc">transaction</span></a> by its ID.</p>
+<p>Get a <a class="reference internal" href="../concepts/transaction.html"><span class="doc">transaction</span></a> by its ID.</p>
 <p>Options</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-h, --hash &lt;hash&gt;       - Transaction <span class="nb">hash</span>
 </pre></div>

@@ -61,14 +61,14 @@
         </button>
         <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.4</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.5</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
             
+                <li><a href="../../getting-started/what-is-nem.html">Getting Started</a></li>
                 <li><a href="../overview.html">Guides</a></li>
-                <li><a href="../../concepts/account.html">Built-in Features</a></li>
                 <li><a href="../../sdk/overview.html">References</a></li>
             
             
@@ -89,9 +89,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting-started/setup-workstation.html">Setting up your workstation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#create-a-test-account">Create a test account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#running-catapult-service-bootstrap">Running Catapult Service Bootstrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#creating-a-test-account">Creating a test account</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#what-is-xem-and-how-to-get-it">What is XEM and how to get it?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#set-up-the-development-environment">Set up the development environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#setting-up-the-development-environment">Setting up the development environment</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../getting-started/setup-workstation.html#typescript-javascript">TypeScript/JavaScript</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../getting-started/setup-workstation.html#java">Java</a></li>
 </ul>
@@ -112,7 +113,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">Multisig Account</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/multisig-account.html#modify-multisig-account-transaction">Modify multisig account transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/multisig-account.html#modifying-multisig-account-transaction">Modifying multisig account transaction</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/multi-level-multisig-account.html">Multi-Level Multisig Account</a></li>
@@ -359,23 +360,23 @@
   <div class="section" id="atomic-cross-chain-swap-between-nem-public-and-private-chain">
 <h1>Atomic cross-chain swap between NEM public and private chain<a class="headerlink" href="#atomic-cross-chain-swap-between-nem-public-and-private-chain" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference internal" href="../../concepts/cross-chain-transaction.html"><span class="doc">Cross-chain transactions</span></a> enable trading tokens between different blockchains, without using an intermediary party in the process.</p>
-<p>This exchange of tokens will succeed atomically. If some of the actors don’t agree, each of them will receive the locked tokens back after a determined amount of time.</p>
-<p>When talking about tokens in NEM, we are actually referring to <a class="reference internal" href="../../concepts/mosaic.html"><span class="doc">mosaics</span></a>. Catapult enables atomic swaps thought <a class="reference internal" href="../../concepts/cross-chain-transaction.html#secret-lock-transaction"><span class="std std-ref">secret lock</span></a> / <a class="reference internal" href="../../concepts/cross-chain-transaction.html#secret-proof-transaction"><span class="std std-ref">secret proof transaction</span></a> mechanism.</p>
+<p>This exchange of tokens will succeed atomically. If some of the actors do not agree, each of them will receive the locked tokens back after a determined amount of time.</p>
+<p>When talking about tokens in NEM, we are actually referring to <a class="reference internal" href="../../concepts/mosaic.html"><span class="doc">mosaics</span></a>. Catapult enables atomic swaps through <a class="reference internal" href="../../concepts/cross-chain-transaction.html#secret-lock-transaction"><span class="std std-ref">secret lock</span></a> / <a class="reference internal" href="../../concepts/cross-chain-transaction.html#secret-proof-transaction"><span class="std std-ref">secret proof transaction</span></a> mechanism.</p>
 <div class="section" id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
 <p>Alice and Bob want to exchange <strong>10 alice:token for 10 bob:token</strong>. The problem is that they are not in the same blockchain: alice:token is defined in NEM public chain, whereas bob:token is only present in a private chain using catapult technology.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">These two chains shares are SDK. You could implement atomic cross-chain swap between NEM public chain and other blockchains if they permit the secret lock/proof mechanism.</p>
+<p class="last">These two chain shares are SDK. You could implement atomic cross-chain swap between NEM public chain and other blockchains if they permit the secret lock/proof mechanism.</p>
 </div>
 <p>One non-atomic solution could be:</p>
 <ol class="arabic simple">
-<li>Alice sends to Bob 10 alice:token (private chain)</li>
+<li>Alice sends 10 alice:token to Bob (private chain)</li>
 <li>Bob receives the transaction</li>
-<li>Bob sends to Alice 10 bob:token (public chain)</li>
+<li>Bob sends 10 bob:token to Alice (public chain)</li>
 <li>Alice receives the transaction</li>
 </ol>
-<p>However, they don’t trust each other that much. Bob could decide his mosaics to Alice. Following this guide, you will see how to make this swap possible, trusting technology.</p>
+<p>However, they do not trust each other that much. Bob could decide his mosaics to Alice. Following this guide, you will see how to make this swap possible, trusting technology.</p>
 </div>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
@@ -387,9 +388,9 @@
 </div>
 <div class="section" id="let-s-get-into-some-code">
 <h2>Let’s get into some code<a class="headerlink" href="#let-s-get-into-some-code" title="Permalink to this headline">¶</a></h2>
-<p>Trading tokens directly from one blockchain to the other it is not possible, due to the technological differences between them.</p>
-<p>In case of NEM public and private chain, the same mosaic name could have different definition and distribution, or even not exist. Between Bitcoin and NEM, the difference it is even more evident, as each blockchain uses an entirely different technology.</p>
-<p>Instead of transferring tokens between the different chains, the trade will be performed inside each chain. The Secret proof / secret lock mechanism guarantees the token swap occurs atomically.</p>
+<p>Trading tokens directly from one blockchain to the other is not possible, due to the technological differences between them.</p>
+<p>In case of NEM public and private chain, the same mosaic name could have a different definition and distribution, or even not exist. Between Bitcoin and NEM, the difference is even more evident, as each blockchain uses an entirely different technology.</p>
+<p>Instead of transferring tokens between different chains, the trade will be performed inside each chain. The Secret proof / secret lock mechanism guarantees the token swap occurs atomically.</p>
 <div class="figure align-center" id="id1">
 <img alt="../../_images/guides-transactions-atomic-cross-chain-swap1.png" src="../../_images/guides-transactions-atomic-cross-chain-swap1.png" style="width: 700px;" />
 <p class="caption"><span class="caption-text">Atomic cross-chain swap between public and private network</span></p>
@@ -421,7 +422,7 @@
 <li>The mosaic and amount to be sent: 10 alice:token</li>
 <li>The recipient address: Bob’s address in private chain</li>
 <li>The secret: Hashed proof.</li>
-<li>The amount of time while funds can be unlocked: 96h</li>
+<li>The amount of time in which funds can be unlocked: 96h</li>
 </ul>
 <div class="example-code container">
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">tx1</span> <span class="o">=</span> <span class="nx">SecretLockTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
@@ -451,7 +452,7 @@
 <li>The mosaic and amount to be sent: 10 bob:token</li>
 <li>A recipient address: Alice’s address in public chain</li>
 <li>The secret that should be achieved to unlock the funds.</li>
-<li>The amount of time while funds can be unlocked: 84h</li>
+<li>The amount of time in which funds can be unlocked: 84h</li>
 </ul>
 <div class="example-code container">
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">tx2</span> <span class="o">=</span> <span class="nx">SecretLockTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
@@ -467,7 +468,7 @@
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The amount of time while funds can be unlocked should be smaller time frame than TX1’s. Alice knows the secret, so Bob must be sure, he’ll have some time left after Alice will release the secret.</p>
+<p class="last">The amount of time in which funds can be unlocked should be a smaller time frame than TX1’s. Alice knows the secret, so Bob must be sure he will have some time left after Alice releases the secret.</p>
 </div>
 <p>Once signed, Bob announces TX2 to the public chain.</p>
 <div class="example-code container">
@@ -478,7 +479,7 @@
 </pre></div>
 </div>
 </div>
-<p>Alice can announce in the public network the secret proof transaction TX3. This transaction defines the encrypting algorithm used, the original proof and the secret. It will unlock TX2 transaction.</p>
+<p>Alice can announce the secret proof transaction TX3 on the public network. This transaction defines the encrypting algorithm used, the original proof and the secret. It will unlock TX2 transaction.</p>
 <div class="example-code container">
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">tx3</span> <span class="o">=</span> <span class="nx">SecretProofTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
@@ -516,9 +517,9 @@
 <h2>Is it atomic?<a class="headerlink" href="#is-it-atomic" title="Permalink to this headline">¶</a></h2>
 <p>Consider the following scenarios:</p>
 <ol class="upperalpha simple">
-<li>Bob doesn’t want to announce Tx2. Alice will receive his funds back after 94 hours.</li>
-<li>Alice does not want to swap tokens by signing Tx3. Bob will receive his refund after 84h. Alice will unlock as well her funds after 94 hours.</li>
-<li>Alice signs and announces Tx3, receiving Bob’s funds. Bob will have time to sign Tx4, as Tx1 validity is longer than Tx2.</li>
+<li>Bob does not want to announce TX2. Alice will receive her funds back after 94 hours.</li>
+<li>Alice does not want to swap tokens by signing Tx3. Bob will receive his refund after 84h. Alice will unlock her funds as well after 94 hours.</li>
+<li>Alice signs and announces TX3, receiving Bob’s funds. Bob will have time to sign TX4, as Tx1 validity is longer than Tx2.</li>
 </ol>
 <p>The process is atomic but should be completed with lots of time before the deadlines.</p>
 </div>

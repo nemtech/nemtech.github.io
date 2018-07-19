@@ -61,14 +61,14 @@
         </button>
         <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.4</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.5</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
             
+                <li><a href="../../getting-started/what-is-nem.html">Getting Started</a></li>
                 <li><a href="../overview.html">Guides</a></li>
-                <li><a href="../../concepts/account.html">Built-in Features</a></li>
                 <li><a href="../../sdk/overview.html">References</a></li>
             
             
@@ -89,9 +89,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting-started/setup-workstation.html">Setting up your workstation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#create-a-test-account">Create a test account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#running-catapult-service-bootstrap">Running Catapult Service Bootstrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#creating-a-test-account">Creating a test account</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#what-is-xem-and-how-to-get-it">What is XEM and how to get it?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#set-up-the-development-environment">Set up the development environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#setting-up-the-development-environment">Setting up the development environment</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../getting-started/setup-workstation.html#typescript-javascript">TypeScript/JavaScript</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../getting-started/setup-workstation.html#java">Java</a></li>
 </ul>
@@ -112,7 +113,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">Multisig Account</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/multisig-account.html#modify-multisig-account-transaction">Modify multisig account transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/multisig-account.html#modifying-multisig-account-transaction">Modifying multisig account transaction</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/multi-level-multisig-account.html">Multi-Level Multisig Account</a></li>
@@ -363,9 +364,9 @@
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
 <p>Alice is developing a simple app to send 10 nem:xem to Bob. She wants to know if the transaction has reached the network before sending Bob an email.</p>
 <p>When announcing a transaction in NIS1, you had to wait to get the response from the node. Catapult works differently. When a transaction is announced, the REST API server will always return an OK.</p>
-<p>As a result, the developer does not have to wait until the server returns a response, being able to make more responsive apps.  However, it is developer’s responsibility to check the status of the transaction and ensure it is confirmed.</p>
-<p>On the other hand, keeping track of the status of the transactions adds unnecessary complexity to simple projects. It also increases the difficulty when migrating from NIS1.</p>
-<p>nem2-camel aims to solve these problems by providing a server that listens to the Catapult REST calls and acts as a proxy. When it detects a transaction announce, it waits for the confirmation via <a class="reference internal" href="../../concepts/listener.html"><span class="doc">WebSockets</span></a> and returns the message to the HTTP call.</p>
+<p>As a result, the developer does not have to wait until the server returns a response, being able to make more responsive apps.  However, it is developer’s responsibility to check the transactions status and ensure it is confirmed.</p>
+<p>On the other hand, keeping track of transactions status adds unnecessary complexity to simple projects. It also increases the difficulty when migrating from NIS1.</p>
+<p>nem2-camel aims to solve these problems by providing a server that listens to the Catapult REST calls and acts as a proxy. When it detects a transaction announcement, it waits for the confirmation via <a class="reference internal" href="../../concepts/listener.html"><span class="doc">WebSockets</span></a> and returns the message to the HTTP call.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">The method <code class="docutils literal"><span class="pre">TransactionHttp.announceSync</span></code> allows announcing transactions synchronously when using  nem2-camel as a proxy.  nem2-camel will respond successfully when the transaction has reached the network and had no validation errors.  You might still need to <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">wait for several confirmations</span></a> before executing additional actions.</p>
@@ -400,7 +401,7 @@ $&gt; docker-compose up
 </pre></div>
 </div>
 <p><strong>Getting Alice and Bob addresses</strong></p>
-<p>Once the Catapult Service is running, it will generate a set <a class="reference internal" href="../../concepts/account.html"><span class="doc">accounts</span></a> containing XEM.</p>
+<p>Once the Catapult Service is running, it will generate a set of <a class="reference internal" href="../../concepts/account.html"><span class="doc">accounts</span></a> containing XEM.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; <span class="nb">cd</span>  build/generated-addresses/
 $&gt; cat raw-addresses.yaml
 </pre></div>
@@ -411,7 +412,7 @@ $&gt; cat raw-addresses.yaml
 <p class="first admonition-title">Note</p>
 <p class="last">nem2-camel requires at least Java version 8.</p>
 </div>
-<p>Download latest <a href="https://github.com/nemtech/nem2-camel/releases" target="_blank">nem2-camel jar</a> package release, and run:</p>
+<p>Download the latest <a href="https://github.com/nemtech/nem2-camel/releases" target="_blank">nem2-camel jar</a> package release, and run:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; java -jar nem2-camel.jar --url http://localhost:3000
 </pre></div>
 </div>
@@ -435,7 +436,7 @@ $&gt; cat raw-addresses.yaml
 </pre></div>
 </div>
 </div>
-<p>Once signed, Alice can <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">announce the transaction</span></a> to the network. Use <code class="docutils literal"><span class="pre">TransactionHttp.announceSync</span></code> instead of <code class="docutils literal"><span class="pre">TransactionHttp.announce</span></code> to wait until it reaches the network and returns back the Transaction object. Afterwards, Alice can send an email to Bob.</p>
+<p>Once signed, Alice can <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">announce the transaction</span></a> to the network. Use <code class="docutils literal"><span class="pre">TransactionHttp.announceSync</span></code> instead of <code class="docutils literal"><span class="pre">TransactionHttp.announce</span></code> to wait until it reaches the network and returns back the Transaction object. After that, Alice can send an email to Bob.</p>
 <div class="example-code container">
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://0.0.0.0:9000&#39;</span><span class="p">);</span>
 
@@ -452,7 +453,7 @@ $&gt; cat raw-addresses.yaml
 </pre></div>
 </div>
 </div>
-<p>If the transaction is valid, nem2-camel returns a <code class="docutils literal"><span class="pre">Transaction</span></code> object. It is important to highlight that this transaction has <code class="docutils literal"><span class="pre">unconfirmed</span></code> status. Alice, or you, might still need to <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">wait  for several confirmations</span></a> before executing additional actions.</p>
+<p>If the transaction is valid, nem2-camel returns a <code class="docutils literal"><span class="pre">Transaction</span></code> object. It is important to highlight that this transaction has an <code class="docutils literal"><span class="pre">unconfirmed</span></code> status. Alice, or you, might still need to <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">wait  for several confirmations</span></a> before executing additional actions.</p>
 <p>In case the Catapult REST server throws an error, the subscribe method will invoke the <code class="docutils literal"><span class="pre">error</span> <span class="pre">function</span></code> returning a <code class="docutils literal"><span class="pre">TransactionStatus</span></code> object.</p>
 </div>
 </div>

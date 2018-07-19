@@ -61,14 +61,14 @@
         </button>
         <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.4</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.5</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
             
+                <li><a href="../../getting-started/what-is-nem.html">Getting Started</a></li>
                 <li><a href="../overview.html">Guides</a></li>
-                <li><a href="../../concepts/account.html">Built-in Features</a></li>
                 <li><a href="../../sdk/overview.html">References</a></li>
             
             
@@ -89,9 +89,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting-started/setup-workstation.html">Setting up your workstation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#create-a-test-account">Create a test account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#running-catapult-service-bootstrap">Running Catapult Service Bootstrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#creating-a-test-account">Creating a test account</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#what-is-xem-and-how-to-get-it">What is XEM and how to get it?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#set-up-the-development-environment">Set up the development environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#setting-up-the-development-environment">Setting up the development environment</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../getting-started/setup-workstation.html#typescript-javascript">TypeScript/JavaScript</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../getting-started/setup-workstation.html#java">Java</a></li>
 </ul>
@@ -112,7 +113,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">Multisig Account</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/multisig-account.html#modify-multisig-account-transaction">Modify multisig account transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/multisig-account.html#modifying-multisig-account-transaction">Modifying multisig account transaction</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/multi-level-multisig-account.html">Multi-Level Multisig Account</a></li>
@@ -369,7 +370,7 @@
 </div>
 <div class="section" id="lets-get-into-some-code">
 <h2>Let’s get into some code<a class="headerlink" href="#lets-get-into-some-code" title="Permalink to this headline">¶</a></h2>
-<p>Do you have curiosity to see what happened in genesis block? Run the following code to find out what happened.</p>
+<p>Are you curious to see what happened in genesis block? Run the following code to find it out.</p>
 <div class="example-code container">
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">blockchainHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BlockchainHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 
@@ -400,7 +401,7 @@
 </pre></div>
 </div>
 </div>
-<p>Here you have a snippet to check the number last block number.</p>
+<p>Here you have a snippet to check the last block number.</p>
 <div class="example-code container">
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">blockchainHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BlockchainHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 

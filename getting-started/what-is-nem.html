@@ -63,14 +63,14 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.4</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.5</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
             
+                <li><a href="#">Getting Started</a></li>
                 <li><a href="../guides/overview.html">Guides</a></li>
-                <li><a href="../concepts/account.html">Built-in Features</a></li>
                 <li><a href="../sdk/overview.html">References</a></li>
             
             
@@ -91,9 +91,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="setup-workstation.html">Setting up your workstation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="setup-workstation.html#create-a-test-account">Create a test account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup-workstation.html#running-catapult-service-bootstrap">Running Catapult Service Bootstrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup-workstation.html#creating-a-test-account">Creating a test account</a></li>
 <li class="toctree-l2"><a class="reference internal" href="setup-workstation.html#what-is-xem-and-how-to-get-it">What is XEM and how to get it?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setup-workstation.html#set-up-the-development-environment">Set up the development environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="setup-workstation.html#setting-up-the-development-environment">Setting up the development environment</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="setup-workstation.html#typescript-javascript">TypeScript/JavaScript</a></li>
 <li class="toctree-l3"><a class="reference internal" href="setup-workstation.html#java">Java</a></li>
 </ul>
@@ -114,7 +115,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">Multisig Account</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/multisig-account.html#modify-multisig-account-transaction">Modify multisig account transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/multisig-account.html#modifying-multisig-account-transaction">Modifying multisig account transaction</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/multi-level-multisig-account.html">Multi-Level Multisig Account</a></li>
@@ -433,19 +434,19 @@
 <div class="section" id="the-smart-asset-system">
 <h2>The Smart Asset System<a class="headerlink" href="#the-smart-asset-system" title="Permalink to this headline">¶</a></h2>
 <p><a href="https://nem.io/" target="_blank">NEM</a> is a blockchain platform built from the ground up to be simple for developers to use blockchain technology.</p>
-<p>NEM is built around a powerful system for customizing your use of the blockchain. We call it the <em>Smart Asset System</em>, and it gives you the power to use NEM as if it were a custom blockchain built for your application and your assets.</p>
+<p>NEM is built around a powerful system to customize your using of the blockchain. We call it the <em>Smart Asset System</em>. It gives you the power to use NEM as if it were a custom blockchain built for your application and your assets.</p>
 <div class="figure align-center" id="id1">
 <img alt="../_images/smart-assets-system.png" src="../_images/smart-assets-system.png" style="width: 600px;" />
 <p class="caption"><span class="caption-text">The Smart Asset System</span></p>
 </div>
-<p>Rather than force you to write your own “smart contract” code from scratch or use off-blockchain methods of defining custom assets for your application, NEM gives you direct access to a specialized set of tested and secure on-blockchain features.</p>
-<p>NEM is suitable for an amazing variety of solution classes, such as direct public transactions via a streamlined smartphone app, efficient cloud services that connect client or web applications, or a high-performance permissioned enterprise back-end for business-critical record keeping.</p>
+<p>Rather than force you to write your own “smart contract” code from scratch or use off-blockchain methods that define custom assets for you application, NEM gives you direct access to a specialized set of tested and secure on-blockchain features.</p>
+<p>NEM is suitable for an amazing variety of solutions of different classes, such as direct public transactions via a streamlined smartphone app, efficient cloud services that connect client or web applications, or a high-performance permissioned enterprise back-end for business-critical record keeping.</p>
 </div>
 <div class="section" id="architecting-on-nem">
 <h2>Architecting on NEM<a class="headerlink" href="#architecting-on-nem" title="Permalink to this headline">¶</a></h2>
-<p>NEM <a class="reference internal" href="../concepts/node.html"><span class="doc">nodes</span></a> provide a powerful, easy-to-use, stable, and secure platform where smart assets transactions are conducted, searched, and immutably logged to the blockchain ledger.</p>
-<p>All the functionality is available through the API interface on each node in the network itself. This means that the blockchain can be used to create a variety of solution architectures with light-weight code in any language.</p>
-<p>Some examples of possible solution architectures:</p>
+<p>NEM <a class="reference internal" href="../concepts/node.html"><span class="doc">nodes</span></a> provide a powerful, easy-to-use, stable and secure platform where smart asset transactions are conducted, searched, and immutably logged to the blockchain ledger.</p>
+<p>All the functionalities are available through the API interface on each node in the network itself. This means that the blockchain can be used to create a variety of architecture solutions with lightweight code in any language.</p>
+<p>Some examples of possible architecture solutions:</p>
 <div class="figure align-center">
 <img alt="../_images/arquitecturing-nem-solutions.png" src="../_images/arquitecturing-nem-solutions.png" style="width: 600px;" />
 </div>
@@ -462,7 +463,7 @@
 <img alt="../_images/public-private-blockchain.png" src="../_images/public-private-blockchain.png" style="width: 600px;" />
 </div>
 <p>NEM provides both a decentralized, open and self-sustaining <strong>public blockchain</strong> that can be used by anyone – as well as a <strong>permissioned/private blockchain solution</strong> that can be provisioned specifically for your use on your servers when speed and privacy are the priority.</p>
-<p>Both use the same underlying code and tools are 100% compatible, providing additional flexibility and future-proofing.</p>
+<p>Continue: <a class="reference internal" href="setup-workstation.html"><span class="doc">Setting up your workstation</span></a>.</p>
 </div>
 </div>
 
