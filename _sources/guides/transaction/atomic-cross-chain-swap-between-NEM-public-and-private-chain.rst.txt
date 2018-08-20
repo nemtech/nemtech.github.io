@@ -1,5 +1,10 @@
 :orphan:
 
+.. post:: 18 Aug, 2018
+    :category: cross-chain-transaction
+    :excerpt: 1
+    :nocomments:
+
 ############################################################
 Atomic cross-chain swap between NEM public and private chain
 ############################################################
@@ -67,12 +72,13 @@ Alice picks a random number, called ``proof``. Then, applies a SHA512 hash algor
         :language: typescript
         :lines:  48-51
 
-Alice creates a secret lock transaction to the private chain, including:
+Alice creates a secret lock transaction, including:
 
 * The mosaic and amount to be sent: 10 alice:token
 * The recipient address: Bob's address in private chain
 * The secret: Hashed proof.
 * The amount of time in which funds can be unlocked: 96h
+* The network: Private Chain
 
 .. example-code::
 
@@ -82,7 +88,7 @@ Alice creates a secret lock transaction to the private chain, including:
 
 Once announced, this transaction will remain locked until someone discovers the proof that matches the secret. If after a determined period of time no one proved it, the locked funds will be returned to Alice.
 
-Alice signs and announces TX1 to the public chain.
+Alice signs and announces TX1 to the private chain.
 
 .. example-code::
 
@@ -98,6 +104,7 @@ Bob creates a secret lock transaction TX2, which contains:
 * A recipient address: Alice's address in public chain
 * The secret that should be achieved to unlock the funds.
 * The amount of time in which funds can be unlocked: 84h
+* The network: Public Chain
 
 .. example-code::
 

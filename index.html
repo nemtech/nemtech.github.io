@@ -32,6 +32,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="What is NEM?" href="getting-started/what-is-nem.html" />
+  
 
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -48,6 +49,17 @@
     gtag('config', 'UA-119775843-1');
 </script>
 
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
   </head>
   <body>
 
@@ -62,7 +74,7 @@
         </button>
         <a class="navbar-brand" href="#"><span><img src="_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.5</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -70,7 +82,7 @@
             
                 <li><a href="getting-started/what-is-nem.html">Getting Started</a></li>
                 <li><a href="guides/overview.html">Guides</a></li>
-                <li><a href="sdk/overview.html">References</a></li>
+                <li><a href="references.html">References</a></li>
             
             
               <li class="dropdown globaltoc-container">
@@ -248,13 +260,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="sdk/overview.html">Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="sdk/overview.html#backward-compatibility-with-nis1-sdks">Backward compatibility with NIS1 SDKs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sdk/overview.html#languages-references">Languages &amp; References</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="sdk/overview.html#typescript-javascript">Typescript &amp; JavaScript</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sdk/overview.html#jvm-java-kotlin">JVM: Java &amp; Kotlin</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sdk/overview.html#c">C#</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sdk/overview.html#planned-languages-to-give-support">Planned languages to give support</a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="sdk/architecture.html">Architecture</a><ul>
@@ -271,18 +276,28 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="sdk/languages.html">Languages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sdk/languages.html#typescript-javascript">Typescript &amp; JavaScript</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdk/languages.html#jvm-java-kotlin">JVM: Java &amp; Kotlin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdk/languages.html#c">C#</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdk/languages.html#planned-languages-to-give-support">Planned languages to give support</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Catapult REST API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="api/overview.html">Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/overview.html#interacting-with-the-api">Interacting with the API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/overview.html#reference-tools">Reference &amp; Tools</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/overview.html#swagger-ui">Swagger UI</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/overview.html#insomnia">Insomnia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/overview.html#interacting-with-the-api">Interacting with the API</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/overview.html#http-status-codes">HTTP Status Codes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/overview.html#http-errors">HTTP Errors</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/tools.html">Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/tools.html#swagger-ui">Swagger UI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/tools.html#insomnia">Insomnia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/tools.html#nem2-sdk">NEM2-SDK</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="api/websockets.html">Websockets</a><ul>
@@ -358,83 +373,74 @@
   <div class="row">
     <div class="col-md-12 content">
       
-  <div class="jumbotron text-center">
+  <div class="home jumbotron text-center gap">
     <h1>NEM Developer Center</h1>
     <p>Start integrating NEM into your application.</p>
     <div class="image-container"><img alt="_images/nem-developers.png" class="align-center" src="_images/nem-developers.png" style="height: 300px;" />
-</div>
-</div>
-<div class="custom-content">
-<div class="custom-row">
-
-<h2 class="text-center">NEM is Your Blockchain Engine</h2>
-<p>NEM is a blockchain platform built from the ground up to be <b>simple for developers to use</b>. NEM  gives you direct access to a specialized set of <b>tested</b> and secure <b>on-blockchain features</b> using your favourite <a href="sdk/overview.html"><b>programming language</b></a>.</p>
-<p> This documentation refers to NEM latest version, <b>Catapult</b>, which provides higher performance and new functionalities to NEM.</p>
-</div><div class="custom-row">
-
-<h2 class="text-center">Dive into our Developer Documentation</h2>
-
-<p class="gap">Our detailed NEM development documentation is provided via our documentation site. Below are some shortcut links that may be a good place to start.</p>
-
-<div class="col-md-4">
-<div class="card">
-<h3>Getting started</h3><p>Easy-to-follow step by step guides with code examples.</p>
-<ul class="simple">
-<li><a class="reference internal" href="getting-started/what-is-nem.html"><span class="doc">What is NEM?</span></a></li>
-<li><a class="reference internal" href="getting-started/setup-workstation.html"><span class="doc">Setting up your environment</span></a></li>
-<li><a class="reference internal" href="getting-started/first-application.html"><span class="doc">Writing your first application</span></a></li>
-<li><a href="https://github.com/nemtech/nem2-workshops" target="_blank">Self-paced training</a></li>
-<li><a class="reference internal" href="guides/overview.html"><span class="doc">More guides</span></a></li>
-</ul>
-</div></div>
-<div class="col-md-4">
-<div class="card">
-<h3>Built-in Features</h3><p>NEM Smart Assets are built using the following connected parts:</p>
-<ul class="simple">
-<li><a class="reference internal" href="concepts/account.html"><span class="doc">Account</span></a></li>
-<li><a class="reference internal" href="concepts/multisig-account.html"><span class="doc">Multisig Account</span></a></li>
-<li><a class="reference internal" href="concepts/multi-level-multisig-account.html"><span class="doc">Multi-level Multisig Account</span></a></li>
-<li><a class="reference internal" href="concepts/transaction.html"><span class="doc">Transaction</span></a></li>
-<li><a class="reference internal" href="concepts/namespace.html"><span class="doc">Namespace</span></a></li>
-<li><a class="reference internal" href="concepts/mosaic.html"><span class="doc">Mosaic</span></a></li>
-<li><a class="reference internal" href="concepts/transfer-transaction.html"><span class="doc">Transfer Transaction</span></a></li>
-<li><a class="reference internal" href="concepts/aggregate-transaction.html"><span class="doc">Aggregate Transaction</span></a></li>
-<li><a class="reference internal" href="concepts/cross-chain-transaction.html"><span class="doc">Cross-Chain Transaction</span></a></li>
-<li><a class="reference internal" href="concepts/block.html"><span class="doc">Block</span></a></li>
-<li><a class="reference internal" href="concepts/node.html"><span class="doc">Node</span></a></li>
-<li><a class="reference internal" href="concepts/listener.html"><span class="doc">Listener</span></a></li>
-</ul>
-</div></div>
-<div class="col-md-4">
-<div class="card">
-<h3>SDKs and Tools</h3><p>NEM provides tools and services to accelerate blockchain development, greatly reducing development time.</p>
-<ul class="simple">
-<li><a class="reference internal" href="cli/overview.html"><span class="doc">NEM2-CLI</span></a></li>
-<li><a class="reference internal" href="sdk/overview.html"><span class="doc">NEM2-SDK</span></a></li>
-<li><a class="reference internal" href="api/overview.html"><span class="doc">Catapult REST API</span></a></li>
-<li><a class="reference internal" href="libraries/overview.html"><span class="doc">NEM2 Libraries</span></a></li>
-<li><a class="reference internal" href="prototyping-tool/overview.html"><span class="doc">NEM2 Prototyping Tool</span></a></li>
-</ul>
-</div></div></div>
-<div id="support" class="custom-row social">
-<h2 class="gap text-center">Connect with the NEM Development Community</h2>
-<div class="text-center">
-    <div class="col-sm-4">
-        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM"><i class="fab fa-slack"></i></a>
-        <h4 class="gap">Join #general discussion</h4>
-    </div>
-
-    <div class="col-sm-4">
-        <a href="https://stackoverflow.com/tags/nem/"><i class="fab fa-stack-overflow"></i></a>
-        <h4 class="gap">Ask development questions</h4>
-    </div>
-
-    <div class="col-sm-4">
-        <a href="https://twitter.com/nemtechdev"><i class="fab fa-twitter"></i></a>
-      <h4 class="gap">Follow the dev team</h4>
     </div>
 </div>
-</div></div><div class="section" id="nem-developer-center">
+<section class="container">
+    <div class="row custom-row">
+        <p>NEM is a blockchain platform built from the ground up to be <b>simple for developers to use</b>. NEM  gives you direct access to a specialized set of <b>tested</b> and secure <b>on-blockchain features</b> using your favourite <a href="sdk/overview.html"><b>programming language</b></a>.</p>
+        <p> This documentation refers to NEM latest version, <b>Catapult</b>, which provides higher performance and new functionalities to NEM.</p>
+    </div>
+</section><section class="home container card-container gap">
+    <div class="row top-gap">
+        <div class="col-md-6">
+             <a href="getting-started/what-is-nem.html"><div class="card">
+                <div class="col-sm-4 hidden-xs card-img"><img alt="_images/home-getting-started.png" class="align-center" src="_images/home-getting-started.png" style="height: 50px;" />
+        </div>
+        <div class="col-sm-8">
+            <h3>Getting started</h3>
+            <p>Learn about NEM by developing your first blockchain app.</p>
+           <b>START</b>
+       </div>
+    </div></a>
+</div>
+
+
+<div class="col-md-6">
+     <a href="concepts/account.html"><div class="card">
+        <div class="col-sm-4 hidden-xs card-img"><img alt="_images/home-built-in-features.png" class="align-center" src="_images/home-built-in-features.png" style="height: 50px;" />
+            </div>
+            <div class="col-sm-8">
+                <h3>Built-in Features</h3>
+                <p>Discover in-depth the connected parts that make up the Smart Asset System.</p>
+               <b>DISCOVER</b>
+           </div>
+        </div></a>
+    </div>
+
+</div>
+<div class="row">
+
+
+    <div class="col-md-6">
+         <a href="guides/overview.html"><div class="card">
+            <div class="col-sm-4 hidden-xs card-img"><img alt="_images/home-guides.png" class="align-center" src="_images/home-guides.png" style="height: 50px;" />
+             </div>
+             <div class="col-sm-8">
+             <h3>Guides</h3>
+             <p>Easy-to-follow step by step guides with code examples.</p>
+            <b>CREATE</b>
+            </div>
+         </div></a>
+     </div>
+
+<div class="col-md-6">
+          <a href="references.html"><div class="card">
+             <div class="col-sm-4 hidden-xs card-img"><img alt="_images/home-references.png" class="align-center" src="_images/home-references.png" style="height: 50px;" />
+                </div>
+                <div class="col-sm-8">
+                <h3>References</h3>
+                <p>From SDKs to extensions that make blockchain development easier.</p>
+               <b>LEARN MORE</b>
+               </div>
+            </div></a>
+        </div>
+
+    </div>
+</section><div class="section" id="nem-developer-center">
 <h1>NEM Developer Center<a class="headerlink" href="#nem-developer-center" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
@@ -456,6 +462,10 @@
 </div>
 </div>
 
+  <div class="section">
+  
+  
+  </div>
 
     </div>
       
@@ -463,13 +473,88 @@
 </div>
 <footer class="footer">
     <div class="container">
-        <!--<p class="pull-right">-->
-        <!--<a href="#">Back to top</a>-->
-        <!---->
-        <!--</p>-->
-        <p>
+        <div class="row social">
+            <div class="col-md-12">
+                <ul>
+                    <li>
+                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM">
+                            <i class="fab fa-slack"></i>
+                            <span >Join #general discussion</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stackoverflow.com/tags/nem/">
+                            <i class="fab fa-stack-overflow"></i>
+                            <span>Ask development questions</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://twitter.com/nemtechdev">
+                            <i class="fab fa-twitter"></i>
+                            <span>Follow the dev updates</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://github.com/nemtech">
+                            <i class="fab fa-github"></i>
+                            <span>Explore Github</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-4">
+                <h4>Built-in Features</h4>
+
+                <ul>
+                    <li><a href="/concepts/account.html">Account</a></li>
+                    <li><a href="/concepts/multisig-account.html">Multisig Account</a></li>
+                    <li><a href="/concepts/multi-level-multisig-account.html">Multilevel Multisig Account</a></li>
+                    <li><a href="/concepts/transaction.html">Transaction</a></li>
+                    <li><a href="/concepts/namespace.html">Namespace</a></li>
+                    <li><a href="/concepts/mosaic.html">Mosaic</a></li>
+                    <li><a href="/concepts/transfer-transaction.html">Transfer Transaction</a></li>
+                    <li><a href="/concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
+                    <li><a href="/concepts/cross-chain-transaction.html">Cross-Chain Transaction</a></li>
+                </ul>
+
+            </div>
+
+            <div class="col-md-4">
+                <h4>Guides</h4>
+
+                <ul>
+
+                    <li><a href="/guides/account.html">Interacting with accounts</a></li>
+                    <li><a href="/guides/blockchain.html">Monitoring blockchain</a></li>
+                    <li><a href="/guides/namespace.html">Registering namespaces</a></li>
+                    <li><a href="/guides/mosaic.html">Interacting with mosaics</a></li>
+                    <li><a href="/guides/transaction.html">Sending transactions</a></li>
+                    <li><a href="/guides/running-a-node.html">Running a node</a></li>
+                </ul>
+
+            </div>
+
+            <div class="col-md-4">
+                <h4>References</h4>
+
+                <ul>
+                    <li><a href="/cli/overview.html">CLI</a></li>
+                    <li><a href="/sdk/overview.html">NEM2-SDK</a></li>
+                    <li><a href="/api/overview.html">REST API</a></li>
+
+                </ul>
+            </div>
+
+        </div>
+
+        <p class="text-center top-gap">
             &copy; Copyright 2018, NEM.
-            Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.<br/>
         </p>
     </div>
 </footer>
