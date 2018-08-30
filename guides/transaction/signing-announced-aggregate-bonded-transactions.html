@@ -73,7 +73,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -105,8 +105,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#creating-a-test-account">Creating a test account</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#what-is-xem-and-how-to-get-it">What is XEM and how to get it?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#setting-up-the-development-environment">Setting up the development environment</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../getting-started/setup-workstation.html#typescript-javascript">TypeScript/JavaScript</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started/setup-workstation.html#typescript-and-javascript">TypeScript and JavaScript</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../getting-started/setup-workstation.html#java">Java</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started/setup-workstation.html#c">C#</a></li>
 </ul>
 </li>
 </ul>
@@ -374,7 +375,7 @@
       
   <div class="section" id="signing-announced-aggregate-bonded-transactions">
 <h1>Signing announced aggregate bonded transactions<a class="headerlink" href="#signing-announced-aggregate-bonded-transactions" title="Permalink to this headline">¶</a></h1>
-<p>You have probably announced an <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate bonded transaction</span></a>, but all cosigners have not signed it yet.</p>
+<p>You have probably announced an <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate bonded transaction</span></a>, but all required cosigners have not signed it yet.</p>
 <p>This guide will show you how to cosign aggregate bonded transactions that require being signed by your account.</p>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
@@ -470,6 +471,9 @@
     <span class="p">)</span>
     <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">announcedTransaction</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">announcedTransaction</span><span class="p">),</span>
         <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli transaction cosign --hash A6A374E66B32A3D5133018EFA9CD6E3169C8EEA339F7CCBE29C47D07086E068C
 </pre></div>
 </div>
 </div>

@@ -73,7 +73,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -105,8 +105,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#creating-a-test-account">Creating a test account</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#what-is-xem-and-how-to-get-it">What is XEM and how to get it?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#setting-up-the-development-environment">Setting up the development environment</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../getting-started/setup-workstation.html#typescript-javascript">TypeScript/JavaScript</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started/setup-workstation.html#typescript-and-javascript">TypeScript and JavaScript</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../getting-started/setup-workstation.html#java">Java</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started/setup-workstation.html#c">C#</a></li>
 </ul>
 </li>
 </ul>
@@ -375,16 +376,7 @@
   <div class="section" id="modifying-a-multisig-account">
 <h1>Modifying a multisig account<a class="headerlink" href="#modifying-a-multisig-account" title="Permalink to this headline">¶</a></h1>
 <p>After reviewing this guide, you will learn how to modify an existing <a class="reference internal" href="../../concepts/multisig-account.html"><span class="doc">multisig account</span></a>.</p>
-<p>Specifically, you are going to convert a 1-of-2 into a 2-of-2 multisig account.</p>
-<div class="figure align-center" id="id1">
-<img alt="../../_images/guides-accounts-multisig-2-of-2.png" src="../../_images/guides-accounts-multisig-2-of-2.png" style="width: 350px;" />
-<p class="caption"><span class="caption-text">2-of-2 multisig account example</span></p>
-</div>
-<p>Then, you will add a new cosignatory, becoming a 2-of-3.</p>
-<div class="figure align-center" id="id2">
-<img alt="../../_images/guides-accounts-multisig-2-of-3.png" src="../../_images/guides-accounts-multisig-2-of-3.png" style="width: 350px;" />
-<p class="caption"><span class="caption-text">2-of-3 multisig account example</span></p>
-</div>
+<p>First, you are going to turn a 1-of-2 multisig account into a 2-of-2. Then, you will add a new cosignatory, becoming a 2-of-3. After removing a cosignatory, you will know how to perform all sort of modifications to multisig accounts.</p>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -396,7 +388,8 @@
 </div>
 <div class="section" id="lets-get-into-some-code">
 <h2>Let’s get into some code<a class="headerlink" href="#lets-get-into-some-code" title="Permalink to this headline">¶</a></h2>
-<p>Alice and Bob are cosignatories of the 1-of-2 multisig account.</p>
+<p id="guide-modify-a-multisig-account-min-approval"><strong>Editing minApproval</strong></p>
+<p>Alice and Bob are cosignatories of the 1-of-2 multisig account. At least one of their account’s signatures is required to authorize multisig transactions. In other words, the <code class="docutils literal"><span class="pre">minApproval</span></code> parameter of the multisig is currently set to <code class="docutils literal"><span class="pre">1</span></code>.</p>
 <div class="example-code container">
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 
@@ -424,9 +417,14 @@
 </pre></div>
 </div>
 </div>
-<p>One of them, announces a <a class="reference internal" href="../../concepts/multisig-account.html#modify-multisig-account-transaction"><span class="std std-ref">modify multisig account transaction</span></a> wrapped in an <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate transaction</span></a>.</p>
+<p>Multisig accounts are editable at the blockchain level. In this case, we want to make both cosignatories required, shifting to a  2-of-2 multisig instead. We could achieve it by increasing <code class="docutils literal"><span class="pre">minApproval</span></code> parameter in one unit.</p>
+<div class="figure align-center" id="id1">
+<img alt="../../_images/guides-accounts-multisig-2-of-2.png" src="../../_images/guides-accounts-multisig-2-of-2.png" style="width: 350px;" />
+<p class="caption"><span class="caption-text">2-of-2 multisig account example</span></p>
+</div>
+<p>One of the accounts, for example Alice’s, announces a <a class="reference internal" href="../../concepts/multisig-account.html#modify-multisig-account-transaction"><span class="std std-ref">modify multisig account transaction</span></a> wrapped in an <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate transaction</span></a>, increasing <code class="docutils literal"><span class="pre">minApprovalDelta</span></code>.</p>
 <ol class="arabic simple">
-<li>Create a modify multisig account transaction,  increasing <code class="docutils literal"><span class="pre">minAprovalDelta</span></code> in one unit.</li>
+<li>Create a modify multisig account transaction, increasing minAprovalDelta in one unit.</li>
 </ol>
 <div class="example-code container">
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">modifyMultisigAccountTransaction</span> <span class="o">=</span> <span class="nx">ModifyMultisigAccountTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
@@ -458,7 +456,8 @@
 <ol class="arabic simple" start="2">
 <li>Wrap the modify multisig account transaction under an aggregate transaction, attaching multisig public key as the signer.</li>
 </ol>
-<p>An aggregate transaction is <em>complete</em> if before announcing it to the network, all required cosignatories have signed it. If valid, it will be included in a block.</p>
+<p>An aggregate transaction is <em>complete</em> if, before announcing it to the network, all required cosignatories have signed it. If valid, it will be included in a block.</p>
+<p>As only one cosignature is required (1-of-2), Alice can sign the transaction and announce it to the network.</p>
 <div class="example-code container">
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createComplete</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
@@ -500,10 +499,18 @@
 </pre></div>
 </div>
 </div>
-<p>Announce the aggregate transaction.</p>
-<p><strong>Adding a new cosignatory</strong></p>
-<p>Suddenly, Alice and Bob want to add Carol as a cosignatory of the multisig account.</p>
-<p>Alice creates a <a class="reference internal" href="../../concepts/multisig-account.html#modify-multisig-account-transaction"><span class="std std-ref">modify multisig account transaction</span></a> adding in a <code class="docutils literal"><span class="pre">MultisigCosignatoryModification</span></code> Carol as a cosignatory.</p>
+<p>Once confirmed, the minApproval value of the multisig will be set to 2, having our 2-of-2 multisig.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you want to decrease the minApproval parameter, going back to a 1-of-2 multisig, set minApprovalDelta with a negative value. In this case <code class="docutils literal"><span class="pre">-1</span></code>.</p>
+</div>
+<p id="guide-modify-a-multisig-account-add-new-cosignatory"><strong>Adding a new cosignatory</strong></p>
+<p>Suddenly, Alice and Bob want to add Carol as a cosignatory of the multisig account to achieve 2-of-3 cosignatures required.</p>
+<div class="figure align-center" id="id2">
+<img alt="../../_images/guides-accounts-multisig-2-of-3.png" src="../../_images/guides-accounts-multisig-2-of-3.png" style="width: 350px;" />
+<p class="caption"><span class="caption-text">2-of-3 multisig account example</span></p>
+</div>
+<p>Alice creates a <a class="reference internal" href="../../concepts/multisig-account.html#modify-multisig-account-transaction"><span class="std std-ref">modify multisig account transaction</span></a> adding in a <code class="docutils literal"><span class="pre">MultisigCosignatoryModification</span></code> Carol as a cosignatory. The multisig account will become a 2-of-3, as she is not increasing the minApprovalDelta.</p>
 <ol class="arabic simple">
 <li>Create a multisig cosignatory modification:</li>
 </ol>
@@ -587,7 +594,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="3">
-<li>Create an aggregate bonded transaction:</li>
+<li>Create an aggregate bonded transaction. The transaction is <em>aggregate bonded</em> because more than one cosignature is required:</li>
 </ol>
 <div class="example-code container">
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createBonded</span><span class="p">(</span>
@@ -616,7 +623,7 @@
 </pre></div>
 </div>
 </div>
-<p>Before sending an aggregate bonded transaction, Alice needs to lock at least <code class="docutils literal"><span class="pre">10</span></code> XEM. This mechanism is required to prevent network spamming and ensure that transactions are cosigned. Once Bob cosigns the transaction, the amount of XEM becomes available again on Alice’s account.</p>
+<p>Before sending an aggregate bonded transaction, Alice needs to lock at least <code class="docutils literal"><span class="pre">10</span></code> XEM. This mechanism is required to prevent network spamming and ensure that transactions are cosigned.</p>
 <p>After lock funds transaction has been confirmed, Alice announces the aggregate transaction.</p>
 <div class="example-code container">
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">lockFundsTransaction</span> <span class="o">=</span> <span class="nx">LockFundsTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
@@ -698,12 +705,14 @@
 </pre></div>
 </div>
 </div>
+<p>Once Bob <a class="reference internal" href="../transaction/signing-announced-aggregate-bonded-transactions.html"><span class="doc">cosigns the transaction</span></a>, the amount of XEM locked becomes available again on Alice’s account and Carol is added to the multisig.</p>
+<p id="guide-modify-a-multisig-account-removing-a-cosignatory"><strong>Removing a cosignatory</strong></p>
+<p>Once you have finished this guide, try to delete a cosignatory from the multisig. Multisig accounts can be converted again into regular accounts by removing all cosignatories. Make sure you own the multisig private key!</p>
+<p>The following code shows how to remove a cosignatory of a 2-of-3 multisig account with <code class="docutils literal"><span class="pre">minRemoval</span></code> set to 1. The multisig modification transaction is wrapped in an aggregate complete, as only one person is required to delete others from the multisig.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The minRemoval parameter indicates the number of required signatures to delete someone from the multisig. You can increase or decrease it the same way you <a class="reference internal" href="#guide-modify-a-multisig-account-min-approval"><span class="std std-ref">modify minApproval parameter</span></a>.</p>
 </div>
-<div class="section" id="whats-next">
-<h2>What’s next?<a class="headerlink" href="#whats-next" title="Permalink to this headline">¶</a></h2>
-<p>Bob hasn’t cosigned the transaction yet. Follow <a class="reference internal" href="../transaction/signing-announced-aggregate-bonded-transactions.html"><span class="doc">signing announced aggregate bonded transactions guide</span></a>.</p>
-<p>Once you have finished this guide, try to delete a cosignatory from the multisig. Notice that multisig accounts can be converted again to regular accounts by removing all cosignatories, just make sure you own the multisig private key!</p>
-<p>The following shows how to remove a cosignatory of a 2-of-3 multisig account with minimum removal set to 1.</p>
 <div class="example-code container">
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 
@@ -806,6 +815,10 @@
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="whats-next">
+<h2>What’s next?<a class="headerlink" href="#whats-next" title="Permalink to this headline">¶</a></h2>
+<p>Learn more about <a class="reference internal" href="creating-a-multi-level-multisig-account.html"><span class="doc">multi-level multisig accounts</span></a>.</p>
 </div>
 </div>
 
