@@ -41,14 +41,6 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119775843-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-119775843-1');
-</script>
 
   
   
@@ -75,7 +67,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.2</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -126,7 +118,11 @@
 </ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="account.html">Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account.html">Account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="account.html#unique-asset">Unique Asset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account.html#multisig-account">Multisig Account</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="multisig-account.html#modifying-multisig-account-transaction">Modifying multisig account transaction</a></li>
 </ul>
@@ -143,6 +139,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">Mosaic</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mosaic.html#fixed-asset">Fixed Asset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mosaic.html#mosaic-definition-transaction">Mosaic definition transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mosaic.html#mosaic-supply-change-transaction">Mosaic supply change transaction</a></li>
 </ul>
@@ -288,24 +285,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Catapult REST API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../api/overview.html">Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/overview.html#interacting-with-the-api">Interacting with the API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../api/overview.html#http-status-codes">HTTP Status Codes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../api/overview.html#http-errors">HTTP Errors</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../api/tools.html">Tools</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/tools.html#swagger-ui">Swagger UI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/tools.html#insomnia">Insomnia</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/tools.html#nem2-sdk">NEM2-SDK</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../api/websockets.html">Websockets</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/websockets.html#status-errors">Status Errors</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">Reference</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2 Libraries</span></p>
 <ul>
@@ -424,9 +404,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Catapult REST API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../api/overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/tools.html">Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/websockets.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">Reference</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2 Libraries</span></p>
 <ul>
@@ -454,7 +432,7 @@
 <p class="first admonition-title">Warning</p>
 <p class="last">The configuration presented is NOT intended to be used on the public network. These are the parameters used for the Catapult Testnet version (MIJIN_TEST).</p>
 </div>
-<p id="id1">Aggregated Transactions merge multiple transactions into one, allowing trustless swaps, and other advanced logic. NEM does this by generating a one-time disposable smart contract. When all involved <a class="reference internal" href="account.html"><span class="doc">accounts</span></a> have cosigned the transaction, all of them are executed at once.</p>
+<p id="id1">Aggregated Transactions merge multiple transactions into one, allowing <strong>trustless swaps</strong>, and other advanced logic. NEM does this by generating a one-time disposable smart contract. When all involved <a class="reference internal" href="account.html"><span class="doc">accounts</span></a> have cosigned the transaction, all of them are executed at once.</p>
 <h2>Parameters</h2><p>Aggregate transactions accept the following parameters:</p>
 <blockquote>
 <div><p><strong>Inner Transaction</strong></p>
@@ -465,6 +443,7 @@
 <div class="section" id="aggregate-complete">
 <h2>Aggregate complete<a class="headerlink" href="#aggregate-complete" title="Permalink to this headline">¶</a></h2>
 <p>An aggregate transaction is  <strong>complete</strong> if before announcing it to the network, all cosigners have signed it. If valid, it will be included in a block.</p>
+<h2>Example</h2><p>Dan announces an aggregate complete transaction that merges two transfer transactions, so Alice and Bob will receive the mosaics at the same time.</p>
 <div class="figure align-center" id="id4">
 <img alt="../_images/guides-transactions-sending-payouts.png" src="../_images/guides-transactions-sending-payouts.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">Sending payouts with aggregate complete transactions</span></p>
@@ -472,28 +451,27 @@
 </div>
 <div class="section" id="aggregate-bonded">
 <h2>Aggregate bonded<a class="headerlink" href="#aggregate-bonded" title="Permalink to this headline">¶</a></h2>
-<p>In case that the transaction requires signatures from other participants, then the transaction is considered Aggregate <strong>bonded</strong>.</p>
+<p>In case that the transaction requires signatures from other participants, then the transaction is considered to be <strong>bonded</strong>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">When sending an <strong>aggregate bonded transaction</strong>, an account must first send and get confirmed a Lock Funds Transaction for this aggregate with at least <code class="docutils literal"><span class="pre">10</span></code> XEM.</p>
 </div>
 <p>Once an aggregate bonded is announced, it reaches partial state and notifies its status through WebSockets or HTTP API calls.</p>
-<div class="figure align-center" id="id5">
-<img alt="../_images/aggregate-bonded-transaction-cycle.png" src="../_images/aggregate-bonded-transaction-cycle.png" style="width: 900px;" />
-<p class="caption"><span class="caption-text">Aggregate bonded transaction cycle</span></p>
-</div>
 <p>Every time a cosignatory signs and announces an aggregate bonded cosignature, the network checks if all the required cosigners have already signed. If it is the case, the transaction changes to unconfirmed state until the network accepts it, and it is included in a block once processed.</p>
-<div class="figure align-center" id="id6">
+<h2>Examples</h2><ol class="arabic simple">
+<li>In this example, Alice is buying tickets with currency:euro. When the ticket distributor cosigns the aggregate transaction, the swap will happen atomically.</li>
+</ol>
+<div class="figure align-center" id="id5">
 <img alt="../_images/guides-transactions-escrow.png" src="../_images/guides-transactions-escrow.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">Multi-Asset Escrowed Transactions</span></p>
 </div>
-<p>In this example, Alice is buying tickets with currency:euro. When the ticket distributor cosigns the aggregate transaction, the swap will happen atomically.</p>
-<div class="figure align-center" id="id7">
+<ol class="arabic simple" start="2">
+<li>Alice sends 10 € to Bob using a payment app. But she doesn’t have any XEM to pay the blockchain transaction fee. By creating an aggregate bonded transaction, she can convert USD to XEM to pay the fee. Now Alice and Bob can use NEM blockchain without ever having to buy or hold XEM. Since the app creator can put their own branding on the open source payment app, Alice and Bob may not even know they are using blockchain.</li>
+</ol>
+<div class="figure align-center" id="id6">
 <img alt="../_images/guides-transactions-paying-for-others-fees.png" src="../_images/guides-transactions-paying-for-others-fees.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">Paying for others fees</span></p>
 </div>
-<p>Alice sends 10 € to Bob using a payment app. But she doesn’t have any XEM to pay the blockchain transaction fee. By creating an aggregate bonded transaction, she can convert USD to XEM to pay the fee.</p>
-<p>Now Alice and Bob can use NEM blockchain without ever having to buy or hold XEM. Since the app creator can put their own branding on the open source payment app, Alice and Bob may not even know they are using blockchain.</p>
 </div>
 <div class="section" id="cosignature-transaction">
 <span id="id2"></span><h2>Cosignature transaction<a class="headerlink" href="#cosignature-transaction" title="Permalink to this headline">¶</a></h2>

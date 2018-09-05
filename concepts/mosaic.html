@@ -41,14 +41,6 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119775843-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-119775843-1');
-</script>
 
   
   
@@ -75,7 +67,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.2</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -126,7 +118,11 @@
 </ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="account.html">Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account.html">Account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="account.html#unique-asset">Unique Asset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account.html#multisig-account">Multisig Account</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="multisig-account.html#modifying-multisig-account-transaction">Modifying multisig account transaction</a></li>
 </ul>
@@ -143,6 +139,7 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Mosaic</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#fixed-asset">Fixed Asset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mosaic-definition-transaction">Mosaic definition transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mosaic-supply-change-transaction">Mosaic supply change transaction</a></li>
 </ul>
@@ -288,24 +285,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Catapult REST API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../api/overview.html">Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/overview.html#interacting-with-the-api">Interacting with the API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../api/overview.html#http-status-codes">HTTP Status Codes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../api/overview.html#http-errors">HTTP Errors</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../api/tools.html">Tools</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/tools.html#swagger-ui">Swagger UI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/tools.html#insomnia">Insomnia</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/tools.html#nem2-sdk">NEM2-SDK</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../api/websockets.html">Websockets</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/websockets.html#status-errors">Status Errors</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">Reference</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2 Libraries</span></p>
 <ul>
@@ -388,6 +368,7 @@
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Mosaic</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#fixed-asset">Fixed Asset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mosaic-definition-transaction">Mosaic definition transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mosaic-supply-change-transaction">Mosaic supply change transaction</a></li>
 </ul>
@@ -422,9 +403,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Catapult REST API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../api/overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/tools.html">Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/websockets.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">Reference</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2 Libraries</span></p>
 <ul>
@@ -452,9 +431,12 @@
 <p class="first admonition-title">Warning</p>
 <p class="last">The configuration presented is NOT intended to be used on the public network. These are the parameters used for the Catapult Testnet version (MIJIN_TEST).</p>
 </div>
-<p>Mosaics are part of what makes the Smart Asset System unique and flexible. They are fixed assets on the NEM blockchain that can represent a set of multiple identical things that do not change.</p>
+<div class="section" id="fixed-asset">
+<h2>Fixed Asset<a class="headerlink" href="#fixed-asset" title="Permalink to this headline">¶</a></h2>
+<p>Mosaics are part of what makes the Smart Asset System unique and flexible. They are <strong>fixed assets</strong> on the NEM blockchain that can represent a set of multiple identical things that do not change.</p>
 <p>Each mosaic is defined by a variety of attributes such as name, quantity, divisibility and transferability.</p>
 <p>A mosaic could be as simple as a token, but it could also represent a set of more specialized assets such as: reward points, shares of stock, signatures, status flags, votes or even other currencies.</p>
+</div>
 <div class="section" id="mosaic-definition-transaction">
 <span id="id1"></span><h2>Mosaic definition transaction<a class="headerlink" href="#mosaic-definition-transaction" title="Permalink to this headline">¶</a></h2>
 <p>Mosaic definition transaction is used to create a new mosaic.</p>

@@ -41,14 +41,6 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119775843-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-119775843-1');
-</script>
 
   
   
@@ -75,7 +67,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.2</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -126,7 +118,11 @@
 </ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Account</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#unique-asset">Unique Asset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multisig-account">Multisig Account</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="multisig-account.html#modifying-multisig-account-transaction">Modifying multisig account transaction</a></li>
 </ul>
@@ -143,6 +139,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">Mosaic</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mosaic.html#fixed-asset">Fixed Asset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mosaic.html#mosaic-definition-transaction">Mosaic definition transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mosaic.html#mosaic-supply-change-transaction">Mosaic supply change transaction</a></li>
 </ul>
@@ -288,24 +285,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Catapult REST API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../api/overview.html">Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/overview.html#interacting-with-the-api">Interacting with the API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../api/overview.html#http-status-codes">HTTP Status Codes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../api/overview.html#http-errors">HTTP Errors</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../api/tools.html">Tools</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/tools.html#swagger-ui">Swagger UI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/tools.html#insomnia">Insomnia</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/tools.html#nem2-sdk">NEM2-SDK</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../api/websockets.html">Websockets</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/websockets.html#status-errors">Status Errors</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">Reference</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2 Libraries</span></p>
 <ul>
@@ -382,7 +362,11 @@
 </ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Account</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#unique-asset">Unique Asset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multisig-account">Multisig Account</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multi-level-multisig-account.html">Multi-Level Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">Transaction</a></li>
@@ -418,9 +402,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Catapult REST API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../api/overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/tools.html">Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/websockets.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">Reference</a></li>
 </ul>
 <p class="caption"><span class="caption-text">NEM2 Libraries</span></p>
 <ul>
@@ -444,17 +426,14 @@
       
   <div class="section" id="account">
 <h1>Account<a class="headerlink" href="#account" title="Permalink to this headline">¶</a></h1>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">The configuration presented is NOT intended to be used on the public network. These are the parameters used for the Catapult Testnet version (MIJIN_TEST).</p>
+<p>An account is a <strong>key pair</strong> (private and public key) associated to a mutable state stored on the NEM blockchain. Simply put, you have a deposit box in the blockchain, which only you can modify with your key pair. As the name suggests, the private key has to be kept secret at all times. Anyone with access to the private key, ultimately has control over the account.</p>
+<div class="section" id="unique-asset">
+<h2>Unique Asset<a class="headerlink" href="#unique-asset" title="Permalink to this headline">¶</a></h2>
+<p>Think about NEM accounts as a <strong>container for assets</strong> in the blockchain. An account could represent something as simply as a user’s account full of coins, like most blockchains. However, it could also represent a single object that must be unique and updatable: a package to be shipped, a deed to a house, or a document to be notarized.</p>
 </div>
-<p>An account is a key pair (private and public key) associated to a mutable state stored on the NEM blockchain. Simply put, you have a deposit box in the blockchain, which only you can modify with your key pair. As the name suggests, the private key has to be kept secret at all times. Anyone with access to the private key, ultimately has control over the account.</p>
-<p>Think about NEM accounts as a container for assets in the blockchain. An account could represent something as simply as a user’s account full of coins, like most blockchains. However, it could also represent a single object that must be unique and updatable: a package to be shipped, a deed to a house, or a document to be notarized.</p>
+<div class="section" id="multisig-account">
+<h2>Multisig Account<a class="headerlink" href="#multisig-account" title="Permalink to this headline">¶</a></h2>
 <p>Accounts become truly smart when configured with special rules – directly on the NEM blockchain – that define how they relate and control each other, as well as how their contents can be updated and transferred. One crucial type of rule is <a class="reference internal" href="multisig-account.html"><span class="doc">multisig</span></a> control that allows ownership of account based assets to be shared in a variety of ways between multiple parties, all in the blockchain.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">It is recommended to share the address instead of the public key, as it contains more information, such as a validity check and which network it uses (public, testnet or private).</p>
-</div>
 <h2>Properties</h2><p>An account has the following properties:</p>
 <blockquote>
 <div><p><strong>Private Key</strong></p>
@@ -468,6 +447,10 @@
 <p>The <strong>public key</strong> is cryptographically derived from the private key. NEM is using the <code class="docutils literal"><span class="pre">Ed25519</span> <span class="pre">elliptic</span> <span class="pre">curve</span></code> with the <code class="docutils literal"><span class="pre">SHA3</span></code> hashing algorithm.</p>
 <p>It appears that in general, to break an n bit elliptic curve public key, the effort is 2^(n/2), or about 3.4*10^38, basic operations.</p>
 <p>The public key of an account is stored in the blockchain with the first issued transaction. An account which has not issued any transaction has its public key field empty.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It is recommended to share the address instead of the public key, as it contains more information, such as a validity check and which network it uses (public, testnet or private).</p>
+</div>
 <p><strong>Address</strong></p>
 <p>A NEM address is a base-32 <sup>3</sup> encoded triplet consisting of:</p>
 <ul class="simple">
@@ -488,6 +471,7 @@
 <p>From the explanation above, you can create an account without ever interacting with the blockchain.</p>
 <p>Does it mean that all possible accounts are pre-defined on the blockchain? No. It means that only accounts that have had a transaction involving the account are tracked in the blockchain.</p>
 </div></blockquote>
+</div>
 </div>
 
   <div class="section">
