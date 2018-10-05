@@ -65,7 +65,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.4</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.5</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -143,16 +143,16 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">Transfer Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">Aggregate transaction</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">Aggregate Transaction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/aggregate-transaction.html#aggregate-complete">Aggregate complete</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/aggregate-transaction.html#aggregate-bonded">Aggregate bonded</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/aggregate-transaction.html#cosignature-transaction">Cosignature transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/aggregate-transaction.html#lock-funds-transaction">Lock funds transaction</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-transaction.html">Cross-Chain Transaction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/cross-chain-transaction.html#secret-lock-transaction">Secret lock transaction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/cross-chain-transaction.html#secret-proof-transaction">Secret proof transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">Cross-Chain Swaps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/cross-chain-swaps.html#secret-lock-transaction">Secret lock transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/cross-chain-swaps.html#secret-proof-transaction">Secret proof transaction</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/block.html">Block</a></li>
@@ -189,7 +189,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../transaction.html">Sending transactions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../transaction.html#transfer-transaction">Transfer Transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../transaction.html#aggregate-transaction">Aggregate Transaction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../transaction.html#cross-chain-transaction">Cross Chain Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transaction.html#cross-chain-swaps">Cross-chain Swaps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../transaction.html#monitoring">Monitoring</a></li>
 </ul>
 </li>
@@ -388,34 +388,54 @@
 <li>Create a new listener to get notified every time a transaction related to your account reaches the network and gets confirmed.</li>
 </ol>
 <div class="example-code container">
+<div class="literal-block-wrapper container" id="id1">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/DebuggingTransactionsConfirmed.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Listener</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="literal-block-wrapper container" id="id2">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/java/src/test/java/nem2/guides/examples/transaction/DebuggingTransactionsConfirmed.java" target="_blank">View Code</a></span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
 <div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="n">Listener</span> <span class="n">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Listener</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
 </pre></div>
 </div>
+</div>
+<div class="literal-block-wrapper container" id="id3">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/DebuggingTransactionsConfirmed.js" target="_blank">View Code</a></span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Listener</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 </pre></div>
+</div>
 </div>
 </div>
 <ol class="arabic simple" start="2">
 <li>Open the connection. You only need to open the connection once. Then listen to all desired channels.</li>
 </ol>
 <div class="example-code container">
+<div class="literal-block-wrapper container" id="id4">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/DebuggingTransactionsConfirmed.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="nx">listener</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
 </pre></div>
 </div>
+</div>
+<div class="literal-block-wrapper container" id="id5">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/java/src/test/java/nem2/guides/examples/transaction/DebuggingTransactionsConfirmed.java" target="_blank">View Code</a></span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
 <div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="n">listener</span><span class="o">.</span><span class="na">open</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
 </pre></div>
 </div>
+</div>
+<div class="literal-block-wrapper container" id="id6">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/DebuggingTransactionsConfirmed.js" target="_blank">View Code</a></span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">listener</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
 </pre></div>
+</div>
 </div>
 </div>
 <ol class="arabic simple" start="3">
 <li>In this example, we will reach only transactions that get confirmed. You can also create <a class="reference external" href="https://nemtech.github.io/nem2-sdk-typescript-javascript/classes/_infrastructure_listener_.listener.html#aggregatebondedadded">other listeners</a> to check unconfirmed, aggregate bounded or transactions that fail.</li>
 </ol>
 <div class="example-code container">
+<div class="literal-block-wrapper container" id="id7">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/DebuggingTransactionsConfirmed.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="nx">listener</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
 
     <span class="nx">listener</span>
@@ -424,6 +444,9 @@
 <span class="p">});</span>
 </pre></div>
 </div>
+</div>
+<div class="literal-block-wrapper container" id="id8">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/java/src/test/java/nem2/guides/examples/transaction/DebuggingTransactionsConfirmed.java" target="_blank">View Code</a></span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
 <div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="n">Address</span> <span class="n">address</span> <span class="o">=</span> <span class="n">Address</span><span class="o">.</span><span class="na">createFromRawAddress</span><span class="o">(</span><span class="s">&quot;SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54&quot;</span><span class="o">);</span>
 
         <span class="n">listener</span><span class="o">.</span><span class="na">open</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
@@ -433,6 +456,9 @@
         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">transaction</span><span class="o">);</span>
 </pre></div>
 </div>
+</div>
+<div class="literal-block-wrapper container" id="id9">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/DebuggingTransactionsConfirmed.js" target="_blank">View Code</a></span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">listener</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
 
     <span class="nx">listener</span>
@@ -441,8 +467,12 @@
 <span class="p">});</span>
 </pre></div>
 </div>
+</div>
+<div class="literal-block-wrapper container" id="id10">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/cli/transaction/DebuggingTransactionsConfirmed.sh" target="_blank">View Code</a></span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli monitor confirmed --address SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -512,7 +542,7 @@
                     <li><a href="/concepts/mosaic.html">Mosaic</a></li>
                     <li><a href="/concepts/transfer-transaction.html">Transfer Transaction</a></li>
                     <li><a href="/concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
-                    <li><a href="/concepts/cross-chain-transaction.html">Cross-Chain Transaction</a></li>
+                    <li><a href="/concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
                 </ul>
 
             </div>

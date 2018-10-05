@@ -67,7 +67,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.4</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.5</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -145,16 +145,16 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/transfer-transaction.html">Transfer Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/aggregate-transaction.html">Aggregate transaction</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/aggregate-transaction.html">Aggregate Transaction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#aggregate-complete">Aggregate complete</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#aggregate-bonded">Aggregate bonded</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#cosignature-transaction">Cosignature transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#lock-funds-transaction">Lock funds transaction</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/cross-chain-transaction.html">Cross-Chain Transaction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/cross-chain-transaction.html#secret-lock-transaction">Secret lock transaction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/cross-chain-transaction.html#secret-proof-transaction">Secret proof transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/cross-chain-swaps.html">Cross-Chain Swaps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/cross-chain-swaps.html#secret-lock-transaction">Secret lock transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/cross-chain-swaps.html#secret-proof-transaction">Secret proof transaction</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/block.html">Block</a></li>
@@ -191,7 +191,7 @@
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">Sending transactions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#transfer-transaction">Transfer Transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#aggregate-transaction">Aggregate Transaction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="transaction.html#cross-chain-transaction">Cross Chain Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#cross-chain-swaps">Cross-chain Swaps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#monitoring">Monitoring</a></li>
 </ul>
 </li>
@@ -373,8 +373,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/mosaic.html">Mosaic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/transfer-transaction.html">Transfer Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/aggregate-transaction.html">Aggregate transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/cross-chain-transaction.html">Cross-Chain Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/block.html">Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/node.html">Node</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/listener.html">Listener</a></li>
@@ -436,7 +436,7 @@
       
   <div class="section" id="overview">
 <h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
-<p>Guides show you how to use NEM built-in features.</p>
+<p>Guides show you how to use NEM built-in features. Every guide comes with the code implementation ready to use.</p>
 <ul class="simple">
 <li><a class="reference internal" href="account.html"><span class="doc">Interacting with accounts</span></a></li>
 <li><a class="reference internal" href="blockchain.html"><span class="doc">Monitoring blockchain</span></a></li>
@@ -448,31 +448,40 @@
 <p>Access to more self-paced training reviewing <a class="reference internal" href="workshops.html"><span class="doc">workshops</span></a>.</p>
 <div class="section" id="how-to-run-an-example">
 <h2>How to run an example<a class="headerlink" href="#how-to-run-an-example" title="Permalink to this headline">¶</a></h2>
-<p>With every guide, you have the code implementation ready to use.</p>
-<p>Inside <a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/" target="_blank">NEM Guides Code Repository</a> you will find the example snippets divided by programming language and topic.</p>
+<p>Download the <a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/" target="_blank">snippets</a>. They are divided by programming language and topic.</p>
 <div class="section" id="cli">
 <h3>Cli<a class="headerlink" href="#cli" title="Permalink to this headline">¶</a></h3>
-<p>Go to <code class="docutils literal"><span class="pre">cli</span></code> folder, and give executing permission to an example.</p>
+<ol class="arabic simple">
+<li>Go to <code class="docutils literal"><span class="pre">cli</span></code> folder, and give executing permission to an example.</li>
+</ol>
 <div class="code bash highlight-default"><div class="highlight"><pre><span></span>$&gt; chmod +x &lt;file-name&gt;.sh
 </pre></div>
 </div>
-<p>Find and run an example.</p>
+<ol class="arabic simple" start="2">
+<li>Find and run an example.</li>
+</ol>
 <div class="code bash highlight-default"><div class="highlight"><pre><span></span>$&gt; ./&lt;file-name&gt;.sh
 </pre></div>
 </div>
 </div>
 <div class="section" id="typescript">
 <h3>TypeScript<a class="headerlink" href="#typescript" title="Permalink to this headline">¶</a></h3>
-<p>Go to <code class="docutils literal"><span class="pre">typescript</span></code> folder and then install the required packages.</p>
+<ol class="arabic simple">
+<li>Go to <code class="docutils literal"><span class="pre">typescript</span></code> folder and then install the required packages.</li>
+</ol>
 <div class="code bash highlight-default"><div class="highlight"><pre><span></span>$&gt; npm install
 </pre></div>
 </div>
-<p>Use <a class="reference external" href="https://www.npmjs.com/package/ts-node">ts-node</a> to execute TypeScript files with node.</p>
+<ol class="arabic simple" start="2">
+<li>Use <a class="reference external" href="https://www.npmjs.com/package/ts-node">ts-node</a> to execute TypeScript files with node.</li>
+</ol>
 <p>Install the tool first if you have not it installed yet.</p>
 <div class="code bash highlight-default"><div class="highlight"><pre><span></span>$&gt; npm install -g ts-node
 </pre></div>
 </div>
-<p>Find and run an example.</p>
+<ol class="arabic simple" start="3">
+<li>Find and run an example.</li>
+</ol>
 <div class="code bash highlight-default"><div class="highlight"><pre><span></span>$&gt; ts-node &lt;file-name&gt;.ts
 </pre></div>
 </div>
@@ -483,11 +492,15 @@
 </div>
 <div class="section" id="javascript">
 <h3>JavaScript<a class="headerlink" href="#javascript" title="Permalink to this headline">¶</a></h3>
-<p>Go to <code class="docutils literal"><span class="pre">javascript</span></code> folder and then install the required packages.</p>
+<ol class="arabic simple">
+<li>Go to <code class="docutils literal"><span class="pre">javascript</span></code> folder and then install the required packages.</li>
+</ol>
 <div class="code bash highlight-default"><div class="highlight"><pre><span></span>$&gt; npm install
 </pre></div>
 </div>
-<p>Find and run an example.</p>
+<ol class="arabic simple" start="2">
+<li>Find and run an example.</li>
+</ol>
 <div class="code bash highlight-default"><div class="highlight"><pre><span></span>$&gt; node &lt;file-name&gt;.js
 </pre></div>
 </div>
@@ -498,8 +511,10 @@
 </div>
 <div class="section" id="java">
 <h3>Java<a class="headerlink" href="#java" title="Permalink to this headline">¶</a></h3>
-<p>Open <code class="docutils literal"><span class="pre">java</span></code> folder with your favourite IDE.</p>
-<p>Find the example and run it as a JUnit Test.</p>
+<ol class="arabic simple">
+<li>Open <code class="docutils literal"><span class="pre">java</span></code> folder with your favourite IDE.</li>
+<li>Find the example and run it as a JUnit Test.</li>
+</ol>
 </div>
 </div>
 </div>
@@ -562,7 +577,7 @@
                     <li><a href="/concepts/mosaic.html">Mosaic</a></li>
                     <li><a href="/concepts/transfer-transaction.html">Transfer Transaction</a></li>
                     <li><a href="/concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
-                    <li><a href="/concepts/cross-chain-transaction.html">Cross-Chain Transaction</a></li>
+                    <li><a href="/concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
                 </ul>
 
             </div>

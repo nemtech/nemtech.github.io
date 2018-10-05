@@ -65,7 +65,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.4</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.5</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -143,16 +143,16 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">Transfer Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">Aggregate transaction</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">Aggregate Transaction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/aggregate-transaction.html#aggregate-complete">Aggregate complete</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/aggregate-transaction.html#aggregate-bonded">Aggregate bonded</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/aggregate-transaction.html#cosignature-transaction">Cosignature transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/aggregate-transaction.html#lock-funds-transaction">Lock funds transaction</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-transaction.html">Cross-Chain Transaction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/cross-chain-transaction.html#secret-lock-transaction">Secret lock transaction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/cross-chain-transaction.html#secret-proof-transaction">Secret proof transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">Cross-Chain Swaps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/cross-chain-swaps.html#secret-lock-transaction">Secret lock transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/cross-chain-swaps.html#secret-proof-transaction">Secret proof transaction</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/block.html">Block</a></li>
@@ -189,7 +189,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../transaction.html">Sending transactions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../transaction.html#transfer-transaction">Transfer Transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../transaction.html#aggregate-transaction">Aggregate Transaction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../transaction.html#cross-chain-transaction">Cross Chain Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transaction.html#cross-chain-swaps">Cross-chain Swaps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../transaction.html#monitoring">Monitoring</a></li>
 </ul>
 </li>
@@ -386,6 +386,8 @@
 <li>Define who will be the cosignatories of the multisig account. Then, open the account that will be converted into multisig by providing its private key.</li>
 </ol>
 <div class="example-code container">
+<div class="literal-block-wrapper container" id="id2">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/ConvertingAnAccountToMultisig.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span> <span class="c1">// Private key of the account to convert into multisig</span>
@@ -397,6 +399,9 @@
 <span class="kr">const</span> <span class="nx">cosignatory2</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">cosignatory2PublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="literal-block-wrapper container" id="id3">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/java/src/test/java/nem2/guides/examples/account/ConvertingAnAccountToMultisig.java" target="_blank">View Code</a></span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
 <div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="c1">// Replace with the private key of the account that you want to convert into multisig</span>
         <span class="kd">final</span> <span class="n">String</span> <span class="n">privateKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
 
@@ -410,6 +415,9 @@
         <span class="kd">final</span> <span class="n">PublicAccount</span> <span class="n">cosignatory2PublicAccount</span> <span class="o">=</span> <span class="n">PublicAccount</span><span class="o">.</span><span class="na">createFromPublicKey</span><span class="o">(</span><span class="n">cosignatory2PublicKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
 </pre></div>
 </div>
+</div>
+<div class="literal-block-wrapper container" id="id4">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/account/ConvertingAnAccountToMultisig.js" target="_blank">View Code</a></span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span><span class="p">;</span> <span class="c1">// Private key of the account to convert into multisig</span>
@@ -422,10 +430,13 @@
 </pre></div>
 </div>
 </div>
+</div>
 <ol class="arabic simple" start="2">
 <li>Convert the account into a multisig account by setting a <a class="reference internal" href="../../concepts/multisig-account.html#modify-multisig-account-transaction"><span class="std std-ref">modify multisig account transaction</span></a>. As they want a 1-of-2 multisig account, set the minimum signatures to 1.</li>
 </ol>
 <div class="example-code container">
+<div class="literal-block-wrapper container" id="id5">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/ConvertingAnAccountToMultisig.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">convertIntoMultisigTransaction</span> <span class="o">=</span> <span class="nx">ModifyMultisigAccountTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="mi">1</span><span class="p">,</span>
@@ -442,6 +453,9 @@
     <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="literal-block-wrapper container" id="id6">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/java/src/test/java/nem2/guides/examples/account/ConvertingAnAccountToMultisig.java" target="_blank">View Code</a></span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
 <div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="kd">final</span> <span class="n">ModifyMultisigAccountTransaction</span> <span class="n">convertIntoMultisigTransaction</span> <span class="o">=</span> <span class="n">ModifyMultisigAccountTransaction</span><span class="o">.</span><span class="na">create</span><span class="o">(</span>
             <span class="n">Deadline</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">HOURS</span><span class="o">),</span>
             <span class="mi">1</span><span class="o">,</span>
@@ -460,6 +474,9 @@
         <span class="o">);</span>
 </pre></div>
 </div>
+</div>
+<div class="literal-block-wrapper container" id="id7">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/account/ConvertingAnAccountToMultisig.js" target="_blank">View Code</a></span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">convertIntoMultisigTransaction</span> <span class="o">=</span> <span class="nx">ModifyMultisigAccountTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="mi">1</span><span class="p">,</span>
@@ -477,10 +494,13 @@
 </pre></div>
 </div>
 </div>
+</div>
 <ol class="arabic simple" start="3">
 <li>Sign and announce the transaciton with the canidate multisig account.</li>
 </ol>
 <div class="example-code container">
+<div class="literal-block-wrapper container" id="id8">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/ConvertingAnAccountToMultisig.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">convertIntoMultisigTransaction</span><span class="p">);</span>
 
 <span class="nx">transactionHttp</span>
@@ -488,11 +508,17 @@
     <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 </pre></div>
 </div>
+</div>
+<div class="literal-block-wrapper container" id="id9">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/java/src/test/java/nem2/guides/examples/account/ConvertingAnAccountToMultisig.java" target="_blank">View Code</a></span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
 <div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="kd">final</span> <span class="n">TransactionHttp</span> <span class="n">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TransactionHttp</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
         <span class="kd">final</span> <span class="n">SignedTransaction</span> <span class="n">signedTransaction</span> <span class="o">=</span> <span class="n">account</span><span class="o">.</span><span class="na">sign</span><span class="o">(</span><span class="n">convertIntoMultisigTransaction</span><span class="o">);</span>
         <span class="n">transactionHttp</span><span class="o">.</span><span class="na">announce</span><span class="o">(</span><span class="n">signedTransaction</span><span class="o">).</span><span class="na">toFuture</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
 </pre></div>
 </div>
+</div>
+<div class="literal-block-wrapper container" id="id10">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/account/ConvertingAnAccountToMultisig.js" target="_blank">View Code</a></span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">convertIntoMultisigTransaction</span><span class="p">);</span>
 
 <span class="nx">transactionHttp</span>
@@ -501,12 +527,15 @@
 </pre></div>
 </div>
 </div>
+</div>
 <p id="guide-get-multisig-account-info">If everything goes well, Alice and Bob should be cosignatories of the multisig account.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">You could also get the list of the multisig accounts where Alice or Bob are cosignatories using <code class="docutils literal"><span class="pre">getMultisigAccountInfo</span></code> function.</p>
 </div>
 <div class="example-code container">
+<div class="literal-block-wrapper container" id="id11">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/GettingMultisigAccountCosignatories.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id11" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">accountHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AccountHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">address</span> <span class="o">=</span> <span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="s1">&#39;SCSGBN-HYJD6P-KJHACX-3R2BI3-QUMMOY-QSNW5J-ICLK&#39;</span><span class="p">);</span>
@@ -516,6 +545,9 @@
     <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">accountInfo</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">accountInfo</span><span class="p">),</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 </pre></div>
 </div>
+</div>
+<div class="literal-block-wrapper container" id="id12">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/java/src/test/java/nem2/guides/examples/account/GettingMultisigAccountInformation.java" target="_blank">View Code</a></span><a class="headerlink" href="#id12" title="Permalink to this code">¶</a></div>
 <div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="kd">final</span> <span class="n">AccountHttp</span> <span class="n">accountHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AccountHttp</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
 
         <span class="c1">// Replace with address</span>
@@ -528,6 +560,9 @@
         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">multisigAccountInfo</span><span class="o">);</span>
 </pre></div>
 </div>
+</div>
+<div class="literal-block-wrapper container" id="id13">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/account/GettingMultisigAccountCosignatories.js" target="_blank">View Code</a></span><a class="headerlink" href="#id13" title="Permalink to this code">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">accountHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AccountHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">address</span> <span class="o">=</span> <span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="s1">&#39;SCSGBN-HYJD6P-KJHACX-3R2BI3-QUMMOY-QSNW5J-ICLK&#39;</span><span class="p">);</span>
@@ -536,6 +571,7 @@
     <span class="p">.</span><span class="nx">getMultisigAccountInfo</span><span class="p">(</span><span class="nx">address</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">accountInfo</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">accountInfo</span><span class="p">),</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -605,7 +641,7 @@
                     <li><a href="/concepts/mosaic.html">Mosaic</a></li>
                     <li><a href="/concepts/transfer-transaction.html">Transfer Transaction</a></li>
                     <li><a href="/concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
-                    <li><a href="/concepts/cross-chain-transaction.html">Cross-Chain Transaction</a></li>
+                    <li><a href="/concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
                 </ul>
 
             </div>

@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Aggregate transaction &#8212; nem2-docs Master documentation</title>
+    <title>Aggregate Transaction &#8212; nem2-docs Master documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" type="text/css" />
@@ -31,7 +31,7 @@
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Cross-Chain Transaction" href="cross-chain-transaction.html" />
+    <link rel="next" title="Cross-Chain Swaps" href="cross-chain-swaps.html" />
     <link rel="prev" title="Transfer Transaction" href="transfer-transaction.html" />
   
 
@@ -67,7 +67,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.4</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.5</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -145,16 +145,16 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Aggregate transaction</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Aggregate Transaction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#aggregate-complete">Aggregate complete</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#aggregate-bonded">Aggregate bonded</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#cosignature-transaction">Cosignature transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lock-funds-transaction">Lock funds transaction</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cross-chain-transaction.html">Cross-Chain Transaction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cross-chain-transaction.html#secret-lock-transaction">Secret lock transaction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cross-chain-transaction.html#secret-proof-transaction">Secret proof transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html#secret-lock-transaction">Secret lock transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html#secret-proof-transaction">Secret proof transaction</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="block.html">Block</a></li>
@@ -191,7 +191,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../guides/transaction.html">Sending transactions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../guides/transaction.html#transfer-transaction">Transfer Transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../guides/transaction.html#aggregate-transaction">Aggregate Transaction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../guides/transaction.html#cross-chain-transaction">Cross Chain Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/transaction.html#cross-chain-swaps">Cross-chain Swaps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../guides/transaction.html#monitoring">Monitoring</a></li>
 </ul>
 </li>
@@ -373,14 +373,14 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">Mosaic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Aggregate transaction</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Aggregate Transaction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#aggregate-complete">Aggregate complete</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#aggregate-bonded">Aggregate bonded</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#cosignature-transaction">Cosignature transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lock-funds-transaction">Lock funds transaction</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cross-chain-transaction.html">Cross-Chain Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="block.html">Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="node.html">Node</a></li>
 <li class="toctree-l1"><a class="reference internal" href="listener.html">Listener</a></li>
@@ -432,7 +432,7 @@
     <div class="col-md-9 content">
       
   <div class="section" id="aggregate-transaction">
-<h1>Aggregate transaction<a class="headerlink" href="#aggregate-transaction" title="Permalink to this headline">¶</a></h1>
+<h1>Aggregate Transaction<a class="headerlink" href="#aggregate-transaction" title="Permalink to this headline">¶</a></h1>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">The configuration presented is NOT intended to be used on the public network. These are the parameters used for the Catapult Testnet version (MIJIN_TEST).</p>
@@ -463,17 +463,21 @@
 </div>
 <p>Once an aggregate bonded is announced, it reaches partial state and notifies its status through WebSockets or HTTP API calls.</p>
 <p>Every time a cosignatory signs the transaction and announces an aggregate bonded cosignature, the network checks if all the required cosigners have already signed. In this situation, the transaction changes to unconfirmed state until the network accepts it, and it is included in a block once processed.</p>
+<div class="figure align-center" id="id5">
+<img alt="../_images/aggregate-bonded-transaction-cycle.png" src="../_images/aggregate-bonded-transaction-cycle.png" style="width: 900px;" />
+<p class="caption"><span class="caption-text">Aggregate bonded transaction cycle</span></p>
+</div>
 <h2>Examples</h2><ol class="arabic simple">
 <li>In this example, Alice is buying tickets with currency:euro. When the ticket distributor cosigns the aggregate transaction, the swap will happen atomically.</li>
 </ol>
-<div class="figure align-center" id="id5">
+<div class="figure align-center" id="id6">
 <img alt="../_images/guides-transactions-escrow.png" src="../_images/guides-transactions-escrow.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">Multi-Asset Escrowed Transactions</span></p>
 </div>
 <ol class="arabic simple" start="2">
 <li>Alice sends 10 € to Bob using a payment app. But she doesn’t have any XEM to pay the blockchain transaction fee. By creating an aggregate bonded transaction, she can convert USD to XEM to pay the fee. Now Alice and Bob can use NEM blockchain without ever having to buy or hold XEM. Since the app creator can put their own branding on the open source payment app, Alice and Bob may not even know they are using blockchain.</li>
 </ol>
-<div class="figure align-center" id="id6">
+<div class="figure align-center" id="id7">
 <img alt="../_images/guides-transactions-paying-for-others-fees.png" src="../_images/guides-transactions-paying-for-others-fees.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">Paying for others fees</span></p>
 </div>
@@ -560,7 +564,7 @@
                     <li><a href="/concepts/mosaic.html">Mosaic</a></li>
                     <li><a href="/concepts/transfer-transaction.html">Transfer Transaction</a></li>
                     <li><a href="/concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
-                    <li><a href="/concepts/cross-chain-transaction.html">Cross-Chain Transaction</a></li>
+                    <li><a href="/concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
                 </ul>
 
             </div>

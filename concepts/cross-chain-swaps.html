@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Cross-Chain Transaction &#8212; nem2-docs Master documentation</title>
+    <title>Cross-Chain Swaps &#8212; nem2-docs Master documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" type="text/css" />
@@ -32,7 +32,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Block" href="block.html" />
-    <link rel="prev" title="Aggregate transaction" href="aggregate-transaction.html" />
+    <link rel="prev" title="Aggregate Transaction" href="aggregate-transaction.html" />
   
 
 <meta charset='utf-8'>
@@ -67,7 +67,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.4</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.5</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -145,14 +145,14 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate transaction</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#aggregate-complete">Aggregate complete</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#aggregate-bonded">Aggregate bonded</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#cosignature-transaction">Cosignature transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#lock-funds-transaction">Lock funds transaction</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Cross-Chain Transaction</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cross-Chain Swaps</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#secret-lock-transaction">Secret lock transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#secret-proof-transaction">Secret proof transaction</a></li>
 </ul>
@@ -191,7 +191,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../guides/transaction.html">Sending transactions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../guides/transaction.html#transfer-transaction">Transfer Transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../guides/transaction.html#aggregate-transaction">Aggregate Transaction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../guides/transaction.html#cross-chain-transaction">Cross Chain Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/transaction.html#cross-chain-swaps">Cross-chain Swaps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../guides/transaction.html#monitoring">Monitoring</a></li>
 </ul>
 </li>
@@ -347,7 +347,7 @@
             
 <div class="navbar-right hidden-sm hidden-xs">
     <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
-    <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts/cross-chain-transaction.rst"
+    <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts/cross-chain-swaps.rst"
        rel="nofollow"> <i class="fab fa-github"></i> Edit on GitHub</a>
 </div>
           
@@ -373,8 +373,8 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">Mosaic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate transaction</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Cross-Chain Transaction</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cross-Chain Swaps</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#secret-lock-transaction">Secret lock transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#secret-proof-transaction">Secret proof transaction</a></li>
 </ul>
@@ -429,22 +429,27 @@
       </div>
     <div class="col-md-9 content">
       
-  <div class="section" id="cross-chain-transaction">
-<h1>Cross-Chain Transaction<a class="headerlink" href="#cross-chain-transaction" title="Permalink to this headline">¶</a></h1>
-<p>Cross-chain transactions enable <strong>trading tokens</strong> between <strong>different blockchains</strong>, without using an intermediary party in the process.</p>
-<p>This exchange of tokens will succeed atomically. If some of the actors do not agree, each of them will receive the locked tokens back after a determined amount of time.</p>
-<p>When talking about tokens in NEM, we are actually referring to <a class="reference internal" href="mosaic.html"><span class="doc">mosaics</span></a>. Catapult enables atomic swaps through <a class="reference internal" href="#secret-lock-transaction"><span class="std std-ref">secret lock</span></a> / <a class="reference internal" href="#secret-proof-transaction"><span class="std std-ref">secret proof transaction</span></a> mechanism.</p>
-<div class="section" id="secret-lock-transaction">
-<span id="id1"></span><h2>Secret lock transaction<a class="headerlink" href="#secret-lock-transaction" title="Permalink to this headline">¶</a></h2>
-<p>Use secret lock transaction to send mosaics to a recipient once an account discovers an attached secret message, known as <em>proof</em>.</p>
-<p>Once announced, the specified mosaics are locked at blockchain level using the <em>hashed secret</em> message.</p>
-<p>Funds are unlocked and transferred when an account announces a  valid <a class="reference internal" href="#secret-proof-transaction"><span class="std std-ref">Secret Proof Transaction</span></a>. The account must demonstrate knowing the <em>proof</em> that unlocks the transaction. Applying a <code class="docutils literal"><span class="pre">hashing</span> <span class="pre">algorithm</span></code> to the <code class="docutils literal"><span class="pre">proof</span></code>, which should be equal to the hashed <code class="docutils literal"><span class="pre">secret</span></code> message.</p>
-<p>If the transaction duration is reached and not proved, the locked amount is returned to the initiator of the secret lock transaction.</p>
+  <div class="section" id="cross-chain-swaps">
+<h1>Cross-Chain Swaps<a class="headerlink" href="#cross-chain-swaps" title="Permalink to this headline">¶</a></h1>
+<p>A cross-chain swap enables <strong>trading tokens</strong> across <strong>different blockchains</strong>, without using an intermediary party (eg. an exchange service) in the process.</p>
 <div class="figure align-center" id="id3">
 <img alt="../_images/guides-transactions-atomic-cross-chain-swap.png" src="../_images/guides-transactions-atomic-cross-chain-swap.png" style="width: 700px;" />
 <p class="caption"><span class="caption-text">Atomic cross-chain swap between public and private network</span></p>
 </div>
-<p>Secret lock and proof transactions enable <a class="reference internal" href="../guides/transaction/atomic-cross-chain-swap-between-NEM-public-and-private-chain.html"><span class="doc">atomic cross-chain swaps</span></a>, without the necessity of trusting a third party.</p>
+<p>In order to create a trustless environment for an exchange, a specific transaction type is required that is commonly referred to as <strong>Hashed TimeLock Contract</strong> (<a class="reference external" href="https://en.bitcoin.it/wiki/Hashed_Timelock_Contracts">HTLC</a>). Two additional components characterize this transaction type: <em>hashlocks</em> and <em>timelocks</em>. A thorough explanation can be found on the <a class="reference external" href="https://en.bitcoin.it/wiki/Hashed_Timelock_Contracts">Bitcoin Wiki</a>.</p>
+<p>In other words, to reduce counterparty risk, the receiver of a payment needs to present a proof for the transaction to execute. Failing to do so, the locked funds are released after the deadline is reached, even if just one actor does not agree.
+The figure below illustrates the cross-chain swap protocol.</p>
+<div class="figure align-center" id="id4">
+<img alt="../_images/guides-transactions-atomic-cross-chain-swap-sequence-diagram.png" src="../_images/guides-transactions-atomic-cross-chain-swap-sequence-diagram.png" style="width: 700px;" />
+<p class="caption"><span class="caption-text">Atomic cross-chain swap sequence diagram</span></p>
+</div>
+<p>When talking about tokens in NEM, we are actually referring to <a class="reference internal" href="mosaic.html"><span class="doc">mosaics</span></a>. Catapult enables atomic swaps through <a class="reference internal" href="#secret-lock-transaction"><span class="std std-ref">secret lock</span></a> / <a class="reference internal" href="#secret-proof-transaction"><span class="std std-ref">secret proof transaction</span></a> mechanism.</p>
+<div class="section" id="secret-lock-transaction">
+<span id="id1"></span><h2>Secret lock transaction<a class="headerlink" href="#secret-lock-transaction" title="Permalink to this headline">¶</a></h2>
+<p>Use a secret lock transaction to initiate the cross-chain swap. Once announced, the specified mosaics are locked at blockchain level, associated with a previously chosen <em>hashed proof</em> called <code class="docutils literal"><span class="pre">secret</span></code>.</p>
+<p>Funds are unlocked and transferred when an account announces a  valid <a class="reference internal" href="#secret-proof-transaction"><span class="std std-ref">Secret Proof Transaction</span></a>. The account must demonstrate knowing the <em>secret</em> that unlocks the transaction, by disclosing the previously used <code class="docutils literal"><span class="pre">hashing</span> <span class="pre">algorithm</span></code> and the <code class="docutils literal"><span class="pre">proof</span></code>.</p>
+<p>If the transaction duration is reached and not proved, the locked amount is returned to the initiator of the secret lock transaction.</p>
+<p>Remember, secret lock and proof transactions enable <a class="reference internal" href="../guides/transaction/atomic-cross-chain-swap-between-NEM-public-and-private-chain.html"><span class="doc">cross-chain swaps</span></a>, without the necessity of trusting a third party.</p>
 <blockquote>
 <div><p><strong>Mosaic</strong></p>
 <p>Locked mosaic.</p>
@@ -457,15 +462,14 @@
 <p><strong>Recipient</strong></p>
 <p>The address who will receive the funds once unlocked.</p>
 </div></blockquote>
-<p>Based on <a class="reference external" href="https://en.bitcoin.it/wiki/Atomic_cross-chain_trading">Bitcoin Atomic Cross Chain Trading</a>.</p>
 </div>
 <div class="section" id="secret-proof-transaction">
 <span id="id2"></span><h2>Secret proof transaction<a class="headerlink" href="#secret-proof-transaction" title="Permalink to this headline">¶</a></h2>
 <p>Secret proof transaction is used to unlock <a class="reference internal" href="#secret-lock-transaction"><span class="std std-ref">secret lock transactions</span></a>.</p>
-<p>To unlock a secret lock transaction, the account must demonstrate that knows the <em>proof</em> that unlocks the transaction.</p>
+<p>To unlock a secret lock transaction, the account must demonstrate that it knows the <em>proof</em> and the used <em>hashing algorithm</em>, which unlock the transaction.</p>
 <blockquote>
 <div><p><strong>Hash Type</strong></p>
-<p>Hash algorithm used, to check that proof hashed equals secret.</p>
+<p>The hash algorithm used, to check that proof hashed equals secret.</p>
 <p><strong>Secret</strong></p>
 <p>The proof hashed.</p>
 <p><strong>Proof</strong></p>
@@ -532,7 +536,7 @@
                     <li><a href="/concepts/mosaic.html">Mosaic</a></li>
                     <li><a href="/concepts/transfer-transaction.html">Transfer Transaction</a></li>
                     <li><a href="/concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
-                    <li><a href="/concepts/cross-chain-transaction.html">Cross-Chain Transaction</a></li>
+                    <li><a href="/concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
                 </ul>
 
             </div>
