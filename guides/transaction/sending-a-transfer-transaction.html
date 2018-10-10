@@ -65,7 +65,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.5</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.6</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -127,7 +127,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/multi-level-multisig-account.html">Multi-Level Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transaction.html">Transaction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/transaction.html#transaction-life-cycle">Transaction life-cycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/transaction.html#transaction-lifecycle">Transaction lifecycle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/transaction.html#transaction-types">Transaction types</a></li>
 </ul>
 </li>
@@ -195,8 +195,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../running-a-node.html">Running a node</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workshops.html">Self-paced training</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../workshops.html#official-workshops">Official workshops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../workshops.html#community-workshops">Community workshops</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../workshops.html#published-workshops">Published workshops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workshops.html#ongoing-work">Ongoing work</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../workshops.html#creating-and-publishing-a-new-workshop">Creating and publishing a new workshop</a></li>
 </ul>
 </li>
@@ -230,6 +230,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../sdk/languages.html">Languages</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../sdk/languages.html#official-sdks">Official SDKs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../sdk/languages.html#community-sdks">Community SDKs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sdk/languages.html#ongoing-work">Ongoing work</a></li>
 </ul>
 </li>
 </ul>
@@ -293,8 +294,8 @@
 <p class="caption"><span class="caption-text">Libraries</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../libraries/overview.html">Extending NEM capabilities</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../libraries/overview.html#official-libraries">Official Libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../libraries/overview.html#community-libraries">Community Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libraries/overview.html#official-libraries">Official libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libraries/overview.html#community-libraries">Community libraries</a></li>
 </ul>
 </li>
 </ul>
@@ -359,7 +360,7 @@
       
   <div class="section" id="sending-a-transfer-transaction">
 <h1>Sending a transfer transaction<a class="headerlink" href="#sending-a-transfer-transaction" title="Permalink to this headline">¶</a></h1>
-<p>Announce a <a class="reference internal" href="../../concepts/transfer-transaction.html#id1"><span class="std std-ref">transfer transaction</span></a>, one of the most commonly used actions in NEM.</p>
+<p>Transfer <a class="reference internal" href="../../concepts/mosaic.html"><span class="doc">mosaics</span></a> and messages between two accounts.</p>
 </div>
 <div class="section" id="prerequisites">
 <h1>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h1>
@@ -375,15 +376,14 @@
 <img alt="../../_images/guides-transactions-transfer1.png" src="../../_images/guides-transactions-transfer1.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">Sending a transfer Transaction</span></p>
 </div>
-<p>Alice wants to send 10 XEM to Bob, who has created the following NEM account with address <code class="docutils literal"><span class="pre">SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54</span></code>.</p>
+<p>Alice wants to send 10 XEM to Bob, whose address is <code class="docutils literal"><span class="pre">SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54</span></code>.</p>
 <p><strong>Monitoring the transaction</strong></p>
-<p>Once an account announces a transaction, if properly formed, the server will return an OK response.</p>
-<p>Receiving an OK response does not mean the transaction is valid, which means it is still not included in a block. A good practice is to monitor transactions before being announced.</p>
-<p>We suggest opening three new terminals. The first terminal <a class="reference internal" href="debugging-transactions.html"><span class="doc">monitors announced transactions</span></a> validation errors.</p>
+<p>Once an account announces a transaction, the server will always return an OK response. Receiving an OK response does not mean the transaction is valid. A good practice is to monitor transactions before being announced.</p>
+<p>To understand the transaction lifecycle, we recommend you to open three new terminals. The first terminal <a class="reference internal" href="debugging-transactions.html"><span class="doc">monitors announced transactions</span></a> validation errors.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor status
 </pre></div>
 </div>
-<p>Monitoring <code class="docutils literal"><span class="pre">unconfirmed</span></code> shows you which transactions have reached the network, but not yet included in a block.</p>
+<p>Monitoring <code class="docutils literal"><span class="pre">unconfirmed</span></code> shows you which transactions have reached the network, but not are not included in a block yet.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor unconfirmed
 </pre></div>
 </div>
@@ -394,8 +394,9 @@
 </div>
 <div class="section" id="lets-get-into-some-code">
 <h2>Let’s get into some code<a class="headerlink" href="#lets-get-into-some-code" title="Permalink to this headline">¶</a></h2>
+<p>Alice wants sends <code class="docutils literal"><span class="pre">10</span> <span class="pre">XEM</span></code> to Bob. She wants to include a message, for example <code class="docutils literal"><span class="pre">Welcome</span> <span class="pre">to</span> <span class="pre">NEM</span></code>.</p>
 <ol class="arabic simple">
-<li>Alice sends <code class="docutils literal"><span class="pre">10</span> <span class="pre">XEM</span></code> to Bob. She can also include a message, for example <code class="docutils literal"><span class="pre">Welcome</span> <span class="pre">to</span> <span class="pre">NEM</span></code>.</li>
+<li>Create the transfer transaction, by including Bob address as the recipient, adding 10 XEM and the message requested.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id2">
@@ -439,9 +440,9 @@
 </div>
 </div>
 </div>
-<p>Although the transaction is created, it has not been announced to the network yet.</p>
+<p>Although the transaction is created, it has not been announced to the network yet. Alice must sign the transaction with her account first so that the network can verify its authenticity.</p>
 <ol class="arabic simple" start="2">
-<li>Alice must sign the transaction with her account first so that the network can verify its authenticity.</li>
+<li>Sign the transaction with Alice account.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id5">
@@ -477,7 +478,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="3">
-<li>Once signed, <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">announce the transaction</span></a> to the network.</li>
+<li>Once signed, you can <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">announce the transaction</span></a> to the network.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id8">
@@ -516,20 +517,20 @@
 </div>
 </div>
 <ol class="arabic simple" start="4">
-<li>Open the terminal where you are monitoring account transactions <code class="docutils literal"><span class="pre">status</span></code>. It should be empty. If you see an error, check <a class="reference external" href="/api.html#tag/Websockets">error codes</a> and their meaning.</li>
+<li>Open the terminal where you are monitoring account transactions <code class="docutils literal"><span class="pre">status</span></code>. It should be empty. If there is an error, you can check <a class="reference external" href="/api.html#tag/Websockets">the error code here</a>.</li>
 </ol>
 <p>A new transaction should have appeared in the terminal where you are monitoring <code class="docutils literal"><span class="pre">unconfirmed</span></code>. At this point, the transaction has reached the network, but it is not clear if it will get included in a block.</p>
 <p>If it is included in a block, the transaction gets processed, and the amount stated in the transaction gets transferred from the sender’s account to the recipient’s account.</p>
 </div>
 <div class="section" id="what-s-next">
 <h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
-<p>Send a new transfer transactions by altering your code to send multiple mosaics in the same transaction.</p>
+<p>Send multiple mosaics in the same transaction.</p>
 <p><strong>Adding multiple mosaics</strong></p>
 <div class="figure align-center" id="id12">
 <img alt="../../_images/guides-transactions-transfer-multiple.png" src="../../_images/guides-transactions-transfer-multiple.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">Sending multiple mosaics in the same transaction</span></p>
 </div>
-<p>As you may have noticed, transfer transactions require an array of mosaics as a parameter, allowing to create transfer transactions with multiple mosaics at a time.</p>
+<p>As you may have noticed, transfer transactions require an array of mosaics as a parameter, allowing to send transfer transactions with multiple mosaics at the same time.</p>
 <p>If you own more than one mosaic, send them together in the same transaction:</p>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id13">
@@ -613,7 +614,7 @@
         </div>
         <div class="row">
 
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 <h4>Built-in Features</h4>
 
                 <ul>
@@ -630,7 +631,7 @@
 
             </div>
 
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 <h4>Guides</h4>
 
                 <ul>
@@ -646,7 +647,7 @@
 
             </div>
 
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 <h4>References</h4>
 
                 <ul>

@@ -65,7 +65,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.5</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.6</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -127,7 +127,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/multi-level-multisig-account.html">Multi-Level Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transaction.html">Transaction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/transaction.html#transaction-life-cycle">Transaction life-cycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/transaction.html#transaction-lifecycle">Transaction lifecycle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/transaction.html#transaction-types">Transaction types</a></li>
 </ul>
 </li>
@@ -195,8 +195,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../running-a-node.html">Running a node</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workshops.html">Self-paced training</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../workshops.html#official-workshops">Official workshops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../workshops.html#community-workshops">Community workshops</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../workshops.html#published-workshops">Published workshops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workshops.html#ongoing-work">Ongoing work</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../workshops.html#creating-and-publishing-a-new-workshop">Creating and publishing a new workshop</a></li>
 </ul>
 </li>
@@ -230,6 +230,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../sdk/languages.html">Languages</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../sdk/languages.html#official-sdks">Official SDKs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../sdk/languages.html#community-sdks">Community SDKs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sdk/languages.html#ongoing-work">Ongoing work</a></li>
 </ul>
 </li>
 </ul>
@@ -293,8 +294,8 @@
 <p class="caption"><span class="caption-text">Libraries</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../libraries/overview.html">Extending NEM capabilities</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../libraries/overview.html#official-libraries">Official Libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../libraries/overview.html#community-libraries">Community Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libraries/overview.html#official-libraries">Official libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libraries/overview.html#community-libraries">Community libraries</a></li>
 </ul>
 </li>
 </ul>
@@ -359,7 +360,7 @@
       
   <div class="section" id="getting-account-information">
 <h1>Getting account information<a class="headerlink" href="#getting-account-information" title="Permalink to this headline">¶</a></h1>
-<p>Get the public key, height, balance and importance of an <a class="reference internal" href="../../concepts/account.html"><span class="doc">account</span></a>.</p>
+<p>Get the public key and balance of an <a class="reference internal" href="../../concepts/account.html"><span class="doc">account</span></a>.</p>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -370,7 +371,8 @@
 </div>
 <div class="section" id="lets-get-into-some-code">
 <h2>Let’s get into some code<a class="headerlink" href="#lets-get-into-some-code" title="Permalink to this headline">¶</a></h2>
-<p>Call <code class="docutils literal"><span class="pre">accountHttp.getAccountInfo</span></code>, passing the address and network as a parameter.</p>
+<p>The <strong>public key</strong> identifies your account publicly in the network. Your  <strong>address</strong> is derived from it, which contains further information such as network and validity check.</p>
+<p>Get more information about your account passing the address and network as a parameter.</p>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id1">
 <div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/GettingAccountInformation.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
@@ -414,18 +416,9 @@
 </div>
 </div>
 </div>
-<p>Can you determine the account’s public key?</p>
-<blockquote>
-<div>publicKey: ‘F33152059827EAA4D7D67C6E27A59851AF09FBD0926C35150FA44D2A9A5E4CAA’,</div></blockquote>
-<p>Which block was the first one where account address and public key appeared?</p>
-<blockquote>
-<div>publicKeyHeight: UInt64 { lower: 401575, higher: 0 },
-addressHeight: UInt64 { lower: 288598, higher: 0 },</div></blockquote>
-<p>Does the account have an importance?</p>
-<blockquote>
-<div>importance: UInt64 { lower: 1100282, higher: 0 },</div></blockquote>
+<p>Can you determine the account’s public key? Which was the first block where this account appeared?</p>
 <p><strong>Checking account’s balance</strong></p>
-<p>Check account’s balance using <code class="docutils literal"><span class="pre">mosaicService</span></code>. The balance is the amount of the different mosaics stored on the account.</p>
+<p>The balance is the amount of the different <strong>mosaics</strong> owned by the account. How many different <a class="reference internal" href="../../concepts/mosaic.html"><span class="doc">mosaics</span></a> does your account own?</p>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id5">
 <div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/CheckingBalanceOfAnAccount.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
@@ -477,7 +470,7 @@ addressHeight: UInt64 { lower: 288598, higher: 0 },</div></blockquote>
 </div>
 <div class="section" id="whats-next">
 <h2>What’s next?<a class="headerlink" href="#whats-next" title="Permalink to this headline">¶</a></h2>
-<p>Retrieve the balance by only filtering XEM amount.</p>
+<p>Retrieve the balance by only <a class="reference external" href="https://www.learnrxjs.io/operators/filtering/filter.html">filtering the nem:xem</a> amount.</p>
 </div>
 </div>
 
@@ -529,7 +522,7 @@ addressHeight: UInt64 { lower: 288598, higher: 0 },</div></blockquote>
         </div>
         <div class="row">
 
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 <h4>Built-in Features</h4>
 
                 <ul>
@@ -546,7 +539,7 @@ addressHeight: UInt64 { lower: 288598, higher: 0 },</div></blockquote>
 
             </div>
 
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 <h4>Guides</h4>
 
                 <ul>
@@ -562,7 +555,7 @@ addressHeight: UInt64 { lower: 288598, higher: 0 },</div></blockquote>
 
             </div>
 
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 <h4>References</h4>
 
                 <ul>

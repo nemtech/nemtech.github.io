@@ -65,7 +65,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.5</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.6</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -127,7 +127,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/multi-level-multisig-account.html">Multi-Level Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transaction.html">Transaction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/transaction.html#transaction-life-cycle">Transaction life-cycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/transaction.html#transaction-lifecycle">Transaction lifecycle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/transaction.html#transaction-types">Transaction types</a></li>
 </ul>
 </li>
@@ -195,8 +195,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../running-a-node.html">Running a node</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workshops.html">Self-paced training</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../workshops.html#official-workshops">Official workshops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../workshops.html#community-workshops">Community workshops</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../workshops.html#published-workshops">Published workshops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workshops.html#ongoing-work">Ongoing work</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../workshops.html#creating-and-publishing-a-new-workshop">Creating and publishing a new workshop</a></li>
 </ul>
 </li>
@@ -230,6 +230,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../sdk/languages.html">Languages</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../sdk/languages.html#official-sdks">Official SDKs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../sdk/languages.html#community-sdks">Community SDKs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sdk/languages.html#ongoing-work">Ongoing work</a></li>
 </ul>
 </li>
 </ul>
@@ -293,8 +294,8 @@
 <p class="caption"><span class="caption-text">Libraries</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../libraries/overview.html">Extending NEM capabilities</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../libraries/overview.html#official-libraries">Official Libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../libraries/overview.html#community-libraries">Community Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libraries/overview.html#official-libraries">Official libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libraries/overview.html#community-libraries">Community libraries</a></li>
 </ul>
 </li>
 </ul>
@@ -373,8 +374,7 @@
 <div class="section" id="lets-get-into-some-code">
 <h2>Let’s get into some code<a class="headerlink" href="#lets-get-into-some-code" title="Permalink to this headline">¶</a></h2>
 <p id="guide-modify-a-multisig-account-min-approval"><strong>Editing minApproval</strong></p>
-<blockquote>
-<div>Alice and Bob are cosignatories of the 1-of-2 multisig account. At least one of their account’s signatures is required to authorize multisig transactions. In other words, the <code class="docutils literal"><span class="pre">minApproval</span></code> parameter of the multisig is currently set to <code class="docutils literal"><span class="pre">1</span></code>.</div></blockquote>
+<p>Alice and Bob are cosignatories of the 1-of-2 multisig account. At least one of their account’s signatures is required to authorize multisig transactions. In other words, the <code class="docutils literal"><span class="pre">minApproval</span></code> parameter of the multisig is currently set to <code class="docutils literal"><span class="pre">1</span></code>.</p>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id1">
 <div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/ModifyingAMultisigAccountIncreaseMinApproval.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
@@ -754,6 +754,10 @@
 </div>
 </div>
 </div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <a class="reference internal" href="../transaction/debugging-transactions.html#monitoring-transactions-client-side"><span class="std std-ref">listener implementation changes</span></a> when used on the client side (e.g., Angular, React, Vue).</p>
+</div>
 <p>Once Bob <a class="reference internal" href="../transaction/signing-announced-aggregate-bonded-transactions.html"><span class="doc">cosigns the transaction</span></a>, the amount of XEM locked becomes available again on Alice’s account and Carol is added to the multisig.</p>
 <p id="guide-modify-a-multisig-account-removing-a-cosignatory"><strong>Removing a cosignatory</strong></p>
 <p>Once you have finished this guide,  delete a cosignatory from the multisig. Multisig accounts can be converted again into regular accounts by removing all cosignatories. Make sure you own the multisig private key!</p>
@@ -928,7 +932,7 @@
         </div>
         <div class="row">
 
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 <h4>Built-in Features</h4>
 
                 <ul>
@@ -945,7 +949,7 @@
 
             </div>
 
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 <h4>Guides</h4>
 
                 <ul>
@@ -961,7 +965,7 @@
 
             </div>
 
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 <h4>References</h4>
 
                 <ul>

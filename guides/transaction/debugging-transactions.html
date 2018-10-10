@@ -65,7 +65,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.5</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.6</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -127,7 +127,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/multi-level-multisig-account.html">Multi-Level Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transaction.html">Transaction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/transaction.html#transaction-life-cycle">Transaction life-cycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/transaction.html#transaction-lifecycle">Transaction lifecycle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/transaction.html#transaction-types">Transaction types</a></li>
 </ul>
 </li>
@@ -195,8 +195,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../running-a-node.html">Running a node</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workshops.html">Self-paced training</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../workshops.html#official-workshops">Official workshops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../workshops.html#community-workshops">Community workshops</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../workshops.html#published-workshops">Published workshops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workshops.html#ongoing-work">Ongoing work</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../workshops.html#creating-and-publishing-a-new-workshop">Creating and publishing a new workshop</a></li>
 </ul>
 </li>
@@ -230,6 +230,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../sdk/languages.html">Languages</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../sdk/languages.html#official-sdks">Official SDKs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../sdk/languages.html#community-sdks">Community SDKs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sdk/languages.html#ongoing-work">Ongoing work</a></li>
 </ul>
 </li>
 </ul>
@@ -293,8 +294,8 @@
 <p class="caption"><span class="caption-text">Libraries</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../libraries/overview.html">Extending NEM capabilities</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../libraries/overview.html#official-libraries">Official Libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../libraries/overview.html#community-libraries">Community Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libraries/overview.html#official-libraries">Official libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libraries/overview.html#community-libraries">Community libraries</a></li>
 </ul>
 </li>
 </ul>
@@ -476,6 +477,15 @@
 </div>
 </div>
 </div>
+<div class="section" id="troubleshooting-monitoring-transactions-on-the-client-side">
+<span id="monitoring-transactions-client-side"></span><h2>Troubleshooting: Monitoring transactions on the client side<a class="headerlink" href="#troubleshooting-monitoring-transactions-on-the-client-side" title="Permalink to this headline">¶</a></h2>
+<p>The nem2-sdk for typescript base listener was designed to work on Node.js backend environments.</p>
+<p>To make the code work in the client side (e.g., Angular, React, Vue.), pass the browser implementation of the WebSocket to the Listener.</p>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Listener</span><span class="p">(</span><span class="s1">&#39;ws://localhost:3000&#39;</span><span class="p">,</span> <span class="nx">WebSocket</span><span class="p">);</span>
+<span class="nx">listener</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">...</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="what-s-next">
 <h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
 <p>Run your application and try to <a class="reference internal" href="sending-a-transfer-transaction.html"><span class="doc">send a transfer transaction</span></a> to the selected account. If all goes well, you will see the transaction information in your terminal.</p>
@@ -530,7 +540,7 @@
         </div>
         <div class="row">
 
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 <h4>Built-in Features</h4>
 
                 <ul>
@@ -547,7 +557,7 @@
 
             </div>
 
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 <h4>Guides</h4>
 
                 <ul>
@@ -563,7 +573,7 @@
 
             </div>
 
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 <h4>References</h4>
 
                 <ul>

@@ -67,7 +67,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.5</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.6</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -129,7 +129,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="multi-level-multisig-account.html">Multi-Level Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">Transaction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="transaction.html#transaction-life-cycle">Transaction life-cycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#transaction-lifecycle">Transaction lifecycle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#transaction-types">Transaction types</a></li>
 </ul>
 </li>
@@ -197,8 +197,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/running-a-node.html">Running a node</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/workshops.html">Self-paced training</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../guides/workshops.html#official-workshops">Official workshops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../guides/workshops.html#community-workshops">Community workshops</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../guides/workshops.html#published-workshops">Published workshops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/workshops.html#ongoing-work">Ongoing work</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../guides/workshops.html#creating-and-publishing-a-new-workshop">Creating and publishing a new workshop</a></li>
 </ul>
 </li>
@@ -232,6 +232,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../sdk/languages.html">Languages</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../sdk/languages.html#official-sdks">Official SDKs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../sdk/languages.html#community-sdks">Community SDKs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdk/languages.html#ongoing-work">Ongoing work</a></li>
 </ul>
 </li>
 </ul>
@@ -295,8 +296,8 @@
 <p class="caption"><span class="caption-text">Libraries</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/overview.html">Extending NEM capabilities</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../libraries/overview.html#official-libraries">Official Libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../libraries/overview.html#community-libraries">Community Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/overview.html#official-libraries">Official libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/overview.html#community-libraries">Community libraries</a></li>
 </ul>
 </li>
 </ul>
@@ -436,7 +437,7 @@
 <img alt="../_images/guides-transactions-atomic-cross-chain-swap.png" src="../_images/guides-transactions-atomic-cross-chain-swap.png" style="width: 700px;" />
 <p class="caption"><span class="caption-text">Atomic cross-chain swap between public and private network</span></p>
 </div>
-<p>In order to create a trustless environment for an exchange, a specific transaction type is required that is commonly referred to as <strong>Hashed TimeLock Contract</strong> (<a class="reference external" href="https://en.bitcoin.it/wiki/Hashed_Timelock_Contracts">HTLC</a>). Two additional components characterize this transaction type: <em>hashlocks</em> and <em>timelocks</em>. A thorough explanation can be found on the <a class="reference external" href="https://en.bitcoin.it/wiki/Hashed_Timelock_Contracts">Bitcoin Wiki</a>.</p>
+<p>In order to create a trustless environment for an exchange, a specific transaction type is required that is commonly referred to as <strong>Hashed TimeLock Contract</strong> (HTLC). Two additional components characterize this transaction type: <em>hashlocks</em> and <em>timelocks</em>. A thorough explanation can be found on the <a class="reference external" href="https://en.bitcoin.it/wiki/Hashed_Timelock_Contracts">Bitcoin Wiki</a>.</p>
 <p>In other words, to reduce counterparty risk, the receiver of a payment needs to present a proof for the transaction to execute. Failing to do so, the locked funds are released after the deadline is reached, even if just one actor does not agree.
 The figure below illustrates the cross-chain swap protocol.</p>
 <div class="figure align-center" id="id4">
@@ -449,7 +450,6 @@ The figure below illustrates the cross-chain swap protocol.</p>
 <p>Use a secret lock transaction to initiate the cross-chain swap. Once announced, the specified mosaics are locked at blockchain level, associated with a previously chosen <em>hashed proof</em> called <code class="docutils literal"><span class="pre">secret</span></code>.</p>
 <p>Funds are unlocked and transferred when an account announces a  valid <a class="reference internal" href="#secret-proof-transaction"><span class="std std-ref">Secret Proof Transaction</span></a>. The account must demonstrate knowing the <em>secret</em> that unlocks the transaction, by disclosing the previously used <code class="docutils literal"><span class="pre">hashing</span> <span class="pre">algorithm</span></code> and the <code class="docutils literal"><span class="pre">proof</span></code>.</p>
 <p>If the transaction duration is reached and not proved, the locked amount is returned to the initiator of the secret lock transaction.</p>
-<p>Remember, secret lock and proof transactions enable <a class="reference internal" href="../guides/transaction/atomic-cross-chain-swap-between-NEM-public-and-private-chain.html"><span class="doc">cross-chain swaps</span></a>, without the necessity of trusting a third party.</p>
 <blockquote>
 <div><p><strong>Mosaic</strong></p>
 <p>Locked mosaic.</p>
@@ -524,7 +524,7 @@ The figure below illustrates the cross-chain swap protocol.</p>
         </div>
         <div class="row">
 
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 <h4>Built-in Features</h4>
 
                 <ul>
@@ -541,7 +541,7 @@ The figure below illustrates the cross-chain swap protocol.</p>
 
             </div>
 
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 <h4>Guides</h4>
 
                 <ul>
@@ -557,7 +557,7 @@ The figure below illustrates the cross-chain swap protocol.</p>
 
             </div>
 
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 <h4>References</h4>
 
                 <ul>

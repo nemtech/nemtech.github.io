@@ -65,7 +65,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.5</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.6</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -127,7 +127,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/multi-level-multisig-account.html">Multi-Level Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/transaction.html">Transaction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#transaction-life-cycle">Transaction life-cycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#transaction-lifecycle">Transaction lifecycle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#transaction-types">Transaction types</a></li>
 </ul>
 </li>
@@ -195,8 +195,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/running-a-node.html">Running a node</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/workshops.html">Self-paced training</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../guides/workshops.html#official-workshops">Official workshops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../guides/workshops.html#community-workshops">Community workshops</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../guides/workshops.html#published-workshops">Published workshops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/workshops.html#ongoing-work">Ongoing work</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../guides/workshops.html#creating-and-publishing-a-new-workshop">Creating and publishing a new workshop</a></li>
 </ul>
 </li>
@@ -230,6 +230,7 @@
 <li class="toctree-l1"><a class="reference internal" href="languages.html">Languages</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="languages.html#official-sdks">Official SDKs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="languages.html#community-sdks">Community SDKs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="languages.html#ongoing-work">Ongoing work</a></li>
 </ul>
 </li>
 </ul>
@@ -293,8 +294,8 @@
 <p class="caption"><span class="caption-text">Libraries</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/overview.html">Extending NEM capabilities</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../libraries/overview.html#official-libraries">Official Libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../libraries/overview.html#community-libraries">Community Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/overview.html#official-libraries">Official libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/overview.html#community-libraries">Community libraries</a></li>
 </ul>
 </li>
 </ul>
@@ -425,10 +426,6 @@
       
   <div class="section" id="sdk-development">
 <h1>SDK Development<a class="headerlink" href="#sdk-development" title="Permalink to this headline">¶</a></h1>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">draft</p>
-</div>
 <p>A key objective is that interoperability becomes a natural design of the NEM2-SDK. Follow this guideline to collaborate creating a NEM SDK, achieving the best quality
 with the less effort.</p>
 <div class="section" id="learning-about-catapult">
@@ -468,8 +465,8 @@ and adding a new entry to the <a class="reference internal" href="languages.html
 <ol class="arabic simple">
 <li>Add a README with the instructions to install the SDK. Find
 <a class="reference download internal" href="../_downloads/README_SDK.md" download=""><code class="xref download docutils literal"><span class="pre">here</span> <span class="pre">a</span> <span class="pre">template</span></code></a>.</li>
-<li>Add a <cite>Code of
-Conduct &lt;https://help.github.com/articles/adding-a-code-of-conduct-to-your-project/&gt;</cite>.
+<li>Add a <a class="reference external" href="https://help.github.com/articles/adding-a-code-of-conduct-to-your-project/">Code of
+Conduct</a>.
 Find <a class="reference download internal" href="../_downloads/CODE_OF_CONDUCT.md" download=""><code class="xref download docutils literal"><span class="pre">here</span> <span class="pre">an</span> <span class="pre">example</span></code></a>.</li>
 <li>Add a <a class="reference external" href="https://help.github.com/articles/setting-guidelines-for-repository-contributors/">Contributors
 guidelines</a>
@@ -480,7 +477,7 @@ to help others know how they can help you. Find
 suits you best.</li>
 </ol>
 <p>A project with a good test coverage it’s more likely to be used and
-trusted by the developers! :smile:</p>
+trusted by the developers!</p>
 <p>We <strong>strongly</strong> suggest you to do <a class="reference external" href="https://en.wikipedia.org/wiki/Test-driven_development">Test-Driven
 Development</a>
 or Unit-Testing (test last). If you need inspiration, you can adapt the
@@ -627,7 +624,10 @@ Buffers and the Schemas, to serialize the transaction.</p>
 </div>
 <div class="section" id="keypair-and-cryptographic-functions">
 <h3>KeyPair and Cryptographic functions<a class="headerlink" href="#keypair-and-cryptographic-functions" title="Permalink to this headline">¶</a></h3>
-<p>To do</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This section is incomplete.</p>
+</div>
 </div>
 </div>
 <div class="section" id="documenting-your-sdk">
@@ -639,13 +639,21 @@ documentation</span></a>.</p>
 </div>
 <div class="section" id="publishing-the-sdk-as-official">
 <h2>Publishing the SDK as official<a class="headerlink" href="#publishing-the-sdk-as-official" title="Permalink to this headline">¶</a></h2>
-<p>To do</p>
+<p>When you open-source your code,
+<a class="reference internal" href="languages.html"><span class="doc">submit the repository to this page</span></a>.</p>
+<p>To become an accepted SDK, it should be proposed as a
+<a class="reference external" href="https://github.com/nemtech/NIP/blob/master/NIPs/nip-0001.md">NIP</a>. The reason
+behind the NEM2 Improvement Proposal is to ensure that the new
+libraries are reviewed, tested and shared among NEM developers.</p>
 </div>
 <div class="section" id="future-work">
 <h2>Future work<a class="headerlink" href="#future-work" title="Permalink to this headline">¶</a></h2>
 <p>The current guideline shows what is done up to today since the SDK isn’t
 complete. It will get updates according to the latest
-architecture/features. ## Recommended Licenses</p>
+architecture/features.</p>
+</div>
+<div class="section" id="recommended-licenses">
+<h2>Recommended Licenses<a class="headerlink" href="#recommended-licenses" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>MIT: <a class="reference external" href="https://opensource.org/licenses/MIT">Expat/MIT/X11 license</a></li>
 <li>Apache-2.0: <a class="reference external" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, version
@@ -710,7 +718,7 @@ newer</a></li>
         </div>
         <div class="row">
 
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 <h4>Built-in Features</h4>
 
                 <ul>
@@ -727,7 +735,7 @@ newer</a></li>
 
             </div>
 
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 <h4>Guides</h4>
 
                 <ul>
@@ -743,7 +751,7 @@ newer</a></li>
 
             </div>
 
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 <h4>References</h4>
 
                 <ul>
