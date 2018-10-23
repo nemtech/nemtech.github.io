@@ -31,7 +31,7 @@
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Overview" href="../cli/overview.html" />
+    <link rel="next" title="Extending NEM capabilities" href="libraries.html" />
     <link rel="prev" title="Architecture" href="architecture.html" />
   
 
@@ -67,7 +67,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.6</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.7</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -107,12 +107,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">Writing your first application</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/first-application.html#background">Background</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../getting-started/first-application.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../getting-started/first-application.html#lets-get-into-some-code">Let’s get into some code</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../getting-started/first-application.html#what-s-next">What’s next?</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/first-application.html#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/first-application.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/first-application.html#lets-get-into-some-code">Let’s get into some code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/first-application.html#what-s-next">What’s next?</a></li>
 </ul>
 </li>
 </ul>
@@ -235,6 +233,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#ongoing-work">Ongoing work</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="libraries.html">Extending NEM capabilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="libraries.html#official-libraries">Official libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libraries.html#community-libraries">Community libraries</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Client</span></p>
 <ul>
@@ -293,14 +296,6 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Libraries</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../libraries/overview.html">Extending NEM capabilities</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../libraries/overview.html#official-libraries">Official libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../libraries/overview.html#community-libraries">Community libraries</a></li>
-</ul>
-</li>
-</ul>
 <p class="caption"><span class="caption-text">Prototyping Tool</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/overview.html">Overview</a><ul>
@@ -314,7 +309,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/examples.html">Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#basics">Basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#advanced">Advanced</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#applications">Applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#importing-a-flow">Importing a flow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#contributing">Contributing</a></li>
 </ul>
@@ -405,15 +400,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#ongoing-work">Ongoing work</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="libraries.html">Extending NEM capabilities</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Client</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../cli/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli/commands.html">Commands</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Libraries</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../libraries/overview.html">Extending NEM capabilities</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Prototyping Tool</span></p>
 <ul>
@@ -466,7 +458,6 @@
 </div>
 <div class="section" id="community-sdks">
 <h2>Community SDKs<a class="headerlink" href="#community-sdks" title="Permalink to this headline">¶</a></h2>
-<p>The following repositories have passed some sort of testing and have been in the community for awhile.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="25%" />
@@ -487,17 +478,22 @@
 <td>&#160;</td>
 <td><a class="reference external" href="https://github.com/kodty">&#64;kodty</a></td>
 </tr>
+<tr class="row-odd"><td>Go SDK</td>
+<td><a href="https://github.com/proximax-storage/nem2-sdk-go/" target="_blank">Repository</a></td>
+<td>&#160;</td>
+<td><a class="reference external" href="https://github.com/proximax-storage">&#64;proximax-storage</a></td>
+</tr>
+<tr class="row-even"><td>Swift SDK</td>
+<td><a href="https://github.com/proximax-storage/nem2-sdk-swift/" target="_blank">Repository</a></td>
+<td>&#160;</td>
+<td><a class="reference external" href="https://github.com/proximax-storage">&#64;proximax-storage</a></td>
+</tr>
 <tr class="row-odd"><td>PHP SDK</td>
 <td>&#160;</td>
 <td>&#160;</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>Swift SDK</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>Ruby SDK</td>
+<tr class="row-even"><td>Ruby SDK</td>
 <td>&#160;</td>
 <td>&#160;</td>
 <td>&#160;</td>
@@ -523,12 +519,7 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Go SDK</td>
-<td><a href="https://github.com/slackve/nem2-sdk-go/" target="_blank">Repository</a></td>
-<td>&#160;</td>
-<td><a class="reference external" href="https://github.com/slackve">&#64;slackve</a></td>
-</tr>
-<tr class="row-odd"><td>Python SDK</td>
+<tr class="row-even"><td>Python SDK</td>
 <td><a href="https://github.com/nemtech/nem2-sdk-python/" target="_blank">Repository</a></td>
 <td>&#160;</td>
 <td>NEM Foundation</td>
@@ -624,7 +615,7 @@
                     <li><a href="/cli/overview.html">CLI</a></li>
                     <li><a href="/sdk/languages.html">SDKs</a></li>
                     <li><a href="/api.html">REST API</a></li>
-                    <li><a href="/libraries/overview.html">Libraries</a></li>
+                    <li><a href="/sdk/libraries.html">Libraries</a></li>
                 </ul>
             </div>
 
