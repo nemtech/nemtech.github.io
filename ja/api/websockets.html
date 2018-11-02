@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>WebSockets &#8212; nem2-docs Master ドキュメント</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'Master',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="../_static/examplecode.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="ステータスエラー" href="status-errors.html" />
+    <link rel="prev" title="エンドポイント" href="endpoints.html" />
+  
+
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
+          developer center</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.13</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../getting-started/what-is-nem.html">Getting Started</a></li>
+                <li><a href="../guides/overview.html">Guides</a></li>
+                <li><a href="../references.html">References</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/what-is-nem.html">NEM とは？</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/what-is-nem.html#the-smart-asset-system">スマートアセットシステム</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/what-is-nem.html#architecting-on-nem">NEM アーキテクチャ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/what-is-nem.html#public-and-private">パブリックとプライベート</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">ワークステーションのセットアップ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#running-catapult-service-bootstrap">Catapult サービスのブートストラップの実行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#creating-a-test-account">テストアカウントの作成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#what-is-xem-and-how-to-get-it">XEM とは何ですか？どうやって入手できますか？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#setting-up-the-development-environment">開発環境のセットアップ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#typescript-and-javascript">TypeScript と JavaScript</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#java">Java</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#c">C#</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">はじめてのアプリケーションを作成</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/first-application.html#background">背景</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/first-application.html#prerequisites">前提条件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/first-application.html#lets-get-into-some-code">それではコードを見ていきましょう</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/first-application.html#what-s-next">次は？</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/cryptography.html">暗号理論</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/cryptography.html#private-and-public-key">秘密鍵と公開鍵</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/cryptography.html#address">アドレス</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/block.html">ブロック</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/block.html#block-creation">ブロック生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/block.html#parameters">パラメータ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/transaction.html">トランザクション</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#properties">プロパティ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#lifecycle">ライフサイクル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#rollbacks">ロールバック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#transaction-types">トランザクションタイプ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/node.html">ノード</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/node.html#catapult-p2p-component">Catapult P2P コンポーネント</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/node.html#rocksdb">RocksDB</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/node.html#catapult-api-component">Catapult API コンポーネント</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/node.html#mongodb">MongoDB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/node.html#zmq">ZMQ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/node.html#catapult-rest-component">Catapult REST コンポーネント</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">アカウント</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/account.html#multisig-account">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/account.html#properties">プロパティ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">マルチシグアカウント</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/multisig-account.html#modifying-multisig-account-transaction">マルチシグアカウント変更トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/multisig-account.html#examples">例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/multi-level-multisig-account.html">マルチレベルマルチシグアカウント</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/multi-level-multisig-account.html#examples">例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">ネームスペース</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/namespace.html#subnamespaces">サブネームスペース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/namespace.html#register-namespace-transaction">ネームスペース登録トランザクション</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/mosaic.html">モザイク</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mosaic.html#mosaic-definition-transaction">モザイク定義トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mosaic.html#mosaic-supply-change-transaction">モザイク供給量変更トランザクション</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/transfer-transaction.html">転送トランザクション</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/transfer-transaction.html#parameters">パラメータ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/aggregate-transaction.html">アグリゲートトランザクション</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#parameters">パラメータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#aggregate-complete">アグリゲートコンプリート</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/aggregate-transaction.html#examples">例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#aggregate-bonded">アグリゲートボンド</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/aggregate-transaction.html#id2">例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#cosignature-transaction">署名トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#lock-funds-transaction">ロックファンドトランザクション</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/cross-chain-swaps.html">クロスチェーンスワップ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/cross-chain-swaps.html#secret-lock-transaction">シークレットロックトランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/cross-chain-swaps.html#secret-proof-transaction">シークレット証明トランザクション</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guides/overview.html">概要</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../guides/overview.html#how-to-run-an-example">例の実行方法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../guides/overview.html#cli">Cli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/overview.html#typescript">TypeScript</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/overview.html#javascript">JavaScript</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/overview.html#java">Java</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/account.html">アカウントとの疎通</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../guides/account.html#account">アカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/account.html#multisig-account">マルチシグアカウント</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/blockchain.html">ブロックチェーンの監視</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/namespace.html">ネームスペースの取得</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/mosaic.html">モザイクとの疎通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/transaction.html">トランザクションの送信</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../guides/transaction.html#transfer-transaction">転送トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/transaction.html#aggregate-transaction">アグリゲートトランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/transaction.html#cross-chain-swaps">クロスチェーンスワップ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/transaction.html#monitoring">モニタリング</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/running-a-node.html">ノードの立ち上げ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/workshops.html">自己ペーストレーニング</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../guides/workshops.html#published-workshops">公開されたワークショップ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/workshops.html#ongoing-work">稼働中の仕事</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../guides/workshops.html#creating-and-publishing-a-new-workshop">新しいワークショップの作成と公開</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">REST API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="requests.html">概要</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="requests.html#requests">リクエスト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="requests.html#http-errors">HTTP エラー</a></li>
+<li class="toctree-l2"><a class="reference internal" href="requests.html#http-status">HTTP ステータス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="requests.html#numbers-lower-and-higher">数値: 高位と下位</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">ツール</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#nem2-sdk">NEM2-SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#insomnia-rest">Insomnia REST</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="endpoints.html">エンドポイント</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">WebSockets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#channels">チャンネル</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="status-errors.html">ステータスエラー</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SDKs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/overview.html">概要</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sdk/overview.html#backward-compatibility-with-nis1-sdks">NIS1 SDKとの後方互換性</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/architecture.html">アーキテクチャ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sdk/architecture.html#characteristics">特徴</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdk/architecture.html#reactive">リアクティブ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/architecture.html#references">リファレンス</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sdk/architecture.html#package-organization">パッケージ構成</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/architecture.html#infrastructure">インフラストラクチャ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/architecture.html#models">モデル</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/architecture.html#services">サービス</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/languages.html">言語</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sdk/languages.html#official-sdks">公式SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdk/languages.html#community-sdks">コミュニティのSDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdk/languages.html#ongoing-work">稼働中の仕事</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/libraries.html">NEMの性能を拡張</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sdk/libraries.html#official-libraries">公式ライブラリ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdk/libraries.html#community-libraries">コミュニティライブラリ</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Client</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/overview.html">概要</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/overview.html#installation">インストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/overview.html#configuration">設定</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/commands.html">コマンド</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/commands.html#profile">プロファイル</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#create">作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#list">リスト</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/commands.html#account">アカウント</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#generate-new-account">アカウントの生成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#get-account-info">アカウント情報の取得</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#get-confirmed-transactions">承認済トランザクションの取得</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#get-incoming-transactions">受信トランザクションの取得</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#get-outgoing-transactions">送信トランザクションの取得</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#get-unconfirmed-transactions">未承認トランザクションの取得</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#get-aggregate-bonded-transactions">アグリゲートボンドトランザクションの取得</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/commands.html#blockchain">ブロックチェーン</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#blockchain-height">ブロックチェーン高</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#blockchain-score">ブロックチェーンスコア</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/commands.html#transaction">トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#cosign-aggregate-bonded-transaction">連署アグリゲートボンドトランザクション</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#transaction-info">トランザクション情報</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#send-transfer-transaction">転送トランザクションの送信</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#send-pull-transaction">プルトランザクションの送信</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#register-root-namespace">ルートネームスペースの取得</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#register-subnamespace">サブネームスペースの取得</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#create-a-mosaic">モザイクの作成</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/commands.html#namespace">ネームスペース</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#info">情報</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/commands.html#mosaic">モザイク</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#id1">情報</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/commands.html#monitoring">モニタリング</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#block">ブロック</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#confirmed-transactions">承認済トランザクション</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#unconfirmed-transactions">未承認トランザクション</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#aggregate-bonded-transactions">アグリゲートボンドトランザクション</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#transaction-status">トランザクションの状態</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Prototyping Tool</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/overview.html">概要</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/overview.html#node-red">Node-RED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/overview.html#installation">インストール</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/configuring-nodes.html">ノードの設定</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/configuring-nodes.html#running-a-flow">フローの実行</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/examples.html">例</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#basics">基本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#applications">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#importing-a-flow">フローのインポート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#contributing">貢献</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/community.html">コミュニティ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">ガイドライン</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../support/contributing.html#development">開発</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../support/contributing.html#sdk">SDK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../support/contributing.html#wallets-explorers">ウォレット＆エクスプローラ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../support/contributing.html#documentation">ドキュメント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../support/contributing.html#workshops">ワークショップ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contributors.html">貢献者</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<div class="navbar-right hidden-sm hidden-xs">
+    <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
+    <a href="https://github.com/nemtech/nem2-docs/edit/master/source/api/websockets.rst"
+       rel="nofollow"> <i class="fab fa-github"></i> GitHubで編集</a>
+</div>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/what-is-nem.html">NEM とは？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">ワークステーションのセットアップ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">はじめてのアプリケーションを作成</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/cryptography.html">暗号理論</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/block.html">ブロック</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/transaction.html">トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/node.html">ノード</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">アカウント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">マルチシグアカウント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/multi-level-multisig-account.html">マルチレベルマルチシグアカウント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">ネームスペース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/mosaic.html">モザイク</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/transfer-transaction.html">転送トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/cross-chain-swaps.html">クロスチェーンスワップ</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guides/overview.html">概要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/account.html">アカウントとの疎通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/blockchain.html">ブロックチェーンの監視</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/namespace.html">ネームスペースの取得</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/mosaic.html">モザイクとの疎通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/transaction.html">トランザクションの送信</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/running-a-node.html">ノードの立ち上げ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/workshops.html">自己ペーストレーニング</a></li>
+</ul>
+<p class="caption"><span class="caption-text">REST API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="requests.html">概要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">ツール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="endpoints.html">エンドポイント</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">WebSockets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#channels">チャンネル</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="status-errors.html">ステータスエラー</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SDKs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/overview.html">概要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/architecture.html">アーキテクチャ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/languages.html">言語</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/libraries.html">NEMの性能を拡張</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Client</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/overview.html">概要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/commands.html">コマンド</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Prototyping Tool</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/overview.html">概要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/configuring-nodes.html">ノードの設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/examples.html">例</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/community.html">コミュニティ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">ガイドライン</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contributors.html">貢献者</a></li>
+</ul>
+
+        </div>
+      </div>
+    <div class="col-md-9 content">
+      
+  <div class="section" id="websockets">
+<h1>WebSockets<a class="headerlink" href="#websockets" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>WebSockets はブロックチェーン上でトランザクションやイベントが発生した通知を受け取ることを可能にします。この通知はAPIの返却を待つことなく、リアルタイムで行われます。</p>
+<p><a class="reference internal" href="../sdk/overview.html"><span class="doc">NEM2-SDK</span></a> でAPI WebSocket と疎通するには <strong>Listeners</strong> によって行います。</p>
+<div class="section" id="channels">
+<h2>チャンネル<a class="headerlink" href="#channels" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><strong>ブロック</strong></p>
+<p>ブロックチャンネルは新しいブロックごとに通知します。メッセージにはブロックの情報が含まれます。</p>
+<p><strong>confirmedAdded/&lt;ADDRESS&gt;</strong></p>
+<p>承認済追加チャンネルは、アドレスに関連するトランザクションがブロックに含まれたときに通知します。メッセージにはトランザクションが含まれます。</p>
+<p><strong>unconfirmedAdded/&lt;ADDRESS&gt;</strong></p>
+<p>未承認追加チャンネルは、アドレスに関連するトランザクションが未承認状態にあり、ブロックに含まれるのを待っているときに通知します。メッセージにはトランザクションが含まれます。</p>
+<p>トランザクションが <code class="docutils literal"><span class="pre">PUT</span> <span class="pre">/transaction</span></code> HTTP エンドポイントによりアナウンスされるか、アグリゲートボンドトランザクションのすべての署名が揃い、  <em>partial</em> から <em>未承認</em> へ変わるとき、このチャンネルからの通知が届く可能性があります。</p>
+<p><strong>unconfirmedRemoved/&lt;ADDRESS&gt;</strong></p>
+<p>未承認削除チャンネルはアドレスに関連するトランザクションが未承認状態であったが、そうでなくなったときに通知を行います。メッセージにはトランザクションハッシュが含まれます。</p>
+<p>このチャンネルが通知するシナリオとしては、トランザクションが承認済になった、または期限を迎えてブロックに含まれなくなったときです。</p>
+<p><strong>partialAdded/&lt;ADDRESS&gt;</strong></p>
+<p>パーシャル追加チャンネルはアドレスに関連するアグリゲートボンドトランザクションが <em>partial</em> な状態にあり、すべての <em>必要な連署者</em> を待機しているときに通知を行います。メッセージにはトランザクションハッシュが含まれます。</p>
+<p>このチャンネルが通知するシナリオとしては、アグリゲートボンドトランザクションが <code class="docutils literal"><span class="pre">PUT</span> <span class="pre">/transaction/partial</span></code> 経由でネットワークへアナウンスされたときです。</p>
+<p><strong>partialRemoved/&lt;ADDRESS&gt;</strong></p>
+<p>パーシャル削除チャンネルはアドレスに関連するトランザクションがパーシャルな状態であったが、そうでなくなったときに通知を行います。メッセージにはトランザクションハッシュが含まれます。</p>
+<p>このチャンネルが通知するシナリオとしては、トランザクションが未承認になった、または期限を迎えてブロックに取り込まれなくなったときです。</p>
+<p><strong>cosignature/&lt;ADDRESS&gt;</strong></p>
+<p>連署チャネルはアドレスに関連する <em>連署署名トランザクション</em> が、パーシャル状態のアグリゲートボンドトランザクションに追加されたときに通知します。メッセージには連署したトランザクションが含まれます。</p>
+<p><strong>status/&lt;ADDRESS&gt;</strong></p>
+<p>ステータスチャンネルはアドレスに関連するトランザクションで <a class="reference internal" href="status-errors.html"><span class="doc">エラー</span></a> が発生したときに通知を行います。メッセージにはエラーとトランザクションハッシュが含まれます。</p>
+<p>次へ: <a class="reference internal" href="status-errors.html"><span class="doc">ステータスエラー</span></a></p>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+    <div class="container">
+        <div class="row social">
+            <div class="col-md-12">
+                <ul>
+                    <li>
+                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM">
+                            <i class="fab fa-slack"></i>
+                            <span >Join #general discussion</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stackoverflow.com/tags/nem/">
+                            <i class="fab fa-stack-overflow"></i>
+                            <span>Ask development questions</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://twitter.com/nemtechdev">
+                            <i class="fab fa-twitter"></i>
+                            <span>Follow the dev updates</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://github.com/nemtech">
+                            <i class="fab fa-github"></i>
+                            <span>Explore Github</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-sm-4">
+                <h4>Built-in Features</h4>
+
+                <ul>
+                    <li><a href="../concepts/account.html">Account</a></li>
+                    <li><a href="../concepts/multisig-account.html">Multisig Account</a></li>
+                    <li><a href="../concepts/multi-level-multisig-account.html">Multilevel Multisig Account</a></li>
+                    <li><a href="../concepts/namespace.html">Namespace</a></li>
+                    <li><a href="../concepts/mosaic.html">Mosaic</a></li>
+                    <li><a href="../concepts/transfer-transaction.html">Transfer Transaction</a></li>
+                    <li><a href="../concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
+                    <li><a href="../concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
+                </ul>
+
+            </div>
+
+            <div class="col-sm-4">
+                <h4>Guides</h4>
+
+                <ul>
+
+                    <li><a href="../guides/account.html">Interacting with accounts</a></li>
+                    <li><a href="../guides/blockchain.html">Monitoring blockchain</a></li>
+                    <li><a href="../guides/namespace.html">Registering namespaces</a></li>
+                    <li><a href="../guides/mosaic.html">Interacting with mosaics</a></li>
+                    <li><a href="../guides/transaction.html">Sending transactions</a></li>
+                    <li><a href="../guides/running-a-node.html">Running a node</a></li>
+                    <li><a href="../guides/workshops.html">Self-paced training</a></li>
+                </ul>
+
+            </div>
+
+            <div class="col-sm-4">
+                <h4>References</h4>
+
+                <ul>
+                    <li><a href="requests.html">REST API</a></li>
+                    <li><a href="../sdk/languages.html">SDKs</a></li>
+                    <li><a href="../sdk/libraries.html">Libraries</a></li>
+                    <li><a href="../cli/overview.html">CLI</a></li>
+                </ul>
+                <div id="language">
+                    <i class="fas fa-globe"></i>
+                    <select>
+                        <option id="english" value="en">English</option>
+                        <option id="japanese" value="ja">Japanese</option>
+                    </select>
+                </div>
+
+            </div>
+
+        </div>
+
+        <p class="text-center top-gap">
+            &copy; Copyright 2018, NEM.
+        </p>
+    </div>
+</footer>
+
+  </body>
+</html>
