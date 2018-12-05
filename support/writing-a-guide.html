@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Writing a guide &#8212; NEM Developer Center</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'Master',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../_static/examplecode.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  
+
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
+          developer center</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.14</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../getting-started/what-is-nem.html">Getting started</a></li>
+                <li><a href="../concepts/account.html">Built-in features</a></li>
+                <li><a href="../references.html">References</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/what-is-nem.html">What is NEM?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/what-is-nem.html#the-smart-asset-system">The Smart Asset System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/what-is-nem.html#architecting-on-nem">Architecting on NEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/what-is-nem.html#public-and-private">Public and Private</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">Setting up your workstation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#running-catapult-service-bootstrap">Running Catapult Service Bootstrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#creating-a-test-account">Creating a test account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#what-is-xem-and-how-to-get-it">What is XEM and how to get it?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#setting-up-the-development-environment">Setting up the development environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#typescript-and-javascript">TypeScript and JavaScript</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#java">Java</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#c">C#</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">Writing your first application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/first-application.html#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/first-application.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/first-application.html#lets-get-into-some-code">Let’s get into some code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/first-application.html#what-s-next">What’s next?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/training.html">Self-paced training</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/training.html#adding-a-new-course">Adding a new course</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/cryptography.html">Cryptography</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/cryptography.html#private-and-public-key">Private and public key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/cryptography.html#address">Address</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/block.html">Block</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/block.html#block-creation">Block creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/block.html#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/block.html#related-guides">Related guides</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/transaction.html">Transaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#lifecycle">Lifecycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#rollbacks">Rollbacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#transaction-types">Transaction types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#related-guides">Related guides</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/node.html">Node</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/node.html#catapult-p2p-component">Catapult P2P Component</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/node.html#rocksdb">RocksDB</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/node.html#catapult-api-component">Catapult API Component</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/node.html#mongodb">MongoDB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/node.html#zmq">ZMQ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/node.html#catapult-rest-component">Catapult REST Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/node.html#related-guides">Related guides</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">Account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/account.html#multisig-account">Multisig Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/account.html#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/account.html#related-guides">Related guides</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">Multisig Account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/multisig-account.html#examples">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/multisig-account.html#shared-accounts">Shared accounts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/multisig-account.html#multi-factor-authorization">Multi-factor authorization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/multisig-account.html#assets-ownership">Assets ownership</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/multisig-account.html#modify-multisig-account-transaction">Modify multisig account transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/multisig-account.html#related-guides">Related guides</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/multi-level-multisig-account.html">Multi-Level Multisig Account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/multi-level-multisig-account.html#examples">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/multi-level-multisig-account.html#manufacturing-and-supply-chains">Manufacturing and Supply Chains</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/multi-level-multisig-account.html#fraud-detection">Fraud Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/multi-level-multisig-account.html#account-recovery">Account Recovery</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/multi-level-multisig-account.html#related-guides">Related guides</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">Namespace</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/namespace.html#subnamespaces">Subnamespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/namespace.html#register-namespace-transaction">Register namespace transaction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/namespace.html#parameters">Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/namespace.html#related-guides">Related guides</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/mosaic.html">Mosaic</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mosaic.html#mosaic-definition-transaction">Mosaic definition transaction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/mosaic.html#parameters">Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mosaic.html#mosaic-supply-change-transaction">Mosaic supply change transaction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/mosaic.html#id3">Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mosaic.html#related-guides">Related guides</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/transfer-transaction.html">Transfer Transaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/transfer-transaction.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/transfer-transaction.html#related-guides">Related guides</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/aggregate-transaction.html">Aggregate Transaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#examples">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/aggregate-transaction.html#sending-payouts">Sending payouts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/aggregate-transaction.html#multi-asset-escrowed-transactions">Multi-Asset Escrowed Transactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/aggregate-transaction.html#paying-for-others-fees">Paying for others fees</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#aggregate-complete">Aggregate complete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#aggregate-bonded">Aggregate bonded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#cosignature-transaction">Cosignature transaction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/aggregate-transaction.html#id3">Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#lock-funds-transaction">Lock funds transaction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/aggregate-transaction.html#id5">Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#related-guides">Related guides</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/cross-chain-swaps.html">Cross-Chain Swaps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/cross-chain-swaps.html#secret-lock-transaction">Secret lock transaction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/cross-chain-swaps.html#parameters">Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/cross-chain-swaps.html#secret-proof-transaction">Secret proof transaction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/cross-chain-swaps.html#id3">Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/cross-chain-swaps.html#related-guides">Related guides</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">REST API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/requests.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/requests.html#requests">Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/requests.html#http-errors">Http errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/requests.html#http-status">Http status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/requests.html#numbers-lower-and-higher">Numbers: lower and higher</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api/tools.html">Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/tools.html#nem2-sdk">NEM2-SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/tools.html#insomnia-rest">Insomnia REST</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api/endpoints.html">Endpoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/serialization.html">Serialization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/serialization.html#schema">Schema</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/serialization.html#parsing-a-schema-and-generating-code">Parsing a schema and generating code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/serialization.html#writing-a-schema">Writing a schema</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/serialization.html#integration">Integration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/serialization.html#adding-generated-code-to-a-sdk">Adding generated code to a SDK</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api/websockets.html">WebSockets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/websockets.html#channels">Channels</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api/status-errors.html">Status Errors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SDKs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sdk/overview.html#backward-compatibility-with-nis1-sdks">Backward compatibility with NIS1 SDKs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/architecture.html">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sdk/architecture.html#characteristics">Characteristics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdk/architecture.html#reactive">Reactive</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/architecture.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sdk/architecture.html#package-organization">Package Organization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/architecture.html#infrastructure">Infrastructure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/architecture.html#models">Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/architecture.html#services">Services</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/languages.html">Languages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sdk/languages.html#official-sdks">Official SDKs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdk/languages.html#community-sdks">Community SDKs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdk/languages.html#ongoing-work">Ongoing work</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/libraries.html">Extending NEM capabilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sdk/libraries.html#official-libraries">Official libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdk/libraries.html#community-libraries">Community libraries</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Client</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/overview.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/overview.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/commands.html">Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/commands.html#profile">Profile</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#create">Create</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#list">List</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/commands.html#account">Account</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#generate-new-account">Generate new account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#get-account-info">Get account info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#get-confirmed-transactions">Get confirmed transactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#get-incoming-transactions">Get incoming transactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#get-outgoing-transactions">Get outgoing transactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#get-unconfirmed-transactions">Get unconfirmed transactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#get-aggregate-bonded-transactions">Get Aggregate bonded transactions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/commands.html#blockchain">Blockchain</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#blockchain-height">Blockchain height</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#blockchain-score">Blockchain score</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/commands.html#transaction">Transaction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#cosign-aggregate-bonded-transaction">Cosign aggregate bonded transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#transaction-info">Transaction info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#send-transfer-transaction">Send transfer transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#send-pull-transaction">Send pull transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#register-root-namespace">Register root namespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#register-subnamespace">Register subnamespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#create-a-mosaic">Create a mosaic</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/commands.html#namespace">Namespace</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#info">Info</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/commands.html#mosaic">Mosaic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#id1">Info</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/commands.html#monitoring">Monitoring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#block">Block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#confirmed-transactions">Confirmed transactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#unconfirmed-transactions">Unconfirmed transactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#aggregate-bonded-transactions">Aggregate bonded transactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli/commands.html#transaction-status">Transaction status</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Prototyping Tool</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/overview.html#node-red">Node-RED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/overview.html#installation">Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/configuring-nodes.html">Configuring nodes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/configuring-nodes.html#configuring-api-gateway">Configuring API gateway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/configuring-nodes.html#running-a-flow">Running a flow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#basics">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#applications">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#importing-a-flow">Importing a flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#contributing">Contributing</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Guidelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#development">Development</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#sdk">SDK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#wallets-explorers">Wallets &amp; Explorers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<div class="navbar-right hidden-sm hidden-xs">
+    <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
+    <a href="https://github.com/nemtech/nem2-docs/edit/master/source/support\writing-a-guide.rst"
+       rel="nofollow"> <i class="fab fa-github"></i> Edit on GitHub</a>
+</div>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/what-is-nem.html">What is NEM?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">Setting up your workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">Writing your first application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/training.html">Self-paced training</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/cryptography.html">Cryptography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/block.html">Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/transaction.html">Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/node.html">Node</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">Multisig Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/multi-level-multisig-account.html">Multi-Level Multisig Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/mosaic.html">Mosaic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/transfer-transaction.html">Transfer Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
+</ul>
+<p class="caption"><span class="caption-text">REST API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/requests.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/endpoints.html">Endpoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/serialization.html">Serialization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/websockets.html">WebSockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/status-errors.html">Status Errors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SDKs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/languages.html">Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/libraries.html">Extending NEM capabilities</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Client</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/commands.html">Commands</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Prototyping Tool</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/configuring-nodes.html">Configuring nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/examples.html">Examples</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors</a></li>
+</ul>
+
+        </div>
+      </div>
+    <div class="col-md-9 content">
+      
+  <div class="section" id="writing-a-guide">
+<h1>Writing a guide<a class="headerlink" href="#writing-a-guide" title="Permalink to this headline">¶</a></h1>
+<p>Thank you for considering writing a new guide!</p>
+<div class="section" id="before-starting">
+<h2>Before starting<a class="headerlink" href="#before-starting" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Open the <a class="reference external" href="https://github.com/nemtech/nem2-docs/issues">nem2-docs repository issues</a>, and find some ideas pending to be written. They have the label “great new issue”.</li>
+<li>Opt to contribute to one of them by adding a comment, or create a new issue with your guide idea.</li>
+<li>Check if you can classify your guide under one of the current categories. If not, create a new issue proposing a new category:</li>
+</ol>
+<table border="1" class="docutils" id="id1">
+<caption><span class="caption-text">Categories</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Built-in feature</th>
+<th class="head">Tags</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Account</td>
+<td>account, multisig-account, mlma</td>
+</tr>
+<tr class="row-odd"><td>Blockchain</td>
+<td>blockchain</td>
+</tr>
+<tr class="row-even"><td>Namespace</td>
+<td>namespace</td>
+</tr>
+<tr class="row-odd"><td>Mosaic</td>
+<td>mosaic</td>
+</tr>
+<tr class="row-even"><td>Transaction</td>
+<td>transfer-transaction, aggregate-transaction, cross-chain-transaction, monitoring</td>
+</tr>
+<tr class="row-odd"><td>Node</td>
+<td>transfer-transaction, aggregate-transaction, cross-chain-transaction, monitoring</td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="4">
+<li>You can opt to write the guide for this repository, or use your blog.</li>
+</ol>
+</div>
+<div class="section" id="write-a-guide-for-this-repository">
+<h2>Write a guide for this repository<a class="headerlink" href="#write-a-guide-for-this-repository" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><a class="reference external" href="https://help.github.com/articles/fork-a-repo/">Fork</a> and clone the <a class="reference external" href="https://github.com/nemtech/nem2-docs">nem2-docs</a> repository.</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; git clone &lt;url&gt;
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>Make sure you have Python 2.7 or 3.4+ and <a class="reference external" href="https://pip.pypa.io/en/stable/installing/">pip</a> installed.</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; python --version
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Install requirements using pip:</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; pip install -r requirements.txt
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Create a new <code class="docutils literal"><span class="pre">rst</span></code> file inside one of the guides folder,</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; mkdir source/guides/&lt;folder_name&gt;/&lt;title&gt;.rst
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li>Use the following template to organize your content.</li>
+</ol>
+<div class="highlight-default"><div class="highlight"><pre><span></span>:orphan:
+
+.. post:: 18 Aug, 2018
+    :category: monitoring
+    :excerpt: 1
+    :nocomments:
+    :author: &lt;your_name_or_username&gt;
+
+#####
+Title
+#####
+
+Objective after finishing the guide.
+
+**********
+Background
+**********
+
+Explain necessary concepts before starting to code.
+
+*************
+Prerequisites
+*************
+
+- A
+- B
+- C
+
+************************
+Let’s get into some code
+************************
+
+Present the code and step-by-step explanation.
+
+************
+What&#39;s next?
+************
+
+Is there any extra exercise that readers could try on their own?
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li>Write and code your guide! Check the <a class="reference external" href="https://github.com/ralsina/rst-cheatsheet/blob/master/rst-cheatsheet.rst">restructured text cheatsheet</a> to style your text.</li>
+<li>Add the <a class="reference external" href="https://github.com/nemtech/nem2-docs/tree/master/source/resources/examples">code examples</a> under <code class="docutils literal"><span class="pre">source/resources/examples/&lt;language_or_tool&gt;</span></code>. You can render fragments of code from a file inside your rst file.</li>
+</ol>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">example</span><span class="o">-</span><span class="n">code</span><span class="p">::</span>
+
+    <span class="o">..</span> <span class="n">literalinclude</span><span class="p">::</span> <span class="o">&lt;</span><span class="n">relative_url</span><span class="o">&gt;.</span><span class="n">ts</span>
+        <span class="p">:</span><span class="n">language</span><span class="p">:</span> <span class="n">typescript</span>
+        <span class="p">:</span><span class="n">lines</span><span class="p">:</span> <span class="mi">20</span><span class="o">-</span><span class="mi">40</span>
+</pre></div>
+</div>
+<ol class="arabic" start="7">
+<li><p class="first">Test and preview your changes.</p>
+<blockquote>
+<div><p>$&gt; make livehtml</p>
+</div></blockquote>
+</li>
+<li><p class="first">Push your changes and do a <a class="reference external" href="https://help.github.com/articles/creating-a-pull-request/">pull-request</a>. The repository maintainers will proofread and edit the content to follow the documentation writing style.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="write-a-guide-in-your-blog">
+<h2>Write a guide in your blog<a class="headerlink" href="#write-a-guide-in-your-blog" title="Permalink to this headline">¶</a></h2>
+<p>Create or comment an existent issue including the link of your blog post. If the content is relevant and not repeated, the repository maintainers will include your link under the guides section.</p>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+    <div class="container">
+        <div class="row social">
+            <div class="col-md-12">
+                <ul>
+                    <li>
+                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM">
+                            <i class="fab fa-slack"></i>
+                            <span >Join #general discussion</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stackoverflow.com/tags/nem/">
+                            <i class="fab fa-stack-overflow"></i>
+                            <span>Ask development questions</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://twitter.com/nemtechdev">
+                            <i class="fab fa-twitter"></i>
+                            <span>Follow the dev updates</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://github.com/nemtech">
+                            <i class="fab fa-github"></i>
+                            <span>Explore Github</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-sm-4">
+                <h4>Protocol</h4>
+
+                <ul>
+                    <li><a href="../concepts/cryptography.html">Cryptography</a></li>
+                    <li><a href="../concepts/block.html">Block</a></li>
+                    <li><a href="../concepts/transaction.html">Transaction</a></li>
+                    <li><a href="../concepts/node.html">Node</a></li>
+                </ul>
+
+            </div>
+
+            <div class="col-sm-4">
+                <h4>Built-in Features</h4>
+
+                <ul>
+                    <li><a href="../concepts/account.html">Account</a></li>
+                    <li><a href="../concepts/multisig-account.html">Multisig Account</a></li>
+                    <li><a href="../concepts/multi-level-multisig-account.html">Multilevel Multisig Account</a></li>
+                    <li><a href="../concepts/namespace.html">Namespace</a></li>
+                    <li><a href="../concepts/mosaic.html">Mosaic</a></li>
+                    <li><a href="../concepts/transfer-transaction.html">Transfer Transaction</a></li>
+                    <li><a href="../concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
+                    <li><a href="../concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
+                </ul>
+
+            </div>
+
+            <div class="col-sm-4">
+                <h4>References</h4>
+
+                <ul>
+                    <li><a href="../api/requests.html">REST API</a></li>
+                    <li><a href="../sdk/languages.html">SDKs</a></li>
+                    <li><a href="../sdk/libraries.html">Libraries</a></li>
+                    <li><a href="../cli/overview.html">CLI</a></li>
+                </ul>
+                <div id="language">
+                    <i class="fas fa-globe"></i>
+                    <select>
+                        <option id="english" value="en">English</option>
+                        <option id="japanese" value="ja">Japanese</option>
+                    </select>
+                </div>
+
+            </div>
+
+        </div>
+
+        <p class="text-center top-gap">
+            &copy; Copyright 2018, NEM.
+        </p>
+    </div>
+</footer>
+
+  </body>
+</html>

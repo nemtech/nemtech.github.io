@@ -66,7 +66,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.13</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.13.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -122,7 +122,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/block.html">ブロック</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/block.html#block-creation">ブロック生成</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/block.html#parameters">パラメータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/block.html#properties">プロパティ</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transaction.html">トランザクション</a><ul>
@@ -154,24 +154,41 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">マルチシグアカウント</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/multisig-account.html#modifying-multisig-account-transaction">マルチシグアカウント変更トランザクション</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../concepts/multisig-account.html#examples">例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/multisig-account.html#examples">例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/multisig-account.html#shared-accounts">共有アカウント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/multisig-account.html#multi-factor-authorization">複数要素認証</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/multisig-account.html#assets-ownership">アセットの所有権</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/multisig-account.html#modify-multisig-account-transaction">マルチシグアカウント変更トランザクション</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/multi-level-multisig-account.html">マルチレベルマルチシグアカウント</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/multi-level-multisig-account.html#examples">例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/multi-level-multisig-account.html#examples">例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/multi-level-multisig-account.html#manufacturing-and-supply-chains">製造とサプライチェーン</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/multi-level-multisig-account.html#fraud-detection">不正検知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/multi-level-multisig-account.html#account-recovery">アカウントの復旧</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">ネームスペース</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/namespace.html#subnamespaces">サブネームスペース</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/namespace.html#register-namespace-transaction">ネームスペース登録トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/namespace.html#register-namespace-transaction">ネームスペース登録トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/namespace.html#parameters">パラメータ</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">モザイク</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/mosaic.html#mosaic-definition-transaction">モザイク定義トランザクション</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/mosaic.html#mosaic-supply-change-transaction">モザイク供給量変更トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/mosaic.html#mosaic-definition-transaction">モザイク定義トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/mosaic.html#parameters">パラメータ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/mosaic.html#mosaic-supply-change-transaction">モザイク供給量変更トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/mosaic.html#id3">パラメータ</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">転送トランザクション</a><ul>
@@ -179,22 +196,34 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">アグリゲートトランザクション</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/aggregate-transaction.html#examples">例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/aggregate-transaction.html#sending-payouts">支払の送信</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/aggregate-transaction.html#multi-asset-escrowed-transactions">マルチアセットエスクロートランザクション</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/aggregate-transaction.html#paying-for-others-fees">他人の手数料を支払う</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/aggregate-transaction.html#parameters">パラメータ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/aggregate-transaction.html#aggregate-complete">アグリゲートコンプリート</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../concepts/aggregate-transaction.html#examples">例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/aggregate-transaction.html#aggregate-complete">アグリゲートコンプリート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/aggregate-transaction.html#aggregate-bonded">アグリゲートボンド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/aggregate-transaction.html#cosignature-transaction">署名トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/aggregate-transaction.html#id3">パラメータ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/aggregate-transaction.html#aggregate-bonded">アグリゲートボンド</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../concepts/aggregate-transaction.html#id2">例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/aggregate-transaction.html#lock-funds-transaction">ロックファンドトランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/aggregate-transaction.html#id5">パラメータ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/aggregate-transaction.html#cosignature-transaction">署名トランザクション</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/aggregate-transaction.html#lock-funds-transaction">ロックファンドトランザクション</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">クロスチェーンスワップ</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/cross-chain-swaps.html#secret-lock-transaction">シークレットロックトランザクション</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/cross-chain-swaps.html#secret-proof-transaction">シークレット証明トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/cross-chain-swaps.html#secret-lock-transaction">シークレットロックトランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/cross-chain-swaps.html#parameters">パラメータ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/cross-chain-swaps.html#secret-proof-transaction">シークレット証明トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/cross-chain-swaps.html#id3">パラメータ</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -353,12 +382,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool/configuring-nodes.html">ノードの設定</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../prototyping-tool/configuring-nodes.html#configuring-api-gateway">API ゲートウェイの設定</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../prototyping-tool/configuring-nodes.html#running-a-flow">フローの実行</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool/examples.html">例</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../prototyping-tool/examples.html#basics">基本</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../prototyping-tool/examples.html#applications">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../prototyping-tool/examples.html#applications">アプリケーション</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../prototyping-tool/examples.html#importing-a-flow">フローのインポート</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../prototyping-tool/examples.html#contributing">貢献</a></li>
 </ul>
@@ -393,7 +423,7 @@
             
 <div class="navbar-right hidden-sm hidden-xs">
     <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
-    <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides/transaction/debugging-transactions.rst"
+    <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\transaction\debugging-transactions.rst"
        rel="nofollow"> <i class="fab fa-github"></i> GitHubで編集</a>
 </div>
           
@@ -412,7 +442,7 @@
 <h2>背景<a class="headerlink" href="#background" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>NIS1 の API を使ったことがあるなら、トランザクションのアナウンスの後に成功メッセージまたはトランザクションがブロックに取り込まれなかった理由を示す何らかのエラーメッセージを受け取ることをご存じでしょう。</p>
 <p>新しい Catapult REST API では <em>非同期的</em> な異なる動作をします。ユーザーが API を経由してトランザクションをアナウンスすると、常にOKを返します。</p>
-<p>To know the status of the transaction, which can be OK or <a class="reference internal" href="../../api/status-errors.html"><span class="doc">Failure</span></a>, you have to:</p>
+<p>トランザクションの状態が、成功したのか、 <a class="reference internal" href="../../api/status-errors.html"><span class="doc">失敗</span></a> したのかを確認するためには、このようにします:</p>
 <ol class="loweralpha simple">
 <li>API エンドポイント経由でステータスを確認してください。</li>
 <li>別の <a class="reference internal" href="../../api/websockets.html"><span class="doc">WebSocket</span></a> チャンネルを監視してください。</li>

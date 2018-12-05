@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Translating the documentation &#8212; nem2-docs Master ドキュメント</title>
+    <title>ドキュメントの翻訳 &#8212; nem2-docs Master ドキュメント</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
@@ -66,7 +66,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.13</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.13.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -122,7 +122,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/block.html">ブロック</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/block.html#block-creation">ブロック生成</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/block.html#parameters">パラメータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/block.html#properties">プロパティ</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/transaction.html">トランザクション</a><ul>
@@ -154,24 +154,41 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">マルチシグアカウント</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/multisig-account.html#modifying-multisig-account-transaction">マルチシグアカウント変更トランザクション</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../concepts/multisig-account.html#examples">例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/multisig-account.html#examples">例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/multisig-account.html#shared-accounts">共有アカウント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/multisig-account.html#multi-factor-authorization">複数要素認証</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/multisig-account.html#assets-ownership">アセットの所有権</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/multisig-account.html#modify-multisig-account-transaction">マルチシグアカウント変更トランザクション</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/multi-level-multisig-account.html">マルチレベルマルチシグアカウント</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/multi-level-multisig-account.html#examples">例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/multi-level-multisig-account.html#examples">例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/multi-level-multisig-account.html#manufacturing-and-supply-chains">製造とサプライチェーン</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/multi-level-multisig-account.html#fraud-detection">不正検知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/multi-level-multisig-account.html#account-recovery">アカウントの復旧</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">ネームスペース</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/namespace.html#subnamespaces">サブネームスペース</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/namespace.html#register-namespace-transaction">ネームスペース登録トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/namespace.html#register-namespace-transaction">ネームスペース登録トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/namespace.html#parameters">パラメータ</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/mosaic.html">モザイク</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/mosaic.html#mosaic-definition-transaction">モザイク定義トランザクション</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/mosaic.html#mosaic-supply-change-transaction">モザイク供給量変更トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mosaic.html#mosaic-definition-transaction">モザイク定義トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/mosaic.html#parameters">パラメータ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mosaic.html#mosaic-supply-change-transaction">モザイク供給量変更トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/mosaic.html#id3">パラメータ</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/transfer-transaction.html">転送トランザクション</a><ul>
@@ -179,22 +196,34 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/aggregate-transaction.html">アグリゲートトランザクション</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#examples">例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/aggregate-transaction.html#sending-payouts">支払の送信</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/aggregate-transaction.html#multi-asset-escrowed-transactions">マルチアセットエスクロートランザクション</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/aggregate-transaction.html#paying-for-others-fees">他人の手数料を支払う</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#parameters">パラメータ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#aggregate-complete">アグリゲートコンプリート</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../concepts/aggregate-transaction.html#examples">例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#aggregate-complete">アグリゲートコンプリート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#aggregate-bonded">アグリゲートボンド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#cosignature-transaction">署名トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/aggregate-transaction.html#id3">パラメータ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#aggregate-bonded">アグリゲートボンド</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../concepts/aggregate-transaction.html#id2">例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#lock-funds-transaction">ロックファンドトランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/aggregate-transaction.html#id5">パラメータ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#cosignature-transaction">署名トランザクション</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#lock-funds-transaction">ロックファンドトランザクション</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/cross-chain-swaps.html">クロスチェーンスワップ</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/cross-chain-swaps.html#secret-lock-transaction">シークレットロックトランザクション</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/cross-chain-swaps.html#secret-proof-transaction">シークレット証明トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/cross-chain-swaps.html#secret-lock-transaction">シークレットロックトランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/cross-chain-swaps.html#parameters">パラメータ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/cross-chain-swaps.html#secret-proof-transaction">シークレット証明トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/cross-chain-swaps.html#id3">パラメータ</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -353,12 +382,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/configuring-nodes.html">ノードの設定</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/configuring-nodes.html#configuring-api-gateway">API ゲートウェイの設定</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/configuring-nodes.html#running-a-flow">フローの実行</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/examples.html">例</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#basics">基本</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#applications">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#applications">アプリケーション</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#importing-a-flow">フローのインポート</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#contributing">貢献</a></li>
 </ul>
@@ -393,7 +423,7 @@
             
 <div class="navbar-right hidden-sm hidden-xs">
     <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
-    <a href="https://github.com/nemtech/nem2-docs/edit/master/source/support/translating-the-documentation.rst"
+    <a href="https://github.com/nemtech/nem2-docs/edit/master/source/support\translating-the-documentation.rst"
        rel="nofollow"> <i class="fab fa-github"></i> GitHubで編集</a>
 </div>
           
@@ -477,44 +507,44 @@
     <div class="col-md-9 content">
       
   <div class="section" id="translating-the-documentation">
-<h1>Translating the documentation<a class="headerlink" href="#translating-the-documentation" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>The NEM Developer Center uses Sphinx, a Python framework to write documentation. The extension <a class="reference external" href="http://www.sphinx-doc.org/en/master/intl.html">sphinx-intl</a> permits translating documentation into multiple languages without having to host different documentation sites.</p>
+<h1>ドキュメントの翻訳<a class="headerlink" href="#translating-the-documentation" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>この NEM 開発センターはドキュメント作成用 Python のフレームワークである Sphinx によって作成されています。その拡張である <a class="reference external" href="http://www.sphinx-doc.org/en/master/intl.html">sphinx-intl</a> は異なるドキュメントサイトをホストすることなく、ドキュメントを多言語に翻訳することができます。</p>
 <div class="section" id="adding-updating-translations">
-<h2>Adding/updating translations<a class="headerlink" href="#adding-updating-translations" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>翻訳の追加/更新<a class="headerlink" href="#adding-updating-translations" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ol class="arabic simple">
-<li>Clone the repository, and make sure you have Python 2.7 or 3.4+ and pip installed.</li>
+<li>リポジトリをクローンして、Python 2.7 または 3.4+ と pip がインストールされていることを確認してください。</li>
 </ol>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; git clone https://github.com/nemtech/nem2-docs.git
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
-<li>Install the project’s requirements.</li>
+<li>プロジェクトの必須項目をインストール</li>
 </ol>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; pip install -r requirements.txt
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
-<li>Extract the docs messages into .po files.</li>
+<li>.poファイルにドキュメントのメッセージを抽出</li>
 </ol>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt;  make gettext
 </pre></div>
 </div>
-<p>For each documentation file, a .po file will be generated under <code class="docutils literal"><span class="pre">_build/gettext</span></code>.</p>
+<p>各ドキュメントファイルの .po ファイルは <code class="docutils literal"><span class="pre">_build/gettext</span></code> に生成されます。</p>
 <ol class="arabic simple" start="4">
-<li>Copy translation files into <code class="docutils literal"><span class="pre">source/locale</span></code> with the following command. It is also used to update .po files when the documentation in English have changed:</li>
+<li>次のコマンドで <code class="docutils literal"><span class="pre">source/locale</span></code> へ翻訳ファイルをコピーしてください。これは英語のドキュメントが変更された時に、 .po ファイルを更新するためにも用います。</li>
 </ol>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt;  sphinx-intl update -p _build/gettext -l &lt;lang&gt;
 </pre></div>
 </div>
-<p>Replace &lt;lang&gt; for your <a class="reference external" href="https://en.wikipedia.org/wiki/ISO_639-1">language code</a>.</p>
+<p>&lt;lang&gt; をあなたの <a class="reference external" href="https://en.wikipedia.org/wiki/ISO_639-1">言語コード</a> に置き換えてください。</p>
 <ol class="arabic simple" start="5">
-<li>Translate your .po files under <code class="docutils literal"><span class="pre">source/locale/&lt;lang&gt;/LC_MESSAGES/</span></code>. For each <code class="docutils literal"><span class="pre">msgid</span></code>, provide the translated <code class="docutils literal"><span class="pre">msgstr</span></code>.</li>
-<li>Generate the translated document and review the changes.</li>
+<li><code class="docutils literal"><span class="pre">source/locale/&lt;lang&gt;/LC_MESSAGES/</span></code> にある .po ファイルを翻訳してください。各 <code class="docutils literal"><span class="pre">msgid</span></code> は 翻訳された <code class="docutils literal"><span class="pre">msgstr</span></code> を提供します。</li>
+<li>翻訳されたドキュメントの生成と変更の確認</li>
 </ol>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; make -e <span class="nv">SPHINXOPTS</span><span class="o">=</span><span class="s2">&quot;-D language=&#39;&lt;lang&gt;&#39;&quot;</span> livehtml
 </pre></div>
 </div>
-<p><a class="reference internal" href="suggesting-changes.html"><span class="doc">Submit your changes</span></a> into the nem2-docs repository.</p>
+<p>nem2-docs リポジトリへ <a class="reference internal" href="suggesting-changes.html"><span class="doc">変更を提出</span></a> してください。</p>
 </div>
 </div>
 

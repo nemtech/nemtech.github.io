@@ -68,7 +68,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.13</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.13.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -124,7 +124,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="block.html">ブロック</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="block.html#block-creation">ブロック生成</a></li>
-<li class="toctree-l2"><a class="reference internal" href="block.html#parameters">パラメータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="block.html#properties">プロパティ</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">トランザクション</a><ul>
@@ -156,24 +156,41 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="multisig-account.html#modifying-multisig-account-transaction">マルチシグアカウント変更トランザクション</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="multisig-account.html#examples">例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig-account.html#examples">例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="multisig-account.html#shared-accounts">共有アカウント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multisig-account.html#multi-factor-authorization">複数要素認証</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multisig-account.html#assets-ownership">アセットの所有権</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="multisig-account.html#modify-multisig-account-transaction">マルチシグアカウント変更トランザクション</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="multi-level-multisig-account.html">マルチレベルマルチシグアカウント</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="multi-level-multisig-account.html#examples">例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-level-multisig-account.html#examples">例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="multi-level-multisig-account.html#manufacturing-and-supply-chains">製造とサプライチェーン</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multi-level-multisig-account.html#fraud-detection">不正検知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multi-level-multisig-account.html#account-recovery">アカウントの復旧</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="namespace.html#subnamespaces">サブネームスペース</a></li>
-<li class="toctree-l2"><a class="reference internal" href="namespace.html#register-namespace-transaction">ネームスペース登録トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html#register-namespace-transaction">ネームスペース登録トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="namespace.html#parameters">パラメータ</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">モザイク</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mosaic.html#mosaic-definition-transaction">モザイク定義トランザクション</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mosaic.html#mosaic-supply-change-transaction">モザイク供給量変更トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic.html#mosaic-definition-transaction">モザイク定義トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mosaic.html#parameters">パラメータ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic.html#mosaic-supply-change-transaction">モザイク供給量変更トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mosaic.html#id3">パラメータ</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a><ul>
@@ -181,22 +198,34 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">アグリゲートトランザクション</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#examples">例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sending-payouts">支払の送信</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multi-asset-escrowed-transactions">マルチアセットエスクロートランザクション</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#paying-for-others-fees">他人の手数料を支払う</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#parameters">パラメータ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#aggregate-complete">アグリゲートコンプリート</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#examples">例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aggregate-complete">アグリゲートコンプリート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aggregate-bonded">アグリゲートボンド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cosignature-transaction">署名トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">パラメータ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#aggregate-bonded">アグリゲートボンド</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lock-funds-transaction">ロックファンドトランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">パラメータ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#cosignature-transaction">署名トランザクション</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lock-funds-transaction">ロックファンドトランザクション</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html#secret-lock-transaction">シークレットロックトランザクション</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html#secret-proof-transaction">シークレット証明トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html#secret-lock-transaction">シークレットロックトランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cross-chain-swaps.html#parameters">パラメータ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html#secret-proof-transaction">シークレット証明トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cross-chain-swaps.html#id3">パラメータ</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -355,12 +384,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/configuring-nodes.html">ノードの設定</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/configuring-nodes.html#configuring-api-gateway">API ゲートウェイの設定</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/configuring-nodes.html#running-a-flow">フローの実行</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/examples.html">例</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#basics">基本</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#applications">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#applications">アプリケーション</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#importing-a-flow">フローのインポート</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#contributing">貢献</a></li>
 </ul>
@@ -395,7 +425,7 @@
             
 <div class="navbar-right hidden-sm hidden-xs">
     <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
-    <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts/aggregate-transaction.rst"
+    <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\aggregate-transaction.rst"
        rel="nofollow"> <i class="fab fa-github"></i> GitHubで編集</a>
 </div>
           
@@ -428,17 +458,23 @@
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">モザイク</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">アグリゲートトランザクション</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#examples">例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sending-payouts">支払の送信</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multi-asset-escrowed-transactions">マルチアセットエスクロートランザクション</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#paying-for-others-fees">他人の手数料を支払う</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#parameters">パラメータ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#aggregate-complete">アグリゲートコンプリート</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#examples">例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aggregate-complete">アグリゲートコンプリート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aggregate-bonded">アグリゲートボンド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cosignature-transaction">署名トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">パラメータ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#aggregate-bonded">アグリゲートボンド</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lock-funds-transaction">ロックファンドトランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">パラメータ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#cosignature-transaction">署名トランザクション</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lock-funds-transaction">ロックファンドトランザクション</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
@@ -494,6 +530,36 @@
   <div class="section" id="aggregate-transaction">
 <h1>アグリゲートトランザクション<a class="headerlink" href="#aggregate-transaction" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p id="id1">アグリゲートトランザクションは複数のトランザクションを一つにまとめ、 <strong>トラストレス</strong> な交換や高度なロジックを可能にします。NEM は一度きりの破棄可能なスマートコントラクトを生成することでこれを実現しています。アグリゲートトランザクションへ全ての <a class="reference internal" href="account.html"><span class="doc">アカウント</span></a> が署名をすると、全ての内包トランザクションは同時に実行されます。</p>
+<div class="section" id="examples">
+<h2>例<a class="headerlink" href="#examples" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="sending-payouts">
+<h3>支払の送信<a class="headerlink" href="#sending-payouts" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>DAN は二つの転送トランザクションを集約したアグリゲートトランザクションをアナウンスします。</p>
+<p>彼だけが署名を必要とするので、これは完了したアグリゲートトランザクションと呼びます。これがネットワークへアナウンスされると、Alice と Bob は同時にモザイクを受け取るでしょう。</p>
+<div class="figure align-center" id="id7">
+<img alt="../_images/aggregate-sending-payouts.png" src="../_images/aggregate-sending-payouts.png" style="width: 450px;" />
+<p class="caption"><span class="caption-text">アグリゲート完了トランザクションによって支払を送信する</span></p>
+</div>
+</div>
+<div class="section" id="multi-asset-escrowed-transactions">
+<h3>マルチアセットエスクロートランザクション<a class="headerlink" href="#multi-asset-escrowed-transactions" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>この例では、ALICE はチケットを currency:euro で購入しています。チケット販売者はアグリゲートトランザクションに署名し、交換はアトミックに起こります。</p>
+<div class="figure align-center" id="id8">
+<img alt="../_images/aggregate-escrow-1.png" src="../_images/aggregate-escrow-1.png" style="width: 450px;" />
+<p class="caption"><span class="caption-text">マルチアセットエスクロートランザクション</span></p>
+</div>
+</div>
+<div class="section" id="paying-for-others-fees">
+<h3>他人の手数料を支払う<a class="headerlink" href="#paying-for-others-fees" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ALICE は € 10 をボブへペイメントアプリで送ります。しかし彼女はブロックチェーンのトランザクション手数料を支払う分の XEM を持っていません。</p>
+<p>アグリゲートボンドトランザクションを作ることで、彼女は USD を手数料のための XEM に替えることができます。これで ALICE と BOB は XEM を購入したり保有することなく、ブロックチェーンを使うことができます。</p>
+<p>アプリの製作者は、オープンソースの支払いアプリに独自ブランドを付けることができるので、ALICE と BOB は彼らがブロックチェーンを使っていることすら知らないでしょう。</p>
+<div class="figure align-center" id="id9">
+<img alt="../_images/aggregate-paying-for-others-fees.png" src="../_images/aggregate-paying-for-others-fees.png" style="width: 450px;" />
+<p class="caption"><span class="caption-text">他人の手数料を支払う</span></p>
+</div>
+</div>
+</div>
 <div class="section" id="parameters">
 <h2>パラメータ<a class="headerlink" href="#parameters" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>アグリゲートトランザクションは以下のパラメータを受け付けます:</p>
@@ -513,14 +579,6 @@
 <p>全ての連署者が署名をすると、アグリゲートトランザクションは <strong>完了</strong> になります。</p>
 <p>異なる参加者は、アグリゲートトランザクションにブロックチェーンを使うことなく署名することができます。必要な署名をすべて取得したら、彼らのうちの1人がネットワークにアナウンスできます。セットアップされたインナートランザクションが正当で、バリデーションエラーがない場合、トランザクションは同時に実行されます。</p>
 <p>アグリゲートコンプリートトランザクションは、同じ操作で異なる参加者間で複数のインナートランザクションを集めることで、ブロックごとにさらに多くのトランザクションを追加できます。</p>
-<div class="section" id="examples">
-<h3>例<a class="headerlink" href="#examples" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Dan は２つのトランザクションを集約したアグリゲートトランザクションをアナウンスします。彼だけが署名を必要とするので、これは完了したアグリゲートトランザクションと呼びます。これがネットワークへアナウンスされると、Alice と Bob は同時にモザイクを受け取るでしょう。</p>
-<div class="figure align-center" id="id5">
-<img alt="../_images/guides-transactions-sending-payouts.png" src="../_images/guides-transactions-sending-payouts.png" style="width: 450px;" />
-<p class="caption"><span class="caption-text">アグリゲート完了トランザクションによって支払を送信する</span></p>
-</div>
-</div>
 </div>
 <div class="section" id="aggregate-bonded">
 <h2>アグリゲートボンド<a class="headerlink" href="#aggregate-bonded" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -530,42 +588,30 @@
 <p class="last"><strong>アグリゲートボンドトランザクション</strong> を送信する場合、アカウントは最初に最低 <code class="docutils literal"><span class="pre">10</span></code> XEM でアグリゲートのロック資産トランザクションをアナウンスして承認される必要があります。</p>
 </div>
 <p>アグリゲートボンドがアナウンスされると、パーシャル状態になり、WebSocket または HTTP API 呼び出しによって状態を通知します。</p>
-<p>連署者がトランザクションに署名し、アグリゲートボンド連署をアナウンスするたびに、ネットワークは必要な連署者がすでに署名しているかどうかをチェックします。この時、ネットワークがそれを受け入れるまでトランザクションは未承認状態に遷移し、一度処理されるとブロックに含まれます。</p>
-<div class="figure align-center" id="id6">
+<p>連署者がトランザクションに署名し、 <a class="reference internal" href="#cosignature-transaction"><span class="std std-ref">アグリゲートボンド連署をアナウンスする</span></a> たびに、ネットワークは必要な連署者がすでに署名しているかどうかをチェックします。この時、ネットワークがそれを受け入れるまでトランザクションは未承認状態に遷移し、一度処理されるとブロックに含まれます。</p>
+<div class="figure align-center" id="id10">
 <img alt="../_images/aggregate-bonded-transaction-cycle.png" src="../_images/aggregate-bonded-transaction-cycle.png" style="width: 900px;" />
 <p class="caption"><span class="caption-text">アグリゲートボンドトランザクションサイクル</span></p>
 </div>
-<div class="section" id="id2">
-<h3>例<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<ol class="arabic simple">
-<li>この例では、ALICE はチケットを currency:euro で購入しています。チケット販売者はアグリゲートトランザクションに署名し、交換はアトミックに起こります。</li>
-</ol>
-<div class="figure align-center" id="id7">
-<img alt="../_images/guides-transactions-escrow.png" src="../_images/guides-transactions-escrow.png" style="width: 450px;" />
-<p class="caption"><span class="caption-text">マルチアセットエスクロートランザクション</span></p>
-</div>
-<ol class="arabic simple" start="2">
-<li>ALICE は BOB へ 10 € を支払いアプリを使って送ります。しかし、彼女はブロックチェーントランザクション手数料として払うためのXEM を持っていません。アグリゲートボンドトランザクションを作ることで、彼女は USD を手数料のための XEM に替えることができます。これで ALICE と BOB は XEM を購入したり保有することなく、ブロックチェーンを使うことができます。アプリの製作者は、オープンソースの支払いアプリに独自ブランドを付けることができるので、ALICE と BOB は彼らがブロックチェーンを使っていることすら知らないでしょう。</li>
-</ol>
-<div class="figure align-center" id="id8">
-<img alt="../_images/guides-transactions-paying-for-others-fees.png" src="../_images/guides-transactions-paying-for-others-fees.png" style="width: 450px;" />
-<p class="caption"><span class="caption-text">他人の手数料を支払う</span></p>
-</div>
-</div>
 </div>
 <div class="section" id="cosignature-transaction">
-<span id="id3"></span><h2>署名トランザクション<a class="headerlink" href="#cosignature-transaction" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id2"></span><h2>署名トランザクション<a class="headerlink" href="#cosignature-transaction" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>署名トランザクションは、まだ署名の揃っていない <a class="reference internal" href="#id1"><span class="std std-ref">アナウンス済みのアグリゲートボンドトランザクション</span></a> への署名に使用します。</p>
+<div class="section" id="id3">
+<h3>パラメータ<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <blockquote>
 <div><p><strong>署名のためのトランザクション</strong></p>
 <p>署名するアグリゲートボンドトランザクション</p>
 </div></blockquote>
+</div>
 </div>
 <div class="section" id="lock-funds-transaction">
 <span id="id4"></span><h2>ロックファンドトランザクション<a class="headerlink" href="#lock-funds-transaction" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>署名された <a class="reference internal" href="#id1"><span class="std std-ref">アグリゲートボンドトランザクション</span></a> を送信する前に、ロック資金トランザクションをアナウンスします。このメカニズムはネットワークスパムを防止するために要求されます。</p>
 <p>関連するアグリゲートボンドトランザクションが承認されると、ロックされた資金は、初期ロック資金トランザクションに署名したアカウントで再び利用可能になります。</p>
 <p>すべての連署者によって署名されずにアグリゲートボンドトランザクションが期間に達した場合、ロックされた資産は、ブロックのハーベスタによって、ロックの有効期限が切れるブロック高でハーベストされます。</p>
+<div class="section" id="id5">
+<h3>パラメータ<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <blockquote>
 <div><p><strong>モザイク</strong></p>
 <p>ロックモザイク、最低でも <code class="docutils literal"><span class="pre">10</span> <span class="pre">nem:xem</span></code> 必要です。</p>
@@ -574,6 +620,11 @@
 <p><strong>ハッシュ</strong></p>
 <p>資産をアンロックする前に、アグリゲートボンドトランザクションが承認されていなければなりません。</p>
 </div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">設定パラメータは <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">編集可能</a> です。公開ネットワークでは異なる可能性があります。</p>
+</div>
+</div>
 </div>
 </div>
 

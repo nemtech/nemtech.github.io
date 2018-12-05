@@ -68,7 +68,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.13</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.13.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -124,7 +124,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="block.html">ブロック</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="block.html#block-creation">ブロック生成</a></li>
-<li class="toctree-l2"><a class="reference internal" href="block.html#parameters">パラメータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="block.html#properties">プロパティ</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">トランザクション</a><ul>
@@ -156,24 +156,41 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">マルチシグアカウント</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#modifying-multisig-account-transaction">マルチシグアカウント変更トランザクション</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#examples">例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#shared-accounts">共有アカウント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multi-factor-authorization">複数要素認証</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#assets-ownership">アセットの所有権</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#modify-multisig-account-transaction">マルチシグアカウント変更トランザクション</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="multi-level-multisig-account.html">マルチレベルマルチシグアカウント</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="multi-level-multisig-account.html#examples">例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-level-multisig-account.html#examples">例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="multi-level-multisig-account.html#manufacturing-and-supply-chains">製造とサプライチェーン</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multi-level-multisig-account.html#fraud-detection">不正検知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multi-level-multisig-account.html#account-recovery">アカウントの復旧</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="namespace.html#subnamespaces">サブネームスペース</a></li>
-<li class="toctree-l2"><a class="reference internal" href="namespace.html#register-namespace-transaction">ネームスペース登録トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html#register-namespace-transaction">ネームスペース登録トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="namespace.html#parameters">パラメータ</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">モザイク</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mosaic.html#mosaic-definition-transaction">モザイク定義トランザクション</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mosaic.html#mosaic-supply-change-transaction">モザイク供給量変更トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic.html#mosaic-definition-transaction">モザイク定義トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mosaic.html#parameters">パラメータ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic.html#mosaic-supply-change-transaction">モザイク供給量変更トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mosaic.html#id3">パラメータ</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a><ul>
@@ -181,22 +198,34 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#examples">例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#sending-payouts">支払の送信</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#multi-asset-escrowed-transactions">マルチアセットエスクロートランザクション</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#paying-for-others-fees">他人の手数料を支払う</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#parameters">パラメータ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#aggregate-complete">アグリゲートコンプリート</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#examples">例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#aggregate-complete">アグリゲートコンプリート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#aggregate-bonded">アグリゲートボンド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#cosignature-transaction">署名トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#id3">パラメータ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#aggregate-bonded">アグリゲートボンド</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#id2">例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#lock-funds-transaction">ロックファンドトランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#id5">パラメータ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#cosignature-transaction">署名トランザクション</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#lock-funds-transaction">ロックファンドトランザクション</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html#secret-lock-transaction">シークレットロックトランザクション</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html#secret-proof-transaction">シークレット証明トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html#secret-lock-transaction">シークレットロックトランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cross-chain-swaps.html#parameters">パラメータ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html#secret-proof-transaction">シークレット証明トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cross-chain-swaps.html#id3">パラメータ</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -355,12 +384,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/configuring-nodes.html">ノードの設定</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/configuring-nodes.html#configuring-api-gateway">API ゲートウェイの設定</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/configuring-nodes.html#running-a-flow">フローの実行</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/examples.html">例</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#basics">基本</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#applications">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#applications">アプリケーション</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#importing-a-flow">フローのインポート</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#contributing">貢献</a></li>
 </ul>
@@ -395,7 +425,7 @@
             
 <div class="navbar-right hidden-sm hidden-xs">
     <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
-    <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts/multisig-account.rst"
+    <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\multisig-account.rst"
        rel="nofollow"> <i class="fab fa-github"></i> GitHubで編集</a>
 </div>
           
@@ -423,10 +453,13 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="account.html">アカウント</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">マルチシグアカウント</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#modifying-multisig-account-transaction">マルチシグアカウント変更トランザクション</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#examples">例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#shared-accounts">共有アカウント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multi-factor-authorization">複数要素認証</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#assets-ownership">アセットの所有権</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#modify-multisig-account-transaction">マルチシグアカウント変更トランザクション</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="multi-level-multisig-account.html">マルチレベルマルチシグアカウント</a></li>
@@ -488,67 +521,70 @@
 <h1>マルチシグアカウント<a class="headerlink" href="#multisig-account" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>編集可能なオンチェーンコントラクトは、資産を安全に共有アカウントで扱うのにとても強力な方法です。</p>
 <p>NEM <a class="reference internal" href="account.html"><span class="doc">アカウント</span></a> は <a class="reference internal" href="../guides/account/converting-an-account-to-multisig.html"><span class="doc">マルチシグに変換する</span></a> ことができます。その瞬間からアカウントはトランザクションを単独でアナウンスすることはできなくなります。他のアカウントからトランザクションをアナウンスすることを要求されます。これらの他のアカウントとは、マルチシグ <strong>連署者</strong> を指します。</p>
-<p>それでも、必ずしもすべての連署者にトランザクションへの連署をさせる必要はありません。NEM は連署者の同意の最小数の設定が可能です。大抵のニーズに合わせて、これらのプロパティを編集することができます。</p>
-<p>心に留めておくべき重要な考慮事項</p>
-<ul class="simple">
-<li>アカウントをマルチシグに変換すると、そのアカウントからトランザクションを開始できなくなります。連署者だけがアカウントのトランザクションを開始することができます。</li>
-<li>NEM の現在のマルチシグの実装は <em>「M-of-N」</em> です。M は N と同じまたは以下の任意の数にできます。例えば 1-of-4, 2-of-2, 4-of-9, 9-of-10 などの組み合わせです。</li>
-<li>マルチシグアカウントは <code class="docutils literal"><span class="pre">10</span></code> 連署者までを設定可能です。</li>
-<li>アカウントは <code class="docutils literal"><span class="pre">5</span></code> マルチシグアカウントまでの連署者として設定可能です。</li>
-<li>トランザクションを承認したり、連署者を削除するために必要な最小連署者の数は変更することが可能です。</li>
-<li>マルチシグアカウントは、最大 <code class="docutils literal"><span class="pre">3</span></code> レベルまでの別のマルチシグを連署者として持つことができます。<a class="reference internal" href="multi-level-multisig-account.html"><span class="doc">マルチレベルマルチシグアカウント</span></a> を参照してください。</li>
-</ul>
+<p>それでも、必ずしもすべての連署者にトランザクションへの連署をさせる必要はありません。NEM は連署者の同意の最小数の設定が可能です。大抵のニーズに合わせて、これらのプロパティを編集することができます。NEM における現在のマルチシグ実装は  <em>「M-of-N」</em> です。これは M が N 以下の数字を取り得ることを意味します。例えば 1-of-4, 2-of-2, 4-of-9, 9-of-10 などです。</p>
+<p>トランザクションを承認したり、連署者を削除するために必要な最小連署者の数は変更することが可能です。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
 <p class="last">マルチシグアカウントは強力なツールですが、このツールの使用には慎重になってください。連署者がキーを紛失し、最小数の承認が得られなくなった場合、マルチシグアカウントの保有する資産へのアクセスが永久に不可能になります。この状況を回避するには、熟考した <code class="docutils literal"><span class="pre">最小限の除去</span></code> パラメータを設定してください。</p>
 </div>
+<p>心に留めておくべき重要な考慮事項</p>
+<ul class="simple">
+<li>マルチシグアカウントは <code class="docutils literal"><span class="pre">10</span></code> 連署者までを設定可能です。</li>
+<li>アカウントは <code class="docutils literal"><span class="pre">5</span></code> マルチシグアカウントまでの連署者として設定可能です。</li>
+<li>マルチシグアカウントは、最大 <code class="docutils literal"><span class="pre">3</span></code> レベルまでの別のマルチシグを連署者として持つことができます。<a class="reference internal" href="multi-level-multisig-account.html"><span class="doc">マルチレベルマルチシグアカウント</span></a> を参照してください。</li>
+</ul>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
 <p class="last">設定パラメータは <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">編集可能</a> です。公開ネットワークでは異なる可能性があります。</p>
 </div>
-<div class="section" id="modifying-multisig-account-transaction">
-<span id="modify-multisig-account-transaction"></span><h2>マルチシグアカウント変更トランザクション<a class="headerlink" href="#modifying-multisig-account-transaction" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>マルチシグアカウント変更トランザクションは、マルチシグアカウントのプロパティを変更するために使用されます。</p>
+<div class="section" id="examples">
+<h2>例<a class="headerlink" href="#examples" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>マルチシグアカウントには幅広い便利なアプリケーションがあります。一般的な使用例のいくつかを見てみましょう。</p>
+<div class="section" id="shared-accounts">
+<h3>共有アカウント<a class="headerlink" href="#shared-accounts" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>いくつかの家族は地元の切手収集家共同体のメンバーであり、切手を購入するために共有アカウントを使用しています。</p>
+<p>購入するべき古い切手と適切な価格のすべてに合意するために、彼らはマルチシグアカウントを使用します。この方法では、正当なトランザクションとしてブロックチェーンに取り込まれる前に、共同体の全員がトランザクションに同意することが必要です。</p>
+<div class="figure align-center" id="id2">
+<img alt="../_images/multisig-2-of-3.png" src="../_images/multisig-2-of-3.png" style="width: 350px;" />
+<p class="caption"><span class="caption-text">M-of-N マルチシグアカウント</span></p>
+</div>
+</div>
+<div class="section" id="multi-factor-authorization">
+<h3>複数要素認証<a class="headerlink" href="#multi-factor-authorization" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ALICE は彼女の資産が決して損なわれないようにしたいと考えています。したがって、彼女は彼女の資産でマルチシグアカウントを設定し、マルチシグアカウントを制御するために2要素認証の形態として、2つのアカウント(署名者アカウント)を設定しました。</p>
+<p>彼女の署名者アカウントは両方ともトランザクションを承認する必要があり、この署名者アカウントは異なるパスワードを持つ、異なるコンピュータに配置されます。これは悪意のあるハッカーやウィルスが自分のアカウントのうち1つを侵害したとしても、彼女の資金はまだ安全に保たれます。</p>
+<div class="figure align-center" id="id3">
+<img alt="../_images/multisig-multifactor-auth.png" src="../_images/multisig-multifactor-auth.png" style="width: 300px;" />
+<p class="caption"><span class="caption-text">マルチシグアカウントを使用した複数要素認証</span></p>
+</div>
+</div>
+<div class="section" id="assets-ownership">
+<h3>アセットの所有権<a class="headerlink" href="#assets-ownership" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>マルチシグアカウントを使用して資産の所有権を表すことができます。</p>
+<p>企業は製品ごとに 1-of-1 マルチシグアカウントを作成し、連署者として自分自身を追加します。会社が ALICE へ製品を販売するとき、彼女が所有者となり、同じ取引で会社の所有権が取り除かれます。</p>
+<div class="figure align-center" id="id4">
+<img alt="../_images/multisig-asset-ownership.png" src="../_images/multisig-asset-ownership.png" style="width: 300px;" />
+<p class="caption"><span class="caption-text">アカウントの譲渡</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="modify-multisig-account-transaction">
+<span id="id1"></span><h2>マルチシグアカウント変更トランザクション<a class="headerlink" href="#modify-multisig-account-transaction" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>マルチシグアカウント変更トランザクションのアナウンス:</p>
+<ol class="loweralpha">
+<li><p class="first">マルチシグアカウントへの変換</p>
+</li>
+<li><p class="first">マルチシグアカウントの設定可能なプロパティを変更する。</p>
 <blockquote>
 <div><p><strong>最小同意者数</strong></p>
 <p>トランザクションを承認するために必要な署名の数。既存のマルチアカウントを変更している場合、最低限の連署者の相対的な変化を示します。</p>
 <p><strong>最小削除者数</strong></p>
 <p>連署者を削除するために必要な署名の数。既存のマルチアカウントを変更している場合、最低限の連署者の相対的な変化を示します。</p>
 <p><strong>変更</strong></p>
-<p>承認のためのトランザクションをアナウンスし、連署することができる <a class="reference internal" href="account.html"><span class="doc">アカウント</span></a> のリスト。</p>
+<p>変更リスト中の各アカウントは、トランザクションのアナウンスや署名の承認 (1) またはマルチシグアカウント (0) から削除ができます。</p>
 </div></blockquote>
-<div class="section" id="examples">
-<h3>例<a class="headerlink" href="#examples" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>マルチシグアカウントには幅広い便利なアプリケーションがあります。一般的な使用例のいくつかを見てみましょう。</p>
-<ol class="arabic simple">
-<li>ALICE と BOB は一緒に住んでいて、それぞれのアカウントを持っています。また、BOB が外出するとき、彼が、自分と ALICE のために食料雑貨を購入できるように、共有アカウントも持っています。</li>
+</li>
 </ol>
-<div class="figure align-center" id="id1">
-<img alt="../_images/concepts-multisig-figure-1.png" src="../_images/concepts-multisig-figure-1.png" style="width: 300px;" />
-<p class="caption"><span class="caption-text">M-of-N マルチシグアカウントの例</span></p>
-</div>
-<ol class="arabic simple" start="2">
-<li>いくつかの家族は地元の切手収集家共同体のメンバーであり、切手を購入するために共有アカウントを使用していますこの方法は、正当なトランザクションとしてブロックチェーンに取り込まれる前に、共同体の全員がトランザクションに同意することが必要です。</li>
-</ol>
-<div class="figure align-center" id="id2">
-<img alt="../_images/concepts-multisig-figure-2.png" src="../_images/concepts-multisig-figure-2.png" style="width: 350px;" />
-<p class="caption"><span class="caption-text">N-of-N マルチシグアカウントの例</span></p>
-</div>
-<ol class="arabic simple" start="3">
-<li>セキュリティはマルチシグアカウントの重要な側面です。ALICE は彼女の資産が決して損なわれないようにしたいと考えています。したがって、彼女は彼女の資産でマルチシグアカウントを設定し、マルチシグアカウントを制御するために2要素認証の形態として、2つのアカウント(署名者アカウント)を設定しました。彼女の署名者アカウントは両方ともトランザクションを承認する必要があり、この署名者アカウントは異なるパスワードを持つ、異なるコンピュータに配置されます。これは悪意のあるハッカーやウィルスが自分のアカウントのうち1つを侵害したとしても、彼女の資金はまだ安全に保たれます。</li>
-</ol>
-<div class="figure align-center" id="id3">
-<img alt="../_images/concepts-multisig-figure-3.png" src="../_images/concepts-multisig-figure-3.png" style="width: 300px;" />
-<p class="caption"><span class="caption-text">マルチシグアカウントを使用した複数要素認証</span></p>
-</div>
-<ol class="arabic simple" start="4">
-<li>マルチシグアカウントを使用して資産の所有権を表すことができます。企業は製品ごとに 1-of-1 マルチシグアカウントを作成し、連署者として自分自身を追加します。会社が ALICE へ製品を販売するとき、彼女が所有者となり、同じ取引で会社の所有権が取り除かれます。</li>
-</ol>
-<div class="figure align-center" id="id4">
-<img alt="../_images/concepts-multisig-figure-4.png" src="../_images/concepts-multisig-figure-4.png" style="width: 300px;" />
-<p class="caption"><span class="caption-text">アカウントの譲渡</span></p>
-</div>
-</div>
 </div>
 </div>
 

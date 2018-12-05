@@ -68,7 +68,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.13</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.13.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -124,7 +124,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="block.html">ブロック</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="block.html#block-creation">ブロック生成</a></li>
-<li class="toctree-l2"><a class="reference internal" href="block.html#parameters">パラメータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="block.html#properties">プロパティ</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">トランザクション</a><ul>
@@ -156,24 +156,41 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="multisig-account.html#modifying-multisig-account-transaction">マルチシグアカウント変更トランザクション</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="multisig-account.html#examples">例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig-account.html#examples">例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="multisig-account.html#shared-accounts">共有アカウント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multisig-account.html#multi-factor-authorization">複数要素認証</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multisig-account.html#assets-ownership">アセットの所有権</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="multisig-account.html#modify-multisig-account-transaction">マルチシグアカウント変更トランザクション</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="multi-level-multisig-account.html">マルチレベルマルチシグアカウント</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="multi-level-multisig-account.html#examples">例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-level-multisig-account.html#examples">例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="multi-level-multisig-account.html#manufacturing-and-supply-chains">製造とサプライチェーン</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multi-level-multisig-account.html#fraud-detection">不正検知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multi-level-multisig-account.html#account-recovery">アカウントの復旧</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="namespace.html#subnamespaces">サブネームスペース</a></li>
-<li class="toctree-l2"><a class="reference internal" href="namespace.html#register-namespace-transaction">ネームスペース登録トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html#register-namespace-transaction">ネームスペース登録トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="namespace.html#parameters">パラメータ</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">モザイク</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#mosaic-definition-transaction">モザイク定義トランザクション</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mosaic-supply-change-transaction">モザイク供給量変更トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mosaic-definition-transaction">モザイク定義トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#parameters">パラメータ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mosaic-supply-change-transaction">モザイク供給量変更トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">パラメータ</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a><ul>
@@ -181,22 +198,34 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#examples">例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#sending-payouts">支払の送信</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#multi-asset-escrowed-transactions">マルチアセットエスクロートランザクション</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#paying-for-others-fees">他人の手数料を支払う</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#parameters">パラメータ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#aggregate-complete">アグリゲートコンプリート</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#examples">例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#aggregate-complete">アグリゲートコンプリート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#aggregate-bonded">アグリゲートボンド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#cosignature-transaction">署名トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#id3">パラメータ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#aggregate-bonded">アグリゲートボンド</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#id2">例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#lock-funds-transaction">ロックファンドトランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#id5">パラメータ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#cosignature-transaction">署名トランザクション</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#lock-funds-transaction">ロックファンドトランザクション</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html#secret-lock-transaction">シークレットロックトランザクション</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html#secret-proof-transaction">シークレット証明トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html#secret-lock-transaction">シークレットロックトランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cross-chain-swaps.html#parameters">パラメータ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html#secret-proof-transaction">シークレット証明トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cross-chain-swaps.html#id3">パラメータ</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -355,12 +384,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/configuring-nodes.html">ノードの設定</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/configuring-nodes.html#configuring-api-gateway">API ゲートウェイの設定</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/configuring-nodes.html#running-a-flow">フローの実行</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../prototyping-tool/examples.html">例</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#basics">基本</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#applications">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#applications">アプリケーション</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#importing-a-flow">フローのインポート</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../prototyping-tool/examples.html#contributing">貢献</a></li>
 </ul>
@@ -395,7 +425,7 @@
             
 <div class="navbar-right hidden-sm hidden-xs">
     <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
-    <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts/mosaic.rst"
+    <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\mosaic.rst"
        rel="nofollow"> <i class="fab fa-github"></i> GitHubで編集</a>
 </div>
           
@@ -426,8 +456,14 @@
 <li class="toctree-l1"><a class="reference internal" href="multi-level-multisig-account.html">マルチレベルマルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">モザイク</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#mosaic-definition-transaction">モザイク定義トランザクション</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mosaic-supply-change-transaction">モザイク供給量変更トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mosaic-definition-transaction">モザイク定義トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#parameters">パラメータ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mosaic-supply-change-transaction">モザイク供給量変更トランザクション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">パラメータ</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
@@ -485,50 +521,80 @@
   <div class="section" id="mosaic">
 <h1>モザイク<a class="headerlink" href="#mosaic" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>モザイクは、スマートアセットシステムに一意性と柔軟さをもたらすものの一部です。これらは、変化しない複数の同一物の集合を表すことができる、NEM ブロックチェーン上に <strong>固定されたアセット</strong> です。</p>
-<p>各モザイクは、名前、供給量、可分性、転送可などの様々な属性を持っています。</p>
-<p>モザイクはトークンといえますが、より特化したアセット: 報酬ポイント、株式、署名、状態フラグ、投票やその他の貨幣などの集合を表現できます。</p>
+<p>モザイクはトークンといえますが、より特化したアセット: 報酬ポイント、株式、署名、状態フラグ、投票やその他の貨幣などのコレクションとみなすこともできます。</p>
+<p>各モザイクは設定可能なプロパティの集合を持ちます。モザイクを作成する時に、定義できます:</p>
+<table border="1" class="docutils" id="mosaic-properties">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">プロパティ</th>
+<th class="head">タイプ</th>
+<th class="head">説明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>可分性</td>
+<td>整数</td>
+<td>モザイクがどれくらいの小数点以下に分割できるかを決定します。可分性 3 はモザイクが最小で 0.001 に分割できることを意味します。可分性は 0 から 6 の範囲でなければなりません。</td>
+</tr>
+<tr class="row-odd"><td>期間</td>
+<td>整数</td>
+<td>モザイクが借りられる承認済みブロック数を指定します。</td>
+</tr>
+<tr class="row-even"><td>初期供給量</td>
+<td>整数</td>
+<td>モザイクの供給量の総数です。初期供給量は 0 から 9,000,000,000 の範囲でなければなりません。</td>
+</tr>
+<tr class="row-odd"><td>供給可変</td>
+<td>真偽値</td>
+<td>true にセットした場合、モザイク供給量は後の時点で変更できるようになります。そうでない場合、変更できません。</td>
+</tr>
+<tr class="row-even"><td>譲渡可能</td>
+<td>真偽値</td>
+<td>true にセットした場合、モザイクは任意のアカウント間で転送できます。そうでない場合、モザイクはモザイク作成者へ送り返すことしかできません。</td>
+</tr>
+</tbody>
+</table>
 <div class="section" id="mosaic-definition-transaction">
 <span id="id1"></span><h2>モザイク定義トランザクション<a class="headerlink" href="#mosaic-definition-transaction" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>モザイク定義トランザクションは新しいモザイクを作るために使用します。</p>
+<p>新しいモザイクを作るためにモザイク定義トランザクションをアナウンスしてください。</p>
+<div class="section" id="parameters">
+<h3>パラメータ<a class="headerlink" href="#parameters" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <blockquote>
 <div><p><strong>ネームスペース</strong></p>
-<p>ドメイン上にホストされたファイルのように、モザイクは常にネームスペースとリンクしています。</p>
+<p>ドメイン上にホストされたファイルのように、モザイクは常に <a class="reference internal" href="namespace.html"><span class="doc">ネームスペース</span></a> とリンクしています。</p>
 <p><strong>名前</strong></p>
 <p>ウェブサイトとディレクトリのように、他のドメイン上の他のファイルのように、モザイクは同じ名前を持つことができます。しかし、ネームスペース + モザイクは常に一意で、ルートネームスペースは一意で、それ以外はその限りではありません。</p>
 <p>モザイクはネームスペース名とモザイク名を 『:』 で接続したものとなります。<code class="docutils literal"><span class="pre">nem</span></code> と呼ばれるネームスペースの下に、<code class="docutils literal"><span class="pre">xem</span></code> というモザイクを借りると、モザイクは <code class="docutils literal"><span class="pre">nem:xem</span></code> として参照されます。</p>
-<p>以下の制限があります:</p>
-<ul class="simple">
-<li>モザイク名は <code class="docutils literal"><span class="pre">64</span></code> 文字で、一意なドメイン名でなければなりません。</li>
-<li>使用可能な文字 a, b, c, …, z, 0, 1, 2, …, 9, 『, _ , -.</li>
-</ul>
+<p>モザイク名は <code class="docutils literal"><span class="pre">64</span></code> 文字で、一意なドメイン名でなければなりません。許可されている文字列は a, b, c, …, z, 0, 1, 2, …, 9, 『, _ , - です。</p>
 <p><strong>所有者</strong></p>
-<p>モザイクの作成者の公開鍵</p>
+<p><a class="reference internal" href="account.html"><span class="doc">モザイクの作成者</span></a> の公開鍵</p>
 <p><strong>プロパティ</strong></p>
-<p>モザイクの振る舞いはプロパティをセットすることで変えることができます。サポートしているプロパティ:</p>
-<ul class="simple">
-<li>可分性: モザイクがどれくらいの小数点以下に分割できるかを決定します。可分性 3 はモザイクが最小で 0.001 に分割できることを意味します。可分性は 0 から 6 の範囲でなければなりません。</li>
-<li>期間: ネームスペースをレンタルする承認ブロック数です。</li>
-<li>供給量: モザイクの供給量の総数です。作成者はモザイクの定義を作成するときに、初期供給量を指定します。初期供給量は 0 から 9,000,000,000 の範囲でなければなりません。</li>
-<li>可変供給量: 作成者は、モザイクの供給量を後に変更できるようにするか、<strong>不変</strong> とするかのどちらかの定義を選択できます。最初のケースでは、作成者が所有しているモザイクの制限内で供給量を減少させることが許可されます。</li>
-<li>転送可: 作成者は、モザイクを任意のアカウント間で転送できるようにするか、転送された受信者とのみ転送を許可するかを選択できます。</li>
-</ul>
+<p><a class="reference internal" href="#mosaic-properties"><span class="std std-ref">モザイク設定プロパティ</span></a> を参照してください</p>
 </div></blockquote>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
 <p class="last">設定パラメータは <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">編集可能</a> です。公開ネットワークでは異なる可能性があります。</p>
 </div>
 </div>
+</div>
 <div class="section" id="mosaic-supply-change-transaction">
 <span id="id2"></span><h2>モザイク供給量変更トランザクション<a class="headerlink" href="#mosaic-supply-change-transaction" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>モザイク供給量変更トランザクションはモザイクに供給量を割り当てます。</p>
+<p>モザイクの供給量を増加または減少させるために供給量変更トランザクションをアナウンスする。</p>
+<div class="section" id="id3">
+<h3>パラメータ<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <blockquote>
 <div><p><strong>モザイクID</strong></p>
 <p>ネームスペース名とモザイク名の組み合わせです。例えば、」foo.bar:token」 です。</p>
 <p><strong>方向</strong></p>
-<p>増加(0) または 減少(1) を指定できます。</p>
+<p>増加(0) または 減少(1) の方向を指定できます。</p>
 <p><strong>デルタ</strong></p>
 <p>モザイク供給量の増加または減少の総量。</p>
 </div></blockquote>
+</div>
 </div>
 </div>
 
