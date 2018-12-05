@@ -509,7 +509,7 @@
 <p><strong>Memory Efficiency</strong></p>
 <p>Large networks compute a large number of transactions. Working with binary optimized in size makes the communication faster. Furthermore, reading entities from memory buffers -or just a part of them - is memory efficient.</p>
 <p><strong>Flexibility</strong></p>
-<p>REST <a class="reference external" href="https://nemtech.github.io/api/endpoints.html#operation/announceTransaction">transaction endpoints</a> handle the calls to update the blockhain state. The serialized payload of a transaction is appended to the body of the POST call. These endpoints allow the addition of new functionality to the server side without modifying the API contract.</p>
+<p>REST <a class="reference external" href="https://nemtech.github.io/api/endpoints.html#operation/announceTransaction">transaction endpoints</a> handle the calls to update the blockchain state. The serialized payload of a transaction is appended to the body of the POST call. These endpoints allow the addition of new functionality to the server side without modifying the API contract.</p>
 <p><strong>Reusability</strong></p>
 <p>Applications can embed the generated code, without managing dependencies. This is particularly desirable in highly-secure environments. Besides, sharing a common codebase enables the addition of new features with less effort.</p>
 <p>At the current moment, you can generate buffers for <strong>C++</strong>. Javascript and Python are under development. If you are developing a SDK in another language, please consider coding a new generator.</p>
@@ -559,11 +559,11 @@
 </table>
 <div class="section" id="parsing-a-schema-and-generating-code">
 <h3>Parsing a schema and generating code<a class="headerlink" href="#parsing-a-schema-and-generating-code" title="Permalink to this headline">¶</a></h3>
-<p>Generate the code for a determined schema in one of the available languages.  For example, run the following command to generate C++ code to serialize and deserialize a transfer transaction:</p>
+<p>Generate the code for a determined schema in one of the available languages. For example, run the following command to generate C++ code to serialize and deserialize a transfer transaction:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; python main.py -i schemas/transfer.cats -g cpp-builder
 </pre></div>
 </div>
-<p>The generators creates a new file under <code class="docutils literal"><span class="pre">_generated/cpp</span></code> folder. Repeat the process using a different input schema <code class="docutils literal"><span class="pre">(-i)</span></code> or generator <code class="docutils literal"><span class="pre">(-g)</span></code> as needed.</p>
+<p>The generator creates a new file under <code class="docutils literal"><span class="pre">_generated/cpp</span></code> folder. Repeat the process using a different input schema <code class="docutils literal"><span class="pre">(-i)</span></code> or generator <code class="docutils literal"><span class="pre">(-g)</span></code> as needed.</p>
 </div>
 <div class="section" id="writing-a-schema">
 <h3>Writing a schema<a class="headerlink" href="#writing-a-schema" title="Permalink to this headline">¶</a></h3>
