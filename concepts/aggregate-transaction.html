@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Aggregate Transaction &#8212; NEM Developer Center</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
     <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
@@ -67,7 +68,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.14</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.14.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -132,10 +133,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">Transaction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="transaction.html#properties">Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="transaction.html#lifecycle">Lifecycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#defining-a-transaction">Defining a transaction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transaction.html#properties">Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#signing-a-transaction">Signing a transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#announcing-a-transaction">Announcing a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#rollbacks">Rollbacks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="transaction.html#transaction-types">Transaction types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#related-guides">Related guides</a></li>
 </ul>
 </li>
@@ -265,7 +269,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../api/serialization.html#integration">Integration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../api/serialization.html#adding-generated-code-to-a-sdk">Adding generated code to a SDK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/serialization.html#adding-generated-code-to-an-sdk">Adding generated code to an SDK</a></li>
 </ul>
 </li>
 </ul>
@@ -531,7 +535,7 @@
 </div>
 <div class="section" id="paying-for-others-fees">
 <h3>Paying for others fees<a class="headerlink" href="#paying-for-others-fees" title="Permalink to this headline">¶</a></h3>
-<p>Alice sends 10 € to Bob using a payment app. But she doesn’t have any XEM to pay the blockchain transaction fee.</p>
+<p>Alice sends 10 € to Bob using an app to make payments. But she doesn’t have any XEM to pay the blockchain transaction fee.</p>
 <p>By creating an aggregate bonded transaction, she can convert USD to XEM to pay the fee. Now Alice and Bob can use NEM blockchain without ever having to buy or hold XEM.</p>
 <p>Since the app creator can put their own branding on the open source payment app, Alice and Bob may not even know they are using blockchain.</p>
 <div class="figure align-center" id="id9">
@@ -544,7 +548,7 @@
 <h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
 <p>Aggregate transactions accept the following parameters:</p>
 <blockquote>
-<div><p><strong>Inner Transaction</strong></p>
+<div><p><strong>Inner transactions</strong></p>
 <p>Transactions initiated by different accounts. An aggregate transaction can contain up to <code class="docutils literal"><span class="pre">1000</span></code> inner transactions involving up to <code class="docutils literal"><span class="pre">15</span></code> different cosignatories. Other aggregate transactions are not allowed as inner transactions.</p>
 <p><strong>Cosignatures</strong></p>
 <p>An array of transaction cosignatures.</p>

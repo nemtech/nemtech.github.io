@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Transaction &#8212; NEM Developer Center</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
     <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
@@ -67,7 +68,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.14</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.14.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -132,10 +133,13 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Transaction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#properties">Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lifecycle">Lifecycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#defining-a-transaction">Defining a transaction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#properties">Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#signing-a-transaction">Signing a transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#announcing-a-transaction">Announcing a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rollbacks">Rollbacks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#transaction-types">Transaction types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#related-guides">Related guides</a></li>
 </ul>
 </li>
@@ -265,7 +269,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../api/serialization.html#integration">Integration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../api/serialization.html#adding-generated-code-to-a-sdk">Adding generated code to a SDK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/serialization.html#adding-generated-code-to-an-sdk">Adding generated code to an SDK</a></li>
 </ul>
 </li>
 </ul>
@@ -436,10 +440,13 @@
 <li class="toctree-l1"><a class="reference internal" href="cryptography.html">Cryptography</a></li>
 <li class="toctree-l1"><a class="reference internal" href="block.html">Block</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Transaction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#properties">Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lifecycle">Lifecycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#defining-a-transaction">Defining a transaction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#properties">Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#signing-a-transaction">Signing a transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#announcing-a-transaction">Announcing a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rollbacks">Rollbacks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#transaction-types">Transaction types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#related-guides">Related guides</a></li>
 </ul>
 </li>
@@ -496,45 +503,110 @@
       
   <div class="section" id="transaction">
 <h1>Transaction<a class="headerlink" href="#transaction" title="Permalink to this headline">¶</a></h1>
-<p>Transactions are actions taken on the blockchain that change its state. In other words, how your Smart Assets are put into action.</p>
-<p>Transactions allow you to transfer <a class="reference internal" href="mosaic.html"><span class="doc">mosaics</span></a> between <a class="reference internal" href="account.html"><span class="doc">accounts</span></a>, transfer or configure ownership of accounts (including the use of <a class="reference internal" href="multisig-account.html"><span class="doc">multisig</span></a> rules), send messages and more. NEMs blockchain includes a built-in consensus-driven timekeeping facility, so transactions are automatically and accurately time stamped.</p>
+<p>Transactions are actions taken on the blockchain that change its state. When an <a class="reference internal" href="account.html"><span class="doc">account</span></a> signs a transaction, and the network accepts it, this is stored permanently on a <a class="reference internal" href="block.html"><span class="doc">block</span></a>.</p>
+<p id="transaction-types">There are different types of transactions. For example, you can transfer <a class="reference internal" href="mosaic.html"><span class="doc">mosaics</span></a> between accounts, transfer or configure ownership of accounts (including the use of <a class="reference internal" href="multisig-account.html"><span class="doc">multisig</span></a> rules), and more.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Id</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x4154</td>
+<td><a class="reference internal" href="transfer-transaction.html#id1"><span class="std std-ref">Transfer Transaction</span></a></td>
+<td>Send mosaics and messages between two accounts.</td>
+</tr>
+<tr class="row-odd"><td>0x414D</td>
+<td><a class="reference internal" href="mosaic.html#mosaic-definition-transaction"><span class="std std-ref">Mosaic Definition Transaction</span></a></td>
+<td>Register a new mosaic.</td>
+</tr>
+<tr class="row-even"><td>0x424D</td>
+<td><a class="reference internal" href="mosaic.html#mosaic-supply-change-transaction"><span class="std std-ref">Mosaic Supply Change Transaction</span></a></td>
+<td>Change an existent mosaic supply.</td>
+</tr>
+<tr class="row-odd"><td>0x414E</td>
+<td><a class="reference internal" href="namespace.html#register-namespace-transaction"><span class="std std-ref">Register Namespace Transaction</span></a></td>
+<td>Register a namespace to organize your assets.</td>
+</tr>
+<tr class="row-even"><td>0x4155</td>
+<td><a class="reference internal" href="multisig-account.html#modify-multisig-account-transaction"><span class="std std-ref">Modify Multisig Account Transaction</span></a></td>
+<td>Create or modify a multisig contract.</td>
+</tr>
+<tr class="row-odd"><td>0x4141</td>
+<td><a class="reference internal" href="aggregate-transaction.html#id1"><span class="std std-ref">Aggregate Complete Transaction</span></a></td>
+<td>Send transactions in batches to different accounts.</td>
+</tr>
+<tr class="row-even"><td>0x4241</td>
+<td><a class="reference internal" href="aggregate-transaction.html#id1"><span class="std std-ref">Aggregate Bonded Transaction</span></a></td>
+<td>Propose many transactions between different accounts.</td>
+</tr>
+<tr class="row-odd"><td>0x414C</td>
+<td><a class="reference internal" href="aggregate-transaction.html#lock-funds-transaction"><span class="std std-ref">Lock Funds Transaction</span></a></td>
+<td>Deposit to announce aggregate bonded transactions. Prevents the network spamming.</td>
+</tr>
+<tr class="row-even"><td>–</td>
+<td><a class="reference internal" href="aggregate-transaction.html#cosignature-transaction"><span class="std std-ref">Cosignature Transaction</span></a></td>
+<td>Cosign an aggregate bonded transaction.</td>
+</tr>
+<tr class="row-odd"><td>0x4152</td>
+<td><a class="reference internal" href="cross-chain-swaps.html#secret-lock-transaction"><span class="std std-ref">Secret Lock Transaction</span></a></td>
+<td>Start a mosaic swap between different chains.</td>
+</tr>
+<tr class="row-even"><td>0x434C</td>
+<td><a class="reference internal" href="cross-chain-swaps.html#secret-proof-transaction"><span class="std std-ref">Secret Proof Transaction</span></a></td>
+<td>Conclude a mosaic swap between different chains.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="defining-a-transaction">
+<h2>Defining a transaction<a class="headerlink" href="#defining-a-transaction" title="Permalink to this headline">¶</a></h2>
+<p>Every transaction shares some common properties. Each transaction extends from the following definition, adding the type’s particular properties.</p>
+<p>Transactions are defined in a <a class="reference internal" href="../api/serialization.html"><span class="doc">serialized form</span></a>. We recommend to <a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingATransferTransaction.ts#L30">use the NEM2-SDK to define</a> transactions.</p>
 <div class="section" id="properties">
-<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
-<p>Transactions share the following properties:</p>
+<h3>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><p><strong>Signature</strong></p>
-<p>The transaction signature.</p>
-<p><strong>Signer</strong></p>
-<p>The transaction signer public key.</p>
-<p><strong>Type</strong></p>
-<p>NEM defines some types of transactions that can be performed. See <a class="reference internal" href="#transaction-types"><span class="std std-ref">transaction types</span></a>.</p>
-<p><strong>Version number</strong></p>
+<div><p><strong>Size</strong>: 4 bytes</p>
+<p>The size of the transaction.</p>
+<p><strong>Signature</strong>: 64 bytes</p>
+<p>The <a class="reference internal" href="#transaction-signature"><span class="std std-ref">transaction signature</span></a>.</p>
+<p><strong>Signer</strong>: 32 bytes</p>
+<p>The transaction signer’s <a class="reference internal" href="account.html"><span class="doc">public key</span></a>.</p>
+<p><strong>Version</strong>: 2 bytes</p>
 <p>The version of the structure.</p>
-<p><strong>Fee</strong></p>
-<p>How much it costs to announce the transaction in XEM.</p>
-<p><strong>Deadline</strong></p>
+<p><strong>Type</strong>: 2 bytes</p>
+<p>See <a class="reference internal" href="#transaction-types"><span class="std std-ref">transaction types</span></a>.</p>
+<p><strong>Fee</strong>: 8 bytes</p>
+<p>The cost of announcing a transaction.  This fee is necessary to provide an incentive for those who secure the network. The account pays the fee  in XEM, the underlying cryptocurrency of the NEM network. Private chains can edit the network configuration to suppress the fees.</p>
+<p><strong>Deadline</strong>: 8 bytes</p>
 <p>The maximum amount of time to include the transaction in the blockchain.</p>
 </div></blockquote>
 </div>
-<div class="section" id="lifecycle">
-<h2>Lifecycle<a class="headerlink" href="#lifecycle" title="Permalink to this headline">¶</a></h2>
-<div class="figure align-center" id="id2">
+</div>
+<div class="section" id="signing-a-transaction">
+<span id="transaction-signature"></span><h2>Signing a transaction<a class="headerlink" href="#signing-a-transaction" title="Permalink to this headline">¶</a></h2>
+<p>Accounts must sign transactions before announcing them to the network. <a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingATransferTransaction.ts#L40">Signing a transaction</a> expresses the account’s agreement to change the network state as defined.</p>
+<p>For example, a transfer transaction describes who is the recipient and the quantity of mosaics to transfer. In this case, signing the transaction means to accept moving those mosaics from one account to the other.</p>
+<p>The account generates the signature <a class="reference external" href="https://github.com/nemtech/nem2-library-js/blob/f171afb516a282f698081aea407339cfcd21cd63/src/transactions/VerifiableTransaction.js#L64">signing the first 100 bytes of the defined transaction</a> with its private key. Then, the signature is appended to the transaction’s body, resulting in a signed transaction.</p>
+<p>The hash of the transaction is generated once <a class="reference external" href="https://github.com/nemtech/nem2-library-js/blob/f171afb516a282f698081aea407339cfcd21cd63/src/transactions/VerifiableTransaction.js#L76">the Sha3-256 algorithm</a> is applied to the serialized transaction.</p>
+</div>
+<div class="section" id="announcing-a-transaction">
+<span id="transaction-validation"></span><h2>Announcing a transaction<a class="headerlink" href="#announcing-a-transaction" title="Permalink to this headline">¶</a></h2>
+<p>Signed transactions are ready to be announced to the network.</p>
+<div class="figure align-center" id="id3">
 <img alt="../_images/transaction-cycle.png" src="../_images/transaction-cycle.png" style="width: 800px;" />
 <p class="caption"><span class="caption-text">Transaction cycle</span></p>
 </div>
-<p>When you announce a transaction, the REST API will always return an OK. At this point, it still unknown whether the transaction is valid.</p>
-<p>To know the transaction status, which can be OK or <a class="reference internal" href="../api/websockets.html"><span class="doc">Failure</span></a>, you have to:</p>
-<ol class="loweralpha simple">
-<li>Check the status via API endpoint</li>
-<li>Listen to the different <a class="reference internal" href="../api/websockets.html"><span class="doc">WebSocket</span></a> channels.</li>
-</ol>
-<p>If valid, the transaction reaches the network with an <strong>unconfirmed</strong> status.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Never rely on a transaction which has an unconfirmed state. It is not clear if it will get included in a block.</p>
-</div>
-<p>The transaction is <strong>confirmed</strong> once it is included in a <a class="reference internal" href="block.html"><span class="doc">block</span></a>. In case of a transfer transaction, the transaction gets processed and the amount stated gets transferred from the sender’s account to the recipient’s account. Additionally, the transaction fee is deducted from the sender’s account.</p>
-<p>The transaction has zero confirmations at this point. When another block is added to the blockchain, the transaction has one confirmation. The next block added to the chain will give it two confirmations and so on.</p>
+<p>After <a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingATransferTransaction.ts#L47">announcing a transaction</a>, the REST API will always return an OK response immediately. At this point, it still unknown whether the transaction is valid.</p>
+<p>The first validation happens in the API nodes. If the transaction presents some error, the WebSocket throws a notification through the status channel. In the positive case, the transaction reaches the P2P network with an <strong>unconfirmed</strong> status.  Never rely on a transaction which has an unconfirmed state. It is not clear if it will get included in a block, as it should pass a second validation before.</p>
+<p>The second validation is done before the transaction is added in a harvested block. If valid, the harvester stores the transaction in a block, and it reaches the <strong>confirmed</strong> status.</p>
+<p>Continuing the previous example, the transaction gets processed and the amount stated gets transferred from the signer’s account to the recipient’s account. Additionally, the transaction fee is deducted from the signer’s account.</p>
+<p>The transaction has <strong>zero confirmations</strong> at this point. When another block is added to the blockchain, the transaction has one confirmation. The next block added to the chain will give it two confirmations and so on.</p>
 </div>
 <div class="section" id="rollbacks">
 <h2>Rollbacks<a class="headerlink" href="#rollbacks" title="Permalink to this headline">¶</a></h2>
@@ -542,81 +614,6 @@
 <p>The “rewrite limit” is the maximum number of blocks that can be rolled back. Hence, forks can only be resolved up to a certain depth too.</p>
 <p>NEM has a rewrite limit of 360 blocks. Once a transaction has more than 360 confirmations, it cannot be reversed.</p>
 <p>In real life, forks that are deeper than 20 blocks do not happen, unless there is a severe problem with the blockchain due to a bug in the code or an attack.</p>
-</div>
-<div class="section" id="transaction-types">
-<span id="id1"></span><h2>Transaction types<a class="headerlink" href="#transaction-types" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="docutils">
-<colgroup>
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Transaction type</th>
-<th class="head">High byte</th>
-<th class="head">Low byte</th>
-<th class="head">Decimal</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="aggregate-transaction.html#id1"><span class="std std-ref">Aggregate Complete Transaction</span></a></td>
-<td>0x41</td>
-<td>0x41</td>
-<td>16705</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="aggregate-transaction.html#id1"><span class="std std-ref">Aggregate Complete Transaction</span></a></td>
-<td>0x42</td>
-<td>0x41</td>
-<td>16961</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="aggregate-transaction.html#cosignature-transaction"><span class="std std-ref">Cosignature Transaction</span></a></td>
-<td>–</td>
-<td>–</td>
-<td>–</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="aggregate-transaction.html#lock-funds-transaction"><span class="std std-ref">Lock Funds Transaction</span></a></td>
-<td>0x41</td>
-<td>0x4C</td>
-<td>16716</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="mosaic.html#mosaic-definition-transaction"><span class="std std-ref">Mosaic Definition Transaction</span></a></td>
-<td>0x41</td>
-<td>0x4D</td>
-<td>16717</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="mosaic.html#mosaic-supply-change-transaction"><span class="std std-ref">Mosaic Supply Change Transaction</span></a></td>
-<td>0x42</td>
-<td>0x4D</td>
-<td>16973</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="multisig-account.html#modify-multisig-account-transaction"><span class="std std-ref">Modify Multisig Account Transaction</span></a></td>
-<td>0x41</td>
-<td>0x55</td>
-<td>16725</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="namespace.html#register-namespace-transaction"><span class="std std-ref">Register Namespace Transaction</span></a></td>
-<td>0x41</td>
-<td>0x4E</td>
-<td>16718</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="cross-chain-swaps.html#secret-lock-transaction"><span class="std std-ref">Secret Lock Transaction</span></a></td>
-<td>0x41</td>
-<td>0x52</td>
-<td>16722</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="cross-chain-swaps.html#secret-proof-transaction"><span class="std std-ref">Secret Proof Transaction</span></a></td>
-<td>0x43</td>
-<td>0x4C</td>
-<td>17228</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="transfer-transaction.html#id1"><span class="std std-ref">Transfer Transaction</span></a></td>
-<td>0x41</td>
-<td>0x54</td>
-<td>16724</td>
-</tr>
-</tbody>
-</table>
 </div>
 <div class="section" id="related-guides">
 <h2>Related guides<a class="headerlink" href="#related-guides" title="Permalink to this headline">¶</a></h2>

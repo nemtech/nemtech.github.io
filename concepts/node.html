@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Node &#8212; NEM Developer Center</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
     <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
@@ -67,7 +68,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.14</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.14.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -132,10 +133,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">Transaction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="transaction.html#properties">Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="transaction.html#lifecycle">Lifecycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#defining-a-transaction">Defining a transaction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transaction.html#properties">Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#signing-a-transaction">Signing a transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#announcing-a-transaction">Announcing a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#rollbacks">Rollbacks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="transaction.html#transaction-types">Transaction types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#related-guides">Related guides</a></li>
 </ul>
 </li>
@@ -265,7 +269,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../api/serialization.html#integration">Integration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../api/serialization.html#adding-generated-code-to-a-sdk">Adding generated code to a SDK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/serialization.html#adding-generated-code-to-an-sdk">Adding generated code to an SDK</a></li>
 </ul>
 </li>
 </ul>
@@ -511,7 +515,7 @@
 <div class="section" id="catapult-p2p-component">
 <h2>Catapult P2P Component<a class="headerlink" href="#catapult-p2p-component" title="Permalink to this headline">¶</a></h2>
 <p><strong>Repository:</strong> <a href="https://github.com/nemtech/catapult-server" target="_blank">Catapult Server</a></p>
-<p>The P2P nodes form the backbone of the blockchain. The role of the node is to verify  <a class="reference internal" href="transaction.html"><span class="doc">transactions</span></a> and <a class="reference internal" href="block.html"><span class="doc">blocks</span></a>, run the consensus algorithm, create new blocks, and propagate the changes through the network.</p>
+<p>The P2P nodes form the backbone of the blockchain. The role of the node is to <a class="reference internal" href="transaction.html#transaction-validation"><span class="std std-ref">verify transactions</span></a> and <a class="reference internal" href="block.html"><span class="doc">blocks</span></a>, run the consensus algorithm, create new blocks, and propagate the changes through the network.</p>
 <p>The API nodes push new transactions to P2P nodes. If the transaction received is invalid, the P2P nodes discard it.</p>
 <p>After processing a block:</p>
 <ol class="arabic simple">
@@ -528,9 +532,9 @@
 <div class="section" id="catapult-api-component">
 <h2>Catapult API Component<a class="headerlink" href="#catapult-api-component" title="Permalink to this headline">¶</a></h2>
 <p><strong>Repository:</strong> <a href="https://github.com/nemtech/catapult-rest" target="_blank">Catapult REST</a></p>
-<p>The main responsibility of Catapult API components is to store the data in readable form.  Each API instance maintains a MongoDB, and optionally a RocksDB to store state.</p>
-<p>Additionally, this layer verifies blocks and transactions. The API throws the errors to REST via ZMQ in binary.</p>
-<p>Catapult API collects cosignatures. <a class="reference internal" href="aggregate-transaction.html"><span class="doc">Aggregated bonded transactions</span></a> are pushed to P2P nodes once they are complete.</p>
+<p>The primary responsibility of Catapult API is to store the data in readable form.  Each API instance maintains a MongoDB, and optionally a RocksDB to save the state.</p>
+<p>The layer <a class="reference internal" href="transaction.html#transaction-validation"><span class="std std-ref">validates the transactions</span></a> received from the REST component. Additionally, the API throws the errors back via ZMQ in binary.</p>
+<p>The Catapult API component is also responsible for collecting cosignatures. <a class="reference internal" href="aggregate-transaction.html"><span class="doc">Aggregated bonded transactions</span></a> are pushed to P2P nodes once they are complete.</p>
 <p>API components can connect to multiple P2P nodes, but at least must connect to one.</p>
 <div class="section" id="mongodb">
 <h3>MongoDB<a class="headerlink" href="#mongodb" title="Permalink to this headline">¶</a></h3>
@@ -554,7 +558,7 @@
 <h2>Catapult REST Component<a class="headerlink" href="#catapult-rest-component" title="Permalink to this headline">¶</a></h2>
 <p><strong>Repository:</strong> <a href="https://github.com/nemtech/catapult-rest" target="_blank">Catapult REST</a></p>
 <p>Catapult REST handles <strong>JSON API</strong> client requests. This component reads from MongoDB, formats the response, and returns it to the client. Each Catapult REST connects to one Catapult API instance.</p>
-<p>Additionally, Catapult REST sends new transactions to the Catapult API using sockets. The component announces events to the client via WebSockets.</p>
+<p>Catapult REST sends new transactions to the Catapult API using sockets. The component announces events as well to the client via WebSockets.</p>
 </div>
 <div class="section" id="related-guides">
 <h2>Related guides<a class="headerlink" href="#related-guides" title="Permalink to this headline">¶</a></h2>

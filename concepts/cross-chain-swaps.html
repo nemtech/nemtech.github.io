@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Cross-Chain Swaps &#8212; NEM Developer Center</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
     <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
@@ -67,7 +68,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.14</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.14.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -132,10 +133,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">Transaction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="transaction.html#properties">Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="transaction.html#lifecycle">Lifecycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#defining-a-transaction">Defining a transaction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transaction.html#properties">Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#signing-a-transaction">Signing a transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#announcing-a-transaction">Announcing a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#rollbacks">Rollbacks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="transaction.html#transaction-types">Transaction types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#related-guides">Related guides</a></li>
 </ul>
 </li>
@@ -265,7 +269,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../api/serialization.html#integration">Integration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../api/serialization.html#adding-generated-code-to-a-sdk">Adding generated code to a SDK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/serialization.html#adding-generated-code-to-an-sdk">Adding generated code to an SDK</a></li>
 </ul>
 </li>
 </ul>
@@ -531,21 +535,36 @@ The figure below illustrates the cross-chain swap protocol.</p>
 <p>Locked mosaic.</p>
 <p><strong>Duration</strong></p>
 <p>If reached, the mosaics will be returned to the initiator.</p>
-<p><strong>Hash Type</strong></p>
+<p><strong>Hash type</strong></p>
 <p>The algorithm used to hash the proof.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="50%" />
-<col width="50%" />
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Hash Type</th>
-<th class="head">ID</th>
+<tr class="row-odd"><th class="head">Id</th>
+<th class="head">Hash type</th>
+<th class="head">Description</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>SHA_512</td>
-<td>0</td>
+<tr class="row-even"><td>0</td>
+<td>SHA_3</td>
+<td>Input is hashed using Sha3</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>Keccak</td>
+<td>Input is hashed using Keccak</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>Hash_160</td>
+<td>Input is hashed twice: first with Sha-256 and then with RIPEMD-160</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>Hash_256</td>
+<td>Input is hashed twice with Sha-256</td>
 </tr>
 </tbody>
 </table>
@@ -563,7 +582,7 @@ The figure below illustrates the cross-chain swap protocol.</p>
 <div class="section" id="id3">
 <h3>Parameters<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><p><strong>Hash Type</strong></p>
+<div><p><strong>Hash type</strong></p>
 <p>The algorithm used to hash the proof.</p>
 <p><strong>Secret</strong></p>
 <p>The proof hashed.</p>
