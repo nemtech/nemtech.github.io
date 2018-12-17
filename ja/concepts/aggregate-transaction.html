@@ -6,6 +6,7 @@
     <title>アグリゲートトランザクション &#8212; NEM Developer Center</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
     <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
@@ -68,7 +69,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.14</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.14.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -133,10 +134,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">トランザクション</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="transaction.html#properties">プロパティ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="transaction.html#lifecycle">ライフサイクル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#defining-a-transaction">Defining a transaction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transaction.html#properties">プロパティ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#signing-a-transaction">Signing a transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#announcing-a-transaction">Announcing a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#rollbacks">ロールバック</a></li>
-<li class="toctree-l2"><a class="reference internal" href="transaction.html#transaction-types">トランザクションタイプ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#related-guides">関連するガイド</a></li>
 </ul>
 </li>
@@ -266,7 +270,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../api/serialization.html#integration">統合</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../api/serialization.html#adding-generated-code-to-a-sdk">SDK へ生成したコードを追加する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/serialization.html#adding-generated-code-to-an-sdk">Adding generated code to an SDK</a></li>
 </ul>
 </li>
 </ul>
@@ -532,7 +536,7 @@
 </div>
 <div class="section" id="paying-for-others-fees">
 <h3>他人の手数料を支払う<a class="headerlink" href="#paying-for-others-fees" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>ALICE は € 10 をボブへペイメントアプリで送ります。しかし彼女はブロックチェーンのトランザクション手数料を支払う分の XEM を持っていません。</p>
+<p>Alice sends 10 € to Bob using an app to make payments. But she doesn’t have any XEM to pay the blockchain transaction fee.</p>
 <p>アグリゲートボンドトランザクションを作ることで、彼女は USD を手数料のための XEM に替えることができます。これで ALICE と BOB は XEM を購入したり保有することなく、ブロックチェーンを使うことができます。</p>
 <p>アプリの製作者は、オープンソースの支払いアプリに独自ブランドを付けることができるので、ALICE と BOB は彼らがブロックチェーンを使っていることすら知らないでしょう。</p>
 <div class="figure align-center" id="id9">
@@ -545,7 +549,7 @@
 <h2>パラメータ<a class="headerlink" href="#parameters" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>アグリゲートトランザクションは以下のパラメータを受け付けます:</p>
 <blockquote>
-<div><p><strong>インナートランザクション</strong></p>
+<div><p><strong>Inner transactions</strong></p>
 <p>異なるアカウントによって開始されたトランザクションです。アグリゲートトランザクションは <code class="docutils literal"><span class="pre">1000</span></code> までのインナートランザクションを内包でき、 <code class="docutils literal"><span class="pre">15</span></code> までの連署者を設定できます。他のアグリゲートトランザクションをインナートランザクションとして内包することはできません。</p>
 <p><strong>連署者</strong></p>
 <p>トランザクション連署者の配列</p>

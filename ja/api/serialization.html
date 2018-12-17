@@ -6,6 +6,7 @@
     <title>シリアル化 &#8212; NEM Developer Center</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
     <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
@@ -68,7 +69,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.14</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.14.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -133,10 +134,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/transaction.html">トランザクション</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#properties">プロパティ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#lifecycle">ライフサイクル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#defining-a-transaction">Defining a transaction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/transaction.html#properties">プロパティ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#signing-a-transaction">Signing a transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#announcing-a-transaction">Announcing a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#rollbacks">ロールバック</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#transaction-types">トランザクションタイプ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#related-guides">関連するガイド</a></li>
 </ul>
 </li>
@@ -266,7 +270,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#integration">統合</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#adding-generated-code-to-a-sdk">SDK へ生成したコードを追加する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-generated-code-to-an-sdk">Adding generated code to an SDK</a></li>
 </ul>
 </li>
 </ul>
@@ -462,7 +466,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#integration">統合</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#adding-generated-code-to-a-sdk">SDK へ生成したコードを追加する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-generated-code-to-an-sdk">Adding generated code to an SDK</a></li>
 </ul>
 </li>
 </ul>
@@ -513,7 +517,7 @@
 <p>REST <a class="reference external" href="https://nemtech.github.io/api/endpoints.html#operation/announceTransaction">transaction endpoints</a> handle the calls to update the blockchain state. The serialized payload of a transaction is appended to the body of the POST call. These endpoints allow the addition of new functionality to the server side without modifying the API contract.</p>
 <p><strong>再利用性</strong></p>
 <p>Applications can embed the generated code, without managing dependencies. This is particularly desirable in highly-secure environments. Besides, sharing a common codebase enables the addition of new features with less effort.</p>
-<p>At the current moment, you can generate buffers for <strong>C++</strong>. Javascript and Python are under development. If you are developing a SDK in another language, please consider coding a new generator.</p>
+<p>At the current moment, you can generate buffers for <strong>C++</strong>. Javascript and Python are under development. If you are developing an SDK in another language, please consider coding a new generator.</p>
 <div class="section" id="schema">
 <h2>スキーマ<a class="headerlink" href="#schema" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>A schema file defines the entity data structure. The library generates the leanest code necessary to serialize and deserialize defined entities.</p>
@@ -607,8 +611,8 @@
 </div>
 <div class="section" id="integration">
 <h2>統合<a class="headerlink" href="#integration" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="adding-generated-code-to-a-sdk">
-<h3>SDK へ生成したコードを追加する<a class="headerlink" href="#adding-generated-code-to-a-sdk" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="adding-generated-code-to-an-sdk">
+<h3>Adding generated code to an SDK<a class="headerlink" href="#adding-generated-code-to-an-sdk" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>After compiling all the schemas for a selected language, move the generated files to your <code class="docutils literal"><span class="pre">model/transaction</span></code> SDK folder.</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>

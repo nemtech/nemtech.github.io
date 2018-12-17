@@ -6,6 +6,7 @@
     <title>アカウント &#8212; NEM Developer Center</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
     <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
@@ -68,7 +69,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.14</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.14.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -133,10 +134,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">トランザクション</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="transaction.html#properties">プロパティ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="transaction.html#lifecycle">ライフサイクル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#defining-a-transaction">Defining a transaction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transaction.html#properties">プロパティ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#signing-a-transaction">Signing a transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#announcing-a-transaction">Announcing a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#rollbacks">ロールバック</a></li>
-<li class="toctree-l2"><a class="reference internal" href="transaction.html#transaction-types">トランザクションタイプ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#related-guides">関連するガイド</a></li>
 </ul>
 </li>
@@ -266,7 +270,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../api/serialization.html#integration">統合</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../api/serialization.html#adding-generated-code-to-a-sdk">SDK へ生成したコードを追加する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/serialization.html#adding-generated-code-to-an-sdk">Adding generated code to an SDK</a></li>
 </ul>
 </li>
 </ul>
@@ -495,8 +499,8 @@
       
   <div class="section" id="account">
 <h1>アカウント<a class="headerlink" href="#account" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>アカウントとは、NEM ブロックチェーン上に保存される変更可能な状態に関連付く <strong>キーペア</strong> (秘密鍵と公開鍵)です。言い換えると、ブロックチェーン上に金庫があり、あなたのキーでのみ変更をすることができます。秘密鍵はその名の通り、常に秘密にしておかなければなりません。秘密鍵にアクセスできる人は誰でも、アカウントを完全にコントロールできてしまいます。</p>
-<p>NEM アカウントをブロックチェーン内の <strong>資産のコンテナ</strong> として考えてみてください。よくあるブロックチェーンのように、アカウントは預け入れられたトークンを表現します。しかし、唯一の更新可能な: 出荷されるパッケージ、家の譲渡証書、公証書類のような <strong>単一のオブジェクト</strong> としても表現できます。</p>
+<p>An account is a <strong>key pair</strong> (private and public key) associated with a mutable state stored on the NEM blockchain. In other words, you have a deposit box in the blockchain, which only you can modify with your key pair. As the name suggests, the private key has to be kept secret at all times. Anyone with access to the private key, ultimately has control over the account.</p>
+<p>Think about NEM accounts as a <strong>container for assets</strong> in the blockchain. An account could represent a deposit of tokens, like most blockchains. However, it could also represent a <strong>single object</strong> that must be unique and updatable: a package to be shipped, a deed to a house or a document to be notarized.</p>
 <div class="section" id="multisig-account">
 <h2>マルチシグアカウント<a class="headerlink" href="#multisig-account" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>どのように相互に関連して制御するか、どのようにその内容を更新や転送をするかの定義を、直接 NEM ブロックチェーン上に特別なルールとして設定しておけば、アカウントはとてもスマートなものになります。1つの重要なルールタイプは、アカウントベースの資産の所有権を複数の当事者間でさまざまな方法で共有できる <a class="reference internal" href="multisig-account.html"><span class="doc">マルチシグ</span></a> コントロールです。</p>
@@ -505,7 +509,7 @@
 <h2>プロパティ<a class="headerlink" href="#properties" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>アカウントは以下のプロパティを持ちます:</p>
 <blockquote>
-<div><p><strong>秘密鍵</strong></p>
+<div><p><strong>Private key</strong></p>
 <p><a class="reference internal" href="cryptography.html#keypair"><span class="std std-ref">プライベートキー</span></a> はアカウントのものです。アカウントに紐づくプライベートキーを持っているひとは誰でも、アカウントに関するアクションを実行できます。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>

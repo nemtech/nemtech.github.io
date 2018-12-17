@@ -6,6 +6,7 @@
     <title>クロスチェーンスワップ &#8212; NEM Developer Center</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
     <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
@@ -68,7 +69,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.14</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.14.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -133,10 +134,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">トランザクション</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="transaction.html#properties">プロパティ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="transaction.html#lifecycle">ライフサイクル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#defining-a-transaction">Defining a transaction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transaction.html#properties">プロパティ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#signing-a-transaction">Signing a transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#announcing-a-transaction">Announcing a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#rollbacks">ロールバック</a></li>
-<li class="toctree-l2"><a class="reference internal" href="transaction.html#transaction-types">トランザクションタイプ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#related-guides">関連するガイド</a></li>
 </ul>
 </li>
@@ -266,7 +270,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../api/serialization.html#integration">統合</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../api/serialization.html#adding-generated-code-to-a-sdk">SDK へ生成したコードを追加する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/serialization.html#adding-generated-code-to-an-sdk">Adding generated code to an SDK</a></li>
 </ul>
 </li>
 </ul>
@@ -531,21 +535,36 @@
 <p>ロックされたモザイク</p>
 <p><strong>期間</strong></p>
 <p>到達した場合、モザイクはトランザクション開始者へ返還されます。</p>
-<p><strong>ハッシュタイプ</strong></p>
+<p><strong>Hash type</strong></p>
 <p>proof に使用されているハッシュアルゴリズム</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="50%" />
-<col width="50%" />
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">ハッシュタイプ</th>
-<th class="head">ID</th>
+<tr class="row-odd"><th class="head">Id</th>
+<th class="head">Hash type</th>
+<th class="head">Description</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>SHA_512</td>
-<td>0</td>
+<tr class="row-even"><td>0</td>
+<td>SHA_3</td>
+<td>Input is hashed using Sha3</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>Keccak</td>
+<td>Input is hashed using Keccak</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>Hash_160</td>
+<td>Input is hashed twice: first with Sha-256 and then with RIPEMD-160</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>Hash_256</td>
+<td>Input is hashed twice with Sha-256</td>
 </tr>
 </tbody>
 </table>
@@ -563,7 +582,7 @@
 <div class="section" id="id3">
 <h3>パラメータ<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <blockquote>
-<div><p><strong>ハッシュタイプ</strong></p>
+<div><p><strong>Hash type</strong></p>
 <p>proof に使用されているハッシュアルゴリズム</p>
 <p><strong>シークレット</strong></p>
 <p>ハッシュ化された証明</p>
