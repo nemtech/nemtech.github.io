@@ -69,7 +69,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.14.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.15</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -129,19 +129,27 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="block.html">ブロック</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="block.html#block-creation">ブロック生成</a></li>
-<li class="toctree-l2"><a class="reference internal" href="block.html#properties">プロパティ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="block.html#related-guides">関連するガイド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="block.html#guides">ガイド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="block.html#schemas">スキーマ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="block.html#blockheader">ブロックヘッダ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="block.html#verifiableentity">VerifiableEntity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="block.html#entitybody">EntityBody</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">トランザクション</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="transaction.html#defining-a-transaction">Defining a transaction</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="transaction.html#properties">プロパティ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#defining-a-transaction">トランザクションの定義</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#signing-a-transaction">トランザクションへの署名</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#announcing-a-transaction">トランザクションのアナウンス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#rollbacks">ロールバック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#guides">ガイド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#schemas">スキーマ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transaction.html#id3">トランザクション</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transaction.html#embeddedtransaction">EmbeddedTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transaction.html#sizeprefixedentity">SizePrefixedEntity</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="transaction.html#signing-a-transaction">Signing a transaction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="transaction.html#announcing-a-transaction">Announcing a transaction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="transaction.html#rollbacks">ロールバック</a></li>
-<li class="toctree-l2"><a class="reference internal" href="transaction.html#related-guides">関連するガイド</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ノード</a><ul>
@@ -155,7 +163,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#catapult-rest-component">Catapult REST コンポーネント</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#related-guides">関連するガイド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#guides">ガイド</a></li>
 </ul>
 </li>
 </ul>
@@ -163,8 +171,30 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="account.html">アカウント</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="account.html#multisig-account">マルチシグアカウント</a></li>
-<li class="toctree-l2"><a class="reference internal" href="account.html#properties">プロパティ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="account.html#related-guides">関連するガイド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account.html#guides">ガイド</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="account-filter.html">アカウントフィルタ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="account-filter.html#address-filter">アドレスフィルタ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account-filter.html#mosaic-filter">モザイクフィルタ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account-filter.html#entitytype-filter">エンティティタイプフィルタ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account-filter.html#examples">例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="account-filter.html#blocking-spam-transactions">スパムトランザクションのブロック</a></li>
+<li class="toctree-l3"><a class="reference internal" href="account-filter.html#enhancing-the-account-security">アカウントのセキュリティ向上</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="account-filter.html#schemas">スキーマ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="account-filter.html#accountpropertiesaddresstransaction">AccountPropertiesAddressTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="account-filter.html#accountpropertiesmosaictransaction">AccountPropertiesMosaicTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="account-filter.html#accountpropertiesentitytypetransaction">AccountPropertiesEntityTypeTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="account-filter.html#addressmodification">AddressModification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="account-filter.html#mosaicmodification">MosaicModification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="account-filter.html#entitytypemodification">EntityTypeModification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="account-filter.html#accountpropertiesmodification">AccountPropertiesModification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="account-filter.html#propertytype">PropertyType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="account-filter.html#propertymodificationtype">PropertyModificationType</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a><ul>
@@ -174,8 +204,13 @@
 <li class="toctree-l3"><a class="reference internal" href="multisig-account.html#assets-ownership">アセットの所有権</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="multisig-account.html#modify-multisig-account-transaction">マルチシグアカウント変更トランザクション</a></li>
-<li class="toctree-l2"><a class="reference internal" href="multisig-account.html#related-guides">関連するガイド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig-account.html#guides">ガイド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig-account.html#schemas">スキーマ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="multisig-account.html#modifymultisigtransaction">ModifyMultisigTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multisig-account.html#cosignatorymodification">CosignatoryModification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multisig-account.html#cosignatorymodificationtype">CosignatoryModificationType</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="multi-level-multisig-account.html">マルチレベルマルチシグアカウント</a><ul>
@@ -185,33 +220,39 @@
 <li class="toctree-l3"><a class="reference internal" href="multi-level-multisig-account.html#account-recovery">アカウントの復旧</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="multi-level-multisig-account.html#related-guides">関連するガイド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-level-multisig-account.html#guides">ガイド</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="namespace.html#subnamespaces">サブネームスペース</a></li>
-<li class="toctree-l2"><a class="reference internal" href="namespace.html#register-namespace-transaction">ネームスペース登録トランザクション</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="namespace.html#parameters">パラメータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html#guides">ガイド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html#schemas">スキーマ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="namespace.html#registernamespacetransaction">RegisterNamespaceTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="namespace.html#namespacetype">NamespaceType</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="namespace.html#related-guides">関連するガイド</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">モザイク</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mosaic.html#mosaic-definition-transaction">モザイク定義トランザクション</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="mosaic.html#parameters">パラメータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic.html#guides">ガイド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic.html#schemas">スキーマ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mosaic.html#mosaicdefinitiontransaction">MosaicDefinitionTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mosaic.html#mosaicsupplychangetransaction">MosaicSupplyChangeTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mosaic.html#mosaicproperty">MosaicProperty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mosaic.html#id1">モザイク</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mosaic.html#unresolvedmosaic">UnresolvedMosaic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mosaic.html#mosaicflags">MosaicFlags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mosaic.html#mosaicsupplychangedirection">MosaicSupplyChangeDirection</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="mosaic.html#mosaic-supply-change-transaction">モザイク供給量変更トランザクション</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="mosaic.html#id3">パラメータ</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mosaic.html#related-guides">関連するガイド</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="transfer-transaction.html#parameters">パラメータ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="transfer-transaction.html#related-guides">関連するガイド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transfer-transaction.html#guides">ガイド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transfer-transaction.html#schemas">スキーマ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transfer-transaction.html#transfertransaction">TransferTransaction</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a><ul>
@@ -221,30 +262,25 @@
 <li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#paying-for-others-fees">他人の手数料を支払う</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#parameters">パラメータ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#aggregate-complete">アグリゲートコンプリート</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#aggregate-bonded">アグリゲートボンド</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#cosignature-transaction">署名トランザクション</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#id3">パラメータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#guides">ガイド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#schemas">スキーマ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#aggregatetransaction">AggregateTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#cosignaturetransaction">CosignatureTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#hashlocktransaction">HashLockTransaction</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#lock-funds-transaction">ロックファンドトランザクション</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#id5">パラメータ</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#related-guides">関連するガイド</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html#secret-lock-transaction">シークレットロックトランザクション</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cross-chain-swaps.html#parameters">パラメータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html#guides">ガイド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html#schemas">スキーマ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cross-chain-swaps.html#secretlocktransaction">SecretLockTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cross-chain-swaps.html#secretprooftransaction">SecretProofTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cross-chain-swaps.html#lockhashalgorithm">LockHashAlgorithm</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html#secret-proof-transaction">シークレット証明トランザクション</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cross-chain-swaps.html#id3">パラメータ</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html#related-guides">関連するガイド</a></li>
 </ul>
 </li>
 </ul>
@@ -254,7 +290,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/requests.html#requests">リクエスト</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/requests.html#http-errors">HTTP エラー</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/requests.html#http-status">HTTP ステータス</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/requests.html#numbers-lower-and-higher">数値: 高位と下位</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/requests.html#uint64-lower-and-higher">uint64: lower と higher</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../api/tools.html">ツール</a><ul>
@@ -270,7 +306,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../api/serialization.html#integration">統合</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../api/serialization.html#adding-generated-code-to-an-sdk">Adding generated code to an SDK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/serialization.html#adding-generated-code-to-an-sdk">SDK へ生成したコードを追加する</a></li>
 </ul>
 </li>
 </ul>
@@ -452,13 +488,14 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#catapult-rest-component">Catapult REST コンポーネント</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#related-guides">関連するガイド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#guides">ガイド</a></li>
 </ul>
 </li>
 </ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="account.html">アカウント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-filter.html">アカウントフィルタ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multi-level-multisig-account.html">マルチレベルマルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
@@ -516,7 +553,7 @@
 <div class="section" id="catapult-p2p-component">
 <h2>Catapult P2P コンポーネント<a class="headerlink" href="#catapult-p2p-component" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><strong>リポジトリ:</strong> <a href="https://github.com/nemtech/catapult-server" target="_blank">Catapult Server</a></p>
-<p>The P2P nodes form the backbone of the blockchain. The role of the node is to <a class="reference internal" href="transaction.html#transaction-validation"><span class="std std-ref">verify transactions</span></a> and <a class="reference internal" href="block.html"><span class="doc">blocks</span></a>, run the consensus algorithm, create new blocks, and propagate the changes through the network.</p>
+<p>P2P ノードはブロックチェーンのバックボーンを構成します。ノードの役割は <a class="reference internal" href="transaction.html#transaction-validation"><span class="std std-ref">トランザクション</span></a> と <a class="reference internal" href="block.html"><span class="doc">ブロック</span></a> を検証すること、コンセンサスアルゴリズムの実行、新しいブロックの生成、ネットワークへの変更の伝播を実行することです。</p>
 <p>API ノードはP2Pノードへトランザクションをプッシュします。受信したトランザクションが妥当ではない場合、P2P ノードはそれを破棄します。</p>
 <p>ブロック処理の後:</p>
 <ol class="arabic simple">
@@ -525,9 +562,9 @@
 </ol>
 <div class="section" id="rocksdb">
 <h3>RocksDB<a class="headerlink" href="#rocksdb" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><a href=" https://en.wikipedia.org/wiki/RocksDB" target="_blank">RocksDB</a> stores the chain state. The data structures cached are serialized and stored as value to a corresponding key. In other words, supports different “columns” (key/value pair “tables”).</p>
-<p>For example, a column maps the public keys to addresses. Another one, the account state entries as the value to corresponding address keys.</p>
-<p>Storing the state in memory is faster than using RocksDB. However, storing state information in RocksDB demands less memory the network nodes. This is primarily desirable in networks with a large number of accounts.</p>
+<p><a href=" https://en.wikipedia.org/wiki/RocksDB" target="_blank">RocksDB</a> はチェーン状態を保存します。このキャッシュされたデータ構造はシリアライズされ、対応するキーに値として保存されます。つまり 「columns」 (key/value ペアのテーブル) をサポートします。</p>
+<p>例えば、公開鍵をアドレスにマッピングしている列。他には、対応するアドレスをキーの値とした、アカウント状態のエントリです。</p>
+<p>RocksDBを使用するよりも状態をメモリに保存しておくことのほうがより高速になります。しかし状態の情報を RocksDB に保存しておくことで、ネットワークのノードが必要とするメモリを少なくできます。これは主に大量のアカウントが存在するネットワークにおいて望ましいことです。</p>
 </div>
 </div>
 <div class="section" id="catapult-api-component">
@@ -536,7 +573,7 @@
 <p>The primary responsibility of Catapult API is to store the data in readable form.  Each API instance maintains a MongoDB, and optionally a RocksDB to save the state.</p>
 <p>The layer <a class="reference internal" href="transaction.html#transaction-validation"><span class="std std-ref">validates the transactions</span></a> received from the REST component. Additionally, the API throws the errors back via ZMQ in binary.</p>
 <p>The Catapult API component is also responsible for collecting cosignatures. <a class="reference internal" href="aggregate-transaction.html"><span class="doc">Aggregated bonded transactions</span></a> are pushed to P2P nodes once they are complete.</p>
-<p>API components can connect to multiple P2P nodes, but at least must connect to one.</p>
+<p>API コンポーネントは複数のP2Pノードに接続できますが、最低でも1つと繋がっていなければなりません。</p>
 <div class="section" id="mongodb">
 <h3>MongoDB<a class="headerlink" href="#mongodb" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><a href="https://es.wikipedia.org/wiki/MongoDB" target="_blank">MongoDB</a> はブロック、トランザクションとチェーン状態をハイパフォーマンスの実現のために保存します。</p>
@@ -561,8 +598,8 @@
 <p>Catapult REST handles <strong>JSON API</strong> client requests. This component reads from MongoDB, formats the response, and returns it to the client. Each Catapult REST connects to one Catapult API instance.</p>
 <p>Catapult REST sends new transactions to the Catapult API using sockets. The component announces events as well to the client via WebSockets.</p>
 </div>
-<div class="section" id="related-guides">
-<h2>関連するガイド<a class="headerlink" href="#related-guides" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="guides">
+<h2>ガイド<a class="headerlink" href="#guides" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><a href="https://github.com/tech-bureau/catapult-service-bootstrap/" target="_blank"><b>Running Catapult locally</b></a></li>
 </ul>
@@ -587,7 +624,7 @@
                     <li>
                         <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM">
                             <i class="fab fa-slack"></i>
-                            <span >Join #general discussion</span>
+                            <span>Join #general discussion</span>
                         </a>
                     </li>
                     <li>
@@ -616,47 +653,47 @@
         <div class="row">
 
             <div class="col-sm-4">
-                <h4>Protocol</h4>
+                <h4>プロトコル</h4>
 
                 <ul>
-                    <li><a href="cryptography.html">Cryptography</a></li>
-                    <li><a href="block.html">Block</a></li>
-                    <li><a href="transaction.html">Transaction</a></li>
-                    <li><a href="#">Node</a></li>
+                    <li><a href="cryptography.html">暗号理論</a></li>
+                    <li><a href="block.html">ブロック</a></li>
+                    <li><a href="transaction.html">トランザクション</a></li>
+                    <li><a href="#">ノード</a></li>
                 </ul>
 
             </div>
 
             <div class="col-sm-4">
-                <h4>Built-in Features</h4>
+                <h4>ビルドイン機能</h4>
 
                 <ul>
-                    <li><a href="account.html">Account</a></li>
-                    <li><a href="multisig-account.html">Multisig Account</a></li>
-                    <li><a href="multi-level-multisig-account.html">Multilevel Multisig Account</a></li>
-                    <li><a href="namespace.html">Namespace</a></li>
-                    <li><a href="mosaic.html">Mosaic</a></li>
-                    <li><a href="transfer-transaction.html">Transfer Transaction</a></li>
-                    <li><a href="aggregate-transaction.html">Aggregate Transaction</a></li>
-                    <li><a href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
+                    <li><a href="account.html">アカウント</a></li>
+                    <li><a href="multisig-account.html">マルチシグアカウント</a></li>
+                    <li><a href="multi-level-multisig-account.html">マルチレベルマルチシグアカウント</a></li>
+                    <li><a href="namespace.html">ネームスペース</a></li>
+                    <li><a href="mosaic.html">モザイク</a></li>
+                    <li><a href="transfer-transaction.html">転送トランザクション</a></li>
+                    <li><a href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
+                    <li><a href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
                 </ul>
 
             </div>
 
             <div class="col-sm-4">
-                <h4>References</h4>
+                <h4>リファレンス</h4>
 
                 <ul>
                     <li><a href="../api/requests.html">REST API</a></li>
                     <li><a href="../sdk/languages.html">SDKs</a></li>
-                    <li><a href="../sdk/libraries.html">Libraries</a></li>
+                    <li><a href="../sdk/libraries.html">ライブラリ</a></li>
                     <li><a href="../cli/overview.html">CLI</a></li>
                 </ul>
                 <div id="language">
                     <i class="fas fa-globe"></i>
                     <select>
-                        <option id="english" value="en">English</option>
-                        <option id="japanese" value="ja">Japanese</option>
+                        <option id="english" value="en">英語</option>
+                        <option id="japanese" value="ja">日本語</option>
                     </select>
                 </div>
 

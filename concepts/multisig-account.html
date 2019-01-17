@@ -33,7 +33,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Multi-Level Multisig Account" href="multi-level-multisig-account.html" />
-    <link rel="prev" title="Account" href="account.html" />
+    <link rel="prev" title="Account Filter" href="account-filter.html" />
   
 
 <meta charset='utf-8'>
@@ -68,7 +68,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
           developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.14.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.15</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -128,19 +128,27 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="block.html">Block</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="block.html#block-creation">Block creation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="block.html#properties">Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="block.html#related-guides">Related guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="block.html#guides">Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="block.html#schemas">Schemas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="block.html#blockheader">BlockHeader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="block.html#verifiableentity">VerifiableEntity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="block.html#entitybody">EntityBody</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">Transaction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="transaction.html#defining-a-transaction">Defining a transaction</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="transaction.html#properties">Properties</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#defining-a-transaction">Defining a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#signing-a-transaction">Signing a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#announcing-a-transaction">Announcing a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#rollbacks">Rollbacks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="transaction.html#related-guides">Related guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#guides">Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#schemas">Schemas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transaction.html#id3">Transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transaction.html#embeddedtransaction">EmbeddedTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transaction.html#sizeprefixedentity">SizePrefixedEntity</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="node.html">Node</a><ul>
@@ -154,7 +162,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="node.html#catapult-rest-component">Catapult REST Component</a></li>
-<li class="toctree-l2"><a class="reference internal" href="node.html#related-guides">Related guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html#guides">Guides</a></li>
 </ul>
 </li>
 </ul>
@@ -162,8 +170,30 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="account.html">Account</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="account.html#multisig-account">Multisig Account</a></li>
-<li class="toctree-l2"><a class="reference internal" href="account.html#properties">Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="account.html#related-guides">Related guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account.html#guides">Guides</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="account-filter.html">Account Filter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="account-filter.html#address-filter">Address filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account-filter.html#mosaic-filter">Mosaic filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account-filter.html#entitytype-filter">EntityType filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account-filter.html#examples">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="account-filter.html#blocking-spam-transactions">Blocking spam transactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="account-filter.html#enhancing-the-account-security">Enhancing the account security</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="account-filter.html#schemas">Schemas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="account-filter.html#accountpropertiesaddresstransaction">AccountPropertiesAddressTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="account-filter.html#accountpropertiesmosaictransaction">AccountPropertiesMosaicTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="account-filter.html#accountpropertiesentitytypetransaction">AccountPropertiesEntityTypeTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="account-filter.html#addressmodification">AddressModification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="account-filter.html#mosaicmodification">MosaicModification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="account-filter.html#entitytypemodification">EntityTypeModification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="account-filter.html#accountpropertiesmodification">AccountPropertiesModification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="account-filter.html#propertytype">PropertyType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="account-filter.html#propertymodificationtype">PropertyModificationType</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Multisig Account</a><ul>
@@ -173,8 +203,13 @@
 <li class="toctree-l3"><a class="reference internal" href="#assets-ownership">Assets ownership</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#modify-multisig-account-transaction">Modify multisig account transaction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#related-guides">Related guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#schemas">Schemas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modifymultisigtransaction">ModifyMultisigTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cosignatorymodification">CosignatoryModification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cosignatorymodificationtype">CosignatoryModificationType</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="multi-level-multisig-account.html">Multi-Level Multisig Account</a><ul>
@@ -184,33 +219,39 @@
 <li class="toctree-l3"><a class="reference internal" href="multi-level-multisig-account.html#account-recovery">Account Recovery</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="multi-level-multisig-account.html#related-guides">Related guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-level-multisig-account.html#guides">Guides</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="namespace.html#subnamespaces">Subnamespaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="namespace.html#register-namespace-transaction">Register namespace transaction</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="namespace.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html#guides">Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html#schemas">Schemas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="namespace.html#registernamespacetransaction">RegisterNamespaceTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="namespace.html#namespacetype">NamespaceType</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="namespace.html#related-guides">Related guides</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">Mosaic</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mosaic.html#mosaic-definition-transaction">Mosaic definition transaction</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="mosaic.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic.html#guides">Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic.html#schemas">Schemas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mosaic.html#mosaicdefinitiontransaction">MosaicDefinitionTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mosaic.html#mosaicsupplychangetransaction">MosaicSupplyChangeTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mosaic.html#mosaicproperty">MosaicProperty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mosaic.html#id1">Mosaic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mosaic.html#unresolvedmosaic">UnresolvedMosaic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mosaic.html#mosaicflags">MosaicFlags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mosaic.html#mosaicsupplychangedirection">MosaicSupplyChangeDirection</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="mosaic.html#mosaic-supply-change-transaction">Mosaic supply change transaction</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="mosaic.html#id3">Parameters</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mosaic.html#related-guides">Related guides</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="transfer-transaction.html#parameters">Parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="transfer-transaction.html#related-guides">Related guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transfer-transaction.html#guides">Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transfer-transaction.html#schemas">Schemas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transfer-transaction.html#transfertransaction">TransferTransaction</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a><ul>
@@ -220,30 +261,25 @@
 <li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#paying-for-others-fees">Paying for others fees</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#parameters">Parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#aggregate-complete">Aggregate complete</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#aggregate-bonded">Aggregate bonded</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#cosignature-transaction">Cosignature transaction</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#id3">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#guides">Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#schemas">Schemas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#aggregatetransaction">AggregateTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#cosignaturetransaction">CosignatureTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#hashlocktransaction">HashLockTransaction</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#lock-funds-transaction">Lock funds transaction</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#id5">Parameters</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#related-guides">Related guides</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html#secret-lock-transaction">Secret lock transaction</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cross-chain-swaps.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html#guides">Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html#schemas">Schemas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cross-chain-swaps.html#secretlocktransaction">SecretLockTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cross-chain-swaps.html#secretprooftransaction">SecretProofTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cross-chain-swaps.html#lockhashalgorithm">LockHashAlgorithm</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html#secret-proof-transaction">Secret proof transaction</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cross-chain-swaps.html#id3">Parameters</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html#related-guides">Related guides</a></li>
 </ul>
 </li>
 </ul>
@@ -253,7 +289,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/requests.html#requests">Requests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/requests.html#http-errors">Http errors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/requests.html#http-status">Http status</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/requests.html#numbers-lower-and-higher">Numbers: lower and higher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/requests.html#uint64-lower-and-higher">uint64: lower and higher</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../api/tools.html">Tools</a><ul>
@@ -445,6 +481,7 @@
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="account.html">Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-filter.html">Account Filter</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Multisig Account</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#shared-accounts">Shared accounts</a></li>
@@ -452,8 +489,13 @@
 <li class="toctree-l3"><a class="reference internal" href="#assets-ownership">Assets ownership</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#modify-multisig-account-transaction">Modify multisig account transaction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#related-guides">Related guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#schemas">Schemas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modifymultisigtransaction">ModifyMultisigTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cosignatorymodification">CosignatoryModification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cosignatorymodificationtype">CosignatoryModificationType</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="multi-level-multisig-account.html">Multi-Level Multisig Account</a></li>
@@ -517,10 +559,6 @@
 <li>An account can be cosigner of up to <code class="docutils literal"><span class="pre">5</span></code> multisig accounts.</li>
 <li>Multisig accounts can have as a cosigner another multisig, up to <code class="docutils literal"><span class="pre">3</span></code> levels. See <a class="reference internal" href="multi-level-multisig-account.html"><span class="doc">Multi-level Multisig Account</span></a>.</li>
 </ul>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Configuration parameters are <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">editable</a> . Public network configuration may differ.</p>
-</div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <p>There is a broad range of useful applications for multisig accounts. Let’s take a look at some of the most common use cases.</p>
@@ -528,7 +566,7 @@
 <h3>Shared accounts<a class="headerlink" href="#shared-accounts" title="Permalink to this headline">¶</a></h3>
 <p>Several families are members of the local philatelist society and use a shared account to buy stamps.</p>
 <p>To ensure that all agree on which old stamps they should buy and on the right price, they use a multisig account. This way, all members of the society need to approve the transaction before it is included in the blockchain.</p>
-<div class="figure align-center" id="id2">
+<div class="figure align-center" id="id1">
 <img alt="../_images/multisig-2-of-3.png" src="../_images/multisig-2-of-3.png" style="width: 350px;" />
 <p class="caption"><span class="caption-text">M-of-N multisig account</span></p>
 </div>
@@ -537,7 +575,7 @@
 <h3>Multi-factor authorization<a class="headerlink" href="#multi-factor-authorization" title="Permalink to this headline">¶</a></h3>
 <p>Alice wants to make sure her funds are not compromised in any way. Therefore she sets up a multisig account with her funds and attaches two accounts (signer accounts) to control her multisig account as a form of 2-factor authentication.</p>
 <p>Both of her signer accounts need to approve the transaction, and her signer accounts are located on different computer platforms with different passwords. This means that even if an evil hacker or virus should compromise one of her accounts, the funds are still kept secure.</p>
-<div class="figure align-center" id="id3">
+<div class="figure align-center" id="id2">
 <img alt="../_images/multisig-multifactor-auth.png" src="../_images/multisig-multifactor-auth.png" style="width: 300px;" />
 <p class="caption"><span class="caption-text">Multi-factor authorization using multisig accounts</span></p>
 </div>
@@ -546,32 +584,14 @@
 <h3>Assets ownership<a class="headerlink" href="#assets-ownership" title="Permalink to this headline">¶</a></h3>
 <p>Multisig accounts can be used to represent the ownership of assets.</p>
 <p>A company could create a 1-of-1 multisig account for each of their products, adding themselves as the cosignatory. When the company sells the product to Alice, she becomes the owner, being the company removed in the same transaction.</p>
-<div class="figure align-center" id="id4">
+<div class="figure align-center" id="id3">
 <img alt="../_images/multisig-asset-ownership.png" src="../_images/multisig-asset-ownership.png" style="width: 300px;" />
 <p class="caption"><span class="caption-text">Transferring an account</span></p>
 </div>
 </div>
 </div>
-<div class="section" id="modify-multisig-account-transaction">
-<span id="id1"></span><h2>Modify multisig account transaction<a class="headerlink" href="#modify-multisig-account-transaction" title="Permalink to this headline">¶</a></h2>
-<p>Announce a modify multisig account transaction to:</p>
-<ol class="loweralpha">
-<li><p class="first">Transform an account to multisig.</p>
-</li>
-<li><p class="first">Change the configurable properties of a multisig account.</p>
-<blockquote>
-<div><p><strong>Minimum approval delta</strong></p>
-<p>The number of signatures needed to approve a transaction. If we are modifying an existing multisig account, this indicates the relative change of the minimum cosignatories.</p>
-<p><strong>Minimum removal delta</strong></p>
-<p>The number of signatures needed to remove a cosignatory. If we are modifying an existing multisig account, this indicates the relative change of the minimum cosignatories.</p>
-<p><strong>Modifications</strong></p>
-<p>Each account in the modification list can be enabled to announce and cosign transactions for its approval (1) or deleted from a the multisig account (0).</p>
-</div></blockquote>
-</li>
-</ol>
-</div>
-<div class="section" id="related-guides">
-<h2>Related guides<a class="headerlink" href="#related-guides" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="guides">
+<h2>Guides<a class="headerlink" href="#guides" title="Permalink to this headline">¶</a></h2>
 <ul class="postlist-style-circle postlist">
 <li><p class="first"><a class="reference internal" href="../guides/account/converting-an-account-to-multisig.html">Converting an account to multisig</a></p>
 <p>Create a 1-of-2 <a class="reference internal" href="#"><span class="doc">multisig account</span></a>, by adding two cosignatories.</p>
@@ -582,7 +602,111 @@
 <li><p class="first"><a class="reference internal" href="../guides/account/creating-a-multi-level-multisig-account.html">Creating a multi-level multisig account (MLMA)</a></p>
 <p>Create a <a class="reference internal" href="multi-level-multisig-account.html"><span class="doc">multi-level multisig account</span></a>.</p>
 </li>
+<li><p class="first"><a class="reference internal" href="../guides/transaction/sending-a-multisig-transaction.html">Sending a multisig transaction</a></p>
+<p>Send a transaction involving a <a class="reference internal" href="#"><span class="doc">multisig</span></a> and learn how an <a class="reference internal" href="aggregate-transaction.html#id1"><span class="std std-ref">aggregate bonded transaction</span></a> works.</p>
+</li>
 </ul>
+</div>
+<div class="section" id="schemas">
+<h2>Schemas<a class="headerlink" href="#schemas" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Configuration parameters are <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">editable</a> . Public network configuration may differ.</p>
+</div>
+<div class="section" id="modifymultisigtransaction">
+<span id="modify-multisig-account-transaction"></span><h3>ModifyMultisigTransaction<a class="headerlink" href="#modifymultisigtransaction" title="Permalink to this headline">¶</a></h3>
+<p>Announce a modify multisig account transaction to:</p>
+<ol class="loweralpha simple">
+<li>Transform an account to multisig.</li>
+<li>Change the configurable properties of a multisig account.</li>
+</ol>
+<p><strong>Version</strong>: 0x01</p>
+<p><strong>Entity type</strong>: 0x4155</p>
+<p><strong>Inlines</strong>:</p>
+<ul class="simple">
+<li><a class="reference internal" href="transaction.html#id3"><span class="std std-ref">Transaction</span></a> or <a class="reference internal" href="transaction.html#embedded-transaction"><span class="std std-ref">EmbeddedTransaction</span></a></li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>minRemovalDelta</td>
+<td>uint8</td>
+<td>The number of signatures needed to remove a cosignatory. If we are modifying an existing multisig account, this indicates the relative change of the minimum cosignatories.</td>
+</tr>
+<tr class="row-odd"><td>minApprovalDelta</td>
+<td>uint8</td>
+<td>The number of signatures needed to approve a transaction. If we are modifying an existing multisig account, this indicates the relative change of the minimum cosignatories.</td>
+</tr>
+<tr class="row-even"><td>modificationsCount</td>
+<td>uint8</td>
+<td>The number of modifications.</td>
+</tr>
+<tr class="row-odd"><td>modification</td>
+<td>array(<a class="reference internal" href="#cosignatory-modification"><span class="std std-ref">CosignatoryModification</span></a>, modificationsCount)</td>
+<td>The array of cosignatory <a class="reference internal" href="account.html"><span class="doc">accounts</span></a> to add or delete.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cosignatorymodification">
+<span id="cosignatory-modification"></span><h3>CosignatoryModification<a class="headerlink" href="#cosignatorymodification" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>modificationType</td>
+<td><a class="reference internal" href="#cosignatory-modification-type"><span class="std std-ref">CosignatoryModificationType</span></a></td>
+<td>The cosignatory modification type.</td>
+</tr>
+<tr class="row-odd"><td>cosignatoryPublicKey</td>
+<td>32 bytes (binary)</td>
+<td>The public key of the cosignatory.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cosignatorymodificationtype">
+<span id="cosignatory-modification-type"></span><h3>CosignatoryModificationType<a class="headerlink" href="#cosignatorymodificationtype" title="Permalink to this headline">¶</a></h3>
+<p>Enumeration: uint8</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Id</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>Add.</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>Remove.</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 
@@ -603,7 +727,7 @@
                     <li>
                         <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM">
                             <i class="fab fa-slack"></i>
-                            <span >Join #general discussion</span>
+                            <span>Join #general discussion</span>
                         </a>
                     </li>
                     <li>
