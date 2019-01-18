@@ -517,7 +517,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="3">
-<li>Open a new <a class="reference internal" href="../../api/websockets.html"><span class="doc">Listeners</span></a>. This communicates with the API WebSocket, who will communicate you asynchronously the status of the transaction.</li>
+<li>新しい <a class="reference internal" href="../../api/websockets.html"><span class="doc">リスナ</span></a> を開いてください。これは API WebSocket と疎通し、トランザクションの状態を非同期にあなたへ伝えます。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id3">
@@ -534,7 +534,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="4">
-<li>Start monitoring if the WebSocket connection is alive. <a class="reference internal" href="../../concepts/block.html"><span class="doc">Blocks</span></a> are generated every <code class="docutils literal"><span class="pre">15</span></code> seconds in average, so a timeout can be raised if there is no response after 30 seconds approximately.</li>
+<li>WebSocket のコネクションが有効ならばモニタリングをスタートします。 <a class="reference internal" href="../../concepts/block.html"><span class="doc">ブロック</span></a> は 平均 <code class="docutils literal"><span class="pre">15</span></code> 秒毎で生成されるので、30秒間ほどレスポンスがない場合、タイムアウトが発生します。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id4">
@@ -560,7 +560,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="5">
-<li>Monitor if there is some validation error with the transaction issued. When you receive a message from status WebSocket channel, it always means the transaction did not meet the requirements. You need to handle the error accordingly, by reviewing the <a class="reference internal" href="../../api/status-errors.html"><span class="doc">error status list</span></a>.</li>
+<li>発行されたトランザクションにバリデーションエラーがあるかどうかを監視します。ステータス WebSocket チャンネルからメッセージを受け取る場合、それはトランザクションが要件を満たさなかったことを意味します。エラーを適切にハンドリングするためには <a class="reference internal" href="../../api/status-errors.html"><span class="doc">エラーステータスリスト</span></a> を参照してください。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id6">
@@ -585,7 +585,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="6">
-<li>Monitor as well if the transaction reaches the network. When you receive a message from unconfirmed WebSocket channel, the transaction is valid and is waiting to be included in a block. This does not mean necessarily that the transaction will be included, as a second validation happens before being finally confirmed.</li>
+<li>トランザクションがネットワークに到達したかどうかも監視します。未承認 WebSocket チャンネルからメッセージを受け取る場合、トランザクションは妥当であり、ブロックに取りこまれるのを待っている状態です。2回目のバリデーションが最終的に確認される前に行われるため、これはトランザクションが含まれるのが確定したことを意味するものではありません。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id8">
@@ -607,7 +607,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="7">
-<li>Monitor when the transaction gets included in a block. When included, transaction can still be <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">rolled-back</span></a> because of forks. You can decide for yourself that after e.g. 6 blocks the <a class="reference external" href="https://gist.github.com/aleixmorgadas/3d856d318e60f901be09dbd23467b374">transaction is secured</a>.</li>
+<li>トランザクションがブロックに含まれたことを監視します。含まれても、トランザクションにはまだフォークによる <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">ロールバック</span></a> の可能性があります。あなた自身で、例えば、6ブロックで <a class="reference external" href="https://gist.github.com/aleixmorgadas/3d856d318e60f901be09dbd23467b374">トランザクションがセキュア</a> であると、決めることができます。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id10">
@@ -661,7 +661,7 @@
 </div>
 </div>
 </div>
-<p>If you missed the WebSocket response, check the transaction status after by calling the <a class="reference external" href="https://nemtech.github.io/api/endpoints.html#operation/getTransactionStatus">transaction status</a> endpoint. The status of failed transactions is not persistent, meaning that eventually is pruned.</p>
+<p>WebSocket のレスポンスを失った場合、 <a class="reference external" href="https://nemtech.github.io/api/endpoints.html#operation/getTransactionStatus">トランザクションステータス</a> エンドポイントを呼び出すことで、トランザクションの状態を確認できます。失敗したトランザクションの状態は永続的ではなく、最終的には除去されます。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
 <p class="last">もし小さなアプリケーションを開発していて、トランザクションを非同期にモニタリングすることがあまりにも大きなオーバーヘッドになるのであれば、<a class="reference internal" href="turning-the-asynchronous-transaction-announcement-into-synchronous.html"><span class="doc">非同期トランザクションアナウンスを同期的へ変更する</span></a> ことを検討してください。</p>
