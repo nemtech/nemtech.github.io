@@ -642,7 +642,7 @@
 </table>
 <div class="section" id="defining-a-transaction">
 <h2>Defining a transaction<a class="headerlink" href="#defining-a-transaction" title="Permalink to this headline">¶</a></h2>
-<p>Every transaction shares some common properties. Each transaction extends from the following definition, adding the type’s particular properties.</p>
+<p>Every transaction shares some common properties. Each transaction extends from the <a class="reference internal" href="#id3"><span class="std std-ref">transaction schema definition</span></a>, adding the type’s particular properties.</p>
 <p>Transactions are defined in a <a class="reference internal" href="../api/serialization.html"><span class="doc">serialized form</span></a>. We recommend to <a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingATransferTransaction.ts#L30">use the NEM2-SDK to define</a> transactions.</p>
 </div>
 <div class="section" id="signing-a-transaction">
@@ -662,7 +662,7 @@
 <p>After <a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingATransferTransaction.ts#L47">announcing a transaction</a>, the REST API will always return an OK response immediately. At this point, it still unknown whether the transaction is valid.</p>
 <p>The first validation happens in the API nodes. If the transaction presents some error, the WebSocket throws a notification through the status channel. In the positive case, the transaction reaches the P2P network with an <strong>unconfirmed</strong> status.  Never rely on a transaction which has an unconfirmed state. It is not clear if it will get included in a block, as it should pass a second validation before.</p>
 <p>The second validation is done before the transaction is added in a harvested block. If valid, the harvester stores the transaction in a block, and it reaches the <strong>confirmed</strong> status.</p>
-<p>Continuing the previous example, the transaction gets processed and the amount stated gKets transferred from the signer’s account to the recipient’s account. Additionally, the transaction fee is deducted from the signer’s account.</p>
+<p>Continuing the previous example, the transaction gets processed and the amount stated gets transferred from the signer’s account to the recipient’s account. Additionally, the transaction fee is deducted from the signer’s account.</p>
 <p>The transaction has <strong>zero confirmations</strong> at this point. When another block is added to the blockchain, the transaction has one confirmation. The next block added to the chain will give it two confirmations and so on.</p>
 </div>
 <div class="section" id="rollbacks">
