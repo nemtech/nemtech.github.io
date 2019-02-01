@@ -3,9 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Posts in namespace &#8212; NEM Developer Center</title>
+    <title>Posts in Aggregate Transaction &#8212; NEM Developer Center</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx_tabs/tabs.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx_tabs/semantic-ui-2.2.10/segment.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx_tabs/semantic-ui-2.2.10/menu.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.css" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
@@ -23,6 +27,8 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/sphinx_tabs/tabs.js"></script>
+    <script type="text/javascript" src="../../_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.js"></script>
     <script type="text/javascript" src="../../_static/js/custom.js"></script>
     <script type="text/javascript" src="../../_static/examplecode.js"></script>
     <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
@@ -42,7 +48,7 @@
 
 
   
-  <link rel="alternate" type="application/atom+xml"  href="../../blog/atom.xml" title="Posts in namespace">
+  <link rel="alternate" type="application/atom+xml"  href="../../guides/atom.xml" title="Posts in Aggregate Transaction">
   
   
   <style type="text/css">
@@ -57,34 +63,35 @@
   </head>
   <body>
 
-  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-      <div class="navbar-header">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/logo-nem.svg"></span>
-          developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.15</b></span>
-      </div>
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/logo-nem.svg"></span>
+                developer center</a>
+            <span class="navbar-text navbar-version pull-left"><b>0.15.1</b></span>
+        </div>
 
         <div class="collapse navbar-collapse nav-collapse">
-          <ul class="nav navbar-nav">
-            
-                <li><a href="../../getting-started/what-is-nem.html">Getting started</a></li>
+            <ul class="nav navbar-nav">
+                
+                <li><a href="../../getting-started/setup-workstation.html">Getting started</a></li>
                 <li><a href="../../concepts/account.html">Built-in features</a></li>
+                <li><a href="account.html">Guides</a></li>
                 <li><a href="../../references.html">References</a></li>
-            
-            
-              <li class="dropdown globaltoc-container">
+                
+                
+                <li class="dropdown globaltoc-container">
   <a role="button"
      id="dLabelGlobalToc"
      data-toggle="dropdown"
      data-target="#"
-     href="../../index.html">Site <b class="caret"></b></a>
+     href="../../contents.html">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Getting Started</span></p>
@@ -99,12 +106,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#running-catapult-service-bootstrap">Running Catapult Service Bootstrap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#creating-a-test-account">Creating a test account</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#what-is-xem-and-how-to-get-it">What is XEM and how to get it?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#setting-up-the-development-environment">Setting up the development environment</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../getting-started/setup-workstation.html#typescript-and-javascript">TypeScript and JavaScript</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../getting-started/setup-workstation.html#java">Java</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../getting-started/setup-workstation.html#c">C#</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/setup-workstation.html#setting-up-the-development-environment">Setting up the development environment</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting-started/first-application.html">Writing your first application</a><ul>
@@ -138,13 +140,14 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transaction.html">Transaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/transaction.html#transaction-types">Transaction types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/transaction.html#defining-a-transaction">Defining a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/transaction.html#signing-a-transaction">Signing a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/transaction.html#announcing-a-transaction">Announcing a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/transaction.html#rollbacks">Rollbacks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/transaction.html#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/transaction.html#schemas">Schemas</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../concepts/transaction.html#id3">Transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/transaction.html#id4">Transaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../concepts/transaction.html#embeddedtransaction">EmbeddedTransaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../concepts/transaction.html#sizeprefixedentity">SizePrefixedEntity</a></li>
 </ul>
@@ -201,6 +204,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../concepts/multisig-account.html#shared-accounts">Shared accounts</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../concepts/multisig-account.html#multi-factor-authorization">Multi-factor authorization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../concepts/multisig-account.html#assets-ownership">Assets ownership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/multisig-account.html#manufacturing-and-supply-chains">Manufacturing and Supply Chains</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/multisig-account.html#fraud-detection">Fraud Detection</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/multisig-account.html#guides">Guides</a></li>
@@ -210,16 +215,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../../concepts/multisig-account.html#cosignatorymodificationtype">CosignatoryModificationType</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/multi-level-multisig-account.html">Multi-Level Multisig Account</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/multi-level-multisig-account.html#examples">Examples</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../concepts/multi-level-multisig-account.html#manufacturing-and-supply-chains">Manufacturing and Supply Chains</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../concepts/multi-level-multisig-account.html#fraud-detection">Fraud Detection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../concepts/multi-level-multisig-account.html#account-recovery">Account Recovery</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/multi-level-multisig-account.html#guides">Guides</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">Namespace</a><ul>
@@ -266,7 +261,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/aggregate-transaction.html#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/aggregate-transaction.html#schemas">Schemas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../concepts/aggregate-transaction.html#aggregatetransaction">AggregateTransaction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../concepts/aggregate-transaction.html#cosignaturetransaction">CosignatureTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/aggregate-transaction.html#detachedcosignature">DetachedCosignature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/aggregate-transaction.html#cosignature">Cosignature</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../concepts/aggregate-transaction.html#hashlocktransaction">HashLockTransaction</a></li>
 </ul>
 </li>
@@ -441,108 +437,177 @@
 </ul>
 </ul>
 </li>
-              
-            
-            
-            
-            
-            
-          </ul>
+                
+                
+                
+                
+                
+                
+            </ul>
 
-          
             
-          
+            
+            
         </div>
     </div>
-  </div>
+</div>
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12 content">
-      
-  <div class="section">
-
-    <h1>
-      
-      Posts in
-      
-      namespace
-      
-    </h1>
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary">
+<p class="caption sidebar-current-ul"><span class="caption-text">Guides</span></p>
+<ul class="ablog-cloud current">
     
     
-
-    <div class="section">
-      <h2><a href="../../guides/namespace/registering-a-subnamespace.html">Registering a subnamespace</a></h2>
-
-      <ul class="ablog-archive">
-      <li>
-      
-        18 August 2018
-      
-      </li>
-        
-
-  
-
-  
-
-  
-
-  
-  <li id="category"><span>Category:</span>
     
-      
-      <a href="#">namespace</a>
-      
-    </li>
-  
-
-  
-  </ul>
-      <p>Register a <a class="reference internal" href="../../concepts/namespace.html"><span class="doc">subnamespace</span></a> following this guide.</p>
-
-      <p><a href="../../guides/namespace/registering-a-subnamespace.html">Read more ...</a></p>
-      <hr>
-    </div>
+    <li class="ablog-cloud toctree-l1">
+        <a href="account.html" class="reference internal nav-header">
     
-
-    <div class="section">
-      <h2><a href="../../guides/namespace/registering-a-namespace.html">Registering a namespace</a></h2>
-
-      <ul class="ablog-archive">
-      <li>
-      
-        16 August 2018
-      
-      </li>
-        
-
-  
-
-  
-
-  
-
-  
-  <li id="category"><span>Category:</span>
-    
-      
-      <a href="#">namespace</a>
-      
-    </li>
-  
-
-  
-  </ul>
-      <p>Rregister your own <a class="reference internal" href="../../concepts/namespace.html"><span class="doc">namespace</span></a>.</p>
-
-      <p><a href="../../guides/namespace/registering-a-namespace.html">Read more ...</a></p>
-      <hr>
-    </div>
+    Account (4)
+    </a></li>
     
     
-  </div>
+    
+    
+    <li class="ablog-cloud toctree-l1 current">
+        <a href="#" class="reference internal nav-header current">
+    
+    Aggregate Transaction (6)
+    </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="block.html" class="reference internal nav-header">
+    
+    Block (2)
+    </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="cross-chain-swaps.html" class="reference internal nav-header">
+    
+    Cross-Chain Swaps (1)
+    </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="monitoring.html" class="reference internal nav-header">
+    
+    Monitoring (2)
+    </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="mosaic.html" class="reference internal nav-header">
+    
+    Mosaic (2)
+    </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="multisig-account.html" class="reference internal nav-header">
+    
+    Multisig Account (5)
+    </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="namespace.html" class="reference internal nav-header">
+    
+    Namespace (2)
+    </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="tools.html" class="reference internal nav-header">
+    
+    Tools (1)
+    </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="transfer-transaction.html" class="reference internal nav-header">
+    
+    Transfer Transaction (2)
+    </a></li>
+    
+    
+</ul>
+<a href="../../getting-started/training.html"><p class="caption"><span class="caption-text"><i class="fas fa-chalkboard-teacher"></i> Courses</span></p></a>
+
+        </div>
+      </div>
+    <div class="col-md-9 content">
+      
+
+
+
+<div class="section">
+    <h2><a href="../transaction/sending-payouts-with-aggregate-complete-transaction.html">Sending payouts with aggregate complete transaction</a></h2>
+    <p>Send transactions to different accounts atomically, using an <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate complete transaction</span></a>.</p>
+
+    <p><a href="../transaction/sending-payouts-with-aggregate-complete-transaction.html">Read more ...</a></p>
+    <hr>
+</div>
+
+<div class="section">
+    <h2><a href="../transaction/creating-an-escrow-with-aggregate-bonded-transaction.html">Creating an escrow with aggregate bonded transaction</a></h2>
+    <p>Learn about <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate bonded transactions</span></a>, by creating an escrow.</p>
+
+    <p><a href="../transaction/creating-an-escrow-with-aggregate-bonded-transaction.html">Read more ...</a></p>
+    <hr>
+</div>
+
+<div class="section">
+    <h2><a href="../transaction/asking-for-mosaics-with-aggregate-bonded-transaction.html">Asking for mosaics with aggregate bonded transaction</a></h2>
+    <p>Ask an account to send you funds using an <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate bonded transaction</span></a>.</p>
+
+    <p><a href="../transaction/asking-for-mosaics-with-aggregate-bonded-transaction.html">Read more ...</a></p>
+    <hr>
+</div>
+
+<div class="section">
+    <h2><a href="../transaction/signing-announced-aggregate-bonded-transactions.html">Signing announced aggregate bonded transactions</a></h2>
+    <p>You have probably announced an <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate bonded transaction</span></a>, but all required cosigners have not signed it yet.</p>
+
+    <p><a href="../transaction/signing-announced-aggregate-bonded-transactions.html">Read more ...</a></p>
+    <hr>
+</div>
+
+<div class="section">
+    <h2><a href="../transaction/signing-announced-aggregate-bonded-transactions-automatically.html">Signing announced aggregate bonded transactions automatically</a></h2>
+    <p>Sign automatically transactions pending to be cosigned.</p>
+
+    <p><a href="../transaction/signing-announced-aggregate-bonded-transactions-automatically.html">Read more ...</a></p>
+    <hr>
+</div>
+
+<div class="section">
+    <h2><a href="../transaction/sending-a-multisig-transaction.html">Sending a multisig transaction</a></h2>
+    <p>Send a transaction involving a <a class="reference internal" href="../../concepts/multisig-account.html"><span class="doc">multisig</span></a> and learn how an <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate bonded transaction</span></a> works.</p>
+
+    <p><a href="../transaction/sending-a-multisig-transaction.html">Read more ...</a></p>
+    <hr>
+</div>
+
+
 
     </div>
       
@@ -601,11 +666,12 @@
 
                 <ul>
                     <li><a href="../../concepts/account.html">Account</a></li>
+                    <li><a href="../../concepts/account-filter.html">Account Filter</a></li>
                     <li><a href="../../concepts/multisig-account.html">Multisig Account</a></li>
-                    <li><a href="../../concepts/multi-level-multisig-account.html">Multilevel Multisig Account</a></li>
                     <li><a href="../../concepts/namespace.html">Namespace</a></li>
                     <li><a href="../../concepts/mosaic.html">Mosaic</a></li>
-                    <li><a href="../../concepts/transfer-transaction.html">Transfer Transaction</a></li>
+                    <li><a href="../../concepts/transfer-transaction.html">Transfer Transaction</a>
+                    </li>
                     <li><a href="../../concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
                     <li><a href="../../concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
                 </ul>

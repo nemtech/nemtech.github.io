@@ -32,7 +32,7 @@
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Multi-Level Multisig Account" href="multi-level-multisig-account.html" />
+    <link rel="next" title="Namespace" href="namespace.html" />
     <link rel="prev" title="Account Filter" href="account-filter.html" />
   
 
@@ -57,34 +57,35 @@
   </head>
   <body>
 
-  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-      <div class="navbar-header">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
-          developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.15</b></span>
-      </div>
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
+                developer center</a>
+            <span class="navbar-text navbar-version pull-left"><b>0.15.1</b></span>
+        </div>
 
         <div class="collapse navbar-collapse nav-collapse">
-          <ul class="nav navbar-nav">
-            
-                <li><a href="../getting-started/what-is-nem.html">Getting started</a></li>
+            <ul class="nav navbar-nav">
+                
+                <li><a href="../getting-started/setup-workstation.html">Getting started</a></li>
                 <li><a href="account.html">Built-in features</a></li>
+                <li><a href="../guides/category/account.html">Guides</a></li>
                 <li><a href="../references.html">References</a></li>
-            
-            
-              <li class="dropdown globaltoc-container">
+                
+                
+                <li class="dropdown globaltoc-container">
   <a role="button"
      id="dLabelGlobalToc"
      data-toggle="dropdown"
      data-target="#"
-     href="../index.html">Site <b class="caret"></b></a>
+     href="../contents.html">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Getting Started</span></p>
@@ -99,12 +100,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#running-catapult-service-bootstrap">Running Catapult Service Bootstrap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#creating-a-test-account">Creating a test account</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#what-is-xem-and-how-to-get-it">What is XEM and how to get it?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#setting-up-the-development-environment">Setting up the development environment</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#typescript-and-javascript">TypeScript and JavaScript</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#java">Java</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#c">C#</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#setting-up-the-development-environment">Setting up the development environment</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">Writing your first application</a><ul>
@@ -138,13 +134,14 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">Transaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#transaction-types">Transaction types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#defining-a-transaction">Defining a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#signing-a-transaction">Signing a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#announcing-a-transaction">Announcing a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#rollbacks">Rollbacks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#schemas">Schemas</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="transaction.html#id3">Transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transaction.html#id4">Transaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="transaction.html#embeddedtransaction">EmbeddedTransaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="transaction.html#sizeprefixedentity">SizePrefixedEntity</a></li>
 </ul>
@@ -201,6 +198,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#shared-accounts">Shared accounts</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#multi-factor-authorization">Multi-factor authorization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#assets-ownership">Assets ownership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manufacturing-and-supply-chains">Manufacturing and Supply Chains</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fraud-detection">Fraud Detection</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
@@ -210,16 +209,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#cosignatorymodificationtype">CosignatoryModificationType</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="multi-level-multisig-account.html">Multi-Level Multisig Account</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="multi-level-multisig-account.html#examples">Examples</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="multi-level-multisig-account.html#manufacturing-and-supply-chains">Manufacturing and Supply Chains</a></li>
-<li class="toctree-l3"><a class="reference internal" href="multi-level-multisig-account.html#fraud-detection">Fraud Detection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="multi-level-multisig-account.html#account-recovery">Account Recovery</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="multi-level-multisig-account.html#guides">Guides</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a><ul>
@@ -266,7 +255,8 @@
 <li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#schemas">Schemas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#aggregatetransaction">AggregateTransaction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#cosignaturetransaction">CosignatureTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#detachedcosignature">DetachedCosignature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#cosignature">Cosignature</a></li>
 <li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#hashlocktransaction">HashLockTransaction</a></li>
 </ul>
 </li>
@@ -441,25 +431,25 @@
 </ul>
 </ul>
 </li>
-              
-            
-            
-            
-            
-            
-          </ul>
+                
+                
+                
+                
+                
+                
+            </ul>
 
-          
+            
             
 <div class="navbar-right hidden-sm hidden-xs">
     <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
     <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\multisig-account.rst"
        rel="nofollow"> <i class="fab fa-github"></i> Edit on GitHub</a>
 </div>
-          
+            
         </div>
     </div>
-  </div>
+</div>
 
 <div class="container">
   <div class="row">
@@ -487,6 +477,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#shared-accounts">Shared accounts</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#multi-factor-authorization">Multi-factor authorization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#assets-ownership">Assets ownership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manufacturing-and-supply-chains">Manufacturing and Supply Chains</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fraud-detection">Fraud Detection</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
@@ -498,7 +490,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="multi-level-multisig-account.html">Multi-Level Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">Mosaic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
@@ -557,7 +548,7 @@
 <ul class="simple">
 <li>Multisig accounts can have up to <code class="docutils literal"><span class="pre">10</span></code> cosignatories.</li>
 <li>An account can be cosigner of up to <code class="docutils literal"><span class="pre">5</span></code> multisig accounts.</li>
-<li>Multisig accounts can have as a cosigner another multisig, up to <code class="docutils literal"><span class="pre">3</span></code> levels. See <a class="reference internal" href="multi-level-multisig-account.html"><span class="doc">Multi-level Multisig Account</span></a>.</li>
+<li>Multisig accounts can have as a cosigner another multisig, up to <code class="docutils literal"><span class="pre">3</span></code> levels. Multisig accounts &lt;multisig-account&gt;` can have as cosignatories other multisig accounts. Multi-level multisig accounts add “AND/OR” logic to multi-signature transactions.</li>
 </ul>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
@@ -589,10 +580,32 @@
 <p class="caption"><span class="caption-text">Transferring an account</span></p>
 </div>
 </div>
+<div class="section" id="manufacturing-and-supply-chains">
+<h3>Manufacturing and Supply Chains<a class="headerlink" href="#manufacturing-and-supply-chains" title="Permalink to this headline">¶</a></h3>
+<p>In this example, a manufacturer is shipping a pharmaceutical product.</p>
+<p>The product receives its quality approval <a class="reference internal" href="mosaic.html"><span class="doc">mosaic</span></a> only when its blockchain record shows it has a production date, safety inspection, and was shipped at the correct temperature.</p>
+<p>Sensors in the shipping container report temperature data every 5 minutes and consolidate it into a daily report.</p>
+<div class="figure align-center" id="id4">
+<img alt="../_images/mlma-supply-chain.png" src="../_images/mlma-supply-chain.png" style="width: 750px;" />
+<p class="caption"><span class="caption-text">Manufacturing and Supply Chains</span></p>
+</div>
+</div>
+<div class="section" id="fraud-detection">
+<h3>Fraud Detection<a class="headerlink" href="#fraud-detection" title="Permalink to this headline">¶</a></h3>
+<p>This example shows how a high-security account can be made easier to use.</p>
+<p>Transactions are only approved from a hardware wallet OR your phone AND a fraud detection AI. MLMA allows a variety of security configurations at the protocol level to keep businesses and their customers hack-free.</p>
+<div class="figure align-center" id="id5">
+<img alt="../_images/mlma-fraud-detection.png" src="../_images/mlma-fraud-detection.png" style="width: 550px;" />
+<p class="caption"><span class="caption-text">Fraud Detection</span></p>
+</div>
+</div>
 </div>
 <div class="section" id="guides">
 <h2>Guides<a class="headerlink" href="#guides" title="Permalink to this headline">¶</a></h2>
 <ul class="postlist-style-circle postlist">
+<li><p class="first"><a class="reference internal" href="../guides/transaction/signing-announced-aggregate-bonded-transactions.html">Signing announced aggregate bonded transactions</a></p>
+<p>You have probably announced an <a class="reference internal" href="aggregate-transaction.html#id1"><span class="std std-ref">aggregate bonded transaction</span></a>, but all required cosigners have not signed it yet.</p>
+</li>
 <li><p class="first"><a class="reference internal" href="../guides/account/converting-an-account-to-multisig.html">Converting an account to multisig</a></p>
 <p>Create a 1-of-2 <a class="reference internal" href="#"><span class="doc">multisig account</span></a>, by adding two cosignatories.</p>
 </li>
@@ -600,7 +613,7 @@
 <p>Modify an existing <a class="reference internal" href="#"><span class="doc">multisig account</span></a>.</p>
 </li>
 <li><p class="first"><a class="reference internal" href="../guides/account/creating-a-multi-level-multisig-account.html">Creating a multi-level multisig account (MLMA)</a></p>
-<p>Create a <a class="reference internal" href="multi-level-multisig-account.html"><span class="doc">multi-level multisig account</span></a>.</p>
+<p>Create a <a class="reference internal" href="#"><span class="doc">multi-level multisig account</span></a>.</p>
 </li>
 <li><p class="first"><a class="reference internal" href="../guides/transaction/sending-a-multisig-transaction.html">Sending a multisig transaction</a></p>
 <p>Send a transaction involving a <a class="reference internal" href="#"><span class="doc">multisig</span></a> and learn how an <a class="reference internal" href="aggregate-transaction.html#id1"><span class="std std-ref">aggregate bonded transaction</span></a> works.</p>
@@ -620,11 +633,11 @@
 <li>Transform an account to multisig.</li>
 <li>Change the configurable properties of a multisig account.</li>
 </ol>
-<p><strong>Version</strong>: 0x01</p>
+<p><strong>Version</strong>: 0x03</p>
 <p><strong>Entity type</strong>: 0x4155</p>
 <p><strong>Inlines</strong>:</p>
 <ul class="simple">
-<li><a class="reference internal" href="transaction.html#id3"><span class="std std-ref">Transaction</span></a> or <a class="reference internal" href="transaction.html#embedded-transaction"><span class="std std-ref">EmbeddedTransaction</span></a></li>
+<li><a class="reference internal" href="transaction.html#id4"><span class="std std-ref">Transaction</span></a> or <a class="reference internal" href="transaction.html#embedded-transaction"><span class="std std-ref">EmbeddedTransaction</span></a></li>
 </ul>
 <table border="1" class="docutils">
 <colgroup>
@@ -640,11 +653,11 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>minRemovalDelta</td>
-<td>uint8</td>
+<td>int8</td>
 <td>The number of signatures needed to remove a cosignatory. If we are modifying an existing multisig account, this indicates the relative change of the minimum cosignatories.</td>
 </tr>
 <tr class="row-odd"><td>minApprovalDelta</td>
-<td>uint8</td>
+<td>int8</td>
 <td>The number of signatures needed to approve a transaction. If we are modifying an existing multisig account, this indicates the relative change of the minimum cosignatories.</td>
 </tr>
 <tr class="row-even"><td>modificationsCount</td>
@@ -698,11 +711,11 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>0x00</td>
-<td>Add.</td>
+<tr class="row-even"><td>0</td>
+<td>Add cosignatory.</td>
 </tr>
-<tr class="row-odd"><td>0x01</td>
-<td>Remove.</td>
+<tr class="row-odd"><td>1</td>
+<td>Remove cosignatory.</td>
 </tr>
 </tbody>
 </table>
@@ -772,11 +785,12 @@
 
                 <ul>
                     <li><a href="account.html">Account</a></li>
+                    <li><a href="account-filter.html">Account Filter</a></li>
                     <li><a href="#">Multisig Account</a></li>
-                    <li><a href="multi-level-multisig-account.html">Multilevel Multisig Account</a></li>
                     <li><a href="namespace.html">Namespace</a></li>
                     <li><a href="mosaic.html">Mosaic</a></li>
-                    <li><a href="transfer-transaction.html">Transfer Transaction</a></li>
+                    <li><a href="transfer-transaction.html">Transfer Transaction</a>
+                    </li>
                     <li><a href="aggregate-transaction.html">Aggregate Transaction</a></li>
                     <li><a href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
                 </ul>

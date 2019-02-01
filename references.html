@@ -3,9 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Reference &#8212; NEM Developer Center</title>
+    <title>Reference Documentation &#8212; NEM Developer Center</title>
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx_tabs/tabs.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx_tabs/semantic-ui-2.2.10/segment.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx_tabs/semantic-ui-2.2.10/menu.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.css" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
     <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
@@ -23,6 +27,8 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/sphinx_tabs/tabs.js"></script>
+    <script type="text/javascript" src="_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.js"></script>
     <script type="text/javascript" src="_static/js/custom.js"></script>
     <script type="text/javascript" src="_static/examplecode.js"></script>
     <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
@@ -32,7 +38,7 @@
     <link rel="shortcut icon" href="_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-  
+
 
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -41,48 +47,41 @@
 
 
 
-  
-  
-  <style type="text/css">
-    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
-    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
-    ul.postlist a {font-style: italic;}
-    ul.postlist-style-disc {list-style-type: disc;}
-    ul.postlist-style-none {list-style-type: none;}
-    ul.postlist-style-circle {list-style-type: circle;}
-  </style>
+<link rel="stylesheet"
+      href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
 
   </head>
   <body>
 
-  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-      <div class="navbar-header">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.html"><span><img src="_static/logo-nem.svg"></span>
-          developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.15</b></span>
-      </div>
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><span><img src="_static/logo-nem.svg"></span>
+                developer center</a>
+            <span class="navbar-text navbar-version pull-left"><b>0.15.1</b></span>
+        </div>
 
         <div class="collapse navbar-collapse nav-collapse">
-          <ul class="nav navbar-nav">
-            
-                <li><a href="getting-started/what-is-nem.html">Getting started</a></li>
+            <ul class="nav navbar-nav">
+                
+                <li><a href="getting-started/setup-workstation.html">Getting started</a></li>
                 <li><a href="concepts/account.html">Built-in features</a></li>
+                <li><a href="guides/category/account.html">Guides</a></li>
                 <li><a href="#">References</a></li>
-            
-            
-              <li class="dropdown globaltoc-container">
+                
+                
+                <li class="dropdown globaltoc-container">
   <a role="button"
      id="dLabelGlobalToc"
      data-toggle="dropdown"
      data-target="#"
-     href="index.html">Site <b class="caret"></b></a>
+     href="contents.html">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Getting Started</span></p>
@@ -97,12 +96,7 @@
 <li class="toctree-l2"><a class="reference internal" href="getting-started/setup-workstation.html#running-catapult-service-bootstrap">Running Catapult Service Bootstrap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting-started/setup-workstation.html#creating-a-test-account">Creating a test account</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting-started/setup-workstation.html#what-is-xem-and-how-to-get-it">What is XEM and how to get it?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting-started/setup-workstation.html#setting-up-the-development-environment">Setting up the development environment</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="getting-started/setup-workstation.html#typescript-and-javascript">TypeScript and JavaScript</a></li>
-<li class="toctree-l3"><a class="reference internal" href="getting-started/setup-workstation.html#java">Java</a></li>
-<li class="toctree-l3"><a class="reference internal" href="getting-started/setup-workstation.html#c">C#</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/setup-workstation.html#setting-up-the-development-environment">Setting up the development environment</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="getting-started/first-application.html">Writing your first application</a><ul>
@@ -136,13 +130,14 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/transaction.html">Transaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="concepts/transaction.html#transaction-types">Transaction types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="concepts/transaction.html#defining-a-transaction">Defining a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="concepts/transaction.html#signing-a-transaction">Signing a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="concepts/transaction.html#announcing-a-transaction">Announcing a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="concepts/transaction.html#rollbacks">Rollbacks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="concepts/transaction.html#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="concepts/transaction.html#schemas">Schemas</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="concepts/transaction.html#id3">Transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="concepts/transaction.html#id4">Transaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="concepts/transaction.html#embeddedtransaction">EmbeddedTransaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="concepts/transaction.html#sizeprefixedentity">SizePrefixedEntity</a></li>
 </ul>
@@ -199,6 +194,8 @@
 <li class="toctree-l3"><a class="reference internal" href="concepts/multisig-account.html#shared-accounts">Shared accounts</a></li>
 <li class="toctree-l3"><a class="reference internal" href="concepts/multisig-account.html#multi-factor-authorization">Multi-factor authorization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="concepts/multisig-account.html#assets-ownership">Assets ownership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="concepts/multisig-account.html#manufacturing-and-supply-chains">Manufacturing and Supply Chains</a></li>
+<li class="toctree-l3"><a class="reference internal" href="concepts/multisig-account.html#fraud-detection">Fraud Detection</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="concepts/multisig-account.html#guides">Guides</a></li>
@@ -208,16 +205,6 @@
 <li class="toctree-l3"><a class="reference internal" href="concepts/multisig-account.html#cosignatorymodificationtype">CosignatoryModificationType</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/multi-level-multisig-account.html">Multi-Level Multisig Account</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="concepts/multi-level-multisig-account.html#examples">Examples</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="concepts/multi-level-multisig-account.html#manufacturing-and-supply-chains">Manufacturing and Supply Chains</a></li>
-<li class="toctree-l3"><a class="reference internal" href="concepts/multi-level-multisig-account.html#fraud-detection">Fraud Detection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="concepts/multi-level-multisig-account.html#account-recovery">Account Recovery</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="concepts/multi-level-multisig-account.html#guides">Guides</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/namespace.html">Namespace</a><ul>
@@ -264,7 +251,8 @@
 <li class="toctree-l2"><a class="reference internal" href="concepts/aggregate-transaction.html#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="concepts/aggregate-transaction.html#schemas">Schemas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="concepts/aggregate-transaction.html#aggregatetransaction">AggregateTransaction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="concepts/aggregate-transaction.html#cosignaturetransaction">CosignatureTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="concepts/aggregate-transaction.html#detachedcosignature">DetachedCosignature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="concepts/aggregate-transaction.html#cosignature">Cosignature</a></li>
 <li class="toctree-l3"><a class="reference internal" href="concepts/aggregate-transaction.html#hashlocktransaction">HashLockTransaction</a></li>
 </ul>
 </li>
@@ -439,289 +427,270 @@
 </ul>
 </ul>
 </li>
-              
-            
-            
-            
-            
-            
-          </ul>
+                
+                
+                
+                
+                
+                
+            </ul>
 
-          
             
-<div class="navbar-right hidden-sm hidden-xs">
-    <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
-    <a href="https://github.com/nemtech/nem2-docs/edit/master/source/references.rst"
-       rel="nofollow"> <i class="fab fa-github"></i> Edit on GitHub</a>
-</div>
-          
+            
+            
         </div>
     </div>
-  </div>
+</div>
 
 <div class="container">
   <div class="row">
     <div class="col-md-12 content">
       
-  <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+
 <div class="jumbotron text-center gap">
-        <h1>Reference Documentation</h1>
-        <div class="col-md-8 center-block">
-                <p>From SDKs in your favorite languages to extensions that make blockchain development easier.</p>
-        </div>
+    <h1>Reference Documentation</h1>
+    <div class="col-md-8 center-block">
+        <p>From SDKs in your favorite languages to extensions that make blockchain development easier.</p>
+    </div>
 </div>
-
 <div id="reference-page">
-        <section class="gap">
-                <div class="container">
-                        <div class="row">
-                                <div class="col-md-8 subtitle-container text-center gap center-block">
-                                        <h2>Clients & Apps</h2>
-                                        <p>Apps to interact with the NEM blockchain.</p>
-                                </div>
-                        </div>
-                        <div class="row">
-                                <div class="card-container col-md-8 center-block">
-
-                                        <div class="col-xs-6 col-sm-3">
-                                               <a href="cli/overview.html">
-                                                <div class="card font-icon">
-                                                    <i class="fas fa-terminal colored blue"></i>
-                                                    <h4>Client</h4>
-                                                </div></a>
-                                        </div>
-
-                                        <div class="col-xs-6 col-sm-3">
-                                                <a href="prototyping-tool/overview.html">
-                                                <div class="card font-icon">
-                                                    <i class="fas fa-bezier-curve colored blue"></i>
-                                                    <h4>Prototyping</h4>
-                                                </div></a>
-                                        </div>
-
-                                </div>
-                        </div>
+    <section class="gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 subtitle-container text-center gap center-block">
+                    <h2>Clients & Apps</h2>
+                    <p>Apps to interact with the NEM blockchain.</p>
                 </div>
-        </section>
-
-        <section class="inner-gap bg-gray">
-                <div class="container">
-                        <div class="row">
-                                <div class="col-md-8 subtitle-container text-center gap center-block">
-                                     <h2>NEM2-SDK</h2>
-                                      <p>The <a href="sdk/overview.html"><b>NEM2 Software Development Kit</b></a> is the primary software development tool to create NEM2 components, such as additional tools, libraries or applications.</p>
-                                </div>
-                        </div>
-                        <div class="row">
-                                <div class="card-container col-md-8 center-block">
-
-                                        <div class="col-xs-6 col-sm-3">
-                                                <a href="https://nemtech.github.io/nem2-sdk-typescript-javascript/">
-                                                <div class="card font-icon">
-                                                    <i class="devicon-typescript-plain colored"></i>
-                                                    <h4>Typescript</h4>
-                                                </div></a>
-                                        </div>
-
-                                        <div class="col-xs-6 col-sm-3">
-                                               <a href="https://nemtech.github.io/nem2-sdk-typescript-javascript/">
-                                                <div class="card font-icon">
-                                                    <i class="devicon-javascript-plain colored"></i>
-                                                    <h4>Javascript</h4>
-                                                </div></a>
-                                        </div>
-
-                                        <div class="col-xs-6 col-sm-3">
-                                                <a href="https://nemtech.github.io/nem2-sdk-java/">
-                                                <div class="card font-icon">
-                                                  <i class="devicon-java-plain colored"></i>
-                                                    <h4>Java</h4>
-                                                </div></a>
-                                        </div>
-
-                                        <div class="col-xs-6 col-sm-3">
-                                                <a href="https://github.com/nemtech/nem2-sdk-csharp">
-                                                <div class="card font-icon">
-                                                    <i class="devicon-csharp-plain colored"></i>
-                                                    <h4>C#</h4>
-                                                </div></a>
-                                        </div>
-
-                                        <div class="col-xs-6 col-sm-3">
-                                                <a href="https://github.com/proximax-storage/nem2-sdk-go/">
-                                                <div class="card font-icon">
-                                                    <i class="devicon-go-plain colored"></i>
-                                                    <h4>Go</h4>
-                                                </div></a>
-                                        </div>
-
-                                        <div class="col-xs-6 col-sm-3">
-                                                <a href="https://github.com/proximax-storage/nem2-sdk-swift/">
-                                                <div class="card font-icon">
-                                                    <i class="devicon-swift-plain colored"></i>
-                                                    <h4>Swift</h4>
-                                                </div></a>
-                                        </div>
-
-                                        <div class="col-xs-6 col-sm-3">
-                                                <a href="sdk/languages.html">
-                                                <div class="card font-icon">
-                                                    <i class="devicon-php-plain"></i>
-                                                    <h4>PHP</h4>
-                                                </div></a>
-                                        </div>
-
-                                        <div class="col-xs-6 col-sm-3">
-                                                <a href="sdk/languages.html">
-                                                <div class="card font-icon">
-                                                    <i class="devicon-cplusplus-plain"></i>
-                                                    <h4>C++</h4>
-                                                </div></a>
-                                        </div>
-                                        <div class="col-xs-6 col-sm-3">
-                                                <a href="sdk/languages.html">
-                                                <div class="card font-icon">
-                                                    <i class="devicon-python-plain"></i>
-                                                    <h4>Python</h4>
-                                                </div></a>
-                                        </div>
-
-
-                                        <div class="col-xs-6 col-sm-3">
-                                                <a href="sdk/languages.html">
-                                                <div class="card font-icon">
-                                                    <i class="devicon-ruby-plain"></i>
-                                                    <h4>Ruby</h4>
-                                                </div></a>
-                                        </div>
-                                </div>
-                        </div>
+            </div>
+            <div class="row">
+                <div class="card-container col-md-8 center-block">
+                    <div class="col-xs-6 col-sm-3">
+                        <a href="cli/overview.html">
+                            <div class="card font-icon">
+                                <i class="fas fa-terminal colored blue"></i>
+                                <h4>Client</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <a href="prototyping-tool/overview.html">
+                            <div class="card font-icon">
+                                <i class="fas fa-bezier-curve colored blue"></i>
+                                <h4>Prototyping</h4>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-        </section>
-
-
-        <section class="inner-gap">
-                    <div class="container">
-                        <div class="row">
-                                <div class="col-md-8 subtitle-container text-center gap center-block">
-                                        <h2>Extensions</h2>
-                                        <p>Collection of <a href="sdk/libraries.html"><b>libraries</b></a> and tools to accelerate blockchain development.</p>
-                                </div>
-                        </div>
-                        <div class="row">
-                                <div class="card-container col-md-8 center-block">
-
-                                        <div class="col-xs-6 col-sm-3">
-                                                <a href="https://github.com/tech-bureau/catapult-service-bootstrap">
-                                                <div class="card font-icon">
-                                                      <i class="devicon-docker-plain colored"></i>
-                                                    <h4>Catapult Service</h4>
-                                                </div></a>
-                                        </div>
-
-                                        <div class="col-xs-6 col-sm-3">
-                                               <a href="https://github.com/nemtech/nem2-camel">
-                                                <div class="card font-icon">
-                                                    <i class="fas fa-sync colored blue"></i>
-                                                    <h4>NEM2 Camel</h4>
-                                                </div></a>
-                                        </div>
-
-                                        <div class="col-xs-6 col-sm-3">
-                                                <a href="https://apostille.io/">
-                                                <div class="card font-icon"><i><img alt="_images/logo-apostille.png" class="align-center" src="_images/logo-apostille.png" style="height: 40px;" />
-                                                </i>
-                                                <h4>Apostille</h4>
-                                                 </div></a>
-                                        </div>
-
-
-                                        <div class="col-xs-6 col-sm-3">
-                                                <a href="https://github.com/aleixmorgadas/nem2-nonfungible-asset">
-                                                <div class="card font-icon">
-                                                      <i class="fas fa-box colored blue"></i>
-                                                    <h4>Non-fungible asset</h4>
-                                                </div></a>
-                                        </div>
-
-                                </div>
-                        </div>
+            </div>
+        </div>
+    </section>
+    <section class="inner-gap bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 subtitle-container text-center gap center-block">
+                    <h2>SDKs</h2>
+                    <p>The <a href="sdk/overview.html"><b>NEM2 Software
+                        Development Kit </b></a>
+                        is the primary software development tool to create NEM2 components, such as
+                        additional tools, libraries or applications.</p>
                 </div>
-        </section>
-
-        <section class="bg-gray inner-gap subtitle-container">
-                <div class="container">
-                        <div class="row">
-                                <div class="col-md-8 text-center gap center-block">
-                                     <h2>Catapult REST API</h2>
-                                      <p><a href="api/requests.html"><b>Catapult REST API</b></a> combines HTTP and WebSockets to perform read and write actions in the NEM blockchain.</p>
-                                </div>
-                        </div>
-                        <div class="row">
-                                <div class="card-container col-md-8 center-block">
-
-                                        <div class="col-xs-6 col-sm-3">
-                                                <a href="api/requests.html">
-                                                <div class="card font-icon">
-                                                  <i class="fas fa-sliders-h colored green"></i>
-                                                  <h4>Requests</h4>
-                                                </div></a>
-                                        </div>
-
-                                        <div class="col-xs-6 col-sm-3">
-                                                <a href="api/tools.html">
-                                                      <div class="card font-icon">
-                                                        <i class="fas fa-toolbox colored green"></i>
-                                                          <h4>Tools</h4>
-                                                      </div>
-                                              </a>
-                                        </div>
-
-                                        <div class="col-xs-6 col-sm-3">
-                                                <a href="api/endpoints.html">
-                                                        <div class="card font-icon">
-                                                          <i class="fas fa-exchange-alt colored green"></i>
-                                                          <h4>Endpoints</h4>
-                                                        </div>
-                                                </a>
-                                        </div>
-                                        <div class="col-xs-6 col-sm-3">
-                                                <a href="api/serialization.html">
-                                                      <div class="card font-icon">
-                                                        <i class="fas fa-cubes colored green"></i>
-                                                          <h4>Serialization</h4>
-                                                      </div>
-                                                </a>
-                                        </div>
-                                        <div class="col-xs-6 col-sm-3">
-                                                <a href="api/websockets.html">
-                                                      <div class="card font-icon">
-                                                          <i class="fas fa-dot-circle colored green"></i>
-                                                          <h4>Websockets</h4>
-                                                      </div>
-                                                </a>
-                                        </div>
-                                        <div class="col-xs-6 col-sm-3">
-                                                <a href="api/status-errors.html">
-                                                      <div class="card font-icon">
-                                                          <i class="fas fa-times colored green"></i>
-                                                          <h4>Status Errors</h4>
-                                                      </div>
-                                                </a>
-                                        </div>
-
-                                </div>
-                        </div>
+            </div>
+            <div class="row">
+                <div class="card-container col-md-8 center-block">
+                    <div class="col-xs-6 col-sm-3">
+                        <a href="https://nemtech.github.io/nem2-sdk-typescript-javascript/">
+                            <div class="card font-icon">
+                                <i class="devicon-typescript-plain colored"></i>
+                                <h4>Typescript</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <a href="https://nemtech.github.io/nem2-sdk-typescript-javascript/">
+                            <div class="card font-icon">
+                                <i class="devicon-javascript-plain colored"></i>
+                                <h4>Javascript</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <a href="https://nemtech.github.io/nem2-sdk-java/">
+                            <div class="card font-icon">
+                                <i class="devicon-java-plain colored"></i>
+                                <h4>Java</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <a href="https://github.com/nemtech/nem2-sdk-csharp">
+                            <div class="card font-icon">
+                                <i class="devicon-csharp-plain colored"></i>
+                                <h4>C#</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <a href="https://github.com/proximax-storage/nem2-sdk-go/">
+                            <div class="card font-icon">
+                                <i class="devicon-go-plain colored"></i>
+                                <h4>Go</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <a href="https://github.com/proximax-storage/nem2-sdk-swift/">
+                            <div class="card font-icon">
+                                <i class="devicon-swift-plain colored"></i>
+                                <h4>Swift</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <a href="sdk/languages.html">
+                            <div class="card font-icon">
+                                <i class="devicon-php-plain"></i>
+                                <h4>PHP</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <a href="sdk/languages.html">
+                            <div class="card font-icon">
+                                <i class="devicon-cplusplus-plain"></i>
+                                <h4>C++</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <a href="sdk/languages.html">
+                            <div class="card font-icon">
+                                <i class="devicon-python-plain"></i>
+                                <h4>Python</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <a href="sdk/languages.html">
+                            <div class="card font-icon">
+                                <i class="devicon-ruby-plain"></i>
+                                <h4>Ruby</h4>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-        </section>
-</div><div class="section" id="reference">
-<h1>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h1>
+            </div>
+        </div>
+    </section>
+    <section class="inner-gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 subtitle-container text-center gap center-block">
+                    <h2>Extensions</h2>
+                    <p>Collection of <a href="sdk/libraries.html"><b>libraries</b></a> and tools to accelerate blockchain development.  </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card-container col-md-8 center-block">
+                    <div class="col-xs-6 col-sm-3">
+                        <a href="https://github.com/tech-bureau/catapult-service-bootstrap">
+                            <div class="card font-icon">
+                                <i class="devicon-docker-plain colored"></i>
+                                <h4>Service Bootstrap</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <a href="https://github.com/nemtech/nem2-camel">
+                            <div class="card font-icon">
+                                <i class="fas fa-sync colored blue"></i>
+                                <h4>NEM2-Camel</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <a href="https://apostille.io/">
+                            <div class="card font-icon">
+                                <i><img class="align-center" src="_static/images/logo-apostille.png"/></i>
+                                <h4>Apostille</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <a href="https://github.com/aleixmorgadas/nem2-nonfungible-asset">
+                            <div class="card font-icon">
+                                <i class="fas fa-box colored blue"></i>
+                                <h4>Non-fungible asset</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-gray inner-gap subtitle-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 text-center gap center-block">
+                    <h2>REST API</h2>
+                    <p><a href="api/requests.html"><b>Catapult REST API</b></a> combines HTTP and WebSockets to perform read and write actions in the NEM blockchain.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card-container col-md-8 center-block">
+                    <div class="col-xs-6 col-sm-3">
+                        <a href="api/requests.html">
+                            <div class="card font-icon">
+                                <i class="fas fa-sliders-h colored green"></i>
+                                <h4>Requests</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <a href="api/tools.html">
+                            <div class="card font-icon">
+                                <i class="fas fa-toolbox colored green"></i>
+                                <h4>Tools</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <a href="api/endpoints.html">
+                            <div class="card font-icon">
+                                <i class="fas fa-exchange-alt colored green"></i>
+                                <h4>Endpoints</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <a href="api/serialization.html">
+                            <div class="card font-icon">
+                                <i class="fas fa-cubes colored green"></i>
+                                <h4>Serialization</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <a href="api/websockets.html">
+                            <div class="card font-icon">
+                                <i class="fas fa-dot-circle colored green"></i>
+                                <h4>WebSockets</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <a href="api/status-errors.html">
+                            <div class="card font-icon">
+                                <i class="fas fa-times colored green"></i>
+                                <h4>Status Errors</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 
-  <div class="section">
-  
-  
-  </div>
 
     </div>
       
@@ -780,11 +749,12 @@
 
                 <ul>
                     <li><a href="concepts/account.html">Account</a></li>
+                    <li><a href="concepts/account-filter.html">Account Filter</a></li>
                     <li><a href="concepts/multisig-account.html">Multisig Account</a></li>
-                    <li><a href="concepts/multi-level-multisig-account.html">Multilevel Multisig Account</a></li>
                     <li><a href="concepts/namespace.html">Namespace</a></li>
                     <li><a href="concepts/mosaic.html">Mosaic</a></li>
-                    <li><a href="concepts/transfer-transaction.html">Transfer Transaction</a></li>
+                    <li><a href="concepts/transfer-transaction.html">Transfer Transaction</a>
+                    </li>
                     <li><a href="concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
                     <li><a href="concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
                 </ul>

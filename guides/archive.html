@@ -3,9 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Posted in 2018 &#8212; NEM Developer Center</title>
+    <title>All posts &#8212; NEM Developer Center</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx_tabs/tabs.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.2.10/segment.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.2.10/menu.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.css" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -23,6 +27,8 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/sphinx_tabs/tabs.js"></script>
+    <script type="text/javascript" src="../_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.js"></script>
     <script type="text/javascript" src="../_static/js/custom.js"></script>
     <script type="text/javascript" src="../_static/examplecode.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
@@ -42,8 +48,6 @@
 
 
   
-  <link rel="alternate" type="application/atom+xml"  href="../blog/atom.xml" title="Posted in 2018">
-  
   
   <style type="text/css">
     ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
@@ -57,34 +61,35 @@
   </head>
   <body>
 
-  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-      <div class="navbar-header">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
-          developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.15</b></span>
-      </div>
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
+                developer center</a>
+            <span class="navbar-text navbar-version pull-left"><b>0.15.1</b></span>
+        </div>
 
         <div class="collapse navbar-collapse nav-collapse">
-          <ul class="nav navbar-nav">
-            
-                <li><a href="../getting-started/what-is-nem.html">Getting started</a></li>
+            <ul class="nav navbar-nav">
+                
+                <li><a href="../getting-started/setup-workstation.html">Getting started</a></li>
                 <li><a href="../concepts/account.html">Built-in features</a></li>
+                <li><a href="category/account.html">Guides</a></li>
                 <li><a href="../references.html">References</a></li>
-            
-            
-              <li class="dropdown globaltoc-container">
+                
+                
+                <li class="dropdown globaltoc-container">
   <a role="button"
      id="dLabelGlobalToc"
      data-toggle="dropdown"
      data-target="#"
-     href="../index.html">Site <b class="caret"></b></a>
+     href="../contents.html">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Getting Started</span></p>
@@ -99,12 +104,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#running-catapult-service-bootstrap">Running Catapult Service Bootstrap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#creating-a-test-account">Creating a test account</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#what-is-xem-and-how-to-get-it">What is XEM and how to get it?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#setting-up-the-development-environment">Setting up the development environment</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#typescript-and-javascript">TypeScript and JavaScript</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#java">Java</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#c">C#</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#setting-up-the-development-environment">Setting up the development environment</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">Writing your first application</a><ul>
@@ -138,13 +138,14 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/transaction.html">Transaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#transaction-types">Transaction types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#defining-a-transaction">Defining a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#signing-a-transaction">Signing a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#announcing-a-transaction">Announcing a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#rollbacks">Rollbacks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#schemas">Schemas</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../concepts/transaction.html#id3">Transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/transaction.html#id4">Transaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../concepts/transaction.html#embeddedtransaction">EmbeddedTransaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../concepts/transaction.html#sizeprefixedentity">SizePrefixedEntity</a></li>
 </ul>
@@ -201,6 +202,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../concepts/multisig-account.html#shared-accounts">Shared accounts</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../concepts/multisig-account.html#multi-factor-authorization">Multi-factor authorization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../concepts/multisig-account.html#assets-ownership">Assets ownership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/multisig-account.html#manufacturing-and-supply-chains">Manufacturing and Supply Chains</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/multisig-account.html#fraud-detection">Fraud Detection</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/multisig-account.html#guides">Guides</a></li>
@@ -210,16 +213,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../concepts/multisig-account.html#cosignatorymodificationtype">CosignatoryModificationType</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/multi-level-multisig-account.html">Multi-Level Multisig Account</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/multi-level-multisig-account.html#examples">Examples</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../concepts/multi-level-multisig-account.html#manufacturing-and-supply-chains">Manufacturing and Supply Chains</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../concepts/multi-level-multisig-account.html#fraud-detection">Fraud Detection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../concepts/multi-level-multisig-account.html#account-recovery">Account Recovery</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/multi-level-multisig-account.html#guides">Guides</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">Namespace</a><ul>
@@ -266,7 +259,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#schemas">Schemas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../concepts/aggregate-transaction.html#aggregatetransaction">AggregateTransaction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../concepts/aggregate-transaction.html#cosignaturetransaction">CosignatureTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/aggregate-transaction.html#detachedcosignature">DetachedCosignature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/aggregate-transaction.html#cosignature">Cosignature</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../concepts/aggregate-transaction.html#hashlocktransaction">HashLockTransaction</a></li>
 </ul>
 </li>
@@ -441,816 +435,312 @@
 </ul>
 </ul>
 </li>
-              
-            
-            
-            
-            
-            
-          </ul>
+                
+                
+                
+                
+                
+                
+            </ul>
 
-          
             
-          
+            
+            
         </div>
     </div>
-  </div>
+</div>
 
 <div class="container">
   <div class="row">
     <div class="col-md-12 content">
       
+  
+  
   <div class="section">
 
-    <h1>
-      
+    <h2>
       Posted in
-      
-      2018
-      
-    </h1>
+      <a href="2019.html">2019</a>
+    </h2>
     
-    
-
     <div class="section">
-      <h2><a href="../guides/transaction/sending-a-multisig-transaction.html">Sending a multisig transaction</a></h2>
+      <p>
+      
+      
+        16 January 2019
+      
+      - <a href="transaction/monitoring-a-transaction-status.html">Monitoring a transaction status</a>
+      </p>
+      
+    </div>
+    
+  </div>
+  
+  
+  
+  <div class="section">
 
-      <ul class="ablog-archive">
-      <li>
+    <h2>
+      Posted in
+      <a href="2018.html">2018</a>
+    </h2>
+    
+    <div class="section">
+      <p>
+      
       
         20 August 2018
       
-      </li>
-        
-
-  
-
-  
-
-  
-
-  
-  <li id="category"><span>Category:</span>
-    
+      - <a href="transaction/sending-a-multisig-transaction.html">Sending a multisig transaction</a>
+      </p>
       
-      <a href="category/aggregate-transaction.html">aggregate-transaction</a>,
-      
-    
-      
-      <a href="category/multisig-account.html">multisig-account</a>
-      
-    </li>
-  
-
-  
-  </ul>
-      <p>Send a transaction involving a <a class="reference internal" href="../concepts/multisig-account.html"><span class="doc">multisig</span></a> and learn how an <a class="reference internal" href="../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate bonded transaction</span></a> works.</p>
-
-      <p><a href="../guides/transaction/sending-a-multisig-transaction.html">Read more ...</a></p>
-      <hr>
     </div>
     
-
     <div class="section">
-      <h2><a href="../guides/transaction/turning-the-asynchronous-transaction-announcement-into-synchronous.html">Turning the asynchronous transaction announcement into synchronous</a></h2>
-
-      <ul class="ablog-archive">
-      <li>
+      <p>
+      
       
         18 August 2018
       
-      </li>
-        
-
-  
-
-  
-
-  
-
-  
-  <li id="category"><span>Category:</span>
-    
+      - <a href="transaction/turning-the-asynchronous-transaction-announcement-into-synchronous.html">Turning the asynchronous transaction announcement into synchronous</a>
+      </p>
       
-      <a href="category/monitoring.html">monitoring</a>
-      
-    </li>
-  
-
-  
-  </ul>
-      <p>Turn asynchronous transaction announcement into synchronous with <a href="https://github.com/nemtech/nem2-camel" target="_blank">nem2-camel</a>.</p>
-
-      <p><a href="../guides/transaction/turning-the-asynchronous-transaction-announcement-into-synchronous.html">Read more ...</a></p>
-      <hr>
     </div>
     
-
     <div class="section">
-      <h2><a href="../guides/namespace/registering-a-subnamespace.html">Registering a subnamespace</a></h2>
-
-      <ul class="ablog-archive">
-      <li>
+      <p>
+      
       
         18 August 2018
       
-      </li>
-        
-
-  
-
-  
-
-  
-
-  
-  <li id="category"><span>Category:</span>
-    
+      - <a href="namespace/registering-a-subnamespace.html">Registering a subnamespace</a>
+      </p>
       
-      <a href="category/namespace.html">namespace</a>
-      
-    </li>
-  
-
-  
-  </ul>
-      <p>Register a <a class="reference internal" href="../concepts/namespace.html"><span class="doc">subnamespace</span></a> following this guide.</p>
-
-      <p><a href="../guides/namespace/registering-a-subnamespace.html">Read more ...</a></p>
-      <hr>
     </div>
     
-
     <div class="section">
-      <h2><a href="../guides/account/receiving-transactions-from-an-account.html">Receiving transactions of an account</a></h2>
-
-      <ul class="ablog-archive">
-      <li>
+      <p>
+      
       
         18 August 2018
       
-      </li>
-        
-
-  
-
-  
-
-  
-
-  
-  <li id="category"><span>Category:</span>
-    
+      - <a href="account/reading-transactions-from-an-account.html">Reading transactions from an account</a>
+      </p>
       
-      <a href="category/account.html">account</a>
-      
-    </li>
-  
-
-  
-  </ul>
-      <p>Get the list of <a class="reference internal" href="../concepts/transaction.html"><span class="doc">transactions</span></a> where an <a class="reference internal" href="../concepts/account.html"><span class="doc">account</span></a> is involved.</p>
-
-      <p><a href="../guides/account/receiving-transactions-from-an-account.html">Read more ...</a></p>
-      <hr>
     </div>
     
-
     <div class="section">
-      <h2><a href="../guides/mosaic/modifying-mosaic-supply.html">Modifying mosaic supply</a></h2>
-
-      <ul class="ablog-archive">
-      <li>
+      <p>
+      
       
         18 August 2018
       
-      </li>
-        
-
-  
-
-  
-
-  
-
-  
-  <li id="category"><span>Category:</span>
-    
+      - <a href="mosaic/modifying-mosaic-supply.html">Modifying mosaic supply</a>
+      </p>
       
-      <a href="category/mosaic.html">mosaic</a>
-      
-    </li>
-  
-
-  
-  </ul>
-      <p>Did you register a <a class="reference internal" href="../concepts/mosaic.html"><span class="doc">mosaic</span></a> with supplyMutable option set to true? In that case, you can increase or decrease your mosaic available supply following this guide.</p>
-
-      <p><a href="../guides/mosaic/modifying-mosaic-supply.html">Read more ...</a></p>
-      <hr>
     </div>
     
-
     <div class="section">
-      <h2><a href="../guides/account/getting-the-amount-of-XEM-sent-to-an-account.html">Getting the amount of XEM sent to an account</a></h2>
-
-      <ul class="ablog-archive">
-      <li>
+      <p>
+      
       
         18 August 2018
       
-      </li>
-        
-
-  
-
-  
-
-  
-
-  
-  <li id="category"><span>Category:</span>
-    
+      - <a href="account/getting-the-amount-of-XEM-sent-to-an-account.html">Getting the amount of XEM sent to an account</a>
+      </p>
       
-      <a href="category/account.html">account</a>
-      
-    </li>
-  
-
-  
-  </ul>
-      <p>Check the amount of XEM you have sent to any account.</p>
-
-      <p><a href="../guides/account/getting-the-amount-of-XEM-sent-to-an-account.html">Read more ...</a></p>
-      <hr>
     </div>
     
-
     <div class="section">
-      <h2><a href="../guides/account/getting-account-information.html">Getting account information</a></h2>
-
-      <ul class="ablog-archive">
-      <li>
+      <p>
+      
       
         18 August 2018
       
-      </li>
-        
-
-  
-
-  
-
-  
-
-  
-  <li id="category"><span>Category:</span>
-    
+      - <a href="account/getting-account-information.html">Getting account information</a>
+      </p>
       
-      <a href="category/account.html">account</a>
-      
-    </li>
-  
-
-  
-  </ul>
-      <p>Get the public key and balance of an <a class="reference internal" href="../concepts/account.html"><span class="doc">account</span></a>.</p>
-
-      <p><a href="../guides/account/getting-account-information.html">Read more ...</a></p>
-      <hr>
     </div>
     
-
     <div class="section">
-      <h2><a href="../guides/account/creating-and-opening-an-account.html">Creating and opening an account</a></h2>
-
-      <ul class="ablog-archive">
-      <li>
+      <p>
+      
       
         18 August 2018
       
-      </li>
-        
-
-  
-
-  
-
-  
-
-  
-  <li id="category"><span>Category:</span>
-    
+      - <a href="account/creating-and-opening-an-account.html">Creating and opening an account</a>
+      </p>
       
-      <a href="category/account.html">account</a>
-      
-    </li>
-  
-
-  
-  </ul>
-      <p>Create a new <a class="reference internal" href="../concepts/account.html"><span class="doc">account</span></a> and open it.</p>
-
-      <p><a href="../guides/account/creating-and-opening-an-account.html">Read more ...</a></p>
-      <hr>
     </div>
     
-
     <div class="section">
-      <h2><a href="../guides/account/creating-a-multi-level-multisig-account.html">Creating a multi-level multisig account (MLMA)</a></h2>
-
-      <ul class="ablog-archive">
-      <li>
+      <p>
+      
       
         18 August 2018
       
-      </li>
-        
-
-  
-
-  
-
-  
-
-  
-  <li id="category"><span>Category:</span>
-    
+      - <a href="account/creating-a-multi-level-multisig-account.html">Creating a multi-level multisig account (MLMA)</a>
+      </p>
       
-      <a href="category/multisig-account.html">multisig-account</a>,
-      
-    
-      
-      <a href="category/mlma.html">mlma</a>
-      
-    </li>
-  
-
-  
-  </ul>
-      <p>Create a <a class="reference internal" href="../concepts/multi-level-multisig-account.html"><span class="doc">multi-level multisig account</span></a>.</p>
-
-      <p><a href="../guides/account/creating-a-multi-level-multisig-account.html">Read more ...</a></p>
-      <hr>
     </div>
     
-
     <div class="section">
-      <h2><a href="../guides/transaction/atomic-cross-chain-swap-between-NEM-public-and-private-chain.html">Atomic cross-chain swap between NEM public and private chain</a></h2>
-
-      <ul class="ablog-archive">
-      <li>
+      <p>
+      
       
         18 August 2018
       
-      </li>
-        
-
-  
-
-  
-
-  
-
-  
-  <li id="category"><span>Category:</span>
-    
+      - <a href="transaction/atomic-cross-chain-swap-between-NEM-public-and-private-chain.html">Atomic cross-chain swap between NEM public and private chain</a>
+      </p>
       
-      <a href="category/cross-chain-swaps.html">cross-chain-swaps</a>
-      
-    </li>
-  
-
-  
-  </ul>
-      <p><a class="reference internal" href="../concepts/cross-chain-swaps.html"><span class="doc">Cross-chain swaps</span></a> enable trading tokens between different blockchains, without using an intermediary party in the process.</p>
-
-      <p><a href="../guides/transaction/atomic-cross-chain-swap-between-NEM-public-and-private-chain.html">Read more ...</a></p>
-      <hr>
     </div>
     
-
     <div class="section">
-      <h2><a href="../guides/account/modifying-a-multisig-account.html">Modifying a multisig account</a></h2>
-
-      <ul class="ablog-archive">
-      <li>
+      <p>
+      
       
         17 August 2018
       
-      </li>
-        
-
-  
-
-  
-
-  
-
-  
-  <li id="category"><span>Category:</span>
-    
+      - <a href="account/modifying-a-multisig-account.html">Modifying a multisig account</a>
+      </p>
       
-      <a href="category/multisig-account.html">multisig-account</a>
-      
-    </li>
-  
-
-  
-  </ul>
-      <p>Modify an existing <a class="reference internal" href="../concepts/multisig-account.html"><span class="doc">multisig account</span></a>.</p>
-
-      <p><a href="../guides/account/modifying-a-multisig-account.html">Read more ...</a></p>
-      <hr>
     </div>
     
-
     <div class="section">
-      <h2><a href="../guides/namespace/registering-a-namespace.html">Registering a namespace</a></h2>
-
-      <ul class="ablog-archive">
-      <li>
+      <p>
+      
       
         16 August 2018
       
-      </li>
-        
-
-  
-
-  
-
-  
-
-  
-  <li id="category"><span>Category:</span>
-    
+      - <a href="../getting-started/setup-workstation.html">Setting up your workstation</a>
+      </p>
       
-      <a href="category/namespace.html">namespace</a>
-      
-    </li>
-  
-
-  
-  </ul>
-      <p>Rregister your own <a class="reference internal" href="../concepts/namespace.html"><span class="doc">namespace</span></a>.</p>
-
-      <p><a href="../guides/namespace/registering-a-namespace.html">Read more ...</a></p>
-      <hr>
     </div>
     
-
     <div class="section">
-      <h2><a href="../guides/blockchain/getting-block-by-height.html">Getting block by height</a></h2>
-
-      <ul class="ablog-archive">
-      <li>
+      <p>
+      
       
         16 August 2018
       
-      </li>
-        
-
-  
-
-  
-
-  
-
-  
-  <li id="category"><span>Category:</span>
-    
+      - <a href="namespace/registering-a-namespace.html">Registering a namespace</a>
+      </p>
       
-      <a href="category/blockchain.html">blockchain</a>
-      
-    </li>
-  
-
-  
-  </ul>
-      <p>Get the <a class="reference internal" href="../concepts/block.html"><span class="doc">block</span></a> information given a height.</p>
-
-      <p><a href="../guides/blockchain/getting-block-by-height.html">Read more ...</a></p>
-      <hr>
     </div>
     
-
     <div class="section">
-      <h2><a href="../guides/mosaic/creating-a-mosaic.html">Creating a mosaic</a></h2>
-
-      <ul class="ablog-archive">
-      <li>
+      <p>
+      
       
         16 August 2018
       
-      </li>
-        
-
-  
-
-  
-
-  
-
-  
-  <li id="category"><span>Category:</span>
-    
+      - <a href="blockchain/getting-block-by-height.html">Getting block by height</a>
+      </p>
       
-      <a href="category/mosaic.html">mosaic</a>
-      
-    </li>
-  
-
-  
-  </ul>
-      <p>After creating a namespace, follow this guide to create a <a class="reference internal" href="../concepts/mosaic.html"><span class="doc">mosaic</span></a> .</p>
-
-      <p><a href="../guides/mosaic/creating-a-mosaic.html">Read more ...</a></p>
-      <hr>
     </div>
     
-
     <div class="section">
-      <h2><a href="../guides/account/converting-an-account-to-multisig.html">Converting an account to multisig</a></h2>
-
-      <ul class="ablog-archive">
-      <li>
+      <p>
+      
       
         16 August 2018
       
-      </li>
-        
-
-  
-
-  
-
-  
-
-  
-  <li id="category"><span>Category:</span>
-    
+      - <a href="mosaic/creating-a-mosaic.html">Creating a mosaic</a>
+      </p>
       
-      <a href="category/multisig-account.html">multisig-account</a>
-      
-    </li>
-  
-
-  
-  </ul>
-      <p>Create a 1-of-2 <a class="reference internal" href="../concepts/multisig-account.html"><span class="doc">multisig account</span></a>, by adding two cosignatories.</p>
-
-      <p><a href="../guides/account/converting-an-account-to-multisig.html">Read more ...</a></p>
-      <hr>
     </div>
     
-
     <div class="section">
-      <h2><a href="../guides/transaction/signing-announced-aggregate-bonded-transactions-automatically.html">Signing announced aggregate bonded transactions automatically</a></h2>
-
-      <ul class="ablog-archive">
-      <li>
+      <p>
+      
+      
+        16 August 2018
+      
+      - <a href="account/converting-an-account-to-multisig.html">Converting an account to multisig</a>
+      </p>
+      
+    </div>
+    
+    <div class="section">
+      <p>
+      
       
         15 August 2018
       
-      </li>
-        
-
-  
-
-  
-
-  
-
-  
-  <li id="category"><span>Category:</span>
-    
+      - <a href="transaction/signing-announced-aggregate-bonded-transactions-automatically.html">Signing announced aggregate bonded transactions automatically</a>
+      </p>
       
-      <a href="category/aggregate-transaction.html">aggregate-transaction</a>
-      
-    </li>
-  
-
-  
-  </ul>
-      <p>Sign automatically transactions pending to be cosigned.</p>
-
-      <p><a href="../guides/transaction/signing-announced-aggregate-bonded-transactions-automatically.html">Read more ...</a></p>
-      <hr>
     </div>
     
-
     <div class="section">
-      <h2><a href="../guides/transaction/signing-announced-aggregate-bonded-transactions.html">Signing announced aggregate bonded transactions</a></h2>
-
-      <ul class="ablog-archive">
-      <li>
+      <p>
+      
       
         14 August 2018
       
-      </li>
-        
-
-  
-
-  
-
-  
-
-  
-  <li id="category"><span>Category:</span>
-    
+      - <a href="transaction/signing-announced-aggregate-bonded-transactions.html">Signing announced aggregate bonded transactions</a>
+      </p>
       
-      <a href="category/aggregate-transaction.html">aggregate-transaction</a>
-      
-    </li>
-  
-
-  
-  </ul>
-      <p>You have probably announced an <a class="reference internal" href="../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate bonded transaction</span></a>, but all required cosigners have not signed it yet.</p>
-
-      <p><a href="../guides/transaction/signing-announced-aggregate-bonded-transactions.html">Read more ...</a></p>
-      <hr>
     </div>
     
-
     <div class="section">
-      <h2><a href="../guides/transaction/asking-for-mosaics-with-aggregate-bonded-transaction.html">Asking for mosaics with aggregate bonded transaction</a></h2>
-
-      <ul class="ablog-archive">
-      <li>
+      <p>
+      
       
         13 August 2018
       
-      </li>
-        
-
-  
-
-  
-
-  
-
-  
-  <li id="category"><span>Category:</span>
-    
+      - <a href="transaction/asking-for-mosaics-with-aggregate-bonded-transaction.html">Asking for mosaics with aggregate bonded transaction</a>
+      </p>
       
-      <a href="category/aggregate-transaction.html">aggregate-transaction</a>
-      
-    </li>
-  
-
-  
-  </ul>
-      <p>Ask an account to send you funds using an <a class="reference internal" href="../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate bonded transaction</span></a>.</p>
-
-      <p><a href="../guides/transaction/asking-for-mosaics-with-aggregate-bonded-transaction.html">Read more ...</a></p>
-      <hr>
     </div>
     
-
     <div class="section">
-      <h2><a href="../guides/transaction/creating-an-escrow-with-aggregate-bonded-transaction.html">Creating an escrow with aggregate bonded transaction</a></h2>
-
-      <ul class="ablog-archive">
-      <li>
+      <p>
+      
       
         12 August 2018
       
-      </li>
-        
-
-  
-
-  
-
-  
-
-  
-  <li id="category"><span>Category:</span>
-    
+      - <a href="transaction/creating-an-escrow-with-aggregate-bonded-transaction.html">Creating an escrow with aggregate bonded transaction</a>
+      </p>
       
-      <a href="category/aggregate-transaction.html">aggregate-transaction</a>
-      
-    </li>
-  
-
-  
-  </ul>
-      <p>Learn about <a class="reference internal" href="../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate bonded transactions</span></a>, by creating an escrow.</p>
-
-      <p><a href="../guides/transaction/creating-an-escrow-with-aggregate-bonded-transaction.html">Read more ...</a></p>
-      <hr>
     </div>
     
-
     <div class="section">
-      <h2><a href="../guides/transaction/sending-payouts-with-aggregate-complete-transaction.html">Sending payouts with aggregate complete transaction</a></h2>
-
-      <ul class="ablog-archive">
-      <li>
+      <p>
+      
       
         11 August 2018
       
-      </li>
-        
-
-  
-
-  
-
-  
-
-  
-  <li id="category"><span>Category:</span>
-    
+      - <a href="transaction/sending-payouts-with-aggregate-complete-transaction.html">Sending payouts with aggregate complete transaction</a>
+      </p>
       
-      <a href="category/aggregate-transaction.html">aggregate-transaction</a>
-      
-    </li>
-  
-
-  
-  </ul>
-      <p>Send transactions to different accounts atomically, using an <a class="reference internal" href="../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate complete transaction</span></a>.</p>
-
-      <p><a href="../guides/transaction/sending-payouts-with-aggregate-complete-transaction.html">Read more ...</a></p>
-      <hr>
     </div>
     
-
     <div class="section">
-      <h2><a href="../guides/transaction/sending-a-transfer-transaction.html">Sending a transfer transaction</a></h2>
-
-      <ul class="ablog-archive">
-      <li>
+      <p>
+      
       
         10 August 2018
       
-      </li>
-        
-
-  
-
-  
-
-  
-
-  
-  <li id="category"><span>Category:</span>
-    
+      - <a href="transaction/sending-a-transfer-transaction.html">Sending a transfer transaction</a>
+      </p>
       
-      <a href="category/transfer-transaction.html">transfer-transaction</a>
-      
-    </li>
-  
-
-  
-  </ul>
-      <p>Transfer <a class="reference internal" href="../concepts/mosaic.html"><span class="doc">mosaics</span></a> and messages between two accounts.</p>
-
-      <p><a href="../guides/transaction/sending-a-transfer-transaction.html">Read more ...</a></p>
-      <hr>
     </div>
     
-
     <div class="section">
-      <h2><a href="../guides/blockchain/listening-new-blocks.html">Listening to new blocks</a></h2>
-
-      <ul class="ablog-archive">
-      <li>
+      <p>
+      
       
         08 August 2018
       
-      </li>
-        
-
-  
-
-  
-
-  
-
-  
-  <li id="category"><span>Category:</span>
-    
+      - <a href="blockchain/listening-new-blocks.html">Listening to new blocks</a>
+      </p>
       
-      <a href="category/blockchain.html">blockchain</a>
-      
-    </li>
-  
-
-  
-  </ul>
-      <p>Get notified when a new <a class="reference internal" href="../concepts/block.html"><span class="doc">block</span></a> is included.</p>
-
-      <p><a href="../guides/blockchain/listening-new-blocks.html">Read more ...</a></p>
-      <hr>
     </div>
     
-    
   </div>
+  
+  
 
     </div>
       
@@ -1309,11 +799,12 @@
 
                 <ul>
                     <li><a href="../concepts/account.html">Account</a></li>
+                    <li><a href="../concepts/account-filter.html">Account Filter</a></li>
                     <li><a href="../concepts/multisig-account.html">Multisig Account</a></li>
-                    <li><a href="../concepts/multi-level-multisig-account.html">Multilevel Multisig Account</a></li>
                     <li><a href="../concepts/namespace.html">Namespace</a></li>
                     <li><a href="../concepts/mosaic.html">Mosaic</a></li>
-                    <li><a href="../concepts/transfer-transaction.html">Transfer Transaction</a></li>
+                    <li><a href="../concepts/transfer-transaction.html">Transfer Transaction</a>
+                    </li>
                     <li><a href="../concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
                     <li><a href="../concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
                 </ul>
