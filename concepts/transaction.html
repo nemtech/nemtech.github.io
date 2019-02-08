@@ -32,7 +32,7 @@
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Node" href="node.html" />
+    <link rel="next" title="Harvesting" href="harvesting.html" />
     <link rel="prev" title="Block" href="block.html" />
   
 
@@ -68,7 +68,7 @@
             </button>
             <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
                 developer center</a>
-            <span class="navbar-text navbar-version pull-left"><b>0.15.1</b></span>
+            <span class="navbar-text navbar-version pull-left"><b>0.16</b></span>
         </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -135,30 +135,61 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Transaction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#transaction-types">Transaction types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#defining-a-transaction">Defining a transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#defining-a-transaction">Defining a transaction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fees">Fees</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#signing-a-transaction">Signing a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#announcing-a-transaction">Announcing a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rollbacks">Rollbacks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">Schemas</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id4">Transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Transaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#embeddedtransaction">EmbeddedTransaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sizeprefixedentity">SizePrefixedEntity</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="harvesting.html">Harvesting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="harvesting.html#local-harvesting">Local harvesting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="harvesting.html#delegated-harvesting">Delegated harvesting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="harvesting.html#schemas">Schemas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="harvesting.html#accountlinktransaction">AccountLinkTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="harvesting.html#linkaction">LinkAction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="receipt.html">Receipt</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="receipt.html#transaction-statement">Transaction statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="receipt.html#alias-resolution">Alias resolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="receipt.html#recorded-receipts">Recorded receipts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="receipt.html#schemas">Schemas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="receipt.html#id1">Receipt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="receipt.html#transactionstatement">TransactionStatement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="receipt.html#resolutionstatement">ResolutionStatement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="receipt.html#resolutionentry">ResolutionEntry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="receipt.html#receiptsource">ReceiptSource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="receipt.html#balancetransferreceipt">BalanceTransferReceipt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="receipt.html#balancechangereceipt">BalanceChangeReceipt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="receipt.html#artifactexpiryreceipt">ArtifactExpiryReceipt</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="node.html">Node</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="node.html#catapult-p2p-component">Catapult P2P Component</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="node.html#p2p-component">P2P Component</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="node.html#node-reputation">Node reputation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="node.html#rocksdb">RocksDB</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="node.html#catapult-api-component">Catapult API Component</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="node.html#api-component">API Component</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="node.html#mongodb">MongoDB</a></li>
 <li class="toctree-l3"><a class="reference internal" href="node.html#zmq">ZMQ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="node.html#catapult-rest-component">Catapult REST Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html#rest-component">REST Component</a></li>
 <li class="toctree-l2"><a class="reference internal" href="node.html#guides">Guides</a></li>
 </ul>
 </li>
@@ -167,6 +198,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="account.html">Account</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="account.html#multisig-account">Multisig Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account.html#filters">Filters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="account.html#guides">Guides</a></li>
 </ul>
 </li>
@@ -213,10 +245,18 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="namespace.html#subnamespaces">Subnamespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html#examples">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="namespace.html#identifying-an-account">Identifying an account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="namespace.html#organizing-mosaics">Organizing mosaics</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="namespace.html#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="namespace.html#schemas">Schemas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="namespace.html#registernamespacetransaction">RegisterNamespaceTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="namespace.html#addressaliastransaction">AddressAliasTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="namespace.html#mosaicaliastransaction">MosaicAliasTransaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="namespace.html#namespacetype">NamespaceType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="namespace.html#alias-action">Alias Action</a></li>
 </ul>
 </li>
 </ul>
@@ -469,19 +509,24 @@
 <li class="toctree-l1"><a class="reference internal" href="block.html">Block</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Transaction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#transaction-types">Transaction types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#defining-a-transaction">Defining a transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#defining-a-transaction">Defining a transaction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fees">Fees</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#signing-a-transaction">Signing a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#announcing-a-transaction">Announcing a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rollbacks">Rollbacks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">Schemas</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id4">Transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Transaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#embeddedtransaction">EmbeddedTransaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sizeprefixedentity">SizePrefixedEntity</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="harvesting.html">Harvesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receipt.html">Receipt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="node.html">Node</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
@@ -539,7 +584,7 @@
 <p>Transactions accepted by the network are stored permanently on <a class="reference internal" href="block.html"><span class="doc">blocks</span></a>.</p>
 <div class="section" id="transaction-types">
 <h2>Transaction types<a class="headerlink" href="#transaction-types" title="Permalink to this headline">¶</a></h2>
-<p id="id1">There are different types of transactions. For example, you can transfer <a class="reference internal" href="mosaic.html"><span class="doc">mosaics</span></a> between accounts, transfer or configure ownership of accounts (including the use of <a class="reference internal" href="multisig-account.html"><span class="doc">multisig</span></a> rules), and more.</p>
+<p id="id1">There are different types of transactions. For example, you can transfer <a class="reference internal" href="mosaic.html"><span class="doc">mosaics</span></a> between accounts, transfer or configure the ownership of accounts (including the use of <a class="reference internal" href="multisig-account.html"><span class="doc">multisig</span></a> rules), and more.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="33%" />
@@ -553,25 +598,33 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><strong>Mosaic Transactions</strong></td>
+<tr class="row-even"><td><strong>Mosaic</strong></td>
 <td>&#160;</td>
 <td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>0x414D</td>
 <td><a class="reference internal" href="mosaic.html#mosaic-definition-transaction"><span class="std std-ref">Mosaic Definition Transaction</span></a></td>
-<td>Register a new mosaic.</td>
+<td>Register a new <a class="reference internal" href="mosaic.html"><span class="doc">mosaic</span></a>.</td>
 </tr>
 <tr class="row-even"><td>0x424D</td>
 <td><a class="reference internal" href="mosaic.html#mosaic-supply-change-transaction"><span class="std std-ref">Mosaic Supply Change Transaction</span></a></td>
 <td>Change an existent mosaic supply.</td>
 </tr>
-<tr class="row-odd"><td><strong>Namespace Transactions</strong></td>
+<tr class="row-odd"><td><strong>Namespace</strong></td>
 <td>&#160;</td>
 <td>&#160;</td>
 </tr>
 <tr class="row-even"><td>0x414E</td>
 <td><a class="reference internal" href="namespace.html#register-namespace-transaction"><span class="std std-ref">Register Namespace Transaction</span></a></td>
-<td>Register a namespace to organize your assets.</td>
+<td>Register a <a class="reference internal" href="mosaic.html"><span class="doc">namespace</span></a> to organize your assets.</td>
+</tr>
+<tr class="row-odd"><td>0x424E</td>
+<td><a class="reference internal" href="namespace.html#address-alias-transaction"><span class="std std-ref">Address Alias Transaction</span></a></td>
+<td>Attach a namespace name to an account.</td>
+</tr>
+<tr class="row-even"><td>0x434E</td>
+<td><a class="reference internal" href="namespace.html#mosaic-alias-transaction"><span class="std std-ref">Mosaic Alias Transaction</span></a></td>
+<td>Attach a namespace name to a mosaic.</td>
 </tr>
 <tr class="row-odd"><td><strong>Transfer</strong></td>
 <td>&#160;</td>
@@ -581,13 +634,13 @@
 <td><a class="reference internal" href="transfer-transaction.html#id1"><span class="std std-ref">Transfer Transaction</span></a></td>
 <td>Send mosaics and messages between two accounts.</td>
 </tr>
-<tr class="row-odd"><td><strong>Multisignature Transactions</strong></td>
+<tr class="row-odd"><td><strong>Multisignature</strong></td>
 <td>&#160;</td>
 <td>&#160;</td>
 </tr>
 <tr class="row-even"><td>0x4155</td>
 <td><a class="reference internal" href="multisig-account.html#modify-multisig-account-transaction"><span class="std std-ref">Modify Multisig Account Transaction</span></a></td>
-<td>Create or modify a multisig contract.</td>
+<td>Create or modify a <a class="reference internal" href="multisig-account.html"><span class="doc">multisig contract</span></a>.</td>
 </tr>
 <tr class="row-odd"><td>0x4141</td>
 <td><a class="reference internal" href="aggregate-transaction.html#id1"><span class="std std-ref">Aggregate Complete Transaction</span></a></td>
@@ -605,7 +658,7 @@
 <td><a class="reference internal" href="aggregate-transaction.html#cosignature-transaction"><span class="std std-ref">Cosignature Transaction</span></a></td>
 <td>Cosign an aggregate bonded transaction.</td>
 </tr>
-<tr class="row-odd"><td><strong>Account Filters</strong></td>
+<tr class="row-odd"><td><strong>Account filters</strong></td>
 <td>&#160;</td>
 <td>&#160;</td>
 </tr>
@@ -621,37 +674,61 @@
 <td><a class="reference internal" href="account-filter.html#account-properties-entity-type-transaction"><span class="std std-ref">Account Properties Entity Type Transaction</span></a></td>
 <td>Allow or block outgoing transactions by transaction type.</td>
 </tr>
-<tr class="row-odd"><td><strong>Cross-chain swaps Transactions</strong></td>
+<tr class="row-odd"><td><strong>Cross-chain swaps</strong></td>
 <td>&#160;</td>
 <td>&#160;</td>
 </tr>
 <tr class="row-even"><td>0x4152</td>
 <td><a class="reference internal" href="cross-chain-swaps.html#secret-lock-transaction"><span class="std std-ref">Secret Lock Transaction</span></a></td>
-<td>Start a mosaic swap between different chains.</td>
+<td>Start a <a class="reference internal" href="cross-chain-swaps.html"><span class="doc">token swap</span></a> between different chains.</td>
 </tr>
 <tr class="row-odd"><td>0x4252</td>
 <td><a class="reference internal" href="cross-chain-swaps.html#secret-proof-transaction"><span class="std std-ref">Secret Proof Transaction</span></a></td>
-<td>Conclude a mosaic swap between different chains.</td>
+<td>Conclude a token swap between different chains.</td>
+</tr>
+<tr class="row-even"><td><strong>Remote harvesting</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>0x414C</td>
+<td><a class="reference internal" href="harvesting.html#account-link-transaction"><span class="std std-ref">Account Link Transaction</span></a></td>
+<td>Delegates the account importance to a proxy account to enable :doc:` delegated harvesting &lt;harvesting&gt;`.</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="defining-a-transaction">
 <h2>Defining a transaction<a class="headerlink" href="#defining-a-transaction" title="Permalink to this headline">¶</a></h2>
-<p>Every transaction shares some common properties. Each transaction extends from the <a class="reference internal" href="#id4"><span class="std std-ref">transaction schema definition</span></a>, adding the type’s particular properties.</p>
+<p>Every transaction shares some common properties. Each transaction extends from the <a class="reference internal" href="#id5"><span class="std std-ref">transaction schema definition</span></a>, adding the type’s particular properties.</p>
 <p>Transactions are defined in a <a class="reference internal" href="../api/serialization.html"><span class="doc">serialized form</span></a>. We recommend to <a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingATransferTransaction.ts#L30">use the NEM2-SDK to define</a> transactions.</p>
+<div class="section" id="fees">
+<span id="id2"></span><h3>Fees<a class="headerlink" href="#fees" title="Permalink to this headline">¶</a></h3>
+<p>Transactions have an associated cost. This cost is necessary to provide an incentive for the <a class="reference internal" href="harvesting.html"><span class="doc">harvesters</span></a> who secure the network and run the infrastructure.</p>
+<p>The fee associated with a transaction primarily depends on the transaction’s size. The effective fee is the product of the size of the transaction, and a fee multiplier set by the harvester. The node owner can configure the latter value to all positive values, including zero.</p>
+<blockquote>
+<div>effective_fee = transaction::size * block::fee_multiplier</div></blockquote>
+<p>A sender of a transaction must specify during the transaction definition a <code class="docutils literal"><span class="pre">max_fee</span></code>, meaning the maximum fee the account allows to spend for this transaction.</p>
+<p>If the <code class="docutils literal"><span class="pre">effective_fee</span></code> is smaller or equal to the <code class="docutils literal"><span class="pre">max_fee</span></code>, the harvester can opt to include the transaction in the block. The <code class="docutils literal"><span class="pre">fee_multiplier</span></code> is stored in the <a class="reference internal" href="block.html#block-header"><span class="std std-ref">block header</span></a>, permitting to resolve which was the effective fee paid for every transaction included.</p>
+<p>The harvesting nodes can decide their transaction inclusion strategy:</p>
+<ul class="simple">
+<li><strong>Prefer-oldest</strong>: Preferred for networks with high transaction throughput requirements. Include first the oldest transactions.</li>
+<li><strong>Minimize-fees</strong>: Philanthropic nodes. Include first transactions that other nodes do not want to include.</li>
+<li><strong>Maximize-fees</strong>: Most common in public networks. Include first transactions with higher fees.</li>
+</ul>
+<p>By default, the fee is paid in <code class="docutils literal"><span class="pre">XEM</span></code>, the underlying currency of the NEM network. Private chains can edit the configuration of the network to eliminate fees, or use another <a class="reference internal" href="mosaic.html"><span class="doc">mosaic</span></a> that better suits their needs.</p>
+</div>
 </div>
 <div class="section" id="signing-a-transaction">
 <span id="transaction-signature"></span><h2>Signing a transaction<a class="headerlink" href="#signing-a-transaction" title="Permalink to this headline">¶</a></h2>
 <p>Accounts must sign transactions before announcing them to the network. <a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingATransferTransaction.ts#L40">Signing a transaction</a> expresses the account’s agreement to change the network state as defined.</p>
 <p>For example, a transfer transaction describes who is the recipient and the quantity of mosaics to transfer. In this case, signing the transaction means to accept moving those mosaics from one account’s balance to another.</p>
 <p>The account generates the signature <a class="reference external" href="https://github.com/nemtech/nem2-library-js/blob/f171afb516a282f698081aea407339cfcd21cd63/src/transactions/VerifiableTransaction.js#L64">signing the first 100 bytes of the defined transaction</a> with its private key. Then, the signature is appended to the transaction’s body, resulting in a signed transaction.</p>
-<p>The hash of the transaction is generated once <a class="reference external" href="https://github.com/nemtech/nem2-library-js/blob/f171afb516a282f698081aea407339cfcd21cd63/src/transactions/VerifiableTransaction.js#L76">the Sha3-256 algorithm</a> is applied to the serialized transaction.</p>
+<p>The hash of the transaction is generated once <a class="reference external" href="https://github.com/nemtech/nem2-library-js/blob/f171afb516a282f698081aea407339cfcd21cd63/src/transactions/VerifiableTransaction.js#L76">the sha3-256 algorithm</a> is applied to the serialized transaction.</p>
 </div>
 <div class="section" id="announcing-a-transaction">
 <span id="transaction-validation"></span><h2>Announcing a transaction<a class="headerlink" href="#announcing-a-transaction" title="Permalink to this headline">¶</a></h2>
 <p>Signed transactions are ready to be announced to the network.</p>
-<div class="figure align-center" id="id6">
+<div class="figure align-center" id="id7">
 <img alt="../_images/transaction-cycle.png" src="../_images/transaction-cycle.png" style="width: 800px;" />
 <p class="caption"><span class="caption-text">Transaction cycle</span></p>
 </div>
@@ -681,8 +758,8 @@
 </div>
 <div class="section" id="schemas">
 <h2>Schemas<a class="headerlink" href="#schemas" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id4">
-<span id="id5"></span><h3>Transaction<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<span id="id6"></span><h3>Transaction<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <p><strong>Inlines</strong>:</p>
 <ul class="simple">
 <li><a class="reference internal" href="#size-prefixed-entity"><span class="std std-ref">SizePrefixedEntity</span></a></li>
@@ -702,9 +779,9 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>fee</td>
+<tr class="row-even"><td>max_fee</td>
 <td>uint64</td>
-<td>The cost of announcing a transaction.  This fee is necessary to provide an incentive for those who secure the network. The account pays the fee  in XEM, the underlying cryptocurrency of the NEM network. Private chains can edit the network configuration to suppress the fees.</td>
+<td>The maximum fee allowed to spend for the transaction.</td>
 </tr>
 <tr class="row-odd"><td>deadline</td>
 <td>uint64</td>
@@ -796,8 +873,10 @@
 
                 <ul>
                     <li><a href="cryptography.html">Cryptography</a></li>
-                    <li><a href="block.html">Block</a></li>
                     <li><a href="#">Transaction</a></li>
+                    <li><a href="block.html">Block</a></li>
+                    <li><a href="harvesting.html">Harvesting</a></li>
+                    <li><a href="receipt.html">Receipt</a></li>
                     <li><a href="node.html">Node</a></li>
                 </ul>
 
@@ -812,8 +891,7 @@
                     <li><a href="multisig-account.html">Multisig Account</a></li>
                     <li><a href="namespace.html">Namespace</a></li>
                     <li><a href="mosaic.html">Mosaic</a></li>
-                    <li><a href="transfer-transaction.html">Transfer Transaction</a>
-                    </li>
+                    <li><a href="transfer-transaction.html">Transfer Transaction</a></li>
                     <li><a href="aggregate-transaction.html">Aggregate Transaction</a></li>
                     <li><a href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
                 </ul>

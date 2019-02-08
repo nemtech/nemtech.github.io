@@ -33,7 +33,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Account" href="account.html" />
-    <link rel="prev" title="Transaction" href="transaction.html" />
+    <link rel="prev" title="Receipt" href="receipt.html" />
   
 
 <meta charset='utf-8'>
@@ -68,7 +68,7 @@
             </button>
             <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
                 developer center</a>
-            <span class="navbar-text navbar-version pull-left"><b>0.15.1</b></span>
+            <span class="navbar-text navbar-version pull-left"><b>0.16</b></span>
         </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -135,30 +135,61 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">Transaction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#transaction-types">Transaction types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="transaction.html#defining-a-transaction">Defining a transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#defining-a-transaction">Defining a transaction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transaction.html#fees">Fees</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#signing-a-transaction">Signing a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#announcing-a-transaction">Announcing a transaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#rollbacks">Rollbacks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#schemas">Schemas</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="transaction.html#id4">Transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transaction.html#id5">Transaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="transaction.html#embeddedtransaction">EmbeddedTransaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="transaction.html#sizeprefixedentity">SizePrefixedEntity</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="harvesting.html">Harvesting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="harvesting.html#local-harvesting">Local harvesting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="harvesting.html#delegated-harvesting">Delegated harvesting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="harvesting.html#schemas">Schemas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="harvesting.html#accountlinktransaction">AccountLinkTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="harvesting.html#linkaction">LinkAction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="receipt.html">Receipt</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="receipt.html#transaction-statement">Transaction statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="receipt.html#alias-resolution">Alias resolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="receipt.html#recorded-receipts">Recorded receipts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="receipt.html#schemas">Schemas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="receipt.html#id1">Receipt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="receipt.html#transactionstatement">TransactionStatement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="receipt.html#resolutionstatement">ResolutionStatement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="receipt.html#resolutionentry">ResolutionEntry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="receipt.html#receiptsource">ReceiptSource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="receipt.html#balancetransferreceipt">BalanceTransferReceipt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="receipt.html#balancechangereceipt">BalanceChangeReceipt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="receipt.html#artifactexpiryreceipt">ArtifactExpiryReceipt</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Node</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#catapult-p2p-component">Catapult P2P Component</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#p2p-component">P2P Component</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#node-reputation">Node reputation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rocksdb">RocksDB</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#catapult-api-component">Catapult API Component</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#api-component">API Component</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#mongodb">MongoDB</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#zmq">ZMQ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#catapult-rest-component">Catapult REST Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rest-component">REST Component</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 </ul>
 </li>
@@ -167,6 +198,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="account.html">Account</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="account.html#multisig-account">Multisig Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account.html#filters">Filters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="account.html#guides">Guides</a></li>
 </ul>
 </li>
@@ -213,10 +245,18 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="namespace.html#subnamespaces">Subnamespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html#examples">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="namespace.html#identifying-an-account">Identifying an account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="namespace.html#organizing-mosaics">Organizing mosaics</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="namespace.html#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="namespace.html#schemas">Schemas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="namespace.html#registernamespacetransaction">RegisterNamespaceTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="namespace.html#addressaliastransaction">AddressAliasTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="namespace.html#mosaicaliastransaction">MosaicAliasTransaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="namespace.html#namespacetype">NamespaceType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="namespace.html#alias-action">Alias Action</a></li>
 </ul>
 </li>
 </ul>
@@ -468,17 +508,20 @@
 <li class="toctree-l1"><a class="reference internal" href="cryptography.html">Cryptography</a></li>
 <li class="toctree-l1"><a class="reference internal" href="block.html">Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="harvesting.html">Harvesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receipt.html">Receipt</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Node</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#catapult-p2p-component">Catapult P2P Component</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#p2p-component">P2P Component</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#node-reputation">Node reputation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rocksdb">RocksDB</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#catapult-api-component">Catapult API Component</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#api-component">API Component</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#mongodb">MongoDB</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#zmq">ZMQ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#catapult-rest-component">Catapult REST Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rest-component">REST Component</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 </ul>
 </li>
@@ -540,37 +583,47 @@
 <p class="caption"><span class="caption-text">Catapult’s Performance Advantage: A Four-Layered Architecture</span></p>
 </div>
 <p>The four-layered architecture allows developers to update any of these tiers without disrupting the others, which improves security.</p>
-<div class="section" id="catapult-p2p-component">
-<h2>Catapult P2P Component<a class="headerlink" href="#catapult-p2p-component" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="p2p-component">
+<h2>P2P Component<a class="headerlink" href="#p2p-component" title="Permalink to this headline">¶</a></h2>
 <p><strong>Repository:</strong> <a href="https://github.com/nemtech/catapult-server" target="_blank">Catapult Server</a></p>
-<p>The P2P nodes form the backbone of the blockchain. The role of the node is to <a class="reference internal" href="transaction.html#transaction-validation"><span class="std std-ref">verify transactions</span></a> and <a class="reference internal" href="block.html"><span class="doc">blocks</span></a>, run the consensus algorithm, create new blocks, and propagate the changes through the network.</p>
-<p>The API nodes push new transactions to P2P nodes. If the transaction received is invalid, the P2P nodes discard it.</p>
-<p>After processing a block:</p>
-<ol class="arabic simple">
-<li>The block binary is saved on disk as a flat file.</li>
+<p>The P2P nodes form the backbone of the blockchain, making the network robust since it cannot be shut down by eliminating a single entity. The role of the node is to <a class="reference internal" href="transaction.html#transaction-validation"><span class="std std-ref">verify transactions</span></a> and <a class="reference internal" href="block.html"><span class="doc">blocks</span></a>, run the consensus algorithm, create new blocks, and propagate the changes through the network.</p>
+<p>The API push new transactions to the P2P network, where they are <a class="reference internal" href="harvesting.html"><span class="doc">included in a block</span></a> or discarded. After the block is processed:</p>
+<ul class="simple">
+<li>The binary of the block is saved on disk as a flat file.</li>
 <li>The updated chain state is saved in memory or RocksDB (configurable).</li>
-</ol>
+</ul>
+<div class="section" id="node-reputation">
+<h3>Node reputation<a class="headerlink" href="#node-reputation" title="Permalink to this headline">¶</a></h3>
+<p>Public networks enable anyone to run a node. Some of these nodes could share invalid information or try to disturb the network.</p>
+<p>To reduce communication attempts, the nodes keep track of the results of preceding communications.</p>
+<p>When a node connects to a remote peer, the first increments the trust towards the remote. Otherwise, the node increments the failure counter. Likewise, the node updates the trust counters accordingly after processing the data requested.</p>
+<p>From these interactions, the node assigns a weight between 500 and 10000 to every peer reached.</p>
+<p>The probability of selecting a remote node depends linearly on its weight. Every four rounds of node selections, the criteria changes to prevent <a href=" https://en.wikipedia.org/wiki/Sybil_attack" target="_blank">Sybil attacks</a>. The node selects a peer with high importance instead.</p>
+</div>
 <div class="section" id="rocksdb">
 <h3>RocksDB<a class="headerlink" href="#rocksdb" title="Permalink to this headline">¶</a></h3>
-<p><a href=" https://en.wikipedia.org/wiki/RocksDB" target="_blank">RocksDB</a> stores the chain state. The data structures cached are serialized and stored as value to a corresponding key. In other words, supports different “columns” (key/value pair “tables”).</p>
-<p>For example, a column maps the public keys to addresses. Another one, the account state entries as the value to corresponding address keys.</p>
-<p>Storing the state in memory is faster than using RocksDB. However, storing state information in RocksDB demands less memory the network nodes. This is primarily desirable in networks with a large number of accounts.</p>
+<p><a href=" https://en.wikipedia.org/wiki/RocksDB" target="_blank">RocksDB</a> stores the chain state. The data structures cached are serialized and stored as value to a corresponding key. For example, a column maps the public keys to addresses. Another one, the account state entries as the value to corresponding address keys.</p>
+<p>Storing the state in memory is usually faster than using RocksDB. However, storing state information in RocksDB demands less memory of the network nodes.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Persisting the state is convenient in networks with a large number of accounts.</p>
 </div>
 </div>
-<div class="section" id="catapult-api-component">
-<h2>Catapult API Component<a class="headerlink" href="#catapult-api-component" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="api-component">
+<h2>API Component<a class="headerlink" href="#api-component" title="Permalink to this headline">¶</a></h2>
 <p><strong>Repository:</strong> <a href="https://github.com/nemtech/catapult-rest" target="_blank">Catapult REST</a></p>
-<p>The primary responsibility of Catapult API is to store the data in readable form.  Each API instance maintains a MongoDB, and optionally a RocksDB to save the state.</p>
+<p>The primary responsibility of the API is to store the data in a readable form. Each API instance maintains a MongoDB, and optionally a RocksDB to save the state.</p>
 <p>The layer <a class="reference internal" href="transaction.html#transaction-validation"><span class="std std-ref">validates the transactions</span></a> received from the REST component. Additionally, the API throws the errors back via ZMQ in binary.</p>
-<p>The Catapult API component is also responsible for collecting cosignatures. <a class="reference internal" href="aggregate-transaction.html"><span class="doc">Aggregated bonded transactions</span></a> are pushed to P2P nodes once they are complete.</p>
-<p>API components can connect to multiple P2P nodes, but at least must connect to one.</p>
+<p>This component is also responsible for collecting the cosignatures of <a class="reference internal" href="aggregate-transaction.html"><span class="doc">aggregated bonded transactions</span></a>, that are only pushed to P2P nodes once they are complete.</p>
+<p>An API component can connect to multiple P2P nodes, but at least must connect to one.</p>
 <div class="section" id="mongodb">
 <h3>MongoDB<a class="headerlink" href="#mongodb" title="Permalink to this headline">¶</a></h3>
 <p><a href="https://es.wikipedia.org/wiki/MongoDB" target="_blank">MongoDB</a> stores blocks, transactions and chain state for high query performance.</p>
 <p>The API updates the MongoDB when:</p>
 <ul class="simple">
 <li>A new block / a bunch of blocks finished processing.</li>
-<li>New unconfirmed transactions finished processing.</li>
+<li>New unconfirmed transactions completed processing.</li>
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -579,21 +632,21 @@
 </div>
 <div class="section" id="zmq">
 <h3>ZMQ<a class="headerlink" href="#zmq" title="Permalink to this headline">¶</a></h3>
-<p><a href=" https://en.wikipedia.org/wiki/ZeroMQ" target="_blank">ZeroMQ</a> is an asynchronous messaging library, which enables real-time subscriptions. It transports notifications from the API server to the ZMQ endpoint, where the Catapult REST component listens.  It is an alternative to REST WebSockets, aimed to be used when performance is critical.</p>
+<p><a href=" https://en.wikipedia.org/wiki/ZeroMQ" target="_blank">ZeroMQ</a> is an asynchronous messaging library, which enables real-time subscriptions. It transports notifications from the API server to the ZMQ endpoint, where the Catapult REST component listens. It is an alternative to REST WebSockets, aimed to be used when performance is critical.</p>
 </div>
 </div>
-<div class="section" id="catapult-rest-component">
-<h2>Catapult REST Component<a class="headerlink" href="#catapult-rest-component" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="rest-component">
+<h2>REST Component<a class="headerlink" href="#rest-component" title="Permalink to this headline">¶</a></h2>
 <p><strong>Repository:</strong> <a href="https://github.com/nemtech/catapult-rest" target="_blank">Catapult REST</a></p>
-<p>Catapult REST handles <strong>JSON API</strong> client requests. This component reads from MongoDB, formats the response, and returns it to the client. Each Catapult REST connects to one Catapult API instance.</p>
-<p>Catapult REST sends new transactions to the Catapult API using sockets. The component announces events as well to the client via WebSockets.</p>
+<p>The REST component handles <strong>JSON API</strong> client requests. This reads from MongoDB, formats the response, and returns it to the client. This component is responsible as well to return events to the client using <a class="reference internal" href="../api/websockets.html"><span class="doc">WebSockets</span></a>.</p>
+<p>Each REST component connects to one API instance, sending new transactions using sockets.</p>
 </div>
 <div class="section" id="guides">
 <h2>Guides<a class="headerlink" href="#guides" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a href="https://github.com/tech-bureau/catapult-service-bootstrap/" target="_blank"><b>Running Catapult locally</b></a></li>
 </ul>
-<p>Deploy a Catapult node for learning and development purposes.</p>
+<p>Deploy a Catapult full node for learning and development purposes.</p>
 </div>
 </div>
 
@@ -647,8 +700,10 @@
 
                 <ul>
                     <li><a href="cryptography.html">Cryptography</a></li>
-                    <li><a href="block.html">Block</a></li>
                     <li><a href="transaction.html">Transaction</a></li>
+                    <li><a href="block.html">Block</a></li>
+                    <li><a href="harvesting.html">Harvesting</a></li>
+                    <li><a href="receipt.html">Receipt</a></li>
                     <li><a href="#">Node</a></li>
                 </ul>
 
@@ -663,8 +718,7 @@
                     <li><a href="multisig-account.html">Multisig Account</a></li>
                     <li><a href="namespace.html">Namespace</a></li>
                     <li><a href="mosaic.html">Mosaic</a></li>
-                    <li><a href="transfer-transaction.html">Transfer Transaction</a>
-                    </li>
+                    <li><a href="transfer-transaction.html">Transfer Transaction</a></li>
                     <li><a href="aggregate-transaction.html">Aggregate Transaction</a></li>
                     <li><a href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
                 </ul>
