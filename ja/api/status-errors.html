@@ -58,34 +58,35 @@
   </head>
   <body>
 
-  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-      <div class="navbar-header">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
-          developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.15</b></span>
-      </div>
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
+                developer center</a>
+            <span class="navbar-text navbar-version pull-left"><b>0.16</b></span>
+        </div>
 
         <div class="collapse navbar-collapse nav-collapse">
-          <ul class="nav navbar-nav">
-            
-                <li><a href="../getting-started/what-is-nem.html">Getting started</a></li>
+            <ul class="nav navbar-nav">
+                
+                <li><a href="../getting-started/setup-workstation.html">Getting started</a></li>
                 <li><a href="../concepts/account.html">Built-in features</a></li>
+                <li><a href="../guides/category/account.html">Guides</a></li>
                 <li><a href="../references.html">References</a></li>
-            
-            
-              <li class="dropdown globaltoc-container">
+                
+                
+                <li class="dropdown globaltoc-container">
   <a role="button"
      id="dLabelGlobalToc"
      data-toggle="dropdown"
      data-target="#"
-     href="../index.html">Site <b class="caret"></b></a>
+     href="../contents.html">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Getting Started</span></p>
@@ -100,12 +101,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#running-catapult-service-bootstrap">Catapult サービスのブートストラップの実行</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#creating-a-test-account">テストアカウントの作成</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#what-is-xem-and-how-to-get-it">XEM とは何ですか？どうやって入手できますか？</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#setting-up-the-development-environment">開発環境のセットアップ</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#typescript-and-javascript">TypeScript と JavaScript</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#java">Java</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#c">C#</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#setting-up-the-development-environment">開発環境のセットアップ</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">はじめてのアプリケーションを作成</a><ul>
@@ -139,30 +135,62 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/transaction.html">トランザクション</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#defining-a-transaction">トランザクションの定義</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#transaction-types">トランザクションタイプ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#defining-a-transaction">トランザクションの定義</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/transaction.html#fees">手数料</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#signing-a-transaction">トランザクションへの署名</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#announcing-a-transaction">トランザクションのアナウンス</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#rollbacks">ロールバック</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#guides">ガイド</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/transaction.html#schemas">スキーマ</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../concepts/transaction.html#id3">トランザクション</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/transaction.html#id5">トランザクション</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../concepts/transaction.html#embeddedtransaction">EmbeddedTransaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../concepts/transaction.html#sizeprefixedentity">SizePrefixedEntity</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/harvesting.html">ハーベスティング</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/harvesting.html#local-harvesting">ローカルハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/harvesting.html#delegated-harvesting">委任ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/harvesting.html#schemas">スキーマ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/harvesting.html#accountlinktransaction">AccountLinkTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/harvesting.html#linkaction">リンクアクション</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/receipt.html">レシート</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/receipt.html#transaction-statement">トランザクションステートメント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/receipt.html#alias-resolution">エイリアス解決</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/receipt.html#recorded-receipts">記録済みレシート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/receipt.html#schemas">スキーマ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/receipt.html#id1">レシート</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/receipt.html#transactionstatement">TransactionStatement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/receipt.html#resolutionstatement">ResolutionStatement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/receipt.html#resolutionentry">ResolutionEntry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/receipt.html#receiptsource">ReceiptSource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/receipt.html#balancetransferreceipt">BalanceTransferReceipt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/receipt.html#balancechangereceipt">BalanceChangeReceipt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/receipt.html#artifactexpiryreceipt">ArtifactExpiryReceipt</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/node.html">ノード</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/node.html#catapult-p2p-component">Catapult P2P コンポーネント</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/node.html#p2p-component">P2P コンポーネント</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/node.html#node-reputation">ノードレピュテーション</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../concepts/node.html#rocksdb">RocksDB</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/node.html#catapult-api-component">Catapult API コンポーネント</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/node.html#api-component">API コンポーネント</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../concepts/node.html#mongodb">MongoDB</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../concepts/node.html#zmq">ZMQ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/node.html#catapult-rest-component">Catapult REST コンポーネント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/node.html#rest-component">REST コンポーネント</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/node.html#guides">ガイド</a></li>
 </ul>
 </li>
@@ -171,6 +199,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">アカウント</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/account.html#multisig-account">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/account.html#filters">フィルタ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/account.html#guides">ガイド</a></li>
 </ul>
 </li>
@@ -202,6 +231,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../concepts/multisig-account.html#shared-accounts">共有アカウント</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../concepts/multisig-account.html#multi-factor-authorization">複数要素認証</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../concepts/multisig-account.html#assets-ownership">アセットの所有権</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/multisig-account.html#manufacturing-and-supply-chains">製造業とサプライチェーン</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/multisig-account.html#fraud-detection">不正検知</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/multisig-account.html#guides">ガイド</a></li>
@@ -213,22 +244,20 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/multi-level-multisig-account.html">マルチレベルマルチシグアカウント</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/multi-level-multisig-account.html#examples">例</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../concepts/multi-level-multisig-account.html#manufacturing-and-supply-chains">製造とサプライチェーン</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../concepts/multi-level-multisig-account.html#fraud-detection">不正検知</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../concepts/multi-level-multisig-account.html#account-recovery">アカウントの復旧</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/multi-level-multisig-account.html#guides">ガイド</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">ネームスペース</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/namespace.html#subnamespaces">サブネームスペース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/namespace.html#examples">例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/namespace.html#identifying-an-account">アカウントの識別</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/namespace.html#organizing-mosaics">モザイクの整理</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/namespace.html#guides">ガイド</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/namespace.html#schemas">スキーマ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../concepts/namespace.html#registernamespacetransaction">RegisterNamespaceTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/namespace.html#addressaliastransaction">AddressAliasTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/namespace.html#mosaicaliastransaction">MosaicAliasTransaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../concepts/namespace.html#namespacetype">NamespaceType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/namespace.html#alias-action">エイリアスアクション</a></li>
 </ul>
 </li>
 </ul>
@@ -267,7 +296,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#guides">ガイド</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#schemas">スキーマ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../concepts/aggregate-transaction.html#aggregatetransaction">AggregateTransaction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../concepts/aggregate-transaction.html#cosignaturetransaction">CosignatureTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/aggregate-transaction.html#detachedcosignature">DetachedCosignature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/aggregate-transaction.html#cosignature">Cosignature</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../concepts/aggregate-transaction.html#hashlocktransaction">HashLockTransaction</a></li>
 </ul>
 </li>
@@ -442,25 +472,27 @@
 </ul>
 </ul>
 </li>
-              
-            
-            
-            
-            
-            
-          </ul>
+                
+                
+                
+                
+                
+                
+            </ul>
 
-          
             
+            
+
 <div class="navbar-right hidden-sm hidden-xs">
     <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
     <a href="https://github.com/nemtech/nem2-docs/edit/master/source/api\status-errors.rst"
        rel="nofollow"> <i class="fab fa-github"></i> GitHubで編集</a>
+
 </div>
-          
+            
         </div>
     </div>
-  </div>
+</div>
 
 <div class="container">
   <div class="row">
@@ -477,6 +509,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/cryptography.html">暗号理論</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/block.html">ブロック</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/transaction.html">トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/receipt.html">レシート</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/node.html">ノード</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
@@ -484,7 +518,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">アカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/account-filter.html">アカウントフィルタ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">マルチシグアカウント</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/multi-level-multisig-account.html">マルチレベルマルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/mosaic.html">モザイク</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/transfer-transaction.html">転送トランザクション</a></li>
@@ -569,7 +602,7 @@
 <td>ブロックにトランザクションが多すぎるため、バリデーションに失敗しました。</td>
 </tr>
 <tr class="row-odd"><td>Failure_Core_Nemesis_Account_Signed_After_Nemesis_Block</td>
-<td>Validation failed because an entity originated from the nemesis account after the nemesis block.</td>
+<td>ネメシスブロックの後にエンティティがネメシスアカウントから生成されたため、バリデーションに失敗しました。</td>
 </tr>
 <tr class="row-even"><td>Failure_Core_Wrong_Network</td>
 <td>エンティティに間違ったネットワークが指定されているため、バリデーションに失敗しました。</td>
@@ -578,7 +611,7 @@
 <td>アドレスが妥当ではないため、バリデーションに失敗しました。</td>
 </tr>
 <tr class="row-even"><td>Failure_Core_Block_Harvester_Ineligible</td>
-<td>Validation failed because a block was harvested by an ineligible harvester</td>
+<td>不適格なハーベスタによってブロックがハーベストされたため、バリデーションに失敗しました。</td>
 </tr>
 <tr class="row-odd"><td>Failure_Hash_Exists</td>
 <td>エンティティのハッシュがすでに存在するため、バリデーションに失敗しました。</td>
@@ -586,44 +619,62 @@
 <tr class="row-even"><td>Failure_Signature_Not_Verifiable</td>
 <td>署名の検証に失敗したため、バリデーションに失敗しました。</td>
 </tr>
-<tr class="row-odd"><td>Failure_Aggregate_Too_Many_Transactions</td>
+<tr class="row-odd"><td>Failure_AccountLink_Invalid_Action</td>
+<td>アカウントリンクアクションが妥当ではないため、バリデーションに失敗しました。リンク (0) かつ アンリンク (1)</td>
+</tr>
+<tr class="row-even"><td>Failure_AccountLink_Link_Already_Exists</td>
+<td>メインアカウントはすでに他のアカウントにリンクしているため、バリデーションに失敗しました。</td>
+</tr>
+<tr class="row-odd"><td>Failure_AccountLink_Link_Does_Not_Exist</td>
+<td>Validation failed because the unlink data is not consistent with existing account link.</td>
+</tr>
+<tr class="row-even"><td>Failure_AccountLink_Unlink_Data_Inconsistency</td>
+<td>Validation failed because the unlink data is not consistent with existing account link.</td>
+</tr>
+<tr class="row-odd"><td>Failure_AccountLink_Remote_Account_Ineligible</td>
+<td>Validation failed because the link is attempting to convert ineligible account to remote.</td>
+</tr>
+<tr class="row-even"><td>Failure_AccountLink_Remote_Account_Signer_Not_Allowed</td>
+<td>Validation failed because the remote is not allowed to sign a transaction.</td>
+</tr>
+<tr class="row-odd"><td>Failure_AccountLink_Remote_Account_Participant_Not_Allowed</td>
+<td>Validation failed because the remote is not allowed to participate in the transaction.</td>
+</tr>
+<tr class="row-even"><td>Failure_Aggregate_Too_Many_Transactions</td>
 <td>アグリゲートに多すぎるトランザクションがあるため、バリデーションに失敗しました。アグリゲートトランザクションは <code class="docutils literal"><span class="pre">1000</span></code> までのトランザクションを内包可能です。</td>
 </tr>
-<tr class="row-even"><td>Failure_Aggregate_No_Transactions</td>
+<tr class="row-odd"><td>Failure_Aggregate_No_Transactions</td>
 <td>アグリゲートにトランザクションが無いため、バリデーションに失敗しました。</td>
 </tr>
-<tr class="row-odd"><td>Failure_Aggregate_Too_Many_Cosignatures</td>
+<tr class="row-even"><td>Failure_Aggregate_Too_Many_Cosignatures</td>
 <td>アグリゲートの連署名が多すぎるため、バリデーションに失敗しました。最大で <code class="docutils literal"><span class="pre">15</span></code> の連署名が許容されています。</td>
 </tr>
-<tr class="row-even"><td>Failure_Aggregate_Redundant_Cosignatures</td>
+<tr class="row-odd"><td>Failure_Aggregate_Redundant_Cosignatures</td>
 <td>重複する連署者がいるため、バリデーションに失敗しました。</td>
 </tr>
-<tr class="row-odd"><td>Failure_Aggregate_Ineligible_Cosigners</td>
-<td>Validation failed because at least one cosigner is ineligible.</td>
+<tr class="row-even"><td>Failure_Aggregate_Ineligible_Cosigners</td>
+<td>少なくとも1人の署名者が不適格であるため、バリデーションに失敗しました。</td>
 </tr>
-<tr class="row-even"><td>Failure_Aggregate_Missing_Cosigners</td>
-<td>Validation failed because at least one required cosigner is missing. The tranaction was announced as complete but had missing cosignatures.</td>
+<tr class="row-odd"><td>Failure_Aggregate_Missing_Cosigners</td>
+<td>必要な署名者が少なくとも1人は欠落しているため、バリデーションに失敗しました。トランザクションは完了したとアナウンスされましたが、署名がありませんでした。</td>
 </tr>
-<tr class="row-odd"><td>Failure_LockHash_Invalid_Mosaic_Id</td>
+<tr class="row-even"><td>Failure_LockHash_Invalid_Mosaic_Id</td>
 <td>ロックに許可されていないモザイクが指定されたため、バリデーションに失敗しました。許可されたモザイクは <code class="docutils literal"><span class="pre">xem</span></code> のみです。</td>
 </tr>
-<tr class="row-even"><td>Failure_LockHash_Invalid_Mosaic_Amount</td>
+<tr class="row-odd"><td>Failure_LockHash_Invalid_Mosaic_Amount</td>
 <td>ロックに許可されていない量が指定されたため、バリデーションに失敗しました。最低量は <code class="docutils literal"><span class="pre">10</span></code> です。</td>
 </tr>
-<tr class="row-odd"><td>Failure_LockHash_Hash_Exists</td>
+<tr class="row-even"><td>Failure_LockHash_Hash_Exists</td>
 <td>ハッシュがすでにキャッシュに存在するため、バリデーションに失敗しました。</td>
 </tr>
-<tr class="row-even"><td>Failure_LockHash_Hash_Does_Not_Exist</td>
-<td>Validation failed because hash is not present in cache. Remember to lock before announcing aggregate bonded transactions.</td>
+<tr class="row-odd"><td>Failure_LockHash_Hash_Does_Not_Exist</td>
+<td>Validation failed because the hash is not present in cache. Remember to lock before announcing aggregate bonded transactions.</td>
 </tr>
-<tr class="row-odd"><td>Failure_LockHash_Inactive_Hash</td>
-<td>Validation failed because hash is inactive.</td>
+<tr class="row-even"><td>Failure_LockHash_Inactive_Hash</td>
+<td>Validation failed because the hash is inactive.</td>
 </tr>
-<tr class="row-even"><td>Failure_LockHash_Invalid_Duration</td>
-<td>Validation failed because duration is too long. Duration is allowed to lie up to <code class="docutils literal"><span class="pre">2</span></code> days.</td>
-</tr>
-<tr class="row-odd"><td>Failure_LockHash_Already_Used</td>
-<td>Validation failed because hash has already been used.</td>
+<tr class="row-odd"><td>Failure_LockHash_Invalid_Duration</td>
+<td>期間が長すぎるため、バリデーションに失敗しました。期間は <code class="docutils literal"><span class="pre">2</span></code> 日までとすることができます。</td>
 </tr>
 <tr class="row-even"><td>Failure_LockSecret_Invalid_Hash_Algorithm</td>
 <td>Validation failed because the hash algorithm for lock type secret is invalid. See the <a class="reference internal" href="../concepts/cross-chain-swaps.html"><span class="doc">available algorithms</span></a> list.</td>
@@ -632,10 +683,10 @@
 <td>ハッシュがすでにキャッシュに存在するため、バリデーションに失敗しました。</td>
 </tr>
 <tr class="row-even"><td>Failure_LockSecret_Hash_Not_Implemented</td>
-<td>Validation failed because hash is not implemented yet.</td>
+<td>Validation failed because the hash is not implemented yet.</td>
 </tr>
 <tr class="row-odd"><td>Failure_LockSecret_Proof_Size_Out_Of_Bounds</td>
-<td>Validation failed because proof is too small or too large. It should be between <code class="docutils literal"><span class="pre">10</span></code> and <code class="docutils literal"><span class="pre">1000</span></code> bytes.</td>
+<td>プルーフが小さすぎるか大きすぎるため、バリデーションに失敗しました。 <code class="docutils literal"><span class="pre">10</span></code> から <code class="docutils literal"><span class="pre">1000</span></code> バイトの間でなければなりません。</td>
 </tr>
 <tr class="row-even"><td>Failure_LockSecret_Secret_Mismatch</td>
 <td>シークレットがプルーフにマッチしないため、バリデーションに失敗しました。</td>
@@ -644,7 +695,7 @@
 <td>シークレットが不明のため、バリデーションに失敗しました。</td>
 </tr>
 <tr class="row-even"><td>Failure_LockSecret_Inactive_Secret</td>
-<td>Validation failed because secret is inactive.</td>
+<td>シークレットが非アクティブであるため、バリデーションに失敗しました。</td>
 </tr>
 <tr class="row-odd"><td>Failure_LockSecret_Hash_Algorithm_Mismatch</td>
 <td>ハッシュアルゴリズムがマッチしないため、バリデーションに失敗しました。</td>
@@ -652,20 +703,20 @@
 <tr class="row-even"><td>Failure_LockSecret_Invalid_Duration</td>
 <td>期間が長すぎるため、バリデーションに失敗しました。期間は <code class="docutils literal"><span class="pre">30</span></code> 日までが許容されています。</td>
 </tr>
-<tr class="row-odd"><td>Failure_LockSecret_Already_Used</td>
-<td>Validation failed because hash has already been used.</td>
-</tr>
-<tr class="row-even"><td>Failure_Mosaic_Invalid_Duration</td>
+<tr class="row-odd"><td>Failure_Mosaic_Invalid_Duration</td>
 <td>期間が妥当ではないため、バリデーションに失敗しました。期間は <code class="docutils literal"><span class="pre">365</span></code> 日先までが許可されています。</td>
 </tr>
-<tr class="row-odd"><td>Failure_Mosaic_Invalid_Name</td>
+<tr class="row-even"><td>Failure_Mosaic_Invalid_Name</td>
 <td>モザイク名は最大 <code class="docutils literal"><span class="pre">64</span></code> 文字です。利用可能な文字は <cite>a-to-z</cite>; <cite>0-to-9</cite>、特別な文字として `_- です。</td>
 </tr>
-<tr class="row-even"><td>Failure_Mosaic_Name_Id_Mismatch</td>
+<tr class="row-odd"><td>Failure_Mosaic_Name_Id_Mismatch</td>
 <td>名前とIDがマッチしないため、バリデーションに失敗しました。</td>
 </tr>
-<tr class="row-odd"><td>Failure_Mosaic_Expired</td>
+<tr class="row-even"><td>Failure_Mosaic_Expired</td>
 <td>親の期限が切れているため、バリデーションに失敗しました。</td>
+</tr>
+<tr class="row-odd"><td>Failure_Mosaic_Id_Mismatch</td>
+<td>Validation failed because the id is not the expected id generated from signer and nonce.</td>
 </tr>
 <tr class="row-even"><td>Failure_Mosaic_Owner_Conflict</td>
 <td>Validation failed because the parent owner conflicts with the child owner.</td>
@@ -688,89 +739,95 @@
 <tr class="row-even"><td>Failure_Mosaic_Invalid_Supply_Change_Amount</td>
 <td>モザイク供給量が妥当ではないため、バリデーションに失敗しました。</td>
 </tr>
-<tr class="row-odd"><td>Failure_Mosaic_Name_Reserved</td>
-<td>Validation failed because the mosaic has a reserved name.</td>
+<tr class="row-odd"><td>Failure_Mosaic_Invalid_Id</td>
+<td>モザイクIDが妥当ではないため、バリデーションに失敗しました。</td>
 </tr>
-<tr class="row-even"><td>Failure_Mosaic_Modification_Disallowed</td>
-<td>Validation failed because mosaic modification is not allowed.</td>
+<tr class="row-even"><td>Failure_Mosaic_Name_Reserved</td>
+<td>モザイクIDが使用中のため、バリデーションに失敗しました。</td>
 </tr>
-<tr class="row-odd"><td>Failure_Mosaic_Modification_No_Changes</td>
+<tr class="row-odd"><td>Failure_Mosaic_Modification_Disallowed</td>
+<td>モザイク変更が許可されていないため、バリデーションに失敗しました。</td>
+</tr>
+<tr class="row-even"><td>Failure_Mosaic_Modification_No_Changes</td>
 <td>Validation failed because mosaic modification would not result in any changes.</td>
 </tr>
-<tr class="row-even"><td>Failure_Mosaic_Supply_Immutable</td>
+<tr class="row-odd"><td>Failure_Mosaic_Supply_Immutable</td>
 <td>Validation failed because the mosaic supply is immutable.</td>
 </tr>
-<tr class="row-odd"><td>Failure_Mosaic_Supply_Negative</td>
+<tr class="row-even"><td>Failure_Mosaic_Supply_Negative</td>
 <td>Validation failed because the resulting mosaic supply is negative.</td>
 </tr>
-<tr class="row-even"><td>Failure_Mosaic_Supply_Exceeded</td>
+<tr class="row-odd"><td>Failure_Mosaic_Supply_Exceeded</td>
 <td>Validation failed because the resulting mosaic supply exceeds the maximum allowed value. The range should be between 0 and <code class="docutils literal"><span class="pre">9.000.000.000</span></code>.</td>
 </tr>
-<tr class="row-odd"><td>Failure_Mosaic_Non_Transferable</td>
+<tr class="row-even"><td>Failure_Mosaic_Non_Transferable</td>
 <td>Validation failed because the mosaic is not transferable. Only the creator of the mosaic is eligible to be the recipient of a non-transferable mosaic once transferred.</td>
 </tr>
-<tr class="row-even"><td>Failure_Mosaic_Max_Mosaics_Exceeded</td>
+<tr class="row-odd"><td>Failure_Mosaic_Max_Mosaics_Exceeded</td>
 <td>Validation failed because the credit of the mosaic would exceed the maximum different mosaics an account is allowed to own. Set by default to <code class="docutils literal"><span class="pre">10.000</span></code> different mosaics per account.</td>
 </tr>
-<tr class="row-odd"><td>Failure_Multisig_Modify_Account_In_Both_Sets</td>
-<td>Validation failed because account is specified to be both added and removed.</td>
+<tr class="row-even"><td>Failure_Multisig_Modify_Account_In_Both_Sets</td>
+<td>アカウントが追加と削除の両方が指定されているため、バリデーションに失敗しました。</td>
 </tr>
-<tr class="row-even"><td>Failure_Multisig_Modify_Multiple_Deletes</td>
-<td>Validation failed because multiple removals are present.</td>
+<tr class="row-odd"><td>Failure_Multisig_Modify_Multiple_Deletes</td>
+<td>Validation failed because there are multiple removals.</td>
 </tr>
-<tr class="row-odd"><td>Failure_Multisig_Modify_Redundant_Modifications</td>
-<td>Validation failed because redundant modifications are present.</td>
+<tr class="row-even"><td>Failure_Multisig_Modify_Redundant_Modifications</td>
+<td>Validation failed because tehre are redundant modifications.</td>
 </tr>
-<tr class="row-even"><td>Failure_Multisig_Modify_Unknown_Multisig_Account</td>
-<td>Validation failed because account is not in multisig cache.</td>
+<tr class="row-odd"><td>Failure_Multisig_Modify_Unknown_Multisig_Account</td>
+<td>キャッシュ内にアカウントがマルチシグが無いため、バリデーションに失敗しました。</td>
 </tr>
-<tr class="row-odd"><td>Failure_Multisig_Modify_Not_A_Cosigner</td>
-<td>Validation failed because account to be removed is not present.</td>
+<tr class="row-even"><td>Failure_Multisig_Modify_Not_A_Cosigner</td>
+<td>削除するアカウントが存在しないため、バリデーションに失敗しました。</td>
 </tr>
-<tr class="row-even"><td>Failure_Multisig_Modify_Already_A_Cosigner</td>
-<td>Validation failed because account to be added is already a cosignatory.</td>
+<tr class="row-odd"><td>Failure_Multisig_Modify_Already_A_Cosigner</td>
+<td>追加しようとしているアカウントが既に連署者になっているため、バリデーションに失敗しました。</td>
 </tr>
-<tr class="row-odd"><td>Failure_Multisig_Modify_Min_Setting_Out_Of_Range</td>
-<td>Validation failed because new minimum settings are out of range.</td>
+<tr class="row-even"><td>Failure_Multisig_Modify_Min_Setting_Out_Of_Range</td>
+<td>Validation failed because thenew minimum settings are out of range.</td>
 </tr>
-<tr class="row-even"><td>Failure_Multisig_Modify_Min_Setting_Larger_Than_Num_Cosignatories</td>
+<tr class="row-odd"><td>Failure_Multisig_Modify_Min_Setting_Larger_Than_Num_Cosignatories</td>
 <td>Validation failed because min settings are larger than number of cosignatories.</td>
 </tr>
-<tr class="row-odd"><td>Failure_Multisig_Modify_Unsupported_Modification_Type</td>
+<tr class="row-even"><td>Failure_Multisig_Modify_Unsupported_Modification_Type</td>
 <td>Validation failed because the modification type is unsupported: add (0) and remove (1).</td>
 </tr>
-<tr class="row-even"><td>Failure_Multisig_Modify_Max_Cosigned_Accounts</td>
+<tr class="row-odd"><td>Failure_Multisig_Modify_Max_Cosigned_Accounts</td>
 <td>Validation failed because the cosignatory already cosigns the maximum number of accounts. An account cannot be cosignatory of more than <code class="docutils literal"><span class="pre">5</span></code> multisig accounts.</td>
 </tr>
-<tr class="row-odd"><td>Failure_Multisig_Modify_Max_Cosigners</td>
+<tr class="row-even"><td>Failure_Multisig_Modify_Max_Cosigners</td>
 <td>Validation failed because the multisig account already has the maximum number of cosignatories. A multisig account cannot have more than <code class="docutils literal"><span class="pre">10</span></code> cosignatories.</td>
 </tr>
-<tr class="row-even"><td>Failure_Multisig_Modify_Loop</td>
+<tr class="row-odd"><td>Failure_Multisig_Modify_Loop</td>
 <td>Validation failed because a multisig loop is created. A multisig account cannot be cosignatory of itself. Neither an account can be turned into multisig having as cosignatory another multisig where the account is cosignatory.</td>
 </tr>
-<tr class="row-odd"><td>Failure_Multisig_Modify_Max_Multisig_Depth</td>
-<td>Validation failed because the max multisig depth is exceeded. The maximum depth of a multilevel multisig account is <code class="docutils literal"><span class="pre">3</span></code>.</td>
+<tr class="row-even"><td>Failure_Multisig_Modify_Max_Multisig_Depth</td>
+<td>最大マルチシグ深度が超過しているため、バリデーションに失敗しました。マルチレベルマルチシグアカウントの最大深さは <code class="docutils literal"><span class="pre">3</span></code> です。</td>
 </tr>
-<tr class="row-even"><td>Failure_Multisig_Operation_Not_Permitted_By_Account</td>
+<tr class="row-odd"><td>Failure_Multisig_Operation_Not_Permitted_By_Account</td>
 <td>Validation failed because an operation is not permitted by a multisig account. A multisig account cannot be converted into a multisig account again.</td>
 </tr>
-<tr class="row-odd"><td>Failure_Namespace_Invalid_Duration</td>
+<tr class="row-even"><td>Failure_Namespace_Invalid_Duration</td>
 <td>期間が妥当ではないため、バリデーションに失敗しました。期間は <code class="docutils literal"><span class="pre">365</span></code> 日先までが許可されています。</td>
 </tr>
-<tr class="row-even"><td>Failure_Namespace_Invalid_Name</td>
-<td>Validation failed because the namespace has an invalid name. The namespace name may have a maximum length of <code class="docutils literal"><span class="pre">64</span></code> characters. Allowed characters are <cite>a-to-z</cite>; <cite>0-to-9</cite> and the following special characters: `_-</td>
+<tr class="row-odd"><td>Failure_Namespace_Invalid_Name</td>
+<td>ネームスペース名が妥当ではないため、バリデーションに失敗しました。ネームスペース名は最大 <code class="docutils literal"><span class="pre">64</span></code> 文字です。利用可能な文字は <cite>a-to-z</cite>; <cite>0-to-9</cite> 特別な文字として `_- です。</td>
 </tr>
-<tr class="row-odd"><td>Failure_Namespace_Name_Id_Mismatch</td>
+<tr class="row-even"><td>Failure_Namespace_Name_Id_Mismatch</td>
 <td>名前とIDがマッチしないため、バリデーションに失敗しました。</td>
 </tr>
-<tr class="row-even"><td>Failure_Namespace_Expired</td>
+<tr class="row-odd"><td>Failure_Namespace_Expired</td>
 <td>ネームスペースが期限切れのため、バリデーションに失敗しました。</td>
 </tr>
-<tr class="row-odd"><td>Failure_Namespace_Owner_Conflict</td>
+<tr class="row-even"><td>Failure_Namespace_Owner_Conflict</td>
 <td>Validation failed because the parent owner conflicts with the child owner.</td>
 </tr>
+<tr class="row-odd"><td>Failure_Namespace_Id_Mismatch</td>
+<td>Validation failed because the id is not the expected id generated from signer and nonce.</td>
+</tr>
 <tr class="row-even"><td>Failure_Namespace_Invalid_Namespace_Type</td>
-<td>Validation failed because the namespace type is invalid: rootnamespace (0) and subnamesapce (1).</td>
+<td>ネームスペースタイプが妥当ではないため、バリデーションに失敗しました。ルート (0) または サブ (1)</td>
 </tr>
 <tr class="row-odd"><td>Failure_Namespace_Root_Name_Reserved</td>
 <td>Validation failed because the root namespace has a <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties#L60">reserved name</a>.</td>
@@ -793,6 +850,30 @@
 <tr class="row-odd"><td>Failure_Namespace_Max_Children_Exceeded</td>
 <td>Validation failed because the maximum number of children for a root namespace was exceeded.</td>
 </tr>
+<tr class="row-even"><td>Failure_Namespace_Alias_Invalid_Action</td>
+<td>Validation failed because alias action is invalid: link (0) and unlink (1).</td>
+</tr>
+<tr class="row-odd"><td>Failure_Namespace_Alias_Namespace_Unknown</td>
+<td>Validation failed because the namespace does not exist.</td>
+</tr>
+<tr class="row-even"><td>Failure_Namespace_Alias_Already_Exists</td>
+<td>Validation failed because the namespace is already linked to an alias.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Namespace_Alias_Does_Not_Exist</td>
+<td>Validation failed because the namespace is not linked to an alias.</td>
+</tr>
+<tr class="row-even"><td>Failure_Namespace_Alias_Owner_Conflict</td>
+<td>Validation failed because the namespace has different owner.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Namespace_Alias_Unlink_Type_Inconsistency</td>
+<td>Validation failed because unlink type is not consistent with the existing alias.</td>
+</tr>
+<tr class="row-even"><td>Failure_Namespace_Alias_Unlink_Data_Inconsistency</td>
+<td>Validation failed because unlink data is not consistent with the existing alias.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Namespace_Alias_Invalid_Address</td>
+<td>エイリアスアドレスが妥当ではないため、バリデーションに失敗しました。</td>
+</tr>
 <tr class="row-even"><td>Failure_Property_Invalid_Property_Type</td>
 <td>プロパティタイプが妥当ではないため、バリデーションに失敗しました。</td>
 </tr>
@@ -803,10 +884,10 @@
 <td>変更アドレが妥当ではないため、バリデーションに失敗しました。</td>
 </tr>
 <tr class="row-odd"><td>Failure_Property_Modification_Operation_Type_Incompatible</td>
-<td>Validation failed because the operation type is incompatible.</td>
+<td>オペレーションタイプが妥当ではないため、バリデーションに失敗しました。</td>
 </tr>
 <tr class="row-even"><td>Failure_Property_Modify_Unsupported_Modification_Type</td>
-<td>Validation failed because the modification type is unsupported: (0) add and (1) delete.</td>
+<td>Validation failed because the modification type is unsupported: add (0) and  delete (1).</td>
 </tr>
 <tr class="row-odd"><td>Failure_Property_Modification_Redundant</td>
 <td>Validation failed because a modification is redundant.</td>
@@ -836,13 +917,19 @@
 <td>メッセージが長すぎるため、バリデーションに失敗しました。上限の <code class="docutils literal"><span class="pre">1024</span></code> バイトに達しています。</td>
 </tr>
 <tr class="row-even"><td>Failure_Transfer_Out_Of_Order_Mosaics</td>
-<td>Validation failed because mosaics are out of order. Mosaics on a transfer transaction should be ordered by id value.</td>
+<td>Validation failed because the mosaics are out of order. Mosaics on a transfer transaction should be ordered by id value.</td>
 </tr>
 <tr class="row-odd"><td>Failure_Chain_Unlinked</td>
 <td>Validation failed because a block was received that did not link with the existing chain.</td>
 </tr>
 <tr class="row-even"><td>Failure_Chain_Block_Not_Hit</td>
 <td>Validation failed because a block was received that is not a hit.</td>
+</tr>
+<tr class="row-odd"><td>Failure_Chain_Block_Inconsistent_State_Hash</td>
+<td>Validation failed because a block was received that has an inconsistent state hash.</td>
+</tr>
+<tr class="row-even"><td>Failure_Chain_Block_Inconsistent_Receipts_Hash</td>
+<td>Validation failed because a block was received that has an inconsistent receipts hash.</td>
 </tr>
 <tr class="row-odd"><td>Failure_Chain_Unconfirmed_Cache_Too_Full</td>
 <td>Validation failed because the unconfirmed cache is too full.</td>
@@ -854,7 +941,7 @@
 <td>Validation failed because the block transactions hash does not match the calculated value.</td>
 </tr>
 <tr class="row-even"><td>Failure_Consumer_Hash_In_Recency_Cache</td>
-<td>Validation failed because an entity hash is present in the recency cache.</td>
+<td>Validation failed because the entity hash is present in the recency cache.</td>
 </tr>
 <tr class="row-odd"><td>Failure_Consumer_Remote_Chain_Too_Many_Blocks</td>
 <td>Validation failed because the chain part has too many blocks.</td>
@@ -940,8 +1027,10 @@
 
                 <ul>
                     <li><a href="../concepts/cryptography.html">暗号理論</a></li>
-                    <li><a href="../concepts/block.html">ブロック</a></li>
                     <li><a href="../concepts/transaction.html">トランザクション</a></li>
+                    <li><a href="../concepts/block.html">ブロック</a></li>
+                    <li><a href="../concepts/harvesting.html">ハーベスティング</a></li>
+                    <li><a href="../concepts/receipt.html">レシート</a></li>
                     <li><a href="../concepts/node.html">ノード</a></li>
                 </ul>
 
@@ -952,8 +1041,8 @@
 
                 <ul>
                     <li><a href="../concepts/account.html">アカウント</a></li>
+                    <li><a href="../concepts/account-filter.html">アカウントフィルタ</a></li>
                     <li><a href="../concepts/multisig-account.html">マルチシグアカウント</a></li>
-                    <li><a href="../concepts/multi-level-multisig-account.html">マルチレベルマルチシグアカウント</a></li>
                     <li><a href="../concepts/namespace.html">ネームスペース</a></li>
                     <li><a href="../concepts/mosaic.html">モザイク</a></li>
                     <li><a href="../concepts/transfer-transaction.html">転送トランザクション</a></li>

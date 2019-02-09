@@ -58,34 +58,35 @@
   </head>
   <body>
 
-  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-      <div class="navbar-header">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
-          developer center</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.15</b></span>
-      </div>
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
+                developer center</a>
+            <span class="navbar-text navbar-version pull-left"><b>0.16</b></span>
+        </div>
 
         <div class="collapse navbar-collapse nav-collapse">
-          <ul class="nav navbar-nav">
-            
-                <li><a href="../getting-started/what-is-nem.html">Getting started</a></li>
+            <ul class="nav navbar-nav">
+                
+                <li><a href="../getting-started/setup-workstation.html">Getting started</a></li>
                 <li><a href="account.html">Built-in features</a></li>
+                <li><a href="../guides/category/account.html">Guides</a></li>
                 <li><a href="../references.html">References</a></li>
-            
-            
-              <li class="dropdown globaltoc-container">
+                
+                
+                <li class="dropdown globaltoc-container">
   <a role="button"
      id="dLabelGlobalToc"
      data-toggle="dropdown"
      data-target="#"
-     href="../index.html">Site <b class="caret"></b></a>
+     href="../contents.html">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Getting Started</span></p>
@@ -100,12 +101,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#running-catapult-service-bootstrap">Catapult サービスのブートストラップの実行</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#creating-a-test-account">テストアカウントの作成</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#what-is-xem-and-how-to-get-it">XEM とは何ですか？どうやって入手できますか？</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#setting-up-the-development-environment">開発環境のセットアップ</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#typescript-and-javascript">TypeScript と JavaScript</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#java">Java</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../getting-started/setup-workstation.html#c">C#</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/setup-workstation.html#setting-up-the-development-environment">開発環境のセットアップ</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">はじめてのアプリケーションを作成</a><ul>
@@ -139,30 +135,62 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">トランザクション</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="transaction.html#defining-a-transaction">トランザクションの定義</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#transaction-types">トランザクションタイプ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#defining-a-transaction">トランザクションの定義</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transaction.html#fees">手数料</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#signing-a-transaction">トランザクションへの署名</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#announcing-a-transaction">トランザクションのアナウンス</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#rollbacks">ロールバック</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#guides">ガイド</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transaction.html#schemas">スキーマ</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="transaction.html#id3">トランザクション</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transaction.html#id5">トランザクション</a></li>
 <li class="toctree-l3"><a class="reference internal" href="transaction.html#embeddedtransaction">EmbeddedTransaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="transaction.html#sizeprefixedentity">SizePrefixedEntity</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="harvesting.html">ハーベスティング</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="harvesting.html#local-harvesting">ローカルハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="harvesting.html#delegated-harvesting">委任ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="harvesting.html#schemas">スキーマ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="harvesting.html#accountlinktransaction">AccountLinkTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="harvesting.html#linkaction">リンクアクション</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="receipt.html">レシート</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="receipt.html#transaction-statement">トランザクションステートメント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="receipt.html#alias-resolution">エイリアス解決</a></li>
+<li class="toctree-l2"><a class="reference internal" href="receipt.html#recorded-receipts">記録済みレシート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="receipt.html#schemas">スキーマ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="receipt.html#id1">レシート</a></li>
+<li class="toctree-l3"><a class="reference internal" href="receipt.html#transactionstatement">TransactionStatement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="receipt.html#resolutionstatement">ResolutionStatement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="receipt.html#resolutionentry">ResolutionEntry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="receipt.html#receiptsource">ReceiptSource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="receipt.html#balancetransferreceipt">BalanceTransferReceipt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="receipt.html#balancechangereceipt">BalanceChangeReceipt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="receipt.html#artifactexpiryreceipt">ArtifactExpiryReceipt</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="node.html">ノード</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="node.html#catapult-p2p-component">Catapult P2P コンポーネント</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="node.html#p2p-component">P2P コンポーネント</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="node.html#node-reputation">ノードレピュテーション</a></li>
 <li class="toctree-l3"><a class="reference internal" href="node.html#rocksdb">RocksDB</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="node.html#catapult-api-component">Catapult API コンポーネント</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="node.html#api-component">API コンポーネント</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="node.html#mongodb">MongoDB</a></li>
 <li class="toctree-l3"><a class="reference internal" href="node.html#zmq">ZMQ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="node.html#catapult-rest-component">Catapult REST コンポーネント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html#rest-component">REST コンポーネント</a></li>
 <li class="toctree-l2"><a class="reference internal" href="node.html#guides">ガイド</a></li>
 </ul>
 </li>
@@ -171,6 +199,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="account.html">アカウント</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="account.html#multisig-account">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account.html#filters">フィルタ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="account.html#guides">ガイド</a></li>
 </ul>
 </li>
@@ -202,6 +231,8 @@
 <li class="toctree-l3"><a class="reference internal" href="multisig-account.html#shared-accounts">共有アカウント</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multisig-account.html#multi-factor-authorization">複数要素認証</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multisig-account.html#assets-ownership">アセットの所有権</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multisig-account.html#manufacturing-and-supply-chains">製造業とサプライチェーン</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multisig-account.html#fraud-detection">不正検知</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="multisig-account.html#guides">ガイド</a></li>
@@ -213,22 +244,20 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="multi-level-multisig-account.html">マルチレベルマルチシグアカウント</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="multi-level-multisig-account.html#examples">例</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="multi-level-multisig-account.html#manufacturing-and-supply-chains">製造とサプライチェーン</a></li>
-<li class="toctree-l3"><a class="reference internal" href="multi-level-multisig-account.html#fraud-detection">不正検知</a></li>
-<li class="toctree-l3"><a class="reference internal" href="multi-level-multisig-account.html#account-recovery">アカウントの復旧</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="multi-level-multisig-account.html#guides">ガイド</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="namespace.html#subnamespaces">サブネームスペース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html#examples">例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="namespace.html#identifying-an-account">アカウントの識別</a></li>
+<li class="toctree-l3"><a class="reference internal" href="namespace.html#organizing-mosaics">モザイクの整理</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="namespace.html#guides">ガイド</a></li>
 <li class="toctree-l2"><a class="reference internal" href="namespace.html#schemas">スキーマ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="namespace.html#registernamespacetransaction">RegisterNamespaceTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="namespace.html#addressaliastransaction">AddressAliasTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="namespace.html#mosaicaliastransaction">MosaicAliasTransaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="namespace.html#namespacetype">NamespaceType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="namespace.html#alias-action">エイリアスアクション</a></li>
 </ul>
 </li>
 </ul>
@@ -267,7 +296,8 @@
 <li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#guides">ガイド</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#schemas">スキーマ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#aggregatetransaction">AggregateTransaction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#cosignaturetransaction">CosignatureTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#detachedcosignature">DetachedCosignature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#cosignature">Cosignature</a></li>
 <li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#hashlocktransaction">HashLockTransaction</a></li>
 </ul>
 </li>
@@ -442,25 +472,27 @@
 </ul>
 </ul>
 </li>
-              
-            
-            
-            
-            
-            
-          </ul>
+                
+                
+                
+                
+                
+                
+            </ul>
 
-          
             
+            
+
 <div class="navbar-right hidden-sm hidden-xs">
     <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
     <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\cross-chain-swaps.rst"
        rel="nofollow"> <i class="fab fa-github"></i> GitHubで編集</a>
+
 </div>
-          
+            
         </div>
     </div>
-  </div>
+</div>
 
 <div class="container">
   <div class="row">
@@ -477,6 +509,8 @@
 <li class="toctree-l1"><a class="reference internal" href="cryptography.html">暗号理論</a></li>
 <li class="toctree-l1"><a class="reference internal" href="block.html">ブロック</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receipt.html">レシート</a></li>
 <li class="toctree-l1"><a class="reference internal" href="node.html">ノード</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
@@ -484,7 +518,6 @@
 <li class="toctree-l1"><a class="reference internal" href="account.html">アカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="account-filter.html">アカウントフィルタ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multi-level-multisig-account.html">マルチレベルマルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">モザイク</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
@@ -554,6 +587,10 @@
 <p>NEM トークンについて話すときには、本当によく <a class="reference internal" href="mosaic.html"><span class="doc">モザイク</span></a> を参照します。Catapult は <a class="reference internal" href="#secret-lock-transaction"><span class="std std-ref">シークレットロック</span></a> / <a class="reference internal" href="#secret-proof-transaction"><span class="std std-ref">シークレット証明トランザクション</span></a> を通じてアトミックスワップを可能にします。</p>
 <div class="section" id="guides">
 <h2>ガイド<a class="headerlink" href="#guides" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">⚠ 最新リリースでは重大な変更が加えられています。まだSDKは整備されていないので、ガイドを進める場合は <a class="reference internal" href="../getting-started/setup-workstation.html"><span class="doc">catapult-service-bootstrap 0.1.0</span></a> を使用することを推奨します。</p>
+</div>
 <ul class="postlist-style-circle postlist">
 <li><p class="first"><a class="reference internal" href="../guides/transaction/atomic-cross-chain-swap-between-NEM-public-and-private-chain.html">NEM パブリックとプライベート間のアトミッククロスチェイン交換</a></p>
 <p><a class="reference internal" href="#"><span class="doc">クロスチェーンスワップ</span></a> は、間に第三者の処理が入ることなく、異なるブロックチェーン間でのトークン交換を可能にします。</p>
@@ -581,7 +618,7 @@
 <p><strong>エンティティタイプ</strong>: 0x4152</p>
 <p><strong>インライン</strong></p>
 <ul class="simple">
-<li><a class="reference internal" href="transaction.html#id3"><span class="std std-ref">Transaction</span></a> または <a class="reference internal" href="transaction.html#embedded-transaction"><span class="std std-ref">EmbeddedTransaction</span></a></li>
+<li><a class="reference internal" href="transaction.html#id5"><span class="std std-ref">Transaction</span></a> または <a class="reference internal" href="transaction.html#embedded-transaction"><span class="std std-ref">EmbeddedTransaction</span></a></li>
 </ul>
 <table border="1" class="docutils">
 <colgroup>
@@ -627,7 +664,7 @@
 <p><strong>エンティティタイプ</strong>: 0x4252</p>
 <p><strong>インライン</strong></p>
 <ul class="simple">
-<li><a class="reference internal" href="transaction.html#id3"><span class="std std-ref">Transaction</span></a> または <a class="reference internal" href="transaction.html#embedded-transaction"><span class="std std-ref">EmbeddedTransaction</span></a></li>
+<li><a class="reference internal" href="transaction.html#id5"><span class="std std-ref">Transaction</span></a> または <a class="reference internal" href="transaction.html#embedded-transaction"><span class="std std-ref">EmbeddedTransaction</span></a></li>
 </ul>
 <table border="1" class="docutils">
 <colgroup>
@@ -676,16 +713,16 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>0 (SHA_3)</td>
-<td>SHA3 によってハッシュ化された入力</td>
+<td>sha3 256 によってハッシュ化された入力</td>
 </tr>
 <tr class="row-odd"><td>1 (Keccak)</td>
 <td>Keccak によってハッシュ化された入力</td>
 </tr>
 <tr class="row-even"><td>2 (Hash_160)</td>
-<td>最初に SHA-256 を、その後 RIPEMD-160 によって2回のハッシュ化された入力</td>
+<td>最初に Sha-256 を、その後 RIPEMD-160 によって2回のハッシュ化された入力 (bitcoin’s OP_HASH160)</td>
 </tr>
 <tr class="row-odd"><td>3 (Hash_256)</td>
-<td>SHA-256 によって2回のハッシュ化された入力</td>
+<td>Sha-256 によって2回のハッシュ化された入力 (bitcoin’s OP_HASH256)</td>
 </tr>
 </tbody>
 </table>
@@ -743,8 +780,10 @@
 
                 <ul>
                     <li><a href="cryptography.html">暗号理論</a></li>
-                    <li><a href="block.html">ブロック</a></li>
                     <li><a href="transaction.html">トランザクション</a></li>
+                    <li><a href="block.html">ブロック</a></li>
+                    <li><a href="harvesting.html">ハーベスティング</a></li>
+                    <li><a href="receipt.html">レシート</a></li>
                     <li><a href="node.html">ノード</a></li>
                 </ul>
 
@@ -755,8 +794,8 @@
 
                 <ul>
                     <li><a href="account.html">アカウント</a></li>
+                    <li><a href="account-filter.html">アカウントフィルタ</a></li>
                     <li><a href="multisig-account.html">マルチシグアカウント</a></li>
-                    <li><a href="multi-level-multisig-account.html">マルチレベルマルチシグアカウント</a></li>
                     <li><a href="namespace.html">ネームスペース</a></li>
                     <li><a href="mosaic.html">モザイク</a></li>
                     <li><a href="transfer-transaction.html">転送トランザクション</a></li>
