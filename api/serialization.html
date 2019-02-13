@@ -68,7 +68,7 @@
             </button>
             <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
                 developer center</a>
-            <span class="navbar-text navbar-version pull-left"><b>0.16</b></span>
+            <span class="navbar-text navbar-version pull-left"><b>0.16.1</b></span>
         </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -330,7 +330,7 @@
 <li class="toctree-l1"><a class="reference internal" href="endpoints.html">Endpoints</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Serialization</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#schema">Schema</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#parsing-a-schema-and-generating-code">Parsing a schema and generating code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generating-transactions-builders">Generating transactions builders</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#writing-a-schema">Writing a schema</a></li>
 </ul>
 </li>
@@ -348,10 +348,7 @@
 </ul>
 <p class="caption"><span class="caption-text">SDKs</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../sdk/overview.html">Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../sdk/overview.html#backward-compatibility-with-nis1-sdks">Backward compatibility with NIS1 SDKs</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk/architecture.html">Architecture</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../sdk/architecture.html#characteristics">Characteristics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../sdk/architecture.html#reactive">Reactive</a><ul>
@@ -369,7 +366,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../sdk/languages.html">Languages</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../sdk/languages.html#official-sdks">Official SDKs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../sdk/languages.html#community-sdks">Community SDKs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sdk/languages.html#ongoing-work">Ongoing work</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk/libraries.html">Extending NEM capabilities</a><ul>
@@ -530,7 +526,7 @@
 <li class="toctree-l1"><a class="reference internal" href="endpoints.html">Endpoints</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Serialization</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#schema">Schema</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#parsing-a-schema-and-generating-code">Parsing a schema and generating code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generating-transactions-builders">Generating transactions builders</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#writing-a-schema">Writing a schema</a></li>
 </ul>
 </li>
@@ -575,7 +571,7 @@
   <div class="section" id="serialization">
 <h1>Serialization<a class="headerlink" href="#serialization" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="https://github.com/nemtech/catbuffer">Catbuffer library</a> defines the protocol to serialize and deserialize Catapult entities. The library comes with code generators for different languages. SDKs and applications use the generated code to interact with REST transaction endpoint.</p>
-<div class="figure align-center" id="id3">
+<div class="figure align-center" id="id1">
 <img alt="../_images/catbuffer.png" src="../_images/catbuffer.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">NEM2-SDK serialization module</span></p>
 </div>
@@ -589,60 +585,19 @@
 <p>At the current moment, you can generate buffers for <strong>C++</strong>. Javascript and Python are under development. If you are developing an SDK in another language, please consider coding a new generator.</p>
 <div class="section" id="schema">
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
-<p>A schema file defines the entity data structure. The library generates the leanest code necessary to serialize and deserialize defined entities.</p>
-<p>The following entities are currently supported:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Schema file</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><a class="reference external" href="https://github.com/nemtech/catbuffer/blob/master/schemas/entity.cats">entity.cats</a></td>
-<td>Describes an <a class="reference internal" href="../concepts/transaction.html#id1"><span class="std std-ref">entity</span></a>.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference external" href="https://github.com/nemtech/catbuffer/blob/master/schemas/accountlink.cats">accountlink.cats</a></td>
-<td>Describes account link transaction.</td>
-</tr>
-<tr class="row-even"><td><a class="reference external" href="https://github.com/nemtech/catbuffer/blob/master/schemas/hashlock.cats">hashlock.cats</a></td>
-<td>Describes a <a class="reference internal" href="../concepts/aggregate-transaction.html#hash-lock-transaction"><span class="std std-ref">hash lock transaction</span></a>.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference external" href="https://github.com/nemtech/catbuffer/blob/master/schemas/secretlock.cats">secretlock.cats</a></td>
-<td>Describes a <a class="reference internal" href="../concepts/cross-chain-swaps.html#secret-lock-transaction"><span class="std std-ref">secret lock transaction</span></a>.</td>
-</tr>
-<tr class="row-even"><td><a class="reference external" href="https://github.com/nemtech/catbuffer/blob/master/schemas/lockhashtypes.cats">lockhashtypes.cats</a></td>
-<td>Describes the available <a class="reference internal" href="../concepts/cross-chain-swaps.html#secret-lock-transaction"><span class="std std-ref">hash algorithms</span></a>.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference external" href="https://github.com/nemtech/catbuffer/blob/master/schemas/secretproof.cats">secretproof.cats</a></td>
-<td>Describes a <a class="reference internal" href="../concepts/cross-chain-swaps.html#secret-proof-transaction"><span class="std std-ref">secret proof transaction</span></a>.</td>
-</tr>
-<tr class="row-even"><td><a class="reference external" href="https://github.com/nemtech/catbuffer/blob/master/schemas/transfer.cats">transfer.cats</a></td>
-<td>Describes a <a class="reference internal" href="../concepts/transfer-transaction.html#id1"><span class="std std-ref">transfer</span></a> transaction.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference external" href="https://github.com/nemtech/catbuffer/blob/master/schemas/transaction.cats">transaction.cats</a></td>
-<td>Describes a <a class="reference internal" href="../concepts/transaction.html"><span class="doc">transaction</span></a>.</td>
-</tr>
-<tr class="row-even"><td><a class="reference external" href="https://github.com/nemtech/catbuffer/blob/master/schemas/types.cats">types.cats</a></td>
-<td>Describe field types used by other schemas.</td>
-</tr>
-</tbody>
-</table>
-<div class="section" id="parsing-a-schema-and-generating-code">
-<h3>Parsing a schema and generating code<a class="headerlink" href="#parsing-a-schema-and-generating-code" title="Permalink to this headline">¶</a></h3>
-<p>Generate the code for a determined schema in one of the available languages. For example, run the following command to generate C++ code to serialize and deserialize a transfer transaction:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; python main.py -i schemas/transfer.cats -g cpp-builder
+<p>The <a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas">schemas define</a> the entities data structure. The library generates the leanest code necessary to serialize and deserialize defined entities.</p>
+<div class="section" id="generating-transactions-builders">
+<h3>Generating transactions builders<a class="headerlink" href="#generating-transactions-builders" title="Permalink to this headline">¶</a></h3>
+<p>Generate the code for a determined schema in one of the available languages. For example, run the following command to generate C++ transaction builders for a transfer transaction:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; python main.py --schema schemas/transfer/transfer.cats --generator cpp_builder
 </pre></div>
 </div>
-<p>The generator creates a new file under <code class="docutils literal"><span class="pre">_generated/cpp</span></code> folder. Repeat the process using a different input schema <code class="docutils literal"><span class="pre">(-i)</span></code> or generator <code class="docutils literal"><span class="pre">(-g)</span></code> as needed.</p>
+<p>The generator creates a new file under <code class="docutils literal"><span class="pre">_generated/cpp_builder</span></code> folder. Repeat the process using a different input schema <code class="docutils literal"><span class="pre">(-s)</span></code> or generator <code class="docutils literal"><span class="pre">(-g)</span></code> as needed.</p>
 </div>
 <div class="section" id="writing-a-schema">
 <h3>Writing a schema<a class="headerlink" href="#writing-a-schema" title="Permalink to this headline">¶</a></h3>
 <p>Are you writing a new catapult plugin that includes a new transaction type?</p>
-<p>In this example, we are examining how the <a class="reference external" href="https://github.com/nemtech/catbuffer/blob/master/schemas/transfer.cats">transfer.cats</a> schema works. Follow the same steps to define a new schema.</p>
+<p>In this example, we are examining how the <a class="reference external" href="https://github.com/nemtech/catbuffer/blob/master/schemas/transfer.cats">transfer.cats</a> schema works. You can adapt the same steps to define a new schema.</p>
 <p>First off, create a new file under <code class="docutils literal"><span class="pre">schemas</span></code> folder and define a struct for the transaction body. Think of a struct as a set of properties that we want to store in the same block of memory.</p>
 <p>The transaction body contains the extra properties which differ from a basic transaction. Each attribute can have one of the types defined in <a class="reference external" href="https://github.com/nemtech/catbuffer/blob/master/schemas/types.cats">types.cats</a>.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># binary layout for a transfer transaction</span>
@@ -669,7 +624,7 @@
     <span class="n">inline</span> <span class="n">TransferTransactionBody</span>
 </pre></div>
 </div>
-<p>Finally, define an EmbeddedTransaction struct.  This struct is used to serialize inner transactions.  The embedded transaction and the body transaction are added as inlines.</p>
+<p>Finally, define an EmbeddedTransaction struct. This struct is used to serialize inner transactions. The embedded transaction and the body transaction are added as inlines.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># binary layout for an embedded transaction</span>
 <span class="n">struct</span> <span class="n">EmbeddedTransaction</span>
     <span class="n">inline</span> <span class="n">SizePrefixedEntity</span>
