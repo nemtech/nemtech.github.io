@@ -68,7 +68,7 @@
             </button>
             <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
                 developer center</a>
-            <span class="navbar-text navbar-version pull-left"><b>0.16.1</b></span>
+            <span class="navbar-text navbar-version pull-left"><b>0.16.2</b></span>
         </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -245,9 +245,11 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Namespace</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#subnamespaces">Subnamespaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#identifying-an-account">Identifying an account</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#organizing-mosaics">Organizing mosaics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#alias">Alias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example">Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#identifying-the-sender">Identifying the sender</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#identifying-the-ticket">Identifying the ticket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#identifying-the-buyer">Identifying the buyer</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
@@ -284,14 +286,15 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#examples">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#aggregate-complete">Aggregate complete</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#sending-payouts">Sending payouts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#aggregate-bonded">Aggregate bonded</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#multi-asset-escrowed-transactions">Multi-Asset Escrowed Transactions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#paying-for-others-fees">Paying for others fees</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#aggregate-complete">Aggregate complete</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#aggregate-bonded">Aggregate bonded</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html#schemas">Schemas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="aggregate-transaction.html#aggregatetransaction">AggregateTransaction</a></li>
@@ -515,9 +518,11 @@
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Namespace</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#subnamespaces">Subnamespaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#identifying-an-account">Identifying an account</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#organizing-mosaics">Organizing mosaics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#alias">Alias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example">Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#identifying-the-sender">Identifying the sender</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#identifying-the-ticket">Identifying the ticket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#identifying-the-buyer">Identifying the buyer</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
@@ -578,24 +583,44 @@
 <h1>Namespace<a class="headerlink" href="#namespace" title="Permalink to this headline">¶</a></h1>
 <p>Namespaces allow you to create an on-chain <strong>unique place</strong> for your business and your assets on the NEM blockchain.</p>
 <p>A namespace starts with a name that you choose, similar to an internet domain name. If one <a class="reference internal" href="account.html"><span class="doc">account</span></a> creates a namespace, that will appear as unique in the NEM ecosystem.</p>
-<p>You can associate a name with an account address or a <a class="reference internal" href="mosaic.html"><span class="doc">mosaic</span></a> identifier by announcing an <a class="reference internal" href="#address-alias-transaction"><span class="std std-ref">alias transaction</span></a>. The binding between namespaces and assets makes long account addresses rememberable and mosaics identifiers recognizable.</p>
+<p>An account can link a registered name (namespace or subnamespace) with an <a class="reference internal" href="account.html"><span class="doc">account</span></a> or a <a class="reference internal" href="mosaic.html"><span class="doc">mosaic</span></a> identifier.</p>
 <div class="section" id="subnamespaces">
 <h2>Subnamespaces<a class="headerlink" href="#subnamespaces" title="Permalink to this headline">¶</a></h2>
 <p>On the internet, a domain can have a sub-domain. In NEM, namespaces can have subnamespaces.</p>
-<p>It is possible to create multiple subnamespaces with the same name (example: <code class="docutils literal"><span class="pre">foo.bar</span></code> and <code class="docutils literal"><span class="pre">foo2.bar</span></code>, <code class="docutils literal"><span class="pre">bar</span></code> is the subnamespace/sub-domain).</p>
+<p>You can create multiple subnamespaces with the same name. For example, you can create the subnamespaces <code class="docutils literal"><span class="pre">foo.bar</span></code> and <code class="docutils literal"><span class="pre">foo2.bar</span></code>.</p>
 <p>Namespaces can have up to <code class="docutils literal"><span class="pre">3</span></code> levels, a namespace and its two levels of subnamespace domains.</p>
 </div>
-<div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="identifying-an-account">
-<h3>Identifying an account<a class="headerlink" href="#identifying-an-account" title="Permalink to this headline">¶</a></h3>
-<p>Every time a customer buys a ticket for an event, a ticket sales company sends a ticket to the customer account.</p>
-<p>The seller company has assigned the namespace “ticketsales” to its main account. Customers can quickly recognize incoming transactions from the vendor account.</p>
+<div class="section" id="alias">
+<h2>Alias<a class="headerlink" href="#alias" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="#address-alias-transaction"><span class="std std-ref">Alias transactions</span></a> make long addresses rememberable and mosaics recognizable.</p>
+<p>The creator of the namespace can edit the link between a namespace and an asset. The alias relation for a given transaction can be retrieved later from the block’s <a class="reference internal" href="receipt.html"><span class="doc">receipts</span></a>.</p>
+<p>Restrictions:</p>
+<ul class="simple">
+<li>An account can only associate a name with one account or mosaic, but those can have many aliases linked.</li>
+<li>An account can assign a name to any account that permits receiving <a class="reference internal" href="account-filter.html"><span class="doc">AddressNamespaceTransactions</span></a>. In contrast, if the account wants to assign the alias to a mosaicId, it should be the creator of the mosaic.</li>
+</ul>
 </div>
-<div class="section" id="organizing-mosaics">
-<h3>Organizing mosaics<a class="headerlink" href="#organizing-mosaics" title="Permalink to this headline">¶</a></h3>
-<p>The same distributor sells tickets for an event organized in different venues. The company registers a non-transferable mosaic for each function.</p>
-<p>Namespaces and subnamespaces are used to organize the different mosaics. Customers can send 1 <code class="docutils literal"><span class="pre">ticketsales.eventname.ticket</span></code> to <code class="docutils literal"><span class="pre">alice</span></code> instead of 1 <code class="docutils literal"><span class="pre">0xE4EEB491</span></code> to <code class="docutils literal"><span class="pre">SCVG35-ZSPMYP-L2POZQ-JGSVEG-RYOJ3V-BNIU3U-N2E6</span></code>.</p>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>A customer buys a ticket for an event. The ticket sales company sends a ticket to the customer account.</p>
+<div class="figure align-center" id="id2">
+<img alt="../_images/namespace-tickets.png" src="../_images/namespace-tickets.png" style="width: 500px;" />
+<p class="caption"><span class="caption-text">Recognizable mosaics and addresses</span></p>
+</div>
+<div class="section" id="identifying-the-sender">
+<h3>Identifying the sender<a class="headerlink" href="#identifying-the-sender" title="Permalink to this headline">¶</a></h3>
+<p>The ticket seller has registered the namespace <code class="docutils literal"><span class="pre">ticketsales</span></code> to link it to its account as an alias. Customers can quickly recognize incoming transactions from the vendor account.</p>
+</div>
+<div class="section" id="identifying-the-ticket">
+<h3>Identifying the ticket<a class="headerlink" href="#identifying-the-ticket" title="Permalink to this headline">¶</a></h3>
+<p>The same company sells tickets for events organized in different venues. The company registers a non-transferable <a class="reference internal" href="mosaic.html"><span class="doc">mosaic</span></a> for each actuation.</p>
+<p>The ticket seller adds a series of subdomains on top of the root domain of <code class="docutils literal"><span class="pre">ticketsales</span></code>. The root plus subdomains are <code class="docutils literal"><span class="pre">ticketsales.event&lt;ID&gt;.ticket</span></code>.</p>
+<p>The company links one registered mosaic with <code class="docutils literal"><span class="pre">ticketsales.event1.ticket</span></code> namespace name.</p>
+</div>
+<div class="section" id="identifying-the-buyer">
+<h3>Identifying the buyer<a class="headerlink" href="#identifying-the-buyer" title="Permalink to this headline">¶</a></h3>
+<p>Alice, who wants to buy the ticket, has registered the namespace <code class="docutils literal"><span class="pre">alice</span></code> and assigned it to her account as an alias.</p>
+<p>The ticket vendor can send 1 <code class="docutils literal"><span class="pre">ticketsales.event1.ticket</span></code> to <code class="docutils literal"><span class="pre">alice</span></code> instead of 1  <code class="docutils literal"><span class="pre">0dc67fbe1cad29e3</span></code> to <code class="docutils literal"><span class="pre">SCVG35-ZSPMYP-L2POZQ-JGSVEG-RYOJ3V-BNIU3U-N2E6</span></code>.</p>
 </div>
 </div>
 <div class="section" id="guides">

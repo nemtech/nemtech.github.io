@@ -68,7 +68,7 @@
             </button>
             <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
                 developer center</a>
-            <span class="navbar-text navbar-version pull-left"><b>0.16.1</b></span>
+            <span class="navbar-text navbar-version pull-left"><b>0.16.2</b></span>
         </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -245,9 +245,11 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">Namespace</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/namespace.html#subnamespaces">Subnamespaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/namespace.html#examples">Examples</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../concepts/namespace.html#identifying-an-account">Identifying an account</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../concepts/namespace.html#organizing-mosaics">Organizing mosaics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/namespace.html#alias">Alias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/namespace.html#example">Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/namespace.html#identifying-the-sender">Identifying the sender</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/namespace.html#identifying-the-ticket">Identifying the ticket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/namespace.html#identifying-the-buyer">Identifying the buyer</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/namespace.html#guides">Guides</a></li>
@@ -284,14 +286,15 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/aggregate-transaction.html">Aggregate Transaction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#examples">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#aggregate-complete">Aggregate complete</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../concepts/aggregate-transaction.html#sending-payouts">Sending payouts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#aggregate-bonded">Aggregate bonded</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../concepts/aggregate-transaction.html#multi-asset-escrowed-transactions">Multi-Asset Escrowed Transactions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../concepts/aggregate-transaction.html#paying-for-others-fees">Paying for others fees</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#aggregate-complete">Aggregate complete</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#aggregate-bonded">Aggregate bonded</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/aggregate-transaction.html#schemas">Schemas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../concepts/aggregate-transaction.html#aggregatetransaction">AggregateTransaction</a></li>
@@ -768,7 +771,7 @@
 <td>Validation failed because there are multiple removals.</td>
 </tr>
 <tr class="row-even"><td>Failure_Multisig_Modify_Redundant_Modifications</td>
-<td>Validation failed because tehre are redundant modifications.</td>
+<td>Validation failed because there are redundant modifications.</td>
 </tr>
 <tr class="row-odd"><td>Failure_Multisig_Modify_Unknown_Multisig_Account</td>
 <td>Validation failed because account is not in multisig cache.</td>
@@ -780,7 +783,7 @@
 <td>Validation failed because the account to be added is already a cosignatory.</td>
 </tr>
 <tr class="row-even"><td>Failure_Multisig_Modify_Min_Setting_Out_Of_Range</td>
-<td>Validation failed because thenew minimum settings are out of range.</td>
+<td>Validation failed because the new minimum settings are out of range.</td>
 </tr>
 <tr class="row-odd"><td>Failure_Multisig_Modify_Min_Setting_Larger_Than_Num_Cosignatories</td>
 <td>Validation failed because min settings are larger than number of cosignatories.</td>
