@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>SDK &#8212; NEM Developer Center</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'Master',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/custom.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="_static/examplecode.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="_static/favicon-32x32.png"/>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="Client" href="cli.html" />
+    <link rel="prev" title="REST API" href="api.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div id="navbar"
+     class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><span><img src="_static/logo-nem.svg"></span>
+                developer center</a>
+            <span class="navbar-text navbar-version pull-left"><b><a
+                    href="https://github.com/nemtech/nem2-docs/releases">0.17.0</a></b></span>
+        </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                <li><a href="getting-started/what-is-nem.html">Getting started</a></li>
+                <li><a href="concepts/account.html">Built-in features</a></li>
+                <li><a href="guides/category/account.html">Guides</a></li>
+                <li><a href="references.html">References</a></li>
+                
+                
+                
+                
+                
+            </ul>
+
+            
+            
+
+<div class="navbar-right hidden-sm hidden-xs">
+    <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
+    <span id="language">
+        <i class="fas fa-globe"></i>
+        <select>
+            <option id="english" value="en">英語</option>
+            <option id="japanese" value="ja">日本語</option>
+            <option id="translate" value="translate">Translate</option>
+        </select>
+    </span>
+</div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary"><div class="sidebar-md hidden-xs hidden-sm">
+    <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/what-is-nem.html">NEM とは？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/setup-workstation.html">ワークステーションのセットアップ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/first-application.html">はじめてのアプリケーションを作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/training.html">自己ペーストレーニング</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="concepts/cryptography.html">暗号理論</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/block.html">ブロック</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/transaction.html">トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/receipt.html">レシート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/node.html">ノード</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="concepts/account.html">アカウント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/account-filter.html">アカウントフィルタ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/multisig-account.html">マルチシグアカウント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/namespace.html">ネームスペース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/mosaic.html">モザイク</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/transfer-transaction.html">転送トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/cross-chain-swaps.html">クロスチェーンスワップ</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="api.html">REST API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">SDK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#official-sdks">公式SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#community-sdks">コミュニティのSDK</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wallet.html">ウォレット</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prototyping-tool.html">Prototyping Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contribute/contributing.html">ガイドライン</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute/community.html">コミュニティ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute/contributors.html">貢献者</a></li>
+</ul>
+
+</div>
+
+<div class="sidebar-xs visible-xs visible-sm">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigation <b class="caret"></b></a>
+        <ul class="dropdown-menu globaltoc"><p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/what-is-nem.html">NEM とは？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/setup-workstation.html">ワークステーションのセットアップ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/first-application.html">はじめてのアプリケーションを作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/training.html">自己ペーストレーニング</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="concepts/cryptography.html">暗号理論</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/block.html">ブロック</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/transaction.html">トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/receipt.html">レシート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/node.html">ノード</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="concepts/account.html">アカウント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/account-filter.html">アカウントフィルタ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/multisig-account.html">マルチシグアカウント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/namespace.html">ネームスペース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/mosaic.html">モザイク</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/transfer-transaction.html">転送トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/cross-chain-swaps.html">クロスチェーンスワップ</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="api.html">REST API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">SDK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#official-sdks">公式SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#community-sdks">コミュニティのSDK</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wallet.html">ウォレット</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prototyping-tool.html">Prototyping Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contribute/contributing.html">ガイドライン</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute/community.html">コミュニティ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute/contributors.html">貢献者</a></li>
+</ul>
+</ul>
+    </li>
+</div>
+    </div>
+</div>
+        <div class="col-md-7 content">
+            <div id="edit-on-github" class="text-right">
+                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/sdk.rst"
+                   rel="nofollow"> <i class="fab fa-github"></i> GitHubで編集</a>
+            </div>
+
+            
+  <div class="section" id="sdk">
+<h1>SDK<a class="headerlink" href="#sdk" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>NEM2 ソフトウェア開発キットは、NEM2 コンポーネント、このような追加ツール、ライブラリ、アプリケーションなどを作成するための主要なソフトウェア開発ツールです。すべての、またはほぼすべてのコンポーネントは、API を直接使うのではなく <strong>NEM2-SDK</strong> を使用する必要があります。</p>
+<p>新しい SDK を使用することで開発者は、NEM2 ブロックチェーン特有の API の抽象化ではなく、彼らの製品に焦点を当てることができます。</p>
+<p>SDK について学習するのに、私達が推奨する一番良い方法は <a class="reference internal" href="concepts/account.html"><span class="doc">ガイド</span></a> を通読することです。</p>
+<div class="section" id="official-sdks">
+<h2>公式SDK<a class="headerlink" href="#official-sdks" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">⚠ The latest release introduces breaking changes. Until the SDKs are not aligned, we recommend using <a class="reference internal" href="getting-started/setup-workstation.html"><span class="doc">catapult-service-bootstrap 0.1.0</span></a>.</p>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">言語</th>
+<th class="head">リポジトリ</th>
+<th class="head">リファレンス</th>
+<th class="head">活動中の開発者</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>TypeScript &amp; JS SDK</td>
+<td>TypeScript と JavaScript</td>
+<td><a href="https://nemtech.github.io/nem2-sdk-typescript-javascript/" target="_blank">Documentation</a></td>
+<td>NEM財団</td>
+</tr>
+<tr class="row-odd"><td>Java SDK</td>
+<td><a href="https://github.com/nemtech/nem2-sdk-java" target="_blank">Repository</a></td>
+<td><a href="https://nemtech.github.io/nem2-sdk-java/" target="_blank">Documentation</a></td>
+<td>NEM財団</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="community-sdks">
+<h2>コミュニティのSDK<a class="headerlink" href="#community-sdks" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">言語</th>
+<th class="head">リポジトリ</th>
+<th class="head">リファレンス</th>
+<th class="head">活動中の開発者</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>C# SDK</td>
+<td><a href="https://github.com/nemtech/nem2-sdk-csharp/" target="_blank">Repository</a></td>
+<td>&#160;</td>
+<td><a class="reference external" href="https://github.com/kodty">&#64;kodty</a></td>
+</tr>
+<tr class="row-odd"><td>Go SDK</td>
+<td><a href="https://github.com/proximax-storage/nem2-sdk-go/" target="_blank">Repository</a></td>
+<td>&#160;</td>
+<td><a class="reference external" href="https://github.com/proximax-storage">&#64;proximax-storage</a></td>
+</tr>
+<tr class="row-even"><td>Swift SDK</td>
+<td><a href="https://github.com/proximax-storage/nem2-sdk-swift/" target="_blank">Repository</a></td>
+<td>&#160;</td>
+<td><a class="reference external" href="https://github.com/proximax-storage">&#64;proximax-storage</a></td>
+</tr>
+<tr class="row-odd"><td>C++</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PHP SDK</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Ruby SDK</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>Python SDK</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<p>If you want to collaborate in the SDK creation, check the <a class="reference internal" href="guidelines/sdk-development.html"><span class="doc">SDK Development guidelines</span></a>. Then, add the repository under “Community SDKs”. You can click  the “Edit on Github” button at the top-right part of the screen.</p>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+        </div>
+         
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+        <ul>
+<li><a class="reference internal" href="#">SDK</a><ul>
+<li><a class="reference internal" href="#official-sdks">公式SDK</a></li>
+<li><a class="reference internal" href="#community-sdks">コミュニティのSDK</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+ 
+    </div>
+</div>
+<footer class="footer">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-4">
+                <h4>Learn</h4>
+
+                <ul>
+                    <li><a href="getting-started/what-is-nem.html">Getting Started</a></li>
+                    <li><a href="concepts/cryptography.html">Protocol</a></li>
+                    <li><a href="concepts/account.html">Built-in Features</a></li>
+                    <li><a href="guides/category/account.html">Guides</a></li>
+                    <li><a href="references.html">References</a></li>
+                    <li><a href="contribute/contributing.html">Contribute</a></li>
+                </ul>
+            </div>
+
+            <div class="col-sm-4">
+                <h4>リファレンス</h4>
+
+                <ul>
+                    <li><a href="api.html">REST API</a></li>
+                    <li><a href="#">SDKs</a></li>
+                    <li><a href="extensions.html">Extensions</a></li>
+                    <li><a href="cli.html">Client</a></li>
+                    <li><a href="prototyping-tool.html">Prototyping Tool</a></li>
+                </ul>
+            </div>
+
+
+            <div class="col-sm-4">
+                <h4>Community</h4>
+
+                <ul>
+                    <li>
+                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
+                    </li>
+                    <li>
+                        <a href="https://stackoverflow.com/tags/nem/">
+                            <i class="fab fa-stack-overflow"></i>
+                            <span> Ask development questions</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/nemtechdev">
+                            <i class="fab fa-twitter"></i>
+                            <span> Follow the dev updates</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/nemtech">
+                            <i class="fab fa-github"></i>
+                            <span> Explore our Github</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <p class="text-center top-gap">
+            &copy; Copyright 2018, NEM.
+        </p>
+    </div>
+</footer>
+  </body>
+</html>

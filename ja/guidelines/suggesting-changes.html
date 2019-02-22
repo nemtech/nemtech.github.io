@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ドキュメント変更の提案 &#8212; NEM Developer Center</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'Master',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="../_static/examplecode.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div id="navbar"
+     class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
+                developer center</a>
+            <span class="navbar-text navbar-version pull-left"><b><a
+                    href="https://github.com/nemtech/nem2-docs/releases">0.17.0</a></b></span>
+        </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                <li><a href="../getting-started/what-is-nem.html">Getting started</a></li>
+                <li><a href="../concepts/account.html">Built-in features</a></li>
+                <li><a href="../guides/category/account.html">Guides</a></li>
+                <li><a href="../references.html">References</a></li>
+                
+                
+                
+                
+                
+            </ul>
+
+            
+            
+
+<div class="navbar-right hidden-sm hidden-xs">
+    <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
+    <span id="language">
+        <i class="fas fa-globe"></i>
+        <select>
+            <option id="english" value="en">英語</option>
+            <option id="japanese" value="ja">日本語</option>
+            <option id="translate" value="translate">Translate</option>
+        </select>
+    </span>
+</div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary"><div class="sidebar-md hidden-xs hidden-sm">
+    <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/what-is-nem.html">NEM とは？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">ワークステーションのセットアップ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">はじめてのアプリケーションを作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/training.html">自己ペーストレーニング</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/cryptography.html">暗号理論</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/block.html">ブロック</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/transaction.html">トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/receipt.html">レシート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/node.html">ノード</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">アカウント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/account-filter.html">アカウントフィルタ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">マルチシグアカウント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">ネームスペース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/mosaic.html">モザイク</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/transfer-transaction.html">転送トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/cross-chain-swaps.html">クロスチェーンスワップ</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wallet.html">ウォレット</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">ガイドライン</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">コミュニティ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">貢献者</a></li>
+</ul>
+
+</div>
+
+<div class="sidebar-xs visible-xs visible-sm">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigation <b class="caret"></b></a>
+        <ul class="dropdown-menu globaltoc"><p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/what-is-nem.html">NEM とは？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">ワークステーションのセットアップ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">はじめてのアプリケーションを作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/training.html">自己ペーストレーニング</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/cryptography.html">暗号理論</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/block.html">ブロック</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/transaction.html">トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/receipt.html">レシート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/node.html">ノード</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">アカウント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/account-filter.html">アカウントフィルタ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">マルチシグアカウント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">ネームスペース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/mosaic.html">モザイク</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/transfer-transaction.html">転送トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/cross-chain-swaps.html">クロスチェーンスワップ</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wallet.html">ウォレット</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">ガイドライン</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">コミュニティ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">貢献者</a></li>
+</ul>
+</ul>
+    </li>
+</div>
+    </div>
+</div>
+        <div class="col-md-7 content">
+            <div id="edit-on-github" class="text-right">
+                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guidelines\suggesting-changes.rst"
+                   rel="nofollow"> <i class="fab fa-github"></i> GitHubで編集</a>
+            </div>
+
+            
+  <div class="section" id="suggesting-documentation-changes">
+<h1>ドキュメント変更の提案<a class="headerlink" href="#suggesting-documentation-changes" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>The NEM Developer Center is an open source project and we love to receive contributions from our community — you!
+There are many ways to contribute, from writing guides, improving the documentation, submitting errors and requests or
+writing new pieces of documentation which can be incorporated into the docs itself.</p>
+<div class="section" id="error-reports">
+<h2>エラーの報告<a class="headerlink" href="#error-reports" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>NEM開発センターでエラーを発見したと思われる場合は、まずNEM開発センターの最新バージョンに対してテストしていることを確認してください - あなたの問題は既に修正されている可能性があります。そうでない場合、同様の問題が既に開かれていないか、GitHub の <a href="https://github.com/nemtech/nem2-docs/issues" target="_blank">issue</a> リストを検索してください。</p>
+<p>エラーの再現の準備をしていただけるととても助かります。問題を発見して修正するための手助けとなります。</p>
+<p>問題の報告には次のテンプレートを使うことを考慮してください:</p>
+<blockquote>
+<div><p><strong>エラーの説明</strong></p>
+<p>何が問題であるかを説明する端的で表現力のある文章。</p>
+<p><strong>URLまたはスクリーンショット</strong></p>
+<p>どこで問題が発生するのかを素早く発見するために必要とします。</p>
+</div></blockquote>
+<p>可能な限り多くの情報提供</p>
+<p>新しい <a href="https://github.com/nemtech/nem2-docs/issues" target="_blank">issue</a> をここから開いてください。</p>
+</div>
+<div class="section" id="requests">
+<h2>要望<a class="headerlink" href="#requests" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>あなたが望んでいるコンテンツがNEM開発センターに存在しないと思っているなら、それはあなただけではないのかもしれません。現在NEM開発センターが提供しているドキュメントやガイドの多くは、ユーザーが必要と感じたため追加されました。不足しているドキュメントや必要だと思う改善は GitHub のissueリストに <a href="https://github.com/nemtech/nem2-docs/issues" target="_blank">issue</a> を開いてください。</p>
+<p>改善がドキュメントに関連するものではなく、特定のプロジェクトである場合は、プロジェクトリポジトリの CONTRIBUTING.md を確認してください。</p>
+</div>
+<div class="section" id="contributing-code-and-documentation-changes">
+<h2>コードやドキュメントへの貢献による変更<a class="headerlink" href="#contributing-code-and-documentation-changes" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>NEM開発センターを拡張し改善するには、先にそれに関する <a href="https://github.com/nemtech/nem2-docs/issues" target="_blank">issue</a> を見つけてください。そして、あなたが何をしたいかを話してください。誰かが既にそれに取り組んでいるか、変更を実装する前に知っておくべき特定の問題があるかもしれません。</p>
+<p>私たちは貢献者と協力してプルリクエストを受け入れています。</p>
+<div class="section" id="contributing-license-notice">
+<h3>貢献ライセンスの通知<a class="headerlink" href="#contributing-license-notice" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>コードを投稿すると、その投稿はオリジナルの作品であり、プロジェクトのオープンソースライセンスの下でプロジェクトにライセンス供与されているとみなします。</p>
+<p>これを明示的に述べているかどうかにかかわらず、著作権で保護された素材をプルリクエスト、電子メール、またはその他の方法で提出することは、プロジェクトのオープンソースライセンスの下での素材のライセンスを取得することに同意し、法的権限を有することを保証します。</p>
+</div>
+<div class="section" id="fork-and-clone-the-repository">
+<h3>リポジトリのフォークとクローン<a class="headerlink" href="#fork-and-clone-the-repository" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ドキュメントの変更が小さい場合は、画面の右上にある <em>「Edit on Github」</em> ボタンを使用してください。</p>
+<p>かなりの変更もしくは貢献をする場合、 <a href="https://github.com/nemtech/nem2-docs/" target="_blank">nem2-docs repository</a> リポジトリをフォークして、あなたのマシンへクローンする必要があるかもしれません。 <a href="https://help.github.com/articles/fork-a-repo/" target="_blank">github help</a> を参照してください。</p>
+<p>特定のプロジェクトへの詳細な説明は以下の通りです。</p>
+</div>
+<div class="section" id="submitting-your-changes">
+<h3>変更の提出<a class="headerlink" href="#submitting-your-changes" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>あなたの変更とテストがレビューに提出する準備ができたら:</p>
+<ol class="arabic">
+<li><p class="first">変更のテスト</p>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">make</span> <span class="pre">livehtml</span></code> を実行し、変更した部分をプレビューしてください。</p>
+</div></blockquote>
+</li>
+<li><p class="first">プルリクエストの提出</p>
+<blockquote>
+<div><p>ローカルでの変更をフォークしたリポジトリのコピーにプッシュし <a href="https://help.github.com/articles/about-pull-requests/" target="_blank">submit a pull request</a> を送信します。プルリクエストであなたの変更を要約するタイトルを記入し、変更が何をしているかの詳細を本文に記入します。また、議論が行われた場合の issue 番号、例えば 「Closes＃123」 も記入します。</p>
+</div></blockquote>
+</li>
+</ol>
+<p>それが済んだら休憩して待ちましょう。プルリクエストについての議論をして、その変更が必要な場合はプルリクエストを nem2-docs にマージするための協力をしたいと思います。</p>
+<p><em>CONTRIBUTING.md</em> is based on <a class="reference external" href="https://github.com/nayafia/contributing-template/blob/master/CONTRIBUTING-template.md">CONTRIBUTING-template.md</a> , <a class="reference external" href="https://github.com/elastic/elasticsearch/blob/master/CONTRIBUTING.md">elasticsearch/CONTRIBUTING</a> and <a class="reference external" href="https://github.com/apache/spark/blob/master/CONTRIBUTING.md">spark/CONTRIBUTING</a>.</p>
+</div>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+        </div>
+         
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+        <ul>
+<li><a class="reference internal" href="#">ドキュメント変更の提案</a><ul>
+<li><a class="reference internal" href="#error-reports">エラーの報告</a></li>
+<li><a class="reference internal" href="#requests">要望</a></li>
+<li><a class="reference internal" href="#contributing-code-and-documentation-changes">コードやドキュメントへの貢献による変更</a><ul>
+<li><a class="reference internal" href="#contributing-license-notice">貢献ライセンスの通知</a></li>
+<li><a class="reference internal" href="#fork-and-clone-the-repository">リポジトリのフォークとクローン</a></li>
+<li><a class="reference internal" href="#submitting-your-changes">変更の提出</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+ 
+    </div>
+</div>
+<footer class="footer">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-4">
+                <h4>Learn</h4>
+
+                <ul>
+                    <li><a href="../getting-started/what-is-nem.html">Getting Started</a></li>
+                    <li><a href="../concepts/cryptography.html">Protocol</a></li>
+                    <li><a href="../concepts/account.html">Built-in Features</a></li>
+                    <li><a href="../guides/category/account.html">Guides</a></li>
+                    <li><a href="../references.html">References</a></li>
+                    <li><a href="../contribute/contributing.html">Contribute</a></li>
+                </ul>
+            </div>
+
+            <div class="col-sm-4">
+                <h4>リファレンス</h4>
+
+                <ul>
+                    <li><a href="../api.html">REST API</a></li>
+                    <li><a href="../sdk.html">SDKs</a></li>
+                    <li><a href="../extensions.html">Extensions</a></li>
+                    <li><a href="../cli.html">Client</a></li>
+                    <li><a href="../prototyping-tool.html">Prototyping Tool</a></li>
+                </ul>
+            </div>
+
+
+            <div class="col-sm-4">
+                <h4>Community</h4>
+
+                <ul>
+                    <li>
+                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
+                    </li>
+                    <li>
+                        <a href="https://stackoverflow.com/tags/nem/">
+                            <i class="fab fa-stack-overflow"></i>
+                            <span> Ask development questions</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/nemtechdev">
+                            <i class="fab fa-twitter"></i>
+                            <span> Follow the dev updates</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/nemtech">
+                            <i class="fab fa-github"></i>
+                            <span> Explore our Github</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <p class="text-center top-gap">
+            &copy; Copyright 2018, NEM.
+        </p>
+    </div>
+</footer>
+  </body>
+</html>

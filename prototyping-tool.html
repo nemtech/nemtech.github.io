@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Prototyping Tool &#8212; NEM Developer Center</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'Master',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/custom.js"></script>
+    <script type="text/javascript" src="_static/examplecode.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="_static/favicon-32x32.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Extensions" href="extensions.html" />
+    <link rel="prev" title="Wallet" href="wallet.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div id="navbar"
+     class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><span><img src="_static/logo-nem.svg"></span>
+                developer center</a>
+            <span class="navbar-text navbar-version pull-left"><b><a
+                    href="https://github.com/nemtech/nem2-docs/releases">0.17.0</a></b></span>
+        </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                <li><a href="getting-started/what-is-nem.html">Getting started</a></li>
+                <li><a href="concepts/account.html">Built-in features</a></li>
+                <li><a href="guides/category/account.html">Guides</a></li>
+                <li><a href="references.html">References</a></li>
+                
+                
+                
+                
+                
+            </ul>
+
+            
+            
+
+<div class="navbar-right hidden-sm hidden-xs">
+    <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
+    <span id="language">
+        <i class="fas fa-globe"></i>
+        <select>
+            <option id="english" value="en">English</option>
+            <option id="japanese" value="ja">Japanese</option>
+            <option id="translate" value="translate">Translate</option>
+        </select>
+    </span>
+</div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary"><div class="sidebar-md hidden-xs hidden-sm">
+    <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/what-is-nem.html">What is NEM?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/setup-workstation.html">Setting up your workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/first-application.html">Writing your first application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/training.html">Self-paced training</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="concepts/cryptography.html">Cryptography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/block.html">Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/transaction.html">Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/harvesting.html">Harvesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/receipt.html">Receipt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/node.html">Node</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="concepts/account.html">Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/account-filter.html">Account Filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/multisig-account.html">Multisig Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/mosaic.html">Mosaic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/transfer-transaction.html">Transfer Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sdk.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wallet.html">Wallet</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Prototyping Tool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-nodes">Configuring nodes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-an-api-gateway">Configuring an API gateway</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-a-flow">Running a flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#importing-a-flow">Importing a flow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basics">Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#applications">Applications</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contribute/contributing.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute/community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute/contributors.html">Contributors</a></li>
+</ul>
+
+</div>
+
+<div class="sidebar-xs visible-xs visible-sm">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigation <b class="caret"></b></a>
+        <ul class="dropdown-menu globaltoc"><p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/what-is-nem.html">What is NEM?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/setup-workstation.html">Setting up your workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/first-application.html">Writing your first application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/training.html">Self-paced training</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="concepts/cryptography.html">Cryptography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/block.html">Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/transaction.html">Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/harvesting.html">Harvesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/receipt.html">Receipt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/node.html">Node</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="concepts/account.html">Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/account-filter.html">Account Filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/multisig-account.html">Multisig Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/mosaic.html">Mosaic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/transfer-transaction.html">Transfer Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sdk.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wallet.html">Wallet</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Prototyping Tool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-nodes">Configuring nodes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-an-api-gateway">Configuring an API gateway</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-a-flow">Running a flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#importing-a-flow">Importing a flow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basics">Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#applications">Applications</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contribute/contributing.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute/community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute/contributors.html">Contributors</a></li>
+</ul>
+</ul>
+    </li>
+</div>
+    </div>
+</div>
+        <div class="col-md-7 content">
+            <div id="edit-on-github" class="text-right">
+                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/prototyping-tool.rst"
+                   rel="nofollow"> <i class="fab fa-github"></i> Edit on GitHub</a>
+            </div>
+
+            
+  <div class="section" id="prototyping-tool">
+<h1>Prototyping Tool<a class="headerlink" href="#prototyping-tool" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-center">
+<img alt="https://gist.githubusercontent.com/jorisadri/7061090eb3cbf724c80e4f49e03e1b94/raw/69b1b9f80594feb9a415aac8de62c769295c397b/transferTransaction.png" src="https://gist.githubusercontent.com/jorisadri/7061090eb3cbf724c80e4f49e03e1b94/raw/69b1b9f80594feb9a415aac8de62c769295c397b/transferTransaction.png" />
+</div>
+<p>Create blockchain applications without coding using <strong>NEM2 Prototyping Tool</strong>.</p>
+<p>Drag &amp; drop NEM nodes and link them with other services in new and interesting ways for prototyping or learning purposes.</p>
+<p><a href="https://github.com/nemtech/nem2-prototyping-tool" target="_blank">NEM2 Prototyping Tool</a> is a collection of <strong>Node-RED</strong> nodes.</p>
+<p><a href="https://nodered.org/" target="_blank">Node-RED</a> is a visual programming tool to wire together hardware devices, APIs and online services.</p>
+<p>It provides a browser-based editor to wire nodes. The combination of nodes is named flows, which you can execute in a single click.</p>
+<p>The flows created in Node-RED are stored using JSON, being exportable to share with others.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Download and run the <a href="https://github.com/nemtech/nem2-prototyping-tool/releases/tag/v0.10.0" target="_blank">executable package</a> for <strong>Windows</strong>, <strong>Linux</strong> or <strong>Mac</strong>.</p>
+<p>Do you already have Node-RED app? Open <code class="docutils literal"><span class="pre">Manage</span> <span class="pre">palette</span></code> and install <a href="https://flows.nodered.org/node/node-red-contrib-nem2" target="_blank">node-red-contrib-nem2</a> package.</p>
+<div class="figure align-center" id="id6">
+<img alt="_images/nem2-prototyping-tool-install.png" src="_images/nem2-prototyping-tool-install.png" style="width: 500px;" />
+<p class="caption"><span class="caption-text"><em>Manage palette -&gt; Install -&gt; node-red-contrib-nem2</em></span></p>
+</div>
+</div>
+<div class="section" id="configuring-nodes">
+<h2>Configuring nodes<a class="headerlink" href="#configuring-nodes" title="Permalink to this headline">¶</a></h2>
+<p>The left sidebar is the <strong>node palette</strong>. You can find NEM related nodes under:</p>
+<ul class="simple">
+<li>NEM2 Account</li>
+<li>NEM2 Transactions</li>
+<li>NEM2 Listeners</li>
+<li>NEM2 Utility</li>
+</ul>
+<ol class="arabic simple">
+<li>Open the <em>NEM account</em> tab and click once on the <strong>account</strong> node.</li>
+</ol>
+<p>The right sidebar shows you the node description, properties, input fields and returned outputs.</p>
+<p>You have to link nodes together, connecting the previous node outputs with the following node inputs.</p>
+<p>In some cases, you could configure inputs and properties directly by double-clicking a node.</p>
+<div class="figure align-center" id="id7">
+<img alt="_images/nem2-prototyping-tool-node-palette.png" src="_images/nem2-prototyping-tool-node-palette.png" />
+<p class="caption"><span class="caption-text">The node palette and node help sidebars.</span></p>
+</div>
+<ol class="arabic simple" start="2">
+<li>Let’s link account with other nodes. As we need a <code class="docutils literal"><span class="pre">privateKey</span></code> as an input, we could opt to drag and drop and link <strong>generateAccount</strong> with <strong>account</strong> node, under <em>NEM Account</em>.</li>
+</ol>
+<div class="figure align-center" id="id8">
+<img alt="_images/nem2-prototyping-tool-link-nodes.png" src="_images/nem2-prototyping-tool-link-nodes.png" style="width: 500px;" />
+<p class="caption"><span class="caption-text">Drag and drop and link nodes together.</span></p>
+</div>
+<ol class="arabic simple" start="3">
+<li>Double-click on account node. Choose the <code class="docutils literal"><span class="pre">network</span></code> you want to use. Do the same for generateAccount node.</li>
+</ol>
+<div class="figure align-center" id="id9">
+<img alt="_images/nem2-prototyping-tool-edit-account-node.png" src="_images/nem2-prototyping-tool-edit-account-node.png" style="width: 500px;" />
+<p class="caption"><span class="caption-text">Complete node properties.</span></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Have you seen  <code class="docutils literal"><span class="pre">private</span> <span class="pre">key</span></code> under account node properties?  Setting a property hardcoded overwrites the input. In other words, when not empty, this property will be used instead of <code class="docutils literal"><span class="pre">privateKey</span></code> output provided by generateAccount node.</p>
+</div>
+<ol class="arabic simple" start="4">
+<li>Finally, find <strong>debug</strong> node in the node palette, under <em>output</em> tab. Link it with the account, and inside its properties change  <code class="docutils literal"><span class="pre">output</span></code>  to <code class="docutils literal"><span class="pre">complete</span> <span class="pre">msg</span> <span class="pre">object</span></code>.</li>
+</ol>
+<div class="section" id="configuring-an-api-gateway">
+<h3>Configuring an API gateway<a class="headerlink" href="#configuring-an-api-gateway" title="Permalink to this headline">¶</a></h3>
+<p>Some nodes require to configure an API gateway (e.g. <strong>announce transaction</strong> and <strong>listener</strong> nodes).</p>
+<ol class="arabic simple">
+<li>Double-click on a node which needs this configuration.</li>
+<li>Click on the pencil icon next to the <code class="docutils literal"><span class="pre">Server</span></code> input field.</li>
+<li>Enter your <code class="docutils literal"><span class="pre">custom</span> <span class="pre">url</span></code> using http or https schema (e.g. <a class="reference external" href="http://localhost">http://localhost</a>). Choose the <code class="docutils literal"><span class="pre">network</span></code> and <code class="docutils literal"><span class="pre">port</span></code> you want to use and then press <code class="docutils literal"><span class="pre">Update</span></code>.</li>
+</ol>
+<div class="figure align-center">
+<img alt="_images/nem2-prototyping-tool-edit-server-config-node.png" src="_images/nem2-prototyping-tool-edit-server-config-node.png" style="width: 500px;" />
+</div>
+</div>
+<div class="section" id="running-a-flow">
+<h3>Running a flow<a class="headerlink" href="#running-a-flow" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Click on the <code class="docutils literal"><span class="pre">deploy</span></code> button, at the top-right corner of your screen. Select the square attached to the first node to run the flow.</li>
+<li>Check the output returned at the right sidebar, under the debug tab. NEM2 nodes return outputs following the structure <code class="docutils literal"><span class="pre">msg.nem.&lt;name_of_the_output&gt;</span></code>.</li>
+</ol>
+<div class="figure align-center" id="id10">
+<img alt="_images/nem2-prototyping-tool-debug.png" src="_images/nem2-prototyping-tool-debug.png" style="width: 500px;" />
+<p class="caption"><span class="caption-text">See outputs under debug tab.</span></p>
+</div>
+</div>
+<div class="section" id="importing-a-flow">
+<h3>Importing a flow<a class="headerlink" href="#importing-a-flow" title="Permalink to this headline">¶</a></h3>
+<p>After opening an example, copy the JSON you will find at the bottom of the site.</p>
+<p>In Node-RED, select <code class="docutils literal"><span class="pre">Import</span> <span class="pre">&gt;</span> <span class="pre">Clipboard</span> <span class="pre">from</span> <span class="pre">the</span> <span class="pre">menu</span></code> (Ctrl-E). Paste the JSON flow and click Import button.</p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="basics">
+<h3>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Contributor</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference external" href="https://flows.nodered.org/flow/7061090eb3cbf724c80e4f49e03e1b94">Create transfer transaction</a></td>
+<td><a class="reference external" href="https://github.com/jorisadri">&#64;jorisadri</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://flows.nodered.org/flow/3d87669bfc71e99f29f5ad82ba2a402e">Create namespace</a></td>
+<td><a class="reference external" href="https://github.com/jorisadri">&#64;jorisadri</a></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://flows.nodered.org/flow/04a643b66a8e0daa1e12fa61e3b36b7c">Create mosaic</a></td>
+<td><a class="reference external" href="https://github.com/jorisadri">&#64;jorisadri</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://flows.nodered.org/flow/ba75b67684b2a1bc2af849cc70a7c4b5">Create multisig account</a></td>
+<td><a class="reference external" href="https://github.com/jorisadri">&#64;jorisadri</a></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://flows.nodered.org/flow/50aa98fd20e62ee1af8507df8634f840">Create aggregate transaction</a></td>
+<td><a class="reference external" href="https://github.com/jorisadri">&#64;jorisadri</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://flows.nodered.org/flow/522d512fb0b5e0ad16a65a8c909fd95a">Cosign aggregate transaction</a></td>
+<td><a class="reference external" href="https://github.com/jorisadri">&#64;jorisadri</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="applications">
+<h3>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Contributor</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference external" href="https://flows.nodered.org/flow/e8bfbab9d73e0f35ed6b4c9a9f7e4958">Simple chat</a></td>
+<td><a class="reference external" href="https://github.com/planethouki">&#64;planethouki</a></td>
+</tr>
+</tbody>
+</table>
+<p>We love to receiving contributions from our community — you! Follow these guidelines to get your flow included in this documentation.</p>
+<p>The first step is to export the flow you have created. In Node-RED, select the flow you want to export. Open <code class="docutils literal"><span class="pre">Export</span> <span class="pre">&gt;</span> <span class="pre">Clipboard</span></code> from the menu (Ctrl-E) and copy the JSON from the dialogue.</p>
+<p>We are using <a href="https://flows.nodered.org/?term=nem2&type=flow&num_pages=1" target="_blank">Node RED flows repository</a> to share our flows.</p>
+<ol class="arabic simple">
+<li>Click <code class="docutils literal"><span class="pre">Add</span> <span class="pre">flow</span></code>.</li>
+<li>Give your flow a short, descriptive title and describe what the flow does and how it is used.</li>
+<li>Paste the JSON flow you want to share.</li>
+<li>Add the tag <code class="docutils literal"><span class="pre">NEM2</span></code>.</li>
+</ol>
+<p>After a while, your flow and your GitHub username will be included in this page.</p>
+</div>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+        </div>
+         
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+        <ul>
+<li><a class="reference internal" href="#">Prototyping Tool</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#configuring-nodes">Configuring nodes</a><ul>
+<li><a class="reference internal" href="#configuring-an-api-gateway">Configuring an API gateway</a></li>
+<li><a class="reference internal" href="#running-a-flow">Running a flow</a></li>
+<li><a class="reference internal" href="#importing-a-flow">Importing a flow</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#basics">Basics</a></li>
+<li><a class="reference internal" href="#applications">Applications</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+ 
+    </div>
+</div>
+<footer class="footer">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-4">
+                <h4>Learn</h4>
+
+                <ul>
+                    <li><a href="getting-started/what-is-nem.html">Getting Started</a></li>
+                    <li><a href="concepts/cryptography.html">Protocol</a></li>
+                    <li><a href="concepts/account.html">Built-in Features</a></li>
+                    <li><a href="guides/category/account.html">Guides</a></li>
+                    <li><a href="references.html">References</a></li>
+                    <li><a href="contribute/contributing.html">Contribute</a></li>
+                </ul>
+            </div>
+
+            <div class="col-sm-4">
+                <h4>References</h4>
+
+                <ul>
+                    <li><a href="api.html">REST API</a></li>
+                    <li><a href="sdk.html">SDKs</a></li>
+                    <li><a href="extensions.html">Extensions</a></li>
+                    <li><a href="cli.html">Client</a></li>
+                    <li><a href="#">Prototyping Tool</a></li>
+                </ul>
+            </div>
+
+
+            <div class="col-sm-4">
+                <h4>Community</h4>
+
+                <ul>
+                    <li>
+                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
+                    </li>
+                    <li>
+                        <a href="https://stackoverflow.com/tags/nem/">
+                            <i class="fab fa-stack-overflow"></i>
+                            <span> Ask development questions</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/nemtechdev">
+                            <i class="fab fa-twitter"></i>
+                            <span> Follow the dev updates</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/nemtech">
+                            <i class="fab fa-github"></i>
+                            <span> Explore our Github</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <p class="text-center top-gap">
+            &copy; Copyright 2018, NEM.
+        </p>
+    </div>
+</footer>
+  </body>
+</html>

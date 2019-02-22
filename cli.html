@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Client &#8212; NEM Developer Center</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'Master',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/custom.js"></script>
+    <script type="text/javascript" src="_static/examplecode.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="_static/favicon-32x32.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Wallet" href="wallet.html" />
+    <link rel="prev" title="SDK" href="sdk.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div id="navbar"
+     class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><span><img src="_static/logo-nem.svg"></span>
+                developer center</a>
+            <span class="navbar-text navbar-version pull-left"><b><a
+                    href="https://github.com/nemtech/nem2-docs/releases">0.17.0</a></b></span>
+        </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                <li><a href="getting-started/what-is-nem.html">Getting started</a></li>
+                <li><a href="concepts/account.html">Built-in features</a></li>
+                <li><a href="guides/category/account.html">Guides</a></li>
+                <li><a href="references.html">References</a></li>
+                
+                
+                
+                
+                
+            </ul>
+
+            
+            
+
+<div class="navbar-right hidden-sm hidden-xs">
+    <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
+    <span id="language">
+        <i class="fas fa-globe"></i>
+        <select>
+            <option id="english" value="en">English</option>
+            <option id="japanese" value="ja">Japanese</option>
+            <option id="translate" value="translate">Translate</option>
+        </select>
+    </span>
+</div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary"><div class="sidebar-md hidden-xs hidden-sm">
+    <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/what-is-nem.html">What is NEM?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/setup-workstation.html">Setting up your workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/first-application.html">Writing your first application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/training.html">Self-paced training</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="concepts/cryptography.html">Cryptography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/block.html">Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/transaction.html">Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/harvesting.html">Harvesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/receipt.html">Receipt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/node.html">Node</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="concepts/account.html">Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/account-filter.html">Account Filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/multisig-account.html">Multisig Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/mosaic.html">Mosaic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/transfer-transaction.html">Transfer Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sdk.html">SDK</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Client</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#profile">Profile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#account">Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#blockchain">Blockchain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transaction">Transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#namespace">Namespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mosaic">Mosaic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#monitoring">Monitoring</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="wallet.html">Wallet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prototyping-tool.html">Prototyping Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contribute/contributing.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute/community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute/contributors.html">Contributors</a></li>
+</ul>
+
+</div>
+
+<div class="sidebar-xs visible-xs visible-sm">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigation <b class="caret"></b></a>
+        <ul class="dropdown-menu globaltoc"><p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/what-is-nem.html">What is NEM?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/setup-workstation.html">Setting up your workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/first-application.html">Writing your first application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/training.html">Self-paced training</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="concepts/cryptography.html">Cryptography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/block.html">Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/transaction.html">Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/harvesting.html">Harvesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/receipt.html">Receipt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/node.html">Node</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="concepts/account.html">Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/account-filter.html">Account Filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/multisig-account.html">Multisig Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/mosaic.html">Mosaic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/transfer-transaction.html">Transfer Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sdk.html">SDK</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Client</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#profile">Profile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#account">Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#blockchain">Blockchain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transaction">Transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#namespace">Namespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mosaic">Mosaic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#monitoring">Monitoring</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="wallet.html">Wallet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prototyping-tool.html">Prototyping Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contribute/contributing.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute/community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute/contributors.html">Contributors</a></li>
+</ul>
+</ul>
+    </li>
+</div>
+    </div>
+</div>
+        <div class="col-md-7 content">
+            <div id="edit-on-github" class="text-right">
+                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/cli.rst"
+                   rel="nofollow"> <i class="fab fa-github"></i> Edit on GitHub</a>
+            </div>
+
+            
+  <div class="section" id="client">
+<h1>Client<a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h1>
+<p>The NEM2 Command Line Interface is a unified tool to interact with the NEM blockchain.</p>
+<p>This tool will enable you to perform the most common used actions to interact with the blockchain.</p>
+<p><strong>NEM2-CLI</strong> is an open source tool built on top of the <a class="reference internal" href="sdk.html"><span class="doc">NEM2-SDK</span></a> Typescript. Use it in your favorite terminal program.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>NEM2-CLI is distributed using the node package manager <code class="docutils literal"><span class="pre">npm</span></code>.</p>
+<p>To install:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; sudo npm install --global nem2-cli
+</pre></div>
+</div>
+<p>To update:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; sudo npm update --global nem2-cli
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>To start using NEM2-CLI, configure a profile.</p>
+<p>A profile holds an account and a node url for a specific network. Profiles are used to set a base url and have an account to sign transactions.</p>
+<p>Configure default profile.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli profile create --privatekey your_private_key --network MIJIN_TEST --url http://localhost:3000
+</pre></div>
+</div>
+<p>NEM2-CLI supports named profiles. You can configure additional profiles by using the –profile option.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli profile create --privatekey your_private_key --network MIJIN_TEST --url http://localhost:3000 --profile mijin_test_net_profile
+</pre></div>
+</div>
+<p>By default, NEM2-CLI will always use the default profile. To use a named profile, add the –profile option to the command.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account info --profile mijin_test_net_profile
+</pre></div>
+</div>
+<p>If you are going to use named profile for multiple commands, you can use the NEM2_PROFILE environment variable at the command line.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; <span class="nb">export</span> <span class="nv">NEM2_PROFILE</span><span class="o">=</span>mijin_test_net_profile
+</pre></div>
+</div>
+<p>If you do not have a private key to create a profile you can generate a new account, add a node url and save it as default or named profile.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account generate --network MIJIN_TEST -s --url http://localhost:3000 --profile mijin_test_net_profile
+</pre></div>
+</div>
+</div>
+<div class="section" id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="profile">
+<h3>Profile<a class="headerlink" href="#profile" title="Permalink to this headline">¶</a></h3>
+<p><strong>Create</strong></p>
+<p>Creates a new profile.</p>
+<p>Options</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-p, --privatekey &lt;privatekey&gt; - Private key
+-n, --network &lt;network&gt;       - Network Type: MAIN_NET, TEST_NET, MIJIN, MIJIN_TEST
+-u, --url &lt;url&gt;               - NEM2 Node URL. Example: http://localhost:3000
+--profile &lt;profile&gt;           - <span class="o">(</span>Optional<span class="o">)</span> profile name, <span class="k">if</span> not private key will be stored as default
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli profile create -p 206CE7E4B16B48430FD2C216E4BB105564B21E21DEE196267B4B33C54F1023FC -n MIJIN_TEST -u http://localhost:3000
+</pre></div>
+</div>
+<p><strong>List</strong></p>
+<p>Gets the list of stored accounts.</p>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli profile list
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">By default, NEM2-CLI will always use the default profile to connect to a node and set default options such as: address, public key and sign transactions with private key. To use a named profile, add the –profile option to any command.</p>
+</div>
+</div>
+<div class="section" id="account">
+<h3>Account<a class="headerlink" href="#account" title="Permalink to this headline">¶</a></h3>
+<p><strong>Generate new account</strong></p>
+<p>Generates a new <a class="reference internal" href="concepts/account.html"><span class="doc">account</span></a>. This command generates a private key, public key and address.</p>
+<p>Generated accounts can be stored as named profiles by adding a node url.</p>
+<p>Options</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-s, --save              - <span class="o">(</span>Optional<span class="o">)</span> Save profile
+-u, --url &lt;url&gt;         - <span class="o">(</span>Optional<span class="o">)</span> When saving profile, provide a NEM2 Node URL
+--profile &lt;profile&gt;     - <span class="o">(</span>Optional<span class="o">)</span> When saving profile you can add profile name, <span class="k">if</span> not will be stored as default
+-n, --network &lt;network&gt; - Network Type: MAIN_NET, TEST_NET, MIJIN, MIJIN_TEST
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account generate --network MIJIN_TEST
+</pre></div>
+</div>
+<p><strong>Get account info</strong></p>
+<p>Returns the account information, such as the public key, importance and <a class="reference internal" href="concepts/mosaic.html"><span class="doc">mosaics</span></a> balance.</p>
+<p>Options</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-a, --address &lt;address&gt; - Address
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account info --address SDAUTVFWMVXVWWKTTEFTLGUO6HP6MR4GLEK6POJ4
+</pre></div>
+</div>
+<p><strong>Get confirmed transactions</strong></p>
+<p>Gets an array of transactions for which an account is the sender or receiver.</p>
+<p>Options</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-p, --publickey &lt;publickey&gt;             - Account public key
+-n, --numtransactions &lt;numtransactions&gt; - <span class="o">(</span>optional<span class="o">)</span> Number of transactions
+-i, --id &lt;id&gt;                           - <span class="o">(</span>optional<span class="o">)</span> Identifier of the transaction after which we want the transactions to be returned
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222AED49B08FF74445F3CD1FD27CD4FB75E3
+
+$&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222AED49B08FF74445F3CD1FD27CD4FB75E3 --numtransactions <span class="m">40</span> --id 5A69C893FD331300012A001C
+</pre></div>
+</div>
+<p><strong>Get incoming transactions</strong></p>
+<p>Gets an array of incoming transactions. A transaction is said to be incoming with respect to an account if the account is the recipient of the transaction.</p>
+<p>Options</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-p, --publickey &lt;publickey&gt;             - Account public key
+-n, --numtransactions &lt;numtransactions&gt; - <span class="o">(</span>optional<span class="o">)</span> Number of transactions
+-i, --id &lt;id&gt;                           - <span class="o">(</span>optional<span class="o">)</span> Identifier of the transaction after which we want the transactions to be returned
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account incoming --publickey C811AC654B77522D5283640CDA7A222AED49B08FF74445F3CD1FD27CD4FB75E3
+</pre></div>
+</div>
+<p><strong>Get outgoing transactions</strong></p>
+<p>Gets an array of outgoing transactions. A transaction is said to be outgoing with respect to an account if the account is the sender of the transaction.</p>
+<p>Options</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-p, --publickey &lt;publickey&gt;             - Account public key
+-n, --numtransactions &lt;numtransactions&gt; - <span class="o">(</span>optional<span class="o">)</span> Number of transactions
+-i, --id &lt;id&gt;                           - <span class="o">(</span>optional<span class="o">)</span> Identifier of the transaction after which we want the transactions to be returned
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account outgoing --publickey C811AC654B77522D5283640CDA7A222AED49B08FF74445F3CD1FD27CD4FB75E3
+</pre></div>
+</div>
+<p><strong>Get unconfirmed transactions</strong></p>
+<p>Gets the array of transactions for which an account is the sender or receiver and which have not yet been included in a block.</p>
+<p>Options</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-p, --publickey &lt;publickey&gt;             - Account public key
+-n, --numtransactions &lt;numtransactions&gt; - <span class="o">(</span>optional<span class="o">)</span> Number of transactions
+-i, --id &lt;id&gt;                           - <span class="o">(</span>optional<span class="o">)</span> Identifier of the transaction after which we want the transactions to be returned
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account unconfirmedtransactions --publickey C811AC654B77522D5283640CDA7A222AED49B08FF74445F3CD1FD27CD4FB75E3
+</pre></div>
+</div>
+<p><strong>Get Aggregate bonded transactions</strong></p>
+<p>Gets an array of aggregate bonded transactions where the account is the sender or requires to cosign the transaction.</p>
+<p>Options</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-p, --publickey &lt;publickey&gt;             - Account public key
+-n, --numtransactions &lt;numtransactions&gt; - <span class="o">(</span>optional<span class="o">)</span> Number of transactions
+-i, --id &lt;id&gt;                           - <span class="o">(</span>optional<span class="o">)</span> Identifier of the transaction after which we want the transactions to be returned
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account aggregatebonded --publickey C811AC654B77522D5283640CDA7A222AED49B08FF74445F3CD1FD27CD4FB75E3
+</pre></div>
+</div>
+</div>
+<div class="section" id="blockchain">
+<h3>Blockchain<a class="headerlink" href="#blockchain" title="Permalink to this headline">¶</a></h3>
+<p><strong>Blockchain height</strong></p>
+<p>Returns the current height of the block chain.</p>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli blockchain height
+</pre></div>
+</div>
+<p><strong>Blockchain score</strong></p>
+<p>Gets the current score of the block chain. The higher the score, the better the chain. During synchronization, nodes try to get the best block chain in the network.</p>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli blockchain score
+</pre></div>
+</div>
+</div>
+<div class="section" id="transaction">
+<h3>Transaction<a class="headerlink" href="#transaction" title="Permalink to this headline">¶</a></h3>
+<p>Transactions are signed with the profiles configured with <code class="docutils literal"><span class="pre">nem2-cli</span> <span class="pre">profile</span> <span class="pre">create</span></code>.</p>
+<p><strong>Cosign aggregate bonded transaction</strong></p>
+<p>Cosigns and announces an <a class="reference internal" href="concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate bonded transaction</span></a>.</p>
+<p>Options</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-h, --hash &lt;hash&gt;       - Aggregate bonded transaction <span class="nb">hash</span> to be signed
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction cosign --hash AF92D0A1DC40F786DF455A54F3754E6ACBCEC1B590646404B5ACC85403A92690
+</pre></div>
+</div>
+<p><strong>Transaction info</strong></p>
+<p>Returns transaction information given a hash.</p>
+<p>Options</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-h, --hash &lt;hash&gt;       - Transaction <span class="nb">hash</span>
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction info --hash AF92D0A1DC40F786DF455A54F3754E6ACBCEC1B590646404B5ACC85403A92690
+</pre></div>
+</div>
+<p><strong>Send transfer transaction</strong></p>
+<p>Announces a <a class="reference internal" href="concepts/transfer-transaction.html#id1"><span class="std std-ref">transfer transaction</span></a> to an account exchanging value and/or data. For this transaction provide recipient, message and <a class="reference internal" href="concepts/mosaic.html"><span class="doc">mosaics</span></a>.</p>
+<p>You can send <code class="docutils literal"><span class="pre">multiple</span> <span class="pre">mosaics</span></code> splitting them with a comma, e.g: nem:xem::10,nps:msc::10. The <code class="docutils literal"><span class="pre">mosaic</span> <span class="pre">amount</span></code> after :: is in <code class="docutils literal"><span class="pre">absolute</span> <span class="pre">value</span></code> so 1 XEM is 1000000.</p>
+<p>Options</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-r, --recipient &lt;recipient&gt; - Recipient
+-m, --message &lt;message&gt;     - Transaction message
+-t, --mosaics &lt;mosaics&gt;     - Mosaic in the format namespaceName:mosaicName::absoluteAmount, add multiple mosaics splitting them with a comma
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction transfer --recipient SDBDG4-IT43MP-CW2W4C-BBCSJJ-T42AYA-LQN7A4-VVWL --message <span class="s2">&quot;payout of 10 xem&quot;</span> --mosaics nem:xem::10000000
+</pre></div>
+</div>
+<p><strong>Send pull transaction</strong></p>
+<p>Requests <a class="reference internal" href="concepts/mosaic.html"><span class="doc">mosaics</span></a> from an account. The other account has to cosign the transaction.</p>
+<p>Options</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-r, --recipient &lt;recipient&gt;   - Recipient public key
+-m, --message &lt;message&gt;       - Message to the funds holder
+-x, --mosaic &lt;mosaic&gt;         - Mosaic you want to get in the format namespaceName:mosaicName::absoluteAmount
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction pullfunds --recipient SDBDG4-IT43MP-CW2W4C-BBCSJJ-T42AYA-LQN7A4-VVWL --message <span class="s2">&quot;invoice 10 xem&quot;</span> --mosaic nem:xem::10000000
+</pre></div>
+</div>
+<p><strong>Register root namespace</strong></p>
+<p>Registers a root <a class="reference internal" href="concepts/namespace.html"><span class="doc">namespace</span></a>.</p>
+<p>Options</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-n, --name &lt;name&gt;             - Namespace name
+-r, --rootnamespace           - Root namespace
+-d, --duration &lt;duration&gt;     - Duration <span class="o">(</span>use it with --rootnamespace<span class="o">)</span>
+-p, --parentname &lt;parentname&gt; - Parent namespace name <span class="o">(</span>use it with --subnamespace<span class="o">)</span>
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction namespace --rootnamespace --duration <span class="m">100000</span> --name new-namespace
+</pre></div>
+</div>
+<p><strong>Register subnamespace</strong></p>
+<p>Registers a <a class="reference internal" href="concepts/namespace.html"><span class="doc">subnamespace</span></a>.</p>
+<p>Options</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-n, --name &lt;name&gt;             - Namespace name
+-s, --subnamespace            - Sub namespace
+-p, --parentname &lt;parentname&gt; - Parent namespace name <span class="o">(</span>use it with --subnamespace<span class="o">)</span>
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction namespace --subnamespace --parentname new-namespace --name new-subnamespace
+</pre></div>
+</div>
+<p><strong>Create a mosaic</strong></p>
+<p>Creates a new <a class="reference internal" href="concepts/mosaic.html"><span class="doc">mosaic</span></a>.</p>
+<p>Options</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-m, --mosaicname &lt;mosaicname&gt;       - Mosaic name
+-n, --namespacename &lt;namespacename&gt; - Parent namespace name
+-a, --amount &lt;amount&gt;               - Amount of tokens
+-t, --transferable                  - Mosaic transferable
+-s, --supplymutable                 - Mosaic supply mutable
+-l, --levymutable                   - Mosaic levy mutable
+-d, --divisibility &lt;divisibility&gt;   - Mosaic divisibility, from <span class="m">0</span> to 6
+-u, --duration &lt;duration&gt;           - Mosaic duration in amount of blocks
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction mosaic --mosaicname token --namespacename new-namespace --amount <span class="m">1000000</span> --transferable --supplymutable --divisibility <span class="m">0</span> --duration  100000
+</pre></div>
+</div>
+</div>
+<div class="section" id="namespace">
+<h3>Namespace<a class="headerlink" href="#namespace" title="Permalink to this headline">¶</a></h3>
+<p><strong>Info</strong></p>
+<p>Gets information from a <a class="reference internal" href="concepts/namespace.html"><span class="doc">namesapce</span></a>. Use this command providing the namespace name or the mosaic uint ID in the form of [3646934825,3576016193].</p>
+<p>Options</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-n, --name &lt;name&gt;   - Namespace Id in string format
+-u, --uint &lt;uint&gt;   - Namespace id in uint64 format. <span class="o">[</span>number, number<span class="o">]</span>
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli namespace info --uint <span class="o">[</span>929036875,2226345261<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mosaic">
+<h3>Mosaic<a class="headerlink" href="#mosaic" title="Permalink to this headline">¶</a></h3>
+<p><strong>Info</strong></p>
+<p>Gets information from a <a class="reference internal" href="concepts/mosaic.html"><span class="doc">mosaic</span></a>. Use this command providing the mosaic identifier name in the form of namespaceName:mosaicName (ex: nem:xem) or the mosaic uint ID in the form of  [3646934825,3576016193].</p>
+<p>Options</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-n, --name &lt;name&gt;   - Mosaic Id in string format
+-u, --uint &lt;uint&gt;   - Mosaic id in uint64 format. <span class="o">[</span>number, number<span class="o">]</span>
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli mosaic info --name nem:xem
+</pre></div>
+</div>
+</div>
+<div class="section" id="monitoring">
+<h3>Monitoring<a class="headerlink" href="#monitoring" title="Permalink to this headline">¶</a></h3>
+<p>The NEM2 command line interface has a set of monitoring commands to track events in the NEM blockchain.</p>
+<p><strong>Block</strong></p>
+<p>Monitors new confirmed <a class="reference internal" href="concepts/block.html"><span class="doc">blocks</span></a> harvested in the blockchain.</p>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor block
+</pre></div>
+</div>
+<p><strong>Confirmed transactions</strong></p>
+<p>Monitors new confirmed <a class="reference internal" href="concepts/transaction.html"><span class="doc">transactions</span></a> signed or received by an <a class="reference internal" href="concepts/account.html"><span class="doc">account</span></a>.</p>
+<p>Options</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-a, --address &lt;address&gt; - Address
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor confirmed --address SCEKUG-H2IJBF-7JZRNK-ECMW52-E66SZ6-ODLB4W-NI7K
+</pre></div>
+</div>
+<p><strong>Unconfirmed transactions</strong></p>
+<p>Monitors new unconfirmed <a class="reference internal" href="concepts/transaction.html"><span class="doc">transactions</span></a> signed or received by an <a class="reference internal" href="concepts/account.html"><span class="doc">account</span></a>.</p>
+<p>Options</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-a, --address &lt;address&gt; - Address
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor unconfirmed --address SCEKUG-H2IJBF-7JZRNK-ECMW52-E66SZ6-ODLB4W-NI7K
+</pre></div>
+</div>
+<p><strong>Aggregate bonded transactions</strong></p>
+<p>Monitors new <a class="reference internal" href="concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate transactions</span></a> with missing signatures added to an <a class="reference internal" href="concepts/account.html"><span class="doc">account</span></a>.</p>
+<p>Options</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-a, --address &lt;address&gt; - Address
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor aggregatebonded --address SCEKUG-H2IJBF-7JZRNK-ECMW52-E66SZ6-ODLB4W-NI7K
+</pre></div>
+</div>
+<p><strong>Transaction status</strong></p>
+<p>Monitors <a class="reference internal" href="concepts/account.html"><span class="doc">account</span></a> validation errors.</p>
+<p>Options</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-a, --address &lt;address&gt; - Address
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor status --address SCEKUG-H2IJBF-7JZRNK-ECMW52-E66SZ6-ODLB4W-NI7K
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+        </div>
+         
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+        <ul>
+<li><a class="reference internal" href="#">Client</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#configuration">Configuration</a></li>
+<li><a class="reference internal" href="#commands">Commands</a><ul>
+<li><a class="reference internal" href="#profile">Profile</a></li>
+<li><a class="reference internal" href="#account">Account</a></li>
+<li><a class="reference internal" href="#blockchain">Blockchain</a></li>
+<li><a class="reference internal" href="#transaction">Transaction</a></li>
+<li><a class="reference internal" href="#namespace">Namespace</a></li>
+<li><a class="reference internal" href="#mosaic">Mosaic</a></li>
+<li><a class="reference internal" href="#monitoring">Monitoring</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+ 
+    </div>
+</div>
+<footer class="footer">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-4">
+                <h4>Learn</h4>
+
+                <ul>
+                    <li><a href="getting-started/what-is-nem.html">Getting Started</a></li>
+                    <li><a href="concepts/cryptography.html">Protocol</a></li>
+                    <li><a href="concepts/account.html">Built-in Features</a></li>
+                    <li><a href="guides/category/account.html">Guides</a></li>
+                    <li><a href="references.html">References</a></li>
+                    <li><a href="contribute/contributing.html">Contribute</a></li>
+                </ul>
+            </div>
+
+            <div class="col-sm-4">
+                <h4>References</h4>
+
+                <ul>
+                    <li><a href="api.html">REST API</a></li>
+                    <li><a href="sdk.html">SDKs</a></li>
+                    <li><a href="extensions.html">Extensions</a></li>
+                    <li><a href="#">Client</a></li>
+                    <li><a href="prototyping-tool.html">Prototyping Tool</a></li>
+                </ul>
+            </div>
+
+
+            <div class="col-sm-4">
+                <h4>Community</h4>
+
+                <ul>
+                    <li>
+                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
+                    </li>
+                    <li>
+                        <a href="https://stackoverflow.com/tags/nem/">
+                            <i class="fab fa-stack-overflow"></i>
+                            <span> Ask development questions</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/nemtechdev">
+                            <i class="fab fa-twitter"></i>
+                            <span> Follow the dev updates</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/nemtech">
+                            <i class="fab fa-github"></i>
+                            <span> Explore our Github</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <p class="text-center top-gap">
+            &copy; Copyright 2018, NEM.
+        </p>
+    </div>
+</footer>
+  </body>
+</html>
