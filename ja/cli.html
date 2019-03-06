@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Client &#8212; NEM Developer Center</title>
+    <title>クライアント &#8212; NEM Developer Center</title>
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
@@ -40,6 +40,20 @@
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<script type="text/javascript">
+    var _paq = window._paq || [];
+    _paq.push(['disableCookies']);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="//analytics.nemtech.io/piwik/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
 
   
   
@@ -67,8 +81,6 @@
             </button>
             <a class="navbar-brand" href="index.html"><span><img src="_static/logo-nem.svg"></span>
                 developer center</a>
-            <span class="navbar-text navbar-version pull-left"><b><a
-                    href="https://github.com/nemtech/nem2-docs/releases">0.17.0</a></b></span>
         </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -84,20 +96,24 @@
                 
                 
             </ul>
-
+            <span class="navbar-text navbar-language pull-left">
+                <div id="language" class="hidden-xs hidden-sm">
+    <label>
+        <i class="fas fa-language"></i>
+        <select>
+            <option id="english" value="en">English</option>
+            <option id="japanese" value="ja">日本語</option>
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </label>
+</div>
+            </span>
             
             
 
 <div class="navbar-right hidden-sm hidden-xs">
-    <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
-    <span id="language">
-        <i class="fas fa-globe"></i>
-        <select>
-            <option id="english" value="en">英語</option>
-            <option id="japanese" value="ja">日本語</option>
-            <option id="translate" value="translate">Translate</option>
-        </select>
-    </span>
+    <i class="fas fa-search"></i>
+    <input id="search" class="form-control" placeholder="Search..."/>
 </div>
             
         </div>
@@ -106,6 +122,8 @@
 
 <div class="container">
     <div class="row">
+
+        
 <div class="col-md-3">
     <div id="sidebar" class="bs-sidenav" role="complementary"><div class="sidebar-md hidden-xs hidden-sm">
     <p class="caption"><span class="caption-text">Getting Started</span></p>
@@ -139,7 +157,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="api.html">REST API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sdk.html">SDK</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Client</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">クライアント</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#installation">インストール</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#configuration">設定</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#commands">コマンド</a><ul>
@@ -155,8 +173,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="wallet.html">ウォレット</a></li>
-<li class="toctree-l1"><a class="reference internal" href="prototyping-tool.html">Prototyping Tool</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prototyping-tool.html">プロトタイピングツール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">拡張</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
@@ -165,6 +183,7 @@
 <li class="toctree-l1"><a class="reference internal" href="contribute/contributors.html">貢献者</a></li>
 </ul>
 
+    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.1</a></small>
 </div>
 
 <div class="sidebar-xs visible-xs visible-sm">
@@ -201,7 +220,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="api.html">REST API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sdk.html">SDK</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Client</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">クライアント</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#installation">インストール</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#configuration">設定</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#commands">コマンド</a><ul>
@@ -217,8 +236,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="wallet.html">ウォレット</a></li>
-<li class="toctree-l1"><a class="reference internal" href="prototyping-tool.html">Prototyping Tool</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prototyping-tool.html">プロトタイピングツール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">拡張</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
@@ -231,6 +250,7 @@
 </div>
     </div>
 </div>
+        
         <div class="col-md-7 content">
             <div id="edit-on-github" class="text-right">
                 <a href="https://github.com/nemtech/nem2-docs/edit/master/source/cli.rst"
@@ -239,18 +259,18 @@
 
             
   <div class="section" id="client">
-<h1>Client<a class="headerlink" href="#client" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>クライアント<a class="headerlink" href="#client" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>NEM2 コマンドラインインターフェイスはNEMブロックチェーンと疎通するための統合ツールです。</p>
 <p>ブロックチェーンとの疎通によく使われるアクションをこのツールで実行できます。</p>
 <p><strong>NEM2-CLI</strong> は <a class="reference internal" href="sdk.html"><span class="doc">NEM2-SDK</span></a> Typescript上に構築されたオープンソースのツールです。お好みのターミナルプログラムで使用できます。</p>
 <div class="section" id="installation">
 <h2>インストール<a class="headerlink" href="#installation" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>NEM2-CLIはnodeパッケージマネージャの <code class="docutils literal"><span class="pre">npm</span></code> によって公開されています。</p>
-<p>インストール:</p>
+<p>NEM2-CLI は node パッケージマネージャの <code class="docutils literal"><span class="pre">npm</span></code> によって公開されています。</p>
+<p>インストールする:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; sudo npm install --global nem2-cli
 </pre></div>
 </div>
-<p>アップデート:</p>
+<p>アップデートする:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; sudo npm update --global nem2-cli
 </pre></div>
 </div>
@@ -258,24 +278,24 @@
 <div class="section" id="configuration">
 <h2>設定<a class="headerlink" href="#configuration" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>NEM2-CLIを使い始めるにはプロファイルの設定をします。</p>
-<p>プロファイルにはアカウントと特定ネットワークのノードURLを保持します。プロファイルはベースURLをセットし、トランザクションに署名するためのアカウントを保存するために使われます。</p>
+<p>プロファイルにはアカウントと特定ネットワークのノード URL を保持します。プロファイルはベース URL をセットし、トランザクションに署名するためのアカウントを保存するために使われます。</p>
 <p>デフォルトのプロファイルの設定。</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli profile create --privatekey your_private_key --network MIJIN_TEST --url http://localhost:3000
 </pre></div>
 </div>
-<p>NEM2-CLIは名前付きプロファイルをサポートします。–profileオプションを使うことで設定することができます。</p>
+<p>NEM2-CLI は名前付きプロファイルをサポートします。–profile オプションを使うことで設定することができます。</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli profile create --privatekey your_private_key --network MIJIN_TEST --url http://localhost:3000 --profile mijin_test_net_profile
 </pre></div>
 </div>
-<p>デフォルトでは、NEM2-CLIは常にでデフォルトプロファイルを使用します。名前付きプロファイルを使用する場合は、コマンドに–profile オプションを追加します。</p>
+<p>デフォルトでは、NEM2-CLI は常にデフォルトプロファイルを使用します。名前付きプロファイルを使用する場合は、コマンドに –profile オプションを追加します。</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account info --profile mijin_test_net_profile
 </pre></div>
 </div>
-<p>名前付きプロファイルを複数のコマンドで使いたい場合は、NEM2_PROFILE環境変数を使うことができます。</p>
+<p>名前付きプロファイルを複数のコマンドで使いたい場合は、NEM2_PROFILE 環境変数を使うことができます。</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; <span class="nb">export</span> <span class="nv">NEM2_PROFILE</span><span class="o">=</span>mijin_test_net_profile
 </pre></div>
 </div>
-<p>プロファイルを作成する秘密鍵がない場合は、新しいアカウントを生成し、ノードURLを追加して、デフォルトまたは名前付きプロファイルとして保存します。</p>
+<p>プロファイルを作成する秘密鍵がない場合は、新しいアカウントを生成し、ノード URL を追加して、デフォルトまたは名前付きプロファイルとして保存します。</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account generate --network MIJIN_TEST -s --url http://localhost:3000 --profile mijin_test_net_profile
 </pre></div>
 </div>
@@ -284,7 +304,7 @@
 <h2>コマンド<a class="headerlink" href="#commands" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="profile">
 <h3>プロファイル<a class="headerlink" href="#profile" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>作成</p>
+<p><strong>作成</strong></p>
 <p>プロファイルの作成。</p>
 <p>オプション</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-p, --privatekey &lt;privatekey&gt; - Private key
@@ -297,7 +317,7 @@
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli profile create -p 206CE7E4B16B48430FD2C216E4BB105564B21E21DEE196267B4B33C54F1023FC -n MIJIN_TEST -u http://localhost:3000
 </pre></div>
 </div>
-<p>リスト</p>
+<p><strong>リスト</strong></p>
 <p>保存されているアカウントの一覧。</p>
 <p>コマンド</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli profile list
@@ -310,9 +330,9 @@
 </div>
 <div class="section" id="account">
 <h3>アカウント<a class="headerlink" href="#account" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>アカウントの生成</p>
+<p><strong>アカウントの生成</strong></p>
 <p>新しい <a class="reference internal" href="concepts/account.html"><span class="doc">アカウント</span></a> を生成します。このコマンドは秘密鍵と公開鍵、そしてアドレスを生成します。</p>
-<p>生成されたアカウントはノードURLを追加することで名前付きプロファイルとして保存されます。</p>
+<p>生成されたアカウントはノード URL を追加することで名前付きプロファイルとして保存されます。</p>
 <p>オプション</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-s, --save              - <span class="o">(</span>Optional<span class="o">)</span> Save profile
 -u, --url &lt;url&gt;         - <span class="o">(</span>Optional<span class="o">)</span> When saving profile, provide a NEM2 Node URL
@@ -324,7 +344,7 @@
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account generate --network MIJIN_TEST
 </pre></div>
 </div>
-<p>アカウント情報の取得</p>
+<p><strong>アカウント情報の取得</strong></p>
 <p>公開鍵、インポータンスそして <a class="reference internal" href="concepts/mosaic.html"><span class="doc">モザイク</span></a> の残高などのアカウント情報を返却します。</p>
 <p>オプション</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-a, --address &lt;address&gt; - Address
@@ -334,7 +354,7 @@
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account info --address SDAUTVFWMVXVWWKTTEFTLGUO6HP6MR4GLEK6POJ4
 </pre></div>
 </div>
-<p>承認済トランザクションの取得</p>
+<p><strong>承認済トランザクションの取得</strong></p>
 <p>アカウントが送信者または受信者であるトランザクションの配列を取得します。</p>
 <p>オプション</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-p, --publickey &lt;publickey&gt;             - Account public key
@@ -348,7 +368,7 @@
 $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222AED49B08FF74445F3CD1FD27CD4FB75E3 --numtransactions <span class="m">40</span> --id 5A69C893FD331300012A001C
 </pre></div>
 </div>
-<p>受信トランザクションの取得</p>
+<p><strong>受信トランザクションの取得</strong></p>
 <p>受信トランザクションの配列を取得します。アカウントがトランザクションの受信者である場合、トランザクションはアカウントに関して受信と言われます。</p>
 <p>オプション</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-p, --publickey &lt;publickey&gt;             - Account public key
@@ -360,7 +380,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account incoming --publickey C811AC654B77522D5283640CDA7A222AED49B08FF74445F3CD1FD27CD4FB75E3
 </pre></div>
 </div>
-<p>送信トランザクションの取得</p>
+<p><strong>送信トランザクションの取得</strong></p>
 <p>送信トランザクションの配列を取得します。アカウントがトランザクションの送信者である場合、トランザクションはアカウントに関して送信と言われます。</p>
 <p>オプション</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-p, --publickey &lt;publickey&gt;             - Account public key
@@ -372,7 +392,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account outgoing --publickey C811AC654B77522D5283640CDA7A222AED49B08FF74445F3CD1FD27CD4FB75E3
 </pre></div>
 </div>
-<p>未承認トランザクションの取得</p>
+<p><strong>承認済トランザクションの取得</strong></p>
 <p>アカウントが送信者または受信者であり、まだブロックに含まれていないトランザクションの配列を取得します。</p>
 <p>オプション</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-p, --publickey &lt;publickey&gt;             - Account public key
@@ -384,7 +404,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account unconfirmedtransactions --publickey C811AC654B77522D5283640CDA7A222AED49B08FF74445F3CD1FD27CD4FB75E3
 </pre></div>
 </div>
-<p>アグリゲートボンドトランザクションの取得</p>
+<p><strong>アグリゲートボンドトランザクションの取得</strong></p>
 <p>アカウントが送信者またはトランザクションに連署が必要な、アグリゲートボンドトランザクションの配列を取得します。</p>
 <p>オプション</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-p, --publickey &lt;publickey&gt;             - Account public key
@@ -399,13 +419,13 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 </div>
 <div class="section" id="blockchain">
 <h3>ブロックチェーン<a class="headerlink" href="#blockchain" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>ブロックチェーン高</p>
+<p><strong>ブロックチェーン高</strong></p>
 <p>現在のブロックチェーン高を返却します。</p>
 <p>コマンド</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli blockchain height
 </pre></div>
 </div>
-<p>ブロックチェーンスコア</p>
+<p><strong>ブロックチェーンスコア</strong></p>
 <p>現在のブロックチェーンスコアを取得します。高いスコアほど良いスコアです。同期が行われる間、ノードはネットワーク内で一番良いブロックの取得を試みます。</p>
 <p>コマンド</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli blockchain score
@@ -415,7 +435,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 <div class="section" id="transaction">
 <h3>トランザクション<a class="headerlink" href="#transaction" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>トランザクションは <code class="docutils literal"><span class="pre">nem2-cli</span> <span class="pre">profile</span> <span class="pre">create</span></code> によって設定されたプロファイルによって署名されます。</p>
-<p>連署アグリゲートボンドトランザクション</p>
+<p><strong>Cosign aggregate bonded transaction</strong></p>
 <p><a class="reference internal" href="concepts/aggregate-transaction.html#id1"><span class="std std-ref">アグリゲートボンドトランザクション</span></a> への署名とアナウンス。</p>
 <p>オプション</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-h, --hash &lt;hash&gt;       - Aggregate bonded transaction <span class="nb">hash</span> to be signed
@@ -425,7 +445,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction cosign --hash AF92D0A1DC40F786DF455A54F3754E6ACBCEC1B590646404B5ACC85403A92690
 </pre></div>
 </div>
-<p>トランザクション情報</p>
+<p><strong>トランザクション情報</strong></p>
 <p>与えられたハッシュを持つトランザクションの情報を返却します。</p>
 <p>オプション</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-h, --hash &lt;hash&gt;       - Transaction <span class="nb">hash</span>
@@ -435,9 +455,9 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction info --hash AF92D0A1DC40F786DF455A54F3754E6ACBCEC1B590646404B5ACC85403A92690
 </pre></div>
 </div>
-<p>転送トランザクションの送信</p>
+<p><strong>Send transfer transaction</strong></p>
 <p>値またはデータを交換するアカウントに <a class="reference internal" href="concepts/transfer-transaction.html#id1"><span class="std std-ref">転送トランザクション</span></a> をアナウンスします。このトランザクションでは、受信者、メッセージそして <a class="reference internal" href="concepts/mosaic.html"><span class="doc">モザイク</span></a> を提供します。</p>
-<p>カンマで区切ることで <code class="docutils literal"><span class="pre">複数のモザイク</span></code> を送信することができます。例: nem:xem::10,nps:msc::10。:: の後の <code class="docutils literal"><span class="pre">モザイクの総量</span></code> は <code class="docutils literal"><span class="pre">絶対数</span></code> なので 1 XEM は 1000000 と表します。</p>
+<p>カンマで区切ることで <code class="docutils literal"><span class="pre">複数のモザイク</span></code> を送信することができます。例: nem:xem::10,nps:msc::10。:: の後の <code class="docutils literal"><span class="pre">モザイク総量</span></code> は <code class="docutils literal"><span class="pre">絶対数</span></code> なので 1 XEM は 1000000 と表します。</p>
 <p>オプション</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-r, --recipient &lt;recipient&gt; - Recipient
 -m, --message &lt;message&gt;     - Transaction message
@@ -448,7 +468,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction transfer --recipient SDBDG4-IT43MP-CW2W4C-BBCSJJ-T42AYA-LQN7A4-VVWL --message <span class="s2">&quot;payout of 10 xem&quot;</span> --mosaics nem:xem::10000000
 </pre></div>
 </div>
-<p>プルトランザクションの送信</p>
+<p><strong>Send pull transaction</strong></p>
 <p>アカウントから <a class="reference internal" href="concepts/mosaic.html"><span class="doc">モザイク</span></a> を要求します。他のアカウントでトランザクションに署名が必要です。</p>
 <p>オプション</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-r, --recipient &lt;recipient&gt;   - Recipient public key
@@ -460,8 +480,8 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction pullfunds --recipient SDBDG4-IT43MP-CW2W4C-BBCSJJ-T42AYA-LQN7A4-VVWL --message <span class="s2">&quot;invoice 10 xem&quot;</span> --mosaic nem:xem::10000000
 </pre></div>
 </div>
-<p>ルートネームスペースの取得</p>
-<p>ルート <a class="reference internal" href="concepts/namespace.html"><span class="doc">ネームスペース</span></a> を取得します。</p>
+<p><strong>ルートネームスペースの取得</strong></p>
+<p>ルート <a class="reference internal" href="concepts/namespace.html"><span class="doc">ネームスペース</span></a> を登録します。</p>
 <p>オプション</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-n, --name &lt;name&gt;             - Namespace name
 -r, --rootnamespace           - Root namespace
@@ -473,8 +493,8 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction namespace --rootnamespace --duration <span class="m">100000</span> --name new-namespace
 </pre></div>
 </div>
-<p>サブネームスペースの取得</p>
-<p><a class="reference internal" href="concepts/namespace.html"><span class="doc">サブネームスペース</span></a> を取得します。</p>
+<p><strong>Register subnamespace</strong></p>
+<p><a class="reference internal" href="concepts/namespace.html"><span class="doc">サブネームスペース</span></a> を登録します。</p>
 <p>オプション</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-n, --name &lt;name&gt;             - Namespace name
 -s, --subnamespace            - Sub namespace
@@ -485,7 +505,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction namespace --subnamespace --parentname new-namespace --name new-subnamespace
 </pre></div>
 </div>
-<p>モザイクの作成</p>
+<p><strong>Create a mosaic</strong></p>
 <p>新しい <a class="reference internal" href="concepts/mosaic.html"><span class="doc">モザイク</span></a> を作成します。</p>
 <p>オプション</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-m, --mosaicname &lt;mosaicname&gt;       - Mosaic name
@@ -505,7 +525,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 </div>
 <div class="section" id="namespace">
 <h3>ネームスペース<a class="headerlink" href="#namespace" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>情報</p>
+<p><strong>Info</strong></p>
 <p><a class="reference internal" href="concepts/namespace.html"><span class="doc">ネームスペース</span></a> の情報を取得します。ネームスペース名と [3646934825,3576016193] の形式のモザイク uint ID をコマンドに渡して使用してください。</p>
 <p>オプション</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-n, --name &lt;name&gt;   - Namespace Id in string format
@@ -519,7 +539,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 </div>
 <div class="section" id="mosaic">
 <h3>モザイク<a class="headerlink" href="#mosaic" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>情報</p>
+<p><strong>Info</strong></p>
 <p><a class="reference internal" href="concepts/namespace.html"><span class="doc">モザイク</span></a> の情報を取得します。namespaceName:mosaicName (例: nem:xem) の形式モザイク識別子名または [3646934825,3576016193] の形式のモザイク uint ID をコマンドに渡して使用してください。</p>
 <p>オプション</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-n, --name &lt;name&gt;   - Mosaic Id in string format
@@ -533,14 +553,14 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 </div>
 <div class="section" id="monitoring">
 <h3>モニタリング<a class="headerlink" href="#monitoring" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>NEM2コマンドラインインターフェイスにはNEMブロックチェーンのイベントをモニタリングするコマンドがあります。</p>
-<p>ブロック</p>
+<p>NEM2 コマンドラインインターフェイスには NEM ブロックチェーンのイベントをモニタリングするコマンドがあります。</p>
+<p><strong>ブロック</strong></p>
 <p>ブロックチェーン上でハーベストされた、承認済の新しい <a class="reference internal" href="concepts/block.html"><span class="doc">ブロック</span></a> を監視します。</p>
 <p>コマンド</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor block
 </pre></div>
 </div>
-<p>承認済トランザクション</p>
+<p><strong>Confirmed transactions</strong></p>
 <p><a class="reference internal" href="concepts/account.html"><span class="doc">アカウント</span></a> が署名または受信した、新しく承認済になった <a class="reference internal" href="concepts/transaction.html"><span class="doc">トランザクション</span></a> を監視します。</p>
 <p>オプション</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-a, --address &lt;address&gt; - Address
@@ -550,7 +570,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor confirmed --address SCEKUG-H2IJBF-7JZRNK-ECMW52-E66SZ6-ODLB4W-NI7K
 </pre></div>
 </div>
-<p>未承認トランザクション</p>
+<p><strong>Unconfirmed transactions</strong></p>
 <p><a class="reference internal" href="concepts/account.html"><span class="doc">アカウント</span></a> が署名または受信した、新しく未承認になった <a class="reference internal" href="concepts/transaction.html"><span class="doc">トランザクション</span></a> を監視します。</p>
 <p>オプション</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-a, --address &lt;address&gt; - Address
@@ -560,7 +580,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor unconfirmed --address SCEKUG-H2IJBF-7JZRNK-ECMW52-E66SZ6-ODLB4W-NI7K
 </pre></div>
 </div>
-<p>アグリゲートボンドトランザクション</p>
+<p><strong>Aggregate bonded transactions</strong></p>
 <p>署名の不足している新しい <a class="reference internal" href="concepts/aggregate-transaction.html#id1"><span class="std std-ref">アグリゲートトランザクション</span></a> が <a class="reference internal" href="concepts/account.html"><span class="doc">アカウント</span></a> に追加されたことを監視します。</p>
 <p>オプション</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-a, --address &lt;address&gt; - Address
@@ -570,7 +590,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor aggregatebonded --address SCEKUG-H2IJBF-7JZRNK-ECMW52-E66SZ6-ODLB4W-NI7K
 </pre></div>
 </div>
-<p>トランザクションの状態</p>
+<p><strong>Transaction status</strong></p>
 <p><a class="reference internal" href="concepts/account.html"><span class="doc">アカウント</span></a> のバリデーションエラーを監視します。</p>
 <p>オプション</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-a, --address &lt;address&gt; - Address
@@ -594,7 +614,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
-<li><a class="reference internal" href="#">Client</a><ul>
+<li><a class="reference internal" href="#">クライアント</a><ul>
 <li><a class="reference internal" href="#installation">インストール</a></li>
 <li><a class="reference internal" href="#configuration">設定</a></li>
 <li><a class="reference internal" href="#commands">コマンド</a><ul>
@@ -622,14 +642,13 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
         <div class="row">
 
             <div class="col-sm-4">
-                <h4>Learn</h4>
+                <h4>学習する</h4>
 
                 <ul>
                     <li><a href="getting-started/what-is-nem.html">Getting Started</a></li>
                     <li><a href="concepts/cryptography.html">Protocol</a></li>
                     <li><a href="concepts/account.html">Built-in Features</a></li>
                     <li><a href="guides/category/account.html">Guides</a></li>
-                    <li><a href="references.html">References</a></li>
                     <li><a href="contribute/contributing.html">Contribute</a></li>
                 </ul>
             </div>
@@ -640,19 +659,19 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
                 <ul>
                     <li><a href="api.html">REST API</a></li>
                     <li><a href="sdk.html">SDKs</a></li>
-                    <li><a href="extensions.html">Extensions</a></li>
-                    <li><a href="#">Client</a></li>
-                    <li><a href="prototyping-tool.html">Prototyping Tool</a></li>
+                    <li><a href="extensions.html">拡張</a></li>
+                    <li><a href="#">クライアント</a></li>
+                    <li><a href="prototyping-tool.html">プロトタイピングツール</a></li>
                 </ul>
             </div>
 
 
             <div class="col-sm-4">
-                <h4>Community</h4>
+                <h4>コミュニティ</h4>
 
                 <ul>
                     <li>
-                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
+                        <a href="http://slack.nemtech.io/"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
                     </li>
                     <li>
                         <a href="https://stackoverflow.com/tags/nem/">
@@ -678,9 +697,18 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
         </div>
 
         <p class="text-center top-gap">
-            &copy; Copyright 2018, NEM.
+            &copy; Copyright 2018-2019, NEM.
         </p>
     </div>
 </footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+    indexName: 'nemtech',
+    inputSelector: '#search',
+    algoliaOptions: {},
+    debug: false
+});
+</script>
   </body>
 </html>

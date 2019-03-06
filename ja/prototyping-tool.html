@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Prototyping Tool &#8212; NEM Developer Center</title>
+    <title>プロトタイピングツール &#8212; NEM Developer Center</title>
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
@@ -33,13 +33,27 @@
     <link rel="shortcut icon" href="_static/favicon-32x32.png"/>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
-    <link rel="next" title="Extensions" href="extensions.html" />
+    <link rel="next" title="拡張" href="extensions.html" />
     <link rel="prev" title="ウォレット" href="wallet.html" />
   
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<script type="text/javascript">
+    var _paq = window._paq || [];
+    _paq.push(['disableCookies']);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="//analytics.nemtech.io/piwik/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
 
   
   
@@ -67,8 +81,6 @@
             </button>
             <a class="navbar-brand" href="index.html"><span><img src="_static/logo-nem.svg"></span>
                 developer center</a>
-            <span class="navbar-text navbar-version pull-left"><b><a
-                    href="https://github.com/nemtech/nem2-docs/releases">0.17.0</a></b></span>
         </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -84,20 +96,24 @@
                 
                 
             </ul>
-
+            <span class="navbar-text navbar-language pull-left">
+                <div id="language" class="hidden-xs hidden-sm">
+    <label>
+        <i class="fas fa-language"></i>
+        <select>
+            <option id="english" value="en">English</option>
+            <option id="japanese" value="ja">日本語</option>
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </label>
+</div>
+            </span>
             
             
 
 <div class="navbar-right hidden-sm hidden-xs">
-    <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
-    <span id="language">
-        <i class="fas fa-globe"></i>
-        <select>
-            <option id="english" value="en">英語</option>
-            <option id="japanese" value="ja">日本語</option>
-            <option id="translate" value="translate">Translate</option>
-        </select>
-    </span>
+    <i class="fas fa-search"></i>
+    <input id="search" class="form-control" placeholder="Search..."/>
 </div>
             
         </div>
@@ -106,6 +122,8 @@
 
 <div class="container">
     <div class="row">
+
+        
 <div class="col-md-3">
     <div id="sidebar" class="bs-sidenav" role="complementary"><div class="sidebar-md hidden-xs hidden-sm">
     <p class="caption"><span class="caption-text">Getting Started</span></p>
@@ -139,9 +157,9 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="api.html">REST API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sdk.html">SDK</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cli.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">クライアント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wallet.html">ウォレット</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Prototyping Tool</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">プロトタイピングツール</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#installation">インストール</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#configuring-nodes">ノードの設定</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#configuring-an-api-gateway">API ゲートウェイの設定</a></li>
@@ -156,7 +174,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">拡張</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
@@ -165,6 +183,7 @@
 <li class="toctree-l1"><a class="reference internal" href="contribute/contributors.html">貢献者</a></li>
 </ul>
 
+    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.1</a></small>
 </div>
 
 <div class="sidebar-xs visible-xs visible-sm">
@@ -201,9 +220,9 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="api.html">REST API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sdk.html">SDK</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cli.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">クライアント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wallet.html">ウォレット</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Prototyping Tool</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">プロトタイピングツール</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#installation">インストール</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#configuring-nodes">ノードの設定</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#configuring-an-api-gateway">API ゲートウェイの設定</a></li>
@@ -218,7 +237,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">拡張</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
@@ -231,6 +250,7 @@
 </div>
     </div>
 </div>
+        
         <div class="col-md-7 content">
             <div id="edit-on-github" class="text-right">
                 <a href="https://github.com/nemtech/nem2-docs/edit/master/source/prototyping-tool.rst"
@@ -239,11 +259,11 @@
 
             
   <div class="section" id="prototyping-tool">
-<h1>Prototyping Tool<a class="headerlink" href="#prototyping-tool" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>プロトタイピングツール<a class="headerlink" href="#prototyping-tool" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="figure align-center">
 <img alt="https://gist.githubusercontent.com/jorisadri/7061090eb3cbf724c80e4f49e03e1b94/raw/69b1b9f80594feb9a415aac8de62c769295c397b/transferTransaction.png" src="https://gist.githubusercontent.com/jorisadri/7061090eb3cbf724c80e4f49e03e1b94/raw/69b1b9f80594feb9a415aac8de62c769295c397b/transferTransaction.png" />
 </div>
-<p>コーディングせずに <strong>NEM2 Prototyping Tool</strong> を使ってブロックチェーンアプリケーションを作りましょう。</p>
+<p>コーディング無しに <strong>NEM2 プロトタイピングツール</strong> を使ってブロックチェーンアプリケーションを作ります。</p>
 <p>NEM ノードをドラッグ＆ドロップして他のサービスとリンクし、プロトタイピングや学習のための新しく、楽しい方法を提供します。</p>
 <p><a href="https://github.com/nemtech/nem2-prototyping-tool" target="_blank">NEM2 Prototyping Tool</a> は <strong>Node-RED</strong> ノードの集まりです。</p>
 <p><a href="https://nodered.org/" target="_blank">Node-RED</a> はハードウェアやAPI、オンラインサービスと一緒に接続するための仮想的なプログラミングツールです。</p>
@@ -251,7 +271,7 @@
 <p>Node-RED で作ったフローは、他の人と共有するためにエクスポート可能な JSON として保存されます。</p>
 <div class="section" id="installation">
 <h2>インストール<a class="headerlink" href="#installation" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><strong>Windows</strong>, <strong>Linux</strong> または <strong>Mac</strong> 向けの <a href="https://github.com/nemtech/nem2-prototyping-tool/releases/tag/v0.10.0" target="_blank">executable package</a> をダウンロードして、 実行してください。</p>
+<p><strong>Windows</strong>, <strong>Linux</strong> または <strong>Mac</strong> 向けの <a href="https://github.com/nemtech/nem2-prototyping-tool/releases/tag/v0.10.0" target="_blank">executable package</a> をダウンロードして実行してください。</p>
 <p>すでに Node-RED はお持ちですか？ <code class="docutils literal"><span class="pre">Manage</span> <span class="pre">palette</span></code> を開いて <a href="https://flows.nodered.org/node/node-red-contrib-nem2" target="_blank">node-red-contrib-nem2</a> パッケージをインストールしてください。</p>
 <div class="figure align-center" id="id6">
 <img alt="_images/nem2-prototyping-tool-install.png" src="_images/nem2-prototyping-tool-install.png" style="width: 500px;" />
@@ -304,7 +324,7 @@
 <ol class="arabic simple">
 <li>設定が必要なノードをダブルクリックしてください。</li>
 <li><code class="docutils literal"><span class="pre">Server</span></code> 入力フィールドの横にある鉛筆のアイコンをクリックしてください。</li>
-<li>http か https (例 <a class="reference external" href="http://localhost">http://localhost</a>)スキーマの <code class="docutils literal"><span class="pre">custom</span> <span class="pre">url</span></code> を入力してください。あなたが使用したい <code class="docutils literal"><span class="pre">network</span></code> と <code class="docutils literal"><span class="pre">port</span></code> を選んで <code class="docutils literal"><span class="pre">Update</span></code> を押下してください。</li>
+<li>http か https (例 <a class="reference external" href="http://localhost">http://localhost</a>) スキーマの <code class="docutils literal"><span class="pre">custom</span> <span class="pre">url</span></code> を入力してください。あなたが使用したい <code class="docutils literal"><span class="pre">network</span></code> と <code class="docutils literal"><span class="pre">port</span></code> を選んで <code class="docutils literal"><span class="pre">Update</span></code> を押下してください。</li>
 </ol>
 <div class="figure align-center">
 <img alt="_images/nem2-prototyping-tool-edit-server-config-node.png" src="_images/nem2-prototyping-tool-edit-server-config-node.png" style="width: 500px;" />
@@ -314,7 +334,7 @@
 <h3>フローの実行<a class="headerlink" href="#running-a-flow" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ol class="arabic simple">
 <li>画面の右上にある <code class="docutils literal"><span class="pre">deploy</span></code> ボタンをクリックします。フローを実行するには、最初のノードに接続されている四角形を選択します。</li>
-<li>右側のサイドバーのデバッグタブの下に出力が返されたことを確認します。NEM2 ノードは <code class="docutils literal"><span class="pre">msg.,nem.&lt;name_of_the_output&gt;.&lt;/name_of_the_output&gt;</span></code> このような構造体を出力します。</li>
+<li>右側のサイドバーのデバッグタブの下に出力が返されたことを確認します。NEM2 ノードは <code class="docutils literal"><span class="pre">msg.,nem.&lt;name_of_the_output&gt;</span></code> このような構造体を出力します。</li>
 </ol>
 <div class="figure align-center" id="id10">
 <img alt="_images/nem2-prototyping-tool-debug.png" src="_images/nem2-prototyping-tool-debug.png" style="width: 500px;" />
@@ -337,8 +357,8 @@
 <col width="50%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">名前</th>
-<th class="head">貢献</th>
+<tr class="row-odd"><th class="head">名称</th>
+<th class="head">貢献者</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -371,8 +391,8 @@
 <col width="50%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">名前</th>
-<th class="head">貢献</th>
+<tr class="row-odd"><th class="head">名称</th>
+<th class="head">貢献者</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -405,7 +425,7 @@
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
-<li><a class="reference internal" href="#">Prototyping Tool</a><ul>
+<li><a class="reference internal" href="#">プロトタイピングツール</a><ul>
 <li><a class="reference internal" href="#installation">インストール</a></li>
 <li><a class="reference internal" href="#configuring-nodes">ノードの設定</a><ul>
 <li><a class="reference internal" href="#configuring-an-api-gateway">API ゲートウェイの設定</a></li>
@@ -433,14 +453,13 @@
         <div class="row">
 
             <div class="col-sm-4">
-                <h4>Learn</h4>
+                <h4>学習する</h4>
 
                 <ul>
                     <li><a href="getting-started/what-is-nem.html">Getting Started</a></li>
                     <li><a href="concepts/cryptography.html">Protocol</a></li>
                     <li><a href="concepts/account.html">Built-in Features</a></li>
                     <li><a href="guides/category/account.html">Guides</a></li>
-                    <li><a href="references.html">References</a></li>
                     <li><a href="contribute/contributing.html">Contribute</a></li>
                 </ul>
             </div>
@@ -451,19 +470,19 @@
                 <ul>
                     <li><a href="api.html">REST API</a></li>
                     <li><a href="sdk.html">SDKs</a></li>
-                    <li><a href="extensions.html">Extensions</a></li>
-                    <li><a href="cli.html">Client</a></li>
-                    <li><a href="#">Prototyping Tool</a></li>
+                    <li><a href="extensions.html">拡張</a></li>
+                    <li><a href="cli.html">クライアント</a></li>
+                    <li><a href="#">プロトタイピングツール</a></li>
                 </ul>
             </div>
 
 
             <div class="col-sm-4">
-                <h4>Community</h4>
+                <h4>コミュニティ</h4>
 
                 <ul>
                     <li>
-                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
+                        <a href="http://slack.nemtech.io/"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
                     </li>
                     <li>
                         <a href="https://stackoverflow.com/tags/nem/">
@@ -489,9 +508,18 @@
         </div>
 
         <p class="text-center top-gap">
-            &copy; Copyright 2018, NEM.
+            &copy; Copyright 2018-2019, NEM.
         </p>
     </div>
 </footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+    indexName: 'nemtech',
+    inputSelector: '#search',
+    algoliaOptions: {},
+    debug: false
+});
+</script>
   </body>
 </html>

@@ -38,6 +38,20 @@
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<script type="text/javascript">
+    var _paq = window._paq || [];
+    _paq.push(['disableCookies']);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="//analytics.nemtech.io/piwik/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
 
   
   
@@ -65,8 +79,6 @@
             </button>
             <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/logo-nem.svg"></span>
                 developer center</a>
-            <span class="navbar-text navbar-version pull-left"><b><a
-                    href="https://github.com/nemtech/nem2-docs/releases">0.17.0</a></b></span>
         </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -82,20 +94,24 @@
                 
                 
             </ul>
-
+            <span class="navbar-text navbar-language pull-left">
+                <div id="language" class="hidden-xs hidden-sm">
+    <label>
+        <i class="fas fa-language"></i>
+        <select>
+            <option id="english" value="en">English</option>
+            <option id="japanese" value="ja">日本語</option>
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </label>
+</div>
+            </span>
             
             
 
 <div class="navbar-right hidden-sm hidden-xs">
-    <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
-    <span id="language">
-        <i class="fas fa-globe"></i>
-        <select>
-            <option id="english" value="en">英語</option>
-            <option id="japanese" value="ja">日本語</option>
-            <option id="translate" value="translate">Translate</option>
-        </select>
-    </span>
+    <i class="fas fa-search"></i>
+    <input id="search" class="form-control" placeholder="Search..."/>
 </div>
             
         </div>
@@ -104,11 +120,18 @@
 
 <div class="container">
     <div class="row">
+
+        
 <div class="col-md-3">
     <div id="sidebar" class="bs-sidenav" role="complementary">
-<p class="caption sidebar-current-ul"><span class="caption-text">ガイド</span>
-    <span class="angle angle-down fas fa-chevron-down"></span>
-</p>
+
+
+
+<div class="hidden-xs hidden-sm">
+    <p class="caption sidebar-current-ul"><span class="caption-text">ガイド</span>
+        <span class="angle angle-down fas fa-chevron-down"></span>
+    </p>
+    
 <ul class="ablog-cloud current">
     
     
@@ -202,11 +225,117 @@
     
     
 </ul>
-<a href="../../getting-started/training.html"><p class="caption"><span class="caption-text"><i
-        class="fas fa-chalkboard-teacher"></i> コース</span></p></a>
+
+    <a href="../../getting-started/training.html"><p class="caption"><span class="caption-text"><i
+            class="fas fa-chalkboard-teacher"></i> コース</span></p></a>
+</div>
+
+<div class="visible-xs visible-sm">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigation <b class="caret"></b></a>
+        <ul class="dropdown-menu globaltoc">
+<ul class="ablog-cloud current">
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/account.html" class="reference internal nav-header">
+            
+            Account (4)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/aggregate-transaction.html" class="reference internal nav-header">
+            
+            Aggregate Transaction (6)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/block.html" class="reference internal nav-header">
+            
+            Block (2)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/cross-chain-swaps.html" class="reference internal nav-header">
+            
+            Cross-Chain Swaps (1)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/monitoring.html" class="reference internal nav-header">
+            
+            Monitoring (2)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/mosaic.html" class="reference internal nav-header">
+            
+            Mosaic (2)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/multisig-account.html" class="reference internal nav-header">
+            
+            Multisig Account (5)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/namespace.html" class="reference internal nav-header">
+            
+            Namespace (2)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/tools.html" class="reference internal nav-header">
+            
+            Tools (1)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/transfer-transaction.html" class="reference internal nav-header">
+            
+            Transfer Transaction (2)
+        </a></li>
+    
+    
+</ul>
+</ul>
+    </li>
+
+</div>
+
 
     </div>
 </div>
+        
         <div class="col-md-7 content">
             <div id="edit-on-github" class="text-right">
                 <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\transaction\sending-a-multisig-transaction.rst"
@@ -221,28 +350,28 @@
 <h2>背景<a class="headerlink" href="#background" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="figure align-center" id="id1">
 <img alt="../../_images/multisig-transaction-1-of-2.png" src="../../_images/multisig-transaction-1-of-2.png" style="width: 600px;" />
-<p class="caption"><span class="caption-text">アグリゲート完了トランザクションの送信</span></p>
+<p class="caption"><span class="caption-text">アグリゲートコンプリートトランザクションの送信</span></p>
 </div>
-<p>ALICE と BOB は一緒に住んでいて、それぞれのアカウントを持っています。また、BOB が外出するとき、彼が、自分と ALICE のために食料雑貨を購入できるように、共有アカウントも持っています。</p>
-<p>この共有アカウントはNEMにおいて 1-of-2 マルチシグと呼びます。これはトランザクションをブロックに取り込んでもらうのに、1人の連署者が必要なことを意味します。</p>
-<p>マルチシグアカウントは連署者アカウントを持つこと、それ自身はトランザクションを始められないことを気に留めてください。連署者だけがトランザクションを開始できます。</p>
+<p>Alice と Bob は一緒に住んでいて、それぞれのアカウントを持っています。また、BOB が外出するとき、彼が、自分と Alice のために食料雑貨を購入できるように、共有アカウントも持っています。</p>
+<p>この共有アカウントは NEM において 1-of-2 マルチシグと呼びます。これはトランザクションをブロックに取り込んでもらうのに、1人の連署者が必要なことを意味します。</p>
+<p>マルチシグアカウントには連署者アカウントが紐付いていること、そのアカウント自身からはトランザクションを開始できないことを留意してください。連署者だけがトランザクションを開始することができます。</p>
 </div>
 <div class="section" id="prerequisites">
 <h2>前提条件<a class="headerlink" href="#prerequisites" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><a class="reference internal" href="sending-a-transfer-transaction.html"><span class="doc">転送トランザクション送信ガイド</span></a> を終了していること</li>
-<li><a class="reference internal" href="../account/converting-an-account-to-multisig.html"><span class="doc">アカウントをマルチシグへ変換ガイド</span></a> を終了していること</li>
+<li><a class="reference internal" href="sending-a-transfer-transaction.html"><span class="doc">転送トランザクション送信ガイド</span></a> を終了している</li>
+<li><a class="reference internal" href="../account/converting-an-account-to-multisig.html"><span class="doc">アカウントをマルチシグへ変換ガイド</span></a> を終了している</li>
 <li>NEM2-SDK</li>
-<li>テキストエディタ または IDE</li>
+<li>テキストエディタかIDE</li>
 <li>XEMを保有しているマルチシグアカウント</li>
 <li>XEMを保有している連署アカウント</li>
 </ul>
 </div>
 <div class="section" id="lets-get-into-some-code">
 <h2>それではコードを見ていきましょう<a class="headerlink" href="#lets-get-into-some-code" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>BOB はバスケットをいっぱいにして、支払いをする準備が整いました。レジ係の画面には、購入費用が 10 XEM と表示されています。</p>
+<p>Bob はバスケットをいっぱいにして、支払いをする準備が整いました。レジ係の画面には、購入費用が 10 XEM と表示されています。</p>
 <ol class="arabic simple">
-<li>BOB は、ALICE と共有しているマルチシグアカウントの公開鍵と、トランザクションのアナウンスを開始するために彼の秘密鍵を知っている必要があります。</li>
+<li>Bob は、Alice と共有しているマルチシグアカウントの公開鍵と、トランザクションのアナウンスを開始するために彼の秘密鍵を知っている必要があります。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id2">
@@ -338,8 +467,8 @@
 <ol class="arabic simple" start="3">
 <li>転送トランザクションを <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">アグリゲートトランザクション</span></a> でラップし、マルチシグの公開鍵を署名者として添付します。</li>
 </ol>
-<p>ネットワークへアナウンスされる前にすべての連署者が署名をすると、アグリゲートトランザクションは <strong>完了</strong> になります。正当であれば、ブロックへ取り込まれます。</p>
-<p>1-of-2 マルチシグアカウントを使用していることを忘れないでください。BOB はトランザクションに署名するための秘密鍵を1つ持っているので、 <em>アグリゲート完了トランザクション</em> を検討してください。</p>
+<p>ネットワークへアナウンスされる前にすべての連署者が署名をすると、アグリゲートトランザクションは <strong>コンプリート</strong> になります。正当であれば、ブロックへ取り込まれます。</p>
+<p>1-of-2 マルチシグアカウントを使用していることを忘れないでください。Bob はトランザクションに署名するための秘密鍵を1つ持っているので、 <em>アグリゲートコンプリートトランザクション</em> を検討してください。</p>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id8">
 <div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingAMultisigTransactionAggregateComplete.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id8" title="このコードへのパーマリンク">¶</a></div>
@@ -375,7 +504,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="4">
-<li>彼はトランザクションへ署名してアナウンスをします。</li>
+<li>Bob のアカウントでトランザクションへ署名してアナウンスをします。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id11">
@@ -462,7 +591,7 @@
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
-<li>アグリゲートトランザクションがボンドとなった場合、BOB はネットワークのスパム防止のための 10 XEM でロックする必要かあります。すべての連署者がトランザクションへ署名すると、XEM の総量は BOB のアカウント上で再度有効になります。<a class="reference internal" href="../../concepts/aggregate-transaction.html#hash-lock-transaction"><span class="std std-ref">ハッシュロックトランザクション</span></a> が承認された後に、 <a class="reference internal" href="../../concepts/aggregate-transaction.html"><span class="doc">アグリゲートボンドトランザクションをアナウンス</span></a> します。</li>
+<li>アグリゲートトランザクションがボンドとなった場合、Bob はネットワークのスパム防止のための 10 XEM でロックする必要かあります。すべての連署者がトランザクションへ署名すると、XEM の総量は Bob のアカウント上で再度有効になります。<a class="reference internal" href="../../concepts/aggregate-transaction.html#hash-lock-transaction"><span class="std std-ref">ハッシュロックトランザクション</span></a> が承認された後に、 <a class="reference internal" href="../../concepts/aggregate-transaction.html"><span class="doc">アグリゲートボンドトランザクションをアナウンス</span></a> します。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id18">
@@ -564,7 +693,7 @@
 <p class="first admonition-title">注釈</p>
 <p class="last">クライアントサイドで使用する場合は(例, Angular, React, Vue) <a class="reference internal" href="monitoring-a-transaction-status.html#monitoring-transactions-client-side"><span class="std std-ref">リスナーの実装は変わります</span></a> 。</p>
 </div>
-<p>ALICE は承認を得るために、 <a class="reference internal" href="signing-announced-aggregate-bonded-transactions.html"><span class="doc">トランザクションに連署</span></a> してください！</p>
+<p>Alice は承認を得るために、 <a class="reference internal" href="signing-announced-aggregate-bonded-transactions.html"><span class="doc">トランザクションに連署</span></a> してください！</p>
 </div>
 </div>
 
@@ -604,14 +733,13 @@
         <div class="row">
 
             <div class="col-sm-4">
-                <h4>Learn</h4>
+                <h4>学習する</h4>
 
                 <ul>
                     <li><a href="../../getting-started/what-is-nem.html">Getting Started</a></li>
                     <li><a href="../../concepts/cryptography.html">Protocol</a></li>
                     <li><a href="../../concepts/account.html">Built-in Features</a></li>
                     <li><a href="../category/account.html">Guides</a></li>
-                    <li><a href="../../references.html">References</a></li>
                     <li><a href="../../contribute/contributing.html">Contribute</a></li>
                 </ul>
             </div>
@@ -622,19 +750,19 @@
                 <ul>
                     <li><a href="../../api.html">REST API</a></li>
                     <li><a href="../../sdk.html">SDKs</a></li>
-                    <li><a href="../../extensions.html">Extensions</a></li>
-                    <li><a href="../../cli.html">Client</a></li>
-                    <li><a href="../../prototyping-tool.html">Prototyping Tool</a></li>
+                    <li><a href="../../extensions.html">拡張</a></li>
+                    <li><a href="../../cli.html">クライアント</a></li>
+                    <li><a href="../../prototyping-tool.html">プロトタイピングツール</a></li>
                 </ul>
             </div>
 
 
             <div class="col-sm-4">
-                <h4>Community</h4>
+                <h4>コミュニティ</h4>
 
                 <ul>
                     <li>
-                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
+                        <a href="http://slack.nemtech.io/"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
                     </li>
                     <li>
                         <a href="https://stackoverflow.com/tags/nem/">
@@ -660,9 +788,18 @@
         </div>
 
         <p class="text-center top-gap">
-            &copy; Copyright 2018, NEM.
+            &copy; Copyright 2018-2019, NEM.
         </p>
     </div>
 </footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+    indexName: 'nemtech',
+    inputSelector: '#search',
+    algoliaOptions: {},
+    debug: false
+});
+</script>
   </body>
 </html>

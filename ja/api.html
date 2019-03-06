@@ -40,6 +40,20 @@
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<script type="text/javascript">
+    var _paq = window._paq || [];
+    _paq.push(['disableCookies']);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="//analytics.nemtech.io/piwik/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
 
   
   
@@ -67,8 +81,6 @@
             </button>
             <a class="navbar-brand" href="index.html"><span><img src="_static/logo-nem.svg"></span>
                 developer center</a>
-            <span class="navbar-text navbar-version pull-left"><b><a
-                    href="https://github.com/nemtech/nem2-docs/releases">0.17.0</a></b></span>
         </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -84,20 +96,24 @@
                 
                 
             </ul>
-
+            <span class="navbar-text navbar-language pull-left">
+                <div id="language" class="hidden-xs hidden-sm">
+    <label>
+        <i class="fas fa-language"></i>
+        <select>
+            <option id="english" value="en">English</option>
+            <option id="japanese" value="ja">日本語</option>
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </label>
+</div>
+            </span>
             
             
 
 <div class="navbar-right hidden-sm hidden-xs">
-    <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
-    <span id="language">
-        <i class="fas fa-globe"></i>
-        <select>
-            <option id="english" value="en">英語</option>
-            <option id="japanese" value="ja">日本語</option>
-            <option id="translate" value="translate">Translate</option>
-        </select>
-    </span>
+    <i class="fas fa-search"></i>
+    <input id="search" class="form-control" placeholder="Search..."/>
 </div>
             
         </div>
@@ -106,6 +122,8 @@
 
 <div class="container">
     <div class="row">
+
+        
 <div class="col-md-3">
     <div id="sidebar" class="bs-sidenav" role="complementary"><div class="sidebar-md hidden-xs hidden-sm">
     <p class="caption"><span class="caption-text">Getting Started</span></p>
@@ -138,7 +156,7 @@
 <p class="caption"><span class="caption-text">References</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">REST API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#http-requests">リクエスト</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#http-requests">HTTP リクエスト</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#tools">ツール</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#serialization">シリアル化</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#http-errors">HTTP エラー</a></li>
@@ -154,10 +172,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="sdk.html">SDK</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cli.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">クライアント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wallet.html">ウォレット</a></li>
-<li class="toctree-l1"><a class="reference internal" href="prototyping-tool.html">Prototyping Tool</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prototyping-tool.html">プロトタイピングツール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">拡張</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
@@ -166,6 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="contribute/contributors.html">貢献者</a></li>
 </ul>
 
+    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.1</a></small>
 </div>
 
 <div class="sidebar-xs visible-xs visible-sm">
@@ -201,7 +220,7 @@
 <p class="caption"><span class="caption-text">References</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">REST API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#http-requests">リクエスト</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#http-requests">HTTP リクエスト</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#tools">ツール</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#serialization">シリアル化</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#http-errors">HTTP エラー</a></li>
@@ -217,10 +236,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="sdk.html">SDK</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cli.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">クライアント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wallet.html">ウォレット</a></li>
-<li class="toctree-l1"><a class="reference internal" href="prototyping-tool.html">Prototyping Tool</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prototyping-tool.html">プロトタイピングツール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">拡張</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
@@ -233,6 +252,7 @@
 </div>
     </div>
 </div>
+        
         <div class="col-md-7 content">
             <div id="edit-on-github" class="text-right">
                 <a href="https://github.com/nemtech/nem2-docs/edit/master/source/api.rst"
@@ -242,30 +262,30 @@
             
   <div class="section" id="rest-api">
 <h1>REST API<a class="headerlink" href="#rest-api" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><strong>Catapult REST API</strong> はHTTPとWebSocketsを NEM ブロックチェーンを読み書きできるように併合させます。</p>
+<p><strong>Catapult REST API</strong> は HTTP と WebSockets を NEM ブロックチェーン上で読み書きアクションが実行できるように併合します。</p>
 <div class="section" id="http-requests">
-<span id="id1"></span><h2>リクエスト<a class="headerlink" href="#http-requests" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id1"></span><h2>HTTP リクエスト<a class="headerlink" href="#http-requests" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Catapult REST はポート <code class="docutils literal"><span class="pre">3000</span></code> 番を使用します。HTTP <strong>GET</strong> 、 <strong>PUT</strong> そして <strong>POST</strong> リクエストを受け付けます。</p>
 <p>Catapult REST がローカルで動いていると仮定すると、HTTP GET リクエストはブラウザからこのように実行できます:</p>
 <p><a class="reference external" href="http://localhost:3000">http://localhost:3000</a>/&lt;path-to-API-request&gt;</p>
-<p>HTTP PUT と POST リクエストはボディ部にJSON形式を使用します。リクエストは(返す物があれば)データをJSON形式を返します。この種のリクエストはそれが可能な プラグイン を利用しないことにはブラウザから実行することができません。</p>
+<p>HTTP PUT と POST リクエストはボディ部にJSON形式を使用します。リクエストはデータをJSON形式で返します。この種のリクエストはそれが可能なプラグインを利用しないことにはブラウザから実行することができません。</p>
 <a href="/endpoints.html"><button class="btn btn-default">Catapult REST API Endpoints</button></a><div class="section" id="tools">
 <span id="id2"></span><h3>ツール<a class="headerlink" href="#tools" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><strong>NEM2-SDK</strong></p>
-<p><strong>NEM2 ソフトウェア開発キット</strong> は、NEM2 コンポーネント、このような追加ツール、ライブラリ、アプリケーションなどを作成するための主要なソフトウェア開発ツールです。</p>
+<p><strong>NEM2 ソフトウェア開発キット</strong> とは NEM2 コンポーネント、このような追加ツール、ライブラリ、アプリケーションなどを作成するための主要なソフトウェア開発ツールです。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">Consider using <strong>NEM2-SDK</strong> instead of calling the API directly.</p>
+<p class="last">API に直接呼び出す代わりに <strong>NEM2-SDK</strong> の利用を考慮してください。</p>
 </div>
 <ul class="simple">
 <li><a class="reference internal" href="sdk.html"><span class="doc">リファレンス</span></a></li>
 <li><a class="reference internal" href="concepts/account.html"><span class="doc">ガイド</span></a></li>
 </ul>
 <p><strong>Insomnia</strong></p>
-<p>Mac, Windows, Linux 向けのオープンソースのHTTPクライアント。</p>
+<p>Mac, Windows, Linux 向けのオープンソースの HTTP クライアント。</p>
 <ol class="arabic simple">
-<li>あなたのOSに合わせた <a href="https://insomnia.rest/" target="_blank">Insomnia app</a> をダウンロードしてください。</li>
-<li>NEM用の <a class="reference download internal" href="_downloads/insomnia.json" download=""><code class="xref download docutils literal"><span class="pre">Insomnia</span> <span class="pre">仕様</span></code></a> をインポートしてください。</li>
+<li>あなたのOS用の <a href="https://insomnia.rest/" target="_blank">Insomnia app</a> をダウンロードしてください。</li>
+<li>NEM 用の <a class="reference download internal" href="_downloads/insomnia.json" download=""><code class="xref download docutils literal"><span class="pre">Insomnia</span> <span class="pre">仕様</span></code></a> をインポートしてください。</li>
 </ol>
 </div>
 <div class="section" id="serialization">
@@ -312,7 +332,7 @@
 <td>Bad request リクエストのシンタックスを確認してください。</td>
 </tr>
 <tr class="row-odd"><td>404</td>
-<td>Not found. The resource does not exist.</td>
+<td>Not Found リソースは存在しません。</td>
 </tr>
 <tr class="row-even"><td>409</td>
 <td>Conflict 引数を確認してください。</td>
@@ -340,7 +360,7 @@
 <td>キャメルケースによるエラー識別子</td>
 </tr>
 <tr class="row-odd"><td>メッセージ</td>
-<td>可読可能なフォーマットによるエラー説明</td>
+<td>人間が読めるフォーマットによるエラー説明</td>
 </tr>
 </tbody>
 </table>
@@ -360,8 +380,8 @@
 </div>
 <div class="section" id="websockets">
 <span id="id6"></span><h2>WebSockets<a class="headerlink" href="#websockets" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>WebSockets はブロックチェーン上でトランザクションやイベントが発生した通知を受け取ることを可能にします。この通知はAPIの返却を待つことなく、リアルタイムで行われます。</p>
-<p><a class="reference internal" href="sdk.html"><span class="doc">NEM2-SDK</span></a> でAPI WebSocket と疎通するには <strong>Listeners</strong> によって行います。</p>
+<p>WebSockets はブロックチェーン上でトランザクションやイベントが発生した通知を受け取ることを可能にします。この通知は API の返却を待つことなくリアルタイムで行われます。</p>
+<p><a class="reference internal" href="sdk.html"><span class="doc">NEM2-SDK</span></a> で API WebSocket と疎通するには <strong>Listeners</strong> を使用します。</p>
 <div class="section" id="channels">
 <h3>チャンネル<a class="headerlink" href="#channels" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><strong>ブロック</strong></p>
@@ -370,7 +390,7 @@
 <p>承認済追加チャンネルは、アドレスに関連するトランザクションがブロックに含まれたときに通知します。メッセージにはトランザクションが含まれます。</p>
 <p><strong>unconfirmedAdded/&lt;ADDRESS&gt;</strong></p>
 <p>未承認追加チャンネルは、アドレスに関連するトランザクションが未承認状態にあり、ブロックに含まれるのを待っているときに通知します。メッセージにはトランザクションが含まれます。</p>
-<p>トランザクションが <code class="docutils literal"><span class="pre">PUT</span> <span class="pre">/transaction</span></code> HTTP エンドポイントによりアナウンスされるか、アグリゲートボンドトランザクションのすべての署名が揃い、  <em>partial</em> から <em>未承認</em> へ変わるとき、このチャンネルからの通知が届く可能性があります。</p>
+<p>このチャンネルからの通知が届くシナリオとしては、トランザクションが <code class="docutils literal"><span class="pre">PUT</span> <span class="pre">/transaction</span></code> HTTP エンドポイントによりアナウンスされるか、アグリゲートボンドトランザクションのすべての署名が揃い <em>partial</em> から <em>unconfirmed</em> へ変わるときです。</p>
 <p><strong>unconfirmedRemoved/&lt;ADDRESS&gt;</strong></p>
 <p>未承認削除チャンネルはアドレスに関連するトランザクションが未承認状態であったが、そうでなくなったときに通知を行います。メッセージにはトランザクションハッシュが含まれます。</p>
 <p>このチャンネルが通知するシナリオとしては、トランザクションが承認済になった、または期限を迎えてブロックに含まれなくなったときです。</p>
@@ -383,7 +403,7 @@
 <p><strong>cosignature/&lt;ADDRESS&gt;</strong></p>
 <p>連署チャネルはアドレスに関連する <em>連署署名トランザクション</em> が、パーシャル状態のアグリゲートボンドトランザクションに追加されたときに通知します。メッセージには連署したトランザクションが含まれます。</p>
 <p><strong>status/&lt;ADDRESS&gt;</strong></p>
-<p>The status channel notifies when a transaction related to an address rises an error. The message contains the error message and the transaction hash.</p>
+<p>ステータスチャンネルはアドレスに関連するトランザクションでエラーが発生したときに通知を行います。メッセージにはエラーとトランザクションハッシュが含まれます。</p>
 </div>
 <div class="section" id="status-errors">
 <span id="id7"></span><h3>ステータスエラー<a class="headerlink" href="#status-errors" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -476,10 +496,10 @@
 <td>重複する連署者がいるため、バリデーションに失敗しました。</td>
 </tr>
 <tr class="row-even"><td>Failure_Aggregate_Ineligible_Cosigners</td>
-<td>Validation failed because at least one cosigner is ineligible.</td>
+<td>少なくとも1人の署名者が不適格であるため、バリデーションに失敗しました。</td>
 </tr>
 <tr class="row-odd"><td>Failure_Aggregate_Missing_Cosigners</td>
-<td>Validation failed because at least one required cosigner is missing. The transaction was announced as complete but had missing cosignatures.</td>
+<td>必要な署名者が少なくとも1人は欠落しているため、バリデーションに失敗しました。トランザクションは完了したとアナウンスされましたが、署名がありませんでした。</td>
 </tr>
 <tr class="row-even"><td>Failure_LockHash_Invalid_Mosaic_Id</td>
 <td>ロックに許可されていないモザイクが指定されたため、バリデーションに失敗しました。許可されたモザイクは <code class="docutils literal"><span class="pre">xem</span></code> のみです。</td>
@@ -575,7 +595,7 @@
 <td>Validation failed because mosaic modification would not result in any changes.</td>
 </tr>
 <tr class="row-odd"><td>Failure_Mosaic_Supply_Immutable</td>
-<td>Validation failed because the mosaic supply is immutable.</td>
+<td>モザイク供給量が不変のため、バリデーションに失敗しました。</td>
 </tr>
 <tr class="row-even"><td>Failure_Mosaic_Supply_Negative</td>
 <td>Validation failed because the resulting mosaic supply is negative.</td>
@@ -614,7 +634,7 @@
 <td>Validation failed because min settings are larger than number of cosignatories.</td>
 </tr>
 <tr class="row-even"><td>Failure_Multisig_Modify_Unsupported_Modification_Type</td>
-<td>Validation failed because the modification type is unsupported: add (0) and remove (1).</td>
+<td>変更タイプが妥当ではないため、バリデーションに失敗しました。追加 (0) 削除 (1)</td>
 </tr>
 <tr class="row-odd"><td>Failure_Multisig_Modify_Max_Cosigned_Accounts</td>
 <td>Validation failed because the cosignatory already cosigns the maximum number of accounts. An account cannot be cosignatory of more than <code class="docutils literal"><span class="pre">5</span></code> multisig accounts.</td>
@@ -674,7 +694,7 @@
 <td>Validation failed because the maximum number of children for a root namespace was exceeded.</td>
 </tr>
 <tr class="row-even"><td>Failure_Namespace_Alias_Invalid_Action</td>
-<td>Validation failed because alias action is invalid: link (0) and unlink (1).</td>
+<td>エイリアスアクションが妥当ではないため、バリデーションに失敗しました。リンク (0) かつ アンリンク (1)</td>
 </tr>
 <tr class="row-odd"><td>Failure_Namespace_Alias_Namespace_Unknown</td>
 <td>ネームスペースは存在しないため、バリデーションに失敗しました。</td>
@@ -719,10 +739,10 @@
 <td>Validation failed because there is not a value in the container.</td>
 </tr>
 <tr class="row-odd"><td>Failure_Property_Modification_Count_Exceeded</td>
-<td>Validation failed because the transaction has too many modifications.</td>
+<td>トランザクションが多すぎる変更を持っているため、バリデーションに失敗しました。</td>
 </tr>
 <tr class="row-even"><td>Failure_Property_Values_Count_Exceeded</td>
-<td>Validation failed because the resulting property has too many values. The maximum number of values a property can have is <code class="docutils literal"><span class="pre">512</span></code>.</td>
+<td>結果プロパティが多すぎる値を持っているため、バリデーションに失敗しました。最大で <code class="docutils literal"><span class="pre">512</span></code> のプロパティ値の数が許容されています。</td>
 </tr>
 <tr class="row-odd"><td>Failure_Property_Value_Invalid</td>
 <td>プロパティが妥当ではないため、バリデーションに失敗しました。</td>
@@ -798,7 +818,7 @@
 </tr>
 </tbody>
 </table>
-<p><a class="reference download internal" href="_downloads/swagger.yaml" download=""><code class="xref download docutils literal"><span class="pre">OpenAPI</span> <span class="pre">形式の仕様をダウンロード</span></code></a></p>
+<p><a class="reference download internal" href="_downloads/swagger.yaml" download=""><code class="xref download docutils literal"><span class="pre">OpenAPI</span> <span class="pre">仕様</span></code></a></p>
 </div>
 </div>
 </div>
@@ -814,7 +834,7 @@
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">REST API</a><ul>
-<li><a class="reference internal" href="#http-requests">リクエスト</a><ul>
+<li><a class="reference internal" href="#http-requests">HTTP リクエスト</a><ul>
 <li><a class="reference internal" href="#tools">ツール</a></li>
 <li><a class="reference internal" href="#serialization">シリアル化</a></li>
 <li><a class="reference internal" href="#http-errors">HTTP エラー</a></li>
@@ -842,14 +862,13 @@
         <div class="row">
 
             <div class="col-sm-4">
-                <h4>Learn</h4>
+                <h4>学習する</h4>
 
                 <ul>
                     <li><a href="getting-started/what-is-nem.html">Getting Started</a></li>
                     <li><a href="concepts/cryptography.html">Protocol</a></li>
                     <li><a href="concepts/account.html">Built-in Features</a></li>
                     <li><a href="guides/category/account.html">Guides</a></li>
-                    <li><a href="references.html">References</a></li>
                     <li><a href="contribute/contributing.html">Contribute</a></li>
                 </ul>
             </div>
@@ -860,19 +879,19 @@
                 <ul>
                     <li><a href="#">REST API</a></li>
                     <li><a href="sdk.html">SDKs</a></li>
-                    <li><a href="extensions.html">Extensions</a></li>
-                    <li><a href="cli.html">Client</a></li>
-                    <li><a href="prototyping-tool.html">Prototyping Tool</a></li>
+                    <li><a href="extensions.html">拡張</a></li>
+                    <li><a href="cli.html">クライアント</a></li>
+                    <li><a href="prototyping-tool.html">プロトタイピングツール</a></li>
                 </ul>
             </div>
 
 
             <div class="col-sm-4">
-                <h4>Community</h4>
+                <h4>コミュニティ</h4>
 
                 <ul>
                     <li>
-                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
+                        <a href="http://slack.nemtech.io/"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
                     </li>
                     <li>
                         <a href="https://stackoverflow.com/tags/nem/">
@@ -898,9 +917,18 @@
         </div>
 
         <p class="text-center top-gap">
-            &copy; Copyright 2018, NEM.
+            &copy; Copyright 2018-2019, NEM.
         </p>
     </div>
 </footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+    indexName: 'nemtech',
+    inputSelector: '#search',
+    algoliaOptions: {},
+    debug: false
+});
+</script>
   </body>
 </html>

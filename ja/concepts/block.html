@@ -40,6 +40,20 @@
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<script type="text/javascript">
+    var _paq = window._paq || [];
+    _paq.push(['disableCookies']);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="//analytics.nemtech.io/piwik/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
 
   
   
@@ -67,8 +81,6 @@
             </button>
             <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
                 developer center</a>
-            <span class="navbar-text navbar-version pull-left"><b><a
-                    href="https://github.com/nemtech/nem2-docs/releases">0.17.0</a></b></span>
         </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -84,20 +96,24 @@
                 
                 
             </ul>
-
+            <span class="navbar-text navbar-language pull-left">
+                <div id="language" class="hidden-xs hidden-sm">
+    <label>
+        <i class="fas fa-language"></i>
+        <select>
+            <option id="english" value="en">English</option>
+            <option id="japanese" value="ja">日本語</option>
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </label>
+</div>
+            </span>
             
             
 
 <div class="navbar-right hidden-sm hidden-xs">
-    <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
-    <span id="language">
-        <i class="fas fa-globe"></i>
-        <select>
-            <option id="english" value="en">英語</option>
-            <option id="japanese" value="ja">日本語</option>
-            <option id="translate" value="translate">Translate</option>
-        </select>
-    </span>
+    <i class="fas fa-search"></i>
+    <input id="search" class="form-control" placeholder="Search..."/>
 </div>
             
         </div>
@@ -106,6 +122,8 @@
 
 <div class="container">
     <div class="row">
+
+        
 <div class="col-md-3">
     <div id="sidebar" class="bs-sidenav" role="complementary"><div class="sidebar-md hidden-xs hidden-sm">
     <p class="caption"><span class="caption-text">Getting Started</span></p>
@@ -122,7 +140,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#block-creation">ブロック生成</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">ガイド</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">スキーマ</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#blockheader">ブロックヘッダ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#blockheader">BlockHeader</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#verifiableentity">VerifiableEntity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#entitybody">EntityBody</a></li>
 </ul>
@@ -149,10 +167,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">クライアント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../wallet.html">ウォレット</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">プロトタイピングツール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions.html">拡張</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
@@ -161,6 +179,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">貢献者</a></li>
 </ul>
 
+    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.1</a></small>
 </div>
 
 <div class="sidebar-xs visible-xs visible-sm">
@@ -180,7 +199,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#block-creation">ブロック生成</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">ガイド</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">スキーマ</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#blockheader">ブロックヘッダ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#blockheader">BlockHeader</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#verifiableentity">VerifiableEntity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#entitybody">EntityBody</a></li>
 </ul>
@@ -207,10 +226,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">クライアント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../wallet.html">ウォレット</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">プロトタイピングツール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions.html">拡張</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
@@ -223,6 +242,7 @@
 </div>
     </div>
 </div>
+        
         <div class="col-md-7 content">
             <div id="edit-on-github" class="text-right">
                 <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\block.rst"
@@ -234,11 +254,11 @@
 <h1>ブロック<a class="headerlink" href="#block" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>全ての暗号通貨の中心となる要素は、ブロック同士がリンクしたブロックチェーンと呼ばれる公開台帳です。</p>
 <p>チェーン内のブロックは順序付けられており、完了したトランザクション履歴はブロックチェーンに保持されます。後に続くブロックチェーン内のブロックは、1づつ高さを増やしていきます。</p>
-<p>ブロックはデータベースに永続的なメディアとして保存されます。NEMはチェーン内の最初のブロックであるネメシスブロックを呼び出します。</p>
-<p>NEMブロックは <code class="docutils literal"><span class="pre">15</span></code> 秒毎に完了し、日々の使用に対して十分にトランザクションを承認します。</p>
+<p>ブロックはデータベースに永続的なメディアとして保存されます。NEM はチェーン内の最初のブロックであるネメシスブロックを呼び出します。</p>
+<p>NEM ブロックは <code class="docutils literal"><span class="pre">15</span></code> 秒毎に完了し、日々の使用に対して十分にトランザクションを承認します。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">設定パラメータは <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">編集可能</a> です。公開ネットワークでは異なる可能性があります。</p>
+<p class="last">設定パラメータは <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">編集可能</a> です。公開ネットワークとは異なる可能性があります。</p>
 </div>
 <div class="section" id="block-creation">
 <h2>ブロック生成<a class="headerlink" href="#block-creation" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -258,7 +278,7 @@
 <div class="section" id="schemas">
 <h2>スキーマ<a class="headerlink" href="#schemas" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="blockheader">
-<span id="block-header"></span><h3>ブロックヘッダ<a class="headerlink" href="#blockheader" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="block-header"></span><h3>BlockHeader<a class="headerlink" href="#blockheader" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><strong>インライン</strong></p>
 <ul class="simple">
 <li><a class="reference internal" href="#verifiable-entity"><span class="std std-ref">VerifiableEntity</span></a></li>
@@ -287,7 +307,7 @@
 </tr>
 <tr class="row-even"><td>difficulty</td>
 <td>uint64</td>
-<td>ブロック難易度</td>
+<td>The average difficulty divided by the average block creation time for the last <code class="docutils literal"><span class="pre">60</span></code> blocks. If the new difficulty is more than 5% greater or smaller than the difficulty of the last block, then the change is capped to 5%. Additionally, difficulties are kept within certain bounds. The new difficulty is clamped to the boundaries if it is greater than 10<sup>15</sup> or smaller than 10<sup>13</sup>.</td>
 </tr>
 <tr class="row-odd"><td>feeMultiplier</td>
 <td>uint32</td>
@@ -431,7 +451,7 @@
 <li><a class="reference internal" href="#block-creation">ブロック生成</a></li>
 <li><a class="reference internal" href="#guides">ガイド</a></li>
 <li><a class="reference internal" href="#schemas">スキーマ</a><ul>
-<li><a class="reference internal" href="#blockheader">ブロックヘッダ</a></li>
+<li><a class="reference internal" href="#blockheader">BlockHeader</a></li>
 <li><a class="reference internal" href="#verifiableentity">VerifiableEntity</a></li>
 <li><a class="reference internal" href="#entitybody">EntityBody</a></li>
 </ul>
@@ -451,14 +471,13 @@
         <div class="row">
 
             <div class="col-sm-4">
-                <h4>Learn</h4>
+                <h4>学習する</h4>
 
                 <ul>
                     <li><a href="../getting-started/what-is-nem.html">Getting Started</a></li>
                     <li><a href="cryptography.html">Protocol</a></li>
                     <li><a href="account.html">Built-in Features</a></li>
                     <li><a href="../guides/category/account.html">Guides</a></li>
-                    <li><a href="../references.html">References</a></li>
                     <li><a href="../contribute/contributing.html">Contribute</a></li>
                 </ul>
             </div>
@@ -469,19 +488,19 @@
                 <ul>
                     <li><a href="../api.html">REST API</a></li>
                     <li><a href="../sdk.html">SDKs</a></li>
-                    <li><a href="../extensions.html">Extensions</a></li>
-                    <li><a href="../cli.html">Client</a></li>
-                    <li><a href="../prototyping-tool.html">Prototyping Tool</a></li>
+                    <li><a href="../extensions.html">拡張</a></li>
+                    <li><a href="../cli.html">クライアント</a></li>
+                    <li><a href="../prototyping-tool.html">プロトタイピングツール</a></li>
                 </ul>
             </div>
 
 
             <div class="col-sm-4">
-                <h4>Community</h4>
+                <h4>コミュニティ</h4>
 
                 <ul>
                     <li>
-                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
+                        <a href="http://slack.nemtech.io/"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
                     </li>
                     <li>
                         <a href="https://stackoverflow.com/tags/nem/">
@@ -507,9 +526,18 @@
         </div>
 
         <p class="text-center top-gap">
-            &copy; Copyright 2018, NEM.
+            &copy; Copyright 2018-2019, NEM.
         </p>
     </div>
 </footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+    indexName: 'nemtech',
+    inputSelector: '#search',
+    algoliaOptions: {},
+    debug: false
+});
+</script>
   </body>
 </html>

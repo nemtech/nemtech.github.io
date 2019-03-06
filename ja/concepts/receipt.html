@@ -40,6 +40,20 @@
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<script type="text/javascript">
+    var _paq = window._paq || [];
+    _paq.push(['disableCookies']);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="//analytics.nemtech.io/piwik/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
 
   
   
@@ -67,8 +81,6 @@
             </button>
             <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
                 developer center</a>
-            <span class="navbar-text navbar-version pull-left"><b><a
-                    href="https://github.com/nemtech/nem2-docs/releases">0.17.0</a></b></span>
         </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -84,20 +96,24 @@
                 
                 
             </ul>
-
+            <span class="navbar-text navbar-language pull-left">
+                <div id="language" class="hidden-xs hidden-sm">
+    <label>
+        <i class="fas fa-language"></i>
+        <select>
+            <option id="english" value="en">English</option>
+            <option id="japanese" value="ja">日本語</option>
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </label>
+</div>
+            </span>
             
             
 
 <div class="navbar-right hidden-sm hidden-xs">
-    <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
-    <span id="language">
-        <i class="fas fa-globe"></i>
-        <select>
-            <option id="english" value="en">英語</option>
-            <option id="japanese" value="ja">日本語</option>
-            <option id="translate" value="translate">Translate</option>
-        </select>
-    </span>
+    <i class="fas fa-search"></i>
+    <input id="search" class="form-control" placeholder="Search..."/>
 </div>
             
         </div>
@@ -106,6 +122,8 @@
 
 <div class="container">
     <div class="row">
+
+        
 <div class="col-md-3">
     <div id="sidebar" class="bs-sidenav" role="complementary"><div class="sidebar-md hidden-xs hidden-sm">
     <p class="caption"><span class="caption-text">Getting Started</span></p>
@@ -155,10 +173,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">クライアント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../wallet.html">ウォレット</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">プロトタイピングツール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions.html">拡張</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
@@ -167,6 +185,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">貢献者</a></li>
 </ul>
 
+    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.1</a></small>
 </div>
 
 <div class="sidebar-xs visible-xs visible-sm">
@@ -219,10 +238,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">クライアント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../wallet.html">ウォレット</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">プロトタイピングツール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions.html">拡張</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
@@ -235,6 +254,7 @@
 </div>
     </div>
 </div>
+        
         <div class="col-md-7 content">
             <div id="edit-on-github" class="text-right">
                 <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\receipt.rst"
@@ -246,7 +266,7 @@
 <h1>レシート<a class="headerlink" href="#receipt" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>バックグラウンドでの条件付き状態変更は、複雑なトランザクションを可能にします。</p>
 <p>例えば <a class="reference internal" href="aggregate-transaction.html#hash-lock-transaction"><span class="std std-ref">ハッシュロック</span></a> は <a class="reference internal" href="aggregate-transaction.html"><span class="doc">アグリゲートボンドトランザクション</span></a> が承認され次第、終了します。ロックされた資金が自動的に口座に返却されるとき、追加で <a class="reference internal" href="transaction.html"><span class="doc">トランザクション</span></a> は記録されません。これは <a class="reference internal" href="account.html"><span class="doc">アカウント</span></a> の残高が増える <em>隠された変更</em> として現れるかもしれません。レシートはすべての隠された変更の証拠を提供します。</p>
-<p>レシートのハッシュは <a href="https://en.wikipedia.org/wiki/Merkle_tree" target="_blank">merkle tree</a> に入り <a class="reference internal" href="block.html"><span class="doc">ブロック</span></a> にリンクされます。ブロックヘッダはルートハッシュを格納し、ブロックがレシートを持ったときに0ではなくなります。</p>
+<p>レシートのハッシュは <a href="https://en.wikipedia.org/wiki/Merkle_tree" target="_blank">merkle tree</a> に入り <a class="reference internal" href="block.html"><span class="doc">ブロック</span></a> にリンクされます。ブロックヘッダはルートハッシュを格納し、ブロックがレシートを持ったときに 0 ではなくなります。</p>
 <div class="section" id="transaction-statement">
 <h2>トランザクションステートメント<a class="headerlink" href="#transaction-statement" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference internal" href="#id3"><span class="std std-ref">トランザクションステートメント</span></a> は特定のブロック内のトランザクションにリンクしたレシートの集合です。ステートメントは以下の基礎タイプをもつレシートを含みます:</p>
@@ -308,7 +328,7 @@
 <td><a class="reference internal" href="#id3"><span class="std std-ref">Aggregate</span></a></td>
 <td>与えられたソースの状態変化の集合。状態変化レシートが発行されたときに記録されます。</td>
 </tr>
-<tr class="row-odd"><td><strong>モザイク</strong></td>
+<tr class="row-odd"><td><strong>Mosaic</strong></td>
 <td>&#160;</td>
 <td>&#160;</td>
 <td>&#160;</td>
@@ -328,7 +348,7 @@
 <td><a class="reference internal" href="#balance-transfer-receipt"><span class="std std-ref">BalanceTransfer</span></a></td>
 <td>モザイクIDの送信者と受信者とモザイクを登録するためのコストを示す量。モザイクが登録されたときに記録されます。</td>
 </tr>
-<tr class="row-odd"><td><strong>ネームスペース</strong></td>
+<tr class="row-odd"><td><strong>Namespace</strong></td>
 <td>&#160;</td>
 <td>&#160;</td>
 <td>&#160;</td>
@@ -407,7 +427,7 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>version</td>
+<tr class="row-even"><td><strong>バージョン</strong>: 0x1</td>
 <td>uint16</td>
 <td>レシートバージョン</td>
 </tr>
@@ -421,7 +441,7 @@
 <div class="section" id="transactionstatement">
 <span id="id3"></span><h3>TransactionStatement<a class="headerlink" href="#transactionstatement" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
-<li><strong>バージョン</strong>: 0x1</li>
+<li><strong>version</strong>: 0x1</li>
 <li><strong>type</strong>: Transaction_Group</li>
 </ul>
 <p><strong>インライン</strong></p>
@@ -443,7 +463,7 @@
 <tbody valign="top">
 <tr class="row-even"><td>m_source</td>
 <td>ReceiptSource</td>
-<td>レシートのソース</td>
+<td>The receipt source.</td>
 </tr>
 <tr class="row-odd"><td>receipts</td>
 <td>array(ReceiptHeader, receiptsHeadersSize)</td>
@@ -455,7 +475,7 @@
 <div class="section" id="resolutionstatement">
 <span id="resolution-statement"></span><h3>ResolutionStatement<a class="headerlink" href="#resolutionstatement" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
-<li><strong>バージョン</strong>: 0x1</li>
+<li><strong>version</strong>: 0x1</li>
 <li><strong>type</strong>: Address_Alias_Resolution or Mosaic_Alias_Resolution</li>
 </ul>
 <p><strong>インライン</strong></p>
@@ -507,7 +527,7 @@
 </tr>
 <tr class="row-odd"><td>source</td>
 <td><a class="reference internal" href="#receipt-source"><span class="std std-ref">ReceiptSource</span></a></td>
-<td>レシートのソース</td>
+<td>The receipt source.</td>
 </tr>
 </tbody>
 </table>
@@ -541,7 +561,7 @@
 <div class="section" id="balancetransferreceipt">
 <span id="balance-transfer-receipt"></span><h3>BalanceTransferReceipt<a class="headerlink" href="#balancetransferreceipt" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
-<li><strong>バージョン</strong>: 0x1</li>
+<li><strong>version</strong>: 0x1</li>
 <li><strong>basicType</strong>: 0x1</li>
 </ul>
 <p><strong>インライン</strong></p>
@@ -583,7 +603,7 @@
 <div class="section" id="balancechangereceipt">
 <span id="balance-change-receipt"></span><h3>BalanceChangeReceipt<a class="headerlink" href="#balancechangereceipt" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
-<li><strong>バージョン</strong>: 0x1</li>
+<li><strong>version</strong>: 0x1</li>
 <li><strong>basicType</strong>: (0x2) credit or (0x3) debit</li>
 </ul>
 <p><strong>インライン</strong></p>
@@ -621,7 +641,7 @@
 <div class="section" id="artifactexpiryreceipt">
 <span id="artifact-expiry-receipt"></span><h3>ArtifactExpiryReceipt<a class="headerlink" href="#artifactexpiryreceipt" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
-<li><strong>バージョン</strong>: 0x1</li>
+<li><strong>version</strong>: 0x1</li>
 <li><strong>basicType</strong>: 0x4</li>
 </ul>
 <p><strong>インライン</strong></p>
@@ -691,14 +711,13 @@
         <div class="row">
 
             <div class="col-sm-4">
-                <h4>Learn</h4>
+                <h4>学習する</h4>
 
                 <ul>
                     <li><a href="../getting-started/what-is-nem.html">Getting Started</a></li>
                     <li><a href="cryptography.html">Protocol</a></li>
                     <li><a href="account.html">Built-in Features</a></li>
                     <li><a href="../guides/category/account.html">Guides</a></li>
-                    <li><a href="../references.html">References</a></li>
                     <li><a href="../contribute/contributing.html">Contribute</a></li>
                 </ul>
             </div>
@@ -709,19 +728,19 @@
                 <ul>
                     <li><a href="../api.html">REST API</a></li>
                     <li><a href="../sdk.html">SDKs</a></li>
-                    <li><a href="../extensions.html">Extensions</a></li>
-                    <li><a href="../cli.html">Client</a></li>
-                    <li><a href="../prototyping-tool.html">Prototyping Tool</a></li>
+                    <li><a href="../extensions.html">拡張</a></li>
+                    <li><a href="../cli.html">クライアント</a></li>
+                    <li><a href="../prototyping-tool.html">プロトタイピングツール</a></li>
                 </ul>
             </div>
 
 
             <div class="col-sm-4">
-                <h4>Community</h4>
+                <h4>コミュニティ</h4>
 
                 <ul>
                     <li>
-                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
+                        <a href="http://slack.nemtech.io/"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
                     </li>
                     <li>
                         <a href="https://stackoverflow.com/tags/nem/">
@@ -747,9 +766,18 @@
         </div>
 
         <p class="text-center top-gap">
-            &copy; Copyright 2018, NEM.
+            &copy; Copyright 2018-2019, NEM.
         </p>
     </div>
 </footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+    indexName: 'nemtech',
+    inputSelector: '#search',
+    algoliaOptions: {},
+    debug: false
+});
+</script>
   </body>
 </html>

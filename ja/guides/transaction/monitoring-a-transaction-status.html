@@ -38,6 +38,20 @@
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<script type="text/javascript">
+    var _paq = window._paq || [];
+    _paq.push(['disableCookies']);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="//analytics.nemtech.io/piwik/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
 
   
   
@@ -65,8 +79,6 @@
             </button>
             <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/logo-nem.svg"></span>
                 developer center</a>
-            <span class="navbar-text navbar-version pull-left"><b><a
-                    href="https://github.com/nemtech/nem2-docs/releases">0.17.0</a></b></span>
         </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -82,20 +94,24 @@
                 
                 
             </ul>
-
+            <span class="navbar-text navbar-language pull-left">
+                <div id="language" class="hidden-xs hidden-sm">
+    <label>
+        <i class="fas fa-language"></i>
+        <select>
+            <option id="english" value="en">English</option>
+            <option id="japanese" value="ja">日本語</option>
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </label>
+</div>
+            </span>
             
             
 
 <div class="navbar-right hidden-sm hidden-xs">
-    <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
-    <span id="language">
-        <i class="fas fa-globe"></i>
-        <select>
-            <option id="english" value="en">英語</option>
-            <option id="japanese" value="ja">日本語</option>
-            <option id="translate" value="translate">Translate</option>
-        </select>
-    </span>
+    <i class="fas fa-search"></i>
+    <input id="search" class="form-control" placeholder="Search..."/>
 </div>
             
         </div>
@@ -104,11 +120,18 @@
 
 <div class="container">
     <div class="row">
+
+        
 <div class="col-md-3">
     <div id="sidebar" class="bs-sidenav" role="complementary">
-<p class="caption sidebar-current-ul"><span class="caption-text">ガイド</span>
-    <span class="angle angle-down fas fa-chevron-down"></span>
-</p>
+
+
+
+<div class="hidden-xs hidden-sm">
+    <p class="caption sidebar-current-ul"><span class="caption-text">ガイド</span>
+        <span class="angle angle-down fas fa-chevron-down"></span>
+    </p>
+    
 <ul class="ablog-cloud current">
     
     
@@ -202,11 +225,117 @@
     
     
 </ul>
-<a href="../../getting-started/training.html"><p class="caption"><span class="caption-text"><i
-        class="fas fa-chalkboard-teacher"></i> コース</span></p></a>
+
+    <a href="../../getting-started/training.html"><p class="caption"><span class="caption-text"><i
+            class="fas fa-chalkboard-teacher"></i> コース</span></p></a>
+</div>
+
+<div class="visible-xs visible-sm">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigation <b class="caret"></b></a>
+        <ul class="dropdown-menu globaltoc">
+<ul class="ablog-cloud current">
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/account.html" class="reference internal nav-header">
+            
+            Account (4)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/aggregate-transaction.html" class="reference internal nav-header">
+            
+            Aggregate Transaction (6)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/block.html" class="reference internal nav-header">
+            
+            Block (2)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/cross-chain-swaps.html" class="reference internal nav-header">
+            
+            Cross-Chain Swaps (1)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/monitoring.html" class="reference internal nav-header">
+            
+            Monitoring (2)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/mosaic.html" class="reference internal nav-header">
+            
+            Mosaic (2)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/multisig-account.html" class="reference internal nav-header">
+            
+            Multisig Account (5)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/namespace.html" class="reference internal nav-header">
+            
+            Namespace (2)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/tools.html" class="reference internal nav-header">
+            
+            Tools (1)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/transfer-transaction.html" class="reference internal nav-header">
+            
+            Transfer Transaction (2)
+        </a></li>
+    
+    
+</ul>
+</ul>
+    </li>
+
+</div>
+
 
     </div>
 </div>
+        
         <div class="col-md-7 content">
             <div id="edit-on-github" class="text-right">
                 <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\transaction\monitoring-a-transaction-status.rst"
@@ -225,7 +354,7 @@
 <div class="section" id="prerequisites">
 <h2>前提条件<a class="headerlink" href="#prerequisites" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><a class="reference internal" href="../../getting-started/setup-workstation.html"><span class="doc">入門セクション</span></a> を終了していること</li>
+<li><a class="reference internal" href="../../getting-started/setup-workstation.html"><span class="doc">入門セクション</span></a> を終了している</li>
 <li>テキストエディタ または IDE</li>
 <li>NEM2-SDK または CLI</li>
 </ul>
@@ -234,8 +363,8 @@
 <h2>それではコードを見ていきましょう<a class="headerlink" href="#lets-get-into-some-code" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Catapult は非同期のトランザクションアナウンスが可能です。トランザクションを公開した後、それが適格であれば、API ノードは常に受理します。</p>
 <p>その時、サーバはトランザクションが妥当かどうかを保証はしません - 例えば、あなたが送りたいアセットの量を持っていないこと - したがって、それがブロックに追加されるかどうかはわかりません。</p>
-<p>To make sure the transaction is added in a block, you must track the <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">transaction status</span></a> using <a class="reference internal" href="../../api.html#websockets"><span class="std std-ref">Listeners</span></a>.</p>
-<p>Listeners enable receiving notifications possible when a change in the blockchain occurs. The notification is received in real time without having to poll the API waiting for a reply.</p>
+<p>トランザクションがブロックに追加されたことを確認するには <a class="reference internal" href="../../api.html#websockets"><span class="std std-ref">リスナー</span></a> を使用して <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">トランザクションステータス</span></a> を追跡します。</p>
+<p>リスナーは変更がブロックチェーン内で発生したときに通知を受信することを可能にします。通知は API の返答をポーリンクするのではなくリアルタイムに行われます。</p>
 <ol class="arabic simple">
 <li>アナウンスしたいトランザクションを定義して下さい。この場合、メッセージとして <code class="docutils literal"><span class="pre">Test</span></code> を <code class="docutils literal"><span class="pre">SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54</span></code> へ送ろうとしています。</li>
 </ol>
@@ -254,7 +383,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li>トランザクションに署名</li>
+<li>トランザクションへ署名</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id2">
@@ -267,7 +396,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="3">
-<li>Open a new <a class="reference internal" href="../../api.html#websockets"><span class="std std-ref">Listeners</span></a>. This communicates with the API WebSocket, who will communicate you asynchronously the status of the transaction.</li>
+<li>新しい <a class="reference internal" href="../../api.html#websockets"><span class="std std-ref">リスナ</span></a> を開いてください。これは API WebSocket と疎通し、トランザクションの状態を非同期にあなたへ伝えます。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id3">
@@ -310,7 +439,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="5">
-<li>Monitor if there is some validation error with the transaction issued. When you receive a message from status WebSocket channel, it always means the transaction did not meet the requirements. You need to handle the error accordingly, by reviewing the <a class="reference internal" href="../../api.html#status-errors"><span class="std std-ref">error status list</span></a>.</li>
+<li>発行されたトランザクションにバリデーションエラーがあるかどうかを監視します。ステータス WebSocket チャンネルからメッセージを受け取る場合、それはトランザクションが要件を満たさなかったことを意味します。エラーを適切にハンドリングするためには <a class="reference internal" href="../../api.html#status-errors"><span class="std std-ref">エラーステータスリスト</span></a> を参照してください。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id6">
@@ -411,7 +540,7 @@
 </div>
 </div>
 </div>
-<p>If you missed the WebSocket response, check the transaction status after by calling the <a class="reference external" href="https://nemtech.github.io/endpoints.html#operation/getTransactionStatus">transaction status</a> endpoint. The status of failed transactions is not persistent, meaning that eventually is pruned.</p>
+<p>WebSocket のレスポンスを失った場合、 <a class="reference external" href="https://nemtech.github.io/endpoints.html#operation/getTransactionStatus">トランザクションステータス</a> エンドポイントを呼び出すことで、トランザクションの状態を確認できます。失敗したトランザクションの状態は永続的ではなく、最終的には除去されます。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
 <p class="last">もし小さなアプリケーションを開発していて、トランザクションを非同期にモニタリングすることがあまりにも大きなオーバーヘッドになるのであれば、<a class="reference internal" href="turning-the-asynchronous-transaction-announcement-into-synchronous.html"><span class="doc">非同期トランザクションアナウンスを同期的へ変更する</span></a> ことを検討してください。</p>
@@ -477,14 +606,13 @@
         <div class="row">
 
             <div class="col-sm-4">
-                <h4>Learn</h4>
+                <h4>学習する</h4>
 
                 <ul>
                     <li><a href="../../getting-started/what-is-nem.html">Getting Started</a></li>
                     <li><a href="../../concepts/cryptography.html">Protocol</a></li>
                     <li><a href="../../concepts/account.html">Built-in Features</a></li>
                     <li><a href="../category/account.html">Guides</a></li>
-                    <li><a href="../../references.html">References</a></li>
                     <li><a href="../../contribute/contributing.html">Contribute</a></li>
                 </ul>
             </div>
@@ -495,19 +623,19 @@
                 <ul>
                     <li><a href="../../api.html">REST API</a></li>
                     <li><a href="../../sdk.html">SDKs</a></li>
-                    <li><a href="../../extensions.html">Extensions</a></li>
-                    <li><a href="../../cli.html">Client</a></li>
-                    <li><a href="../../prototyping-tool.html">Prototyping Tool</a></li>
+                    <li><a href="../../extensions.html">拡張</a></li>
+                    <li><a href="../../cli.html">クライアント</a></li>
+                    <li><a href="../../prototyping-tool.html">プロトタイピングツール</a></li>
                 </ul>
             </div>
 
 
             <div class="col-sm-4">
-                <h4>Community</h4>
+                <h4>コミュニティ</h4>
 
                 <ul>
                     <li>
-                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
+                        <a href="http://slack.nemtech.io/"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
                     </li>
                     <li>
                         <a href="https://stackoverflow.com/tags/nem/">
@@ -533,9 +661,18 @@
         </div>
 
         <p class="text-center top-gap">
-            &copy; Copyright 2018, NEM.
+            &copy; Copyright 2018-2019, NEM.
         </p>
     </div>
 </footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+    indexName: 'nemtech',
+    inputSelector: '#search',
+    algoliaOptions: {},
+    debug: false
+});
+</script>
   </body>
 </html>

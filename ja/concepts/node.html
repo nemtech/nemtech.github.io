@@ -40,6 +40,20 @@
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<script type="text/javascript">
+    var _paq = window._paq || [];
+    _paq.push(['disableCookies']);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="//analytics.nemtech.io/piwik/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
 
   
   
@@ -67,8 +81,6 @@
             </button>
             <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
                 developer center</a>
-            <span class="navbar-text navbar-version pull-left"><b><a
-                    href="https://github.com/nemtech/nem2-docs/releases">0.17.0</a></b></span>
         </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -84,20 +96,24 @@
                 
                 
             </ul>
-
+            <span class="navbar-text navbar-language pull-left">
+                <div id="language" class="hidden-xs hidden-sm">
+    <label>
+        <i class="fas fa-language"></i>
+        <select>
+            <option id="english" value="en">English</option>
+            <option id="japanese" value="ja">日本語</option>
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </label>
+</div>
+            </span>
             
             
 
 <div class="navbar-right hidden-sm hidden-xs">
-    <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
-    <span id="language">
-        <i class="fas fa-globe"></i>
-        <select>
-            <option id="english" value="en">英語</option>
-            <option id="japanese" value="ja">日本語</option>
-            <option id="translate" value="translate">Translate</option>
-        </select>
-    </span>
+    <i class="fas fa-search"></i>
+    <input id="search" class="form-control" placeholder="Search..."/>
 </div>
             
         </div>
@@ -106,6 +122,8 @@
 
 <div class="container">
     <div class="row">
+
+        
 <div class="col-md-3">
     <div id="sidebar" class="bs-sidenav" role="complementary"><div class="sidebar-md hidden-xs hidden-sm">
     <p class="caption"><span class="caption-text">Getting Started</span></p>
@@ -153,10 +171,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">クライアント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../wallet.html">ウォレット</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">プロトタイピングツール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions.html">拡張</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
@@ -165,6 +183,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">貢献者</a></li>
 </ul>
 
+    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.1</a></small>
 </div>
 
 <div class="sidebar-xs visible-xs visible-sm">
@@ -215,10 +234,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">クライアント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../wallet.html">ウォレット</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">プロトタイピングツール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions.html">拡張</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
@@ -231,6 +250,7 @@
 </div>
     </div>
 </div>
+        
         <div class="col-md-7 content">
             <div id="edit-on-github" class="text-right">
                 <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\node.rst"
@@ -253,20 +273,20 @@
 <p>API は新しいトランザクションを P2P ネットワークにプッシュし、それらは <a class="reference internal" href="harvesting.html"><span class="doc">ブロックに含まれる</span></a> かまたは廃棄されます。ブロックが処理された後に:</p>
 <ul class="simple">
 <li>ブロックのバイナリはフラットなファイルとしてディスクに保存されます。</li>
-<li>更新したチェーンの状態はメモリまたはRocksDBに保存されます。(設定可能)</li>
+<li>更新したチェーンの状態はメモリまたは RocksDB に保存されます。(設定可能)</li>
 </ul>
 <div class="section" id="node-reputation">
 <h3>ノードレピュテーション<a class="headerlink" href="#node-reputation" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>パブリックネットワークでは誰でもノードを実行できます。これらのノードの中には無効な情報を共有したり、ネットワークを妨害しようとするものがあります。</p>
 <p>通信の試行を減らすために、ノードは先行する通信の結果を追跡します。</p>
 <p>ノードがリモートピアに接続すると、最初のノードはリモートへの信頼を増やします。そうでなければ、ノードは失敗カウンタをインクリメントします。同様にノードは要求されたデータを処理した後に信頼カウンタを適宜更新します。</p>
-<p>これらの相互作用からノードは到達したすべてのピアに500〜10000の重みを割り当てます。</p>
+<p>これらの相互作用からノードは到達したすべてのピアに 500 から 10000 の重みを割り当てます。</p>
 <p>リモートノードを選択する確率はその重みに比例します。4回のノード選択ごとに条件が変更され <a href=" https://en.wikipedia.org/wiki/Sybil_attack" target="_blank">Sybil attacks</a> が防止されます。代わりにノードは重要度の高いピアを選択します。</p>
 </div>
 <div class="section" id="rocksdb">
 <h3>RocksDB<a class="headerlink" href="#rocksdb" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><a href=" https://en.wikipedia.org/wiki/RocksDB" target="_blank">RocksDB</a> はチェーン状態を保存します。このキャッシュされたデータ構造はシリアライズされ、対応するキーに値として保存されます。例えば、公開鍵をアドレスにマッピングしている列。他には、対応するアドレスをキーの値とした、アカウント状態のエントリです。</p>
-<p>RocksDBを使用するよりも状態をメモリに保存しておくことのほうがより高速になります。しかし状態の情報を RocksDB に保存しておくことで、ネットワークのノードが必要とするメモリを少なくできます。</p>
+<p>RocksDB を使用するよりも状態をメモリに保存しておくことのほうがより高速になります。しかし状態の情報を RocksDB に保存しておくことで、ネットワークのノードが必要とするメモリを少なくできます。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
 <p class="last">状態を維持することは、大量のアカウントが存在するネットワークにおいて都合が良いことです。</p>
@@ -301,7 +321,7 @@
 <div class="section" id="rest-component">
 <h2>REST コンポーネント<a class="headerlink" href="#rest-component" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><strong>リポジトリ:</strong> <a href="https://github.com/nemtech/catapult-rest" target="_blank">Catapult REST</a></p>
-<p>The REST component handles <strong>JSON API</strong> client requests. This reads from MongoDB, formats the response, and returns it to the client. This component is responsible as well to return events to the client using <a class="reference internal" href="../api.html#websockets"><span class="std std-ref">WebSockets</span></a>.</p>
+<p>Catapult REST コンポーネントは <strong>JSON API</strong> クライアントリクエストを処理します。MongoDB から読み取り、レスポンスをフォーマットして、それをクライアントに返却します。このコンポーネントは <a class="reference internal" href="../api.html#websockets"><span class="std std-ref">WebSockets</span></a> でクライアントにイベントを返却する役割も果たします。</p>
 <p>各 REST コンポーネントは1つの API インスタンスに接続し、ソケットを使用して新しいトランザクションを送信します。</p>
 </div>
 <div class="section" id="guides">
@@ -351,14 +371,13 @@
         <div class="row">
 
             <div class="col-sm-4">
-                <h4>Learn</h4>
+                <h4>学習する</h4>
 
                 <ul>
                     <li><a href="../getting-started/what-is-nem.html">Getting Started</a></li>
                     <li><a href="cryptography.html">Protocol</a></li>
                     <li><a href="account.html">Built-in Features</a></li>
                     <li><a href="../guides/category/account.html">Guides</a></li>
-                    <li><a href="../references.html">References</a></li>
                     <li><a href="../contribute/contributing.html">Contribute</a></li>
                 </ul>
             </div>
@@ -369,19 +388,19 @@
                 <ul>
                     <li><a href="../api.html">REST API</a></li>
                     <li><a href="../sdk.html">SDKs</a></li>
-                    <li><a href="../extensions.html">Extensions</a></li>
-                    <li><a href="../cli.html">Client</a></li>
-                    <li><a href="../prototyping-tool.html">Prototyping Tool</a></li>
+                    <li><a href="../extensions.html">拡張</a></li>
+                    <li><a href="../cli.html">クライアント</a></li>
+                    <li><a href="../prototyping-tool.html">プロトタイピングツール</a></li>
                 </ul>
             </div>
 
 
             <div class="col-sm-4">
-                <h4>Community</h4>
+                <h4>コミュニティ</h4>
 
                 <ul>
                     <li>
-                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
+                        <a href="http://slack.nemtech.io/"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
                     </li>
                     <li>
                         <a href="https://stackoverflow.com/tags/nem/">
@@ -407,9 +426,18 @@
         </div>
 
         <p class="text-center top-gap">
-            &copy; Copyright 2018, NEM.
+            &copy; Copyright 2018-2019, NEM.
         </p>
     </div>
 </footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+    indexName: 'nemtech',
+    inputSelector: '#search',
+    algoliaOptions: {},
+    debug: false
+});
+</script>
   </body>
 </html>

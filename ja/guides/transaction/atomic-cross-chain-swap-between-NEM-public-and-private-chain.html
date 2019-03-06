@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>NEM パブリックとプライベート間のアトミッククロスチェイン交換 &#8212; NEM Developer Center</title>
+    <title>NEM パブリックとプライベート間のアトミッククロスチェーン交換 &#8212; NEM Developer Center</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
@@ -38,6 +38,20 @@
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<script type="text/javascript">
+    var _paq = window._paq || [];
+    _paq.push(['disableCookies']);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="//analytics.nemtech.io/piwik/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
 
   
   
@@ -65,8 +79,6 @@
             </button>
             <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/logo-nem.svg"></span>
                 developer center</a>
-            <span class="navbar-text navbar-version pull-left"><b><a
-                    href="https://github.com/nemtech/nem2-docs/releases">0.17.0</a></b></span>
         </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -82,20 +94,24 @@
                 
                 
             </ul>
-
+            <span class="navbar-text navbar-language pull-left">
+                <div id="language" class="hidden-xs hidden-sm">
+    <label>
+        <i class="fas fa-language"></i>
+        <select>
+            <option id="english" value="en">English</option>
+            <option id="japanese" value="ja">日本語</option>
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </label>
+</div>
+            </span>
             
             
 
 <div class="navbar-right hidden-sm hidden-xs">
-    <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
-    <span id="language">
-        <i class="fas fa-globe"></i>
-        <select>
-            <option id="english" value="en">英語</option>
-            <option id="japanese" value="ja">日本語</option>
-            <option id="translate" value="translate">Translate</option>
-        </select>
-    </span>
+    <i class="fas fa-search"></i>
+    <input id="search" class="form-control" placeholder="Search..."/>
 </div>
             
         </div>
@@ -104,11 +120,18 @@
 
 <div class="container">
     <div class="row">
+
+        
 <div class="col-md-3">
     <div id="sidebar" class="bs-sidenav" role="complementary">
-<p class="caption sidebar-current-ul"><span class="caption-text">ガイド</span>
-    <span class="angle angle-down fas fa-chevron-down"></span>
-</p>
+
+
+
+<div class="hidden-xs hidden-sm">
+    <p class="caption sidebar-current-ul"><span class="caption-text">ガイド</span>
+        <span class="angle angle-down fas fa-chevron-down"></span>
+    </p>
+    
 <ul class="ablog-cloud current">
     
     
@@ -202,11 +225,117 @@
     
     
 </ul>
-<a href="../../getting-started/training.html"><p class="caption"><span class="caption-text"><i
-        class="fas fa-chalkboard-teacher"></i> コース</span></p></a>
+
+    <a href="../../getting-started/training.html"><p class="caption"><span class="caption-text"><i
+            class="fas fa-chalkboard-teacher"></i> コース</span></p></a>
+</div>
+
+<div class="visible-xs visible-sm">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigation <b class="caret"></b></a>
+        <ul class="dropdown-menu globaltoc">
+<ul class="ablog-cloud current">
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/account.html" class="reference internal nav-header">
+            
+            Account (4)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/aggregate-transaction.html" class="reference internal nav-header">
+            
+            Aggregate Transaction (6)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/block.html" class="reference internal nav-header">
+            
+            Block (2)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/cross-chain-swaps.html" class="reference internal nav-header">
+            
+            Cross-Chain Swaps (1)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/monitoring.html" class="reference internal nav-header">
+            
+            Monitoring (2)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/mosaic.html" class="reference internal nav-header">
+            
+            Mosaic (2)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/multisig-account.html" class="reference internal nav-header">
+            
+            Multisig Account (5)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/namespace.html" class="reference internal nav-header">
+            
+            Namespace (2)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/tools.html" class="reference internal nav-header">
+            
+            Tools (1)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/transfer-transaction.html" class="reference internal nav-header">
+            
+            Transfer Transaction (2)
+        </a></li>
+    
+    
+</ul>
+</ul>
+    </li>
+
+</div>
+
 
     </div>
 </div>
+        
         <div class="col-md-7 content">
             <div id="edit-on-github" class="text-right">
                 <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\transaction\atomic-cross-chain-swap-between-NEM-public-and-private-chain.rst"
@@ -215,32 +344,32 @@
 
             
   <div class="section" id="atomic-cross-chain-swap-between-nem-public-and-private-chain">
-<h1>NEM パブリックとプライベート間のアトミッククロスチェイン交換<a class="headerlink" href="#atomic-cross-chain-swap-between-nem-public-and-private-chain" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>NEM パブリックとプライベート間のアトミッククロスチェーン交換<a class="headerlink" href="#atomic-cross-chain-swap-between-nem-public-and-private-chain" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><a class="reference internal" href="../../concepts/cross-chain-swaps.html"><span class="doc">クロスチェーンスワップ</span></a> は、間に第三者の処理が入ることなく、異なるブロックチェーン間でのトークン交換を可能にします。</p>
 <p>トークンの交換はアトミックに成功します。当事者の誰かが同意しなかった場合、決定された時間の経過後、彼ら各々はロックされたトークンを受信します。</p>
 <p>NEM トークンについて語るときは、本当によく <a class="reference internal" href="../../concepts/mosaic.html"><span class="doc">モザイク</span></a> を参照します。Catapult は <a class="reference internal" href="../../concepts/cross-chain-swaps.html#secret-lock-transaction"><span class="std std-ref">シークレットロック</span></a> / <a class="reference internal" href="../../concepts/cross-chain-swaps.html#secret-proof-transaction"><span class="std std-ref">シークレット証明トランザクション</span></a> を通じてアトミックスワップを可能にします。</p>
 <div class="section" id="background">
 <h2>背景<a class="headerlink" href="#background" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>ALICE と BOB は <strong>10 alice:token を 10 bob:token</strong> に交換したいと思っています。問題なのは、彼らは同じブロックチェーン上にいないことです: alice:token は NEM のパブリックチェーン上に、一方で bob:token は MIJIN のプライベートネットワーク上に存在しています。</p>
+<p>Alice と Bob は <strong>10 alice:token を 10 bob:token</strong> に交換したいと思っています。問題なのは、彼らは同じブロックチェーン上にいないことです: alice:token は NEM のパブリックチェーン上に、一方で bob:token は MIJIN のプライベートネットワーク上に存在しています。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
 <p class="last">2つのチェーンは SDK を共有しています。NEM パブリックチェーンとこの例は、シークレットロック/証明メカニズムが許可されている、他のブロックチェーンプラットフォームでも実装できるでしょう。</p>
 </div>
 <p>非アトミックな解決方法の場合:</p>
 <ol class="arabic simple">
-<li>ALICE が 10 alice:token を BOB へ送信する (プライベートチェーン)</li>
-<li>BOB はトランザクションを受信する</li>
-<li>BOB が 10 bob:token を ALICE へ送信する (パブリックチェーン)</li>
-<li>ALICE はトランザクションを受信する</li>
+<li>Alice が 10 alice:token を Bob へ送信する (プライベートチェーン)</li>
+<li>Bob はトランザクションを受信する</li>
+<li>Bob が 10 bob:token を Alice へ送信する (パブリックチェーン)</li>
+<li>Alice はトランザクションを受信する</li>
 </ol>
-<p>しかし、彼らはお互いをそれほどお互いを信頼しあっていません。BOB は彼のモザイクを ALICE に送ることを決めました。このガイドに従って、テクノロジーを信頼することで、この交換を成立させる方法を確認してください。</p>
+<p>しかし、彼らはお互いをそれほどお互いを信頼しあっていません。Bob は彼のモザイクを Alice に送ることを決めました。このガイドに従って、テクノロジーを信頼することで、この交換を成立させる方法を確認してください。</p>
 </div>
 <div class="section" id="prerequisites">
 <h2>前提条件<a class="headerlink" href="#prerequisites" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><a class="reference internal" href="creating-an-escrow-with-aggregate-bonded-transaction.html"><span class="doc">アグリゲートボンドトランザクションを使ったエスクローの作成ガイド</span></a> を終了していること</li>
 <li>NEM2-SDK</li>
-<li>テキストエディタ または IDE</li>
+<li>テキストエディタかIDE</li>
 </ul>
 </div>
 <div class="section" id="let-s-get-into-some-code">
@@ -269,7 +398,7 @@
 </div>
 </div>
 <ol class="arabic simple">
-<li>ALICE は <code class="docutils literal"><span class="pre">証明</span></code> と呼ばれるランダムな数字を選び出します。SHA512 ハッシュアルゴリズムをそれに適用して <code class="docutils literal"><span class="pre">シークレット</span></code> を得ます。</li>
+<li>Alice は <code class="docutils literal"><span class="pre">証明</span></code> と呼ばれるランダムな数字を選び出します。SHA512 ハッシュアルゴリズムをそれに適用して <code class="docutils literal"><span class="pre">シークレット</span></code> を得ます。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id3">
@@ -283,11 +412,11 @@
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li>ALICE は、これらを含めたシークレットロックトランザクションを作成します:</li>
+<li>Alice は、これらを含めたシークレットロックトランザクションを作成します:</li>
 </ol>
 <ul class="simple">
 <li>送信するモザイクと総量: 10 alice:token</li>
-<li>受信アドレス: プライベートチェーン上の BOB のアドレス</li>
+<li>受信アドレス: プライベートチェーン上の Bob のアドレス</li>
 <li>シークレット: ハッシュ化された証明</li>
 <li>資産がアンロックされるまでの時間: 96h</li>
 <li>ネットワーク: プライベートチェーン</li>
@@ -323,12 +452,12 @@
 </div>
 </div>
 <ol class="arabic simple" start="4">
-<li>ALICE は BOB にシークレットを伝えることができます。彼もまた、直接チェーンからそれを取得することもできます。</li>
-<li>BOB は、これらを含めたシークレットロックトランザクション TX2 を作成します:</li>
+<li>Alice は Bob にシークレットを伝えることができます。彼もまた、直接チェーンからそれを取得することもできます。</li>
+<li>Bob は、これらを含めたシークレットロックトランザクション TX2 を作成します:</li>
 </ol>
 <ul class="simple">
 <li>モザイクと送信する総量: 10 bob:token</li>
-<li>受信アドレス: パブリックチェーン上の ALICE のアドレス</li>
+<li>受信アドレス: パブリックチェーン上の Alice のアドレス</li>
 <li>資産をアンロックするために必要なシークレット</li>
 <li>資産がロックされる時間: 84h</li>
 <li>ネットワーク: パブリックチェーン</li>
@@ -350,10 +479,10 @@
 </div>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">資産をアンロックできる時間は、TX1 のタイムフレームよりも短くする必要があります。ALICE はシークレットを知っていて、BOB はそれを確信しているので、ALICE がシークレットを公開したあとに、彼にはいくらかの時間があるでしょう。</p>
+<p class="last">資産をアンロックできる時間は、TX1 のタイムフレームよりも短くする必要があります。Alice はシークレットを知っていて、Bob はそれを確信しているので、Alice がシークレットを公開したあとに、彼にはいくらかの時間があるでしょう。</p>
 </div>
 <ol class="arabic simple" start="6">
-<li>署名したら、BOB は TX2 をパブリックチェーンへアナウンスします。</li>
+<li>署名したら、Bob は TX2 をパブリックチェーンへアナウンスします。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id7">
@@ -367,7 +496,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="7">
-<li>ALICE はパブリックネットワークで、シークレット証明トランザクション TX3 をアナウンスできます。このトランザクションは使用している暗号化アルゴリズム、オリジナルの証明とシークレットを定義します。これは TX2 トランザクションをアンロックします。</li>
+<li>Alice はパブリックネットワークで、シークレット証明トランザクション TX3 をアナウンスできます。このトランザクションは使用している暗号化アルゴリズム、オリジナルの証明とシークレットを定義します。これは TX2 トランザクションをアンロックします。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id8">
@@ -388,7 +517,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="8">
-<li>証明はパブリックチェーン上で明らかになります。BOB も同じように、シークレット証明トランザクション TX4 をプライベートチェーンにアナウンスします。</li>
+<li>証明はパブリックチェーン上で明らかになります。Bob も同じように、シークレット証明トランザクション TX4 をプライベートチェーンにアナウンスします。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id9">
@@ -408,15 +537,15 @@
 </div>
 </div>
 </div>
-<p>BOB が TX1 資産をアンロックすると、一瞬で、アトミッククロスチェーン交換は完結します。</p>
+<p>Bob が TX1 資産をアンロックすると、一瞬で、アトミッククロスチェーン交換は完結します。</p>
 </div>
 <div class="section" id="is-it-atomic">
 <h2>これはアトミックですか？<a class="headerlink" href="#is-it-atomic" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>以下のシナリオを考慮してください:</p>
 <ol class="upperalpha simple">
-<li>BOB は Tx2 をアナウンスしたくありません。ALICE は94時間後に彼の資産の返還を受信します。</li>
-<li>ALICE は Tx3 に署名することでトークンを交換したくありません。BOB は84時間後に彼の資産の返還を受取ります。ALICE は同様に、94時間後に彼女の資産をアンロックします。</li>
-<li>ALICE は Tx3 に署名しアナウンスし、BOB の資産を受取ります。BOB は Tx1 の正当性が Tx2 よりも長いため、Tx4 に署名する時間があります。</li>
+<li>Bob は Tx2 をアナウンスしたくありません。Alice は94時間後に彼の資産の返還を受信します。</li>
+<li>Alice は Tx3 に署名することでトークンを交換したくありません。Bob は84時間後に彼の資産の返還を受取ります。Alice は同様に、94時間後に彼女の資産をアンロックします。</li>
+<li>Alice は Tx3 に署名しアナウンスし、Bob の資産を受取ります。Bob は Tx1 の正当性が Tx2 よりも長いため、Tx4 に署名する時間があります。</li>
 </ol>
 <p>このプロセスはアトミックですが、デッドラインを迎える前に、完了するまで多くの時間がかかることになります。</p>
 </div>
@@ -438,7 +567,7 @@
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
-<li><a class="reference internal" href="#">NEM パブリックとプライベート間のアトミッククロスチェイン交換</a><ul>
+<li><a class="reference internal" href="#">NEM パブリックとプライベート間のアトミッククロスチェーン交換</a><ul>
 <li><a class="reference internal" href="#background">背景</a></li>
 <li><a class="reference internal" href="#prerequisites">前提条件</a></li>
 <li><a class="reference internal" href="#let-s-get-into-some-code">それではコードを見ていきましょう</a></li>
@@ -458,14 +587,13 @@
         <div class="row">
 
             <div class="col-sm-4">
-                <h4>Learn</h4>
+                <h4>学習する</h4>
 
                 <ul>
                     <li><a href="../../getting-started/what-is-nem.html">Getting Started</a></li>
                     <li><a href="../../concepts/cryptography.html">Protocol</a></li>
                     <li><a href="../../concepts/account.html">Built-in Features</a></li>
                     <li><a href="../category/account.html">Guides</a></li>
-                    <li><a href="../../references.html">References</a></li>
                     <li><a href="../../contribute/contributing.html">Contribute</a></li>
                 </ul>
             </div>
@@ -476,19 +604,19 @@
                 <ul>
                     <li><a href="../../api.html">REST API</a></li>
                     <li><a href="../../sdk.html">SDKs</a></li>
-                    <li><a href="../../extensions.html">Extensions</a></li>
-                    <li><a href="../../cli.html">Client</a></li>
-                    <li><a href="../../prototyping-tool.html">Prototyping Tool</a></li>
+                    <li><a href="../../extensions.html">拡張</a></li>
+                    <li><a href="../../cli.html">クライアント</a></li>
+                    <li><a href="../../prototyping-tool.html">プロトタイピングツール</a></li>
                 </ul>
             </div>
 
 
             <div class="col-sm-4">
-                <h4>Community</h4>
+                <h4>コミュニティ</h4>
 
                 <ul>
                     <li>
-                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
+                        <a href="http://slack.nemtech.io/"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
                     </li>
                     <li>
                         <a href="https://stackoverflow.com/tags/nem/">
@@ -514,9 +642,18 @@
         </div>
 
         <p class="text-center top-gap">
-            &copy; Copyright 2018, NEM.
+            &copy; Copyright 2018-2019, NEM.
         </p>
     </div>
 </footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+    indexName: 'nemtech',
+    inputSelector: '#search',
+    algoliaOptions: {},
+    debug: false
+});
+</script>
   </body>
 </html>

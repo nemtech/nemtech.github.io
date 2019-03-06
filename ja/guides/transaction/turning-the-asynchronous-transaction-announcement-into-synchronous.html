@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>非同期なトランザクションのアナウンスを同期的にする &#8212; NEM Developer Center</title>
+    <title>非同期なトランザクションのアナウンスを同期的に変える &#8212; NEM Developer Center</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
@@ -38,6 +38,20 @@
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<script type="text/javascript">
+    var _paq = window._paq || [];
+    _paq.push(['disableCookies']);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="//analytics.nemtech.io/piwik/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
 
   
   
@@ -65,8 +79,6 @@
             </button>
             <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/logo-nem.svg"></span>
                 developer center</a>
-            <span class="navbar-text navbar-version pull-left"><b><a
-                    href="https://github.com/nemtech/nem2-docs/releases">0.17.0</a></b></span>
         </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -82,20 +94,24 @@
                 
                 
             </ul>
-
+            <span class="navbar-text navbar-language pull-left">
+                <div id="language" class="hidden-xs hidden-sm">
+    <label>
+        <i class="fas fa-language"></i>
+        <select>
+            <option id="english" value="en">English</option>
+            <option id="japanese" value="ja">日本語</option>
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </label>
+</div>
+            </span>
             
             
 
 <div class="navbar-right hidden-sm hidden-xs">
-    <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
-    <span id="language">
-        <i class="fas fa-globe"></i>
-        <select>
-            <option id="english" value="en">英語</option>
-            <option id="japanese" value="ja">日本語</option>
-            <option id="translate" value="translate">Translate</option>
-        </select>
-    </span>
+    <i class="fas fa-search"></i>
+    <input id="search" class="form-control" placeholder="Search..."/>
 </div>
             
         </div>
@@ -104,11 +120,18 @@
 
 <div class="container">
     <div class="row">
+
+        
 <div class="col-md-3">
     <div id="sidebar" class="bs-sidenav" role="complementary">
-<p class="caption sidebar-current-ul"><span class="caption-text">ガイド</span>
-    <span class="angle angle-down fas fa-chevron-down"></span>
-</p>
+
+
+
+<div class="hidden-xs hidden-sm">
+    <p class="caption sidebar-current-ul"><span class="caption-text">ガイド</span>
+        <span class="angle angle-down fas fa-chevron-down"></span>
+    </p>
+    
 <ul class="ablog-cloud current">
     
     
@@ -202,11 +225,117 @@
     
     
 </ul>
-<a href="../../getting-started/training.html"><p class="caption"><span class="caption-text"><i
-        class="fas fa-chalkboard-teacher"></i> コース</span></p></a>
+
+    <a href="../../getting-started/training.html"><p class="caption"><span class="caption-text"><i
+            class="fas fa-chalkboard-teacher"></i> コース</span></p></a>
+</div>
+
+<div class="visible-xs visible-sm">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigation <b class="caret"></b></a>
+        <ul class="dropdown-menu globaltoc">
+<ul class="ablog-cloud current">
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/account.html" class="reference internal nav-header">
+            
+            Account (4)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/aggregate-transaction.html" class="reference internal nav-header">
+            
+            Aggregate Transaction (6)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/block.html" class="reference internal nav-header">
+            
+            Block (2)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/cross-chain-swaps.html" class="reference internal nav-header">
+            
+            Cross-Chain Swaps (1)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/monitoring.html" class="reference internal nav-header">
+            
+            Monitoring (2)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/mosaic.html" class="reference internal nav-header">
+            
+            Mosaic (2)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/multisig-account.html" class="reference internal nav-header">
+            
+            Multisig Account (5)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/namespace.html" class="reference internal nav-header">
+            
+            Namespace (2)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/tools.html" class="reference internal nav-header">
+            
+            Tools (1)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/transfer-transaction.html" class="reference internal nav-header">
+            
+            Transfer Transaction (2)
+        </a></li>
+    
+    
+</ul>
+</ul>
+    </li>
+
+</div>
+
 
     </div>
 </div>
+        
         <div class="col-md-7 content">
             <div id="edit-on-github" class="text-right">
                 <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\transaction\turning-the-asynchronous-transaction-announcement-into-synchronous.rst"
@@ -215,18 +344,18 @@
 
             
   <div class="section" id="turning-the-asynchronous-transaction-announcement-into-synchronous">
-<h1>非同期なトランザクションのアナウンスを同期的にする<a class="headerlink" href="#turning-the-asynchronous-transaction-announcement-into-synchronous" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a href="https://github.com/nemtech/nem2-camel" target="_blank">nem2-camel</a> で非同期なトランザクションのアナウンスを同期的にします。</p>
+<h1>非同期なトランザクションのアナウンスを同期的に変える<a class="headerlink" href="#turning-the-asynchronous-transaction-announcement-into-synchronous" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a href="https://github.com/nemtech/nem2-camel" target="_blank">nem2-camel</a> を使用して非同期なトランザクションのアナウンスを同期的に変えます。</p>
 <div class="section" id="background">
 <h2>背景<a class="headerlink" href="#background" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>ALICE は BOB に 10 nem:xem を送るアプリケーションを開発しています。彼女は BOB にメールを送る前に、トランザクションがネットワークに到着したかどうかを知りたいです。</p>
-<p>NIS1 では、トランザクションをアナウンスしたら、ノードからのレスポンスを待つ必要がありました。Catapult では異なる動作をします。トランザクションがアナウンスされると、REST API サーバーは常に OK を返します。</p>
-<p>これにより、開発者はサーバがレスポンスを返却するのを待つ必要がなくなり、よりレスポンシブなアプリケーションの開発を可能になりました。しかし、トランザクションの状態を確認、承認を確認することは開発者の責任となりました。</p>
+<p>Alice は Bob に 10 nem:xem を送るアプリケーションを開発しています。彼女は Bob にメールを送る前に、トランザクションがネットワークに到着したかどうかを知ろうとしています。</p>
+<p>NIS1 において、トランザクションをアナウンスしたら、ノードからのレスポンスを待つ必要がありました。Catapult では異なる動作をします。トランザクションがアナウンスされると、REST API サーバーは常に OK を返します。</p>
+<p>これにより開発者はサーバがレスポンスを返却するのを待つ必要がなく、よりレスポンシブなアプリケーションの開発を可能になりました。しかし、トランザクションの状態や承認されたことを確認するのは開発者の責務になります。</p>
 <p>一方で、トランザクションの状態を追跡し続けることは、小さなプロジェクトに複雑さを持ち込むことになります。NIS1 からのマイグレーションにおいても難易度が上がってしまうでしょう。</p>
-<p>nem2-camel aims to solve these problems by providing a server that listens to the Catapult REST calls and acts as a proxy. When it detects a transaction announcement, it waits for the confirmation via <a class="reference internal" href="../../api.html#websockets"><span class="std std-ref">WebSockets</span></a> and returns the message to the HTTP call.</p>
+<p>nem2-camel は、Catapult REST を監視し、プロキシとして動作するサーバの提供によって、これらの問題の解決を目指しています。トランザクションのアナウンスを検知すると <a class="reference internal" href="../../api.html#websockets"><span class="std std-ref">WebSockets</span></a> を経由して承認を待ち、HTTP 呼び出しへメッセージを返します。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">nem2-camel をプロキシとして使用するとき、 <code class="docutils literal"><span class="pre">TransactionHttp.announceSync</span></code> 関数はトランザクションを同期的に実行します。nem2-camel は、トランザクションがネットワークへ到着し、正当性チェックエラーが無い場合に、成功を返します。あなたは、追加のアクションを実行する前に <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">幾分かの承認を待つ</span></a> 必要があるかもしれません。</p>
+<p class="last">nem2-camel をプロキシとして使用するとき、 <code class="docutils literal"><span class="pre">TransactionHttp.announceSync</span></code> 関数はトランザクションを同期的に実行します。nem2-camel は、トランザクションがネットワークへ到着し、バリデーションチェックにエラーが無い場合、成功を返します。追加のアクションを実行する前に <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">幾分かの承認を待つ</span></a> 必要があるかもしれません。</p>
 </div>
 <div class="figure align-center" id="id1">
 <img alt="../../_images/nem2-camel-proxy.png" src="../../_images/nem2-camel-proxy.png" />
@@ -236,18 +365,18 @@
 <div class="section" id="prerequisites">
 <h2>前提条件<a class="headerlink" href="#prerequisites" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><a class="reference internal" href="sending-a-transfer-transaction.html"><span class="doc">転送トランザクションの送信ガイド</span></a> を終了していること</li>
-<li>テキストエディタ または IDE</li>
+<li><a class="reference internal" href="sending-a-transfer-transaction.html"><span class="doc">転送トランザクション送信ガイド</span></a> を終了している</li>
+<li>テキストエディタかIDE</li>
 <li>XEM を保有したアカウント</li>
 </ul>
 </div>
 <div class="section" id="lets-get-into-some-code">
 <h2>それではコードを見ていきましょう<a class="headerlink" href="#lets-get-into-some-code" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><strong>Catapultサービスをローカルに立ち上げます</strong></p>
+<p><strong>Catapult サービスをローカルに立ち上げます</strong></p>
 <p>nem2-camel はアプリケーションと REST API の間のプロキシとして動作します。</p>
 <p>開発と学習の目的のために <a href="https://github.com/tech-bureau/catapult-service-bootstrap/" target="_blank">Catapult Service Bootstrap</a> を使用して、 <a class="reference internal" href="../../concepts/node.html"><span class="doc">Catapult サーバ と Catapult REST</span></a> を実行できます。</p>
 <ol class="arabic simple">
-<li>以下のインストラクションを実行する前に、 <a href="https://docs.docker.com/install/" target="_blank">docker</a> と <a href="https://docs.docker.com/compose/install/" target="_blank">docker compose</a> をインストールしてください:</li>
+<li>以下のインストラクションを実行する前に <a href="https://docs.docker.com/install/" target="_blank">docker</a> と <a href="https://docs.docker.com/compose/install/" target="_blank">docker compose</a> をインストールしてください:</li>
 </ol>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; git clone git@github.com:tech-bureau/catapult-service-bootstrap.git
 $&gt; <span class="nb">cd</span> catapult-service-bootstrap
@@ -255,13 +384,13 @@ $&gt; docker-compose up
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
-<li>すべてがうまく行けば、イメージがダウンロードされ、サービスが動き始めるので、最初のブロックの情報を取得して確認ができるでしょう:</li>
+<li>すべてがうまく行けば、イメージがダウンロードされてサービスが動き始めるので、最初のブロック情報を取得して動作確認をしてください:</li>
 </ol>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; curl localhost:3000/block/1
 </pre></div>
 </div>
-<p><strong>ALICE と BOB のアドレスを手に入れる</strong></p>
-<p>Catapult サービスが動き出せば、XEM を保有した <a class="reference internal" href="../../concepts/account.html"><span class="doc">アカウント</span></a> が生成されるでしょう。</p>
+<p><strong>Alice と Bob のアドレスの入手</strong></p>
+<p>Catapult サービスが動き出せば、XEM を保有した <a class="reference internal" href="../../concepts/account.html"><span class="doc">アカウント</span></a> が生成されます。</p>
 <ol class="arabic simple">
 <li><code class="docutils literal"><span class="pre">nemesis_addresses</span></code> のセクションからキーペアを見つけてください。</li>
 </ol>
@@ -276,20 +405,20 @@ $&gt; docker-compose up
 <p><strong>nem2-camel のインストール</strong></p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">nem2-camel は少なくとも Java 8 以上を必要とします。</p>
+<p class="last">nem2-camel は Java バージョン8 以降を必要とします。</p>
 </div>
 <ol class="arabic simple">
-<li>リリースされている <a href="https://github.com/nemtech/nem2-camel/releases" target="_blank">nem2-camel jar</a> パッケージをダウンロードして、実行してください:</li>
+<li>最新リリースの <a href="https://github.com/nemtech/nem2-camel/releases" target="_blank">nem2-camel jar</a> パッケージをダウンロードして、実行してください:</li>
 </ol>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; java -jar nem2-camel.jar --url http://localhost:3000
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
-<li>サービスを起動したら <code class="docutils literal"><span class="pre">0.0.0.0:9000</span></code> を新しいプロキシURLとして使用してください。</li>
+<li>サービスが起動したら <code class="docutils literal"><span class="pre">0.0.0.0:9000</span></code> を新しいプロキシURLとして使用してください。</li>
 </ol>
 <p><strong>転送トランザクションの送信</strong></p>
 <ol class="arabic simple">
-<li>ALICE は <a class="reference internal" href="../../concepts/transfer-transaction.html"><span class="doc">転送トランザクション</span></a> を作成し、<code class="docutils literal"><span class="pre">10</span> <span class="pre">XEM</span></code> を BOB へ送り、彼女のアカウントで署名します。</li>
+<li>Alice は <a class="reference internal" href="../../concepts/transfer-transaction.html"><span class="doc">転送トランザクション</span></a> を作成し、<code class="docutils literal"><span class="pre">10</span> <span class="pre">XEM</span></code> を Bob へ送り、彼女のアカウントで署名します。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id2">
@@ -312,7 +441,7 @@ $&gt; docker-compose up
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li>署名が済めば、ALICE はネットワークへ <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">トランザクションをアナウンス</span></a> できます。トランザクションがネットワークへ到着し、トランザクションオブジェクトを返却するのを待つために、<code class="docutils literal"><span class="pre">TransactionHttp.announceSync</span></code> の代わりに <code class="docutils literal"><span class="pre">TransactionHttp.announce</span></code> を使用してください。その後に ALICE は BOB にメールを送信することができます。</li>
+<li>署名が済めば、Alice はネットワークへ <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">トランザクションをアナウンス</span></a> できます。トランザクションがネットワークへ到着し、トランザクションオブジェクトを返却するのを待つために、<code class="docutils literal"><span class="pre">TransactionHttp.announceSync</span></code> の代わりに <code class="docutils literal"><span class="pre">TransactionHttp.announce</span></code> を使用してください。そのあと Alice は Bob にメールを送信できるでしょう。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id3">
@@ -333,8 +462,8 @@ $&gt; docker-compose up
 </div>
 </div>
 </div>
-<p>トランザクションが正当であれば、nem2-camel は <code class="docutils literal"><span class="pre">Transaction</span></code> オブジェクトを返します。トランザクションには <code class="docutils literal"><span class="pre">未確認</span></code> 状態があることを強調することが重要です。ALICE またはあなたは、追加のアクションを実行する前に <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">幾分かの承認を待つ</span></a> 必要があるかもしれません。</p>
-<p>Catapult REST サーバーがエラーをスローした場合、購読メソッドは <code class="docutils literal"><span class="pre">TransactionStatus</span></code> オブジェクトを返す <code class="docutils literal"><span class="pre">error</span></code> 関数を呼び出します</p>
+<p>トランザクションが正当であれば、nem2-camel は <code class="docutils literal"><span class="pre">Transaction</span></code> オブジェクトを返します。トランザクションには <code class="docutils literal"><span class="pre">未確認</span></code> 状態があることを強調することが重要です。Alice またはあなたは、追加でアクションを実行する前に <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">幾分かの承認を待つ</span></a> 必要があるかもしれません。</p>
+<p>Catapult REST サーバーがエラーをスローした場合、購読メソッドは <code class="docutils literal"><span class="pre">TransactionStatus</span></code> オブジェクトを返す <code class="docutils literal"><span class="pre">error</span> <span class="pre">関数</span></code> を呼び出します。</p>
 </div>
 </div>
 
@@ -354,7 +483,7 @@ $&gt; docker-compose up
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
-<li><a class="reference internal" href="#">非同期なトランザクションのアナウンスを同期的にする</a><ul>
+<li><a class="reference internal" href="#">非同期なトランザクションのアナウンスを同期的に変える</a><ul>
 <li><a class="reference internal" href="#background">背景</a></li>
 <li><a class="reference internal" href="#prerequisites">前提条件</a></li>
 <li><a class="reference internal" href="#lets-get-into-some-code">それではコードを見ていきましょう</a></li>
@@ -373,14 +502,13 @@ $&gt; docker-compose up
         <div class="row">
 
             <div class="col-sm-4">
-                <h4>Learn</h4>
+                <h4>学習する</h4>
 
                 <ul>
                     <li><a href="../../getting-started/what-is-nem.html">Getting Started</a></li>
                     <li><a href="../../concepts/cryptography.html">Protocol</a></li>
                     <li><a href="../../concepts/account.html">Built-in Features</a></li>
                     <li><a href="../category/account.html">Guides</a></li>
-                    <li><a href="../../references.html">References</a></li>
                     <li><a href="../../contribute/contributing.html">Contribute</a></li>
                 </ul>
             </div>
@@ -391,19 +519,19 @@ $&gt; docker-compose up
                 <ul>
                     <li><a href="../../api.html">REST API</a></li>
                     <li><a href="../../sdk.html">SDKs</a></li>
-                    <li><a href="../../extensions.html">Extensions</a></li>
-                    <li><a href="../../cli.html">Client</a></li>
-                    <li><a href="../../prototyping-tool.html">Prototyping Tool</a></li>
+                    <li><a href="../../extensions.html">拡張</a></li>
+                    <li><a href="../../cli.html">クライアント</a></li>
+                    <li><a href="../../prototyping-tool.html">プロトタイピングツール</a></li>
                 </ul>
             </div>
 
 
             <div class="col-sm-4">
-                <h4>Community</h4>
+                <h4>コミュニティ</h4>
 
                 <ul>
                     <li>
-                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
+                        <a href="http://slack.nemtech.io/"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
                     </li>
                     <li>
                         <a href="https://stackoverflow.com/tags/nem/">
@@ -429,9 +557,18 @@ $&gt; docker-compose up
         </div>
 
         <p class="text-center top-gap">
-            &copy; Copyright 2018, NEM.
+            &copy; Copyright 2018-2019, NEM.
         </p>
     </div>
 </footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+    indexName: 'nemtech',
+    inputSelector: '#search',
+    algoliaOptions: {},
+    debug: false
+});
+</script>
   </body>
 </html>

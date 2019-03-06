@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Getting block by height &#8212; NEM Developer Center</title>
@@ -37,6 +37,20 @@
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<script type="text/javascript">
+    var _paq = window._paq || [];
+    _paq.push(['disableCookies']);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="//analytics.nemtech.io/piwik/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
 
   
   
@@ -64,8 +78,6 @@
             </button>
             <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/logo-nem.svg"></span>
                 developer center</a>
-            <span class="navbar-text navbar-version pull-left"><b><a
-                    href="https://github.com/nemtech/nem2-docs/releases">0.17.0</a></b></span>
         </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -81,20 +93,24 @@
                 
                 
             </ul>
-
+            <span class="navbar-text navbar-language pull-left">
+                <div id="language" class="hidden-xs hidden-sm">
+    <label>
+        <i class="fas fa-language"></i>
+        <select>
+            <option id="english" value="en">English</option>
+            <option id="japanese" value="ja">日本語</option>
+            <option id="translate" value="translate">Translate</option>
+        </select>
+    </label>
+</div>
+            </span>
             
             
 
 <div class="navbar-right hidden-sm hidden-xs">
-    <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
-    <span id="language">
-        <i class="fas fa-globe"></i>
-        <select>
-            <option id="english" value="en">English</option>
-            <option id="japanese" value="ja">Japanese</option>
-            <option id="translate" value="translate">Translate</option>
-        </select>
-    </span>
+    <i class="fas fa-search"></i>
+    <input id="search" class="form-control" placeholder="Search..."/>
 </div>
             
         </div>
@@ -103,11 +119,18 @@
 
 <div class="container">
     <div class="row">
+
+        
 <div class="col-md-3">
     <div id="sidebar" class="bs-sidenav" role="complementary">
-<p class="caption sidebar-current-ul"><span class="caption-text">Guides</span>
-    <span class="angle angle-down fas fa-chevron-down"></span>
-</p>
+
+
+
+<div class="hidden-xs hidden-sm">
+    <p class="caption sidebar-current-ul"><span class="caption-text">Guides</span>
+        <span class="angle angle-down fas fa-chevron-down"></span>
+    </p>
+    
 <ul class="ablog-cloud current">
     
     
@@ -201,11 +224,117 @@
     
     
 </ul>
-<a href="../../getting-started/training.html"><p class="caption"><span class="caption-text"><i
-        class="fas fa-chalkboard-teacher"></i> Courses</span></p></a>
+
+    <a href="../../getting-started/training.html"><p class="caption"><span class="caption-text"><i
+            class="fas fa-chalkboard-teacher"></i> Courses</span></p></a>
+</div>
+
+<div class="visible-xs visible-sm">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigation <b class="caret"></b></a>
+        <ul class="dropdown-menu globaltoc">
+<ul class="ablog-cloud current">
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/account.html" class="reference internal nav-header">
+            
+            Account (4)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/aggregate-transaction.html" class="reference internal nav-header">
+            
+            Aggregate Transaction (6)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/block.html" class="reference internal nav-header">
+            
+            Block (2)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/cross-chain-swaps.html" class="reference internal nav-header">
+            
+            Cross-Chain Swaps (1)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/monitoring.html" class="reference internal nav-header">
+            
+            Monitoring (2)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/mosaic.html" class="reference internal nav-header">
+            
+            Mosaic (2)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/multisig-account.html" class="reference internal nav-header">
+            
+            Multisig Account (5)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/namespace.html" class="reference internal nav-header">
+            
+            Namespace (2)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/tools.html" class="reference internal nav-header">
+            
+            Tools (1)
+        </a></li>
+    
+    
+    
+    
+    <li class="ablog-cloud toctree-l1">
+        <a href="../category/transfer-transaction.html" class="reference internal nav-header">
+            
+            Transfer Transaction (2)
+        </a></li>
+    
+    
+</ul>
+</ul>
+    </li>
+
+</div>
+
 
     </div>
 </div>
+        
         <div class="col-md-7 content">
             <div id="edit-on-github" class="text-right">
                 <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\blockchain\getting-block-by-height.rst"
@@ -349,7 +478,6 @@
                     <li><a href="../../concepts/cryptography.html">Protocol</a></li>
                     <li><a href="../../concepts/account.html">Built-in Features</a></li>
                     <li><a href="../category/account.html">Guides</a></li>
-                    <li><a href="../../references.html">References</a></li>
                     <li><a href="../../contribute/contributing.html">Contribute</a></li>
                 </ul>
             </div>
@@ -372,7 +500,7 @@
 
                 <ul>
                     <li>
-                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
+                        <a href="http://slack.nemtech.io/"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
                     </li>
                     <li>
                         <a href="https://stackoverflow.com/tags/nem/">
@@ -398,9 +526,18 @@
         </div>
 
         <p class="text-center top-gap">
-            &copy; Copyright 2018, NEM.
+            &copy; Copyright 2018-2019, NEM.
         </p>
     </div>
 </footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+    indexName: 'nemtech',
+    inputSelector: '#search',
+    algoliaOptions: {},
+    debug: false
+});
+</script>
   </body>
 </html>

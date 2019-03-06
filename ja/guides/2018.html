@@ -44,6 +44,20 @@
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<script type="text/javascript">
+    var _paq = window._paq || [];
+    _paq.push(['disableCookies']);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="//analytics.nemtech.io/piwik/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
 
   
   <link rel="alternate" type="application/atom+xml"  href="../guides/atom.xml" title="Posted in 2018">
@@ -73,8 +87,6 @@
             </button>
             <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
                 developer center</a>
-            <span class="navbar-text navbar-version pull-left"><b><a
-                    href="https://github.com/nemtech/nem2-docs/releases">0.17.0</a></b></span>
         </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -90,20 +102,24 @@
                 
                 
             </ul>
-
+            <span class="navbar-text navbar-language pull-left">
+                <div id="language" class="hidden-xs hidden-sm">
+    <label>
+        <i class="fas fa-language"></i>
+        <select>
+            <option id="english" value="en">English</option>
+            <option id="japanese" value="ja">日本語</option>
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </label>
+</div>
+            </span>
             
             
 
 <div class="navbar-right hidden-sm hidden-xs">
-    <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
-    <span id="language">
-        <i class="fas fa-globe"></i>
-        <select>
-            <option id="english" value="en">英語</option>
-            <option id="japanese" value="ja">日本語</option>
-            <option id="translate" value="translate">Translate</option>
-        </select>
-    </span>
+    <i class="fas fa-search"></i>
+    <input id="search" class="form-control" placeholder="Search..."/>
 </div>
             
         </div>
@@ -112,6 +128,9 @@
 
 <div class="container">
     <div class="row">
+
+        
+        
         <div class="col-md-12 content">
 
             
@@ -136,7 +155,7 @@
 
 <div class="section">
     <h2><a href="transaction/sending-a-transfer-transaction.html">転送トランザクションの送信</a></h2>
-    <p><a class="reference internal" href="../concepts/mosaic.html"><span class="doc">モザイク</span></a> とメッセージを２つのアカウント間で転送します。</p>
+    <p><a class="reference internal" href="../concepts/mosaic.html"><span class="doc">モザイク</span></a> とメッセージを2つのアカウント間で転送します。</p>
 
     <p><a href="transaction/sending-a-transfer-transaction.html">もっと読む</a></p>
     <hr>
@@ -167,7 +186,7 @@
 </div>
 
 <div class="section">
-    <h2><a href="transaction/signing-announced-aggregate-bonded-transactions.html">アナウンス済みのアグリゲートボンドトランザクションへの署名</a></h2>
+    <h2><a href="transaction/signing-announced-aggregate-bonded-transactions.html">アナウンス済みアグリゲートボンドトランザクションへの署名</a></h2>
     <p>あなたは <a class="reference internal" href="../concepts/aggregate-transaction.html#id1"><span class="std std-ref">アグリゲートボンドトランザクション</span></a> をアナウンスしたと思いますが、すべての署名を要求されている連署者はまだそれに署名をしていません。</p>
 
     <p><a href="transaction/signing-announced-aggregate-bonded-transactions.html">もっと読む</a></p>
@@ -175,7 +194,7 @@
 </div>
 
 <div class="section">
-    <h2><a href="transaction/signing-announced-aggregate-bonded-transactions-automatically.html">アナウンス済みのアグリゲートボンドトランザクションへの署名の自動化</a></h2>
+    <h2><a href="transaction/signing-announced-aggregate-bonded-transactions-automatically.html">アナウンス済みのアグリゲートボンドトランザクションへの署名を自動化する</a></h2>
     <p>署名待ちのトランザクションへ自動的に署名する</p>
 
     <p><a href="transaction/signing-announced-aggregate-bonded-transactions-automatically.html">もっと読む</a></p>
@@ -231,7 +250,7 @@
 </div>
 
 <div class="section">
-    <h2><a href="transaction/atomic-cross-chain-swap-between-NEM-public-and-private-chain.html">NEM パブリックとプライベート間のアトミッククロスチェイン交換</a></h2>
+    <h2><a href="transaction/atomic-cross-chain-swap-between-NEM-public-and-private-chain.html">NEM パブリックとプライベート間のアトミッククロスチェーン交換</a></h2>
     <p><a class="reference internal" href="../concepts/cross-chain-swaps.html"><span class="doc">クロスチェーンスワップ</span></a> は、間に第三者の処理が入ることなく、異なるブロックチェーン間でのトークン交換を可能にします。</p>
 
     <p><a href="transaction/atomic-cross-chain-swap-between-NEM-public-and-private-chain.html">もっと読む</a></p>
@@ -295,8 +314,8 @@
 </div>
 
 <div class="section">
-    <h2><a href="transaction/turning-the-asynchronous-transaction-announcement-into-synchronous.html">非同期なトランザクションのアナウンスを同期的にする</a></h2>
-    <p><a href="https://github.com/nemtech/nem2-camel" target="_blank">nem2-camel</a> で非同期なトランザクションのアナウンスを同期的にします。</p>
+    <h2><a href="transaction/turning-the-asynchronous-transaction-announcement-into-synchronous.html">非同期なトランザクションのアナウンスを同期的に変える</a></h2>
+    <p><a href="https://github.com/nemtech/nem2-camel" target="_blank">nem2-camel</a> を使用して非同期なトランザクションのアナウンスを同期的に変えます。</p>
 
     <p><a href="transaction/turning-the-asynchronous-transaction-announcement-into-synchronous.html">もっと読む</a></p>
     <hr>
@@ -323,14 +342,13 @@
         <div class="row">
 
             <div class="col-sm-4">
-                <h4>Learn</h4>
+                <h4>学習する</h4>
 
                 <ul>
                     <li><a href="../getting-started/what-is-nem.html">Getting Started</a></li>
                     <li><a href="../concepts/cryptography.html">Protocol</a></li>
                     <li><a href="../concepts/account.html">Built-in Features</a></li>
                     <li><a href="category/account.html">Guides</a></li>
-                    <li><a href="../references.html">References</a></li>
                     <li><a href="../contribute/contributing.html">Contribute</a></li>
                 </ul>
             </div>
@@ -341,19 +359,19 @@
                 <ul>
                     <li><a href="../api.html">REST API</a></li>
                     <li><a href="../sdk.html">SDKs</a></li>
-                    <li><a href="../extensions.html">Extensions</a></li>
-                    <li><a href="../cli.html">Client</a></li>
-                    <li><a href="../prototyping-tool.html">Prototyping Tool</a></li>
+                    <li><a href="../extensions.html">拡張</a></li>
+                    <li><a href="../cli.html">クライアント</a></li>
+                    <li><a href="../prototyping-tool.html">プロトタイピングツール</a></li>
                 </ul>
             </div>
 
 
             <div class="col-sm-4">
-                <h4>Community</h4>
+                <h4>コミュニティ</h4>
 
                 <ul>
                     <li>
-                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
+                        <a href="http://slack.nemtech.io/"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
                     </li>
                     <li>
                         <a href="https://stackoverflow.com/tags/nem/">
@@ -379,9 +397,18 @@
         </div>
 
         <p class="text-center top-gap">
-            &copy; Copyright 2018, NEM.
+            &copy; Copyright 2018-2019, NEM.
         </p>
     </div>
 </footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+    indexName: 'nemtech',
+    inputSelector: '#search',
+    algoliaOptions: {},
+    debug: false
+});
+</script>
   </body>
 </html>

@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>SDK Development &#8212; NEM Developer Center</title>
+    <title>SDK 開発 &#8212; NEM Developer Center</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
@@ -38,6 +38,20 @@
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<script type="text/javascript">
+    var _paq = window._paq || [];
+    _paq.push(['disableCookies']);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="//analytics.nemtech.io/piwik/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
 
   
   
@@ -65,8 +79,6 @@
             </button>
             <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
                 developer center</a>
-            <span class="navbar-text navbar-version pull-left"><b><a
-                    href="https://github.com/nemtech/nem2-docs/releases">0.17.0</a></b></span>
         </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -82,20 +94,24 @@
                 
                 
             </ul>
-
+            <span class="navbar-text navbar-language pull-left">
+                <div id="language" class="hidden-xs hidden-sm">
+    <label>
+        <i class="fas fa-language"></i>
+        <select>
+            <option id="english" value="en">English</option>
+            <option id="japanese" value="ja">日本語</option>
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </label>
+</div>
+            </span>
             
             
 
 <div class="navbar-right hidden-sm hidden-xs">
-    <a class="btn-search" href="/search.html?q=nem"><i class="fa fa-search"></i> Search</a>
-    <span id="language">
-        <i class="fas fa-globe"></i>
-        <select>
-            <option id="english" value="en">英語</option>
-            <option id="japanese" value="ja">日本語</option>
-            <option id="translate" value="translate">Translate</option>
-        </select>
-    </span>
+    <i class="fas fa-search"></i>
+    <input id="search" class="form-control" placeholder="Search..."/>
 </div>
             
         </div>
@@ -104,6 +120,8 @@
 
 <div class="container">
     <div class="row">
+
+        
 <div class="col-md-3">
     <div id="sidebar" class="bs-sidenav" role="complementary"><div class="sidebar-md hidden-xs hidden-sm">
     <p class="caption"><span class="caption-text">Getting Started</span></p>
@@ -137,10 +155,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">クライアント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../wallet.html">ウォレット</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">プロトタイピングツール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions.html">拡張</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
@@ -149,6 +167,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">貢献者</a></li>
 </ul>
 
+    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.1</a></small>
 </div>
 
 <div class="sidebar-xs visible-xs visible-sm">
@@ -185,10 +204,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">クライアント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../wallet.html">ウォレット</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">プロトタイピングツール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions.html">拡張</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
@@ -201,6 +220,7 @@
 </div>
     </div>
 </div>
+        
         <div class="col-md-7 content">
             <div id="edit-on-github" class="text-right">
                 <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guidelines\sdk-development.rst"
@@ -209,14 +229,14 @@
 
             
   <div class="section" id="sdk-development">
-<h1>SDK Development<a class="headerlink" href="#sdk-development" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>相互運用性がNEM2-SDKの自然な設計とするのが主な目的です。このガイドラインに従ってNEM SDKを共同で作成することで、少ない労力で最高の品質を実現します。</p>
-<p>NEM2-SDK shares the same design/architecture between programming languages to accomplish the next properties:</p>
+<h1>SDK 開発<a class="headerlink" href="#sdk-development" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>相互運用性が NEM2-SDK の自然な設計とするのが主な目的です。このガイドラインに従って NEM SDK を共同で作成することで、少ない労力で最高の品質を実現します。</p>
+<p>NEM2-SDK では以下のプロパティを実現するために、各プログラミング言語間で同じデザイン/アーキテクチャを共有しています:</p>
 <ul class="simple">
-<li><strong>Fast language adaptation</strong>: There is a library for Java, but you need it for C# for example. As both SDKs share the same design, you can re-write the library faster, adapting the syntax to your language. It also applies to examples, projects, applications…</li>
-<li><strong>Cohesion/shared knowledge cross NEM developers</strong>: Be able to change between projects that use NEM, sharing the same design accompanied by the best practices.</li>
-<li><strong>Fast SDK updates</strong>: Migrating any improvement from a NEM2-SDK implementation to the rest is faster.</li>
-<li><strong>Fewer bugs</strong>: If any bug appears in one language, it is faster to check and fix it.</li>
+<li><strong>素早く言語に適応する</strong>: Java 用のライブラリがありますが、例えば C# 用を必要とするならば、どちらの SDK も同じデザインを共有しているため、ライブラリを素早く書き直すことができ、構文を言語に合わせるだけです。それは例示、プロジェクト、アプリケーションなどにも適用されます。</li>
+<li><strong>NEM 開発者間での知識の凝縮/共有</strong>: NEM を使用するプロジェクト間で、ベストプラクティスを伴う同じデザインを共有することができます。</li>
+<li><strong>素早い SDK のアップデート</strong>: NEM2-SDK の実装から、それ以外の残りについて1つの改善を移行することが素早く行えます。</li>
+<li><strong>少ないバグ</strong>: ある言語でバグが発生したとき、それを素早く確認し、修正が行えます。</li>
 </ul>
 <div class="section" id="architecture">
 <h2>アーキテクチャ<a class="headerlink" href="#architecture" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -255,13 +275,13 @@
 <h3>パッケージ構成<a class="headerlink" href="#package-organization" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="figure align-center" id="id2">
 <img alt="../_images/nem2-sdk-architecture.png" src="../_images/nem2-sdk-architecture.png" style="width: 400px;" />
-<p class="caption"><span class="caption-text">パッケージ構成図</span></p>
+<p class="caption"><span class="caption-text">パッケージ構成ダイアグラム</span></p>
 </div>
 <p>インフラストラクチャ</p>
 <p>HTTP リクエストはリポジトリパターンに則しており、これらはオブザーバルパターンを介して、NEM の変更不可なモデルを返します。</p>
-<p>モデル</p>
+<p><strong>モデル</strong></p>
 <p>NEM ドメインモデルは通常は定義によっては不変ですが、開発者はその属性を変更できません。代わりに開発者は新しいトランザクションを作成し、TransactionHTTP 経由で NEM ブロックチェーンに送り出して、NEM ブロックチェーン状態を変更する必要があります。</p>
-<p>サービス</p>
+<p><strong>サービス</strong></p>
 <p>複数の <a class="reference internal" href="../api.html"><span class="doc">REST API</span></a> 要求を必要とする一般的な操作は、すでに提供されているサービスによって処理されます。</p>
 </div>
 </div>
@@ -272,7 +292,7 @@
 <li><a class="reference external" href="https://github.com/tech-bureau/catapult-service-bootstrap">Docker を用いてローカル環境に Catapult を</a> をセットアップします。</li>
 <li><a class="reference internal" href="../api.html"><span class="doc">API リファレンスを確認</span></a> して、API エンドポイントを利用してみてください。</li>
 <li>現在の <a class="reference internal" href="../concepts/account.html"><span class="doc">nem2-sdk のコード例</span></a> と <a class="reference internal" href="../cli.html"><span class="doc">nem2-cli</span></a> に詳しくなる。</li>
-<li>Catapult に関する質問はこちらの Slack <a class="reference external" href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM">https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM</a> にて受け付けています。</li>
+<li>Catapu;t に関する質問はこちらの Slack <a class="reference external" href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM">https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM</a> にて受け付けています。</li>
 <li>Be sure no one is already working on the SDK you want to create. Check the <a class="reference internal" href="../sdk.html"><span class="doc">repository list</span></a> and  comment your intentions in  nem2 slack <code class="docutils literal"><span class="pre">#sig-api</span></code> channel. If someone is already working on it, we suggest you collaborate with him/her.</li>
 <li>Claim the SDK <a class="reference external" href="https://help.github.com/articles/creating-a-pull-request/">forking this repository</a> and add a new entry to the <a class="reference internal" href="../sdk.html"><span class="doc">repository list</span></a>.</li>
 </ol>
@@ -288,7 +308,7 @@ was a need to create this low-level library to perform specific chain testing.</
 </div>
 <p>Regularly check the <a class="reference external" href="https://github.com/nemtech/nem2-sdk-java/blob/master/CHANGELOG.md">Changelog</a> to be sure you didn’t miss any code change update.</p>
 <div class="section" id="creating-the-project">
-<h3>Creating the project<a class="headerlink" href="#creating-the-project" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>プロジェクトの作成<a class="headerlink" href="#creating-the-project" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ol class="arabic simple">
 <li>Add a README with the instructions to install the SDK. You can find
 <a class="reference download internal" href="../_downloads/README_SDK.md" download=""><code class="xref download docutils literal"><span class="pre">here</span> <span class="pre">a</span> <span class="pre">template</span></code></a>.</li>
@@ -303,7 +323,7 @@ trusted by the developers!</p>
 did</a>.</p>
 </div>
 <div class="section" id="api-wrapper">
-<h3>API Wrapper<a class="headerlink" href="#api-wrapper" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>API ラッパー<a class="headerlink" href="#api-wrapper" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><a class="reference external" href="https://swagger.io/tools/swagger-codegen/">Swagger Codegen</a> can handle the API generation. It supports multiple languages, and hopefully, yours is on the list.</p>
 <ol class="arabic simple">
 <li>Generate the <code class="docutils literal"><span class="pre">DTOs</span></code> and place them under under <a class="reference external" href="https://github.com/nemtech/nem2-sdk-java/tree/master/src/main/java/io/nem/sdk/infrastructure">sdk/infrastructure</a>. The API swagger file definition can be found <a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/collections/swagger.yaml">here</a>.</li>
@@ -322,7 +342,7 @@ did</a>.</p>
 </div>
 </div>
 <div class="section" id="models">
-<h3>Models<a class="headerlink" href="#models" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>モデル<a class="headerlink" href="#models" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>The <a class="reference external" href="https://github.com/nemtech/nem2-sdk-java/tree/master/src/main/java/io/nem/sdk/model">models</a> are by default immutable and aim to hide the complexity, like type conversion or relationship between objects.</p>
 <p>You will find in the different implementations different invariants to
 ensure the object is well constructed and a nicer API is published.</p>
@@ -335,7 +355,7 @@ might need to convert those types for the user.</li>
 </ul>
 </div>
 <div class="section" id="transaction-serialization">
-<h3>Transaction Serialization<a class="headerlink" href="#transaction-serialization" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>トランザクションのシリアル化<a class="headerlink" href="#transaction-serialization" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>A Transaction needs a particular serialization schema in binary optimized in size.</p>
 <p><strong>Generate the buffer classes</strong></p>
 <div class="admonition note">
@@ -368,14 +388,14 @@ might need to convert those types for the user.</li>
 <h3>KeyPair and Cryptographic functions<a class="headerlink" href="#keypair-and-cryptographic-functions" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">This section is incomplete.</p>
+<p class="last">このセクションは未完了です。</p>
 </div>
 <p>Implement the cryptographic purposes required to sign transactions.</p>
 <p>Example: <a class="reference external" href="https://github.com/nemtech/nem2-sdk-java/tree/master/src/main/java/io/nem/core/crypto">core/crypto</a></p>
 </div>
 </div>
 <div class="section" id="documenting-your-sdk">
-<h2>Documenting your SDK<a class="headerlink" href="#documenting-your-sdk" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>あなたの SDK のドキュメント化<a class="headerlink" href="#documenting-your-sdk" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>The SDKs need to be adopted by other developers. As a contributor, no one knows better than you how a determined SDK works. Consider helping others and spread the usage of the SDK by providing <a class="reference internal" href="sdk-documentation.html"><span class="doc">the following documentation</span></a>.</p>
 </div>
 <div class="section" id="publishing-the-sdk-as-official">
@@ -416,21 +436,21 @@ newer</a></li>
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
-<li><a class="reference internal" href="#">SDK Development</a><ul>
+<li><a class="reference internal" href="#">SDK 開発</a><ul>
 <li><a class="reference internal" href="#architecture">アーキテクチャ</a><ul>
 <li><a class="reference internal" href="#package-organization">パッケージ構成</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#before-starting">始める前に</a></li>
 <li><a class="reference internal" href="#development">開発</a><ul>
-<li><a class="reference internal" href="#creating-the-project">Creating the project</a></li>
-<li><a class="reference internal" href="#api-wrapper">API Wrapper</a></li>
-<li><a class="reference internal" href="#models">Models</a></li>
-<li><a class="reference internal" href="#transaction-serialization">Transaction Serialization</a></li>
+<li><a class="reference internal" href="#creating-the-project">プロジェクトの作成</a></li>
+<li><a class="reference internal" href="#api-wrapper">API ラッパー</a></li>
+<li><a class="reference internal" href="#models">モデル</a></li>
+<li><a class="reference internal" href="#transaction-serialization">トランザクションのシリアル化</a></li>
 <li><a class="reference internal" href="#keypair-and-cryptographic-functions">KeyPair and Cryptographic functions</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#documenting-your-sdk">Documenting your SDK</a></li>
+<li><a class="reference internal" href="#documenting-your-sdk">あなたの SDK のドキュメント化</a></li>
 <li><a class="reference internal" href="#publishing-the-sdk-as-official">公式として公開されているSDK</a></li>
 <li><a class="reference internal" href="#future-work">今後の成果物</a></li>
 <li><a class="reference internal" href="#recommended-licenses">推奨するライセンス</a></li>
@@ -449,14 +469,13 @@ newer</a></li>
         <div class="row">
 
             <div class="col-sm-4">
-                <h4>Learn</h4>
+                <h4>学習する</h4>
 
                 <ul>
                     <li><a href="../getting-started/what-is-nem.html">Getting Started</a></li>
                     <li><a href="../concepts/cryptography.html">Protocol</a></li>
                     <li><a href="../concepts/account.html">Built-in Features</a></li>
                     <li><a href="../guides/category/account.html">Guides</a></li>
-                    <li><a href="../references.html">References</a></li>
                     <li><a href="../contribute/contributing.html">Contribute</a></li>
                 </ul>
             </div>
@@ -467,19 +486,19 @@ newer</a></li>
                 <ul>
                     <li><a href="../api.html">REST API</a></li>
                     <li><a href="../sdk.html">SDKs</a></li>
-                    <li><a href="../extensions.html">Extensions</a></li>
-                    <li><a href="../cli.html">Client</a></li>
-                    <li><a href="../prototyping-tool.html">Prototyping Tool</a></li>
+                    <li><a href="../extensions.html">拡張</a></li>
+                    <li><a href="../cli.html">クライアント</a></li>
+                    <li><a href="../prototyping-tool.html">プロトタイピングツール</a></li>
                 </ul>
             </div>
 
 
             <div class="col-sm-4">
-                <h4>Community</h4>
+                <h4>コミュニティ</h4>
 
                 <ul>
                     <li>
-                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
+                        <a href="http://slack.nemtech.io/"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
                     </li>
                     <li>
                         <a href="https://stackoverflow.com/tags/nem/">
@@ -505,9 +524,18 @@ newer</a></li>
         </div>
 
         <p class="text-center top-gap">
-            &copy; Copyright 2018, NEM.
+            &copy; Copyright 2018-2019, NEM.
         </p>
     </div>
 </footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+    indexName: 'nemtech',
+    inputSelector: '#search',
+    algoliaOptions: {},
+    debug: false
+});
+</script>
   </body>
 </html>
