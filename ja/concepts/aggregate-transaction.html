@@ -294,7 +294,7 @@
 <p class="last"><strong>アグリゲートボンドトランザクション</strong> を送信する前に、アカウントはまず <a class="reference internal" href="#hash-lock-transaction"><span class="std std-ref">ハッシュロックトランザクション</span></a> をアナウンスし、 <code class="docutils literal"><span class="pre">10</span></code> XEM 以上でそれが承認されている必要があります。</p>
 </div>
 <p>アグリゲートボンドがアナウンスされると、パーシャル状態になり、WebSocket または HTTP API 呼び出しによって状態を通知します。</p>
-<p>Every time a cosignatory signs the transaction and <a class="reference internal" href="#cosignature"><span class="std std-ref">announces an aggregate bonded cosignature</span></a>, the network checks if all the required cosigners have signed. When all signatures are acquired, the transaction changes to unconfirmed state until the network includes it in a block.</p>
+<p>連署者がトランザクションに署名し <a class="reference internal" href="#cosignature"><span class="std std-ref">アグリゲートボンド連署をアナウンスする</span></a> たびに、ネットワークは必要な連署者が署名しているかどうかをチェックします。すべての署名が取得されると、ネットワークがそれをブロックに含めるまで、トランザクションは未承認状態へ遷移します。</p>
 <div class="figure align-center" id="id6">
 <img alt="../_images/aggregate-bonded-transaction-cycle.png" src="../_images/aggregate-bonded-transaction-cycle.png" style="width: 900px;" />
 <p class="caption"><span class="caption-text">アグリゲートボンドトランザクションサイクル</span></p>

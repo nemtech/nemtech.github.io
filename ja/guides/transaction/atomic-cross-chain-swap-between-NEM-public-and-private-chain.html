@@ -398,7 +398,7 @@
 </div>
 </div>
 <ol class="arabic simple">
-<li>Alice は <code class="docutils literal"><span class="pre">証明</span></code> と呼ばれるランダムな数字を選び出します。SHA512 ハッシュアルゴリズムをそれに適用して <code class="docutils literal"><span class="pre">シークレット</span></code> を得ます。</li>
+<li>Alice は <code class="docutils literal"><span class="pre">proof</span></code> と呼ばれるランダムな数字を選び出します。SHA512 ハッシュアルゴリズムをそれに適用して <code class="docutils literal"><span class="pre">secret</span></code> を得ます。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id3">
@@ -418,7 +418,7 @@
 <li>送信するモザイクと総量: 10 alice:token</li>
 <li>受信アドレス: プライベートチェーン上の Bob のアドレス</li>
 <li>シークレット: ハッシュ化された証明</li>
-<li>資産がアンロックされるまでの時間: 96h</li>
+<li>資産がアンロックされるまでの時間: 96時間</li>
 <li>ネットワーク: プライベートチェーン</li>
 </ul>
 <div class="example-code container">
@@ -436,9 +436,9 @@
 </div>
 </div>
 </div>
-<p>一度アナウンスされると、誰かがシークレットにマッチする証明を発見するまで、このトランザクションはロックされたままです。一定の期間が経過してもそれが証明されなければ、ロックされた資金は ALICE に返還されます。</p>
+<p>一度アナウンスされると、誰かがシークレットにマッチする証明を発見するまで、このトランザクションはロックされたままです。一定の期間が経過してもそれが証明されなければ、ロックされた資金は Alice に返還されます。</p>
 <ol class="arabic simple" start="3">
-<li>ALICE は TX1 に署名して、プライベートチェーンへアナウンスします。</li>
+<li>Alice は TX1 に署名して、プライベートチェーンへアナウンスします。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id5">
@@ -459,7 +459,7 @@
 <li>モザイクと送信する総量: 10 bob:token</li>
 <li>受信アドレス: パブリックチェーン上の Alice のアドレス</li>
 <li>資産をアンロックするために必要なシークレット</li>
-<li>資産がロックされる時間: 84h</li>
+<li>資産がロックされる時間: 84時間</li>
 <li>ネットワーク: パブリックチェーン</li>
 </ul>
 <div class="example-code container">

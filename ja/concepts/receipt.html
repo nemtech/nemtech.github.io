@@ -141,7 +141,7 @@
 <li class="toctree-l1"><a class="reference internal" href="harvesting.html">ハーベスティング</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">レシート</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#transaction-statement">トランザクションステートメント</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#alias-resolution">エイリアス解決</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resolution-statement">Resolution Statement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#recorded-receipts">記録済みレシート</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">スキーマ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">レシート</a></li>
@@ -206,7 +206,7 @@
 <li class="toctree-l1"><a class="reference internal" href="harvesting.html">ハーベスティング</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">レシート</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#transaction-statement">トランザクションステートメント</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#alias-resolution">エイリアス解決</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resolution-statement">Resolution Statement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#recorded-receipts">記録済みレシート</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">スキーマ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">レシート</a></li>
@@ -276,9 +276,9 @@
 <li><strong>Artifact Expiry</strong>: アーティファクト (例 <a class="reference internal" href="mosaic.html"><span class="doc">ネームスペース</span></a> 、 <a class="reference internal" href="mosaic.html"><span class="doc">モザイク</span></a> ) の期限が切れた。</li>
 </ul>
 </div>
-<div class="section" id="alias-resolution">
-<h2>エイリアス解決<a class="headerlink" href="#alias-resolution" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>トランザクションが <a class="reference internal" href="namespace.html"><span class="doc">エイリアス</span></a> を含むとき、 <a class="reference internal" href="#resolution-statement"><span class="std std-ref">解決ステートメント</span></a> と呼ばれ、そのブロックの解決済みの値を反映します:</p>
+<div class="section" id="resolution-statement">
+<h2>Resolution Statement<a class="headerlink" href="#resolution-statement" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>トランザクションが <a class="reference internal" href="namespace.html"><span class="doc">エイリアス</span></a> を含むとき、 <a class="reference internal" href="#id4"><span class="std std-ref">解決ステートメント</span></a> と呼ばれ、そのブロックの解決済みの値を反映します:</p>
 <ul class="simple">
 <li><strong>Address Resolution</strong>: このブロックで使用されたアカウントエイリアス。</li>
 <li><strong>Mosaic Resolution</strong>: このブロックで使用されたモザイクエイリアス。</li>
@@ -315,12 +315,12 @@
 </tr>
 <tr class="row-even"><td>0x43F1</td>
 <td>Address_Alias_Resolution</td>
-<td><a class="reference internal" href="#resolution-statement"><span class="std std-ref">Alias Resolution</span></a></td>
+<td><a class="reference internal" href="#id4"><span class="std std-ref">Alias Resolution</span></a></td>
 <td>未解決と解決済み <a class="reference internal" href="namespace.html"><span class="doc">エイリアス</span></a> 。トランザクションがアドレスの代わりに有効なアドレスエイリアスを示したときに記録されます。</td>
 </tr>
 <tr class="row-odd"><td>0x43F2</td>
 <td>Mosaic_Alias_Resolution</td>
-<td><a class="reference internal" href="#resolution-statement"><span class="std std-ref">Alias Resolution</span></a></td>
+<td><a class="reference internal" href="#id4"><span class="std std-ref">Alias Resolution</span></a></td>
 <td>未解決と解決済みエイリアス。トランザクションがモザイクIDの代わりに有効なモザイクエイリアスを示したときに記録されます。</td>
 </tr>
 <tr class="row-even"><td>0x43E1</td>
@@ -466,14 +466,14 @@
 <td>The receipt source.</td>
 </tr>
 <tr class="row-odd"><td>receipts</td>
-<td>array(ReceiptHeader, receiptsHeadersSize)</td>
-<td>レシートヘッダの配列</td>
+<td>array(<a class="reference internal" href="#id1"><span class="std std-ref">Receipt</span></a>, receiptsSize)</td>
+<td>The array of receipts.</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="resolutionstatement">
-<span id="resolution-statement"></span><h3>ResolutionStatement<a class="headerlink" href="#resolutionstatement" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="id4"></span><h3>ResolutionStatement<a class="headerlink" href="#resolutionstatement" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li><strong>version</strong>: 0x1</li>
 <li><strong>type</strong>: Address_Alias_Resolution or Mosaic_Alias_Resolution</li>
@@ -683,7 +683,7 @@
         <ul>
 <li><a class="reference internal" href="#">レシート</a><ul>
 <li><a class="reference internal" href="#transaction-statement">トランザクションステートメント</a></li>
-<li><a class="reference internal" href="#alias-resolution">エイリアス解決</a></li>
+<li><a class="reference internal" href="#resolution-statement">Resolution Statement</a></li>
 <li><a class="reference internal" href="#recorded-receipts">記録済みレシート</a></li>
 <li><a class="reference internal" href="#schemas">スキーマ</a><ul>
 <li><a class="reference internal" href="#id1">レシート</a></li>

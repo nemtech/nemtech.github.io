@@ -140,7 +140,7 @@
 <li class="toctree-l1"><a class="reference internal" href="harvesting.html">Harvesting</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Receipt</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#transaction-statement">Transaction statement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#alias-resolution">Alias resolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resolution-statement">Resolution Statement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#recorded-receipts">Recorded receipts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">Schemas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">Receipt</a></li>
@@ -205,7 +205,7 @@
 <li class="toctree-l1"><a class="reference internal" href="harvesting.html">Harvesting</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Receipt</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#transaction-statement">Transaction statement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#alias-resolution">Alias resolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resolution-statement">Resolution Statement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#recorded-receipts">Recorded receipts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">Schemas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">Receipt</a></li>
@@ -275,9 +275,9 @@
 <li><strong>Artifact Expiry</strong>: An artifact (e.g. <a class="reference internal" href="mosaic.html"><span class="doc">namespace</span></a>, <a class="reference internal" href="mosaic.html"><span class="doc">mosaic</span></a>) expired.</li>
 </ul>
 </div>
-<div class="section" id="alias-resolution">
-<h2>Alias resolution<a class="headerlink" href="#alias-resolution" title="Permalink to this headline">¶</a></h2>
-<p>When a transaction includes an <a class="reference internal" href="namespace.html"><span class="doc">alias</span></a>, a so called <a class="reference internal" href="#resolution-statement"><span class="std std-ref">resolution statement</span></a> reflects the resolved value for that block:</p>
+<div class="section" id="resolution-statement">
+<h2>Resolution Statement<a class="headerlink" href="#resolution-statement" title="Permalink to this headline">¶</a></h2>
+<p>When a transaction includes an <a class="reference internal" href="namespace.html"><span class="doc">alias</span></a>, a so called <a class="reference internal" href="#id4"><span class="std std-ref">resolution statement</span></a> reflects the resolved value for that block:</p>
 <ul class="simple">
 <li><strong>Address Resolution</strong>: An account alias was used in the block.</li>
 <li><strong>Mosaic Resolution</strong>: A mosaic alias was used in the block.</li>
@@ -314,12 +314,12 @@
 </tr>
 <tr class="row-even"><td>0x43F1</td>
 <td>Address_Alias_Resolution</td>
-<td><a class="reference internal" href="#resolution-statement"><span class="std std-ref">Alias Resolution</span></a></td>
+<td><a class="reference internal" href="#id4"><span class="std std-ref">Alias Resolution</span></a></td>
 <td>The unresolved and resolved <a class="reference internal" href="namespace.html"><span class="doc">alias</span></a>. It is recorded when a transaction indicates a valid address alias instead of an address.</td>
 </tr>
 <tr class="row-odd"><td>0x43F2</td>
 <td>Mosaic_Alias_Resolution</td>
-<td><a class="reference internal" href="#resolution-statement"><span class="std std-ref">Alias Resolution</span></a></td>
+<td><a class="reference internal" href="#id4"><span class="std std-ref">Alias Resolution</span></a></td>
 <td>The unresolved and resolved alias. It is recorded when a transaction indicates a valid mosaic alias instead of a mosaicId.</td>
 </tr>
 <tr class="row-even"><td>0x43E1</td>
@@ -465,14 +465,14 @@
 <td>The receipt source.</td>
 </tr>
 <tr class="row-odd"><td>receipts</td>
-<td>array(ReceiptHeader, receiptsHeadersSize)</td>
-<td>The array of receipt headers.</td>
+<td>array(<a class="reference internal" href="#id1"><span class="std std-ref">Receipt</span></a>, receiptsSize)</td>
+<td>The array of receipts.</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="resolutionstatement">
-<span id="resolution-statement"></span><h3>ResolutionStatement<a class="headerlink" href="#resolutionstatement" title="Permalink to this headline">¶</a></h3>
+<span id="id4"></span><h3>ResolutionStatement<a class="headerlink" href="#resolutionstatement" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><strong>version</strong>: 0x1</li>
 <li><strong>type</strong>: Address_Alias_Resolution or Mosaic_Alias_Resolution</li>
@@ -682,7 +682,7 @@
         <ul>
 <li><a class="reference internal" href="#">Receipt</a><ul>
 <li><a class="reference internal" href="#transaction-statement">Transaction statement</a></li>
-<li><a class="reference internal" href="#alias-resolution">Alias resolution</a></li>
+<li><a class="reference internal" href="#resolution-statement">Resolution Statement</a></li>
 <li><a class="reference internal" href="#recorded-receipts">Recorded receipts</a></li>
 <li><a class="reference internal" href="#schemas">Schemas</a><ul>
 <li><a class="reference internal" href="#id1">Receipt</a></li>
