@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Modifying mosaic supply &#8212; NEM Developer Center</title>
+    <title>Linking a namespace to a mosaic &#8212; NEM Developer Center</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
@@ -337,7 +337,7 @@
         
         <div class="col-md-7 content">
             <div id="edit-on-github" class="text-right">
-                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\mosaic\modifying-mosaic-supply.rst"
+                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\namespace\link-a-namespace-to-a-mosaic.rst"
                    rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
                 <a href="https://github.com/nemtech/nem2-docs/issues/new"
                    rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
@@ -345,74 +345,119 @@
             </div>
 
             
-  <div class="section" id="modifying-mosaic-supply">
-<h1>Modifying mosaic supply<a class="headerlink" href="#modifying-mosaic-supply" title="Permalink to this headline">¶</a></h1>
-<p>Alter the supply of a mosaic following this guide.</p>
+  <div class="section" id="linking-a-namespace-to-a-mosaic">
+<h1>Linking a namespace to a mosaic<a class="headerlink" href="#linking-a-namespace-to-a-mosaic" title="Permalink to this headline">¶</a></h1>
+<p>Link a <a class="reference internal" href="../../concepts/namespace.html"><span class="doc">namespace</span></a> to a <a class="reference internal" href="../../concepts/mosaic.html"><span class="doc">mosaic</span></a>.</p>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Finish <a class="reference internal" href="creating-a-mosaic.html"><span class="doc">creating a mosaic guide</span></a></li>
-<li>Have registered a supply mutable mosaic</li>
+<li>Have registered one <a class="reference internal" href="../../concepts/namespace.html"><span class="doc">namespace</span></a></li>
+<li>Have registered one <a class="reference internal" href="../../concepts/mosaic.html"><span class="doc">mosaic</span></a></li>
+<li>Have one <a class="reference internal" href="../../getting-started/setup-workstation.html#setup-getting-a-test-account"><span class="std std-ref">account with cat.currency</span></a></li>
 </ul>
 </div>
 <div class="section" id="lets-get-into-some-code">
 <h2>Let’s get into some code<a class="headerlink" href="#lets-get-into-some-code" title="Permalink to this headline">¶</a></h2>
-<p>If you have followed the previous guide, right now you should own a <code class="docutils literal"><span class="pre">supply</span> <span class="pre">mutable</span></code> <a class="reference internal" href="../../concepts/mosaic.html"><span class="doc">mosaic</span></a>.</p>
-<p>To increase the initial supply to <code class="docutils literal"><span class="pre">2.000.000</span></code>, define a <a class="reference internal" href="../../concepts/mosaic.html#mosaic-supply-change-transaction"><span class="std std-ref">mosaic supply change transaction</span></a> setting the target mosaicId.</p>
+<p>An account can link a registered <a class="reference internal" href="../../concepts/namespace.html"><span class="doc">name</span></a> (namespace or subnamespace) with a <a class="reference internal" href="../../concepts/mosaic.html"><span class="doc">mosaic</span></a>.</p>
+<ol class="arabic simple">
+<li>Define the namespaceId and the address you want to link.</li>
+</ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id1">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/mosaic/ModifyingMosaicSupply.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/namespace/LinkingANamespaceToAMosaic.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
-
 <span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
-<span class="kr">const</span> <span class="nx">mosaicId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">([</span><span class="mi">520597229</span><span class="p">,</span><span class="mi">83226871</span><span class="p">]);</span> <span class="c1">// Replace with your mosaicId</span>
-
-<span class="kr">const</span> <span class="nx">mosaicSupplyChangeTransaction</span> <span class="o">=</span> <span class="nx">MosaicSupplyChangeTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
-    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
-    <span class="nx">mosaicId</span><span class="p">,</span>
-    <span class="nx">MosaicSupplyType</span><span class="p">.</span><span class="nx">Increase</span><span class="p">,</span>
-    <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">2000000</span><span class="p">),</span>
-    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
-
-<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">mosaicSupplyChangeTransaction</span><span class="p">);</span>
-
-<span class="nx">transactionHttp</span>
-    <span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span><span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+<span class="kr">const</span> <span class="nx">namespaceId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NamespaceId</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">mosaicId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;7cdf3b117a3c40cc&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper container" id="id2">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/mosaic/ModifyingMosaicSupply.js" target="_blank">View Code</a></span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/namespace/LinkingANamespaceToAMosaic.js" target="_blank">View Code</a></span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
-
 <span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
-<span class="kr">const</span> <span class="nx">mosaicId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">([</span><span class="mi">520597229</span><span class="p">,</span><span class="mi">83226871</span><span class="p">]);</span> <span class="c1">// Replace with your mosaicId</span>
-
-<span class="kr">const</span> <span class="nx">mosaicSupplyChangeTransaction</span> <span class="o">=</span> <span class="nx">MosaicSupplyChangeTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
-    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
-    <span class="nx">mosaicId</span><span class="p">,</span>
-    <span class="nx">MosaicSupplyType</span><span class="p">.</span><span class="nx">Increase</span><span class="p">,</span>
-    <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">2000000</span><span class="p">),</span>
-    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
-
-<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">mosaicSupplyChangeTransaction</span><span class="p">);</span>
-
-<span class="nx">transactionHttp</span>
-    <span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span><span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+<span class="kr">const</span> <span class="nx">namespaceId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NamespaceId</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">mosaicId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;7cdf3b117a3c40cc&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </div>
+<ol class="arabic simple" start="2">
+<li>Announce the alias transaction.</li>
+</ol>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id3">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/namespace/LinkingANamespaceToAMosaic.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">mosaicAliasTransaction</span> <span class="o">=</span> <span class="nx">AliasTransaction</span><span class="p">.</span><span class="nx">createForMosaic</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="nx">AliasActionType</span><span class="p">.</span><span class="nx">Link</span><span class="p">,</span>
+    <span class="nx">namespaceId</span><span class="p">,</span>
+    <span class="nx">mosaicId</span><span class="p">,</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span>
+<span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">mosaicAliasTransaction</span><span class="p">);</span>
+
+<span class="nx">transactionHttp</span>
+    <span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id4">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/namespace/LinkingANamespaceToAMosaic.js" target="_blank">View Code</a></span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">mosaicAliasTransaction</span> <span class="o">=</span> <span class="nx">AliasTransaction</span><span class="p">.</span><span class="nx">createForMosaic</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="nx">AliasActionType</span><span class="p">.</span><span class="nx">Link</span><span class="p">,</span>
+    <span class="nx">namespaceId</span><span class="p">,</span>
+    <span class="nx">mosaicId</span><span class="p">,</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span>
+<span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">mosaicAliasTransaction</span><span class="p">);</span>
+
+<span class="nx">transactionHttp</span>
+    <span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you want to unlink the alias, change alias action type to <code class="docutils literal"><span class="pre">AliasActionType.Unlink</span></code>.</p>
 </div>
 <div class="section" id="what-s-next">
 <h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
-<p>Decrease your mosaic supply by changing <code class="docutils literal"><span class="pre">MosaicSupplyType.Increase</span></code> to <code class="docutils literal"><span class="pre">MosaicSupplyType.Decrease</span></code>.</p>
+<p>Now you can send transactions using the namespace linked to the mosaic instead of defining the complete mosaicId.</p>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id5">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingATransferTransactionMosaicAlias.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transferTransaction</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="nx">recipientAddress</span><span class="p">,</span>
+    <span class="p">[</span><span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span><span class="k">new</span> <span class="nx">NamespaceId</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">),</span>
+            <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">10000000</span><span class="p">))],</span>
+    <span class="nx">EmptyMessage</span><span class="p">,</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id6">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingATransferTransactionMosaicAlias.js" target="_blank">View Code</a></span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transferTransaction</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="nx">recipientAddress</span><span class="p">,</span>
+    <span class="p">[</span><span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span><span class="k">new</span> <span class="nx">NamespaceId</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">),</span>
+            <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">10000000</span><span class="p">))],</span>
+    <span class="nx">EmptyMessage</span><span class="p">,</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -432,7 +477,7 @@
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
-<li><a class="reference internal" href="#">Modifying mosaic supply</a><ul>
+<li><a class="reference internal" href="#">Linking a namespace to a mosaic</a><ul>
 <li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
 <li><a class="reference internal" href="#lets-get-into-some-code">Let’s get into some code</a></li>
 <li><a class="reference internal" href="#what-s-next">What’s next?</a></li>

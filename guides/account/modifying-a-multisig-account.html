@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Modifying a multisig account &#8212; NEM Developer Center</title>
@@ -85,7 +85,7 @@
                 
                 <li><a href="../../getting-started/what-is-nem.html">Getting started</a></li>
                 <li><a href="../../concepts/account.html">Built-in features</a></li>
-                <li><a href="../category/account.html">Guides</a></li>
+                <li><a href="../../concepts/cryptography.html">Protocol</a></li>
                 <li><a href="../../references.html">References</a></li>
                 
                 
@@ -138,7 +138,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/account.html" class="reference internal nav-header">
             
-            Account (4)
+            Account (5)
         </a></li>
     
     
@@ -183,7 +183,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (2)
+            Mosaic (3)
         </a></li>
     
     
@@ -201,7 +201,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (2)
+            Namespace (4)
         </a></li>
     
     
@@ -240,7 +240,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/account.html" class="reference internal nav-header">
             
-            Account (4)
+            Account (5)
         </a></li>
     
     
@@ -285,7 +285,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (2)
+            Mosaic (3)
         </a></li>
     
     
@@ -303,7 +303,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (2)
+            Namespace (4)
         </a></li>
     
     
@@ -338,7 +338,10 @@
         <div class="col-md-7 content">
             <div id="edit-on-github" class="text-right">
                 <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\account\modifying-a-multisig-account.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> Edit on GitHub</a>
+                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new"
+                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
+
             </div>
 
             
@@ -350,9 +353,8 @@
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Finish <a class="reference internal" href="converting-an-account-to-multisig.html"><span class="doc">converting an account to multisig guide</span></a></li>
-<li>Text editor or IDE</li>
-<li>NEM2-SDK or CLI</li>
-<li>One multisig account</li>
+<li>Have one multisignature account.</li>
+<li>Know how to <a class="reference internal" href="creating-and-opening-an-account.html"><span class="doc">create accounts</span></a></li>
 </ul>
 </div>
 <div class="section" id="lets-get-into-some-code">
@@ -395,7 +397,7 @@
 </div>
 </div>
 </div>
-<p>Multisig accounts are editable at the blockchain level. In this case, we want to make both cosignatories required, shifting to a  2-of-2 multisig instead. We could achieve it by increasing <code class="docutils literal"><span class="pre">minApproval</span></code> parameter in one unit.</p>
+<p>Multisig accounts are editable at the blockchain level. In this case, we want to make both cosignatories required, shifting to a 2-of-2 multisig instead. You can achieve this by increasing <code class="docutils literal"><span class="pre">minApproval</span></code> parameter in one unit.</p>
 <div class="figure align-center" id="id4">
 <img alt="../../_images/multisig-2-of-2.png" src="../../_images/multisig-2-of-2.png" style="width: 350px;" />
 <p class="caption"><span class="caption-text">2-of-2 multisig account example</span></p>
@@ -647,14 +649,14 @@
 </div>
 </div>
 <ol class="arabic simple" start="4">
-<li>Before sending an aggregate bonded transaction, Alice needs to lock at least <code class="docutils literal"><span class="pre">10</span></code> XEM. This mechanism is required to prevent network spamming and ensure that transactions are cosigned. After hash lock transaction has been confirmed, Alice announces the aggregate transaction.</li>
+<li>Before sending an aggregate bonded transaction, Alice needs to lock at least <code class="docutils literal"><span class="pre">10</span></code> cat.currency. This mechanism is required to prevent network spamming and ensure that transactions are cosigned. After hash lock transaction has been confirmed, Alice announces the aggregate transaction.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id21">
 <div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/ModifyingAMultisigAccountAddCosignatory.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id21" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">lockFundsTransaction</span> <span class="o">=</span> <span class="nx">LockFundsTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
-    <span class="nx">XEM</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+    <span class="nx">NetworkCurrencyMosaic</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
     <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">480</span><span class="p">),</span>
     <span class="nx">signedTransaction</span><span class="p">,</span>
     <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
@@ -742,7 +744,7 @@
 <p class="first admonition-title">Note</p>
 <p class="last">The <a class="reference internal" href="../transaction/monitoring-a-transaction-status.html#monitoring-transactions-client-side"><span class="std std-ref">listener implementation changes</span></a> when used on the client side (e.g., Angular, React, Vue).</p>
 </div>
-<p>Once Bob <a class="reference internal" href="../transaction/signing-announced-aggregate-bonded-transactions.html"><span class="doc">cosigns the transaction</span></a>, the amount of XEM locked becomes available again on Alice’s account and Carol is added to the multisig.</p>
+<p>Once Bob <a class="reference internal" href="../transaction/signing-announced-aggregate-bonded-transactions.html"><span class="doc">cosigns the transaction</span></a>, the amount of cat.currency locked becomes available again on Alice’s account and Carol is added to the multisig.</p>
 <p id="guide-modify-a-multisig-account-removing-a-cosignatory"><strong>Removing a cosignatory</strong></p>
 <p>Once you have finished this guide,  delete a cosignatory from the multisig. Multisig accounts can be converted again into regular accounts by removing all cosignatories. Make sure you own the multisig private key!</p>
 <p>The following code shows how to remove a cosignatory of a 2-of-3 multisig account with <code class="docutils literal"><span class="pre">minRemoval</span></code> set to 1. The multisig modification transaction is wrapped in an aggregate complete, as only one person is required to delete others from the multisig.</p>
@@ -907,8 +909,9 @@
 
                 <ul>
                     <li><a href="../../getting-started/what-is-nem.html">Getting Started</a></li>
-                    <li><a href="../../concepts/cryptography.html">Protocol</a></li>
                     <li><a href="../../concepts/account.html">Built-in Features</a></li>
+                    <li><a href="../../concepts/cryptography.html">Protocol</a></li>
+                    <li><a href="../../references.html">References</a></li>
                     <li><a href="../category/account.html">Guides</a></li>
                     <li><a href="../../contribute/contributing.html">Contribute</a></li>
                 </ul>
@@ -920,9 +923,9 @@
                 <ul>
                     <li><a href="../../api.html">REST API</a></li>
                     <li><a href="../../sdk.html">SDKs</a></li>
-                    <li><a href="../../extensions.html">Extensions</a></li>
                     <li><a href="../../cli.html">Client</a></li>
                     <li><a href="../../prototyping-tool.html">Prototyping Tool</a></li>
+                    <li><a href="../../extensions.html">Extensions</a></li>
                 </ul>
             </div>
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Creating an escrow with aggregate bonded transaction &#8212; NEM Developer Center</title>
@@ -85,7 +85,7 @@
                 
                 <li><a href="../../getting-started/what-is-nem.html">Getting started</a></li>
                 <li><a href="../../concepts/account.html">Built-in features</a></li>
-                <li><a href="../category/account.html">Guides</a></li>
+                <li><a href="../../concepts/cryptography.html">Protocol</a></li>
                 <li><a href="../../references.html">References</a></li>
                 
                 
@@ -138,7 +138,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/account.html" class="reference internal nav-header">
             
-            Account (4)
+            Account (5)
         </a></li>
     
     
@@ -183,7 +183,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (2)
+            Mosaic (3)
         </a></li>
     
     
@@ -201,7 +201,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (2)
+            Namespace (4)
         </a></li>
     
     
@@ -240,7 +240,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/account.html" class="reference internal nav-header">
             
-            Account (4)
+            Account (5)
         </a></li>
     
     
@@ -285,7 +285,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (2)
+            Mosaic (3)
         </a></li>
     
     
@@ -303,7 +303,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (2)
+            Namespace (4)
         </a></li>
     
     
@@ -338,7 +338,10 @@
         <div class="col-md-7 content">
             <div id="edit-on-github" class="text-right">
                 <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\transaction\creating-an-escrow-with-aggregate-bonded-transaction.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> Edit on GitHub</a>
+                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new"
+                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
+
             </div>
 
             
@@ -378,10 +381,9 @@
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li>Know how to <a class="reference internal" href="../account/creating-and-opening-an-account.html"><span class="doc">create accounts</span></a></li>
 <li>Finish <a class="reference internal" href="../mosaic/creating-a-mosaic.html"><span class="doc">creating a mosaic guide</span></a></li>
 <li>Finish <a class="reference internal" href="sending-payouts-with-aggregate-complete-transaction.html"><span class="doc">sending payouts with aggregate complete transactions</span></a></li>
-<li>NEM2-SDK</li>
-<li>A text editor or IDE</li>
 </ul>
 </div>
 <div class="section" id="let-s-get-into-some-code">
@@ -394,42 +396,41 @@
 <p>In this example, Alice and a ticket distributor want to swap the following mosaics.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Owner</th>
-<th class="head">Mosaic Name</th>
 <th class="head">Amount</th>
+<th class="head">MosaicId</th>
+<th class="head">Description</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>Alice</td>
-<td>nem:xem</td>
 <td>100</td>
+<td>cat.currency</td>
+<td>Native currency mosaic</td>
 </tr>
 <tr class="row-odd"><td>Ticket distributor</td>
-<td>museum:ticket</td>
 <td>1</td>
+<td>7cdf3b117a3c40cc</td>
+<td>Represents a museum ticket.</td>
 </tr>
 </tbody>
 </table>
-<p>Before continuing, practise by setting up the namespaces and mosaics required.</p>
+<p>Before continuing, <a class="reference internal" href="../mosaic/creating-a-mosaic.html"><span class="doc">create the museum ticket mosaic</span></a>.</p>
 <p><strong>Mosaics swap</strong></p>
-<p>Alice will send a transaction to the ticket distributor exchanging 100 nem:xem with 1 museum:ticket.</p>
+<p>Alice will send a transaction to the ticket distributor exchanging <code class="docutils literal"><span class="pre">100</span> <span class="pre">cat.currency</span></code> for <code class="docutils literal"><span class="pre">1</span> <span class="pre">7cdf3b117a3c40cc</span></code> (museum ticket).</p>
 <ol class="arabic simple">
-<li>Create two  <a class="reference internal" href="../../concepts/transfer-transaction.html#id1"><span class="std std-ref">transfer transaction</span></a>:</li>
+<li>Create two  <a class="reference internal" href="../../concepts/transfer-transaction.html#id1"><span class="std std-ref">transfer transactions</span></a>:</li>
 </ol>
 <ol class="upperalpha simple">
-<li>From Alice to the ticket distributor sending 100 nem:xem</li>
-<li>From the ticket distributor to Alice sending 1 museum:ticket.</li>
+<li>From Alice to the ticket distributor sending <code class="docutils literal"><span class="pre">100</span> <span class="pre">cat.currency</span></code></li>
+<li>From the ticket distributor to Alice sending <code class="docutils literal"><span class="pre">1</span> <span class="pre">7cdf3b117a3c40cc</span></code> (museum ticket).</li>
 </ol>
-<ol class="arabic simple" start="2">
-<li>Add them as <code class="docutils literal"><span class="pre">innerTransactions</span></code> under an <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate transaction</span></a>.</li>
-</ol>
-<p>An aggregate Transaction is <em>complete</em> if before announcing it to the network, all required cosigners have signed it. If valid, it will be included in a block.</p>
-<p>In case that signatures are required from other participants and the transaction is announced to the network, it is considered an aggregate bonded.</p>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id2">
 <div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/CreatingAnEscrowWithAggregateBondedTransaction.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
@@ -446,61 +447,21 @@
 <span class="kr">const</span> <span class="nx">aliceToTicketDistributorTx</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="nx">ticketDistributorPublicAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">,</span>
-    <span class="p">[</span><span class="nx">XEM</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">100</span><span class="p">)],</span>
-    <span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;send 100 nem:xem to distributor&#39;</span><span class="p">),</span>
+    <span class="p">[</span><span class="nx">NetworkCurrencyMosaic</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">100</span><span class="p">)],</span>
+    <span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;send 100 xem to distributor&#39;</span><span class="p">),</span>
     <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">ticketDistributorToAliceTx</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">,</span>
-    <span class="p">[</span><span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span><span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;museum:ticket&#39;</span><span class="p">),</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">1</span><span class="p">))],</span>
-    <span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;send 1 museum:ticket to alice&#39;</span><span class="p">),</span>
+    <span class="p">[</span><span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span><span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;7cdf3b117a3c40cc&#39;</span><span class="p">),</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">1</span><span class="p">))],</span>
+    <span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;send 1 museum ticket to alice&#39;</span><span class="p">),</span>
     <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper container" id="id3">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/java/src/test/java/nem2/guides/examples/transaction/CreatingAnEscrowWithAggregateBondedTransaction.java" target="_blank">View Code</a></span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
-<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="c1">// Replace with private key</span>
-        <span class="kd">final</span> <span class="n">String</span> <span class="n">alicePrivateKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
-
-        <span class="c1">// Replace with public key</span>
-        <span class="kd">final</span> <span class="n">String</span> <span class="n">ticketDistributorPublicKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
-
-        <span class="kd">final</span> <span class="n">Account</span> <span class="n">aliceAccount</span> <span class="o">=</span> <span class="n">Account</span><span class="o">.</span><span class="na">createFromPrivateKey</span><span class="o">(</span><span class="n">alicePrivateKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
-        <span class="kd">final</span> <span class="n">PublicAccount</span> <span class="n">ticketDistributorPublicAccount</span> <span class="o">=</span> <span class="n">PublicAccount</span><span class="o">.</span><span class="na">createFromPublicKey</span><span class="o">(</span><span class="n">ticketDistributorPublicKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
-
-        <span class="kd">final</span> <span class="n">TransferTransaction</span> <span class="n">aliceToTicketDistributorTx</span> <span class="o">=</span> <span class="n">TransferTransaction</span><span class="o">.</span><span class="na">create</span><span class="o">(</span>
-                <span class="n">Deadline</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">HOURS</span><span class="o">),</span>
-                <span class="n">ticketDistributorPublicAccount</span><span class="o">.</span><span class="na">getAddress</span><span class="o">(),</span>
-            <span class="n">Collections</span><span class="o">.</span><span class="na">singletonList</span><span class="o">(</span><span class="n">XEM</span><span class="o">.</span><span class="na">createRelative</span><span class="o">(</span><span class="n">BigInteger</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="mi">100</span><span class="o">))),</span>
-                <span class="n">PlainMessage</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&quot;send 100 nem:xem to distributor&quot;</span><span class="o">),</span>
-                <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span>
-        <span class="o">);</span>
-
-        <span class="kd">final</span> <span class="n">TransferTransaction</span> <span class="n">ticketDistributorToAliceTx</span> <span class="o">=</span> <span class="n">TransferTransaction</span><span class="o">.</span><span class="na">create</span><span class="o">(</span>
-                <span class="n">Deadline</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">HOURS</span><span class="o">),</span>
-                <span class="n">aliceAccount</span><span class="o">.</span><span class="na">getAddress</span><span class="o">(),</span>
-                <span class="n">Collections</span><span class="o">.</span><span class="na">singletonList</span><span class="o">(</span><span class="k">new</span> <span class="n">Mosaic</span><span class="o">(</span><span class="k">new</span> <span class="n">MosaicId</span><span class="o">(</span><span class="s">&quot;museum:ticket&quot;</span><span class="o">),</span> <span class="n">BigInteger</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="mi">1</span><span class="o">))),</span>
-                <span class="n">PlainMessage</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&quot;send 1 museum:ticket to alice&quot;</span><span class="o">),</span>
-                <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span>
-        <span class="o">);</span>
-
-        <span class="kd">final</span> <span class="n">AggregateTransaction</span> <span class="n">aggregateTransaction</span> <span class="o">=</span> <span class="n">AggregateTransaction</span><span class="o">.</span><span class="na">createBonded</span><span class="o">(</span>
-                <span class="n">Deadline</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">HOURS</span><span class="o">),</span>
-                <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span>
-                        <span class="n">aliceToTicketDistributorTx</span><span class="o">.</span><span class="na">toAggregate</span><span class="o">(</span><span class="n">aliceAccount</span><span class="o">.</span><span class="na">getPublicAccount</span><span class="o">()),</span>
-                        <span class="n">ticketDistributorToAliceTx</span><span class="o">.</span><span class="na">toAggregate</span><span class="o">(</span><span class="n">ticketDistributorPublicAccount</span><span class="o">)</span>
-                <span class="o">),</span>
-                <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span>
-        <span class="o">);</span>
-
-        <span class="kd">final</span> <span class="n">SignedTransaction</span> <span class="n">aggregateSignedTransaction</span> <span class="o">=</span> <span class="n">aliceAccount</span><span class="o">.</span><span class="na">sign</span><span class="o">(</span><span class="n">aggregateTransaction</span><span class="o">);</span>
-</pre></div>
-</div>
-</div>
-<div class="literal-block-wrapper container" id="id4">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/CreatingAnEscrowWithAggregateBondedTransaction.js" target="_blank">View Code</a></span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/CreatingAnEscrowWithAggregateBondedTransaction.js" target="_blank">View Code</a></span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">nodeUrl</span> <span class="o">=</span> <span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Listener</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
@@ -509,41 +470,66 @@
 <span class="kr">const</span> <span class="nx">aliceAccount</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">alicePrivateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">ticketDistributorPublicKey</span> <span class="o">=</span> <span class="s1">&#39;F82527075248B043994F1CAFD965F3848324C9ABFEC506BC05FBCF5DD7307C9D&#39;</span><span class="p">;</span>
-<span class="kr">const</span> <span class="nx">ticketDistributorPublicAccount</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span> <span class="nx">ticketDistributorPublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">ticketDistributorPublicAccount</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">ticketDistributorPublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">aliceToTicketDistributorTx</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="nx">ticketDistributorPublicAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">,</span>
-    <span class="p">[</span><span class="nx">XEM</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">100</span><span class="p">)],</span>
-    <span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;send 100 nem:xem to distributor&#39;</span><span class="p">),</span>
+    <span class="p">[</span><span class="nx">NetworkCurrencyMosaic</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">100</span><span class="p">)],</span>
+    <span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;send 100 xem to distributor&#39;</span><span class="p">),</span>
     <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">ticketDistributorToAliceTx</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">,</span>
-    <span class="p">[</span><span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;museum:ticket&#39;</span><span class="p">),</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">1</span><span class="p">))],</span>
-    <span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;send 1 museum:ticket to alice&#39;</span><span class="p">),</span>
+    <span class="p">[</span><span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span><span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;7cdf3b117a3c40cc&#39;</span><span class="p">),</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">1</span><span class="p">))],</span>
+    <span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;send 1 museum ticket to alice&#39;</span><span class="p">),</span>
     <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </div>
-<ol class="arabic simple" start="3">
-<li>When an aggregate transaction is bonded, Alice will need to lock at least 10 XEM. Once the ticket distributor signs the aggregate transaction, the amount of locked XEM becomes available again on Alice’s account, and the exchange will get through.</li>
+<ol class="arabic simple" start="2">
+<li>Add them as <code class="docutils literal"><span class="pre">innerTransactions</span></code> under an <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate transaction</span></a>.</li>
 </ol>
+<p>An aggregate Transaction is <em>complete</em> if before announcing it to the network, all required cosigners have signed it. If valid, it will be included in a block.</p>
+<p>In case that signatures are required from other participants and the transaction is announced to the network, it is considered an aggregate bonded.</p>
 <div class="example-code container">
-<div class="literal-block-wrapper container" id="id5">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/CreatingAnEscrowWithAggregateBondedTransaction.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper container" id="id4">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/CreatingAnEscrowWithAggregateBondedTransaction.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createBonded</span><span class="p">(</span><span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="p">[</span><span class="nx">aliceToTicketDistributorTx</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">),</span>
         <span class="nx">ticketDistributorToAliceTx</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">ticketDistributorPublicAccount</span><span class="p">)],</span>
     <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id5">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/CreatingAnEscrowWithAggregateBondedTransaction.js" target="_blank">View Code</a></span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createBonded</span><span class="p">(</span><span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="p">[</span><span class="nx">aliceToTicketDistributorTx</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">),</span>
+        <span class="nx">ticketDistributorToAliceTx</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">ticketDistributorPublicAccount</span><span class="p">)],</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
-<span class="kr">const</span> <span class="nx">lockFundsTransaction</span> <span class="o">=</span> <span class="nx">LockFundsTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li>When an aggregate transaction is bonded, Alice will need to lock at least <code class="docutils literal"><span class="pre">10</span> <span class="pre">cat.currency</span></code>. Once the ticket distributor signs the aggregate transaction, the amount of locked cat.currency becomes available again on Alice’s account, and the exchange will get through.</li>
+</ol>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id6">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/CreatingAnEscrowWithAggregateBondedTransaction.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">lockFundsTransaction</span> <span class="o">=</span> <span class="nx">LockFundsTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
-    <span class="nx">XEM</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+    <span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span>
+        <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;0dc67fbe1cad29e3&#39;</span><span class="p">),</span> <span class="c1">// Replace with your network currency mosaic id</span>
+        <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
+    <span class="p">),</span>
     <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">480</span><span class="p">),</span>
     <span class="nx">signedTransaction</span><span class="p">,</span>
     <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
@@ -569,48 +555,14 @@
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper container" id="id6">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/java/src/test/java/nem2/guides/examples/transaction/CreatingAnEscrowWithAggregateBondedTransaction.java" target="_blank">View Code</a></span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
-<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="c1">// Creating the lock funds transaction and announce it</span>
-
-        <span class="kd">final</span> <span class="n">LockFundsTransaction</span> <span class="n">lockFundsTransaction</span> <span class="o">=</span> <span class="n">LockFundsTransaction</span><span class="o">.</span><span class="na">create</span><span class="o">(</span>
-                <span class="n">Deadline</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">HOURS</span><span class="o">),</span>
-                <span class="n">XEM</span><span class="o">.</span><span class="na">createRelative</span><span class="o">(</span><span class="n">BigInteger</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="mi">10</span><span class="o">)),</span>
-                <span class="n">BigInteger</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="mi">480</span><span class="o">),</span>
-                <span class="n">aggregateSignedTransaction</span><span class="o">,</span>
-                <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span>
-        <span class="o">);</span>
-
-        <span class="kd">final</span> <span class="n">SignedTransaction</span> <span class="n">lockFundsTransactionSigned</span> <span class="o">=</span> <span class="n">aliceAccount</span><span class="o">.</span><span class="na">sign</span><span class="o">(</span><span class="n">lockFundsTransaction</span><span class="o">);</span>
-
-        <span class="kd">final</span> <span class="n">TransactionHttp</span> <span class="n">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TransactionHttp</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
-
-        <span class="n">transactionHttp</span><span class="o">.</span><span class="na">announce</span><span class="o">(</span><span class="n">lockFundsTransactionSigned</span><span class="o">).</span><span class="na">toFuture</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
-
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">lockFundsTransactionSigned</span><span class="o">.</span><span class="na">getHash</span><span class="o">());</span>
-
-        <span class="kd">final</span> <span class="n">Listener</span> <span class="n">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Listener</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
-
-        <span class="n">listener</span><span class="o">.</span><span class="na">open</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
-
-        <span class="kd">final</span> <span class="n">Transaction</span> <span class="n">transaction</span> <span class="o">=</span> <span class="n">listener</span><span class="o">.</span><span class="na">confirmed</span><span class="o">(</span><span class="n">aliceAccount</span><span class="o">.</span><span class="na">getAddress</span><span class="o">()).</span><span class="na">take</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">toFuture</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
-
-        <span class="n">transactionHttp</span><span class="o">.</span><span class="na">announceAggregateBonded</span><span class="o">(</span><span class="n">aggregateSignedTransaction</span><span class="o">).</span><span class="na">toFuture</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
-</pre></div>
-</div>
-</div>
 <div class="literal-block-wrapper container" id="id7">
 <div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/CreatingAnEscrowWithAggregateBondedTransaction.js" target="_blank">View Code</a></span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createBonded</span><span class="p">(</span><span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
-    <span class="p">[</span><span class="nx">aliceToTicketDistributorTx</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">),</span>
-        <span class="nx">ticketDistributorToAliceTx</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">ticketDistributorPublicAccount</span><span class="p">)],</span>
-    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
-
-<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">);</span>
-
-<span class="kr">const</span> <span class="nx">lockFundsTransaction</span> <span class="o">=</span> <span class="nx">LockFundsTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">lockFundsTransaction</span> <span class="o">=</span> <span class="nx">LockFundsTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
-    <span class="nx">XEM</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+    <span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span>
+        <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;0dc67fbe1cad29e3&#39;</span><span class="p">),</span> <span class="c1">// Replace with your network currency mosaic id</span>
+        <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
+    <span class="p">),</span>
     <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">480</span><span class="p">),</span>
     <span class="nx">signedTransaction</span><span class="p">,</span>
     <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
@@ -641,6 +593,7 @@
 <p class="first admonition-title">Note</p>
 <p class="last">The <a class="reference internal" href="monitoring-a-transaction-status.html#monitoring-transactions-client-side"><span class="std std-ref">listener implementation changes</span></a> when used on the client side (e.g., Angular, React, Vue).</p>
 </div>
+<p>The distributor has not signed the aggregate bonded transaction yet, so exchange has not been completed. Consider reading <a class="reference internal" href="signing-announced-aggregate-bonded-transactions.html"><span class="doc">signing announced aggregate bonded transactions guide</span></a>.</p>
 </div>
 <div class="section" id="is-it-possible-without-aggregate-transactions">
 <h2>Is it possible without aggregate transactions?<a class="headerlink" href="#is-it-possible-without-aggregate-transactions" title="Permalink to this headline">¶</a></h2>
@@ -652,8 +605,7 @@
 </div>
 <div class="section" id="what-s-next">
 <h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
-<p>The distributor has not signed the aggregate bonded transaction yet, so exchange has not been completed. Consider reading <a class="reference internal" href="signing-announced-aggregate-bonded-transactions.html"><span class="doc">signing announced aggregate bonded transactions guide</span></a>.</p>
-<p>Afterwards, try to swap mosaics between multiple participants.</p>
+<p>Try to swap mosaics adding a third  participant.</p>
 <div class="figure align-center" id="id8">
 <img alt="../../_images/aggregate-escrow-2.png" src="../../_images/aggregate-escrow-2.png" style="width: 400px;" />
 <p class="caption"><span class="caption-text">Multi-Asset Escrowed Transactions</span></p>
@@ -702,8 +654,9 @@
 
                 <ul>
                     <li><a href="../../getting-started/what-is-nem.html">Getting Started</a></li>
-                    <li><a href="../../concepts/cryptography.html">Protocol</a></li>
                     <li><a href="../../concepts/account.html">Built-in Features</a></li>
+                    <li><a href="../../concepts/cryptography.html">Protocol</a></li>
+                    <li><a href="../../references.html">References</a></li>
                     <li><a href="../category/account.html">Guides</a></li>
                     <li><a href="../../contribute/contributing.html">Contribute</a></li>
                 </ul>
@@ -715,9 +668,9 @@
                 <ul>
                     <li><a href="../../api.html">REST API</a></li>
                     <li><a href="../../sdk.html">SDKs</a></li>
-                    <li><a href="../../extensions.html">Extensions</a></li>
                     <li><a href="../../cli.html">Client</a></li>
                     <li><a href="../../prototyping-tool.html">Prototyping Tool</a></li>
+                    <li><a href="../../extensions.html">Extensions</a></li>
                 </ul>
             </div>
 

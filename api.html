@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>REST API &#8212; NEM Developer Center</title>
@@ -33,7 +33,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="SDK" href="sdk.html" />
-    <link rel="prev" title="Cross-Chain Swaps" href="concepts/cross-chain-swaps.html" />
+    <link rel="prev" title="Node" href="concepts/node.html" />
   
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -87,7 +87,7 @@
                 
                 <li><a href="getting-started/what-is-nem.html">Getting started</a></li>
                 <li><a href="concepts/account.html">Built-in features</a></li>
-                <li><a href="guides/category/account.html">Guides</a></li>
+                <li><a href="concepts/cryptography.html">Protocol</a></li>
                 <li><a href="references.html">References</a></li>
                 
                 
@@ -132,15 +132,6 @@
 <li class="toctree-l1"><a class="reference internal" href="getting-started/first-application.html">Writing your first application</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting-started/training.html">Self-paced training</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Protocol</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="concepts/cryptography.html">Cryptography</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/block.html">Block</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/transaction.html">Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/harvesting.html">Harvesting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/receipt.html">Receipt</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/node.html">Node</a></li>
-</ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="concepts/account.html">Account</a></li>
@@ -152,10 +143,19 @@
 <li class="toctree-l1"><a class="reference internal" href="concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="concepts/cryptography.html">Cryptography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/block.html">Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/transaction.html">Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/harvesting.html">Harvesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/receipt.html">Receipt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/node.html">Node</a></li>
+</ul>
 <p class="caption"><span class="caption-text">References</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">REST API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#http-requests">Http Requests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#http-requests">Http requests</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#tools">Tools</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#serialization">Serialization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#http-errors">Http errors</a></li>
@@ -165,14 +165,13 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#websockets">WebSockets</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#channels">Channels</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#status-errors">Status Errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#status-errors">Status errors</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="wallet.html">Wallet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
 </ul>
@@ -183,7 +182,7 @@
 <li class="toctree-l1"><a class="reference internal" href="contribute/contributors.html">Contributors</a></li>
 </ul>
 
-    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.1</a></small>
+    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.2</a></small>
 </div>
 
 <div class="sidebar-xs visible-xs visible-sm">
@@ -196,15 +195,6 @@
 <li class="toctree-l1"><a class="reference internal" href="getting-started/first-application.html">Writing your first application</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting-started/training.html">Self-paced training</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Protocol</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="concepts/cryptography.html">Cryptography</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/block.html">Block</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/transaction.html">Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/harvesting.html">Harvesting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/receipt.html">Receipt</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/node.html">Node</a></li>
-</ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="concepts/account.html">Account</a></li>
@@ -216,10 +206,19 @@
 <li class="toctree-l1"><a class="reference internal" href="concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="concepts/cryptography.html">Cryptography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/block.html">Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/transaction.html">Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/harvesting.html">Harvesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/receipt.html">Receipt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/node.html">Node</a></li>
+</ul>
 <p class="caption"><span class="caption-text">References</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">REST API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#http-requests">Http Requests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#http-requests">Http requests</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#tools">Tools</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#serialization">Serialization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#http-errors">Http errors</a></li>
@@ -229,14 +228,13 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#websockets">WebSockets</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#channels">Channels</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#status-errors">Status Errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#status-errors">Status errors</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="wallet.html">Wallet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
 </ul>
@@ -255,7 +253,10 @@
         <div class="col-md-7 content">
             <div id="edit-on-github" class="text-right">
                 <a href="https://github.com/nemtech/nem2-docs/edit/master/source/api.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> Edit on GitHub</a>
+                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new"
+                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
+
             </div>
 
             
@@ -263,7 +264,7 @@
 <h1>REST API<a class="headerlink" href="#rest-api" title="Permalink to this headline">¶</a></h1>
 <p><strong>Catapult REST API</strong> combines HTTP and WebSockets to perform read and write actions in the NEM blockchain.</p>
 <div class="section" id="http-requests">
-<span id="id1"></span><h2>Http Requests<a class="headerlink" href="#http-requests" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>Http requests<a class="headerlink" href="#http-requests" title="Permalink to this headline">¶</a></h2>
 <p>Catapult REST uses port <code class="docutils literal"><span class="pre">3000</span></code>. It accepts both HTTP <strong>GET</strong>, <strong>PUT</strong> and <strong>POST</strong> requests.</p>
 <p>Assuming that Catapult REST is running locally, HTTP GET requests can be executed from a browser and have the form:</p>
 <p><a class="reference external" href="http://localhost:3000">http://localhost:3000</a>/&lt;path-to-API-request&gt;</p>
@@ -405,7 +406,7 @@
 <p>The status channel notifies when a transaction related to an address rises an error. The message contains the error message and the transaction hash.</p>
 </div>
 <div class="section" id="status-errors">
-<span id="id7"></span><h3>Status Errors<a class="headerlink" href="#status-errors" title="Permalink to this headline">¶</a></h3>
+<span id="id7"></span><h3>Status errors<a class="headerlink" href="#status-errors" title="Permalink to this headline">¶</a></h3>
 <p>This section describes the error messages that can be returned via status channel after announcing a transaction.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -833,7 +834,7 @@
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">REST API</a><ul>
-<li><a class="reference internal" href="#http-requests">Http Requests</a><ul>
+<li><a class="reference internal" href="#http-requests">Http requests</a><ul>
 <li><a class="reference internal" href="#tools">Tools</a></li>
 <li><a class="reference internal" href="#serialization">Serialization</a></li>
 <li><a class="reference internal" href="#http-errors">Http errors</a></li>
@@ -843,7 +844,7 @@
 </li>
 <li><a class="reference internal" href="#websockets">WebSockets</a><ul>
 <li><a class="reference internal" href="#channels">Channels</a></li>
-<li><a class="reference internal" href="#status-errors">Status Errors</a></li>
+<li><a class="reference internal" href="#status-errors">Status errors</a></li>
 </ul>
 </li>
 </ul>
@@ -865,8 +866,9 @@
 
                 <ul>
                     <li><a href="getting-started/what-is-nem.html">Getting Started</a></li>
-                    <li><a href="concepts/cryptography.html">Protocol</a></li>
                     <li><a href="concepts/account.html">Built-in Features</a></li>
+                    <li><a href="concepts/cryptography.html">Protocol</a></li>
+                    <li><a href="references.html">References</a></li>
                     <li><a href="guides/category/account.html">Guides</a></li>
                     <li><a href="contribute/contributing.html">Contribute</a></li>
                 </ul>
@@ -878,9 +880,9 @@
                 <ul>
                     <li><a href="#">REST API</a></li>
                     <li><a href="sdk.html">SDKs</a></li>
-                    <li><a href="extensions.html">Extensions</a></li>
                     <li><a href="cli.html">Client</a></li>
                     <li><a href="prototyping-tool.html">Prototyping Tool</a></li>
+                    <li><a href="extensions.html">Extensions</a></li>
                 </ul>
             </div>
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Converting an account to multisig &#8212; NEM Developer Center</title>
@@ -85,7 +85,7 @@
                 
                 <li><a href="../../getting-started/what-is-nem.html">Getting started</a></li>
                 <li><a href="../../concepts/account.html">Built-in features</a></li>
-                <li><a href="../category/account.html">Guides</a></li>
+                <li><a href="../../concepts/cryptography.html">Protocol</a></li>
                 <li><a href="../../references.html">References</a></li>
                 
                 
@@ -138,7 +138,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/account.html" class="reference internal nav-header">
             
-            Account (4)
+            Account (5)
         </a></li>
     
     
@@ -183,7 +183,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (2)
+            Mosaic (3)
         </a></li>
     
     
@@ -201,7 +201,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (2)
+            Namespace (4)
         </a></li>
     
     
@@ -240,7 +240,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/account.html" class="reference internal nav-header">
             
-            Account (4)
+            Account (5)
         </a></li>
     
     
@@ -285,7 +285,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (2)
+            Mosaic (3)
         </a></li>
     
     
@@ -303,7 +303,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (2)
+            Namespace (4)
         </a></li>
     
     
@@ -338,7 +338,10 @@
         <div class="col-md-7 content">
             <div id="edit-on-github" class="text-right">
                 <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\account\converting-an-account-to-multisig.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> Edit on GitHub</a>
+                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new"
+                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
+
             </div>
 
             
@@ -347,8 +350,8 @@
 <p>Create a 1-of-2 <a class="reference internal" href="../../concepts/multisig-account.html"><span class="doc">multisig account</span></a>, by adding two cosignatories.</p>
 <div class="section" id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
-<p>Alice and Bob live together and have separate <a class="reference internal" href="../../concepts/account.html"><span class="doc">accounts</span></a>. They also have a shared account so that if Bob is out shopping, he can buy groceries for both himself and Alice.</p>
-<p>This shared account is in NEM translated as 1-of-2 multisig, meaning that one cosignatory needs to cosign the transaction to be included in a block.</p>
+<p>Alice and Bob live together and have separate <a class="reference internal" href="../../concepts/account.html"><span class="doc">accounts</span></a>. They also have a shared account used to buy groceries. If Bob is out shopping, he can buy groceries for both himself and Alice.</p>
+<p>This shared account appears in NEM as 1-of-2 multisig, meaning that one cosignatory needs to cosign the transaction to be included in a block.</p>
 <div class="figure align-center" id="id1">
 <img alt="../../_images/multisig-1-of-2.png" src="../../_images/multisig-1-of-2.png" style="width: 350px;" />
 <p class="caption"><span class="caption-text">1-of-2 multisig account example</span></p>
@@ -358,17 +361,15 @@
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Finish <a class="reference internal" href="creating-and-opening-an-account.html"><span class="doc">creating and opening accounts guide</span></a></li>
-<li>Text editor or IDE</li>
-<li>NEM2-SDK or CLI</li>
-<li>Two accounts (public keys)</li>
-<li>One account with XEM</li>
+<li>Finish the <a class="reference internal" href="../../getting-started/setup-workstation.html"><span class="doc">getting started section</span></a></li>
+<li>Have one <a class="reference internal" href="../../getting-started/setup-workstation.html#setup-getting-a-test-account"><span class="std std-ref">account with cat.currency</span></a></li>
+<li>Create <a class="reference internal" href="creating-and-opening-an-account.html"><span class="doc">two accounts</span></a></li>
 </ul>
 </div>
 <div class="section" id="lets-get-into-some-code">
 <h2>Let’s get into some code<a class="headerlink" href="#lets-get-into-some-code" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>Define who will be the cosignatories of the multisig account. Then, open the account that will be converted into multisig by providing its private key.</li>
+<li>Define who will be the cosignatories of the multisig account: Alice and Bob addresses. Then, open the account that will be converted into multisig by providing its private key.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id2">
@@ -417,7 +418,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li>Convert the account into a multisig account by setting a <a class="reference internal" href="../../concepts/multisig-account.html#modify-multisig-account-transaction"><span class="std std-ref">modify multisig account transaction</span></a>. As they want a 1-of-2 multisig account, set the minimum signatures to 1.</li>
+<li>Define a <a class="reference internal" href="../../concepts/multisig-account.html#modify-multisig-account-transaction"><span class="std std-ref">modify multisig account transaction</span></a>  to convert the account into a multisig account. As they need a 1-of-2 multisig account, set the minimum signatures required to 1.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id5">
@@ -481,7 +482,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="3">
-<li>Sign and announce the transaciton with the canidate multisig account.</li>
+<li>Sign and announce the transaction with the candidate multisig account private key.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id8">
@@ -562,7 +563,7 @@
 </div>
 <div class="section" id="what-s-next">
 <h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
-<p>Modify the account, converting it into a 2-of-2 multisig following <a class="reference internal" href="modifying-a-multisig-account.html"><span class="doc">modifying a multisig account</span></a> guide.</p>
+<p>Alice an Bob wants to send transactions from the multisig only when both agree. Modify the multisig account you just created, converting it into a 2-of-2 multisig following <a class="reference internal" href="modifying-a-multisig-account.html"><span class="doc">modifying a multisig account</span></a> guide.</p>
 </div>
 </div>
 
@@ -606,8 +607,9 @@
 
                 <ul>
                     <li><a href="../../getting-started/what-is-nem.html">Getting Started</a></li>
-                    <li><a href="../../concepts/cryptography.html">Protocol</a></li>
                     <li><a href="../../concepts/account.html">Built-in Features</a></li>
+                    <li><a href="../../concepts/cryptography.html">Protocol</a></li>
+                    <li><a href="../../references.html">References</a></li>
                     <li><a href="../category/account.html">Guides</a></li>
                     <li><a href="../../contribute/contributing.html">Contribute</a></li>
                 </ul>
@@ -619,9 +621,9 @@
                 <ul>
                     <li><a href="../../api.html">REST API</a></li>
                     <li><a href="../../sdk.html">SDKs</a></li>
-                    <li><a href="../../extensions.html">Extensions</a></li>
                     <li><a href="../../cli.html">Client</a></li>
                     <li><a href="../../prototyping-tool.html">Prototyping Tool</a></li>
+                    <li><a href="../../extensions.html">Extensions</a></li>
                 </ul>
             </div>
 

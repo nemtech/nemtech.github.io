@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Atomic cross-chain swap between NEM public and private chain &#8212; NEM Developer Center</title>
@@ -85,7 +85,7 @@
                 
                 <li><a href="../../getting-started/what-is-nem.html">Getting started</a></li>
                 <li><a href="../../concepts/account.html">Built-in features</a></li>
-                <li><a href="../category/account.html">Guides</a></li>
+                <li><a href="../../concepts/cryptography.html">Protocol</a></li>
                 <li><a href="../../references.html">References</a></li>
                 
                 
@@ -138,7 +138,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/account.html" class="reference internal nav-header">
             
-            Account (4)
+            Account (5)
         </a></li>
     
     
@@ -183,7 +183,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (2)
+            Mosaic (3)
         </a></li>
     
     
@@ -201,7 +201,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (2)
+            Namespace (4)
         </a></li>
     
     
@@ -240,7 +240,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/account.html" class="reference internal nav-header">
             
-            Account (4)
+            Account (5)
         </a></li>
     
     
@@ -285,7 +285,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (2)
+            Mosaic (3)
         </a></li>
     
     
@@ -303,7 +303,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (2)
+            Namespace (4)
         </a></li>
     
     
@@ -338,7 +338,10 @@
         <div class="col-md-7 content">
             <div id="edit-on-github" class="text-right">
                 <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\transaction\atomic-cross-chain-swap-between-NEM-public-and-private-chain.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> Edit on GitHub</a>
+                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new"
+                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
+
             </div>
 
             
@@ -349,16 +352,16 @@
 <p>When talking about tokens in NEM, we are actually referring to <a class="reference internal" href="../../concepts/mosaic.html"><span class="doc">mosaics</span></a>. Catapult enables atomic swaps through <a class="reference internal" href="../../concepts/cross-chain-swaps.html#secret-lock-transaction"><span class="std std-ref">secret lock</span></a> / <a class="reference internal" href="../../concepts/cross-chain-swaps.html#secret-proof-transaction"><span class="std std-ref">secret proof transaction</span></a> mechanism.</p>
 <div class="section" id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
-<p>Alice and Bob want to exchange <strong>10 alice:token for 10 bob:token</strong>. The problem is that they are not in the same blockchain: alice:token is defined in NEM public chain, whereas bob:token is only present in a private chain using catapult technology.</p>
+<p>Alice and Bob want to exchange <strong>10 alice tokens for 10 bob tokens</strong>. The problem is that they are not in the same blockchain: alice:token is defined in NEM public chain, whereas bob:token is only present in a private chain using catapult technology.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">These two chain shares are SDK. You could implement atomic cross-chain swap between NEM public chain and other blockchains if they permit the secret lock/proof mechanism.</p>
+<p class="last">NEM’s private and future public chain share the SDK. You could implement atomic cross-chain swap between blockchains using different technologies if they permit the <a class="reference internal" href="../../concepts/cross-chain-swaps.html#lock-hash-algorithm"><span class="std std-ref">secret lock/proof mechanism</span></a>.</p>
 </div>
 <p>One non-atomic solution could be:</p>
 <ol class="arabic simple">
-<li>Alice sends 10 alice:token to Bob (private chain)</li>
+<li>Alice sends 10 alice tokens to Bob (private chain)</li>
 <li>Bob receives the transaction</li>
-<li>Bob sends 10 bob:token to Alice (public chain)</li>
+<li>Bob sends 10 bob tokens to Alice (public chain)</li>
 <li>Alice receives the transaction</li>
 </ol>
 <p>However, they do not trust each other that much. Bob could decide his mosaics to Alice. Following this guide, you will see how to make this swap possible, trusting technology.</p>
@@ -366,9 +369,8 @@
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Finish <a class="reference internal" href="creating-an-escrow-with-aggregate-bonded-transaction.html"><span class="doc">creating an escrow with aggregate bonded transaction guide</span></a></li>
-<li>NEM2-SDK</li>
-<li>A text editor or IDE</li>
+<li>Finish the <a class="reference internal" href="../../getting-started/setup-workstation.html"><span class="doc">getting started section</span></a></li>
+<li>Know how to <a class="reference internal" href="../mosaic/creating-a-mosaic.html"><span class="doc">create mosaics</span></a></li>
 </ul>
 </div>
 <div class="section" id="let-s-get-into-some-code">
@@ -397,15 +399,15 @@
 </div>
 </div>
 <ol class="arabic simple">
-<li>Alice picks a random number, called <code class="docutils literal"><span class="pre">proof</span></code>. Then, applies a SHA512 hash algorithm to it, obtaining the <code class="docutils literal"><span class="pre">secret</span></code>.</li>
+<li>Alice picks a random number, called <code class="docutils literal"><span class="pre">proof</span></code>. Then, applies a Sha3-256 algorithm to it, obtaining the <code class="docutils literal"><span class="pre">secret</span></code>.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id3">
 <div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/UsingSecretLockForAtomicCrosschainSwapTransactions.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">random</span> <span class="o">=</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">randomBytes</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">hash</span> <span class="o">=</span> <span class="nx">sha3_512</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
-<span class="kr">const</span> <span class="nx">secret</span> <span class="o">=</span> <span class="nx">hash</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">random</span><span class="p">).</span><span class="nx">hex</span><span class="p">().</span><span class="nx">toUpperCase</span><span class="p">();</span>
 <span class="kr">const</span> <span class="nx">proof</span> <span class="o">=</span> <span class="nx">random</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="s1">&#39;hex&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">hash</span> <span class="o">=</span> <span class="nx">sha3_256</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
+<span class="kr">const</span> <span class="nx">secret</span> <span class="o">=</span> <span class="nx">hash</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">random</span><span class="p">).</span><span class="nx">hex</span><span class="p">().</span><span class="nx">toUpperCase</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
@@ -414,7 +416,7 @@
 <li>Alice creates a secret lock transaction, including:</li>
 </ol>
 <ul class="simple">
-<li>The mosaic and amount to be sent: 10 alice:token</li>
+<li>The mosaic and amount to be sent: <code class="docutils literal"><span class="pre">10</span> <span class="pre">[520597229,83226871]</span></code> (alice tokens)</li>
 <li>The recipient address: Bob’s address in private chain</li>
 <li>The secret: Hashed proof.</li>
 <li>The amount of time in which funds can be unlocked: 96h</li>
@@ -425,9 +427,9 @@
 <div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/UsingSecretLockForAtomicCrosschainSwapTransactions.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">tx1</span> <span class="o">=</span> <span class="nx">SecretLockTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
-    <span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span><span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;alice:token&#39;</span><span class="p">),</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">10</span><span class="p">)),</span>
-    <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">96</span><span class="o">*</span><span class="mi">60</span><span class="p">),</span> <span class="c1">// assuming one block per minute</span>
-    <span class="nx">HashType</span><span class="p">.</span><span class="nx">SHA3_512</span><span class="p">,</span>
+    <span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span><span class="k">new</span> <span class="nx">MosaicId</span><span class="p">([</span><span class="mi">520597229</span><span class="p">,</span><span class="mi">83226871</span><span class="p">]),</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">10</span><span class="p">)),</span>
+    <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">96</span><span class="o">*</span><span class="mi">3600</span><span class="o">/</span><span class="mi">15</span><span class="p">),</span> <span class="c1">// assuming one block every 15 seconds</span>
+    <span class="nx">HashType</span><span class="p">.</span><span class="nx">Op_Sha3_256</span><span class="p">,</span>
     <span class="nx">secret</span><span class="p">,</span>
     <span class="nx">bobPrivateChainAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">,</span>
     <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN</span><span class="p">);</span>
@@ -455,7 +457,7 @@
 <li>Bob creates a secret lock transaction TX2, which contains:</li>
 </ol>
 <ul class="simple">
-<li>The mosaic and amount to be sent: 10 bob:token</li>
+<li>The mosaic and amount to be sent: <code class="docutils literal"><span class="pre">10</span> <span class="pre">[2061634929,1373884888]</span></code> (bob token)</li>
 <li>A recipient address: Alice’s address in public chain</li>
 <li>The secret that should be achieved to unlock the funds.</li>
 <li>The amount of time in which funds can be unlocked: 84h</li>
@@ -466,9 +468,9 @@
 <div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/UsingSecretLockForAtomicCrosschainSwapTransactions.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">tx2</span> <span class="o">=</span> <span class="nx">SecretLockTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
-    <span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span><span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;bob:token&#39;</span><span class="p">),</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">10</span><span class="p">)),</span>
-    <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">84</span><span class="o">*</span><span class="mi">60</span><span class="p">),</span> <span class="c1">// assuming one block per minute</span>
-    <span class="nx">HashType</span><span class="p">.</span><span class="nx">SHA3_512</span><span class="p">,</span>
+    <span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span><span class="k">new</span> <span class="nx">MosaicId</span><span class="p">([</span><span class="mi">2061634929</span><span class="p">,</span><span class="mi">1373884888</span><span class="p">]),</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">10</span><span class="p">)),</span>
+    <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">84</span><span class="o">*</span><span class="mi">3600</span><span class="o">/</span><span class="mi">15</span><span class="p">),</span> <span class="c1">// assuming one block every 15 seconds</span>
+    <span class="nx">HashType</span><span class="p">.</span><span class="nx">Op_Sha3_256</span><span class="p">,</span>
     <span class="nx">secret</span><span class="p">,</span>
     <span class="nx">alicePublicChainAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">,</span>
     <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MAIN_NET</span><span class="p">);</span>
@@ -502,7 +504,7 @@
 <div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/UsingSecretLockForAtomicCrosschainSwapTransactions.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">tx3</span> <span class="o">=</span> <span class="nx">SecretProofTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
-    <span class="nx">HashType</span><span class="p">.</span><span class="nx">SHA3_512</span><span class="p">,</span>
+    <span class="nx">HashType</span><span class="p">.</span><span class="nx">Op_Sha3_256</span><span class="p">,</span>
     <span class="nx">secret</span><span class="p">,</span>
     <span class="nx">proof</span><span class="p">,</span>
     <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MAIN_NET</span><span class="p">);</span>
@@ -523,7 +525,7 @@
 <div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/UsingSecretLockForAtomicCrosschainSwapTransactions.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">tx4</span> <span class="o">=</span> <span class="nx">SecretProofTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
-    <span class="nx">HashType</span><span class="p">.</span><span class="nx">SHA3_512</span><span class="p">,</span>
+    <span class="nx">HashType</span><span class="p">.</span><span class="nx">Op_Sha3_256</span><span class="p">,</span>
     <span class="nx">secret</span><span class="p">,</span>
     <span class="nx">proof</span><span class="p">,</span>
     <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN</span><span class="p">);</span>
@@ -590,8 +592,9 @@
 
                 <ul>
                     <li><a href="../../getting-started/what-is-nem.html">Getting Started</a></li>
-                    <li><a href="../../concepts/cryptography.html">Protocol</a></li>
                     <li><a href="../../concepts/account.html">Built-in Features</a></li>
+                    <li><a href="../../concepts/cryptography.html">Protocol</a></li>
+                    <li><a href="../../references.html">References</a></li>
                     <li><a href="../category/account.html">Guides</a></li>
                     <li><a href="../../contribute/contributing.html">Contribute</a></li>
                 </ul>
@@ -603,9 +606,9 @@
                 <ul>
                     <li><a href="../../api.html">REST API</a></li>
                     <li><a href="../../sdk.html">SDKs</a></li>
-                    <li><a href="../../extensions.html">Extensions</a></li>
                     <li><a href="../../cli.html">Client</a></li>
                     <li><a href="../../prototyping-tool.html">Prototyping Tool</a></li>
+                    <li><a href="../../extensions.html">Extensions</a></li>
                 </ul>
             </div>
 

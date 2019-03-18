@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Getting the amount of XEM sent to an account &#8212; NEM Developer Center</title>
+    <title>Getting the amount of assets sent to an account &#8212; NEM Developer Center</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
@@ -85,7 +85,7 @@
                 
                 <li><a href="../../getting-started/what-is-nem.html">Getting started</a></li>
                 <li><a href="../../concepts/account.html">Built-in features</a></li>
-                <li><a href="../category/account.html">Guides</a></li>
+                <li><a href="../../concepts/cryptography.html">Protocol</a></li>
                 <li><a href="../../references.html">References</a></li>
                 
                 
@@ -138,7 +138,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/account.html" class="reference internal nav-header">
             
-            Account (4)
+            Account (5)
         </a></li>
     
     
@@ -183,7 +183,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (2)
+            Mosaic (3)
         </a></li>
     
     
@@ -201,7 +201,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (2)
+            Namespace (4)
         </a></li>
     
     
@@ -240,7 +240,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/account.html" class="reference internal nav-header">
             
-            Account (4)
+            Account (5)
         </a></li>
     
     
@@ -285,7 +285,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (2)
+            Mosaic (3)
         </a></li>
     
     
@@ -303,7 +303,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (2)
+            Namespace (4)
         </a></li>
     
     
@@ -337,27 +337,31 @@
         
         <div class="col-md-7 content">
             <div id="edit-on-github" class="text-right">
-                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\account\getting-the-amount-of-XEM-sent-to-an-account.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> Edit on GitHub</a>
+                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\account\getting-the-amount-of-assets-sent-to-an-account.rst"
+                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new"
+                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
+
             </div>
 
             
-  <div class="section" id="getting-the-amount-of-xem-sent-to-an-account">
-<h1>Getting the amount of XEM sent to an account<a class="headerlink" href="#getting-the-amount-of-xem-sent-to-an-account" title="Permalink to this headline">¶</a></h1>
-<p>Check the amount of XEM you have sent to any account.</p>
+  <div class="section" id="getting-the-amount-of-assets-sent-to-an-account">
+<h1>Getting the amount of assets sent to an account<a class="headerlink" href="#getting-the-amount-of-assets-sent-to-an-account" title="Permalink to this headline">¶</a></h1>
+<p>Check the number of asset units you have sent to an account.</p>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Finish the <a class="reference internal" href="../../getting-started/setup-workstation.html"><span class="doc">getting started section</span></a></li>
-<li>Text editor or IDE</li>
-<li>NEM2-SDK or CLI</li>
+<li>Have one <a class="reference internal" href="../../getting-started/setup-workstation.html#setup-getting-a-test-account"><span class="std std-ref">account with cat.currency</span></a></li>
+<li>Have <a class="reference internal" href="../transaction/sending-a-transfer-transaction.html"><span class="doc">sent mosaics</span></a> to another account.</li>
 </ul>
 </div>
 <div class="section" id="lets-get-into-some-code">
 <h2>Let’s get into some code<a class="headerlink" href="#lets-get-into-some-code" title="Permalink to this headline">¶</a></h2>
+<p>In this example, we are going to check how many assets of a certain type have we sent to an account.</p>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id1">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/GettingTheAmountOfXEMSentToAnAccount.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/GettingTheAmountOfAssetsSentToAnAccount.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">accountHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AccountHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">originPublicKey</span> <span class="o">=</span> <span class="s1">&#39;7D08373CFFE4154E129E04F0827E5F3D6907587E348757B0F87D2F839BF88246&#39;</span><span class="p">;</span>
@@ -365,6 +369,8 @@
 
 <span class="kr">const</span> <span class="nx">recipientAddress</span> <span class="o">=</span> <span class="s1">&#39;SDG4WG-FS7EQJ-KFQKXM-4IUCQG-PXUW5H-DJVIJB-OXJG&#39;</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">address</span> <span class="o">=</span> <span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="nx">recipientAddress</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">mosaicId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;7cdf3b117a3c40cc&#39;</span><span class="p">);</span> <span class="c1">// Replace with mosaicId you want to check</span>
+<span class="kr">const</span> <span class="nx">divisibility</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span> <span class="c1">// Replace with mosaic divisibility</span>
 
 <span class="nx">accountHttp</span>
     <span class="p">.</span><span class="nx">outgoingTransactions</span><span class="p">(</span><span class="nx">originAccount</span><span class="p">)</span>
@@ -373,56 +379,24 @@
         <span class="nx">filter</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">_</span><span class="p">.</span><span class="nx">type</span> <span class="o">===</span> <span class="nx">TransactionType</span><span class="p">.</span><span class="nx">TRANSFER</span><span class="p">),</span> <span class="c1">// Filter transfer transactions</span>
         <span class="nx">map</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">_</span> <span class="kr">as</span> <span class="nx">TransferTransaction</span><span class="p">),</span> <span class="c1">// Map transaction as transfer transaction</span>
         <span class="nx">filter</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">_</span><span class="p">.</span><span class="nx">recipient</span><span class="p">.</span><span class="nx">equals</span><span class="p">(</span><span class="nx">address</span><span class="p">)),</span> <span class="c1">// Filter transactions from to account</span>
-        <span class="nx">filter</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">_</span><span class="p">.</span><span class="nx">mosaics</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">_</span><span class="p">.</span><span class="nx">mosaics</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">id</span><span class="p">.</span><span class="nx">equals</span><span class="p">(</span><span class="nx">XEM</span><span class="p">.</span><span class="nx">MOSAIC_ID</span><span class="p">)),</span> <span class="c1">// Filter xem transactions</span>
-        <span class="nx">map</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">_</span><span class="p">.</span><span class="nx">mosaics</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">amount</span><span class="p">.</span><span class="nx">compact</span><span class="p">()</span> <span class="o">/</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nx">XEM</span><span class="p">.</span><span class="nx">DIVISIBILITY</span><span class="p">)),</span> <span class="c1">// Map only amount in xem</span>
+        <span class="nx">filter</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">_</span><span class="p">.</span><span class="nx">mosaics</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">_</span><span class="p">.</span><span class="nx">mosaics</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">id</span><span class="p">.</span><span class="nx">equals</span><span class="p">(</span><span class="nx">mosaicId</span><span class="p">)),</span> <span class="c1">// Filter mosaicId transactions</span>
+        <span class="nx">map</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">_</span><span class="p">.</span><span class="nx">mosaics</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">amount</span><span class="p">.</span><span class="nx">compact</span><span class="p">()</span> <span class="o">/</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nx">divisibility</span><span class="p">)),</span> <span class="c1">// Map relative amount</span>
         <span class="nx">toArray</span><span class="p">(),</span> <span class="c1">// Add all mosaics amounts into one array</span>
         <span class="nx">map</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">_</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
     <span class="p">)</span>
     <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span>
-        <span class="nx">total</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Total xem send to account&#39;</span><span class="p">,</span> <span class="nx">address</span><span class="p">.</span><span class="nx">pretty</span><span class="p">(),</span> <span class="s1">&#39;is:&#39;</span><span class="p">,</span> <span class="nx">total</span><span class="p">),</span>
+        <span class="nx">total</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Total &#39;</span><span class="o">+</span> <span class="nx">mosaicId</span><span class="p">.</span><span class="nx">toHex</span><span class="p">()</span> <span class="o">+</span><span class="s1">&#39; sent to account&#39;</span><span class="p">,</span> <span class="nx">address</span><span class="p">.</span><span class="nx">pretty</span><span class="p">(),</span> <span class="s1">&#39;is:&#39;</span><span class="p">,</span> <span class="nx">total</span><span class="p">),</span>
         <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
     <span class="p">);</span>
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper container" id="id2">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/java/src/test/java/nem2/guides/examples/account/GettingTheAmountOfXEMSentToAnAccount.java" target="_blank">View Code</a></span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
-<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="c1">// Replace with public key</span>
-        <span class="kd">final</span> <span class="n">String</span> <span class="n">originPublicKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
-
-        <span class="c1">// Replace with recipient address</span>
-        <span class="kd">final</span> <span class="n">String</span> <span class="n">recipientAddress</span> <span class="o">=</span> <span class="s">&quot;SB2RPH-EMTFMB-KELX2Y-Q3MZTD-RV7DQG-UZEADV-CYKC&quot;</span><span class="o">;</span>
-
-        <span class="c1">// Replace with public key</span>
-        <span class="kd">final</span> <span class="n">PublicAccount</span> <span class="n">originAccount</span> <span class="o">=</span> <span class="n">PublicAccount</span><span class="o">.</span><span class="na">createFromPublicKey</span><span class="o">(</span><span class="n">originPublicKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
-
-        <span class="c1">// Replace with address</span>
-        <span class="kd">final</span> <span class="n">Address</span> <span class="n">address</span> <span class="o">=</span> <span class="n">Address</span><span class="o">.</span><span class="na">createFromRawAddress</span><span class="o">(</span><span class="n">recipientAddress</span><span class="o">);</span>
-
-        <span class="kd">final</span> <span class="n">AccountHttp</span> <span class="n">accountHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AccountHttp</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
-
-        <span class="kd">final</span> <span class="n">BigInteger</span> <span class="n">total</span> <span class="o">=</span> <span class="n">accountHttp</span><span class="o">.</span><span class="na">outgoingTransactions</span><span class="o">(</span><span class="n">originAccount</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">flatMapIterable</span><span class="o">(</span><span class="n">tx</span> <span class="o">-&gt;</span> <span class="n">tx</span><span class="o">)</span> <span class="c1">// Transform transaction array to single transactions to process them</span>
-                <span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">tx</span> <span class="o">-&gt;</span> <span class="n">tx</span><span class="o">.</span><span class="na">getType</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">TransactionType</span><span class="o">.</span><span class="na">TRANSFER</span><span class="o">))</span> <span class="c1">// Filter transfer transactions</span>
-                <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">tx</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">TransferTransaction</span><span class="o">)</span> <span class="n">tx</span><span class="o">)</span> <span class="c1">// Map transaction as transfer transaction</span>
-                <span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">tx</span> <span class="o">-&gt;</span> <span class="n">tx</span><span class="o">.</span><span class="na">getRecipient</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">address</span><span class="o">))</span> <span class="c1">// Filter transactions from to account</span>
-                <span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">tx</span> <span class="o">-&gt;</span> <span class="n">tx</span><span class="o">.</span><span class="na">getMosaics</span><span class="o">().</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">tx</span><span class="o">.</span><span class="na">getMosaics</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">getId</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">XEM</span><span class="o">.</span><span class="na">MOSAICID</span><span class="o">))</span> <span class="c1">// Filter xem transactions</span>
-                <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">tx</span> <span class="o">-&gt;</span> <span class="n">tx</span><span class="o">.</span><span class="na">getMosaics</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">getAmount</span><span class="o">().</span><span class="na">divide</span><span class="o">(</span><span class="n">BigDecimal</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="n">XEM</span><span class="o">.</span><span class="na">DIVISIBILITY</span><span class="o">)).</span><span class="na">toBigInteger</span><span class="o">()))</span> <span class="c1">// Map only amount in xem</span>
-                <span class="o">.</span><span class="na">toList</span><span class="o">()</span> <span class="c1">// Add all mosaics amounts into one array</span>
-                <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">amounts</span> <span class="o">-&gt;</span> <span class="n">amounts</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">reduce</span><span class="o">(</span><span class="n">BigInteger</span><span class="o">.</span><span class="na">ZERO</span><span class="o">,</span> <span class="n">BigInteger</span><span class="o">::</span><span class="n">add</span><span class="o">))</span>
-                <span class="o">.</span><span class="na">toFuture</span><span class="o">()</span>
-                <span class="o">.</span><span class="na">get</span><span class="o">();</span>
-
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Total xem send to account &quot;</span> <span class="o">+</span> <span class="n">address</span><span class="o">.</span><span class="na">pretty</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; is: &quot;</span> <span class="o">+</span> <span class="n">total</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</div>
+<p>If you want to check another <a class="reference internal" href="../../concepts/mosaic.html"><span class="doc">mosaic</span></a> different than the native currency, change <code class="docutils literal"><span class="pre">mosaicId</span></code> and <code class="docutils literal"><span class="pre">divisibility</span></code> for the target mosaic properties.</p>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">mosaicId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">([</span><span class="mi">3562970624</span><span class="p">,</span> <span class="mi">976072438</span><span class="p">]);</span>
+<span class="kr">const</span> <span class="nx">divisibility</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
 </pre></div>
 </div>
-</div>
-</div>
-<p>The amount of XEM sent is displayed in your terminal.</p>
-</div>
-<div class="section" id="whats-next">
-<h2>What’s next?<a class="headerlink" href="#whats-next" title="Permalink to this headline">¶</a></h2>
-<p>Repeat the example by changing NEM filter for another <a class="reference internal" href="../../concepts/mosaic.html"><span class="doc">mosaic</span></a>.</p>
 </div>
 </div>
 
@@ -442,10 +416,9 @@
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
-<li><a class="reference internal" href="#">Getting the amount of XEM sent to an account</a><ul>
+<li><a class="reference internal" href="#">Getting the amount of assets sent to an account</a><ul>
 <li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
 <li><a class="reference internal" href="#lets-get-into-some-code">Let’s get into some code</a></li>
-<li><a class="reference internal" href="#whats-next">What’s next?</a></li>
 </ul>
 </li>
 </ul>
@@ -465,8 +438,9 @@
 
                 <ul>
                     <li><a href="../../getting-started/what-is-nem.html">Getting Started</a></li>
-                    <li><a href="../../concepts/cryptography.html">Protocol</a></li>
                     <li><a href="../../concepts/account.html">Built-in Features</a></li>
+                    <li><a href="../../concepts/cryptography.html">Protocol</a></li>
+                    <li><a href="../../references.html">References</a></li>
                     <li><a href="../category/account.html">Guides</a></li>
                     <li><a href="../../contribute/contributing.html">Contribute</a></li>
                 </ul>
@@ -478,9 +452,9 @@
                 <ul>
                     <li><a href="../../api.html">REST API</a></li>
                     <li><a href="../../sdk.html">SDKs</a></li>
-                    <li><a href="../../extensions.html">Extensions</a></li>
                     <li><a href="../../cli.html">Client</a></li>
                     <li><a href="../../prototyping-tool.html">Prototyping Tool</a></li>
+                    <li><a href="../../extensions.html">Extensions</a></li>
                 </ul>
             </div>
 

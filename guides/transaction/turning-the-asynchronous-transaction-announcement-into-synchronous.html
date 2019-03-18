@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Turning the asynchronous transaction announcement into synchronous &#8212; NEM Developer Center</title>
@@ -85,7 +85,7 @@
                 
                 <li><a href="../../getting-started/what-is-nem.html">Getting started</a></li>
                 <li><a href="../../concepts/account.html">Built-in features</a></li>
-                <li><a href="../category/account.html">Guides</a></li>
+                <li><a href="../../concepts/cryptography.html">Protocol</a></li>
                 <li><a href="../../references.html">References</a></li>
                 
                 
@@ -138,7 +138,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/account.html" class="reference internal nav-header">
             
-            Account (4)
+            Account (5)
         </a></li>
     
     
@@ -183,7 +183,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (2)
+            Mosaic (3)
         </a></li>
     
     
@@ -201,7 +201,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (2)
+            Namespace (4)
         </a></li>
     
     
@@ -240,7 +240,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/account.html" class="reference internal nav-header">
             
-            Account (4)
+            Account (5)
         </a></li>
     
     
@@ -285,7 +285,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (2)
+            Mosaic (3)
         </a></li>
     
     
@@ -303,7 +303,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (2)
+            Namespace (4)
         </a></li>
     
     
@@ -338,7 +338,10 @@
         <div class="col-md-7 content">
             <div id="edit-on-github" class="text-right">
                 <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\transaction\turning-the-asynchronous-transaction-announcement-into-synchronous.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> Edit on GitHub</a>
+                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new"
+                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
+
             </div>
 
             
@@ -347,9 +350,9 @@
 <p>Turn asynchronous transaction announcement into synchronous with <a href="https://github.com/nemtech/nem2-camel" target="_blank">nem2-camel</a>.</p>
 <div class="section" id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
-<p>Alice is developing an app to send 10 nem:xem to Bob. She wants to know if the transaction has reached the network before sending Bob an email.</p>
+<p>Alice is developing an app to send <code class="docutils literal"><span class="pre">10</span> <span class="pre">cat.currency</span></code> to Bob. She wants to know if the transaction has reached the network before sending Bob an email.</p>
 <p>When announcing a transaction in NIS1, you had to wait to get the response from the node. Catapult works differently. When a transaction is announced, the REST API server will always return an OK.</p>
-<p>As a result, the developer does not have to wait until the server returns a response, being able to make more responsive apps.  However, it is developer’s responsibility to check the transactions status and ensure it is confirmed.</p>
+<p>As a result, the developer does not have to wait until the server returns a response, being able to make more responsive apps.  However, it is the developer’s responsibility to check the status of the transaction and ensure it is confirmed.</p>
 <p>On the other hand, keeping track of transactions status adds unnecessary complexity to small projects. It also increases the difficulty when migrating from NIS1.</p>
 <p>nem2-camel aims to solve these problems by providing a server that listens to the Catapult REST calls and acts as a proxy. When it detects a transaction announcement, it waits for the confirmation via <a class="reference internal" href="../../api.html#websockets"><span class="std std-ref">WebSockets</span></a> and returns the message to the HTTP call.</p>
 <div class="admonition note">
@@ -365,8 +368,7 @@
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Finish <a class="reference internal" href="sending-a-transfer-transaction.html"><span class="doc">sending a transfer transaction guide</span></a></li>
-<li>A text editor or IDE</li>
-<li>An account with XEM</li>
+<li>Have one <a class="reference internal" href="../../getting-started/setup-workstation.html#setup-getting-a-test-account"><span class="std std-ref">account with cat.currency</span></a></li>
 </ul>
 </div>
 <div class="section" id="lets-get-into-some-code">
@@ -389,18 +391,18 @@ $&gt; docker-compose up
 </pre></div>
 </div>
 <p><strong>Getting Alice and Bob addresses</strong></p>
-<p>Once the Catapult Service is running, it will generate a set of <a class="reference internal" href="../../concepts/account.html"><span class="doc">accounts</span></a> containing XEM.</p>
+<p>Once the Catapult Service is running, it will generate a set of <a class="reference internal" href="../../concepts/account.html"><span class="doc">accounts</span></a> containing cat.currency.</p>
 <ol class="arabic simple">
-<li>Find the key pairs which contain XEM under the section <code class="docutils literal"><span class="pre">nemesis_addresses</span></code>.</li>
+<li>Find the key pairs which contain cat.currency under the section <code class="docutils literal"><span class="pre">nemesis_addresses</span></code>.</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>   $&gt; <span class="nb">cd</span>  build/generated-addresses/
-   $&gt; cat raw-addresses.yaml
-
-2. Take the first key pair as Alice<span class="s1">&#39;s account, and copy the private key.</span>
-
-<span class="s1">2. Take the second key pair as Bob&#39;</span>s account, and copy the address.
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; <span class="nb">cd</span>  build/generated-addresses/
+$&gt; cat raw-addresses.yaml
 </pre></div>
 </div>
+<ol class="arabic simple" start="2">
+<li>Take the first key pair as Alice’s account, and copy the private key.</li>
+<li>Take the second key pair as Bob’s account, and copy the address.</li>
+</ol>
 <p><strong>Installing nem2-camel</strong></p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -417,7 +419,7 @@ $&gt; docker-compose up
 </ol>
 <p><strong>Sending the transfer transaction</strong></p>
 <ol class="arabic simple">
-<li>Alice creates a <a class="reference internal" href="../../concepts/transfer-transaction.html"><span class="doc">Transfer Transaction</span></a>, sending <code class="docutils literal"><span class="pre">10</span> <span class="pre">XEM</span></code> to Bob and signs it with her account.</li>
+<li>Alice creates a <a class="reference internal" href="../../concepts/transfer-transaction.html"><span class="doc">Transfer Transaction</span></a>, sending <code class="docutils literal"><span class="pre">10</span> <span class="pre">cat.currency</span></code> to Bob and signs it with her account.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id2">
@@ -430,7 +432,7 @@ $&gt; docker-compose up
 <span class="kr">const</span> <span class="nx">transferTransaction</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
    <span class="nx">recipientAddress</span><span class="p">,</span>
-    <span class="p">[</span><span class="nx">XEM</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">10</span><span class="p">)],</span>
+    <span class="p">[</span><span class="nx">NetworkCurrencyMosaic</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">10</span><span class="p">)],</span>
     <span class="nx">EmptyMessage</span><span class="p">,</span>
     <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
@@ -505,8 +507,9 @@ $&gt; docker-compose up
 
                 <ul>
                     <li><a href="../../getting-started/what-is-nem.html">Getting Started</a></li>
-                    <li><a href="../../concepts/cryptography.html">Protocol</a></li>
                     <li><a href="../../concepts/account.html">Built-in Features</a></li>
+                    <li><a href="../../concepts/cryptography.html">Protocol</a></li>
+                    <li><a href="../../references.html">References</a></li>
                     <li><a href="../category/account.html">Guides</a></li>
                     <li><a href="../../contribute/contributing.html">Contribute</a></li>
                 </ul>
@@ -518,9 +521,9 @@ $&gt; docker-compose up
                 <ul>
                     <li><a href="../../api.html">REST API</a></li>
                     <li><a href="../../sdk.html">SDKs</a></li>
-                    <li><a href="../../extensions.html">Extensions</a></li>
                     <li><a href="../../cli.html">Client</a></li>
                     <li><a href="../../prototyping-tool.html">Prototyping Tool</a></li>
+                    <li><a href="../../extensions.html">Extensions</a></li>
                 </ul>
             </div>
 

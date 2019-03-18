@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Sending a transfer transaction &#8212; NEM Developer Center</title>
@@ -85,7 +85,7 @@
                 
                 <li><a href="../../getting-started/what-is-nem.html">Getting started</a></li>
                 <li><a href="../../concepts/account.html">Built-in features</a></li>
-                <li><a href="../category/account.html">Guides</a></li>
+                <li><a href="../../concepts/cryptography.html">Protocol</a></li>
                 <li><a href="../../references.html">References</a></li>
                 
                 
@@ -138,7 +138,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/account.html" class="reference internal nav-header">
             
-            Account (4)
+            Account (5)
         </a></li>
     
     
@@ -183,7 +183,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (2)
+            Mosaic (3)
         </a></li>
     
     
@@ -201,7 +201,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (2)
+            Namespace (4)
         </a></li>
     
     
@@ -240,7 +240,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/account.html" class="reference internal nav-header">
             
-            Account (4)
+            Account (5)
         </a></li>
     
     
@@ -285,7 +285,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (2)
+            Mosaic (3)
         </a></li>
     
     
@@ -303,7 +303,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (2)
+            Namespace (4)
         </a></li>
     
     
@@ -338,7 +338,10 @@
         <div class="col-md-7 content">
             <div id="edit-on-github" class="text-right">
                 <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\transaction\sending-a-transfer-transaction.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> Edit on GitHub</a>
+                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new"
+                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
+
             </div>
 
             
@@ -350,9 +353,7 @@
 <h1>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li>Finish the <a class="reference internal" href="../../getting-started/setup-workstation.html"><span class="doc">getting started section</span></a></li>
-<li>NEM2-SDK or CLI</li>
-<li>A text editor or IDE</li>
-<li>An account with XEM</li>
+<li>Have one <a class="reference internal" href="../../getting-started/setup-workstation.html#setup-getting-a-test-account"><span class="std std-ref">account with cat.currency</span></a></li>
 </ul>
 <div class="section" id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
@@ -360,14 +361,14 @@
 <img alt="../../_images/transfer-transaction1.png" src="../../_images/transfer-transaction1.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">Sending a transfer Transaction</span></p>
 </div>
-<p>Alice wants to send 10 XEM to Bob, whose address is <code class="docutils literal"><span class="pre">SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54</span></code>.</p>
+<p>Alice wants to send <code class="docutils literal"><span class="pre">10</span> <span class="pre">cat.currency</span></code> to Bob, whose address is <code class="docutils literal"><span class="pre">SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54</span></code>.</p>
 <p><strong>Monitoring the transaction</strong></p>
 <p>Once an account announces a transaction, the server will always return an OK response. Receiving an OK response does not mean the transaction is valid. A good practice is to monitor transactions before being announced.</p>
 <p>To understand the transaction lifecycle, we recommend you to open three new terminals. The first terminal <a class="reference internal" href="monitoring-a-transaction-status.html"><span class="doc">monitors announced transactions</span></a> validation errors.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor status
 </pre></div>
 </div>
-<p>Monitoring <code class="docutils literal"><span class="pre">unconfirmed</span></code> shows you which transactions have reached the network, but not are not included in a block yet.</p>
+<p>Monitoring <code class="docutils literal"><span class="pre">unconfirmed</span></code> shows you which transactions have reached the network, but are not included in a block yet.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor unconfirmed
 </pre></div>
 </div>
@@ -378,9 +379,8 @@
 </div>
 <div class="section" id="lets-get-into-some-code">
 <h2>Let’s get into some code<a class="headerlink" href="#lets-get-into-some-code" title="Permalink to this headline">¶</a></h2>
-<p>Alice wants sends <code class="docutils literal"><span class="pre">10</span> <span class="pre">XEM</span></code> to Bob. She wants to include a message, for example <code class="docutils literal"><span class="pre">Welcome</span> <span class="pre">to</span> <span class="pre">NEM</span></code>.</p>
 <ol class="arabic simple">
-<li>Create the transfer transaction, by including Bob address as the recipient, adding 10 XEM and the message requested.</li>
+<li>Create the transfer transaction, by including Bob address as the recipient, adding <code class="docutils literal"><span class="pre">10</span> <span class="pre">cat.currency</span></code> and the message requested.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id2">
@@ -390,63 +390,55 @@
 <span class="kr">const</span> <span class="nx">transferTransaction</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="nx">recipientAddress</span><span class="p">,</span>
-    <span class="p">[</span><span class="nx">XEM</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">10</span><span class="p">)],</span>
+    <span class="p">[</span><span class="nx">NetworkCurrencyMosaic</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">10</span><span class="p">)],</span>
     <span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;Welcome To NEM&#39;</span><span class="p">),</span>
     <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper container" id="id3">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/java/src/test/java/nem2/guides/examples/transaction/SendingATransferTransaction.java" target="_blank">View Code</a></span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
-<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="kd">final</span> <span class="n">String</span> <span class="n">recipientAddress</span> <span class="o">=</span> <span class="s">&quot;SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54&quot;</span><span class="o">;</span>
-
-        <span class="kd">final</span> <span class="n">TransferTransaction</span> <span class="n">transferTransaction</span> <span class="o">=</span> <span class="n">TransferTransaction</span><span class="o">.</span><span class="na">create</span><span class="o">(</span>
-            <span class="n">Deadline</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">HOURS</span><span class="o">),</span>
-            <span class="n">Address</span><span class="o">.</span><span class="na">createFromRawAddress</span><span class="o">(</span><span class="n">recipientAddress</span><span class="o">),</span>
-            <span class="n">Collections</span><span class="o">.</span><span class="na">singletonList</span><span class="o">(</span><span class="n">XEM</span><span class="o">.</span><span class="na">createRelative</span><span class="o">(</span><span class="n">BigInteger</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="mi">10</span><span class="o">))),</span>
-            <span class="n">PlainMessage</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&quot;Welcome To NEM&quot;</span><span class="o">),</span>
-            <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span>
-        <span class="o">);</span>
-</pre></div>
-</div>
-</div>
-<div class="literal-block-wrapper container" id="id4">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingATransferTransaction.js" target="_blank">View Code</a></span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingATransferTransaction.js" target="_blank">View Code</a></span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">recipientAddress</span> <span class="o">=</span> <span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="s1">&#39;SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54&#39;</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">transferTransaction</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="nx">recipientAddress</span><span class="p">,</span>
-    <span class="p">[</span><span class="nx">XEM</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">10</span><span class="p">)],</span>
+    <span class="p">[</span><span class="nx">NetworkCurrencyMosaic</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">10</span><span class="p">)],</span>
     <span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;Welcome To NEM&#39;</span><span class="p">),</span>
     <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Although the transaction is created, it has not been announced to the network yet. Alice must sign the transaction with her account first so that the network can verify its authenticity.</p>
+<p>As you may have noticed, transfer transactions require an array of mosaics as a parameter, allowing to send transfer transactions with multiple mosaics at the same time.</p>
+<p>If you own more than one mosaic, you can send them together in the same transaction:</p>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id4">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingATransferTransactionWithMultipleMosaics.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span>    <span class="p">[</span><span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;7cdf3b117a3c40cc&#39;</span><span class="p">),</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">10</span><span class="p">)),</span>
+        <span class="nx">NetworkCurrencyMosaic</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">10</span><span class="p">)],</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id5">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingATransferTransactionWithMultipleMosaics.js" target="_blank">View Code</a></span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>    <span class="p">[</span><span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;7cdf3b117a3c40cc&#39;</span><span class="p">),</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">10</span><span class="p">)),</span>
+        <span class="nx">NetworkCurrencyMosaic</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">10</span><span class="p">)],</span>
+</pre></div>
+</div>
+</div>
+</div>
 <ol class="arabic simple" start="2">
-<li>Sign the transaction with Alice account.</li>
+<li>Sign the transaction with Alice’s account, so that the network can verify its authenticity.</li>
 </ol>
 <div class="example-code container">
-<div class="literal-block-wrapper container" id="id5">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingATransferTransaction.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper container" id="id6">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingATransferTransaction.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
 
 <span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span><span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">transferTransaction</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="literal-block-wrapper container" id="id6">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/java/src/test/java/nem2/guides/examples/transaction/SendingATransferTransaction.java" target="_blank">View Code</a></span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
-<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="c1">// Replace with private key</span>
-        <span class="kd">final</span> <span class="n">String</span> <span class="n">privateKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
-
-        <span class="kd">final</span> <span class="n">Account</span> <span class="n">account</span> <span class="o">=</span> <span class="n">Account</span><span class="o">.</span><span class="na">createFromPrivateKey</span><span class="o">(</span><span class="n">privateKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
-
-        <span class="kd">final</span> <span class="n">SignedTransaction</span> <span class="n">signedTransaction</span> <span class="o">=</span> <span class="n">account</span><span class="o">.</span><span class="na">sign</span><span class="o">(</span><span class="n">transferTransaction</span><span class="o">);</span>
 </pre></div>
 </div>
 </div>
@@ -462,7 +454,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="3">
-<li>Once signed, you can <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">announce the transaction</span></a> to the network.</li>
+<li>Once signed, <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">announce the transaction</span></a> to the network.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id8">
@@ -476,15 +468,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper container" id="id9">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/java/src/test/java/nem2/guides/examples/transaction/SendingATransferTransaction.java" target="_blank">View Code</a></span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
-<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="kd">final</span> <span class="n">TransactionHttp</span> <span class="n">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TransactionHttp</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
-
-        <span class="n">transactionHttp</span><span class="o">.</span><span class="na">announce</span><span class="o">(</span><span class="n">signedTransaction</span><span class="o">).</span><span class="na">toFuture</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
-</pre></div>
-</div>
-</div>
-<div class="literal-block-wrapper container" id="id10">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingATransferTransaction.js" target="_blank">View Code</a></span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingATransferTransaction.js" target="_blank">View Code</a></span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 
 <span class="nx">transactionHttp</span>
@@ -493,60 +477,18 @@
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper container" id="id11">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/cli/transaction/SendingATransferTransaction.sh" target="_blank">View Code</a></span><a class="headerlink" href="#id11" title="Permalink to this code">¶</a></div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span> nem2-cli transaction transfer --recipient SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54 --mosaics nem:xem::10000000 --message <span class="s2">&quot;Welcome to NEM&quot;</span>
+<div class="literal-block-wrapper container" id="id10">
+<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/cli/transaction/SendingATransferTransaction.sh" target="_blank">View Code</a></span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span> nem2-cli transaction transfer --recipient SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54 --mosaics @cat.currency::10000000 --message <span class="s2">&quot;Welcome to NEM&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <ol class="arabic simple" start="4">
-<li>Open the terminal where you are monitoring account transactions <code class="docutils literal"><span class="pre">status</span></code>. It should be empty. If there is an error, you can check <a class="reference internal" href="../../api.html#status-errors"><span class="std std-ref">the error code here</span></a>.</li>
+<li>Open the terminal where you are monitoring account transactions <code class="docutils literal"><span class="pre">status</span></code>. It should be empty. If there is an error, you can check <a class="reference internal" href="../../api.html#status-errors"><span class="std std-ref">the error code meaning here</span></a>.</li>
 </ol>
 <p>A new transaction should have appeared in the terminal where you are monitoring <code class="docutils literal"><span class="pre">unconfirmed</span></code>. At this point, the transaction has reached the network, but it is not clear if it will get included in a block.</p>
 <p>If it is included in a block, the transaction gets processed, and the amount stated in the transaction gets transferred from the sender’s account to the recipient’s account.</p>
-</div>
-<div class="section" id="what-s-next">
-<h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
-<p>Send multiple mosaics in the same transaction.</p>
-<p><strong>Adding multiple mosaics</strong></p>
-<div class="figure align-center" id="id12">
-<img alt="../../_images/transfer-transaction-multiple-mosaics.png" src="../../_images/transfer-transaction-multiple-mosaics.png" style="width: 450px;" />
-<p class="caption"><span class="caption-text">Sending multiple mosaics in the same transaction</span></p>
-</div>
-<p>As you may have noticed, transfer transactions require an array of mosaics as a parameter, allowing to send transfer transactions with multiple mosaics at the same time.</p>
-<p>If you own more than one mosaic, send them together in the same transaction:</p>
-<div class="example-code container">
-<div class="literal-block-wrapper container" id="id13">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingATransferTransactionWithMultipleMosaics.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id13" title="Permalink to this code">¶</a></div>
-<div class="highlight-typescript"><div class="highlight"><pre><span></span>    <span class="p">[</span><span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;alice:token&#39;</span><span class="p">),</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">10</span><span class="p">)),</span>
-        <span class="nx">XEM</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">10</span><span class="p">)],</span>
-</pre></div>
-</div>
-</div>
-<div class="literal-block-wrapper container" id="id14">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/java/src/test/java/nem2/guides/examples/transaction/SendingATransferTransactionWithMultipleMosaics.java" target="_blank">View Code</a></span><a class="headerlink" href="#id14" title="Permalink to this code">¶</a></div>
-<div class="highlight-java"><div class="highlight"><pre><span></span>                <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span>
-                        <span class="k">new</span> <span class="n">Mosaic</span><span class="o">(</span><span class="k">new</span> <span class="n">MosaicId</span><span class="o">(</span><span class="s">&quot;alice:token&quot;</span><span class="o">),</span> <span class="n">BigInteger</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="mi">10</span><span class="o">)),</span>
-                        <span class="n">XEM</span><span class="o">.</span><span class="na">createRelative</span><span class="o">(</span><span class="n">BigInteger</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="mi">10</span><span class="o">))</span>
-                <span class="o">),</span>
-</pre></div>
-</div>
-</div>
-<div class="literal-block-wrapper container" id="id15">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingATransferTransactionWithMultipleMosaics.js" target="_blank">View Code</a></span><a class="headerlink" href="#id15" title="Permalink to this code">¶</a></div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span>    <span class="p">[</span><span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;alice:token&#39;</span><span class="p">),</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">10</span><span class="p">)),</span>
-        <span class="nx">XEM</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">10</span><span class="p">)],</span>
-</pre></div>
-</div>
-</div>
-<div class="literal-block-wrapper container" id="id16">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/cli/transaction/SendingATransferTransactionWithMultipleMosaics.sh" target="_blank">View Code</a></span><a class="headerlink" href="#id16" title="Permalink to this code">¶</a></div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli transaction transfer --recipient SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54 --mosaics alice:token::10,nem:xem::10000000 --message <span class="s2">&quot;sending multiple mosaics&quot;</span>
-</pre></div>
-</div>
-</div>
-</div>
 </div>
 </div>
 
@@ -570,7 +512,6 @@
 <li><a class="reference internal" href="#prerequisites">Prerequisites</a><ul>
 <li><a class="reference internal" href="#background">Background</a></li>
 <li><a class="reference internal" href="#lets-get-into-some-code">Let’s get into some code</a></li>
-<li><a class="reference internal" href="#what-s-next">What’s next?</a></li>
 </ul>
 </li>
 </ul>
@@ -590,8 +531,9 @@
 
                 <ul>
                     <li><a href="../../getting-started/what-is-nem.html">Getting Started</a></li>
-                    <li><a href="../../concepts/cryptography.html">Protocol</a></li>
                     <li><a href="../../concepts/account.html">Built-in Features</a></li>
+                    <li><a href="../../concepts/cryptography.html">Protocol</a></li>
+                    <li><a href="../../references.html">References</a></li>
                     <li><a href="../category/account.html">Guides</a></li>
                     <li><a href="../../contribute/contributing.html">Contribute</a></li>
                 </ul>
@@ -603,9 +545,9 @@
                 <ul>
                     <li><a href="../../api.html">REST API</a></li>
                     <li><a href="../../sdk.html">SDKs</a></li>
-                    <li><a href="../../extensions.html">Extensions</a></li>
                     <li><a href="../../cli.html">Client</a></li>
                     <li><a href="../../prototyping-tool.html">Prototyping Tool</a></li>
+                    <li><a href="../../extensions.html">Extensions</a></li>
                 </ul>
             </div>
 
