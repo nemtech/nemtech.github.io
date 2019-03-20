@@ -34,7 +34,7 @@
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
     <link rel="next" title="SDK" href="sdk.html" />
-    <link rel="prev" title="クロスチェーンスワップ" href="concepts/cross-chain-swaps.html" />
+    <link rel="prev" title="ノード" href="concepts/node.html" />
   
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -88,7 +88,7 @@
                 
                 <li><a href="getting-started/what-is-nem.html">Getting started</a></li>
                 <li><a href="concepts/account.html">Built-in features</a></li>
-                <li><a href="guides/category/account.html">Guides</a></li>
+                <li><a href="concepts/cryptography.html">Protocol</a></li>
                 <li><a href="references.html">References</a></li>
                 
                 
@@ -133,15 +133,6 @@
 <li class="toctree-l1"><a class="reference internal" href="getting-started/first-application.html">はじめてのアプリケーションを作成</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting-started/training.html">自己ペーストレーニング</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Protocol</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="concepts/cryptography.html">暗号理論</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/block.html">ブロック</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/transaction.html">トランザクション</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/harvesting.html">ハーベスティング</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/receipt.html">レシート</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/node.html">ノード</a></li>
-</ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="concepts/account.html">アカウント</a></li>
@@ -152,6 +143,15 @@
 <li class="toctree-l1"><a class="reference internal" href="concepts/transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/aggregate-transaction.html">アグリゲートトランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/cross-chain-swaps.html">クロスチェーンスワップ</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="concepts/cryptography.html">暗号理論</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/block.html">ブロック</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/transaction.html">トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/receipt.html">レシート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/node.html">ノード</a></li>
 </ul>
 <p class="caption"><span class="caption-text">References</span></p>
 <ul class="current">
@@ -166,14 +166,13 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#websockets">WebSockets</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#channels">チャンネル</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#status-errors">ステータスエラー</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#status-errors">Status errors</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">クライアント</a></li>
-<li class="toctree-l1"><a class="reference internal" href="wallet.html">ウォレット</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prototyping-tool.html">プロトタイピングツール</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extensions.html">拡張</a></li>
 </ul>
@@ -184,7 +183,7 @@
 <li class="toctree-l1"><a class="reference internal" href="contribute/contributors.html">貢献者</a></li>
 </ul>
 
-    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.1</a></small>
+    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.2</a></small>
 </div>
 
 <div class="sidebar-xs visible-xs visible-sm">
@@ -197,15 +196,6 @@
 <li class="toctree-l1"><a class="reference internal" href="getting-started/first-application.html">はじめてのアプリケーションを作成</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting-started/training.html">自己ペーストレーニング</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Protocol</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="concepts/cryptography.html">暗号理論</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/block.html">ブロック</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/transaction.html">トランザクション</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/harvesting.html">ハーベスティング</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/receipt.html">レシート</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/node.html">ノード</a></li>
-</ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="concepts/account.html">アカウント</a></li>
@@ -216,6 +206,15 @@
 <li class="toctree-l1"><a class="reference internal" href="concepts/transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/aggregate-transaction.html">アグリゲートトランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/cross-chain-swaps.html">クロスチェーンスワップ</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="concepts/cryptography.html">暗号理論</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/block.html">ブロック</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/transaction.html">トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/receipt.html">レシート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/node.html">ノード</a></li>
 </ul>
 <p class="caption"><span class="caption-text">References</span></p>
 <ul class="current">
@@ -230,14 +229,13 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#websockets">WebSockets</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#channels">チャンネル</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#status-errors">ステータスエラー</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#status-errors">Status errors</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">クライアント</a></li>
-<li class="toctree-l1"><a class="reference internal" href="wallet.html">ウォレット</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prototyping-tool.html">プロトタイピングツール</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extensions.html">拡張</a></li>
 </ul>
@@ -256,7 +254,10 @@
         <div class="col-md-7 content">
             <div id="edit-on-github" class="text-right">
                 <a href="https://github.com/nemtech/nem2-docs/edit/master/source/api.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> GitHubで編集</a>
+                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose"
+                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
+
             </div>
 
             
@@ -290,7 +291,7 @@
 </div>
 <div class="section" id="serialization">
 <span id="id3"></span><h3>シリアル化<a class="headerlink" href="#serialization" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><a class="reference external" href="https://github.com/nemtech/catbuffer">Catbuffer library</a> defines the protocol to serialize and deserialize Catapult entities. The library comes with code generators for different languages. SDKs and applications use the generated code to interact with REST transaction endpoint.</p>
+<p><a class="reference external" href="https://github.com/nemtech/catbuffer">Catbuffer ライブラリ</a> は Catapult のエンティティをシリアライズ/デシリアライズするプロトコルを定義します。SDK とアプリケーションは REST トランザクションエンドポイントと疎通するために生成されたコードを利用します。</p>
 <div class="figure align-center" id="id8">
 <img alt="_images/catbuffer.png" src="_images/catbuffer.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">NEM2-SDK シリアル化モジュール</span></p>
@@ -299,15 +300,15 @@
 <p><strong>効率的なメモリ使用</strong></p>
 <p>大きなネットワークはたくさんのトランザクションを計算します。バイナリに最適化された仕事はコミュニケーションを高速にします。さらに、メモリバッファからのエンティティ -またはそれらの一部- の読み込みはメモリを効率的に使用します。</p>
 <p><strong>柔軟性</strong></p>
-<p>REST <a class="reference external" href="https://nemtech.github.io/endpoints.html#operation/announceTransaction">transaction endpoints</a> handle the calls to update the blockchain state. The serialized payload of a transaction is appended to the body of the POST call. These endpoints allow the addition of new functionality to the server side without modifying the API contract.</p>
+<p>REST <a class="reference external" href="https://nemtech.github.io/endpoints.html#operation/announceTransaction">トランザクションエンドポイント</a> はブロックチェーンの状態を更新するための呼び出しをハンドリングします。シリアライズされたトランザクションのペイロードは POST 呼び出しのボディに追加されます。これらのエンドポイントにより API の規約を変更せずに、サーバ側に新しい機能を追加することができます。</p>
 <p><strong>再利用性</strong></p>
-<p>Applications can embed the generated code, without managing dependencies. This is particularly desirable in highly-secure environments. Besides, sharing a common codebase enables the addition of new features with less effort.</p>
-<p>The <a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas">schemas define</a> the entities data structure. The library generates the leanest code necessary to serialize and deserialize defined entities.</p>
-<p>Generate the code for a determined schema in one of the available languages. For example, run the following command to generate C++ transaction builders for a transfer transaction:</p>
+<p>アプリケーションは依存性の管理することなく、生成されたコードを組み込むことができます。これは安全性の高い環境において、特に望ましいです。さらに共通のコードベースを共有することは、より少ない労力で新しい機能を追加することを可能にします。</p>
+<p><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas">スキーマ</a> はエンティティのデータ構造を定義しています。このライブラリは定義済みエンティティを、シリアライズまたはデシリアライズするために必要な最低限のコードを生成します。</p>
+<p>利用可能な言語の1つで決定されたスキーマのコードを生成してください。たとえば、転送トランザクションの C ++ 用トランザクションビルダーを生成するには、次のコマンドを実行します。</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; python main.py --schema schemas/transfer/transfer.cats --generator cpp_builder
 </pre></div>
 </div>
-<p>The generator creates a new file under <code class="docutils literal"><span class="pre">_generated/cpp_builder</span></code> folder. Repeat the process using a different input schema <code class="docutils literal"><span class="pre">(-s)</span></code> or generator <code class="docutils literal"><span class="pre">(-g)</span></code> as needed.</p>
+<p>ジェネレータは <code class="docutils literal"><span class="pre">_generated/cpp_builder</span></code> フォルダ以下に新しいファイルを生成します。必要に応じて、異なる入力スキーマ <code class="docutils literal"><span class="pre">(-s)</span></code> またはジェネレータ <code class="docutils literal"><span class="pre">(-g)</span></code> を使用して、このプロセスを繰り返してください。</p>
 </div>
 <div class="section" id="http-errors">
 <span id="id4"></span><h3>HTTP エラー<a class="headerlink" href="#http-errors" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -406,7 +407,7 @@
 <p>ステータスチャンネルはアドレスに関連するトランザクションでエラーが発生したときに通知を行います。メッセージにはエラーとトランザクションハッシュが含まれます。</p>
 </div>
 <div class="section" id="status-errors">
-<span id="id7"></span><h3>ステータスエラー<a class="headerlink" href="#status-errors" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="id7"></span><h3>Status errors<a class="headerlink" href="#status-errors" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>このセクションでは、トランザクションをアナウンスした後に、ステータスチャンネルが返却するエラーメッセージの説明をします。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
@@ -805,10 +806,10 @@
 <td>Validation failed because the remote chain score is not better.</td>
 </tr>
 <tr class="row-odd"><td>Failure_Consumer_Remote_Chain_Too_Far_Behind</td>
-<td>Validation failed because the remote chain is too far behind.</td>
+<td>リモートチェーンのタイムスタンプが遅れすぎているため、バリデーションに失敗しました。</td>
 </tr>
 <tr class="row-even"><td>Failure_Consumer_Remote_Chain_Too_Far_In_Future</td>
-<td>Validation failed because the remote chain timestamp is too far in the future.</td>
+<td>リモートチェーンのタイムスタンプが先に進みすぎているため、バリデーションに失敗しました。</td>
 </tr>
 <tr class="row-odd"><td>Failure_Extension_Partial_Transaction_Cache_Prune</td>
 <td>Validation failed because the partial transaction was pruned from the temporal cache.</td>
@@ -844,7 +845,7 @@
 </li>
 <li><a class="reference internal" href="#websockets">WebSockets</a><ul>
 <li><a class="reference internal" href="#channels">チャンネル</a></li>
-<li><a class="reference internal" href="#status-errors">ステータスエラー</a></li>
+<li><a class="reference internal" href="#status-errors">Status errors</a></li>
 </ul>
 </li>
 </ul>
@@ -865,11 +866,12 @@
                 <h4>学習する</h4>
 
                 <ul>
-                    <li><a href="getting-started/what-is-nem.html">Getting Started</a></li>
-                    <li><a href="concepts/cryptography.html">Protocol</a></li>
-                    <li><a href="concepts/account.html">Built-in Features</a></li>
-                    <li><a href="guides/category/account.html">Guides</a></li>
-                    <li><a href="contribute/contributing.html">Contribute</a></li>
+                    <li><a href="getting-started/what-is-nem.html">入門</a></li>
+                    <li><a href="concepts/account.html">ビルドイン機能</a></li>
+                    <li><a href="concepts/cryptography.html">プロトコル</a></li>
+                    <li><a href="references.html">リファレンス</a></li>
+                    <li><a href="guides/category/account.html">ガイド</a></li>
+                    <li><a href="contribute/contributing.html">貢献する</a></li>
                 </ul>
             </div>
 
@@ -879,9 +881,9 @@
                 <ul>
                     <li><a href="#">REST API</a></li>
                     <li><a href="sdk.html">SDKs</a></li>
-                    <li><a href="extensions.html">拡張</a></li>
                     <li><a href="cli.html">クライアント</a></li>
                     <li><a href="prototyping-tool.html">プロトタイピングツール</a></li>
+                    <li><a href="extensions.html">拡張</a></li>
                 </ul>
             </div>
 

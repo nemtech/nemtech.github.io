@@ -86,7 +86,7 @@
                 
                 <li><a href="../../getting-started/what-is-nem.html">Getting started</a></li>
                 <li><a href="../../concepts/account.html">Built-in features</a></li>
-                <li><a href="../category/account.html">Guides</a></li>
+                <li><a href="../../concepts/cryptography.html">Protocol</a></li>
                 <li><a href="../../references.html">References</a></li>
                 
                 
@@ -139,7 +139,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/account.html" class="reference internal nav-header">
             
-            Account (4)
+            Account (5)
         </a></li>
     
     
@@ -184,7 +184,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (2)
+            Mosaic (3)
         </a></li>
     
     
@@ -202,7 +202,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (2)
+            Namespace (4)
         </a></li>
     
     
@@ -241,7 +241,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/account.html" class="reference internal nav-header">
             
-            Account (4)
+            Account (5)
         </a></li>
     
     
@@ -286,7 +286,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (2)
+            Mosaic (3)
         </a></li>
     
     
@@ -304,7 +304,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (2)
+            Namespace (4)
         </a></li>
     
     
@@ -339,7 +339,10 @@
         <div class="col-md-7 content">
             <div id="edit-on-github" class="text-right">
                 <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\account\getting-account-information.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> GitHubで編集</a>
+                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose"
+                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
+
             </div>
 
             
@@ -350,14 +353,14 @@
 <h2>前提条件<a class="headerlink" href="#prerequisites" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><a class="reference internal" href="../../getting-started/setup-workstation.html"><span class="doc">入門セクション</span></a> を終了している</li>
-<li>テキストエディタ または IDE</li>
-<li>NEM2-SDK または CLI</li>
+<li><a class="reference internal" href="../../getting-started/setup-workstation.html#setup-getting-a-test-account"><span class="std std-ref">cat.currency</span></a>  を保有するアカウント</li>
 </ul>
 </div>
 <div class="section" id="lets-get-into-some-code">
 <h2>それではコードを見ていきましょう<a class="headerlink" href="#lets-get-into-some-code" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><strong>公開鍵</strong> はネットワーク上のあなたのアカウントを特定します。あなたの <strong>アドレス</strong> は公開鍵から導出され、ネットワークや妥当性チェックなどの情報を含んでいます。</p>
-<p>アドレスとネットワークをパラメタとして、あなたのアカウントのより多くの情報を取得します。</p>
+<ol class="arabic simple">
+<li>アカウントのアドレスをパラメタとして <code class="docutils literal"><span class="pre">getAccountInfo</span></code> 関数に渡して呼び出してください。</li>
+</ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id1">
 <div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/GettingAccountInformation.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id1" title="このコードへのパーマリンク">¶</a></div>
@@ -401,17 +404,20 @@
 </div>
 </div>
 </div>
-<p>アカウントの公開鍵を見つけられますか？アカウントが現れたのはどのブロックでしょうか？</p>
-<p><strong>アカウントの残高を確認する</strong></p>
-<p>残高とは、アカウントが保有している <strong>モザイク</strong> ごとの総量です。あなたのアカウントにはどんな <a class="reference internal" href="../../concepts/mosaic.html"><span class="doc">モザイク</span></a> を保有しているでしょうか？</p>
+<p>アカウントの公開鍵を確認できますか？<strong>公開鍵</strong> はネットワーク上のあなたのアカウントを特定します。あなたの <strong>アドレス</strong> は公開鍵から導出され、ネットワークや妥当性チェックなどの情報を含んでいます。</p>
+<p>公開鍵が割り当てられていない場合、それはあなたのアカウントがまだトランザクションをアナウンスまたは受信していないことを意味します。 <code class="docutils literal"><span class="pre">addressHeight</span></code> と <code class="docutils literal"><span class="pre">publicKeyHeight</span></code> はあなたのアドレスと公開鍵が最初に現れたブロックを指します。</p>
+<p><code class="docutils literal"><span class="pre">important</span></code> フィールドはアカウントが所有するハーベスティングモザイクの数と総モザイク供給の間の数値的関係を表します。重要性が高ければ高いほど、新しいブロックを <a class="reference internal" href="../../concepts/harvesting.html"><span class="doc">ハーベスト</span></a> する機会が増えます。</p>
+<p>残高はそのアカウントが所有するいろいろな <a class="reference internal" href="../../concepts/mosaic.html"><span class="doc">mosaics</span></a> の量です。</p>
+<ol class="arabic simple" start="2">
+<li>あなたのアカウントにはいくつのモザイクがありますか？アカウントのアドレスをパラメタとして <code class="docutils literal"><span class="pre">mosaicsAmountViewFromAddress</span></code> 関数に渡して呼び出してください。</li>
+</ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id5">
 <div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/CheckingBalanceOfAnAccount.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id5" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">accountHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AccountHttp</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">mosaicHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicHttp</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">namespaceHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NamespaceHttp</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">mosaicService</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicService</span><span class="p">(</span><span class="nx">accountHttp</span><span class="p">,</span> <span class="nx">mosaicHttp</span><span class="p">,</span> <span class="nx">namespaceHttp</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">mosaicService</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicService</span><span class="p">(</span><span class="nx">accountHttp</span><span class="p">,</span> <span class="nx">mosaicHttp</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">address</span> <span class="o">=</span> <span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="s2">&quot;SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54&quot;</span><span class="p">);</span>
 
@@ -430,8 +436,7 @@
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">accountHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AccountHttp</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">mosaicHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicHttp</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">namespaceHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NamespaceHttp</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">mosaicService</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicService</span><span class="p">(</span><span class="nx">accountHttp</span><span class="p">,</span> <span class="nx">mosaicHttp</span><span class="p">,</span> <span class="nx">namespaceHttp</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">mosaicService</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicService</span><span class="p">(</span><span class="nx">accountHttp</span><span class="p">,</span> <span class="nx">mosaicHttp</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">address</span> <span class="o">=</span> <span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="s2">&quot;SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54&quot;</span><span class="p">);</span>
 
@@ -452,10 +457,6 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="whats-next">
-<h2>次は？<a class="headerlink" href="#whats-next" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="https://www.learnrxjs.io/operators/filtering/filter.html">nem:xemのフィルタリング</a> をしてその総量だけを取得してください。</p>
 </div>
 </div>
 
@@ -478,7 +479,6 @@
 <li><a class="reference internal" href="#">アカウントの情報を取得する</a><ul>
 <li><a class="reference internal" href="#prerequisites">前提条件</a></li>
 <li><a class="reference internal" href="#lets-get-into-some-code">それではコードを見ていきましょう</a></li>
-<li><a class="reference internal" href="#whats-next">次は？</a></li>
 </ul>
 </li>
 </ul>
@@ -497,11 +497,12 @@
                 <h4>学習する</h4>
 
                 <ul>
-                    <li><a href="../../getting-started/what-is-nem.html">Getting Started</a></li>
-                    <li><a href="../../concepts/cryptography.html">Protocol</a></li>
-                    <li><a href="../../concepts/account.html">Built-in Features</a></li>
-                    <li><a href="../category/account.html">Guides</a></li>
-                    <li><a href="../../contribute/contributing.html">Contribute</a></li>
+                    <li><a href="../../getting-started/what-is-nem.html">入門</a></li>
+                    <li><a href="../../concepts/account.html">ビルドイン機能</a></li>
+                    <li><a href="../../concepts/cryptography.html">プロトコル</a></li>
+                    <li><a href="../../references.html">リファレンス</a></li>
+                    <li><a href="../category/account.html">ガイド</a></li>
+                    <li><a href="../../contribute/contributing.html">貢献する</a></li>
                 </ul>
             </div>
 
@@ -511,9 +512,9 @@
                 <ul>
                     <li><a href="../../api.html">REST API</a></li>
                     <li><a href="../../sdk.html">SDKs</a></li>
-                    <li><a href="../../extensions.html">拡張</a></li>
                     <li><a href="../../cli.html">クライアント</a></li>
                     <li><a href="../../prototyping-tool.html">プロトタイピングツール</a></li>
+                    <li><a href="../../extensions.html">拡張</a></li>
                 </ul>
             </div>
 

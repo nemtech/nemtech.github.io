@@ -86,7 +86,7 @@
                 
                 <li><a href="../../getting-started/what-is-nem.html">Getting started</a></li>
                 <li><a href="../../concepts/account.html">Built-in features</a></li>
-                <li><a href="../category/account.html">Guides</a></li>
+                <li><a href="../../concepts/cryptography.html">Protocol</a></li>
                 <li><a href="../../references.html">References</a></li>
                 
                 
@@ -139,7 +139,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/account.html" class="reference internal nav-header">
             
-            Account (4)
+            Account (5)
         </a></li>
     
     
@@ -184,7 +184,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (2)
+            Mosaic (3)
         </a></li>
     
     
@@ -202,7 +202,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (2)
+            Namespace (4)
         </a></li>
     
     
@@ -241,7 +241,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/account.html" class="reference internal nav-header">
             
-            Account (4)
+            Account (5)
         </a></li>
     
     
@@ -286,7 +286,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (2)
+            Mosaic (3)
         </a></li>
     
     
@@ -304,7 +304,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (2)
+            Namespace (4)
         </a></li>
     
     
@@ -339,7 +339,10 @@
         <div class="col-md-7 content">
             <div id="edit-on-github" class="text-right">
                 <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\account\modifying-a-multisig-account.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> GitHubで編集</a>
+                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose"
+                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
+
             </div>
 
             
@@ -351,15 +354,14 @@
 <h2>前提条件<a class="headerlink" href="#prerequisites" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><a class="reference internal" href="converting-an-account-to-multisig.html"><span class="doc">マルチシグアカウントへの変換ガイド</span></a> を終了していること</li>
-<li>テキストエディタ または IDE</li>
-<li>NEM2-SDK または CLI</li>
 <li>マルチシグアカウント1つ</li>
+<li><a class="reference internal" href="creating-and-opening-an-account.html"><span class="doc">アカウントの作成</span></a> 方法を理解している</li>
 </ul>
 </div>
 <div class="section" id="lets-get-into-some-code">
 <h2>それではコードを見ていきましょう<a class="headerlink" href="#lets-get-into-some-code" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p id="guide-modify-a-multisig-account-min-approval"><strong>最小承認の編集</strong></p>
-<p>Alice と Bob は 1-of-2 マルチシグアカウントの連署者です。マルチシグトランザクションを承認するには、彼らのうち少なくとも一つのアカウントの署名が必要です。言い換えると、 <code class="docutils literal"><span class="pre">最小承認数</span></code> パラメタが現在は <code class="docutils literal"><span class="pre">1</span></code> に設定されているということになります。</p>
+<p>Alice と Bob は 1-of-2 マルチシグアカウントの連署者です。マルチシグトランザクションを承認するには、彼らのうち少なくとも一つのアカウントの署名が必要です。言い換えると <code class="docutils literal"><span class="pre">最小承認数</span></code> パラメタが現在は <code class="docutils literal"><span class="pre">1</span></code> に設定されているということになります。</p>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id1">
 <div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/ModifyingAMultisigAccountIncreaseMinApproval.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id1" title="このコードへのパーマリンク">¶</a></div>
@@ -444,7 +446,7 @@
 <ol class="arabic simple" start="2">
 <li>マルチシグアカウント変更トランザクションをアグリゲートトランザクションで内包し、マルチシグの公開鍵を署名者として添付します。</li>
 </ol>
-<p>ネットワークへアナウンスされる前にすべての連署者が署名をすると、アグリゲートトランザクションは <em>完了</em> になります。正当であれば、ブロックへ取り込まれます。</p>
+<p>ネットワークへアナウンスされる前にすべての連署者が署名をすると、アグリゲートトランザクションは <em>コンプリート</em> になります。正当であれば、ブロックへ取り込まれます。</p>
 <p>1つの連署者を必要とするので(1-of-2)、アリスはトランザクションに署名し、それをネットワークへアナウンスできます。</p>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id8">
@@ -499,7 +501,7 @@
 <p>承認されると、マルチシグの最小承認値は 2 となり、2-of-2 マルチシグになります。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">minApproval パラメタを減少させ、1-0f-2 に戻したい場合は、minApprovalDelta を負の値に設定してください。この場合は``-1`` です。</p>
+<p class="last">minApproval パラメタを減少させ、1-of-2 に戻したい場合は、minApprovalDelta を負の値に設定してください。この場合は <code class="docutils literal"><span class="pre">-1</span></code> です。</p>
 </div>
 <p id="guide-modify-a-multisig-account-add-new-cosignatory"><strong>新しい連署者を追加します</strong></p>
 <p>ここで 2-of-3 連署が必要になるように、 Alice と Bob は Carol をマルチシグアカウントの連署者として追加したいと思いました。</p>
@@ -648,14 +650,14 @@
 </div>
 </div>
 <ol class="arabic simple" start="4">
-<li>アグリゲートボンドトランザクションを送信する前に、Alice はロックするのに最低 <code class="docutils literal"><span class="pre">10</span></code> XEM を必要とします。このメカニズムはネットワークスパムを防止するためとトランザクションに署名することを促すために要求されます。ハッシュロックトランザクションが承認されると、アリスはアグリゲートトランザクションをアナウンスできます。</li>
+<li>アグリゲートボンドトランザクションを送信する前に、Alice はロックするのに最低 <code class="docutils literal"><span class="pre">10</span></code> cat.currency を必要とします。このメカニズムはネットワークスパムを防止するためとトランザクションに署名することを促すために要求されます。ハッシュロックトランザクションが承認されると、アリスはアグリゲートトランザクションをアナウンスできます。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id21">
 <div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/ModifyingAMultisigAccountAddCosignatory.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id21" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">lockFundsTransaction</span> <span class="o">=</span> <span class="nx">LockFundsTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
-    <span class="nx">XEM</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+    <span class="nx">NetworkCurrencyMosaic</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
     <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">480</span><span class="p">),</span>
     <span class="nx">signedTransaction</span><span class="p">,</span>
     <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
@@ -743,10 +745,10 @@
 <p class="first admonition-title">注釈</p>
 <p class="last">クライアントサイドで使用する場合は(例, Angular, React, Vue) <a class="reference internal" href="../transaction/monitoring-a-transaction-status.html#monitoring-transactions-client-side"><span class="std std-ref">リスナーの実装は変わります</span></a> 。</p>
 </div>
-<p>ボブが <a class="reference internal" href="../transaction/signing-announced-aggregate-bonded-transactions.html"><span class="doc">このトランザクションに署名</span></a> すると、ロックされたXEMはまたアリスのアカウントで有効になり、キャロルがマルチシグへ追加されます。</p>
+<p>ボブが <a class="reference internal" href="../transaction/signing-announced-aggregate-bonded-transactions.html"><span class="doc">このトランザクションに署名</span></a> すると、ロックされた cat.currency はまたアリスのアカウントで有効になり、キャロルがマルチシグへ追加されます。</p>
 <p id="guide-modify-a-multisig-account-removing-a-cosignatory"><strong>連署者を削除します</strong></p>
 <p>このガイドを終了したら、マルチシグから連署者を削除してみましょう。全ての連署者を削除することでマルチシグアカウントを通常のアカウントへ変換できます。そのマルチシグの秘密鍵を所有していることを確認してください！</p>
-<p>以下のコードでは、2-of-3マルチシグの連署者を <code class="docutils literal"><span class="pre">minRemoval</span></code> を 1 にセットすることで削除する方法です。マルチシグ変更トランザクションはアグリゲートコンプリートによって内包され、他者をマルチシグから削除するのに1人を要求します。</p>
+<p>以下のコードでは 2-of-3マルチシグの連署者を <code class="docutils literal"><span class="pre">minRemoval</span></code> を 1 にセットすることで削除する方法です。マルチシグ変更トランザクションはアグリゲートコンプリートによって内包され、他者をマルチシグから削除するのに1人を要求します。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
 <p class="last">minRemoval パラメタは誰かをマルチシグから削除するために必要な署名数を表します。<a class="reference internal" href="#guide-modify-a-multisig-account-min-approval"><span class="std std-ref">minApproval パラメタの変更</span></a> と同じ方法で増加または減少させることができます。</p>
@@ -907,11 +909,12 @@
                 <h4>学習する</h4>
 
                 <ul>
-                    <li><a href="../../getting-started/what-is-nem.html">Getting Started</a></li>
-                    <li><a href="../../concepts/cryptography.html">Protocol</a></li>
-                    <li><a href="../../concepts/account.html">Built-in Features</a></li>
-                    <li><a href="../category/account.html">Guides</a></li>
-                    <li><a href="../../contribute/contributing.html">Contribute</a></li>
+                    <li><a href="../../getting-started/what-is-nem.html">入門</a></li>
+                    <li><a href="../../concepts/account.html">ビルドイン機能</a></li>
+                    <li><a href="../../concepts/cryptography.html">プロトコル</a></li>
+                    <li><a href="../../references.html">リファレンス</a></li>
+                    <li><a href="../category/account.html">ガイド</a></li>
+                    <li><a href="../../contribute/contributing.html">貢献する</a></li>
                 </ul>
             </div>
 
@@ -921,9 +924,9 @@
                 <ul>
                     <li><a href="../../api.html">REST API</a></li>
                     <li><a href="../../sdk.html">SDKs</a></li>
-                    <li><a href="../../extensions.html">拡張</a></li>
                     <li><a href="../../cli.html">クライアント</a></li>
                     <li><a href="../../prototyping-tool.html">プロトタイピングツール</a></li>
+                    <li><a href="../../extensions.html">拡張</a></li>
                 </ul>
             </div>
 

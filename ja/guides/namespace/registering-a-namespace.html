@@ -86,7 +86,7 @@
                 
                 <li><a href="../../getting-started/what-is-nem.html">Getting started</a></li>
                 <li><a href="../../concepts/account.html">Built-in features</a></li>
-                <li><a href="../category/account.html">Guides</a></li>
+                <li><a href="../../concepts/cryptography.html">Protocol</a></li>
                 <li><a href="../../references.html">References</a></li>
                 
                 
@@ -139,7 +139,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/account.html" class="reference internal nav-header">
             
-            Account (4)
+            Account (5)
         </a></li>
     
     
@@ -184,7 +184,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (2)
+            Mosaic (3)
         </a></li>
     
     
@@ -202,7 +202,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (2)
+            Namespace (4)
         </a></li>
     
     
@@ -241,7 +241,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/account.html" class="reference internal nav-header">
             
-            Account (4)
+            Account (5)
         </a></li>
     
     
@@ -286,7 +286,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (2)
+            Mosaic (3)
         </a></li>
     
     
@@ -304,7 +304,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (2)
+            Namespace (4)
         </a></li>
     
     
@@ -339,7 +339,10 @@
         <div class="col-md-7 content">
             <div id="edit-on-github" class="text-right">
                 <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\namespace\registering-a-namespace.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> GitHubで編集</a>
+                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose"
+                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
+
             </div>
 
             
@@ -348,23 +351,21 @@
 <p>あなたの <a class="reference internal" href="../../concepts/namespace.html"><span class="doc">ネームスペース</span></a> を取得しましょう。</p>
 <div class="section" id="background">
 <h2>背景<a class="headerlink" href="#background" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference internal" href="../../concepts/namespace.html"><span class="doc">ネームスペース</span></a> はチェーン上の資産のための一意なドメインです。インターネット上のドメインとファイルの関係に類似していることに例えるのが、これを理解するのに最も簡単です。</p>
-<p>モザイクとはドメインでホストされているファイルのようなもので、資産を表します。ウェブサイトやディレクトリのように、モザイクは他のドメイン上の他のファイルのように、同じ名前を持つことができます。ただし、ネームスペース + モザイクは常に一意であるため、ルートネームスペースは残りの部分がそうでない場合でも一意です。</p>
-<p>ある <a class="reference internal" href="../../concepts/account.html"><span class="doc">アカウント</span></a> がネームスペースを作ると、NEMのエコシステム内に一意なネームスペースが出現します。例えば、あるアカウントが <code class="docutils literal"><span class="pre">foo</span></code> というネームスペースを作ると、2人目は同じネームスペースを作ることができません。</p>
+<p>ネームスペースによって、NEM ブロックチェーン上に、あなたのビジネスと資産のための <strong>一意な場所</strong> をチェーン上に作ることができます。</p>
+<p>ネームスペースはインターネットドメイン名と同様に選択した一意の名前で始まります。ある <a class="reference internal" href="../../concepts/account.html"><span class="doc">アカウント</span></a> がネームスペースを作成すると、それはネットワーク内で一意に表現されるようになります。</p>
+<p>アカウントは登録済みの名前(ネームスペースまたはサブネームスペース)を <a class="reference internal" href="../../concepts/account.html"><span class="doc">アカウント</span></a> または <a class="reference internal" href="../../concepts/mosaic.html"><span class="doc">モザイク</span></a> 識別子にリンクすることができます。</p>
 </div>
 <div class="section" id="prerequisites">
 <h2>前提条件<a class="headerlink" href="#prerequisites" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><a class="reference internal" href="../../getting-started/setup-workstation.html"><span class="doc">入門セクション</span></a> を終了している</li>
-<li>NEM2-SDK または CLI</li>
-<li>テキストエディタかIDE</li>
-<li>XEM を保有したアカウント</li>
+<li><a class="reference internal" href="../../getting-started/setup-workstation.html#setup-getting-a-test-account"><span class="std std-ref">cat.currency</span></a>  を保有するアカウント</li>
 </ul>
 </div>
 <div class="section" id="lets-get-into-some-code">
 <h2>それではコードを見ていきましょう<a class="headerlink" href="#lets-get-into-some-code" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>あなたの好きな名前でネームスペースを取得してください。一般的にはあなたの会社または自分の名前を使用します。この例では、 <code class="docutils literal"><span class="pre">foo</span></code> と呼ばれるネームスペースを取得します。この名前が利用可能かどうか確認してみましょう。</p>
 <ol class="arabic simple">
+<li>あなたの好きな名前を取得してください。一般的にはあなたの会社または自分の名前を使用します。この例では、 <code class="docutils literal"><span class="pre">foo</span></code> と呼ばれるネームスペースを取得します。この名前が利用可能かどうか確認してみましょう。</li>
 <li>ネームスペースが有効かどうかを確認</li>
 </ol>
 <div class="example-code container">
@@ -411,12 +412,12 @@
 </div>
 </div>
 </div>
-<ol class="arabic simple" start="2">
+<ol class="arabic simple" start="3">
 <li>新しいネームスペースを取得するために、選んだ名前とブロック数で示されるレンタル期間を設定した <a class="reference internal" href="../../concepts/namespace.html#register-namespace-transaction"><span class="std std-ref">ネームスペース登録トランザクション</span></a> をアナウンスしてください。</li>
 </ol>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">Catapultにおいて、NEMブロック生成は平均 <code class="docutils literal"><span class="pre">15</span></code> 毎秒で完了します。</p>
+<p class="last">平均 <code class="docutils literal"><span class="pre">15</span></code> 秒ごとに新しいブロックは完了します。あなたはネームスペースが期限切れになる前に更新する必要があります。</p>
 </div>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id5">
@@ -500,8 +501,7 @@
 </div>
 <div class="section" id="what-s-next">
 <h2>次は？<a class="headerlink" href="#what-s-next" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>あなたはネームスペースを手に入れたので、 <a class="reference internal" href="../mosaic/creating-a-mosaic.html"><span class="doc">モザイクを作成する</span></a> を確認してみましょう。</p>
-<p>トランザクションが承認されたら、次のガイドの <a class="reference internal" href="registering-a-subnamespace.html"><span class="doc">サブネームスペースの取得</span></a> へ進めます。</p>
+<p>トランザクションが承認されたら、次のガイドの <a class="reference internal" href="registering-a-subnamespace.html"><span class="doc">サブネームスペースの取得</span></a> へ進みます。</p>
 </div>
 </div>
 
@@ -544,11 +544,12 @@
                 <h4>学習する</h4>
 
                 <ul>
-                    <li><a href="../../getting-started/what-is-nem.html">Getting Started</a></li>
-                    <li><a href="../../concepts/cryptography.html">Protocol</a></li>
-                    <li><a href="../../concepts/account.html">Built-in Features</a></li>
-                    <li><a href="../category/account.html">Guides</a></li>
-                    <li><a href="../../contribute/contributing.html">Contribute</a></li>
+                    <li><a href="../../getting-started/what-is-nem.html">入門</a></li>
+                    <li><a href="../../concepts/account.html">ビルドイン機能</a></li>
+                    <li><a href="../../concepts/cryptography.html">プロトコル</a></li>
+                    <li><a href="../../references.html">リファレンス</a></li>
+                    <li><a href="../category/account.html">ガイド</a></li>
+                    <li><a href="../../contribute/contributing.html">貢献する</a></li>
                 </ul>
             </div>
 
@@ -558,9 +559,9 @@
                 <ul>
                     <li><a href="../../api.html">REST API</a></li>
                     <li><a href="../../sdk.html">SDKs</a></li>
-                    <li><a href="../../extensions.html">拡張</a></li>
                     <li><a href="../../cli.html">クライアント</a></li>
                     <li><a href="../../prototyping-tool.html">プロトタイピングツール</a></li>
+                    <li><a href="../../extensions.html">拡張</a></li>
                 </ul>
             </div>
 

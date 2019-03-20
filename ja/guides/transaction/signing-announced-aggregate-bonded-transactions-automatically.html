@@ -86,7 +86,7 @@
                 
                 <li><a href="../../getting-started/what-is-nem.html">Getting started</a></li>
                 <li><a href="../../concepts/account.html">Built-in features</a></li>
-                <li><a href="../category/account.html">Guides</a></li>
+                <li><a href="../../concepts/cryptography.html">Protocol</a></li>
                 <li><a href="../../references.html">References</a></li>
                 
                 
@@ -139,7 +139,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/account.html" class="reference internal nav-header">
             
-            Account (4)
+            Account (5)
         </a></li>
     
     
@@ -184,7 +184,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (2)
+            Mosaic (3)
         </a></li>
     
     
@@ -202,7 +202,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (2)
+            Namespace (4)
         </a></li>
     
     
@@ -241,7 +241,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/account.html" class="reference internal nav-header">
             
-            Account (4)
+            Account (5)
         </a></li>
     
     
@@ -286,7 +286,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (2)
+            Mosaic (3)
         </a></li>
     
     
@@ -304,7 +304,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (2)
+            Namespace (4)
         </a></li>
     
     
@@ -339,7 +339,10 @@
         <div class="col-md-7 content">
             <div id="edit-on-github" class="text-right">
                 <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\transaction\signing-announced-aggregate-bonded-transactions-automatically.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> GitHubで編集</a>
+                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose"
+                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
+
             </div>
 
             
@@ -351,9 +354,7 @@
 <ul class="simple">
 <li><a class="reference internal" href="creating-an-escrow-with-aggregate-bonded-transaction.html"><span class="doc">アグリゲートボンドトランザクションを使ったエスクローの作成ガイド</span></a> を終了している</li>
 <li>アグリゲートボンドトランザクションを受信している</li>
-<li>NEM2-SDK</li>
-<li>テキストエディタかIDE</li>
-<li>XEM を保有したアカウント</li>
+<li><a class="reference internal" href="../../getting-started/setup-workstation.html#setup-getting-a-test-account"><span class="std std-ref">cat.currency</span></a>  を保有するアカウント</li>
 </ul>
 </div>
 <div class="section" id="lets-get-into-some-code">
@@ -478,7 +479,7 @@
 <li>2つのインナートランザクションを含むアグリゲートトランザクション</li>
 <li>2つのインナートランザクションは転送トランザクションでなければなりません。</li>
 <li>この資産を送信するトランザクションは、あなた自身が署名者である必要があります。</li>
-<li>資産を送信するトランザクションは 100 XEM 未満の1つのモザイクだけを持つようにしてください。</li>
+<li>資産を送信するトランザクションは <code class="docutils literal"><span class="pre">100</span> <span class="pre">cat.currency</span></code> 未満の1つのモザイクだけを持つようにしてください。</li>
 </ul>
 <p>こちらで試してみてください！ここに可能な実装をご用意しました:</p>
 <div class="example-code container">
@@ -488,8 +489,8 @@
     <span class="k">return</span> <span class="nx">transaction</span> <span class="k">instanceof</span> <span class="nx">TransferTransaction</span> <span class="o">&amp;&amp;</span>
         <span class="nx">transaction</span><span class="p">.</span><span class="nx">signer</span><span class="o">!</span><span class="p">.</span><span class="nx">equals</span><span class="p">(</span><span class="nx">publicAccount</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
         <span class="nx">transaction</span><span class="p">.</span><span class="nx">mosaics</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span>
-        <span class="nx">transaction</span><span class="p">.</span><span class="nx">mosaics</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">id</span><span class="p">.</span><span class="nx">equals</span><span class="p">(</span><span class="nx">XEM</span><span class="p">.</span><span class="nx">MOSAIC_ID</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
-        <span class="nx">transaction</span><span class="p">.</span><span class="nx">mosaics</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">amount</span><span class="p">.</span><span class="nx">compact</span><span class="p">()</span> <span class="o">&lt;</span> <span class="nx">XEM</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">100</span><span class="p">).</span><span class="nx">amount</span><span class="p">.</span><span class="nx">compact</span><span class="p">();</span>
+        <span class="nx">transaction</span><span class="p">.</span><span class="nx">mosaics</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">id</span><span class="p">.</span><span class="nx">equals</span><span class="p">(</span><span class="nx">NetworkCurrencyMosaic</span><span class="p">.</span><span class="nx">MOSAIC_ID</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+        <span class="nx">transaction</span><span class="p">.</span><span class="nx">mosaics</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">amount</span><span class="p">.</span><span class="nx">compact</span><span class="p">()</span> <span class="o">&lt;</span> <span class="nx">NetworkCurrencyMosaic</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">100</span><span class="p">).</span><span class="nx">amount</span><span class="p">.</span><span class="nx">compact</span><span class="p">();</span>
 <span class="p">};</span>
 
 <span class="kr">const</span> <span class="nx">cosignAggregateBondedTransaction</span> <span class="o">=</span> <span class="p">(</span><span class="nx">transaction</span>: <span class="kt">AggregateTransaction</span><span class="p">,</span> <span class="nx">account</span>: <span class="kt">Account</span><span class="p">)</span><span class="o">:</span> <span class="nx">CosignatureSignedTransaction</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -518,44 +519,6 @@
         <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">announcedTransaction</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">announcedTransaction</span><span class="p">),</span>
             <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 <span class="p">});</span>
-</pre></div>
-</div>
-</div>
-<div class="literal-block-wrapper container" id="id7">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/java/src/test/java/nem2/guides/examples/transaction/SigningAnnouncedAggregateBondedTransactionsAutomaticallyWithConstraints.java" target="_blank">View Code</a></span><a class="headerlink" href="#id7" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="kd">final</span> <span class="n">String</span> <span class="n">privateKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
-
-        <span class="kd">final</span> <span class="n">Account</span> <span class="n">account</span> <span class="o">=</span> <span class="n">Account</span><span class="o">.</span><span class="na">createFromPrivateKey</span><span class="o">(</span><span class="n">privateKey</span><span class="o">,</span> <span class="n">NetworkType</span><span class="o">.</span><span class="na">MIJIN_TEST</span><span class="o">);</span>
-
-        <span class="kd">final</span> <span class="n">AccountHttp</span> <span class="n">accountHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AccountHttp</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
-
-        <span class="kd">final</span> <span class="n">TransactionHttp</span> <span class="n">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TransactionHttp</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
-
-        <span class="kd">final</span> <span class="n">Listener</span> <span class="n">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Listener</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
-
-        <span class="n">listener</span><span class="o">.</span><span class="na">open</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
-
-        <span class="kd">final</span> <span class="n">AggregateTransaction</span> <span class="n">transaction</span> <span class="o">=</span> <span class="n">listener</span><span class="o">.</span><span class="na">aggregateBondedAdded</span><span class="o">(</span><span class="n">account</span><span class="o">.</span><span class="na">getAddress</span><span class="o">())</span>
-                <span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">tx</span> <span class="o">-&gt;</span> <span class="n">tx</span><span class="o">.</span><span class="na">getInnerTransactions</span><span class="o">().</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="mi">2</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">tx</span> <span class="o">-&gt;</span> <span class="o">!</span><span class="n">tx</span><span class="o">.</span><span class="na">signedByAccount</span><span class="o">(</span><span class="n">account</span><span class="o">.</span><span class="na">getPublicAccount</span><span class="o">()))</span>
-                <span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">tx</span> <span class="o">-&gt;</span> <span class="n">validTransaction</span><span class="o">(</span><span class="n">tx</span><span class="o">.</span><span class="na">getInnerTransactions</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">),</span> <span class="n">account</span><span class="o">.</span><span class="na">getPublicAccount</span><span class="o">())</span> <span class="o">||</span> <span class="n">validTransaction</span><span class="o">(</span><span class="n">tx</span><span class="o">.</span><span class="na">getInnerTransactions</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">),</span> <span class="n">account</span><span class="o">.</span><span class="na">getPublicAccount</span><span class="o">()))</span>
-                <span class="o">.</span><span class="na">take</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">toFuture</span><span class="o">()</span>
-                <span class="o">.</span><span class="na">get</span><span class="o">();</span>
-
-        <span class="kd">final</span> <span class="n">CosignatureTransaction</span> <span class="n">cosignatureTransaction</span> <span class="o">=</span> <span class="n">CosignatureTransaction</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">transaction</span><span class="o">);</span>
-        <span class="kd">final</span> <span class="n">CosignatureSignedTransaction</span> <span class="n">cosignatureSignedTransaction</span> <span class="o">=</span> <span class="n">account</span><span class="o">.</span><span class="na">signCosignatureTransaction</span><span class="o">(</span><span class="n">cosignatureTransaction</span><span class="o">);</span>
-
-        <span class="n">transactionHttp</span><span class="o">.</span><span class="na">announceAggregateBondedCosignature</span><span class="o">(</span><span class="n">cosignatureSignedTransaction</span><span class="o">).</span><span class="na">toFuture</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="kd">private</span> <span class="kt">boolean</span> <span class="nf">validTransaction</span><span class="o">(</span><span class="n">Transaction</span> <span class="n">transaction</span><span class="o">,</span> <span class="n">PublicAccount</span> <span class="n">publicAccount</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">transaction</span><span class="o">.</span><span class="na">getType</span><span class="o">()</span> <span class="o">==</span> <span class="n">TransactionType</span><span class="o">.</span><span class="na">TRANSFER</span> <span class="o">&amp;&amp;</span>
-                <span class="n">transaction</span><span class="o">.</span><span class="na">getSigner</span><span class="o">().</span><span class="na">get</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">publicAccount</span><span class="o">)</span> <span class="o">&amp;&amp;</span>
-                <span class="o">((</span><span class="n">TransferTransaction</span><span class="o">)</span><span class="n">transaction</span><span class="o">).</span><span class="na">getMosaics</span><span class="o">().</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span>
-                <span class="o">((</span><span class="n">TransferTransaction</span><span class="o">)</span><span class="n">transaction</span><span class="o">).</span><span class="na">getMosaics</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">getId</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">XEM</span><span class="o">.</span><span class="na">MOSAICID</span><span class="o">)</span> <span class="o">&amp;&amp;</span>
-                <span class="o">((</span><span class="n">TransferTransaction</span><span class="o">)</span> <span class="n">transaction</span><span class="o">).</span><span class="na">getMosaics</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">getAmount</span><span class="o">().</span><span class="na">compareTo</span><span class="o">(</span><span class="n">BigInteger</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="mi">100</span><span class="o">))</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">;</span>
-    <span class="o">}</span>
 </pre></div>
 </div>
 </div>
@@ -601,11 +564,12 @@
                 <h4>学習する</h4>
 
                 <ul>
-                    <li><a href="../../getting-started/what-is-nem.html">Getting Started</a></li>
-                    <li><a href="../../concepts/cryptography.html">Protocol</a></li>
-                    <li><a href="../../concepts/account.html">Built-in Features</a></li>
-                    <li><a href="../category/account.html">Guides</a></li>
-                    <li><a href="../../contribute/contributing.html">Contribute</a></li>
+                    <li><a href="../../getting-started/what-is-nem.html">入門</a></li>
+                    <li><a href="../../concepts/account.html">ビルドイン機能</a></li>
+                    <li><a href="../../concepts/cryptography.html">プロトコル</a></li>
+                    <li><a href="../../references.html">リファレンス</a></li>
+                    <li><a href="../category/account.html">ガイド</a></li>
+                    <li><a href="../../contribute/contributing.html">貢献する</a></li>
                 </ul>
             </div>
 
@@ -615,9 +579,9 @@
                 <ul>
                     <li><a href="../../api.html">REST API</a></li>
                     <li><a href="../../sdk.html">SDKs</a></li>
-                    <li><a href="../../extensions.html">拡張</a></li>
                     <li><a href="../../cli.html">クライアント</a></li>
                     <li><a href="../../prototyping-tool.html">プロトタイピングツール</a></li>
+                    <li><a href="../../extensions.html">拡張</a></li>
                 </ul>
             </div>
 
