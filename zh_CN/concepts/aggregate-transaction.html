@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>聚合交易 &#8212; NEM Developer Center</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'Master',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="../_static/examplecode.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="跨链交换" href="cross-chain-swaps.html" />
+    <link rel="prev" title="转让交易" href="transfer-transaction.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<script type="text/javascript">
+    var _paq = window._paq || [];
+    _paq.push(['disableCookies']);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="//analytics.nemtech.io/piwik/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
+
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div id="navbar"
+     class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
+                developer center</a>
+        </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                <li><a href="../getting-started/what-is-nem.html">Getting started</a></li>
+                <li><a href="account.html">Built-in features</a></li>
+                <li><a href="cryptography.html">Protocol</a></li>
+                <li><a href="../references.html">References</a></li>
+                
+                
+                
+                
+                
+            </ul>
+            <span class="navbar-text navbar-language pull-left">
+                <div id="language" class="hidden-xs hidden-sm">
+    <label>
+        <i class="fas fa-language"></i>
+        <select>
+            <option id="english" value="en">English</option>
+            <option id="japanese" value="ja">日本語</option>
+            <option id="chinese" value="zh_CN">中文</option>
+            <option id="translate" value="translate">Translate</option>
+        </select>
+    </label>
+</div>
+            </span>
+            
+            
+
+<div class="navbar-right hidden-sm hidden-xs">
+    <i class="fas fa-search"></i>
+    <input id="search" class="form-control" placeholder="Search..."/>
+</div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+
+        
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary"><div class="sidebar-md hidden-xs hidden-sm">
+    <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/what-is-nem.html">什么是NEM？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">设置工作站</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">编辑你的第一个程式。</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/training.html">自定步调训练</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="account.html">账户</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-filter.html">Account Filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multisig-account.html">多重签名账户</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">命名空间</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic.html">马赛克</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">转让交易</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">聚合交易</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#aggregate-complete">完整聚合</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sending-payouts">发送付款</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#aggregate-bonded">保税聚合交易</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#multi-asset-escrowed-transactions">复合资产托管交易</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#paying-for-others-fees">替他人买单</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#guides">指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#schemas">模式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aggregatetransaction">AggregateTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#detachedcosignature">DetachedCosignature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cosignature">Cosignature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hashlocktransaction">HashLockTransaction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">跨链交换</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cryptography.html">加密技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="block.html">区块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transaction.html">交易</a></li>
+<li class="toctree-l1"><a class="reference internal" href="harvesting.html">收获</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receipt.html">收据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="node.html">节点</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk.html">软件开发工具包 （SDKs）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">客户端</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">Contributors</a></li>
+</ul>
+
+    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.2</a></small>
+</div>
+
+<div class="sidebar-xs visible-xs visible-sm">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">导航 <b class="caret"></b></a>
+        <ul class="dropdown-menu globaltoc"><p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/what-is-nem.html">什么是NEM？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">设置工作站</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">编辑你的第一个程式。</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/training.html">自定步调训练</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="account.html">账户</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-filter.html">Account Filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multisig-account.html">多重签名账户</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">命名空间</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic.html">马赛克</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">转让交易</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">聚合交易</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#aggregate-complete">完整聚合</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sending-payouts">发送付款</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#aggregate-bonded">保税聚合交易</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#multi-asset-escrowed-transactions">复合资产托管交易</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#paying-for-others-fees">替他人买单</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#guides">指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#schemas">模式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aggregatetransaction">AggregateTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#detachedcosignature">DetachedCosignature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cosignature">Cosignature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hashlocktransaction">HashLockTransaction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">跨链交换</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cryptography.html">加密技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="block.html">区块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transaction.html">交易</a></li>
+<li class="toctree-l1"><a class="reference internal" href="harvesting.html">收获</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receipt.html">收据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="node.html">节点</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk.html">软件开发工具包 （SDKs）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">客户端</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">Contributors</a></li>
+</ul>
+</ul>
+    </li>
+</div>
+    </div>
+</div>
+        
+        <div class="col-md-7 content">
+            <div id="edit-on-github" class="text-right">
+                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\aggregate-transaction.rst"
+                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose"
+                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
+
+            </div>
+
+            
+  <div class="section" id="aggregate-transaction">
+<h1>聚合交易<a class="headerlink" href="#aggregate-transaction" title="永久链接至标题">¶</a></h1>
+<p id="id1">聚合交易是NEM的一次性智能合约。它把多个交易并为一个，允许 <strong>无信任交换</strong> 及其他先进逻辑的执行。当所有参与的 <a class="reference internal" href="account.html"><span class="doc">账户</span></a> 已签妥聚合交易，所有的内部交易将会同时执行。</p>
+<div class="section" id="aggregate-complete">
+<span id="id2"></span><h2>完整聚合<a class="headerlink" href="#aggregate-complete" title="永久链接至标题">¶</a></h2>
+<p>当所有的当事人都签署完毕，这聚合交易便算是 <strong>完整</strong> 了。</p>
+<p>共签者可以不用通过区块链签署交易。当交易所需的签名已凑齐，其中一个共签者可以把该交易在网络上公布。如果内部交易设置有效，没有验证上的错误，所有的交易将会一并执行。</p>
+<p>完整聚合交易集合多个内部交易，从而为每个区块增加更多的交易。</p>
+<div class="section" id="sending-payouts">
+<h3>发送付款<a class="headerlink" href="#sending-payouts" title="永久链接至标题">¶</a></h3>
+<p>Dan 公布一个集合两个交易的聚合交易。</p>
+<p>因为这聚合交易只需要Dan的签名，所以当他签了名后，交易算是完整了。向网络公布后，Alice和Bob将会同一时间收到马赛克。</p>
+<div class="figure align-center" id="id5">
+<img alt="../_images/aggregate-sending-payouts.png" src="../_images/aggregate-sending-payouts.png" style="width: 450px;" />
+<p class="caption"><span class="caption-text">以完整聚合交易发送付款</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="aggregate-bonded">
+<span id="id3"></span><h2>保税聚合交易<a class="headerlink" href="#aggregate-bonded" title="永久链接至标题">¶</a></h2>
+<p>当交易需要其他当事人签署时，便算是 <strong>保税</strong> 聚合交易。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">发送 <strong>保税聚合交易</strong> 之前， 账户必须限公布一个 <a class="reference internal" href="#hash-lock-transaction"><span class="std std-ref">哈希锁交易</span></a> 并以至少 <code class="docutils literal"><span class="pre">10</span> <span class="pre">cat.currency</span></code> 作为确定。</p>
+</div>
+<p>当保税聚合交易公布后，它将呈现半完成状态并通过WebSocket 或 HTTP API 接口调用通知其状态。</p>
+<p>Every time a cosignatory signs the transaction and <a class="reference internal" href="#cosignature"><span class="std std-ref">announces an aggregate bonded cosignature</span></a>, the network checks if all the required cosigners have signed. When all signatures are acquired, the transaction changes to unconfirmed state until the network includes it in a block.</p>
+<div class="figure align-center" id="id6">
+<img alt="../_images/aggregate-bonded-transaction-cycle.png" src="../_images/aggregate-bonded-transaction-cycle.png" style="width: 900px;" />
+<p class="caption"><span class="caption-text">保税聚合交易周期。</span></p>
+</div>
+<div class="section" id="multi-asset-escrowed-transactions">
+<h3>复合资产托管交易<a class="headerlink" href="#multi-asset-escrowed-transactions" title="永久链接至标题">¶</a></h3>
+<p>在这个范例中，Alice 用 <code class="docutils literal"><span class="pre">currency.euro</span></code> <a class="reference internal" href="mosaic.html"><span class="doc">马赛克</span></a> 购买门票。当售票处签署聚合交易后，原子交换自动进行。</p>
+<div class="figure align-center" id="id7">
+<img alt="../_images/aggregate-escrow-1.png" src="../_images/aggregate-escrow-1.png" style="width: 450px;" />
+<p class="caption"><span class="caption-text">复合资产托管交易</span></p>
+</div>
+</div>
+<div class="section" id="paying-for-others-fees">
+<h3>替他人买单<a class="headerlink" href="#paying-for-others-fees" title="永久链接至标题">¶</a></h3>
+<p>Alice 以应用程序发送 <code class="docutils literal"><span class="pre">currency.euro</span></code> 付款给Bob。但她没有任何可以用以缴付区块链交易费的cat.currency。</p>
+<p>通过保税聚合交易，她可以把USD转换成cat.currency来支付交易费。如此一来，Alice和Bob都不需要拥有cat.currency也可以用NEM区块链。</p>
+<p>由于创建者可以把他们的品牌放在开放源支付应用程序上，Alice 和Bob 甚至不须知道他们正在使用区块链。</p>
+<div class="figure align-center" id="id8">
+<img alt="../_images/aggregate-paying-for-others-fees.png" src="../_images/aggregate-paying-for-others-fees.png" style="width: 450px;" />
+<p class="caption"><span class="caption-text">替他人买单</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="guides">
+<h2>指南<a class="headerlink" href="#guides" title="永久链接至标题">¶</a></h2>
+<ul class="postlist-style-circle postlist">
+<li><p class="first"><a class="reference internal" href="../guides/transaction/sending-payouts-with-aggregate-complete-transaction.html">Sending payouts with aggregate complete transaction</a></p>
+<p>Send transactions to different accounts atomically, using an <a class="reference internal" href="#id1"><span class="std std-ref">aggregate complete transaction</span></a>.</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../guides/transaction/creating-an-escrow-with-aggregate-bonded-transaction.html">Creating an escrow with aggregate bonded transaction</a></p>
+<p>Learn about <a class="reference internal" href="#id1"><span class="std std-ref">aggregate bonded transactions</span></a>, by creating an escrow.</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../guides/transaction/asking-for-mosaics-with-aggregate-bonded-transaction.html">Asking for mosaics with aggregate bonded transaction</a></p>
+<p>Ask an account to send you funds using an <a class="reference internal" href="#id1"><span class="std std-ref">aggregate bonded transaction</span></a>.</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../guides/transaction/signing-announced-aggregate-bonded-transactions.html">Signing announced aggregate bonded transactions</a></p>
+<p>This guide will show you how to cosign aggregate bonded transactions that require your account’s cosignature.</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../guides/transaction/signing-announced-aggregate-bonded-transactions-automatically.html">Signing announced aggregate bonded transactions automatically</a></p>
+<p>Sign automatically transactions pending to be cosigned.</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../guides/transaction/sending-a-multisig-transaction.html">Sending a multisig transaction</a></p>
+<p>Send a transaction involving a <a class="reference internal" href="multisig-account.html"><span class="doc">multisig</span></a> and learn how an <a class="reference internal" href="#id1"><span class="std std-ref">aggregate bonded transaction</span></a> works.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="schemas">
+<h2>模式<a class="headerlink" href="#schemas" title="永久链接至标题">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">配置参数是 <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">可编辑的</a> 。公共网络配置可能有所不同。</p>
+</div>
+<div class="section" id="aggregatetransaction">
+<h3>AggregateTransaction<a class="headerlink" href="#aggregatetransaction" title="永久链接至标题">¶</a></h3>
+<p><strong>版本</strong>: 0x02</p>
+<p><strong>实体类型</strong>：0x4141 (<a class="reference internal" href="#aggregate-complete"><span class="std std-ref">完整</span></a>), 0x4241 (<a class="reference internal" href="#aggregate-bonded"><span class="std std-ref">保税</span></a>)</p>
+<p><strong>内联</strong>:</p>
+<p><a class="reference internal" href="transaction.html#id5"><span class="std std-ref">Transaction</span></a></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">属性</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>payloadSize</td>
+<td>uint32</td>
+<td>以字节为单位的交易酬载量。换句话说，这是所有内部交易所占的字节总数。</td>
+</tr>
+<tr class="row-odd"><td>transactions</td>
+<td>array(byte, payloadSize)</td>
+<td>由不同账户发起的交易数组。聚合交易可容纳至 <code class="docutils literal"><span class="pre">1000</span></code> 个内部交易和 <code class="docutils literal"><span class="pre">15</span></code> 个共签者。内部交易中不容许其他的聚合交易。</td>
+</tr>
+<tr class="row-even"><td>cosignatures</td>
+<td>array(byte, size - payloadSize)</td>
+<td>交易 <a class="reference internal" href="#cosignature"><span class="std std-ref">共签者</span></a> 数组。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="detachedcosignature">
+<span id="cosignature-transaction"></span><h3>DetachedCosignature<a class="headerlink" href="#detachedcosignature" title="永久链接至标题">¶</a></h3>
+<p>共签交易，用于签署还没得到所有签名但已 <a class="reference internal" href="#id1"><span class="std std-ref">公布的保税聚合交易</span></a>。</p>
+<p><strong>内联</strong>:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#cosignature-transaction"><span class="std std-ref">Cosignature</span></a></li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">属性</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>parentHash</td>
+<td>32字节(二进制)</td>
+<td>要共签的保税聚合交易。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cosignature">
+<span id="id4"></span><h3>Cosignature<a class="headerlink" href="#cosignature" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><a class="reference internal" href="transaction.html#id5"><span class="std std-ref">Transaction</span></a> or <a class="reference internal" href="transaction.html#embedded-transaction"><span class="std std-ref">EmbeddedTransaction</span></a></li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">属性</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>signer</td>
+<td>32字节(二进制)</td>
+<td>共签者的公钥。</td>
+</tr>
+<tr class="row-odd"><td>签名</td>
+<td>64 bytes (二进制)</td>
+<td>交易签名</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hashlocktransaction">
+<span id="hash-lock-transaction"></span><h3>HashLockTransaction<a class="headerlink" href="#hashlocktransaction" title="永久链接至标题">¶</a></h3>
+<p><strong>Alias</strong>: LockFundsTransaction</p>
+<p>发送已签署的 <a class="reference internal" href="#id1"><span class="std std-ref">保税聚合交易</span></a> 之前公布哈希锁交易。这机制可以防止网络垃圾邮件。</p>
+<p>当有关保税聚合交易被确定后，被锁的资金将会被释放回签署哈希锁交易账户。</p>
+<p>如果保税聚合交易的期限已至但并非所有的共签者已签署，那么被锁定的资金将于期限的区块高度分派给区块收获者。</p>
+<p><strong>版本</strong>: 0x01</p>
+<p><strong>实体类型</strong>: 0x4148</p>
+<p><strong>内联</strong>:</p>
+<ul class="simple">
+<li><a class="reference internal" href="transaction.html#id5"><span class="std std-ref">Transaction</span></a> or <a class="reference internal" href="transaction.html#embedded-transaction"><span class="std std-ref">EmbeddedTransaction</span></a></li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">属性</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>mosaic</td>
+<td><a class="reference internal" href="mosaic.html#id1"><span class="std std-ref">Mosaic</span></a></td>
+<td>被锁的马赛克必须至少 <code class="docutils literal"><span class="pre">10</span> <span class="pre">cat.currency</span></code>。</td>
+</tr>
+<tr class="row-odd"><td>duration</td>
+<td>uint64</td>
+<td>锁定期限</td>
+</tr>
+<tr class="row-even"><td>hash</td>
+<td>32字节(二进制)</td>
+<td>在解锁马赛克之前，保税聚合交易的哈希必须被确定。</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+        </div>
+         
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+        <ul>
+<li><a class="reference internal" href="#">聚合交易</a><ul>
+<li><a class="reference internal" href="#aggregate-complete">完整聚合</a><ul>
+<li><a class="reference internal" href="#sending-payouts">发送付款</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#aggregate-bonded">保税聚合交易</a><ul>
+<li><a class="reference internal" href="#multi-asset-escrowed-transactions">复合资产托管交易</a></li>
+<li><a class="reference internal" href="#paying-for-others-fees">替他人买单</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#guides">指南</a></li>
+<li><a class="reference internal" href="#schemas">模式</a><ul>
+<li><a class="reference internal" href="#aggregatetransaction">AggregateTransaction</a></li>
+<li><a class="reference internal" href="#detachedcosignature">DetachedCosignature</a></li>
+<li><a class="reference internal" href="#cosignature">Cosignature</a></li>
+<li><a class="reference internal" href="#hashlocktransaction">HashLockTransaction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+ 
+    </div>
+</div>
+<footer class="footer">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-4">
+                <h4>Learn</h4>
+
+                <ul>
+                    <li><a href="../getting-started/what-is-nem.html">Getting Started</a></li>
+                    <li><a href="account.html">Built-in Features</a></li>
+                    <li><a href="cryptography.html">Protocol</a></li>
+                    <li><a href="../references.html">References</a></li>
+                    <li><a href="../guides/category/account.html">Guides</a></li>
+                    <li><a href="../contribute/contributing.html">Contribute</a></li>
+                </ul>
+            </div>
+
+            <div class="col-sm-4">
+                <h4>References</h4>
+
+                <ul>
+                    <li><a href="../api.html">REST API</a></li>
+                    <li><a href="../sdk.html">SDKs</a></li>
+                    <li><a href="../cli.html">Client</a></li>
+                    <li><a href="../prototyping-tool.html">Prototyping Tool</a></li>
+                    <li><a href="../extensions.html">Extensions</a></li>
+                </ul>
+            </div>
+
+
+            <div class="col-sm-4">
+                <h4>Community</h4>
+
+                <ul>
+                    <li>
+                        <a href="http://slack.nemtech.io/"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
+                    </li>
+                    <li>
+                        <a href="https://stackoverflow.com/tags/nem/">
+                            <i class="fab fa-stack-overflow"></i>
+                            <span> Ask development questions</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/nemtechdev">
+                            <i class="fab fa-twitter"></i>
+                            <span> Follow the dev updates</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/nemtech">
+                            <i class="fab fa-github"></i>
+                            <span> Explore our Github</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <p class="text-center top-gap">
+            &copy; Copyright 2018-2019, NEM.
+        </p>
+    </div>
+</footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+    indexName: 'nemtech',
+    inputSelector: '#search',
+    algoliaOptions: {},
+    debug: false
+});
+</script>
+  </body>
+</html>

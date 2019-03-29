@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Suggesting documentation changes &#8212; NEM Developer Center</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'Master',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="../_static/examplecode.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<script type="text/javascript">
+    var _paq = window._paq || [];
+    _paq.push(['disableCookies']);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="//analytics.nemtech.io/piwik/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
+
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div id="navbar"
+     class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
+                developer center</a>
+        </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                <li><a href="../getting-started/what-is-nem.html">Getting started</a></li>
+                <li><a href="../concepts/account.html">Built-in features</a></li>
+                <li><a href="../concepts/cryptography.html">Protocol</a></li>
+                <li><a href="../references.html">References</a></li>
+                
+                
+                
+                
+                
+            </ul>
+            <span class="navbar-text navbar-language pull-left">
+                <div id="language" class="hidden-xs hidden-sm">
+    <label>
+        <i class="fas fa-language"></i>
+        <select>
+            <option id="english" value="en">English</option>
+            <option id="japanese" value="ja">日本語</option>
+            <option id="chinese" value="zh_CN">中文</option>
+            <option id="translate" value="translate">Translate</option>
+        </select>
+    </label>
+</div>
+            </span>
+            
+            
+
+<div class="navbar-right hidden-sm hidden-xs">
+    <i class="fas fa-search"></i>
+    <input id="search" class="form-control" placeholder="Search..."/>
+</div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+
+        
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary"><div class="sidebar-md hidden-xs hidden-sm">
+    <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/what-is-nem.html">什么是NEM？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">设置工作站</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">编辑你的第一个程式。</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/training.html">自定步调训练</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">账户</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/account-filter.html">Account Filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">多重签名账户</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">命名空间</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/mosaic.html">马赛克</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/transfer-transaction.html">转让交易</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/aggregate-transaction.html">聚合交易</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/cross-chain-swaps.html">跨链交换</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/cryptography.html">加密技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/block.html">区块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/transaction.html">交易</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/harvesting.html">收获</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/receipt.html">收据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/node.html">节点</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk.html">软件开发工具包 （SDKs）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">客户端</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">Contributors</a></li>
+</ul>
+
+    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.2</a></small>
+</div>
+
+<div class="sidebar-xs visible-xs visible-sm">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">导航 <b class="caret"></b></a>
+        <ul class="dropdown-menu globaltoc"><p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/what-is-nem.html">什么是NEM？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">设置工作站</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">编辑你的第一个程式。</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/training.html">自定步调训练</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">账户</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/account-filter.html">Account Filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">多重签名账户</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">命名空间</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/mosaic.html">马赛克</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/transfer-transaction.html">转让交易</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/aggregate-transaction.html">聚合交易</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/cross-chain-swaps.html">跨链交换</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/cryptography.html">加密技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/block.html">区块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/transaction.html">交易</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/harvesting.html">收获</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/receipt.html">收据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/node.html">节点</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk.html">软件开发工具包 （SDKs）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">客户端</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">Contributors</a></li>
+</ul>
+</ul>
+    </li>
+</div>
+    </div>
+</div>
+        
+        <div class="col-md-7 content">
+            <div id="edit-on-github" class="text-right">
+                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guidelines\suggesting-changes.rst"
+                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose"
+                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
+
+            </div>
+
+            
+  <div class="section" id="suggesting-documentation-changes">
+<h1>Suggesting documentation changes<a class="headerlink" href="#suggesting-documentation-changes" title="永久链接至标题">¶</a></h1>
+<p>The NEM Developer Center is an open source project and we love to receive contributions from our community — you!
+There are many ways to contribute, from writing guides, improving the documentation, submitting errors and requests or
+writing new pieces of documentation which can be incorporated into the docs itself.</p>
+<div class="section" id="error-reports">
+<h2>Error reports<a class="headerlink" href="#error-reports" title="永久链接至标题">¶</a></h2>
+<p>If you think you have found an error in the NEM Developer Center, first make sure that you are testing against the latest version of NEM Developer Center - your issue may already have been fixed. If not, search our issues list on GitHub in case a similar
+<a href="https://github.com/nemtech/nem2-docs/issues" target="_blank">issue</a> has already been opened.</p>
+<p>It is very helpful if you can prepare a reproduction of the error. It makes it easier to find the problem and to fix it.</p>
+<p>Please, take into consideration the next template to report your issue:</p>
+<blockquote>
+<div><p><strong>Error description</strong></p>
+<p>Short and expressive sentence explaining what is wrong.</p>
+<p><strong>Url or screenshot</strong></p>
+<p>For faster issue detection, we would need where to find it. </p>
+</div></blockquote>
+<p>Provide as much information as you can.</p>
+<p>Open a new <a href="https://github.com/nemtech/nem2-docs/issues" target="_blank">issue</a> here.</p>
+</div>
+<div class="section" id="requests">
+<h2>Requests<a class="headerlink" href="#requests" title="永久链接至标题">¶</a></h2>
+<p>If you find yourself wishing for content that does not exist in the NEM Developer Center, you are probably not alone. Most of the documentation and guides that the NEM Developer Center has today have been added because our users saw the need. Open an <a href="https://github.com/nemtech/nem2-docs/issues" target="_blank">issue</a> on our issues list on GitHub which describes the missing documentation or improvement you would like to see.</p>
+<p>If the improvement is not related to documentation, but with a specific project, please check CONTRIBUTING.md in the project repository.</p>
+</div>
+<div class="section" id="contributing-code-and-documentation-changes">
+<h2>Contributing code and documentation changes<a class="headerlink" href="#contributing-code-and-documentation-changes" title="永久链接至标题">¶</a></h2>
+<p>To expand and improve the NEM Developer Center, please find or open an <a href="https://github.com/nemtech/nem2-docs/issues" target="_blank">issue</a> about it first. Talk about what you would like to do. It may be that somebody is already working on it, or that there are particular issues that you should know about before implementing the change.</p>
+<p>We enjoy working with contributors to get their pull-requests accepted.</p>
+<div class="section" id="contributing-license-notice">
+<h3>Contributing License Notice<a class="headerlink" href="#contributing-license-notice" title="永久链接至标题">¶</a></h3>
+<p>When you contribute code, you affirm that the contribution is your original work and that you license the work to the project under the project’s open source license.</p>
+<p>Whether or not you state this explicitly, by submitting any copyrighted material via pull request, email, or other means you agree to license the material under the project’s open source license and warrant that you have the legal authority to do so.</p>
+</div>
+<div class="section" id="fork-and-clone-the-repository">
+<h3>Fork and clone the repository<a class="headerlink" href="#fork-and-clone-the-repository" title="永久链接至标题">¶</a></h3>
+<p>If the documentation change is small, you can use the <em>“Edit on Github”</em> button at the top of the page.</p>
+<p>For substantial changes or contributions, you may need to fork the main <a href="https://github.com/nemtech/nem2-docs/" target="_blank">nem2-docs repository</a> and clone it to your local machine. See <a href="https://help.github.com/articles/fork-a-repo/" target="_blank">github help</a> page for help.</p>
+<p>Further instructions for specific projects are given below.</p>
+</div>
+<div class="section" id="submitting-your-changes">
+<h3>Submitting your changes<a class="headerlink" href="#submitting-your-changes" title="永久链接至标题">¶</a></h3>
+<p>Once your changes and tests are ready to submit for review:</p>
+<ol class="arabic">
+<li><p class="first">Test your changes</p>
+<blockquote>
+<div><p>Run <code class="docutils literal"><span class="pre">make</span> <span class="pre">livehtml</span></code> and preview your changes.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Submit a pull request</p>
+<blockquote>
+<div><p>Push your local changes to your forked copy of the repository and <a href="https://help.github.com/articles/about-pull-requests/" target="_blank">submit a pull request</a>. In the pull request, choose a title which sums up the changes that you have made, and in the body provide more details about what your changes do. Also mention the number of the issue where discussion has taken place, eg “Closes #123”.</p>
+</div></blockquote>
+</li>
+</ol>
+<p>Then sit back and wait. There will probably be a discussion about the pull request and, if any changes are needed, we would love to work with you to get your pull request merged into nem2-docs.</p>
+<p><em>CONTRIBUTING.md</em> is based on <a class="reference external" href="https://github.com/nayafia/contributing-template/blob/master/CONTRIBUTING-template.md">CONTRIBUTING-template.md</a> , <a class="reference external" href="https://github.com/elastic/elasticsearch/blob/master/CONTRIBUTING.md">elasticsearch/CONTRIBUTING</a> and <a class="reference external" href="https://github.com/apache/spark/blob/master/CONTRIBUTING.md">spark/CONTRIBUTING</a>.</p>
+</div>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+        </div>
+         
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+        <ul>
+<li><a class="reference internal" href="#">Suggesting documentation changes</a><ul>
+<li><a class="reference internal" href="#error-reports">Error reports</a></li>
+<li><a class="reference internal" href="#requests">Requests</a></li>
+<li><a class="reference internal" href="#contributing-code-and-documentation-changes">Contributing code and documentation changes</a><ul>
+<li><a class="reference internal" href="#contributing-license-notice">Contributing License Notice</a></li>
+<li><a class="reference internal" href="#fork-and-clone-the-repository">Fork and clone the repository</a></li>
+<li><a class="reference internal" href="#submitting-your-changes">Submitting your changes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+ 
+    </div>
+</div>
+<footer class="footer">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-4">
+                <h4>Learn</h4>
+
+                <ul>
+                    <li><a href="../getting-started/what-is-nem.html">Getting Started</a></li>
+                    <li><a href="../concepts/account.html">Built-in Features</a></li>
+                    <li><a href="../concepts/cryptography.html">Protocol</a></li>
+                    <li><a href="../references.html">References</a></li>
+                    <li><a href="../guides/category/account.html">Guides</a></li>
+                    <li><a href="../contribute/contributing.html">Contribute</a></li>
+                </ul>
+            </div>
+
+            <div class="col-sm-4">
+                <h4>References</h4>
+
+                <ul>
+                    <li><a href="../api.html">REST API</a></li>
+                    <li><a href="../sdk.html">SDKs</a></li>
+                    <li><a href="../cli.html">Client</a></li>
+                    <li><a href="../prototyping-tool.html">Prototyping Tool</a></li>
+                    <li><a href="../extensions.html">Extensions</a></li>
+                </ul>
+            </div>
+
+
+            <div class="col-sm-4">
+                <h4>Community</h4>
+
+                <ul>
+                    <li>
+                        <a href="http://slack.nemtech.io/"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
+                    </li>
+                    <li>
+                        <a href="https://stackoverflow.com/tags/nem/">
+                            <i class="fab fa-stack-overflow"></i>
+                            <span> Ask development questions</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/nemtechdev">
+                            <i class="fab fa-twitter"></i>
+                            <span> Follow the dev updates</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/nemtech">
+                            <i class="fab fa-github"></i>
+                            <span> Explore our Github</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <p class="text-center top-gap">
+            &copy; Copyright 2018-2019, NEM.
+        </p>
+    </div>
+</footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+    indexName: 'nemtech',
+    inputSelector: '#search',
+    algoliaOptions: {},
+    debug: false
+});
+</script>
+  </body>
+</html>

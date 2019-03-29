@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>编辑你的第一个程式。 &#8212; NEM Developer Center</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'Master',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="../_static/examplecode.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="自定步调训练" href="training.html" />
+    <link rel="prev" title="设置工作站" href="setup-workstation.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<script type="text/javascript">
+    var _paq = window._paq || [];
+    _paq.push(['disableCookies']);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="//analytics.nemtech.io/piwik/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
+
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div id="navbar"
+     class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
+                developer center</a>
+        </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                <li><a href="what-is-nem.html">Getting started</a></li>
+                <li><a href="../concepts/account.html">Built-in features</a></li>
+                <li><a href="../concepts/cryptography.html">Protocol</a></li>
+                <li><a href="../references.html">References</a></li>
+                
+                
+                
+                
+                
+            </ul>
+            <span class="navbar-text navbar-language pull-left">
+                <div id="language" class="hidden-xs hidden-sm">
+    <label>
+        <i class="fas fa-language"></i>
+        <select>
+            <option id="english" value="en">English</option>
+            <option id="japanese" value="ja">日本語</option>
+            <option id="chinese" value="zh_CN">中文</option>
+            <option id="translate" value="translate">Translate</option>
+        </select>
+    </label>
+</div>
+            </span>
+            
+            
+
+<div class="navbar-right hidden-sm hidden-xs">
+    <i class="fas fa-search"></i>
+    <input id="search" class="form-control" placeholder="Search..."/>
+</div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+
+        
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary"><div class="sidebar-md hidden-xs hidden-sm">
+    <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="what-is-nem.html">什么是NEM？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup-workstation.html">设置工作站</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">编辑你的第一个程式。</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#background">背景</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lets-get-into-some-code">代码列子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-s-next">下一步呢？</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="training.html">自定步调训练</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">账户</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/account-filter.html">Account Filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">多重签名账户</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">命名空间</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/mosaic.html">马赛克</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/transfer-transaction.html">转让交易</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/aggregate-transaction.html">聚合交易</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/cross-chain-swaps.html">跨链交换</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/cryptography.html">加密技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/block.html">区块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/transaction.html">交易</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/harvesting.html">收获</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/receipt.html">收据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/node.html">节点</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk.html">软件开发工具包 （SDKs）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">客户端</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">Contributors</a></li>
+</ul>
+
+    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.2</a></small>
+</div>
+
+<div class="sidebar-xs visible-xs visible-sm">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">导航 <b class="caret"></b></a>
+        <ul class="dropdown-menu globaltoc"><p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="what-is-nem.html">什么是NEM？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup-workstation.html">设置工作站</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">编辑你的第一个程式。</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#background">背景</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lets-get-into-some-code">代码列子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-s-next">下一步呢？</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="training.html">自定步调训练</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">账户</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/account-filter.html">Account Filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">多重签名账户</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">命名空间</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/mosaic.html">马赛克</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/transfer-transaction.html">转让交易</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/aggregate-transaction.html">聚合交易</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/cross-chain-swaps.html">跨链交换</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/cryptography.html">加密技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/block.html">区块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/transaction.html">交易</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/harvesting.html">收获</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/receipt.html">收据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/node.html">节点</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk.html">软件开发工具包 （SDKs）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">客户端</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">Contributors</a></li>
+</ul>
+</ul>
+    </li>
+</div>
+    </div>
+</div>
+        
+        <div class="col-md-7 content">
+            <div id="edit-on-github" class="text-right">
+                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/getting-started\first-application.rst"
+                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose"
+                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
+
+            </div>
+
+            
+  <div class="section" id="writing-your-first-application">
+<h1>编辑你的第一个程式。<a class="headerlink" href="#writing-your-first-application" title="永久链接至标题">¶</a></h1>
+<p>这个指南将带领你完成整个NEM创建周期。在合并一些NEM <a class="reference internal" href="../concepts/account.html"><span class="doc">内置功能</span></a> 后，你将把你的第一个交易发送到区块链。</p>
+<div class="section" id="background">
+<h2>背景<a class="headerlink" href="#background" title="永久链接至标题">¶</a></h2>
+<p>二级票务市场，也被称为转售市场，是一些买家从商家手上购买门票后转让。商家可以是活动网站、在线售票平台、商店或是在活动入口处的一个摊位。</p>
+<p>从非商家手上购买门票不一定买得较贵。受害者可能会买到假门票或复制票。这非商家可解决的问题。</p>
+<p><strong>我们要解决什么问题？</strong></p>
+<div class="figure align-center" id="id1">
+<img alt="../_images/getting-started.png" src="../_images/getting-started.png" style="width: 450px;" />
+<p class="caption"><span class="caption-text">授权模式</span></p>
+</div>
+<p>商家需要建立一个系统以：</p>
+<ol class="loweralpha simple">
+<li>确认每个购票者。</li>
+<li>避免门票转售。</li>
+<li>避免假票和复制票 。</li>
+</ol>
+<p><strong>为什么用NEM？</strong></p>
+<p>区块链技术有用于以下案例：</p>
+<ul class="simple">
+<li>涉及多方参与者。</li>
+<li>参与者需要互相信任。</li>
+<li>追踪一组不变的事件是必须的。</li>
+</ul>
+<p>NEM是一个 <strong>灵活的区块链</strong> 技术。与其把所有的应用逻辑上载到区块链，你可以使用其经过测试的功能，通过**接口调用**进行价值的转让和储存、授权、追溯和识别。</p>
+<p>代码仍处于 <strong>链外</strong>。因为可以在必要时更改流程，这降低了固有的不变性风。</p>
+</div>
+<div class="section" id="lets-get-into-some-code">
+<h2>代码列子<a class="headerlink" href="#lets-get-into-some-code" title="永久链接至标题">¶</a></h2>
+<p><strong>1. 给每一个参与者创建一个账户。</strong></p>
+<p>首先，列出我们要解决的问题中的参与者。</p>
+<ul class="simple">
+<li>门票商家。</li>
+<li>门票买家。</li>
+</ul>
+<p>我们决定以不同的 <a class="reference internal" href="../concepts/account.html"><span class="doc">账户</span></a> 代表商家和买家。每一个账户都是独特的并以地址做为识别。账户像是区块链上的保险箱，每一个保险箱都可以用各自的私钥更改内容。</p>
+<p>您的账户已经载有测试 <code class="docutils literal"><span class="pre">cat.currency</span></code> 了吗？如果还没有，回去 <a class="reference internal" href="setup-workstation.html"><span class="doc">入门部分</span></a>。你创建的账户代表门票商家。</p>
+<ol class="arabic simple">
+<li>运行以下命令后，屏幕上应该看到类似以下内容的字行：</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account info
+
+
+New Account: SCVG35-ZSPMYP-L2POZQ-JGSVEG-RYOJ3V-BNIU3U-N2E6
+
+<span class="o">[</span>...<span class="o">]</span>
+
+Mosaics
+
+0dc67fbe1cad29e3: 1000000
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>此账户有 <code class="docutils literal"><span class="pre">1,000,000</span> <span class="pre">cat.currency</span></code>。如果马赛克后是空的，请依照 <a class="reference internal" href="setup-workstation.html"><span class="doc">之前的指导说明</span></a>。</li>
+<li>创建第二个账户以代表门票买家。</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account generate --network MIJIN_TEST --save --url http://localhost:3000 --profile buyer
+</pre></div>
+</div>
+<p><strong>2. 监控区块链</strong></p>
+<p>通过交易，账户更改区块链的状态。当一个账户公布一个交易，如果形成得当，服务器将回应OK。</p>
+<p>得到OK的回应不代表交易有效，因为它还没有收录在区块内。在公布新的交易前监控之前的交易是个好的做法。</p>
+<p>开启三个新的终端：</p>
+<ol class="arabic simple">
+<li>第一个终端 <a class="reference internal" href="../guides/transaction/monitoring-a-transaction-status.html"><span class="doc">监控公布后的交易</span></a> 的验证错误。</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor status
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>“未确认” 交易显示那些交易已经到达网络，但还没被收录在区块内。</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor unconfirmed
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>一旦交易被收录，它会被显示在“确认”的终端。</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor confirmed
+</pre></div>
+</div>
+<p><strong>3. 创建门票</strong></p>
+<p>我们用NEM马赛克代表门票。<a class="reference internal" href="../concepts/mosaic.html"><span class="doc">马赛克</span></a>&nbsp;可以用来代表任何区块链上的资产，如物件、门票、优惠券、股票、甚至是加密货币。它们具有可配置的属性，并在创建时被定义。比如，我们选择把 <strong>可转让配置设为false</strong> 。这意味着门票买家只能把门票转送回给马赛克的创造者，从而避免门票转售。</p>
+<ol class="arabic simple">
+<li>创建一个名为``门票``的马赛克:</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction mosaic --amount <span class="m">1000000</span> --supplymutable --divisibility <span class="m">0</span> --duration 1000
+</pre></div>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">属性</th>
+<th class="head">值</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Divisibility</td>
+<td>0</td>
+<td>这马赛克不能被分割。门票不可以半张发送。</td>
+</tr>
+<tr class="row-odd"><td>Duration</td>
+<td>1000</td>
+<td>马赛克将会被注册，维持1000个区块。</td>
+</tr>
+<tr class="row-even"><td>Amount</td>
+<td>1000000</td>
+<td>你将创建的门票数量。</td>
+</tr>
+<tr class="row-odd"><td>Supply mutable</td>
+<td>True</td>
+<td>马赛克的供应量可以被更改。</td>
+</tr>
+<tr class="row-even"><td>Transferable</td>
+<td>False</td>
+<td>马赛克只可以被转回创建者的账户。</td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="2">
+<li>当交易被确认后，复制在``monitor confirmed`` 中的马赛克ID。</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; ...  MosaicId:7cdf3b117a3c40cc ...
+</pre></div>
+</div>
+<p><strong>4. 发送门票</strong></p>
+<p>用 <a class="reference internal" href="../concepts/transfer-transaction.html#id1"><span class="std std-ref">发送交易</span></a>,发送``company.ticket`` 给商家的账户。这是在NEM区块链最常用的动作。</p>
+<ol class="arabic simple">
+<li>准备转让交易。转让交易有以下属性：</li>
+</ol>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">属性</th>
+<th class="head">值</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Deadline</td>
+<td>预设</td>
+<td>交易被保存在区块链中的最长时限。</td>
+</tr>
+<tr class="row-odd"><td>Recipient</td>
+<td>SC7A4H-7CYCSH-4CP4XI-ZS4G2G-CDZ7JP-PR5FRG-2VBU</td>
+<td>收件者帐户地址。</td>
+</tr>
+<tr class="row-even"><td>Mosaics</td>
+<td>1 [7cdf3b117a3c40cc] (ticket)</td>
+<td>被发送的马赛克组。</td>
+</tr>
+<tr class="row-odd"><td>Message</td>
+<td><code class="docutils literal"><span class="pre">enjoy</span> <span class="pre">your</span> <span class="pre">ticket</span></code></td>
+<td>附着的信息。</td>
+</tr>
+<tr class="row-even"><td>Network</td>
+<td>MIJIN_TEST</td>
+<td>本地网络识别。</td>
+</tr>
+</tbody>
+</table>
+<div class="example-code container">
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span>
+    <span class="nx">Account</span><span class="p">,</span> <span class="nx">Address</span><span class="p">,</span> <span class="nx">Deadline</span><span class="p">,</span> <span class="nx">UInt64</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">,</span> <span class="nx">PlainMessage</span><span class="p">,</span> <span class="nx">TransferTransaction</span><span class="p">,</span> <span class="nx">Mosaic</span><span class="p">,</span> <span class="nx">MosaicId</span><span class="p">,</span>
+    <span class="nx">TransactionHttp</span>
+<span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;nem2-sdk&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">transferTransaction</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="s1">&#39;SC7A4H-7CYCSH-4CP4XI-ZS4G2G-CDZ7JP-PR5FRG-2VBU&#39;</span><span class="p">),</span>
+    <span class="p">[</span><span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span><span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;7cdf3b117a3c40cc&#39;</span><span class="p">),</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">1</span><span class="p">))],</span> <span class="c1">// Replace with your mosaicId</span>
+    <span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;enjoy your ticket&#39;</span><span class="p">),</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<p>纵然交易已经被定义，但它还没被公布到网络。</p>
+<ol class="arabic simple" start="2">
+<li>先签署商家账户的交易，好让网络验证交易的真实性。</li>
+</ol>
+<div class="example-code container">
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">transferTransaction</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li>签署后，把交易公布到网络。</li>
+</ol>
+<div class="example-code container">
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
+
+<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
+    <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
+    <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction transfer --recipient SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54 --mosaics 7cdf3b117a3c40cc::1 --message enjoy_your_ticket
+</pre></div>
+</div>
+</div>
+<ol class="arabic simple" start="4">
+<li>当交易被确认后，检查买家是否以收到门票。</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account info --profile buyer
+</pre></div>
+</div>
+</div>
+<div class="section" id="what-s-next">
+<h2>下一步呢？<a class="headerlink" href="#what-s-next" title="永久链接至标题">¶</a></h2>
+<p>被提议的用例被解决了吗？</p>
+<p>✅ 确定每一个买家: 为每一个买家创建一个账户。.</p>
+<p>✅ 避免门票转售: 创建不可转让的马赛克。</p>
+<p>✅ 避免假门票或复制票：创建独特的马赛克。</p>
+<p>继续学习 <a class="reference internal" href="../concepts/account.html"><span class="doc">NEM 内置功能</span></a> 或者以 <a class="reference internal" href="training.html"><span class="doc">自定进度训练</span></a> 作为练习。</p>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+        </div>
+         
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+        <ul>
+<li><a class="reference internal" href="#">编辑你的第一个程式。</a><ul>
+<li><a class="reference internal" href="#background">背景</a></li>
+<li><a class="reference internal" href="#lets-get-into-some-code">代码列子</a></li>
+<li><a class="reference internal" href="#what-s-next">下一步呢？</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+ 
+    </div>
+</div>
+<footer class="footer">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-4">
+                <h4>Learn</h4>
+
+                <ul>
+                    <li><a href="what-is-nem.html">Getting Started</a></li>
+                    <li><a href="../concepts/account.html">Built-in Features</a></li>
+                    <li><a href="../concepts/cryptography.html">Protocol</a></li>
+                    <li><a href="../references.html">References</a></li>
+                    <li><a href="../guides/category/account.html">Guides</a></li>
+                    <li><a href="../contribute/contributing.html">Contribute</a></li>
+                </ul>
+            </div>
+
+            <div class="col-sm-4">
+                <h4>References</h4>
+
+                <ul>
+                    <li><a href="../api.html">REST API</a></li>
+                    <li><a href="../sdk.html">SDKs</a></li>
+                    <li><a href="../cli.html">Client</a></li>
+                    <li><a href="../prototyping-tool.html">Prototyping Tool</a></li>
+                    <li><a href="../extensions.html">Extensions</a></li>
+                </ul>
+            </div>
+
+
+            <div class="col-sm-4">
+                <h4>Community</h4>
+
+                <ul>
+                    <li>
+                        <a href="http://slack.nemtech.io/"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
+                    </li>
+                    <li>
+                        <a href="https://stackoverflow.com/tags/nem/">
+                            <i class="fab fa-stack-overflow"></i>
+                            <span> Ask development questions</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/nemtechdev">
+                            <i class="fab fa-twitter"></i>
+                            <span> Follow the dev updates</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/nemtech">
+                            <i class="fab fa-github"></i>
+                            <span> Explore our Github</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <p class="text-center top-gap">
+            &copy; Copyright 2018-2019, NEM.
+        </p>
+    </div>
+</footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+    indexName: 'nemtech',
+    inputSelector: '#search',
+    algoliaOptions: {},
+    debug: false
+});
+</script>
+  </body>
+</html>

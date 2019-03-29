@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>收获 &#8212; NEM Developer Center</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'Master',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="../_static/examplecode.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="收据" href="receipt.html" />
+    <link rel="prev" title="交易" href="transaction.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<script type="text/javascript">
+    var _paq = window._paq || [];
+    _paq.push(['disableCookies']);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="//analytics.nemtech.io/piwik/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
+
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div id="navbar"
+     class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
+                developer center</a>
+        </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                <li><a href="../getting-started/what-is-nem.html">Getting started</a></li>
+                <li><a href="account.html">Built-in features</a></li>
+                <li><a href="cryptography.html">Protocol</a></li>
+                <li><a href="../references.html">References</a></li>
+                
+                
+                
+                
+                
+            </ul>
+            <span class="navbar-text navbar-language pull-left">
+                <div id="language" class="hidden-xs hidden-sm">
+    <label>
+        <i class="fas fa-language"></i>
+        <select>
+            <option id="english" value="en">English</option>
+            <option id="japanese" value="ja">日本語</option>
+            <option id="chinese" value="zh_CN">中文</option>
+            <option id="translate" value="translate">Translate</option>
+        </select>
+    </label>
+</div>
+            </span>
+            
+            
+
+<div class="navbar-right hidden-sm hidden-xs">
+    <i class="fas fa-search"></i>
+    <input id="search" class="form-control" placeholder="Search..."/>
+</div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+
+        
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary"><div class="sidebar-md hidden-xs hidden-sm">
+    <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/what-is-nem.html">什么是NEM？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">设置工作站</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">编辑你的第一个程式。</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/training.html">自定步调训练</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="account.html">账户</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-filter.html">Account Filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multisig-account.html">多重签名账户</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">命名空间</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic.html">马赛克</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">转让交易</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">聚合交易</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">跨链交换</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="cryptography.html">加密技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="block.html">区块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transaction.html">交易</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">收获</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#local-harvesting">本地收获</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#delegated-harvesting">委托收获</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#schemas">模式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#accountlinktransaction">AccountLinkTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linkaction">LinkAction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="receipt.html">收据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="node.html">节点</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk.html">软件开发工具包 （SDKs）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">客户端</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">Contributors</a></li>
+</ul>
+
+    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.2</a></small>
+</div>
+
+<div class="sidebar-xs visible-xs visible-sm">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">导航 <b class="caret"></b></a>
+        <ul class="dropdown-menu globaltoc"><p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/what-is-nem.html">什么是NEM？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">设置工作站</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">编辑你的第一个程式。</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/training.html">自定步调训练</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="account.html">账户</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-filter.html">Account Filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multisig-account.html">多重签名账户</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">命名空间</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic.html">马赛克</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">转让交易</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">聚合交易</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">跨链交换</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="cryptography.html">加密技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="block.html">区块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transaction.html">交易</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">收获</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#local-harvesting">本地收获</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#delegated-harvesting">委托收获</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#schemas">模式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#accountlinktransaction">AccountLinkTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linkaction">LinkAction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="receipt.html">收据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="node.html">节点</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk.html">软件开发工具包 （SDKs）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">客户端</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">Contributors</a></li>
+</ul>
+</ul>
+    </li>
+</div>
+    </div>
+</div>
+        
+        <div class="col-md-7 content">
+            <div id="edit-on-github" class="text-right">
+                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\harvesting.rst"
+                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose"
+                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
+
+            </div>
+
+            
+  <div class="section" id="harvesting">
+<h1>收获<a class="headerlink" href="#harvesting" title="永久链接至标题">¶</a></h1>
+<p>创建新 <a class="reference internal" href="block.html"><span class="doc">区块</span></a>  的过程称为收获（harvesting）。进行收获的 <a class="reference internal" href="account.html"><span class="doc">账户</span></a> - 称为收获者 - 获取该区块中的 <a class="reference internal" href="transaction.html"><span class="doc">交易</span></a> 费用。这是收获者尽可能把更多的交易添加到区块中的动力。</p>
+<p>帐户重要性决定了创建新区块的机率。重要性的计算关联到账户收获到的马赛克数量和马赛克的总供应量之间的关系。为了使重要性大于零，帐户需要持有既定或更多的马赛克。</p>
+<p>Catapult软件允许设定任何 <a class="reference internal" href="mosaic.html"><span class="doc">马赛克</span></a> 用于收获，并用可配置属性来满足业务需求。 例如，联盟网络可以在运行基础设施的公司之间分配收获到的马赛克，而其他参与者需要以货币马赛克支付服务费。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">配置参数是  <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">可编辑的</a>。 公共网络配置可能有所不同。</p>
+</div>
+<p>收获者帐户可以依赖账户的重要性在本地或远程节点中创建新区块。</p>
+<div class="section" id="local-harvesting">
+<h2>本地收获<a class="headerlink" href="#local-harvesting" title="永久链接至标题">¶</a></h2>
+<p>在本地或VPS中安装 <a class="reference internal" href="node.html"><span class="doc">catapult-server</span></a> ，系统会要求您设置一个用于收获的帐户。<a class="reference internal" href="block.html#block-header"><span class="std std-ref">block header(区块的首部)</span></a> 收录收获帐户生成的公钥和签名。</p>
+<p>只要没有人访问存储私钥的节点实例，本地收获就是安全的。</p>
+</div>
+<div class="section" id="delegated-harvesting">
+<h2>委托收获<a class="headerlink" href="#delegated-harvesting" title="永久链接至标题">¶</a></h2>
+<p>委托收获者帐户能够使用可以安全地与 catapult-server 节点共享代理私钥。换句话说，您可以在无需运行节点的情况下使用帐户的重要性来创建新区块。</p>
+<p>帐户激活委托收获后，其重要性将转移到远程帐户。远程帐户继承了原始帐户的重要性。</p>
+<p>安全方面，共享代理私钥不会影响原始帐户，因为：</p>
+<ul class="simple">
+<li>远程帐户余额为零。</li>
+<li>远程帐户本身无法将重要性转移到其他帐户。</li>
+<li>原始帐户接收收获到区块内的交易费用。</li>
+</ul>
+<table border="1" class="docutils" id="id1">
+<caption><span class="caption-text">本地和委托收获之间的区别</span><a class="headerlink" href="#id1" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">本地收获</th>
+<th class="head">委托收获</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>配置</strong></td>
+<td>设置catapult-server节点。</td>
+<td>激活远程收获。</td>
+</tr>
+<tr class="row-odd"><td><strong>费用</strong></td>
+<td>节点维持（电力，VPN成本）。</td>
+<td>交易费。</td>
+</tr>
+<tr class="row-even"><td><strong>安全性</strong></td>
+<td>私钥存储在节点中。</td>
+<td>代理私钥与节点共享。</td>
+</tr>
+<tr class="row-odd"><td><strong>回酬</strong></td>
+<td>同等。</td>
+<td>同等。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="schemas">
+<h2>模式<a class="headerlink" href="#schemas" title="永久链接至标题">¶</a></h2>
+<div class="section" id="accountlinktransaction">
+<span id="account-link-transaction"></span><h3>AccountLinkTransaction<a class="headerlink" href="#accountlinktransaction" title="永久链接至标题">¶</a></h3>
+<p>公布AccountLinkTransaction可以将帐户重要性委派给代理帐户。依此您可以启用委托收获。</p>
+<p><strong>版本</strong>: 0x02</p>
+<p><strong>实体类型</strong>: 0x414C</p>
+<p><strong>内联</strong>:</p>
+<ul class="simple">
+<li><a class="reference internal" href="transaction.html#id5"><span class="std std-ref">Transaction</span></a> or <a class="reference internal" href="transaction.html#embedded-transaction"><span class="std std-ref">EmbeddedTransaction</span></a></li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">属性</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>remoteAccountKey</td>
+<td>32字节(二进制)</td>
+<td>远程帐户的公钥。</td>
+</tr>
+<tr class="row-odd"><td>linkAction</td>
+<td><a class="reference internal" href="#link-action"><span class="std std-ref">LinkAction</span></a></td>
+<td>帐户连接的操作。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="linkaction">
+<span id="link-action"></span><h3>LinkAction<a class="headerlink" href="#linkaction" title="永久链接至标题">¶</a></h3>
+<p>例举: uint8</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Id</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>Link.</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>Unlink.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+        </div>
+         
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+        <ul>
+<li><a class="reference internal" href="#">收获</a><ul>
+<li><a class="reference internal" href="#local-harvesting">本地收获</a></li>
+<li><a class="reference internal" href="#delegated-harvesting">委托收获</a></li>
+<li><a class="reference internal" href="#schemas">模式</a><ul>
+<li><a class="reference internal" href="#accountlinktransaction">AccountLinkTransaction</a></li>
+<li><a class="reference internal" href="#linkaction">LinkAction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+ 
+    </div>
+</div>
+<footer class="footer">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-4">
+                <h4>Learn</h4>
+
+                <ul>
+                    <li><a href="../getting-started/what-is-nem.html">Getting Started</a></li>
+                    <li><a href="account.html">Built-in Features</a></li>
+                    <li><a href="cryptography.html">Protocol</a></li>
+                    <li><a href="../references.html">References</a></li>
+                    <li><a href="../guides/category/account.html">Guides</a></li>
+                    <li><a href="../contribute/contributing.html">Contribute</a></li>
+                </ul>
+            </div>
+
+            <div class="col-sm-4">
+                <h4>References</h4>
+
+                <ul>
+                    <li><a href="../api.html">REST API</a></li>
+                    <li><a href="../sdk.html">SDKs</a></li>
+                    <li><a href="../cli.html">Client</a></li>
+                    <li><a href="../prototyping-tool.html">Prototyping Tool</a></li>
+                    <li><a href="../extensions.html">Extensions</a></li>
+                </ul>
+            </div>
+
+
+            <div class="col-sm-4">
+                <h4>Community</h4>
+
+                <ul>
+                    <li>
+                        <a href="http://slack.nemtech.io/"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
+                    </li>
+                    <li>
+                        <a href="https://stackoverflow.com/tags/nem/">
+                            <i class="fab fa-stack-overflow"></i>
+                            <span> Ask development questions</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/nemtechdev">
+                            <i class="fab fa-twitter"></i>
+                            <span> Follow the dev updates</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/nemtech">
+                            <i class="fab fa-github"></i>
+                            <span> Explore our Github</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <p class="text-center top-gap">
+            &copy; Copyright 2018-2019, NEM.
+        </p>
+    </div>
+</footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+    indexName: 'nemtech',
+    inputSelector: '#search',
+    algoliaOptions: {},
+    debug: false
+});
+</script>
+  </body>
+</html>
