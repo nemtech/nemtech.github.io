@@ -185,7 +185,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">Contributors</a></li>
 </ul>
 
-    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.2</a></small>
+    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.3</a></small>
 </div>
 
 <div class="sidebar-xs visible-xs visible-sm">
@@ -409,7 +409,7 @@
 <span id="transaction-signature"></span><h2>Signing a transaction<a class="headerlink" href="#signing-a-transaction" title="Permalink to this headline">¶</a></h2>
 <p>Accounts must sign transactions before announcing them to the network. <a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingATransferTransaction.ts#L40">Signing a transaction</a> expresses the account’s agreement to change the network state as defined.</p>
 <p>For example, a transfer transaction describes who is the recipient and the quantity of mosaics to transfer. In this case, signing the transaction means to accept moving those mosaics from one account’s balance to another.</p>
-<p>The account generates the signature <a class="reference external" href="https://github.com/nemtech/nem2-library-js/blob/f171afb516a282f698081aea407339cfcd21cd63/src/transactions/VerifiableTransaction.js#L64">signing the first 100 bytes of the defined transaction</a> with its private key. Then, the signature is appended to the transaction’s body, resulting in a signed transaction.</p>
+<p>The account generates the signature by <a class="reference external" href="https://github.com/nemtech/nem2-library-js/blob/f171afb516a282f698081aea407339cfcd21cd63/src/transactions/VerifiableTransaction.js#L64">signing the first 100 bytes of the defined transaction</a> with its private key. Then, the signature is appended to the transaction’s body, resulting in a signed transaction.</p>
 <p>The hash of the transaction is generated once <a class="reference external" href="https://github.com/nemtech/nem2-library-js/blob/f171afb516a282f698081aea407339cfcd21cd63/src/transactions/VerifiableTransaction.js#L76">the sha3-256 algorithm</a> is applied to the serialized transaction.</p>
 </div>
 <div class="section" id="announcing-a-transaction">
