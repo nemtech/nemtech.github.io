@@ -184,7 +184,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (3)
+            Mosaic (4)
         </a></li>
     
     
@@ -202,7 +202,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (4)
+            Namespace (5)
         </a></li>
     
     
@@ -286,7 +286,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (3)
+            Mosaic (4)
         </a></li>
     
     
@@ -304,7 +304,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (4)
+            Namespace (5)
         </a></li>
     
     
@@ -398,16 +398,11 @@
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li>Alice creates an aggregate bonded transaction with two inner transactions:</li>
+<li>Create an aggregate bonded transaction with two inner transactions:</li>
 </ol>
 <ol class="upperalpha simple">
-<li>Define the first inner <a class="reference internal" href="../../concepts/transfer-transaction.html#id1"><span class="std std-ref">transfer transaction</span></a>:</li>
+<li>From Alice to Bob with the message <code class="docutils literal"><span class="pre">send</span> <span class="pre">me</span> <span class="pre">20</span> <span class="pre">cat.currency</span></code>.</li>
 </ol>
-<ul class="simple">
-<li>message: “message reason” (custom, but not empty)</li>
-<li>receiver: Bob address</li>
-<li>signer: Alice</li>
-</ul>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id4">
 <div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/AskingForMosaicsWithAggregateBondedTransaction.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
@@ -433,14 +428,8 @@
 </div>
 </div>
 <ol class="upperalpha simple" start="2">
-<li>Define the second inner <a class="reference internal" href="../../concepts/transfer-transaction.html#id1"><span class="std std-ref">transfer transaction</span></a>:</li>
+<li>From Bob to Alice sending <code class="docutils literal"><span class="pre">20</span> <span class="pre">cat.currency</span></code>.</li>
 </ol>
-<ul class="simple">
-<li>message: empty</li>
-<li>receiver: Alice address</li>
-<li>mosaics: 20 cat.currency</li>
-<li>signer: Bob</li>
-</ul>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id6">
 <div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/AskingForMosaicsWithAggregateBondedTransaction.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
@@ -465,7 +454,9 @@
 </div>
 </div>
 </div>
-<p>3.Wrap the defined transactions in an aggregate bonded transaction:</p>
+<ol class="arabic simple" start="3">
+<li>Wrap the previous transactions in an <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate bonded transaction</span></a>.</li>
+</ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id8">
 <div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/AskingForMosaicsWithAggregateBondedTransaction.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
@@ -493,7 +484,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="4">
-<li>Alice signs the aggregate bonded transaction and announces it to the network, locking first <code class="docutils literal"><span class="pre">10</span> <span class="pre">cat.currency</span></code>.</li>
+<li>Sign the aggregate bonded transaction with Alice’s account and announce it to the network. Remember to <a class="reference internal" href="../../concepts/aggregate-transaction.html#hash-lock-transaction"><span class="std std-ref">lock 10 cat.currency</span></a> first. Alice will recover the locked mosaics if the aggregate transaction completes.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id10">
@@ -567,13 +558,9 @@
 <p class="first admonition-title">Note</p>
 <p class="last">The <a class="reference internal" href="monitoring-a-transaction-status.html#monitoring-transactions-client-side"><span class="std std-ref">listener implementation changes</span></a> when used on the client side (e.g., Angular, React, Vue).</p>
 </div>
-<p>If all goes well, <a class="reference internal" href="monitoring-a-transaction-status.html"><span class="doc">Bob receives a notification</span></a>.</p>
-</div>
-<div class="section" id="what-s-next">
-<h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
-<p>Bob has not cosigned the transaction yet. Consider reading <a class="reference internal" href="signing-announced-aggregate-bonded-transactions.html"><span class="doc">signing announced aggregate bonded transactions guide</span></a>.</p>
-<p>After receiving the transaction, Bob signs the <code class="docutils literal"><span class="pre">transaction</span> <span class="pre">hash</span></code> and announces the cosignature signed transaction.</p>
-<p>As the aggregate bonded transaction has all the cosignatures required, it will be included in a block.</p>
+<ol class="arabic simple" start="5">
+<li>If all goes well, <a class="reference internal" href="monitoring-a-transaction-status.html"><span class="doc">Bob receives a notification to cosign the transaction</span></a>. Check how to <a class="reference internal" href="signing-announced-aggregate-bonded-transactions.html"><span class="doc">cosign the transaction</span></a> with Bob’s account in the following guide.</li>
+</ol>
 </div>
 </div>
 
@@ -596,7 +583,6 @@
 <li><a class="reference internal" href="#">Asking for mosaics with aggregate bonded transaction</a><ul>
 <li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
 <li><a class="reference internal" href="#lets-get-into-some-code">Let’s get into some code</a></li>
-<li><a class="reference internal" href="#what-s-next">What’s next?</a></li>
 </ul>
 </li>
 </ul>

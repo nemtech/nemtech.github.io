@@ -184,7 +184,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (3)
+            Mosaic (4)
         </a></li>
     
     
@@ -202,7 +202,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (4)
+            Namespace (5)
         </a></li>
     
     
@@ -286,7 +286,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (3)
+            Mosaic (4)
         </a></li>
     
     
@@ -304,7 +304,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (4)
+            Namespace (5)
         </a></li>
     
     
@@ -355,7 +355,7 @@
 <p>When announcing a transaction in NIS1, you had to wait to get the response from the node. Catapult works differently. When a transaction is announced, the REST API server will always return an OK.</p>
 <p>As a result, the developer does not have to wait until the server returns a response, being able to make more responsive apps.  However, it is the developer’s responsibility to check the status of the transaction and ensure it is confirmed.</p>
 <p>On the other hand, keeping track of transactions status adds unnecessary complexity to small projects. It also increases the difficulty when migrating from NIS1.</p>
-<p>nem2-camel aims to solve these problems by providing a server that listens to the Catapult REST calls and acts as a proxy. When it detects a transaction announcement, it waits for the confirmation via <a class="reference internal" href="../../api.html#websockets"><span class="std std-ref">WebSockets</span></a> and returns the message to the HTTP call.</p>
+<p><strong>nem2-camel</strong> aims to solve these problems by providing a server that listens to the Catapult REST calls and acts as a proxy. When it detects a transaction announcement, it waits for the confirmation via <a class="reference internal" href="../../api.html#websockets"><span class="std std-ref">WebSockets</span></a> and returns the message to the HTTP call.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">The function <code class="docutils literal"><span class="pre">TransactionHttp.announceSync</span></code> allows announcing transactions synchronously when using  nem2-camel as a proxy.  nem2-camel will respond successfully when the transaction has reached the network and had no validation errors.  You might still need to <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">wait for several confirmations</span></a> before executing additional actions.</p>
@@ -374,8 +374,8 @@
 </div>
 <div class="section" id="lets-get-into-some-code">
 <h2>Let’s get into some code<a class="headerlink" href="#lets-get-into-some-code" title="Permalink to this headline">¶</a></h2>
-<p><strong>Running Catapult Service in local</strong></p>
-<p>nem2-camel acts like a proxy between the application and the REST API.</p>
+<div class="section" id="running-catapult-service-in-local">
+<h3>Running Catapult Service in local<a class="headerlink" href="#running-catapult-service-in-local" title="Permalink to this headline">¶</a></h3>
 <p>For development and learning purposes, you can run the <a class="reference internal" href="../../concepts/node.html"><span class="doc">Catapult Server and Catapult REST</span></a> using the <a href="https://github.com/tech-bureau/catapult-service-bootstrap/" target="_blank">Catapult Service Bootstrap</a>.</p>
 <ol class="arabic simple">
 <li>Make sure you have <a href="https://docs.docker.com/install/" target="_blank">docker</a> and <a href="https://docs.docker.com/compose/install/" target="_blank">docker compose</a> installed before running the following instructions:</li>
@@ -391,7 +391,9 @@ $&gt; docker-compose up
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; curl localhost:3000/block/1
 </pre></div>
 </div>
-<p><strong>Getting Alice and Bob addresses</strong></p>
+</div>
+<div class="section" id="getting-alice-and-bob-addresses">
+<h3>Getting Alice and Bob addresses<a class="headerlink" href="#getting-alice-and-bob-addresses" title="Permalink to this headline">¶</a></h3>
 <p>Once the Catapult Service is running, it will generate a set of <a class="reference internal" href="../../concepts/account.html"><span class="doc">accounts</span></a> containing cat.currency.</p>
 <ol class="arabic simple">
 <li>Find the key pairs which contain cat.currency under the section <code class="docutils literal"><span class="pre">nemesis_addresses</span></code>.</li>
@@ -404,7 +406,10 @@ $&gt; cat raw-addresses.yaml
 <li>Take the first key pair as Alice’s account, and copy the private key.</li>
 <li>Take the second key pair as Bob’s account, and copy the address.</li>
 </ol>
-<p><strong>Installing nem2-camel</strong></p>
+</div>
+<div class="section" id="installing-nem2-camel">
+<h3>Installing nem2-camel<a class="headerlink" href="#installing-nem2-camel" title="Permalink to this headline">¶</a></h3>
+<p>nem2-camel acts like a proxy between the application and the REST API.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">nem2-camel requires at least Java version 8.</p>
@@ -418,9 +423,11 @@ $&gt; cat raw-addresses.yaml
 <ol class="arabic simple" start="2">
 <li>After the service is up, use <code class="docutils literal"><span class="pre">0.0.0.0:9000</span></code> as the new proxy url.</li>
 </ol>
-<p><strong>Sending the transfer transaction</strong></p>
+</div>
+<div class="section" id="sending-the-transfer-transaction">
+<h3>Sending the transfer transaction<a class="headerlink" href="#sending-the-transfer-transaction" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li>Alice creates a <a class="reference internal" href="../../concepts/transfer-transaction.html"><span class="doc">Transfer Transaction</span></a>, sending <code class="docutils literal"><span class="pre">10</span> <span class="pre">cat.currency</span></code> to Bob and signs it with her account.</li>
+<li>Alice creates a <a class="reference internal" href="../../concepts/transfer-transaction.html"><span class="doc">Transfer Transaction</span></a>, sending <code class="docutils literal"><span class="pre">10</span> <span class="pre">cat.currency</span></code> to Bob.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id2">
@@ -443,7 +450,7 @@ $&gt; cat raw-addresses.yaml
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li>Once signed, Alice can <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">announce the transaction</span></a> to the network. Use <code class="docutils literal"><span class="pre">TransactionHttp.announceSync</span></code> instead of <code class="docutils literal"><span class="pre">TransactionHttp.announce</span></code> to wait until it reaches the network and returns back the Transaction object. After that, Alice can send an email to Bob.</li>
+<li>Once signed, Alice <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">announces the transaction</span></a>. Use <code class="docutils literal"><span class="pre">TransactionHttp.announceSync</span></code> instead of <code class="docutils literal"><span class="pre">TransactionHttp.announce</span></code> to wait until the transaction reaches the network, returning back the Transaction object.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id3">
@@ -464,8 +471,9 @@ $&gt; cat raw-addresses.yaml
 </div>
 </div>
 </div>
-<p>If the transaction is valid, nem2-camel returns a <code class="docutils literal"><span class="pre">Transaction</span></code> object. It is important to highlight that this transaction has an <code class="docutils literal"><span class="pre">unconfirmed</span></code> status. Alice, or you, might still need to <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">wait  for several confirmations</span></a> before executing additional actions.</p>
+<p>It is important to highlight that this transaction has an <code class="docutils literal"><span class="pre">unconfirmed</span></code> status. You might still need to <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">wait  for several confirmations</span></a> before doing additional actions.</p>
 <p>In case the Catapult REST server throws an error, the subscribe method will invoke the <code class="docutils literal"><span class="pre">error</span> <span class="pre">function</span></code> returning a <code class="docutils literal"><span class="pre">TransactionStatus</span></code> object.</p>
+</div>
 </div>
 </div>
 
@@ -488,7 +496,13 @@ $&gt; cat raw-addresses.yaml
 <li><a class="reference internal" href="#">Turning the asynchronous transaction announcement into synchronous</a><ul>
 <li><a class="reference internal" href="#background">Background</a></li>
 <li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
-<li><a class="reference internal" href="#lets-get-into-some-code">Let’s get into some code</a></li>
+<li><a class="reference internal" href="#lets-get-into-some-code">Let’s get into some code</a><ul>
+<li><a class="reference internal" href="#running-catapult-service-in-local">Running Catapult Service in local</a></li>
+<li><a class="reference internal" href="#getting-alice-and-bob-addresses">Getting Alice and Bob addresses</a></li>
+<li><a class="reference internal" href="#installing-nem2-camel">Installing nem2-camel</a></li>
+<li><a class="reference internal" href="#sending-the-transfer-transaction">Sending the transfer transaction</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

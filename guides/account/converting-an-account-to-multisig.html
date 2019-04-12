@@ -184,7 +184,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (3)
+            Mosaic (4)
         </a></li>
     
     
@@ -202,7 +202,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (4)
+            Namespace (5)
         </a></li>
     
     
@@ -286,7 +286,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (3)
+            Mosaic (4)
         </a></li>
     
     
@@ -304,7 +304,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (4)
+            Namespace (5)
         </a></li>
     
     
@@ -348,7 +348,7 @@
             
   <div class="section" id="converting-an-account-to-multisig">
 <h1>Converting an account to multisig<a class="headerlink" href="#converting-an-account-to-multisig" title="Permalink to this headline">¶</a></h1>
-<p>Create a 1-of-2 <a class="reference internal" href="../../concepts/multisig-account.html"><span class="doc">multisig account</span></a>, by adding two cosignatories.</p>
+<p>Create a 1-of-2 <a class="reference internal" href="../../concepts/multisig-account.html"><span class="doc">multisig account</span></a>.</p>
 <div class="section" id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
 <p>Alice and Bob live together and have separate <a class="reference internal" href="../../concepts/account.html"><span class="doc">accounts</span></a>. They also have a shared account used to buy groceries. If Bob is out shopping, he can buy groceries for both himself and Alice.</p>
@@ -419,7 +419,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li>Define a <a class="reference internal" href="../../concepts/multisig-account.html#modify-multisig-account-transaction"><span class="std std-ref">modify multisig account transaction</span></a>  to convert the account into a multisig account. As they need a 1-of-2 multisig account, set the minimum signatures required to 1.</li>
+<li>Create a <a class="reference internal" href="../../concepts/multisig-account.html#modify-multisig-account-transaction"><span class="std std-ref">modify multisig account transaction</span></a>  to convert the account into a multisig account. As they want to create a 1-of-2 multisig account, set the minimum signatures required to 1.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id5">
@@ -515,11 +515,9 @@
 </div>
 </div>
 </div>
-<p id="guide-get-multisig-account-info">If everything goes well, Alice and Bob should be cosignatories of the multisig account.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">You could also get the list of the multisig accounts where Alice or Bob are cosignatories using <code class="docutils literal"><span class="pre">getMultisigAccountInfo</span></code> function.</p>
-</div>
+<ol class="arabic simple" id="guide-get-multisig-account-info" start="4">
+<li>If everything goes well, the account is now multisig, being Alice and Bob cosignatories. You can get the list of the multisig accounts where Alice or Bob are cosignatories using <code class="docutils literal"><span class="pre">getMultisigAccountInfo</span></code> function.</li>
+</ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id11">
 <div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/GettingMultisigAccountCosignatories.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id11" title="Permalink to this code">¶</a></div>

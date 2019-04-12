@@ -184,7 +184,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (3)
+            Mosaic (4)
         </a></li>
     
     
@@ -202,7 +202,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (4)
+            Namespace (5)
         </a></li>
     
     
@@ -286,7 +286,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (3)
+            Mosaic (4)
         </a></li>
     
     
@@ -304,7 +304,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (4)
+            Namespace (5)
         </a></li>
     
     
@@ -363,7 +363,8 @@
 <p class="caption"><span class="caption-text">Sending a transfer Transaction</span></p>
 </div>
 <p>Alice wants to send <code class="docutils literal"><span class="pre">10</span> <span class="pre">cat.currency</span></code> to Bob, whose address is <code class="docutils literal"><span class="pre">SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54</span></code>.</p>
-<p><strong>Monitoring the transaction</strong></p>
+<div class="section" id="monitoring-the-network">
+<h3>Monitoring the network<a class="headerlink" href="#monitoring-the-network" title="Permalink to this headline">¶</a></h3>
 <p>Once an account announces a transaction, the server will always return an OK response. Receiving an OK response does not mean the transaction is valid. A good practice is to monitor transactions before being announced.</p>
 <p>To understand the transaction lifecycle, we recommend you to open three new terminals. The first terminal <a class="reference internal" href="monitoring-a-transaction-status.html"><span class="doc">monitors announced transactions</span></a> validation errors.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor status
@@ -378,10 +379,11 @@
 </pre></div>
 </div>
 </div>
+</div>
 <div class="section" id="lets-get-into-some-code">
 <h2>Let’s get into some code<a class="headerlink" href="#lets-get-into-some-code" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>Create the transfer transaction, by including Bob address as the recipient, adding <code class="docutils literal"><span class="pre">10</span> <span class="pre">cat.currency</span></code> and the message requested.</li>
+<li>Create the transfer transaction, including Bob address as the recipient and <code class="docutils literal"><span class="pre">10</span> <span class="pre">cat.currency</span></code>.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id2">
@@ -416,21 +418,25 @@
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id4">
 <div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingATransferTransactionWithMultipleMosaics.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
-<div class="highlight-typescript"><div class="highlight"><pre><span></span>    <span class="p">[</span><span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;7cdf3b117a3c40cc&#39;</span><span class="p">),</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">10</span><span class="p">)),</span>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span>    <span class="p">[</span><span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;7cdf3b117a3c40cc&#39;</span><span class="p">),</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">1000</span><span class="p">)),</span>
         <span class="nx">NetworkCurrencyMosaic</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">10</span><span class="p">)],</span>
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper container" id="id5">
 <div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingATransferTransactionWithMultipleMosaics.js" target="_blank">View Code</a></span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span>    <span class="p">[</span><span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;7cdf3b117a3c40cc&#39;</span><span class="p">),</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">10</span><span class="p">)),</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>    <span class="p">[</span><span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;7cdf3b117a3c40cc&#39;</span><span class="p">),</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">1000</span><span class="p">)),</span>
         <span class="nx">NetworkCurrencyMosaic</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">10</span><span class="p">)],</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">NEM mainly works with absolute amounts. To get an absolute amount, multiply the amount of assets you want to send by 10<sup>divisibility</sup>.  For example, if the mosaic has <a class="reference internal" href="../mosaic/getting-mosaic-information.html"><span class="doc">divisibility</span></a> 2, to send 10 units (relative) you should define 1000 (absolute) instead.</p>
+</div>
 <ol class="arabic simple" start="2">
-<li>Sign the transaction with Alice’s account, so that the network can verify its authenticity.</li>
+<li>Sign the transaction with Alice’s account.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id6">
@@ -511,7 +517,10 @@
         <ul>
 <li><a class="reference internal" href="#">Sending a transfer transaction</a></li>
 <li><a class="reference internal" href="#prerequisites">Prerequisites</a><ul>
-<li><a class="reference internal" href="#background">Background</a></li>
+<li><a class="reference internal" href="#background">Background</a><ul>
+<li><a class="reference internal" href="#monitoring-the-network">Monitoring the network</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#lets-get-into-some-code">Let’s get into some code</a></li>
 </ul>
 </li>

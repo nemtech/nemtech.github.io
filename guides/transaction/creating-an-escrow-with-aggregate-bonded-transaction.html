@@ -184,7 +184,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (3)
+            Mosaic (4)
         </a></li>
     
     
@@ -202,7 +202,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (4)
+            Namespace (5)
         </a></li>
     
     
@@ -286,7 +286,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (3)
+            Mosaic (4)
         </a></li>
     
     
@@ -304,7 +304,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (4)
+            Namespace (5)
         </a></li>
     
     
@@ -348,7 +348,7 @@
             
   <div class="section" id="creating-an-escrow-with-aggregate-bonded-transaction">
 <h1>Creating an escrow with aggregate bonded transaction<a class="headerlink" href="#creating-an-escrow-with-aggregate-bonded-transaction" title="Permalink to this headline">¶</a></h1>
-<p>Learn about <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate bonded transactions</span></a>, by creating an escrow.</p>
+<p>Learn about <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate bonded transactions</span></a> creating an escrow contract.</p>
 <div class="section" id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
 <p>An <strong>escrow</strong> is a <code class="docutils literal"><span class="pre">contractual</span> <span class="pre">arrangement</span></code> in which a <code class="docutils literal"><span class="pre">third</span> <span class="pre">party</span> <span class="pre">receives</span> <span class="pre">and</span> <span class="pre">disburses</span> <span class="pre">money</span></code> or documents for the <code class="docutils literal"><span class="pre">primary</span> <span class="pre">transacting</span> <span class="pre">parties</span></code>, with the disbursement dependent on <code class="docutils literal"><span class="pre">conditions</span> <span class="pre">agreed</span> <span class="pre">to</span> <span class="pre">by</span> <span class="pre">the</span> <span class="pre">transacting</span> <span class="pre">parties</span></code>, or an <code class="docutils literal"><span class="pre">account</span> <span class="pre">established</span> <span class="pre">by</span> <span class="pre">a</span> <span class="pre">broker</span> <span class="pre">for</span> <span class="pre">holding</span> <span class="pre">funds</span></code> on behalf of the broker’s principal or some other person <code class="docutils literal"><span class="pre">until</span> <span class="pre">the</span> <span class="pre">consummation</span> <span class="pre">or</span> <span class="pre">termination</span> <span class="pre">of</span> <span class="pre">a</span> <span class="pre">transaction</span></code>; or, a trust account held in the borrower’s name to pay obligations such as property taxes and insurance premiums.</p>
@@ -393,8 +393,9 @@
 <img alt="../../_images/aggregate-escrow-11.png" src="../../_images/aggregate-escrow-11.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">Multi-Asset Escrowed Transactions</span></p>
 </div>
-<p><strong>Setting up the required accounts and mosaics</strong></p>
-<p>In this example, Alice and a ticket distributor want to swap the following mosaics.</p>
+<div class="section" id="setting-up-the-required-accounts-and-mosaics">
+<h3>Setting up the required accounts and mosaics<a class="headerlink" href="#setting-up-the-required-accounts-and-mosaics" title="Permalink to this headline">¶</a></h3>
+<p>Alice and a ticket distributor want to swap the following mosaics.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="25%" />
@@ -423,13 +424,15 @@
 </tbody>
 </table>
 <p>Before continuing, <a class="reference internal" href="../mosaic/creating-a-mosaic.html"><span class="doc">create the museum ticket mosaic</span></a>.</p>
-<p><strong>Mosaics swap</strong></p>
+</div>
+<div class="section" id="creating-the-escrow-contract">
+<h3>Creating the escrow contract<a class="headerlink" href="#creating-the-escrow-contract" title="Permalink to this headline">¶</a></h3>
 <p>Alice will send a transaction to the ticket distributor exchanging <code class="docutils literal"><span class="pre">100</span> <span class="pre">cat.currency</span></code> for <code class="docutils literal"><span class="pre">1</span> <span class="pre">7cdf3b117a3c40cc</span></code> (museum ticket).</p>
 <ol class="arabic simple">
-<li>Create two  <a class="reference internal" href="../../concepts/transfer-transaction.html#id1"><span class="std std-ref">transfer transactions</span></a>:</li>
+<li>Create two <a class="reference internal" href="../../concepts/transfer-transaction.html#id1"><span class="std std-ref">transfer transactions</span></a>:</li>
 </ol>
 <ol class="upperalpha simple">
-<li>From Alice to the ticket distributor sending <code class="docutils literal"><span class="pre">100</span> <span class="pre">cat.currency</span></code></li>
+<li>From Alice to the ticket distributor sending <code class="docutils literal"><span class="pre">100</span> <span class="pre">cat.currency</span></code>.</li>
 <li>From the ticket distributor to Alice sending <code class="docutils literal"><span class="pre">1</span> <span class="pre">7cdf3b117a3c40cc</span></code> (museum ticket).</li>
 </ol>
 <div class="example-code container">
@@ -491,7 +494,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li>Add them as <code class="docutils literal"><span class="pre">innerTransactions</span></code> under an <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate transaction</span></a>.</li>
+<li>Wrap the defined transactions in an <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate transaction</span></a>.</li>
 </ol>
 <p>An aggregate Transaction is <em>complete</em> if before announcing it to the network, all required cosigners have signed it. If valid, it will be included in a block.</p>
 <p>In case that signatures are required from other participants and the transaction is announced to the network, it is considered an aggregate bonded.</p>
@@ -520,7 +523,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="3">
-<li>When an aggregate transaction is bonded, Alice will need to lock at least <code class="docutils literal"><span class="pre">10</span> <span class="pre">cat.currency</span></code>. Once the ticket distributor signs the aggregate transaction, the amount of locked cat.currency becomes available again on Alice’s account, and the exchange will get through.</li>
+<li>When an aggregate transaction is bonded, Alice will need to <a class="reference internal" href="../../concepts/aggregate-transaction.html#hash-lock-transaction"><span class="std std-ref">lock</span></a> at least <code class="docutils literal"><span class="pre">10</span> <span class="pre">cat.currency</span></code>. Once the ticket distributor signs the aggregate transaction, the amount of locked cat.currency becomes available again on Alice’s account, and the exchange will get through.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id6">
@@ -594,7 +597,8 @@
 <p class="first admonition-title">Note</p>
 <p class="last">The <a class="reference internal" href="monitoring-a-transaction-status.html#monitoring-transactions-client-side"><span class="std std-ref">listener implementation changes</span></a> when used on the client side (e.g., Angular, React, Vue).</p>
 </div>
-<p>The distributor has not signed the aggregate bonded transaction yet, so exchange has not been completed. Consider reading <a class="reference internal" href="signing-announced-aggregate-bonded-transactions.html"><span class="doc">signing announced aggregate bonded transactions guide</span></a>.</p>
+<p>The distributor has not signed the aggregate bonded transaction yet, so exchange has not been completed. Check how to <a class="reference internal" href="signing-announced-aggregate-bonded-transactions.html"><span class="doc">cosign the aggregate transaction</span></a> in the following guide.</p>
+</div>
 </div>
 <div class="section" id="is-it-possible-without-aggregate-transactions">
 <h2>Is it possible without aggregate transactions?<a class="headerlink" href="#is-it-possible-without-aggregate-transactions" title="Permalink to this headline">¶</a></h2>
@@ -633,7 +637,11 @@
 <li><a class="reference internal" href="#">Creating an escrow with aggregate bonded transaction</a><ul>
 <li><a class="reference internal" href="#background">Background</a></li>
 <li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
-<li><a class="reference internal" href="#let-s-get-into-some-code">Let’s get into some code</a></li>
+<li><a class="reference internal" href="#let-s-get-into-some-code">Let’s get into some code</a><ul>
+<li><a class="reference internal" href="#setting-up-the-required-accounts-and-mosaics">Setting up the required accounts and mosaics</a></li>
+<li><a class="reference internal" href="#creating-the-escrow-contract">Creating the escrow contract</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#is-it-possible-without-aggregate-transactions">Is it possible without aggregate transactions?</a></li>
 <li><a class="reference internal" href="#what-s-next">What’s next?</a></li>
 </ul>

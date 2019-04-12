@@ -184,7 +184,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (3)
+            Mosaic (4)
         </a></li>
     
     
@@ -202,7 +202,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (4)
+            Namespace (5)
         </a></li>
     
     
@@ -286,7 +286,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/mosaic.html" class="reference internal nav-header">
             
-            Mosaic (3)
+            Mosaic (4)
         </a></li>
     
     
@@ -304,7 +304,7 @@
     <li class="ablog-cloud toctree-l1">
         <a href="../category/namespace.html" class="reference internal nav-header">
             
-            Namespace (4)
+            Namespace (5)
         </a></li>
     
     
@@ -378,11 +378,11 @@
 <tbody valign="top">
 <tr class="row-even"><td>Divisibility</td>
 <td>0</td>
-<td>The mosaic won’t be divisible.</td>
+<td>The mosaic won’t be divisible. Determines up to what decimal place the mosaic can be divided.</td>
 </tr>
 <tr class="row-odd"><td>Duration</td>
 <td>1000</td>
-<td>The mosaic will be registered for 1000 blocks.</td>
+<td>The mosaic will be created for the next 1000 blocks. If you want to create a non-expiring mosaic, do not set this property.</td>
 </tr>
 <tr class="row-even"><td>Supply mutable</td>
 <td>True</td>
@@ -390,7 +390,7 @@
 </tr>
 <tr class="row-odd"><td>Transferable</td>
 <td>True</td>
-<td>The mosaic can be transferred between arbitrary accounts.</td>
+<td>The mosaic can be transferred between arbitrary accounts. Otherwise, the mosaic can be only transferred back to the mosaic creator.</td>
 </tr>
 </tbody>
 </table>
@@ -466,6 +466,10 @@
 </pre></div>
 </div>
 </div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">NEM mainly works with absolute amounts. To get an absolute amount, multiply the amount of assets you want to create by 10<sup>divisibility</sup>.  For example, if the mosaic has divisibility 2, to create 10 units (relative) you should define 1000 (absolute) instead.</p>
 </div>
 <ol class="arabic simple" start="3">
 <li>Both transactions can be announced together using an <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate transaction</span></a>.</li>
