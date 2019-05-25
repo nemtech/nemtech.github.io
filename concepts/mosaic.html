@@ -40,6 +40,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!--
 <script type="text/javascript">
     var _paq = window._paq || [];
     _paq.push(['disableCookies']);
@@ -52,7 +53,7 @@
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
     })();
-</script>
+</script>-->
 
   
   
@@ -71,56 +72,41 @@
 <div id="navbar"
      class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-        <div class="navbar-header">
-            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+        <div class="navbar-header col-md-3 col-sm-5">
             <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
                 developer center</a>
         </div>
-
-        <div class="collapse navbar-collapse nav-collapse">
-            <ul class="nav navbar-nav">
-                
-                <li><a href="../getting-started/what-is-nem.html">Getting started</a></li>
-                <li><a href="account.html">Built-in features</a></li>
-                <li><a href="cryptography.html">Protocol</a></li>
-                <li><a href="../references.html">References</a></li>
-                
-                
-                
-                
-                
-            </ul>
-            <span class="navbar-text navbar-language pull-left">
-                <div id="language" class="hidden-xs hidden-sm">
-    <label>
+        <div class="navbar-nav col-md-6 col-sm-7 hidden-xs">
+            <div class="search-box">
+    <input id="search" class="form-control" placeholder="Search for features, guides, or code examples"/>
+    <i class="fas fa-search"></i>
+</div>
+        </div>
+        <div class="navbar-right col-md-3">
+            <ul>
+                <ul class="list-inline">
+    <li id="edit-github" class="hidden-xs hidden-sm">
+        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\mosaic.rst"
+           rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+    </li>
+    <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
         <select>
             <option id="english" value="en">English</option>
             <option id="japanese" value="ja">日本語</option>
-            <option id="chinese" value="zh_CN">中文</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
             <option id="translate" value="translate">Translate</option>
         </select>
-    </label>
-</div>
-            </span>
-            
-            
-
-<div class="navbar-right hidden-sm hidden-xs">
-    <i class="fas fa-search"></i>
-    <input id="search" class="form-control" placeholder="Search..."/>
-</div>
-            
+    </li>
+</ul>
+            </ul>
         </div>
     </div>
 </div>
 
+
 <div class="container">
+
     <div class="row">
 
         
@@ -140,6 +126,9 @@
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Mosaic</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#absolute-and-relative-amounts">Absolute and relative amounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cost">Cost</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">Schemas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#mosaicdefinitiontransaction">MosaicDefinitionTransaction</a></li>
@@ -181,7 +170,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">Contributors</a></li>
 </ul>
 
-    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.4</a></small>
+    <p class="version">
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.5</a></small>
+    </p>
 </div>
 
 <div class="sidebar-xs visible-xs visible-sm">
@@ -201,6 +192,9 @@
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Mosaic</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#absolute-and-relative-amounts">Absolute and relative amounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cost">Cost</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">Schemas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#mosaicdefinitiontransaction">MosaicDefinitionTransaction</a></li>
@@ -246,22 +240,15 @@
 </div>
     </div>
 </div>
-        
         <div class="col-md-7 content">
-            <div id="edit-on-github" class="text-right">
-                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\mosaic.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose"
-                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
-
-            </div>
-
             
   <div class="section" id="mosaic">
 <h1>Mosaic<a class="headerlink" href="#mosaic" title="Permalink to this headline">¶</a></h1>
 <p>Mosaics are part of what makes the Smart Asset System unique and flexible. They are <strong>fixed assets</strong> on the NEM blockchain that can represent a set of multiple identical things that do not change.</p>
 <p>A mosaic could be a token, but it could also be a collection of more specialized assets such as reward points, shares of stock, signatures, status flags, votes or even other currencies.</p>
-<p>Each mosaic has a unique identifier and a set of configurable properties. During the mosaic creation, you can define:</p>
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<p>Each mosaic has a unique identifier and a set of configurable properties. During the  <a class="reference internal" href="../guides/mosaic/creating-a-mosaic.html"><span class="doc">mosaic creation</span></a>, you can define:</p>
 <table border="1" class="docutils" id="mosaic-properties">
 <colgroup>
 <col width="33%" />
@@ -281,11 +268,11 @@
 </tr>
 <tr class="row-odd"><td>Duration</td>
 <td>Integer</td>
-<td>Specifies the number of confirmed blocks the mosaic is rented for. To create non-expiring mosaics, leave this property undefined.</td>
+<td>Specifies the number of confirmed blocks the mosaic is rented for. To create non-expiring mosaics, leave this property undefined.  Duration is allowed to lie up to <code class="docutils literal"><span class="pre">365</span></code> days.</td>
 </tr>
 <tr class="row-even"><td>Initial supply</td>
 <td>Integer</td>
-<td>Indicates the amount of mosaic in circulation. The initial supply must be in the range of 0 and <code class="docutils literal"><span class="pre">9,000,000,000</span></code>.</td>
+<td>Indicates the amount of mosaic in circulation. The total supply must be in the range of 0 and <code class="docutils literal"><span class="pre">9,000,000,000</span></code>.</td>
 </tr>
 <tr class="row-odd"><td>Supply mutable</td>
 <td>Boolean</td>
@@ -297,6 +284,16 @@
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="absolute-and-relative-amounts">
+<h2>Absolute and relative amounts<a class="headerlink" href="#absolute-and-relative-amounts" title="Permalink to this headline">¶</a></h2>
+<p>NEM works with absolute amounts, removing the comma when the mosaic can be divisible. To get an absolute amount, multiply the amount of assets you want to create or send by 10<sup>divisibility</sup>.</p>
+<p>For example, if the mosaic has divisibility 2, to create or send 10 units (relative) you should define 1000 (absolute) instead.</p>
+</div>
+<div class="section" id="cost">
+<h2>Cost<a class="headerlink" href="#cost" title="Permalink to this headline">¶</a></h2>
+<p>The cost of creating a mosaic is <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">configurable per network</a>. By default, it has a cost of <code class="docutils literal"><span class="pre">500</span> <span class="pre">cat.currency</span></code> plus transaction fees.</p>
+</div>
 <div class="section" id="guides">
 <h2>Guides<a class="headerlink" href="#guides" title="Permalink to this headline">¶</a></h2>
 <ul class="postlist-style-circle postlist">
@@ -360,10 +357,10 @@
 </tr>
 <tr class="row-even"><td>divisibility</td>
 <td>uint8</td>
-<td>The mosaic divisibility.</td>
+<td>The mosaic divisibility. The maximum divisibility is <code class="docutils literal"><span class="pre">6</span></code>.</td>
 </tr>
 <tr class="row-odd"><td>properties</td>
-<td>array(<a class="reference internal" href="#mosaic-property"><span class="std std-ref">MosaicProperty</span></a>, count)</td>
+<td>array&lt;<a class="reference internal" href="#mosaic-property"><span class="std std-ref">MosaicProperty</span></a>, count&gt;</td>
 <td>The optional mosaic properties.</td>
 </tr>
 </tbody>
@@ -528,10 +525,10 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>0</td>
-<td>Increase.</td>
+<td>Decrease.</td>
 </tr>
 <tr class="row-odd"><td>1</td>
-<td>Decrease.</td>
+<td>Increase.</td>
 </tr>
 </tbody>
 </table>
@@ -544,12 +541,18 @@
   
   </div>
 
+            <p class="feedback top-gap">
+                <b>Did you find what you were looking for?</b>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a></p>
         </div>
          
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">Mosaic</a><ul>
+<li><a class="reference internal" href="#properties">Properties</a></li>
+<li><a class="reference internal" href="#absolute-and-relative-amounts">Absolute and relative amounts</a></li>
+<li><a class="reference internal" href="#cost">Cost</a></li>
 <li><a class="reference internal" href="#guides">Guides</a></li>
 <li><a class="reference internal" href="#schemas">Schemas</a><ul>
 <li><a class="reference internal" href="#mosaicdefinitiontransaction">MosaicDefinitionTransaction</a></li>
@@ -582,8 +585,7 @@
                     <li><a href="../getting-started/what-is-nem.html">Getting Started</a></li>
                     <li><a href="account.html">Built-in Features</a></li>
                     <li><a href="cryptography.html">Protocol</a></li>
-                    <li><a href="../references.html">References</a></li>
-                    <li><a href="../guides/category/account.html">Guides</a></li>
+                    <li><a href="../api.html">References</a></li>
                     <li><a href="../contribute/contributing.html">Contribute</a></li>
                 </ul>
             </div>
@@ -637,13 +639,13 @@
     </div>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-<script type="text/javascript"> docsearch({
-    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
-    indexName: 'nemtech',
-    inputSelector: '#search',
-    algoliaOptions: {},
-    debug: false
-});
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '#search',
+        debug: false
+    });
 </script>
   </body>
 </html>

@@ -39,6 +39,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!--
 <script type="text/javascript">
     var _paq = window._paq || [];
     _paq.push(['disableCookies']);
@@ -51,7 +52,7 @@
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
     })();
-</script>
+</script>-->
 
   
   
@@ -70,315 +71,173 @@
 <div id="navbar"
      class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-        <div class="navbar-header">
-            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+        <div class="navbar-header col-md-3 col-sm-5">
             <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/logo-nem.svg"></span>
                 developer center</a>
         </div>
-
-        <div class="collapse navbar-collapse nav-collapse">
-            <ul class="nav navbar-nav">
-                
-                <li><a href="../../getting-started/what-is-nem.html">Getting started</a></li>
-                <li><a href="../../concepts/account.html">Built-in features</a></li>
-                <li><a href="../../concepts/cryptography.html">Protocol</a></li>
-                <li><a href="../../references.html">References</a></li>
-                
-                
-                
-                
-                
-            </ul>
-            <span class="navbar-text navbar-language pull-left">
-                <div id="language" class="hidden-xs hidden-sm">
-    <label>
+        <div class="navbar-nav col-md-6 col-sm-7 hidden-xs">
+            <div class="search-box">
+    <input id="search" class="form-control" placeholder="Search for features, guides, or code examples"/>
+    <i class="fas fa-search"></i>
+</div>
+        </div>
+        <div class="navbar-right col-md-3">
+            <ul>
+                <ul class="list-inline">
+    <li id="edit-github" class="hidden-xs hidden-sm">
+        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\transaction\creating-an-escrow-with-aggregate-bonded-transaction.rst"
+           rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+    </li>
+    <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
         <select>
             <option id="english" value="en">English</option>
             <option id="japanese" value="ja">日本語</option>
-            <option id="chinese" value="zh_CN">中文</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
             <option id="translate" value="translate">翻訳する</option>
         </select>
-    </label>
-</div>
-            </span>
-            
-            
-
-<div class="navbar-right hidden-sm hidden-xs">
-    <i class="fas fa-search"></i>
-    <input id="search" class="form-control" placeholder="Search..."/>
-</div>
-            
+    </li>
+</ul>
+            </ul>
         </div>
     </div>
 </div>
 
+
 <div class="container">
+
     <div class="row">
 
         
 <div class="col-md-3">
-    <div id="sidebar" class="bs-sidenav" role="complementary">
-
-
-
-<div class="hidden-xs hidden-sm">
-    <p class="caption sidebar-current-ul"><span class="caption-text">ガイド</span>
-        <span class="angle angle-down fas fa-chevron-down"></span>
-    </p>
-    
-<ul class="ablog-cloud current">
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/account.html" class="reference internal nav-header">
-            
-            Account (5)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/aggregate-transaction.html" class="reference internal nav-header">
-            
-            Aggregate Transaction (6)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/block.html" class="reference internal nav-header">
-            
-            Block (2)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/cross-chain-swaps.html" class="reference internal nav-header">
-            
-            Cross-Chain Swaps (1)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/monitoring.html" class="reference internal nav-header">
-            
-            Monitoring (2)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/mosaic.html" class="reference internal nav-header">
-            
-            Mosaic (3)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/multisig-account.html" class="reference internal nav-header">
-            
-            Multisig Account (5)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/namespace.html" class="reference internal nav-header">
-            
-            Namespace (4)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/tools.html" class="reference internal nav-header">
-            
-            Tools (1)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/transfer-transaction.html" class="reference internal nav-header">
-            
-            Transfer Transaction (2)
-        </a></li>
-    
-    
+    <div id="sidebar" class="bs-sidenav" role="complementary"><div class="sidebar-md hidden-xs hidden-sm">
+    <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/what-is-nem.html">NEM とは？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/setup-workstation.html">ワークステーションのセットアップ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/first-application.html">はじめてのアプリケーションを作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/training.html">自己ペーストレーニング</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">アカウント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account-filter.html">アカウントフィルタ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">マルチシグアカウント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">ネームスペース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">モザイク</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">転送トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">クロスチェーンスワップ</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/cryptography.html">暗号理論</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/block.html">ブロック</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/transaction.html">トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/receipt.html">レシート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/node.html">ノード</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">クライアント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">プロトタイピングツール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extensions.html">拡張</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/contributing.html">ガイドライン</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/community.html">コミュニティ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/contributors.html">貢献者</a></li>
 </ul>
 
-    <a href="../../getting-started/training.html"><p class="caption"><span class="caption-text"><i
-            class="fas fa-chalkboard-teacher"></i> コース</span></p></a>
+    <p class="version">
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.5</a></small>
+    </p>
 </div>
 
-<div class="visible-xs visible-sm">
+<div class="sidebar-xs visible-xs visible-sm">
     <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigation <b class="caret"></b></a>
-        <ul class="dropdown-menu globaltoc">
-<ul class="ablog-cloud current">
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/account.html" class="reference internal nav-header">
-            
-            Account (5)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/aggregate-transaction.html" class="reference internal nav-header">
-            
-            Aggregate Transaction (6)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/block.html" class="reference internal nav-header">
-            
-            Block (2)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/cross-chain-swaps.html" class="reference internal nav-header">
-            
-            Cross-Chain Swaps (1)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/monitoring.html" class="reference internal nav-header">
-            
-            Monitoring (2)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/mosaic.html" class="reference internal nav-header">
-            
-            Mosaic (3)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/multisig-account.html" class="reference internal nav-header">
-            
-            Multisig Account (5)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/namespace.html" class="reference internal nav-header">
-            
-            Namespace (4)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/tools.html" class="reference internal nav-header">
-            
-            Tools (1)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/transfer-transaction.html" class="reference internal nav-header">
-            
-            Transfer Transaction (2)
-        </a></li>
-    
-    
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">ナビゲーション <b class="caret"></b></a>
+        <ul class="dropdown-menu globaltoc"><p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/what-is-nem.html">NEM とは？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/setup-workstation.html">ワークステーションのセットアップ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/first-application.html">はじめてのアプリケーションを作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/training.html">自己ペーストレーニング</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">アカウント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account-filter.html">アカウントフィルタ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">マルチシグアカウント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">ネームスペース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">モザイク</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">転送トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">クロスチェーンスワップ</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/cryptography.html">暗号理論</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/block.html">ブロック</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/transaction.html">トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/receipt.html">レシート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/node.html">ノード</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">クライアント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">プロトタイピングツール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extensions.html">拡張</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/contributing.html">ガイドライン</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/community.html">コミュニティ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/contributors.html">貢献者</a></li>
 </ul>
 </ul>
     </li>
-
 </div>
-
-
     </div>
 </div>
-        
         <div class="col-md-7 content">
-            <div id="edit-on-github" class="text-right">
-                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\transaction\creating-an-escrow-with-aggregate-bonded-transaction.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose"
-                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
-
-            </div>
-
             
   <div class="section" id="creating-an-escrow-with-aggregate-bonded-transaction">
 <h1>アグリゲートボンドトランザクションを使ったエスクローの作成<a class="headerlink" href="#creating-an-escrow-with-aggregate-bonded-transaction" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>エスクローの作成によって <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">アグリゲートボンドトランザクション</span></a> について学習します。</p>
+<p>エスクローコントラクトの作成で <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">アグリゲートボンドトランザクション</span></a> について学習します。</p>
 <div class="section" id="background">
 <h2>背景<a class="headerlink" href="#background" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><strong>エスクロー</strong> とは <code class="docutils literal"><span class="pre">一次取引当事者</span></code> のための <code class="docutils literal"><span class="pre">お金や書類を第三者が受け取り</span></code> 、<code class="docutils literal"><span class="pre">取引当事者によって合意された条件</span></code> に応じた払い出す、またはブローカーの債務者または他の人が代理して、取引の達成または終了まで <code class="docutils literal"><span class="pre">資産を保有するブローカーに立ち上げられた口座</span></code> を指します。または資産税や保険料などの債務を支払うために、借り手の名前で保有されている信託口座を言います。</p>
-<p>完全な説明は <a href="https://en.wikipedia.org/wiki/Escrow" target="_blank">Wikipedia</a> を参照してください。</p>
-<p>この例では、2つの当事者が実質的なサービスに同意すると仮定して <strong>エスクローが即時にできること</strong> を意味します。</p>
-<p><strong>どのように動作するのか？</strong></p>
+<blockquote>
+<div>An <strong>escrow</strong> is a <em>contractual arrangement</em> in which a <em>third party receives and disburses money</em>
+or documents for the <em>primary transacting parties</em>. This disbursement is dependent on the
+<em>conditions agreed by the transacting parties</em>, or an <em>account established by a broker for holding funds</em>
+on behalf of the broker’s principal or some other person until the consummation or termination of a transaction.</div></blockquote>
+<p>See the full description at <a href="https://en.wikipedia.org/wiki/Escrow" target="_blank">Wikipedia</a>.</p>
+<p>For this example, imagine that the two parties agree on a virtual service, implying that the escrow can be executed immediately:</p>
 <ol class="arabic simple">
-<li>買い手と売り手が規約に同意する</li>
-<li>買い手がエスクローへ商品代を送る</li>
-<li>売り手が商品またはサービスを買い手へ届ける</li>
-<li>買い手は商品またはサービスを受理する</li>
-<li>エスクローは売り手へ商品代を開放する</li>
+<li>The buyer and seller agree on terms.</li>
+<li>The buyer submits payment to escrow.</li>
+<li>The seller delivers goods or service to the buyer.</li>
+<li>The buyer approves goods or service.</li>
+<li>The escrow releases payment to the seller.</li>
 </ol>
 <p><strong>どのように NEM に適用するのか？</strong></p>
 <p>NEM に関連するコンセプトへと正規化していきます:</p>
-<dl class="docutils">
-<dt><strong>契約上の協約</strong></dt>
-<dd>アグリゲートトランザクション</dd>
-<dt><strong>第三者がお金を受け取り、払い出す</strong></dt>
-<dd>第三者無し</dd>
-<dt><strong>主要取引先</strong></dt>
-<dd>アカウント</dd>
-<dt><strong>取引当事者が合意した条件</strong></dt>
-<dd>トランザクションに署名</dd>
-<dt><strong>ブローカーが資金を保有するために設定した口座</strong></dt>
-<dd>アカウントは不要、アグリゲートトランザクションの使用により自動的に行われます</dd>
-<dt><strong>取引の完了または終了まで</strong></dt>
-<dd>トランザクションがブロックに含まれる</dd>
-</dl>
+<ul class="simple">
+<li><strong>contractual arrangement</strong>: A new type of transaction called Aggregate Transaction.</li>
+<li><strong>third party receives and disburses money</strong>: There is no third party, we are going to use blockchain technology.</li>
+<li><strong>primary transacting parties</strong>: NEM accounts will represent the participants.</li>
+<li><strong>conditions agreed to by the transacting parties</strong>: When every participant signs the aggregate transaction.</li>
+<li><strong>account established by a broker for holding funds</strong>: There will not be an intermediate account, the exchange will happen atomically using an aggregate transaction.</li>
+<li><strong>until the consummation or termination of a transaction</strong>: The transaction gets included in a block or expires.</li>
+</ul>
 </div>
 <div class="section" id="prerequisites">
 <h2>前提条件<a class="headerlink" href="#prerequisites" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -394,8 +253,9 @@
 <img alt="../../_images/aggregate-escrow-11.png" src="../../_images/aggregate-escrow-11.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">マルチアセットエスクロートランザクション</span></p>
 </div>
-<p><strong>要求されているアカウントとモザイクをセットアップします</strong></p>
-<p>この例では、Alice とチケット販売者は以下のモザイクを交換したいと思っています。</p>
+<div class="section" id="setting-up-the-required-accounts-and-mosaics">
+<h3>要求されているアカウントとモザイクをセットアップします<a class="headerlink" href="#setting-up-the-required-accounts-and-mosaics" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Alice とチケット販売者は以下のモザイクを交換したいと思っています。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="25%" />
@@ -423,19 +283,26 @@
 </tr>
 </tbody>
 </table>
-<p>続ける前に <a class="reference internal" href="../mosaic/creating-a-mosaic.html"><span class="doc">ミュージアムチケットのモザイクを作成してください</span></a></p>
-<p><strong>モザイク交換</strong></p>
+<p>Before continuing, <a class="reference internal" href="../../getting-started/setup-workstation.html#setup-getting-a-test-account"><span class="std std-ref">create the two accounts</span></a> loaded with cat.currency.</p>
+<p>Then, <a class="reference internal" href="../mosaic/creating-a-mosaic.html"><span class="doc">create a mosaic</span></a> with the ticket distributor account. This new mosaic will represent the ticket.</p>
+</div>
+<div class="section" id="creating-the-escrow-contract">
+<h3>エスクローコントラクトの作成<a class="headerlink" href="#creating-the-escrow-contract" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><code class="docutils literal"><span class="pre">100</span> <span class="pre">cat.currency</span></code> と <code class="docutils literal"><span class="pre">1</span> <span class="pre">7cdf3b117a3c40cc</span></code> (museum ticket) を交換するために、Alice はチケット販売者にトランザクションを送ります。</p>
 <ol class="arabic simple">
-<li><a class="reference internal" href="../../concepts/transfer-transaction.html#id1"><span class="std std-ref">2つの転送トランザクション</span></a> を作ります:</li>
+<li>2つの <a class="reference internal" href="../../concepts/transfer-transaction.html#id1"><span class="std std-ref">転送トランザクション</span></a> を作ります:</li>
 </ol>
 <ol class="upperalpha simple">
 <li>Alice からチケット販売者へ <code class="docutils literal"><span class="pre">100</span> <span class="pre">cat.currency</span></code> を送信します</li>
 <li>チケット販売者から Alice へ <code class="docutils literal"><span class="pre">1</span> <span class="pre">7cdf3b117a3c40cc</span></code> (museum ticket) を送信します</li>
 </ol>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">The museum ticket does not have the id 7cdf3b117a3c40cc in your network. Replace the MosaicId for the one you have created in the previous step.</p>
+</div>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id2">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/CreatingAnEscrowWithAggregateBondedTransaction.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id2" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/CreatingAnEscrowWithAggregateBondedTransaction.ts">View Code</a></span><a class="headerlink" href="#id2" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">nodeUrl</span> <span class="o">=</span> <span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Listener</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
@@ -450,7 +317,7 @@
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="nx">ticketDistributorPublicAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">,</span>
     <span class="p">[</span><span class="nx">NetworkCurrencyMosaic</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">100</span><span class="p">)],</span>
-    <span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;send 100 xem to distributor&#39;</span><span class="p">),</span>
+    <span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;send 100 cat.currency to distributor&#39;</span><span class="p">),</span>
     <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">ticketDistributorToAliceTx</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
@@ -463,7 +330,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper container" id="id3">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/CreatingAnEscrowWithAggregateBondedTransaction.js" target="_blank">View Code</a></span><a class="headerlink" href="#id3" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/CreatingAnEscrowWithAggregateBondedTransaction.js">View Code</a></span><a class="headerlink" href="#id3" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">nodeUrl</span> <span class="o">=</span> <span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Listener</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
@@ -492,63 +359,65 @@
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li>これらを <code class="docutils literal"><span class="pre">インナートランザクション</span></code> として <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">アグリゲートトランザクション</span></a> に追加します。</li>
+<li>Wrap the defined transactions in an <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate transaction</span></a> and sign it.</li>
 </ol>
 <p>ネットワークへアナウンスされる前にすべての連署者が署名をすると、アグリゲートトランザクションは <strong>コンプリート</strong> になります。正当であれば、ブロックへ取り込まれます。</p>
 <p>他の参加者からの署名が必要な状態でネットワークにアナウンスされた場合、その取引はアグリゲートボンドされたものとみなされます。</p>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id4">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/CreatingAnEscrowWithAggregateBondedTransaction.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id4" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/CreatingAnEscrowWithAggregateBondedTransaction.ts">View Code</a></span><a class="headerlink" href="#id4" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createBonded</span><span class="p">(</span><span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="p">[</span><span class="nx">aliceToTicketDistributorTx</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">),</span>
         <span class="nx">ticketDistributorToAliceTx</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">ticketDistributorPublicAccount</span><span class="p">)],</span>
     <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Aggregate Transaction Hash: &quot;</span> <span class="o">+</span> <span class="nx">signedTransaction</span><span class="p">.</span><span class="nx">hash</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper container" id="id5">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/CreatingAnEscrowWithAggregateBondedTransaction.js" target="_blank">View Code</a></span><a class="headerlink" href="#id5" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/CreatingAnEscrowWithAggregateBondedTransaction.js">View Code</a></span><a class="headerlink" href="#id5" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createBonded</span><span class="p">(</span><span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
-    <span class="p">[</span><span class="nx">aliceToTicketDistributorTx</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">),</span>
+    <span class="p">[</span><span class="nx">aliceToTicketDistributorTx</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">),</span><span class="nx">git</span> <span class="nx">reset</span> <span class="o">--</span><span class="nx">soft</span> <span class="nx">HEAD</span><span class="o">^</span><span class="mi">1</span>
         <span class="nx">ticketDistributorToAliceTx</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">ticketDistributorPublicAccount</span><span class="p">)],</span>
     <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Aggregate Transaction Hash: &quot;</span> <span class="o">+</span> <span class="nx">signedTransaction</span><span class="p">.</span><span class="nx">hash</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </div>
 <ol class="arabic simple" start="3">
-<li>アグリゲートトランザクションがボンドであるとき、Alice は最低 <code class="docutils literal"><span class="pre">10</span> <span class="pre">cat.currency</span></code> でロックする必要があります。チケット販売者がアグリゲートトランザクションに署名すると、ロックされた cat.currency の総量が Alice のアカウントで再び利用可能になり、交換が完了します。</li>
+<li>アグリゲートトランザクションがボンドであるとき、Alice は最低 <code class="docutils literal"><span class="pre">10</span> <span class="pre">cat.currency</span></code> で  <a class="reference internal" href="../../concepts/aggregate-transaction.html#hash-lock-transaction"><span class="std std-ref">ロック</span></a> する必要があります。チケット販売者がアグリゲートトランザクションに署名すると、ロックされた cat.currency の総量が Alice のアカウントで再び利用可能になり、交換が完了します。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id6">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/CreatingAnEscrowWithAggregateBondedTransaction.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id6" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">lockFundsTransaction</span> <span class="o">=</span> <span class="nx">LockFundsTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/CreatingAnEscrowWithAggregateBondedTransaction.ts">View Code</a></span><a class="headerlink" href="#id6" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">hashLockTransaction</span> <span class="o">=</span> <span class="nx">HashLockTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span>
-        <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;0dc67fbe1cad29e3&#39;</span><span class="p">),</span> <span class="c1">// Replace with your network currency mosaic id</span>
+        <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;0dc67fbe1cad29e3&#39;</span><span class="p">),</span> <span class="c1">//Replace with your network currency mosaic id</span>
         <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
     <span class="p">),</span>
     <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">480</span><span class="p">),</span>
     <span class="nx">signedTransaction</span><span class="p">,</span>
     <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
-<span class="kr">const</span> <span class="nx">lockFundsTransactionSigned</span> <span class="o">=</span> <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">lockFundsTransaction</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">hashLockTransactionSigned</span> <span class="o">=</span> <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">hashLockTransaction</span><span class="p">);</span>
 
 <span class="nx">listener</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
 
     <span class="nx">transactionHttp</span>
-        <span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">lockFundsTransactionSigned</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">hashLockTransactionSigned</span><span class="p">)</span>
         <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 
     <span class="nx">listener</span>
         <span class="p">.</span><span class="nx">confirmed</span><span class="p">(</span><span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">)</span>
         <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
             <span class="nx">filter</span><span class="p">((</span><span class="nx">transaction</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span> <span class="o">!==</span> <span class="kc">undefined</span>
-                <span class="o">&amp;&amp;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span><span class="p">.</span><span class="nx">hash</span> <span class="o">===</span> <span class="nx">lockFundsTransactionSigned</span><span class="p">.</span><span class="nx">hash</span><span class="p">),</span>
+                <span class="o">&amp;&amp;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span><span class="p">.</span><span class="nx">hash</span> <span class="o">===</span> <span class="nx">hashLockTransactionSigned</span><span class="p">.</span><span class="nx">hash</span><span class="p">),</span>
             <span class="nx">mergeMap</span><span class="p">(</span><span class="nx">ignored</span> <span class="o">=&gt;</span> <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBonded</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">))</span>
         <span class="p">)</span>
         <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">announcedAggregateBonded</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">announcedAggregateBonded</span><span class="p">),</span>
@@ -558,30 +427,30 @@
 </div>
 </div>
 <div class="literal-block-wrapper container" id="id7">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/CreatingAnEscrowWithAggregateBondedTransaction.js" target="_blank">View Code</a></span><a class="headerlink" href="#id7" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">lockFundsTransaction</span> <span class="o">=</span> <span class="nx">LockFundsTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/CreatingAnEscrowWithAggregateBondedTransaction.js">View Code</a></span><a class="headerlink" href="#id7" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">hashLockTransaction</span> <span class="o">=</span> <span class="nx">HashLockTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span>
-        <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;0dc67fbe1cad29e3&#39;</span><span class="p">),</span> <span class="c1">// Replace with your network currency mosaic id</span>
+        <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;0dc67fbe1cad29e3&#39;</span><span class="p">),</span> <span class="c1">//Replace with your network currency mosaic id</span>
         <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
     <span class="p">),</span>
     <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">480</span><span class="p">),</span>
     <span class="nx">signedTransaction</span><span class="p">,</span>
     <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
-<span class="kr">const</span> <span class="nx">lockFundsTransactionSigned</span> <span class="o">=</span> <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">lockFundsTransaction</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">hashLockTransactionSigned</span> <span class="o">=</span> <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">hashLockTransaction</span><span class="p">);</span>
 
 <span class="nx">listener</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
 
     <span class="nx">transactionHttp</span>
-        <span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">lockFundsTransactionSigned</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">hashLockTransactionSigned</span><span class="p">)</span>
         <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 
     <span class="nx">listener</span>
         <span class="p">.</span><span class="nx">confirmed</span><span class="p">(</span><span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">)</span>
         <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
             <span class="nx">filter</span><span class="p">((</span><span class="nx">transaction</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span> <span class="o">!==</span> <span class="kc">undefined</span>
-                <span class="o">&amp;&amp;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span><span class="p">.</span><span class="nx">hash</span> <span class="o">===</span> <span class="nx">lockFundsTransactionSigned</span><span class="p">.</span><span class="nx">hash</span><span class="p">),</span>
+                <span class="o">&amp;&amp;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span><span class="p">.</span><span class="nx">hash</span> <span class="o">===</span> <span class="nx">hashLockTransactionSigned</span><span class="p">.</span><span class="nx">hash</span><span class="p">),</span>
             <span class="nx">mergeMap</span><span class="p">(</span><span class="nx">ignored</span> <span class="o">=&gt;</span> <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBonded</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">))</span>
         <span class="p">)</span>
         <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">announcedAggregateBonded</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">announcedAggregateBonded</span><span class="p">),</span>
@@ -595,19 +464,22 @@
 <p class="first admonition-title">注釈</p>
 <p class="last">クライアントサイドで使用する場合は(例, Angular, React, Vue) <a class="reference internal" href="monitoring-a-transaction-status.html#monitoring-transactions-client-side"><span class="std std-ref">リスナーの実装は変わります</span></a> 。</p>
 </div>
-<p>販売者はまだアグリゲートボンドトランザクションに署名していないため、交換は完了していません。<a class="reference internal" href="signing-announced-aggregate-bonded-transactions.html"><span class="doc">アナウンスされたアグリゲートボンドトランザクションに署名をするガイド</span></a> を読むことを検討してください。</p>
+<p>The distributor has not signed the aggregate bonded transaction yet, so the exchange has not been completed.</p>
+<p>Copy the aggregate transaction hash, and check how to <a class="reference internal" href="signing-announced-aggregate-bonded-transactions.html"><span class="doc">cosign the aggregate transaction</span></a> in the following guide.</p>
+</div>
 </div>
 <div class="section" id="is-it-possible-without-aggregate-transactions">
 <h2>この取引をアグリゲートトランザクション無しに可能でしょうか？<a class="headerlink" href="#is-it-possible-without-aggregate-transactions" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>次のリストのようなことが起こりうるので <strong>安全ではありません</strong> 。</p>
+<p><strong>It is not secure</strong>, since:</p>
 <ul class="simple">
-<li>買い手は支払いを行いませんでした。</li>
-<li>売り手は実質的な商品を送りませんでした。</li>
+<li>Alice could decide not to pay the distributor after receiving the ticket.</li>
+<li>The distributor could choose not to send the ticket after receiving the payment.</li>
 </ul>
+<p>Using the aggregate transaction feature we ensure that multiple transactions are executed at the same time when all the participants agree.</p>
 </div>
 <div class="section" id="what-s-next">
 <h2>次は？<a class="headerlink" href="#what-s-next" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>3人目の関係者を追加して、モザイクの交換を試してみてください。</p>
+<p>Try to swap mosaics adding a third participant.</p>
 <div class="figure align-center" id="id8">
 <img alt="../../_images/aggregate-escrow-2.png" src="../../_images/aggregate-escrow-2.png" style="width: 400px;" />
 <p class="caption"><span class="caption-text">マルチアセットエスクロートランザクション</span></p>
@@ -626,6 +498,9 @@
   
   </div>
 
+            <p class="feedback top-gap">
+                <b>Did you find what you were looking for?</b>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a></p>
         </div>
          
 <div class="col-md-2">
@@ -634,7 +509,11 @@
 <li><a class="reference internal" href="#">アグリゲートボンドトランザクションを使ったエスクローの作成</a><ul>
 <li><a class="reference internal" href="#background">背景</a></li>
 <li><a class="reference internal" href="#prerequisites">前提条件</a></li>
-<li><a class="reference internal" href="#let-s-get-into-some-code">それではコードを見ていきましょう</a></li>
+<li><a class="reference internal" href="#let-s-get-into-some-code">それではコードを見ていきましょう</a><ul>
+<li><a class="reference internal" href="#setting-up-the-required-accounts-and-mosaics">要求されているアカウントとモザイクをセットアップします</a></li>
+<li><a class="reference internal" href="#creating-the-escrow-contract">エスクローコントラクトの作成</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#is-it-possible-without-aggregate-transactions">この取引をアグリゲートトランザクション無しに可能でしょうか？</a></li>
 <li><a class="reference internal" href="#what-s-next">次は？</a></li>
 </ul>
@@ -658,8 +537,7 @@
                     <li><a href="../../getting-started/what-is-nem.html">入門</a></li>
                     <li><a href="../../concepts/account.html">ビルドイン機能</a></li>
                     <li><a href="../../concepts/cryptography.html">プロトコル</a></li>
-                    <li><a href="../../references.html">リファレンス</a></li>
-                    <li><a href="../category/account.html">ガイド</a></li>
+                    <li><a href="../../api.html">リファレンス</a></li>
                     <li><a href="../../contribute/contributing.html">貢献する</a></li>
                 </ul>
             </div>
@@ -713,13 +591,13 @@
     </div>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-<script type="text/javascript"> docsearch({
-    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
-    indexName: 'nemtech',
-    inputSelector: '#search',
-    algoliaOptions: {},
-    debug: false
-});
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '#search',
+        debug: false
+    });
 </script>
   </body>
 </html>

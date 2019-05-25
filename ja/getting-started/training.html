@@ -41,6 +41,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!--
 <script type="text/javascript">
     var _paq = window._paq || [];
     _paq.push(['disableCookies']);
@@ -53,7 +54,7 @@
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
     })();
-</script>
+</script>-->
 
   
   
@@ -72,56 +73,41 @@
 <div id="navbar"
      class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-        <div class="navbar-header">
-            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+        <div class="navbar-header col-md-3 col-sm-5">
             <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
                 developer center</a>
         </div>
-
-        <div class="collapse navbar-collapse nav-collapse">
-            <ul class="nav navbar-nav">
-                
-                <li><a href="what-is-nem.html">Getting started</a></li>
-                <li><a href="../concepts/account.html">Built-in features</a></li>
-                <li><a href="../concepts/cryptography.html">Protocol</a></li>
-                <li><a href="../references.html">References</a></li>
-                
-                
-                
-                
-                
-            </ul>
-            <span class="navbar-text navbar-language pull-left">
-                <div id="language" class="hidden-xs hidden-sm">
-    <label>
+        <div class="navbar-nav col-md-6 col-sm-7 hidden-xs">
+            <div class="search-box">
+    <input id="search" class="form-control" placeholder="Search for features, guides, or code examples"/>
+    <i class="fas fa-search"></i>
+</div>
+        </div>
+        <div class="navbar-right col-md-3">
+            <ul>
+                <ul class="list-inline">
+    <li id="edit-github" class="hidden-xs hidden-sm">
+        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/getting-started\training.rst"
+           rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+    </li>
+    <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
         <select>
             <option id="english" value="en">English</option>
             <option id="japanese" value="ja">日本語</option>
-            <option id="chinese" value="zh_CN">中文</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
             <option id="translate" value="translate">翻訳する</option>
         </select>
-    </label>
-</div>
-            </span>
-            
-            
-
-<div class="navbar-right hidden-sm hidden-xs">
-    <i class="fas fa-search"></i>
-    <input id="search" class="form-control" placeholder="Search..."/>
-</div>
-            
+    </li>
+</ul>
+            </ul>
         </div>
     </div>
 </div>
 
+
 <div class="container">
+
     <div class="row">
 
         
@@ -133,8 +119,10 @@
 <li class="toctree-l1"><a class="reference internal" href="setup-workstation.html">ワークステーションのセットアップ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="first-application.html">はじめてのアプリケーションを作成</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">自己ペーストレーニング</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#courses">コース</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#adding-a-new-course">新しいコースの追加</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#courses">コース</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adding-a-new-course">新しいコースの追加</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -173,20 +161,24 @@
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">貢献者</a></li>
 </ul>
 
-    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.2</a></small>
+    <p class="version">
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.5</a></small>
+    </p>
 </div>
 
 <div class="sidebar-xs visible-xs visible-sm">
     <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigation <b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">ナビゲーション <b class="caret"></b></a>
         <ul class="dropdown-menu globaltoc"><p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="what-is-nem.html">NEM とは？</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup-workstation.html">ワークステーションのセットアップ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="first-application.html">はじめてのアプリケーションを作成</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">自己ペーストレーニング</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#courses">コース</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#adding-a-new-course">新しいコースの追加</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#courses">コース</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adding-a-new-course">新しいコースの追加</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -229,20 +221,11 @@
 </div>
     </div>
 </div>
-        
         <div class="col-md-7 content">
-            <div id="edit-on-github" class="text-right">
-                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/getting-started\training.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose"
-                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
-
-            </div>
-
             
   <div class="section" id="self-paced-training">
 <h1>自己ペーストレーニング<a class="headerlink" href="#self-paced-training" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>このドキュメントを最初から最後まで読み進めることができますが、もっと理解したいセクションを直接参照することを推奨します。各セクションの最後には、ビルドイン機能の使い方と組み合わせ方についての <a class="reference internal" href="../guides/category/account.html" title="Account"><span class="xref std std-doc">ガイド</span></a> があります。</p>
+<p>Although you can read this documentation from start to end, we recommend you to go directly to the section you want to know more. At the end of each section, you will find <strong>specific guides</strong> to understand how to use and combine the different built-in features.</p>
 <p>ガイドレッスンを通して NEM の学習をしたい場合、以下のリストのコースを受けて見てください。</p>
 <div class="section" id="courses">
 <h2>コース<a class="headerlink" href="#courses" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -261,32 +244,23 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><a class="reference external" href="https://craftain.com/courses/getting-started-with-nem-catapult/">NEM Catapult の開始</a></td>
-<td>Catapult を使用した非中央集権ブロックチェーンの構築</td>
-<td>開発者 (NEM 初学者)</td>
-<td>Craftain と NEM 財団</td>
-</tr>
-<tr class="row-odd"><td><a class="reference external" href="https://nemtech.github.io/nem2-workshop-document-notarization/">NEM ブロックチェーン上でのドキュメント公証</a></td>
+<tr class="row-even"><td><a class="reference external" href="https://nemtech.github.io/nem2-workshop-document-notarization/">NEM ブロックチェーン上でのドキュメント公証</a></td>
 <td>ブロックチェーン内にデジタルアセットを公証する方法の学習</td>
 <td>開発者 (NEM 高度な初学者)</td>
 <td>NEM財団</td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="https://nemtech.github.io/nem2-workshop-nem-applied-to-supply-chain/">NEM に適用したサプライチェーン</a></td>
+<tr class="row-odd"><td><a class="reference external" href="https://nemtech.github.io/nem2-workshop-nem-applied-to-supply-chain/">NEM に適用したサプライチェーン</a></td>
 <td>実際のユースケース</td>
 <td>開発者 (NEM 熟練者)</td>
 <td>NEM財団</td>
 </tr>
 </tbody>
 </table>
-</div>
 <div class="section" id="adding-a-new-course">
-<h2>新しいコースの追加<a class="headerlink" href="#adding-a-new-course" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="https://nemtech.github.io/nem2-curricular-framework/">Curricular Framework</a> をレビューし <a class="reference external" href="https://github.com/nemtech/nem2-workshop-template">NEM2-workshop-template</a> をフォークすることを推奨します。</p>
-<div class="admonition note">
-<p class="first admonition-title">注釈</p>
-<p class="last">このセクションの公開済みコースはオンラインで利用可能である必要があります。</p>
+<h3>新しいコースの追加<a class="headerlink" href="#adding-a-new-course" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Are you an education provider? Check our <a class="reference external" href="https://nemtech.github.io/nem2-curricular-framework/">Curricular Framework</a> to get inspired and start creating your course.</p>
+<p>Have you created a self-paced online course about NEM? Submit it to us pressing the <em>「Edit on Github」</em> button, at the top-right part of the screen.</p>
 </div>
-<p>コースが完成し、このページに追加するには、画面の右上にある <em>「Edit on Github」</em> ボタンをクリックします。</p>
 </div>
 </div>
 
@@ -295,14 +269,19 @@
   
   </div>
 
+            <p class="feedback top-gap">
+                <b>Did you find what you were looking for?</b>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a></p>
         </div>
          
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">自己ペーストレーニング</a><ul>
-<li><a class="reference internal" href="#courses">コース</a></li>
+<li><a class="reference internal" href="#courses">コース</a><ul>
 <li><a class="reference internal" href="#adding-a-new-course">新しいコースの追加</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -324,8 +303,7 @@
                     <li><a href="what-is-nem.html">入門</a></li>
                     <li><a href="../concepts/account.html">ビルドイン機能</a></li>
                     <li><a href="../concepts/cryptography.html">プロトコル</a></li>
-                    <li><a href="../references.html">リファレンス</a></li>
-                    <li><a href="../guides/category/account.html">ガイド</a></li>
+                    <li><a href="../api.html">リファレンス</a></li>
                     <li><a href="../contribute/contributing.html">貢献する</a></li>
                 </ul>
             </div>
@@ -379,13 +357,13 @@
     </div>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-<script type="text/javascript"> docsearch({
-    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
-    indexName: 'nemtech',
-    inputSelector: '#search',
-    algoliaOptions: {},
-    debug: false
-});
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '#search',
+        debug: false
+    });
 </script>
   </body>
 </html>

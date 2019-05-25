@@ -39,6 +39,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!--
 <script type="text/javascript">
     var _paq = window._paq || [];
     _paq.push(['disableCookies']);
@@ -51,7 +52,7 @@
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
     })();
-</script>
+</script>-->
 
   
   
@@ -70,56 +71,41 @@
 <div id="navbar"
      class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-        <div class="navbar-header">
-            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+        <div class="navbar-header col-md-3 col-sm-5">
             <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
                 developer center</a>
         </div>
-
-        <div class="collapse navbar-collapse nav-collapse">
-            <ul class="nav navbar-nav">
-                
-                <li><a href="../getting-started/what-is-nem.html">Getting started</a></li>
-                <li><a href="../concepts/account.html">Built-in features</a></li>
-                <li><a href="../concepts/cryptography.html">Protocol</a></li>
-                <li><a href="../references.html">References</a></li>
-                
-                
-                
-                
-                
-            </ul>
-            <span class="navbar-text navbar-language pull-left">
-                <div id="language" class="hidden-xs hidden-sm">
-    <label>
+        <div class="navbar-nav col-md-6 col-sm-7 hidden-xs">
+            <div class="search-box">
+    <input id="search" class="form-control" placeholder="Search for features, guides, or code examples"/>
+    <i class="fas fa-search"></i>
+</div>
+        </div>
+        <div class="navbar-right col-md-3">
+            <ul>
+                <ul class="list-inline">
+    <li id="edit-github" class="hidden-xs hidden-sm">
+        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guidelines\suggesting-changes.rst"
+           rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+    </li>
+    <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
         <select>
             <option id="english" value="en">English</option>
             <option id="japanese" value="ja">日本語</option>
-            <option id="chinese" value="zh_CN">中文</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
             <option id="translate" value="translate">翻訳する</option>
         </select>
-    </label>
-</div>
-            </span>
-            
-            
-
-<div class="navbar-right hidden-sm hidden-xs">
-    <i class="fas fa-search"></i>
-    <input id="search" class="form-control" placeholder="Search..."/>
-</div>
-            
+    </li>
+</ul>
+            </ul>
         </div>
     </div>
 </div>
 
+
 <div class="container">
+
     <div class="row">
 
         
@@ -167,12 +153,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">貢献者</a></li>
 </ul>
 
-    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.2</a></small>
+    <p class="version">
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.5</a></small>
+    </p>
 </div>
 
 <div class="sidebar-xs visible-xs visible-sm">
     <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigation <b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">ナビゲーション <b class="caret"></b></a>
         <ul class="dropdown-menu globaltoc"><p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/what-is-nem.html">NEM とは？</a></li>
@@ -219,16 +207,7 @@
 </div>
     </div>
 </div>
-        
         <div class="col-md-7 content">
-            <div id="edit-on-github" class="text-right">
-                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guidelines\suggesting-changes.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose"
-                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
-
-            </div>
-
             
   <div class="section" id="suggesting-documentation-changes">
 <h1>ドキュメント変更の提案<a class="headerlink" href="#suggesting-documentation-changes" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -241,12 +220,21 @@ writing new pieces of documentation which can be incorporated into the docs itse
 <p>エラーの再現の準備をしていただけるととても助かります。問題を発見して修正するための手助けとなります。</p>
 <p>問題の報告には次のテンプレートを使うことを考慮してください:</p>
 <blockquote>
-<div><p><strong>エラーの説明</strong></p>
-<p>何が問題であるかを説明する端的で表現力のある文章。</p>
-<p><strong>URLまたはスクリーンショット</strong></p>
-<p>どこで問題が発生するのかを素早く発見するために必要とします。</p>
+<div><p><strong>Describe the error</strong></p>
+<p>A clear and concise description of what the error is.</p>
+<p><strong>To Reproduce</strong></p>
+<p>Steps to reproduce the behavior:</p>
+<ol class="arabic simple">
+<li>Go to 『…』</li>
+<li>Click on 『….』</li>
+<li>Scroll down to 『….』</li>
+<li>See error</li>
+</ol>
+<p><strong>Expected behavior</strong></p>
+<p>A clear and concise description of what you expected to happen.</p>
+<p><strong>Screenshots</strong></p>
+<p>If applicable, add screenshots to help explain your problem.</p>
 </div></blockquote>
-<p>可能な限り多くの情報提供</p>
 <p>新しい <a href="https://github.com/nemtech/nem2-docs/issues" target="_blank">issue</a> をここから開いてください。</p>
 </div>
 <div class="section" id="requests">
@@ -263,27 +251,31 @@ writing new pieces of documentation which can be incorporated into the docs itse
 <p>コードを投稿すると、その投稿はオリジナルの作品であり、プロジェクトのオープンソースライセンスの下でプロジェクトにライセンス供与されているとみなします。</p>
 <p>これを明示的に述べているかどうかにかかわらず、著作権で保護された素材をプルリクエスト、電子メール、またはその他の方法で提出することは、プロジェクトのオープンソースライセンスの下での素材のライセンスを取得することに同意し、法的権限を有することを保証します。</p>
 </div>
-<div class="section" id="fork-and-clone-the-repository">
-<h3>リポジトリのフォークとクローン<a class="headerlink" href="#fork-and-clone-the-repository" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="building-nem2-docs">
+<h3>Building nem2-docs<a class="headerlink" href="#building-nem2-docs" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>ドキュメントの変更が小さい場合は、画面の右上にある <em>「Edit on Github」</em> ボタンを使用してください。</p>
 <p>かなりの変更もしくは貢献をする場合、 <a href="https://github.com/nemtech/nem2-docs/" target="_blank">nem2-docs repository</a> リポジトリをフォークして、あなたのマシンへクローンする必要があるかもしれません。 <a href="https://help.github.com/articles/fork-a-repo/" target="_blank">github help</a> を参照してください。</p>
-<p>特定のプロジェクトへの詳細な説明は以下の通りです。</p>
+<p>First, make sure you have Python 2.7 or 3.4+ and pip installed.</p>
+<p>Then, install requirements using pip:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>pip install -r requirements.txt
+</pre></div>
+</div>
+<p>Run the following command and open the provided url in a browser.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>make livehtml
+</pre></div>
+</div>
 </div>
 <div class="section" id="submitting-your-changes">
 <h3>変更の提出<a class="headerlink" href="#submitting-your-changes" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>あなたの変更とテストがレビューに提出する準備ができたら:</p>
-<ol class="arabic">
-<li><p class="first">変更のテスト</p>
-<blockquote>
-<div><p><code class="docutils literal"><span class="pre">make</span> <span class="pre">livehtml</span></code> を実行し、変更した部分をプレビューしてください。</p>
-</div></blockquote>
-</li>
-<li><p class="first">プルリクエストの提出</p>
-<blockquote>
-<div><p>ローカルでの変更をフォークしたリポジトリのコピーにプッシュし <a href="https://help.github.com/articles/about-pull-requests/" target="_blank">submit a pull request</a> を送信します。プルリクエストであなたの変更を要約するタイトルを記入し、変更が何をしているかの詳細を本文に記入します。また、議論が行われた場合の issue 番号、例えば 「Closes＃123」 も記入します。</p>
-</div></blockquote>
-</li>
+<ol class="arabic simple">
+<li>Test your changes.</li>
 </ol>
+<p><code class="docutils literal"><span class="pre">make</span> <span class="pre">livehtml</span></code> を実行し、変更した部分をプレビューしてください。</p>
+<ol class="arabic simple" start="2">
+<li>Submit a pull request.</li>
+</ol>
+<p>ローカルでの変更をフォークしたリポジトリのコピーにプッシュし <a href="https://help.github.com/articles/about-pull-requests/" target="_blank">submit a pull request</a> を送信します。プルリクエストであなたの変更を要約するタイトルを記入し、変更が何をしているかの詳細を本文に記入します。また、議論が行われた場合の issue 番号、例えば 「Closes＃123」 も記入します。</p>
 <p>それが済んだら休憩して待ちましょう。プルリクエストについての議論をして、その変更が必要な場合はプルリクエストを nem2-docs にマージするための協力をしたいと思います。</p>
 <p><em>CONTRIBUTING.md</em> is based on <a class="reference external" href="https://github.com/nayafia/contributing-template/blob/master/CONTRIBUTING-template.md">CONTRIBUTING-template.md</a> , <a class="reference external" href="https://github.com/elastic/elasticsearch/blob/master/CONTRIBUTING.md">elasticsearch/CONTRIBUTING</a> and <a class="reference external" href="https://github.com/apache/spark/blob/master/CONTRIBUTING.md">spark/CONTRIBUTING</a>.</p>
 </div>
@@ -295,6 +287,9 @@ writing new pieces of documentation which can be incorporated into the docs itse
   
   </div>
 
+            <p class="feedback top-gap">
+                <b>Did you find what you were looking for?</b>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a></p>
         </div>
          
 <div class="col-md-2">
@@ -305,7 +300,7 @@ writing new pieces of documentation which can be incorporated into the docs itse
 <li><a class="reference internal" href="#requests">要望</a></li>
 <li><a class="reference internal" href="#contributing-code-and-documentation-changes">コードやドキュメントへの貢献による変更</a><ul>
 <li><a class="reference internal" href="#contributing-license-notice">貢献ライセンスの通知</a></li>
-<li><a class="reference internal" href="#fork-and-clone-the-repository">リポジトリのフォークとクローン</a></li>
+<li><a class="reference internal" href="#building-nem2-docs">Building nem2-docs</a></li>
 <li><a class="reference internal" href="#submitting-your-changes">変更の提出</a></li>
 </ul>
 </li>
@@ -330,8 +325,7 @@ writing new pieces of documentation which can be incorporated into the docs itse
                     <li><a href="../getting-started/what-is-nem.html">入門</a></li>
                     <li><a href="../concepts/account.html">ビルドイン機能</a></li>
                     <li><a href="../concepts/cryptography.html">プロトコル</a></li>
-                    <li><a href="../references.html">リファレンス</a></li>
-                    <li><a href="../guides/category/account.html">ガイド</a></li>
+                    <li><a href="../api.html">リファレンス</a></li>
                     <li><a href="../contribute/contributing.html">貢献する</a></li>
                 </ul>
             </div>
@@ -385,13 +379,13 @@ writing new pieces of documentation which can be incorporated into the docs itse
     </div>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-<script type="text/javascript"> docsearch({
-    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
-    indexName: 'nemtech',
-    inputSelector: '#search',
-    algoliaOptions: {},
-    debug: false
-});
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '#search',
+        debug: false
+    });
 </script>
   </body>
 </html>

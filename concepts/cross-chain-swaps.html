@@ -40,6 +40,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!--
 <script type="text/javascript">
     var _paq = window._paq || [];
     _paq.push(['disableCookies']);
@@ -52,7 +53,7 @@
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
     })();
-</script>
+</script>-->
 
   
   
@@ -71,56 +72,41 @@
 <div id="navbar"
      class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-        <div class="navbar-header">
-            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+        <div class="navbar-header col-md-3 col-sm-5">
             <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
                 developer center</a>
         </div>
-
-        <div class="collapse navbar-collapse nav-collapse">
-            <ul class="nav navbar-nav">
-                
-                <li><a href="../getting-started/what-is-nem.html">Getting started</a></li>
-                <li><a href="account.html">Built-in features</a></li>
-                <li><a href="cryptography.html">Protocol</a></li>
-                <li><a href="../references.html">References</a></li>
-                
-                
-                
-                
-                
-            </ul>
-            <span class="navbar-text navbar-language pull-left">
-                <div id="language" class="hidden-xs hidden-sm">
-    <label>
+        <div class="navbar-nav col-md-6 col-sm-7 hidden-xs">
+            <div class="search-box">
+    <input id="search" class="form-control" placeholder="Search for features, guides, or code examples"/>
+    <i class="fas fa-search"></i>
+</div>
+        </div>
+        <div class="navbar-right col-md-3">
+            <ul>
+                <ul class="list-inline">
+    <li id="edit-github" class="hidden-xs hidden-sm">
+        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\cross-chain-swaps.rst"
+           rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+    </li>
+    <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
         <select>
             <option id="english" value="en">English</option>
             <option id="japanese" value="ja">日本語</option>
-            <option id="chinese" value="zh_CN">中文</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
             <option id="translate" value="translate">Translate</option>
         </select>
-    </label>
-</div>
-            </span>
-            
-            
-
-<div class="navbar-right hidden-sm hidden-xs">
-    <i class="fas fa-search"></i>
-    <input id="search" class="form-control" placeholder="Search..."/>
-</div>
-            
+    </li>
+</ul>
+            </ul>
         </div>
     </div>
 </div>
 
+
 <div class="container">
+
     <div class="row">
 
         
@@ -177,7 +163,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">Contributors</a></li>
 </ul>
 
-    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.4</a></small>
+    <p class="version">
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.5</a></small>
+    </p>
 </div>
 
 <div class="sidebar-xs visible-xs visible-sm">
@@ -238,22 +226,13 @@
 </div>
     </div>
 </div>
-        
         <div class="col-md-7 content">
-            <div id="edit-on-github" class="text-right">
-                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\cross-chain-swaps.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose"
-                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
-
-            </div>
-
             
   <div class="section" id="cross-chain-swaps">
 <h1>Cross-Chain Swaps<a class="headerlink" href="#cross-chain-swaps" title="Permalink to this headline">¶</a></h1>
 <p>A cross-chain swap enables <strong>trading tokens</strong> across <strong>different blockchains</strong>, without using an intermediary party (eg. an exchange service) in the process.</p>
 <div class="figure align-center" id="id1">
-<img alt="../_images/cross-chain-swap.png" src="../_images/cross-chain-swap.png" style="width: 500px;" />
+<img alt="../_images/cross-chain-swap.png" src="../_images/cross-chain-swap.png" style="width: 400px;" />
 <p class="caption"><span class="caption-text">Atomic cross-chain swap between public and private network</span></p>
 </div>
 <p>In order to create a trustless environment for an exchange, a specific transaction type is required that is commonly referred to as <strong>Hashed TimeLock Contract</strong> (HTLC). Two additional components characterize this transaction type: <em>hashlocks</em> and <em>timelocks</em>. A thorough explanation can be found on the <a class="reference external" href="https://en.bitcoin.it/wiki/Hashed_Timelock_Contracts">Bitcoin Wiki</a>.</p>
@@ -283,9 +262,15 @@ The figure below illustrates the cross-chain swap protocol.</p>
 <p>Use a secret lock transaction to start the cross-chain swap:</p>
 <ol class="arabic simple">
 <li>Define the mosaic units you want to transfer to a determined account.</li>
-<li>Generate a random set of bytes called <code class="docutils literal"><span class="pre">proof</span></code>.</li>
+<li>Generate a random set of bytes called <code class="docutils literal"><span class="pre">proof</span></code>. The proof should have a size between <code class="docutils literal"><span class="pre">10</span></code> and <code class="docutils literal"><span class="pre">1000</span></code> bytes.</li>
 <li>Hash the obtained proof with one of the available algorithms to generate the <code class="docutils literal"><span class="pre">secret</span></code>.</li>
-<li>Select during how much time the mosaics will be locked and announce the transaction.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Different secret lock transactions can share the same secret, as long as the recipients are different.</p>
+</div>
+<ol class="arabic simple" start="4">
+<li>Select during how much time the mosaics will be locked and announce the Secret Lock Transaction.</li>
 </ol>
 <p>The specified mosaics remain locked until a valid <a class="reference internal" href="#secret-proof-transaction"><span class="std std-ref">Secret Proof Transaction</span></a> unlocks them.</p>
 <p>If the transaction duration is reached without being proved, the locked amount goes back to the initiator of the secret lock transaction.</p>
@@ -314,7 +299,7 @@ The figure below illustrates the cross-chain swap protocol.</p>
 </tr>
 <tr class="row-odd"><td>duration</td>
 <td>uint64</td>
-<td>The lock duration. If reached, the mosaics will be returned to the initiator.</td>
+<td>Duration is allowed to lie up to <code class="docutils literal"><span class="pre">30</span></code> days. If reached, the mosaics will be returned to the initiator.</td>
 </tr>
 <tr class="row-even"><td>hashAlgorithm</td>
 <td><a class="reference internal" href="#lock-hash-algorithm"><span class="std std-ref">LockHashAlgorithm</span></a></td>
@@ -367,8 +352,8 @@ The figure below illustrates the cross-chain swap protocol.</p>
 <td>The proof size in bytes.</td>
 </tr>
 <tr class="row-odd"><td>proof</td>
-<td>array(byte, proofSize)</td>
-<td>The original proof.</td>
+<td>array&lt;byte, proofSize&gt;</td>
+<td>The original random set of bytes.</td>
 </tr>
 </tbody>
 </table>
@@ -388,16 +373,16 @@ The figure below illustrates the cross-chain swap protocol.</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>0 (Op_Sha3_256)</td>
-<td>Input is hashed using sha3 256.</td>
+<td>The proof is hashed using Sha-256.</td>
 </tr>
 <tr class="row-odd"><td>1 (Op_Keccak_256)</td>
-<td>Input is hashed using Keccak (ETH compatibility).</td>
+<td>The proof is hashed using Keccak (ETH compatibility).</td>
 </tr>
 <tr class="row-even"><td>2 (Op_Hash_160)</td>
-<td>Input is hashed twice: first with Sha-256 and then with RIPEMD-160 (bitcoin’s OP_HASH160).</td>
+<td>The proof is hashed twice: first with Sha-256 and then with RIPEMD-160 (bitcoin’s OP_HASH160).</td>
 </tr>
 <tr class="row-odd"><td>3 (Op_Hash_256)</td>
-<td>Input is hashed twice with Sha-256 (bitcoin’s OP_HASH256).</td>
+<td>The proof is hashed twice with Sha-256 (bitcoin’s OP_HASH256).</td>
 </tr>
 </tbody>
 </table>
@@ -410,6 +395,9 @@ The figure below illustrates the cross-chain swap protocol.</p>
   
   </div>
 
+            <p class="feedback top-gap">
+                <b>Did you find what you were looking for?</b>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a></p>
         </div>
          
 <div class="col-md-2">
@@ -444,8 +432,7 @@ The figure below illustrates the cross-chain swap protocol.</p>
                     <li><a href="../getting-started/what-is-nem.html">Getting Started</a></li>
                     <li><a href="account.html">Built-in Features</a></li>
                     <li><a href="cryptography.html">Protocol</a></li>
-                    <li><a href="../references.html">References</a></li>
-                    <li><a href="../guides/category/account.html">Guides</a></li>
+                    <li><a href="../api.html">References</a></li>
                     <li><a href="../contribute/contributing.html">Contribute</a></li>
                 </ul>
             </div>
@@ -499,13 +486,13 @@ The figure below illustrates the cross-chain swap protocol.</p>
     </div>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-<script type="text/javascript"> docsearch({
-    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
-    indexName: 'nemtech',
-    inputSelector: '#search',
-    algoliaOptions: {},
-    debug: false
-});
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '#search',
+        debug: false
+    });
 </script>
   </body>
 </html>

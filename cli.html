@@ -40,6 +40,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!--
 <script type="text/javascript">
     var _paq = window._paq || [];
     _paq.push(['disableCookies']);
@@ -52,7 +53,7 @@
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
     })();
-</script>
+</script>-->
 
   
   
@@ -71,56 +72,41 @@
 <div id="navbar"
      class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-        <div class="navbar-header">
-            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+        <div class="navbar-header col-md-3 col-sm-5">
             <a class="navbar-brand" href="index.html"><span><img src="_static/logo-nem.svg"></span>
                 developer center</a>
         </div>
-
-        <div class="collapse navbar-collapse nav-collapse">
-            <ul class="nav navbar-nav">
-                
-                <li><a href="getting-started/what-is-nem.html">Getting started</a></li>
-                <li><a href="concepts/account.html">Built-in features</a></li>
-                <li><a href="concepts/cryptography.html">Protocol</a></li>
-                <li><a href="references.html">References</a></li>
-                
-                
-                
-                
-                
-            </ul>
-            <span class="navbar-text navbar-language pull-left">
-                <div id="language" class="hidden-xs hidden-sm">
-    <label>
+        <div class="navbar-nav col-md-6 col-sm-7 hidden-xs">
+            <div class="search-box">
+    <input id="search" class="form-control" placeholder="Search for features, guides, or code examples"/>
+    <i class="fas fa-search"></i>
+</div>
+        </div>
+        <div class="navbar-right col-md-3">
+            <ul>
+                <ul class="list-inline">
+    <li id="edit-github" class="hidden-xs hidden-sm">
+        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/cli.rst"
+           rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+    </li>
+    <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
         <select>
             <option id="english" value="en">English</option>
             <option id="japanese" value="ja">日本語</option>
-            <option id="chinese" value="zh_CN">中文</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
             <option id="translate" value="translate">Translate</option>
         </select>
-    </label>
-</div>
-            </span>
-            
-            
-
-<div class="navbar-right hidden-sm hidden-xs">
-    <i class="fas fa-search"></i>
-    <input id="search" class="form-control" placeholder="Search..."/>
-</div>
-            
+    </li>
+</ul>
+            </ul>
         </div>
     </div>
 </div>
 
+
 <div class="container">
+
     <div class="row">
 
         
@@ -182,7 +168,9 @@
 <li class="toctree-l1"><a class="reference internal" href="contribute/contributors.html">Contributors</a></li>
 </ul>
 
-    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.4</a></small>
+    <p class="version">
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.5</a></small>
+    </p>
 </div>
 
 <div class="sidebar-xs visible-xs visible-sm">
@@ -248,16 +236,7 @@
 </div>
     </div>
 </div>
-        
         <div class="col-md-7 content">
-            <div id="edit-on-github" class="text-right">
-                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/cli.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose"
-                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
-
-            </div>
-
             
   <div class="section" id="client">
 <h1>Client<a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h1>
@@ -268,11 +247,11 @@
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>NEM2-CLI is distributed using the node package manager <code class="docutils literal"><span class="pre">npm</span></code>.</p>
 <p>To install:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; sudo npm install --global nem2-cli
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo npm install --global nem2-cli
 </pre></div>
 </div>
 <p>To update:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; sudo npm update --global nem2-cli
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo npm update --global nem2-cli
 </pre></div>
 </div>
 </div>
@@ -281,23 +260,23 @@
 <p>To start using NEM2-CLI, configure a profile.</p>
 <p>A profile holds an account and a node url for a specific network. Profiles are used to set a base url and have an account to sign transactions.</p>
 <p>Configure default profile.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli profile create --privatekey your_private_key --network MIJIN_TEST --url http://localhost:3000
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli profile create --privatekey your_private_key --network MIJIN_TEST --url http://localhost:3000
 </pre></div>
 </div>
 <p>NEM2-CLI supports named profiles. You can configure additional profiles by using the –profile option.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli profile create --privatekey your_private_key --network MIJIN_TEST --url http://localhost:3000 --profile mijin_test_net_profile
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli profile create --privatekey your_private_key --network MIJIN_TEST --url http://localhost:3000 --profile mijin_test_net_profile
 </pre></div>
 </div>
 <p>By default, NEM2-CLI will always use the default profile. To use a named profile, add the –profile option to the command.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account info --profile mijin_test_net_profile
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account info --profile mijin_test_net_profile
 </pre></div>
 </div>
 <p>If you are going to use named profile for multiple commands, you can use the NEM2_PROFILE environment variable at the command line.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; <span class="nb">export</span> <span class="nv">NEM2_PROFILE</span><span class="o">=</span>mijin_test_net_profile
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">NEM2_PROFILE</span><span class="o">=</span>mijin_test_net_profile
 </pre></div>
 </div>
 <p>If you do not have a private key to create a profile you can generate a new account, add a node url and save it as default or named profile.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account generate --network MIJIN_TEST -s --url http://localhost:3000 --profile mijin_test_net_profile
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account generate --network MIJIN_TEST -s --url http://localhost:3000 --profile mijin_test_net_profile
 </pre></div>
 </div>
 </div>
@@ -315,13 +294,13 @@
 </pre></div>
 </div>
 <p>Command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli profile create -p 206CE7E4B16B48430FD2C216E4BB105564B21E21DEE196267B4B33C54F1023FC -n MIJIN_TEST -u http://localhost:3000
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli profile create -p 206CE7E4B16B48430FD2C216E4BB105564B21E21DEE196267B4B33C54F1023FC -n MIJIN_TEST -u http://localhost:3000
 </pre></div>
 </div>
 <p><strong>List</strong></p>
 <p>Gets the list of stored accounts.</p>
 <p>Command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli profile list
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli profile list
 </pre></div>
 </div>
 <div class="admonition note">
@@ -342,7 +321,7 @@
 </pre></div>
 </div>
 <p>Command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account generate --network MIJIN_TEST
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account generate --network MIJIN_TEST
 </pre></div>
 </div>
 <p><strong>Get account info</strong></p>
@@ -352,7 +331,7 @@
 </pre></div>
 </div>
 <p>Command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account info --address SDAUTVFWMVXVWWKTTEFTLGUO6HP6MR4GLEK6POJ4
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account info --address SDAUTVFWMVXVWWKTTEFTLGUO6HP6MR4GLEK6POJ4
 </pre></div>
 </div>
 <p><strong>Get confirmed transactions</strong></p>
@@ -364,9 +343,9 @@
 </pre></div>
 </div>
 <p>Command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222AED49B08FF74445F3CD1FD27CD4FB75E3
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222AED49B08FF74445F3CD1FD27CD4FB75E3
 
-$&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222AED49B08FF74445F3CD1FD27CD4FB75E3 --numtransactions <span class="m">40</span> --id 5A69C893FD331300012A001C
+nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222AED49B08FF74445F3CD1FD27CD4FB75E3 --numtransactions <span class="m">40</span> --id 5A69C893FD331300012A001C
 </pre></div>
 </div>
 <p><strong>Get incoming transactions</strong></p>
@@ -378,7 +357,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 </pre></div>
 </div>
 <p>Command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account incoming --publickey C811AC654B77522D5283640CDA7A222AED49B08FF74445F3CD1FD27CD4FB75E3
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account incoming --publickey C811AC654B77522D5283640CDA7A222AED49B08FF74445F3CD1FD27CD4FB75E3
 </pre></div>
 </div>
 <p><strong>Get outgoing transactions</strong></p>
@@ -390,7 +369,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 </pre></div>
 </div>
 <p>Command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account outgoing --publickey C811AC654B77522D5283640CDA7A222AED49B08FF74445F3CD1FD27CD4FB75E3
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account outgoing --publickey C811AC654B77522D5283640CDA7A222AED49B08FF74445F3CD1FD27CD4FB75E3
 </pre></div>
 </div>
 <p><strong>Get unconfirmed transactions</strong></p>
@@ -402,7 +381,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 </pre></div>
 </div>
 <p>Command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account unconfirmedtransactions --publickey C811AC654B77522D5283640CDA7A222AED49B08FF74445F3CD1FD27CD4FB75E3
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account unconfirmedtransactions --publickey C811AC654B77522D5283640CDA7A222AED49B08FF74445F3CD1FD27CD4FB75E3
 </pre></div>
 </div>
 <p><strong>Get Aggregate bonded transactions</strong></p>
@@ -414,7 +393,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 </pre></div>
 </div>
 <p>Command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account aggregatebonded --publickey C811AC654B77522D5283640CDA7A222AED49B08FF74445F3CD1FD27CD4FB75E3
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account aggregatebonded --publickey C811AC654B77522D5283640CDA7A222AED49B08FF74445F3CD1FD27CD4FB75E3
 </pre></div>
 </div>
 </div>
@@ -423,13 +402,13 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 <p><strong>Blockchain height</strong></p>
 <p>Returns the current height of the block chain.</p>
 <p>Command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli blockchain height
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli blockchain height
 </pre></div>
 </div>
 <p><strong>Blockchain score</strong></p>
 <p>Gets the current score of the block chain. The higher the score, the better the chain. During synchronization, nodes try to get the best block chain in the network.</p>
 <p>Command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli blockchain score
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli blockchain score
 </pre></div>
 </div>
 </div>
@@ -443,7 +422,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 </pre></div>
 </div>
 <p>Command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction cosign --hash AF92D0A1DC40F786DF455A54F3754E6ACBCEC1B590646404B5ACC85403A92690
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli transaction cosign --hash AF92D0A1DC40F786DF455A54F3754E6ACBCEC1B590646404B5ACC85403A92690
 </pre></div>
 </div>
 <p><strong>Transaction info</strong></p>
@@ -453,7 +432,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 </pre></div>
 </div>
 <p>Command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction info --hash AF92D0A1DC40F786DF455A54F3754E6ACBCEC1B590646404B5ACC85403A92690
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli transaction info --hash AF92D0A1DC40F786DF455A54F3754E6ACBCEC1B590646404B5ACC85403A92690
 </pre></div>
 </div>
 <p><strong>Send transfer transaction</strong></p>
@@ -466,7 +445,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 </pre></div>
 </div>
 <p>Command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction transfer --recipient SDBDG4-IT43MP-CW2W4C-BBCSJJ-T42AYA-LQN7A4-VVWL --message <span class="s2">&quot;payout of 10 xem&quot;</span> --mosaics @cat.currency::10000000
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli transaction transfer --recipient SDBDG4-IT43MP-CW2W4C-BBCSJJ-T42AYA-LQN7A4-VVWL --message <span class="s2">&quot;payout of 10 xem&quot;</span> --mosaics @cat.currency::10000000
 </pre></div>
 </div>
 <p><strong>Send pull transaction</strong></p>
@@ -479,7 +458,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 </pre></div>
 </div>
 <p>Command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction pullfunds --recipient SDBDG4-IT43MP-CW2W4C-BBCSJJ-T42AYA-LQN7A4-VVWL --message <span class="s2">&quot;invoice 10 xem&quot;</span> --mosaic @cat.currency::10000000 --currency 0dc67fbe1cad29e3
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli transaction pullfunds --recipient SDBDG4-IT43MP-CW2W4C-BBCSJJ-T42AYA-LQN7A4-VVWL --message <span class="s2">&quot;invoice 10 xem&quot;</span> --mosaic @cat.currency::10000000 --currency 0dc67fbe1cad29e3
 </pre></div>
 </div>
 <p><strong>Register root namespace</strong></p>
@@ -492,7 +471,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 </pre></div>
 </div>
 <p>Command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction namespace --rootnamespace --duration <span class="m">100000</span> --name new-namespace
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli transaction namespace --rootnamespace --duration <span class="m">100000</span> --name new-namespace
 </pre></div>
 </div>
 <p><strong>Register subnamespace</strong></p>
@@ -504,7 +483,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 </pre></div>
 </div>
 <p>Command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction namespace --subnamespace --parentname new-namespace --name new-subnamespace
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli transaction namespace --subnamespace --parentname new-namespace --name new-subnamespace
 </pre></div>
 </div>
 <p><strong>Create a mosaic</strong></p>
@@ -516,10 +495,35 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 -l, --levymutable                   - Mosaic levy mutable
 -d, --divisibility &lt;divisibility&gt;   - Mosaic divisibility, from <span class="m">0</span> to 6
 -u, --duration &lt;duration&gt;           - Mosaic duration in amount of blocks
+-e, --eternal                       - Mosaic does not expire.
 </pre></div>
 </div>
 <p>Command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction mosaic --amount <span class="m">1000000</span> --transferable --supplymutable --divisibility <span class="m">0</span> --duration  100000
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli transaction mosaic --amount <span class="m">1000000</span> --transferable --supplymutable --divisibility <span class="m">0</span> --duration  100000
+</pre></div>
+</div>
+<p><strong>Link a namespace to a mosaic</strong></p>
+<p>Links a namespace to a <a class="reference internal" href="concepts/mosaic.html"><span class="doc">mosaic</span></a>.</p>
+<p>Options</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-a, --action &lt;action&gt;       - Alias action <span class="o">(</span>0: Link, 1: Unlink<span class="o">)</span>
+-m, --mosaic &lt;mosaic&gt;       - Mosaic Id in in hexadecimal format
+-n, --namespace &lt;namespace&gt; - Namespace name
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli transaction mosaicalias --action <span class="m">0</span> --mosaic 7cdf3b117a3c40cc --namespace foo
+</pre></div>
+</div>
+<p><strong>Link a namespace to an address</strong></p>
+<p>Links a namespace to an <a class="reference internal" href="concepts/account.html"><span class="doc">address</span></a>.</p>
+<p>Options</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-a, --action &lt;action&gt;       - Alias action <span class="o">(</span>0: Link, 1: Unlink<span class="o">)</span>
+-m, --address &lt;mosaic&gt;      - Address
+-n, --namespace &lt;namespace&gt; - Namespace name
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli transaction addressalias --action <span class="m">0</span> --address SCEKUG-H2IJBF-7JZRNK-ECMW52-E66SZ6-ODLB4W-NI7K --namespace foo
 </pre></div>
 </div>
 </div>
@@ -533,7 +537,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 </pre></div>
 </div>
 <p>Command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli namespace info --uint <span class="o">[</span>929036875,2226345261<span class="o">]</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli namespace info --uint <span class="o">[</span>929036875,2226345261<span class="o">]</span>
 </pre></div>
 </div>
 </div>
@@ -547,7 +551,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 </pre></div>
 </div>
 <p>Command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli mosaic info --u 7cdf3b117a3c40cc
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli mosaic info --u 7cdf3b117a3c40cc
 </pre></div>
 </div>
 </div>
@@ -557,7 +561,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 <p><strong>Block</strong></p>
 <p>Monitors new confirmed <a class="reference internal" href="concepts/block.html"><span class="doc">blocks</span></a> harvested in the blockchain.</p>
 <p>Command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor block
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli monitor block
 </pre></div>
 </div>
 <p><strong>Confirmed transactions</strong></p>
@@ -567,7 +571,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 </pre></div>
 </div>
 <p>Command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor confirmed --address SCEKUG-H2IJBF-7JZRNK-ECMW52-E66SZ6-ODLB4W-NI7K
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli monitor confirmed --address SCEKUG-H2IJBF-7JZRNK-ECMW52-E66SZ6-ODLB4W-NI7K
 </pre></div>
 </div>
 <p><strong>Unconfirmed transactions</strong></p>
@@ -577,7 +581,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 </pre></div>
 </div>
 <p>Command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor unconfirmed --address SCEKUG-H2IJBF-7JZRNK-ECMW52-E66SZ6-ODLB4W-NI7K
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli monitor unconfirmed --address SCEKUG-H2IJBF-7JZRNK-ECMW52-E66SZ6-ODLB4W-NI7K
 </pre></div>
 </div>
 <p><strong>Aggregate bonded transactions</strong></p>
@@ -587,7 +591,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 </pre></div>
 </div>
 <p>Command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor aggregatebonded --address SCEKUG-H2IJBF-7JZRNK-ECMW52-E66SZ6-ODLB4W-NI7K
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli monitor aggregatebonded --address SCEKUG-H2IJBF-7JZRNK-ECMW52-E66SZ6-ODLB4W-NI7K
 </pre></div>
 </div>
 <p><strong>Transaction status</strong></p>
@@ -597,7 +601,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
 </pre></div>
 </div>
 <p>Command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor status --address SCEKUG-H2IJBF-7JZRNK-ECMW52-E66SZ6-ODLB4W-NI7K
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli monitor status --address SCEKUG-H2IJBF-7JZRNK-ECMW52-E66SZ6-ODLB4W-NI7K
 </pre></div>
 </div>
 </div>
@@ -609,6 +613,9 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
   
   </div>
 
+            <p class="feedback top-gap">
+                <b>Did you find what you were looking for?</b>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a></p>
         </div>
          
 <div class="col-md-2">
@@ -648,8 +655,7 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
                     <li><a href="getting-started/what-is-nem.html">Getting Started</a></li>
                     <li><a href="concepts/account.html">Built-in Features</a></li>
                     <li><a href="concepts/cryptography.html">Protocol</a></li>
-                    <li><a href="references.html">References</a></li>
-                    <li><a href="guides/category/account.html">Guides</a></li>
+                    <li><a href="api.html">References</a></li>
                     <li><a href="contribute/contributing.html">Contribute</a></li>
                 </ul>
             </div>
@@ -703,13 +709,13 @@ $&gt; nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222A
     </div>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-<script type="text/javascript"> docsearch({
-    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
-    indexName: 'nemtech',
-    inputSelector: '#search',
-    algoliaOptions: {},
-    debug: false
-});
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '#search',
+        debug: false
+    });
 </script>
   </body>
 </html>

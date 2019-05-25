@@ -41,6 +41,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!--
 <script type="text/javascript">
     var _paq = window._paq || [];
     _paq.push(['disableCookies']);
@@ -53,7 +54,7 @@
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
     })();
-</script>
+</script>-->
 
   
   
@@ -72,56 +73,41 @@
 <div id="navbar"
      class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-        <div class="navbar-header">
-            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+        <div class="navbar-header col-md-3 col-sm-5">
             <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
                 developer center</a>
         </div>
-
-        <div class="collapse navbar-collapse nav-collapse">
-            <ul class="nav navbar-nav">
-                
-                <li><a href="../getting-started/what-is-nem.html">Getting started</a></li>
-                <li><a href="account.html">Built-in features</a></li>
-                <li><a href="cryptography.html">Protocol</a></li>
-                <li><a href="../references.html">References</a></li>
-                
-                
-                
-                
-                
-            </ul>
-            <span class="navbar-text navbar-language pull-left">
-                <div id="language" class="hidden-xs hidden-sm">
-    <label>
+        <div class="navbar-nav col-md-6 col-sm-7 hidden-xs">
+            <div class="search-box">
+    <input id="search" class="form-control" placeholder="Search for features, guides, or code examples"/>
+    <i class="fas fa-search"></i>
+</div>
+        </div>
+        <div class="navbar-right col-md-3">
+            <ul>
+                <ul class="list-inline">
+    <li id="edit-github" class="hidden-xs hidden-sm">
+        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\multisig-account.rst"
+           rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+    </li>
+    <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
         <select>
             <option id="english" value="en">English</option>
             <option id="japanese" value="ja">日本語</option>
-            <option id="chinese" value="zh_CN">中文</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
             <option id="translate" value="translate">翻訳する</option>
         </select>
-    </label>
-</div>
-            </span>
-            
-            
-
-<div class="navbar-right hidden-sm hidden-xs">
-    <i class="fas fa-search"></i>
-    <input id="search" class="form-control" placeholder="Search..."/>
-</div>
-            
+    </li>
+</ul>
+            </ul>
         </div>
     </div>
 </div>
 
+
 <div class="container">
+
     <div class="row">
 
         
@@ -139,14 +125,17 @@
 <li class="toctree-l1"><a class="reference internal" href="account.html">アカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="account-filter.html">アカウントフィルタ</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">マルチシグアカウント</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cosignatories">Cosignatories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#minimum-approval-and-removal">Minimum approval and removal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#constraints">Constraints</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#examples">例</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#shared-accounts">共有アカウント</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#multi-factor-authorization">複数要素認証</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#assets-ownership">アセットの所有権</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#manufacturing-and-supply-chains">製造業とサプライチェーン</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#fraud-detection">不正検知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manufacturing-and-supply-chains">Manufacturing and supply chains</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#fraud-detection">不正検知</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">ガイド</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">スキーマ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#modifymultisigtransaction">ModifyMultisigTransaction</a></li>
@@ -186,12 +175,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">貢献者</a></li>
 </ul>
 
-    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.2</a></small>
+    <p class="version">
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.5</a></small>
+    </p>
 </div>
 
 <div class="sidebar-xs visible-xs visible-sm">
     <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigation <b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">ナビゲーション <b class="caret"></b></a>
         <ul class="dropdown-menu globaltoc"><p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/what-is-nem.html">NEM とは？</a></li>
@@ -204,14 +195,17 @@
 <li class="toctree-l1"><a class="reference internal" href="account.html">アカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="account-filter.html">アカウントフィルタ</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">マルチシグアカウント</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cosignatories">Cosignatories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#minimum-approval-and-removal">Minimum approval and removal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#constraints">Constraints</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#examples">例</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#shared-accounts">共有アカウント</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#multi-factor-authorization">複数要素認証</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#assets-ownership">アセットの所有権</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#manufacturing-and-supply-chains">製造業とサプライチェーン</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#fraud-detection">不正検知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manufacturing-and-supply-chains">Manufacturing and supply chains</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#fraud-detection">不正検知</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">ガイド</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">スキーマ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#modifymultisigtransaction">ModifyMultisigTransaction</a></li>
@@ -255,33 +249,35 @@
 </div>
     </div>
 </div>
-        
         <div class="col-md-7 content">
-            <div id="edit-on-github" class="text-right">
-                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\multisig-account.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose"
-                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
-
-            </div>
-
             
   <div class="section" id="multisig-account">
 <h1>マルチシグアカウント<a class="headerlink" href="#multisig-account" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>編集可能なオンチェーンコントラクトは、資産を安全に共有アカウントで扱うのにとても強力な方法です。</p>
-<p>NEM <a class="reference internal" href="account.html"><span class="doc">アカウント</span></a> は <a class="reference internal" href="../guides/account/converting-an-account-to-multisig.html"><span class="doc">マルチシグに変換する</span></a> ことができます。その瞬間からアカウントはトランザクションを単独でアナウンスすることはできなくなります。他のアカウントからトランザクションをアナウンスすることを要求されます。これらの他のアカウントとは、マルチシグ <strong>連署者</strong> を指します。</p>
-<p>それでも、必ずしもすべての連署者にトランザクションへの連署をさせる必要はありません。NEM は連署者の同意の最小数の設定が可能です。大抵のニーズに合わせて、これらのプロパティを編集することができます。NEM における現在のマルチシグ実装は  <em>「M-of-N」</em> です。これは M が N 以下の数字を取り得ることを意味します。例えば 1-of-4, 2-of-2, 4-of-9, 9-of-10 などです。</p>
-<p>トランザクションを承認したり、連署者を削除するために必要な最小連署者の数は変更することが可能です。</p>
+<div class="section" id="cosignatories">
+<h2>Cosignatories<a class="headerlink" href="#cosignatories" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>A NEM <a class="reference internal" href="account.html"><span class="doc">account</span></a> can be <a class="reference internal" href="../guides/account/converting-an-account-to-multisig.html"><span class="doc">converted to multisig</span></a>. The cosignatories - other accounts - of the multisig will become the account managers.</p>
+<p>From that moment on,  the multisig account cannot announce transactions by itself. One of the cosignatory has to propose the transaction involving the multisig, wrapping it in an <a class="reference internal" href="aggregate-transaction.html"><span class="doc">aggregate transaction</span></a>. To record the transaction in the block, the other cosignatories will have to agree.</p>
+</div>
+<div class="section" id="minimum-approval-and-removal">
+<h2>Minimum approval and removal<a class="headerlink" href="#minimum-approval-and-removal" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>It is not always necessary to force all cosignatories to cosign transactions associated with the multisig account. NEM allows to set up the minimum number of cosignatory agreements. These properties can be <a class="reference internal" href="../guides/account/modifying-a-multisig-account.html#guide-modify-a-multisig-account-min-approval"><span class="std std-ref">edited</span></a> afterward to suit almost all needs.</p>
+<p>NEM’s current implementation of multisig is <em>「M-of-N」</em>. This means that M can be any number equal to or less than N, i.e., 1-of-4, 2-of-2, 4-of-9, 9-of-10 and so on.</p>
+<p>Similarly, cosignatories can <a class="reference internal" href="../guides/account/modifying-a-multisig-account.html#guide-modify-a-multisig-account-add-new-cosignatory"><span class="std std-ref">invite other accounts to take part in the multisig</span></a>, or  <a class="reference internal" href="../guides/account/modifying-a-multisig-account.html#guide-modify-a-multisig-account-removing-a-cosignatory"><span class="std std-ref">propose to remove others</span></a> when the defined conditions are fulfilled.</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">マルチシグアカウントは強力なツールですが、このツールの使用には慎重になってください。連署者がキーを紛失し、最小数の承認が得られなくなった場合、マルチシグアカウントの保有する資産へのアクセスが永久に不可能になります。この状況を回避するには、熟考した <code class="docutils literal"><span class="pre">最小限の除去</span></code> パラメータを設定してください。</p>
+<p class="last">Multisig accounts are a powerful tool, but please use this tool with caution.  If the cosignatories keys get lost and minimum approval is not reached, it would result in the permanent loss of access to the funds held by the multisig account. Choose wisely <code class="docutils literal"><span class="pre">minimum</span> <span class="pre">removal</span></code> parameter to avoid this situation.</p>
 </div>
+</div>
+<div class="section" id="constraints">
+<h2>Constraints<a class="headerlink" href="#constraints" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>心に留めておくべき重要な考慮事項</p>
 <ul class="simple">
 <li>マルチシグアカウントは <code class="docutils literal"><span class="pre">10</span></code> 連署者までを設定可能です。</li>
 <li>アカウントは <code class="docutils literal"><span class="pre">5</span></code> マルチシグアカウントまでの連署者として設定可能です。</li>
 <li>マルチシグアカウントは <code class="docutils literal"><span class="pre">3</span></code> 階層まで、他のマルチシグアカウントを連署者にすることができます。マルチレベルマルチシグアカウントはマルチシグトランザクションに AND/OR ロジックを追加します。</li>
 </ul>
+</div>
 <div class="section" id="examples">
 <h2>例<a class="headerlink" href="#examples" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>マルチシグアカウントには幅広い便利なアプリケーションがあります。一般的な使用例のいくつかを見てみましょう。</p>
@@ -306,14 +302,14 @@
 <div class="section" id="assets-ownership">
 <h3>アセットの所有権<a class="headerlink" href="#assets-ownership" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>マルチシグアカウントを使用して資産の所有権を表すことができます。</p>
-<p>企業は製品ごとに 1-of-1 マルチシグアカウントを作成し、連署者として自分自身を追加します。会社が Alice へ製品を販売するとき、彼女が所有者となり、同じ取引で会社の所有権が取り除かれます。</p>
+<p>企業は製品ごとに 1-of-1 マルチシグアカウントを作成し、連署者として自分自身を追加します。会社が Alice へ製品を販売するとき、彼女が署名者として追加されることで所有者となり、同じ取引の中で会社の所有権が取り除かれます。</p>
 <div class="figure align-center" id="id3">
 <img alt="../_images/multisig-asset-ownership.png" src="../_images/multisig-asset-ownership.png" style="width: 300px;" />
 <p class="caption"><span class="caption-text">アカウントの譲渡</span></p>
 </div>
 </div>
 <div class="section" id="manufacturing-and-supply-chains">
-<h3>製造業とサプライチェーン<a class="headerlink" href="#manufacturing-and-supply-chains" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>Manufacturing and supply chains<a class="headerlink" href="#manufacturing-and-supply-chains" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>これは製造者が医薬製品を発送する事例です。</p>
 <p>この製品は、ブロックチェーン記録が示す製造日時、安全検査、正しい温度で出荷されたかを示したときだけに、品質認可 <a class="reference internal" href="mosaic.html"><span class="doc">モザイク</span></a> を受取ります。</p>
 <p>出荷コンテナ内のセンサーが温度を5分ごとにレポートし、日次レポートとしてまとめます。</p>
@@ -322,14 +318,14 @@
 <p class="caption"><span class="caption-text">製造業とサプライチェーン</span></p>
 </div>
 </div>
+</div>
 <div class="section" id="fraud-detection">
-<h3>不正検知<a class="headerlink" href="#fraud-detection" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h2>不正検知<a class="headerlink" href="#fraud-detection" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>この例では、高いセキュリティアカウントの扱いをいかに簡単にできるかを紹介します。</p>
 <p>トランザクションはハードウェアウォレットまたは電話と不正検知AIによってのみ承認されます。MLMA はプロトコルレベルで様々なセキュリティ設定に適用でき、ビジネスを維持して顧客をハッキングから守ります。</p>
 <div class="figure align-center" id="id5">
 <img alt="../_images/mlma-fraud-detection.png" src="../_images/mlma-fraud-detection.png" style="width: 550px;" />
 <p class="caption"><span class="caption-text">不正検知</span></p>
-</div>
 </div>
 </div>
 <div class="section" id="guides">
@@ -339,16 +335,16 @@
 <p>このガイドでは、あなたのアカウントの署名を要求するアグリゲートボンドトランザクションへ連署する方法を説明します。</p>
 </li>
 <li><p class="first"><a class="reference internal" href="../guides/account/converting-an-account-to-multisig.html">マルチシグアカウントへの変換</a></p>
-<p>2名の連署者を追加することによって 1-of-2 <a class="reference internal" href="#"><span class="doc">マルチシグアカウント</span></a> を作ります。</p>
+<p>1-of-2 の <a class="reference internal" href="#"><span class="doc">マルチシグアカウント</span></a> を作成します。</p>
 </li>
 <li><p class="first"><a class="reference internal" href="../guides/account/modifying-a-multisig-account.html">マルチシグアカウントの変更</a></p>
 <p>既存の <a class="reference internal" href="#"><span class="doc">マルチシグアカウント</span></a> を変更します。</p>
 </li>
-<li><p class="first"><a class="reference internal" href="../guides/account/creating-a-multi-level-multisig-account.html">マルチレベルマルチシグアカウントの作成 (MLMA)</a></p>
+<li><p class="first"><a class="reference internal" href="../guides/account/creating-a-multi-level-multisig-account.html">マルチレベルマルチシグアカウントの作成</a></p>
 <p><a class="reference internal" href="#"><span class="doc">マルチレベル マルチシグアカウント</span></a> を作成します。</p>
 </li>
 <li><p class="first"><a class="reference internal" href="../guides/transaction/sending-a-multisig-transaction.html">マルチシグトランザクションの送信</a></p>
-<p><a class="reference internal" href="#"><span class="doc">マルチシグ</span></a> に関与するトランザクションを送り、<a class="reference internal" href="aggregate-transaction.html#id1"><span class="std std-ref">アグリゲートボンドトランザクション</span></a> がどのように動作するのかを学びます。</p>
+<p><a class="reference internal" href="#"><span class="doc">マルチシグ</span></a> アカウントに関係するトランザクションを送ります。</p>
 </li>
 </ul>
 </div>
@@ -362,8 +358,9 @@
 <span id="modify-multisig-account-transaction"></span><h3>ModifyMultisigTransaction<a class="headerlink" href="#modifymultisigtransaction" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>マルチシグアカウント変更トランザクションのアナウンス:</p>
 <ol class="loweralpha simple">
-<li>マルチシグアカウントへの変換</li>
+<li>Transform an account to multisig account.</li>
 <li>マルチシグアカウントの設定可能なプロパティを変更する。</li>
+<li>Add or delete cosignatories from a multisig account.</li>
 </ol>
 <p><strong>バージョン</strong>: 0x03</p>
 <p><strong>エンティティタイプ</strong>: 0x4155</p>
@@ -397,8 +394,8 @@
 <td>変更の数</td>
 </tr>
 <tr class="row-odd"><td>modification</td>
-<td>array(<a class="reference internal" href="#cosignatory-modification"><span class="std std-ref">CosignatoryModification</span></a>, modificationsCount)</td>
-<td>The array of cosignatory <a class="reference internal" href="account.html"><span class="doc">accounts</span></a> to add or delete.</td>
+<td>array&lt;<a class="reference internal" href="#cosignatory-modification"><span class="std std-ref">CosignatoryModification</span></a>, modificationsCount&gt;</td>
+<td>追加または削除する連署者 <a class="reference internal" href="account.html"><span class="doc">アカウント</span></a> の配列。</td>
 </tr>
 </tbody>
 </table>
@@ -460,20 +457,26 @@
   
   </div>
 
+            <p class="feedback top-gap">
+                <b>Did you find what you were looking for?</b>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a></p>
         </div>
          
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">マルチシグアカウント</a><ul>
+<li><a class="reference internal" href="#cosignatories">Cosignatories</a></li>
+<li><a class="reference internal" href="#minimum-approval-and-removal">Minimum approval and removal</a></li>
+<li><a class="reference internal" href="#constraints">Constraints</a></li>
 <li><a class="reference internal" href="#examples">例</a><ul>
 <li><a class="reference internal" href="#shared-accounts">共有アカウント</a></li>
 <li><a class="reference internal" href="#multi-factor-authorization">複数要素認証</a></li>
 <li><a class="reference internal" href="#assets-ownership">アセットの所有権</a></li>
-<li><a class="reference internal" href="#manufacturing-and-supply-chains">製造業とサプライチェーン</a></li>
-<li><a class="reference internal" href="#fraud-detection">不正検知</a></li>
+<li><a class="reference internal" href="#manufacturing-and-supply-chains">Manufacturing and supply chains</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#fraud-detection">不正検知</a></li>
 <li><a class="reference internal" href="#guides">ガイド</a></li>
 <li><a class="reference internal" href="#schemas">スキーマ</a><ul>
 <li><a class="reference internal" href="#modifymultisigtransaction">ModifyMultisigTransaction</a></li>
@@ -502,8 +505,7 @@
                     <li><a href="../getting-started/what-is-nem.html">入門</a></li>
                     <li><a href="account.html">ビルドイン機能</a></li>
                     <li><a href="cryptography.html">プロトコル</a></li>
-                    <li><a href="../references.html">リファレンス</a></li>
-                    <li><a href="../guides/category/account.html">ガイド</a></li>
+                    <li><a href="../api.html">リファレンス</a></li>
                     <li><a href="../contribute/contributing.html">貢献する</a></li>
                 </ul>
             </div>
@@ -557,13 +559,13 @@
     </div>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-<script type="text/javascript"> docsearch({
-    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
-    indexName: 'nemtech',
-    inputSelector: '#search',
-    algoliaOptions: {},
-    debug: false
-});
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '#search',
+        debug: false
+    });
 </script>
   </body>
 </html>

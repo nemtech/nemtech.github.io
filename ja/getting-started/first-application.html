@@ -41,6 +41,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!--
 <script type="text/javascript">
     var _paq = window._paq || [];
     _paq.push(['disableCookies']);
@@ -53,7 +54,7 @@
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
     })();
-</script>
+</script>-->
 
   
   
@@ -72,56 +73,41 @@
 <div id="navbar"
      class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-        <div class="navbar-header">
-            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+        <div class="navbar-header col-md-3 col-sm-5">
             <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
                 developer center</a>
         </div>
-
-        <div class="collapse navbar-collapse nav-collapse">
-            <ul class="nav navbar-nav">
-                
-                <li><a href="what-is-nem.html">Getting started</a></li>
-                <li><a href="../concepts/account.html">Built-in features</a></li>
-                <li><a href="../concepts/cryptography.html">Protocol</a></li>
-                <li><a href="../references.html">References</a></li>
-                
-                
-                
-                
-                
-            </ul>
-            <span class="navbar-text navbar-language pull-left">
-                <div id="language" class="hidden-xs hidden-sm">
-    <label>
+        <div class="navbar-nav col-md-6 col-sm-7 hidden-xs">
+            <div class="search-box">
+    <input id="search" class="form-control" placeholder="Search for features, guides, or code examples"/>
+    <i class="fas fa-search"></i>
+</div>
+        </div>
+        <div class="navbar-right col-md-3">
+            <ul>
+                <ul class="list-inline">
+    <li id="edit-github" class="hidden-xs hidden-sm">
+        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/getting-started\first-application.rst"
+           rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+    </li>
+    <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
         <select>
             <option id="english" value="en">English</option>
             <option id="japanese" value="ja">日本語</option>
-            <option id="chinese" value="zh_CN">中文</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
             <option id="translate" value="translate">翻訳する</option>
         </select>
-    </label>
-</div>
-            </span>
-            
-            
-
-<div class="navbar-right hidden-sm hidden-xs">
-    <i class="fas fa-search"></i>
-    <input id="search" class="form-control" placeholder="Search..."/>
-</div>
-            
+    </li>
+</ul>
+            </ul>
         </div>
     </div>
 </div>
 
+
 <div class="container">
+
     <div class="row">
 
         
@@ -132,8 +118,18 @@
 <li class="toctree-l1"><a class="reference internal" href="what-is-nem.html">NEM とは？</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup-workstation.html">ワークステーションのセットアップ</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">はじめてのアプリケーションを作成</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#background">背景</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lets-get-into-some-code">それではコードを見ていきましょう</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#background">背景</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-do-we-want-to-solve">What do we want to solve?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-should-we-use-nem">Why should we use NEM?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#lets-get-into-some-code">それではコードを見ていきましょう</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-an-account-for-each-participant">Creating an account for each participant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#monitoring-the-blockchain">Monitoring the blockchain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-the-ticket">Creating the ticket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sending-the-ticket">Sending the ticket</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#what-s-next">次は？</a></li>
 </ul>
 </li>
@@ -174,19 +170,31 @@
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">貢献者</a></li>
 </ul>
 
-    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.2</a></small>
+    <p class="version">
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.5</a></small>
+    </p>
 </div>
 
 <div class="sidebar-xs visible-xs visible-sm">
     <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigation <b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">ナビゲーション <b class="caret"></b></a>
         <ul class="dropdown-menu globaltoc"><p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="what-is-nem.html">NEM とは？</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup-workstation.html">ワークステーションのセットアップ</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">はじめてのアプリケーションを作成</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#background">背景</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lets-get-into-some-code">それではコードを見ていきましょう</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#background">背景</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-do-we-want-to-solve">What do we want to solve?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-should-we-use-nem">Why should we use NEM?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#lets-get-into-some-code">それではコードを見ていきましょう</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-an-account-for-each-participant">Creating an account for each participant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#monitoring-the-blockchain">Monitoring the blockchain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-the-ticket">Creating the ticket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sending-the-ticket">Sending the ticket</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#what-s-next">次は？</a></li>
 </ul>
 </li>
@@ -231,16 +239,7 @@
 </div>
     </div>
 </div>
-        
         <div class="col-md-7 content">
-            <div id="edit-on-github" class="text-right">
-                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/getting-started\first-application.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose"
-                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
-
-            </div>
-
             
   <div class="section" id="writing-your-first-application">
 <h1>はじめてのアプリケーションを作成<a class="headerlink" href="#writing-your-first-application" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -249,7 +248,8 @@
 <h2>背景<a class="headerlink" href="#background" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>チケット二次市場は、再販市場としても知られており、最初の販売者からチケットを購入した後に個人間で行われるチケット交換です。最初の販売者は、イベントウェブサイト、オンラインチケット販売プラットフォーム、イベントの入口にあるショップまたは売店であったりします。</p>
 <p>最初の販売者ではない人からチケットを購入しても、必ずしもそのチケットの料金をさらに支払うという意味ではありません。これは最初の販売者が、問題の解決のために何もできない、偽造もしくは複製されたチケットを購入してしまう、被害者となる機会です。</p>
-<p><strong>私達は何を解決したいのでしょう？</strong></p>
+<div class="section" id="what-do-we-want-to-solve">
+<h3>What do we want to solve?<a class="headerlink" href="#what-do-we-want-to-solve" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="figure align-center" id="id1">
 <img alt="../_images/getting-started.png" src="../_images/getting-started.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">認証モデル</span></p>
@@ -260,7 +260,9 @@
 <li>チケットの転売防止。</li>
 <li>未認証のチケットとその複製の防止。</li>
 </ol>
-<p><strong>何故 NEM を使うのでしょう？</strong></p>
+</div>
+<div class="section" id="why-should-we-use-nem">
+<h3>Why should we use NEM?<a class="headerlink" href="#why-should-we-use-nem" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>ブロックチェーンテクノロジーはこのようなケースに適用できます:</p>
 <ul class="simple">
 <li>様々な参加者が関係します。</li>
@@ -270,9 +272,11 @@
 <p>NEM は <strong>フレキシブルなブロックチェーン</strong> テクノロジーです。すべてのアプリケーションロジックをブロックチェーンにアップロードする代わりに、 <strong>API 呼び出し</strong> によってテスト済みの機能を使用して、価値、認可、トレーサビリティ、そして認証の移転と格納を行うことができます。</p>
 <p>残りのコードは <strong>オフチェーン</strong> のままです。これにより必要に応じてプロセスを変更できるため、固有の不変性リスクが軽減されます。</p>
 </div>
+</div>
 <div class="section" id="lets-get-into-some-code">
 <h2>それではコードを見ていきましょう<a class="headerlink" href="#lets-get-into-some-code" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><strong>1. 各参加者のアカウントを作成</strong></p>
+<div class="section" id="creating-an-account-for-each-participant">
+<h3>Creating an account for each participant<a class="headerlink" href="#creating-an-account-for-each-participant" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>まず、私達が解決したい問題の渦中にいるアクタを認識します:</p>
 <ul class="simple">
 <li>チケット販売者</li>
@@ -283,7 +287,7 @@
 <ol class="arabic simple">
 <li>以下のコマンドを実行した後、このような行がスクリーンに表示されているはずです:</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account info
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account info
 
 
 New Account: SCVG35-ZSPMYP-L2POZQ-JGSVEG-RYOJ3V-BNIU3U-N2E6
@@ -299,37 +303,41 @@ Mosaics
 <li>アカウントは <code class="docutils literal"><span class="pre">1,000,000</span> <span class="pre">cat.currency</span></code> を保有しています。もし mosaics の次の行が空の場合は、 <a class="reference internal" href="setup-workstation.html"><span class="doc">前のガイド</span></a> に従ってください。</li>
 <li>チケット販売者を識別するための2つ目のアカウントを作成します。</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account generate --network MIJIN_TEST --save --url http://localhost:3000 --profile buyer
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account generate --network MIJIN_TEST --save --url http://localhost:3000 --profile buyer
 </pre></div>
 </div>
-<p><strong>2. ブロックチェーンの監視</strong></p>
+</div>
+<div class="section" id="monitoring-the-blockchain">
+<h3>Monitoring the blockchain<a class="headerlink" href="#monitoring-the-blockchain" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>アカウントはトランザクションを通じてブロックチェーンの状態を変更します。アカウントが正しく構成されているトランザクションをアナウンスすると、サーバーは OK のレスポンスを返します。</p>
 <p>OK のレスポンスを受信することは、トランザクションが正当であることを意味するわけではなく、まだブロックには含まれていないことを意味します。トランザクションをアナウンスする前に監視を始めておくのがよいでしょう。</p>
 <p>新しく3つのターミナルを開いてください:</p>
 <ol class="arabic simple">
 <li>最初のターミナルはバリデーションエラーのある <a class="reference internal" href="../guides/transaction/monitoring-a-transaction-status.html"><span class="doc">アナウンスされたトランザクションの監視</span></a>  をします。</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor status
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli monitor status
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
 <li><code class="docutils literal"><span class="pre">未承認</span></code> の監視はトランザクションがネットワークに到着したことを確認できますが、まだブロックには含まれてません。</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor unconfirmed
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli monitor unconfirmed
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
 <li>トランザクションが含まれると <code class="docutils literal"><span class="pre">confirmed</span></code> の下に表示されるでしょう:。</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor confirmed
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli monitor confirmed
 </pre></div>
 </div>
-<p><strong>3. チケットの作成</strong></p>
+</div>
+<div class="section" id="creating-the-ticket">
+<h3>Creating the ticket<a class="headerlink" href="#creating-the-ticket" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>チケットを NEM モザイクとして表現しています。 <a class="reference internal" href="../concepts/mosaic.html"><span class="doc">モザイク</span></a> はブロックチェーン上で、モノ、チケット、クーポン、株式そして暗号通貨のような、あらゆる資産を表現します。それらは作成時に定義される変更可能なプロパティを持ちます。例えば <strong>転送可能プロパティを false</strong> に設定します。これは、チケットの転売を防止するために、チケット購入者がモザイクの作成者だけに送り返すことしかできないことを意味します。</p>
 <ol class="arabic simple">
 <li><code class="docutils literal"><span class="pre">ticket</span></code> という名前のモザイクを作成します。</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction mosaic --amount <span class="m">1000000</span> --supplymutable --divisibility <span class="m">0</span> --duration 1000
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli transaction mosaic --amount <span class="m">1000000</span> --supplymutable --divisibility <span class="m">0</span> --duration 1000
 </pre></div>
 </div>
 <table border="1" class="docutils">
@@ -370,10 +378,12 @@ Mosaics
 <ol class="arabic simple" start="2">
 <li>トランザクションが承認された後に、 <code class="docutils literal"><span class="pre">monitor</span> <span class="pre">confirm</span></code> タブに返された mosaicId をコピーします。</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; ...  MosaicId:7cdf3b117a3c40cc ...
+<div class="highlight-bash"><div class="highlight"><pre><span></span>...  MosaicId:7cdf3b117a3c40cc ...
 </pre></div>
 </div>
-<p><strong>4. チケットの送信</strong></p>
+</div>
+<div class="section" id="sending-the-ticket">
+<h3>Sending the ticket<a class="headerlink" href="#sending-the-ticket" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>NEM の中で最も一般的なアクションの1つである、 <a class="reference internal" href="../concepts/transfer-transaction.html#id1"><span class="std std-ref">転送トランザクション</span></a> をアナウンスする販売者アカウントに <code class="docutils literal"><span class="pre">company.ticket</span></code> を1つ送信します。</p>
 <ol class="arabic simple">
 <li>転送トランザクションを用意します。次の属性は転送トランザクションを形作ります:</li>
@@ -431,7 +441,7 @@ Mosaics
 </div>
 <p>トランザクションは定義されましたが、まだネットワークへはアナウンスされていません。</p>
 <ol class="arabic simple" start="2">
-<li>ネットワークがトランザクションの信頼性を検証できるように、まずチケット販売者のアカウントでトランザクションに署名をします。</li>
+<li>ネットワークがトランザクションの信頼性を検証できるように、まずチケット販売者のアカウントnのトランザクションに署名をします。</li>
 </ol>
 <div class="example-code container">
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span><span class="p">;</span>
@@ -454,15 +464,16 @@ Mosaics
 <span class="p">);</span>
 </pre></div>
 </div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction transfer --recipient SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54 --mosaics 7cdf3b117a3c40cc::1 --message enjoy_your_ticket
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli transaction transfer --recipient SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54 --mosaics 7cdf3b117a3c40cc::1 --message enjoy_your_ticket
 </pre></div>
 </div>
 </div>
 <ol class="arabic simple" start="4">
 <li>トランザクションが承認されたら、チケット購入者がチケットを受信したことを確認します。</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account info --profile buyer
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account info --profile buyer
 </pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="what-s-next">
@@ -471,7 +482,7 @@ Mosaics
 <p>✅ 各チケット購入者の識別: 各購入者のNEMアカウントの作成</p>
 <p>✅ チケットの転売防止: 転送不可能なモザイクの作成</p>
 <p>✅ 未認証なチケットとその複製: 一意なモザイクの作成</p>
-<p><a class="reference internal" href="../concepts/account.html"><span class="doc">NEM ビルドイン機能</span></a> の学習を続けたり、 <a class="reference internal" href="training.html"><span class="doc">自己ペーストレーニング</span></a> で練習する。</p>
+<p>Continue learning about more <a class="reference internal" href="../concepts/account.html"><span class="doc">NEM built-in features</span></a>.</p>
 </div>
 </div>
 
@@ -480,14 +491,27 @@ Mosaics
   
   </div>
 
+            <p class="feedback top-gap">
+                <b>Did you find what you were looking for?</b>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a></p>
         </div>
          
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">はじめてのアプリケーションを作成</a><ul>
-<li><a class="reference internal" href="#background">背景</a></li>
-<li><a class="reference internal" href="#lets-get-into-some-code">それではコードを見ていきましょう</a></li>
+<li><a class="reference internal" href="#background">背景</a><ul>
+<li><a class="reference internal" href="#what-do-we-want-to-solve">What do we want to solve?</a></li>
+<li><a class="reference internal" href="#why-should-we-use-nem">Why should we use NEM?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lets-get-into-some-code">それではコードを見ていきましょう</a><ul>
+<li><a class="reference internal" href="#creating-an-account-for-each-participant">Creating an account for each participant</a></li>
+<li><a class="reference internal" href="#monitoring-the-blockchain">Monitoring the blockchain</a></li>
+<li><a class="reference internal" href="#creating-the-ticket">Creating the ticket</a></li>
+<li><a class="reference internal" href="#sending-the-ticket">Sending the ticket</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#what-s-next">次は？</a></li>
 </ul>
 </li>
@@ -510,8 +534,7 @@ Mosaics
                     <li><a href="what-is-nem.html">入門</a></li>
                     <li><a href="../concepts/account.html">ビルドイン機能</a></li>
                     <li><a href="../concepts/cryptography.html">プロトコル</a></li>
-                    <li><a href="../references.html">リファレンス</a></li>
-                    <li><a href="../guides/category/account.html">ガイド</a></li>
+                    <li><a href="../api.html">リファレンス</a></li>
                     <li><a href="../contribute/contributing.html">貢献する</a></li>
                 </ul>
             </div>
@@ -565,13 +588,13 @@ Mosaics
     </div>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-<script type="text/javascript"> docsearch({
-    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
-    indexName: 'nemtech',
-    inputSelector: '#search',
-    algoliaOptions: {},
-    debug: false
-});
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '#search',
+        debug: false
+    });
 </script>
   </body>
 </html>

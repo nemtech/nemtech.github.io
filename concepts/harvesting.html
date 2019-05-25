@@ -40,6 +40,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!--
 <script type="text/javascript">
     var _paq = window._paq || [];
     _paq.push(['disableCookies']);
@@ -52,7 +53,7 @@
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
     })();
-</script>
+</script>-->
 
   
   
@@ -71,56 +72,41 @@
 <div id="navbar"
      class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-        <div class="navbar-header">
-            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+        <div class="navbar-header col-md-3 col-sm-5">
             <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
                 developer center</a>
         </div>
-
-        <div class="collapse navbar-collapse nav-collapse">
-            <ul class="nav navbar-nav">
-                
-                <li><a href="../getting-started/what-is-nem.html">Getting started</a></li>
-                <li><a href="account.html">Built-in features</a></li>
-                <li><a href="cryptography.html">Protocol</a></li>
-                <li><a href="../references.html">References</a></li>
-                
-                
-                
-                
-                
-            </ul>
-            <span class="navbar-text navbar-language pull-left">
-                <div id="language" class="hidden-xs hidden-sm">
-    <label>
+        <div class="navbar-nav col-md-6 col-sm-7 hidden-xs">
+            <div class="search-box">
+    <input id="search" class="form-control" placeholder="Search for features, guides, or code examples"/>
+    <i class="fas fa-search"></i>
+</div>
+        </div>
+        <div class="navbar-right col-md-3">
+            <ul>
+                <ul class="list-inline">
+    <li id="edit-github" class="hidden-xs hidden-sm">
+        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\harvesting.rst"
+           rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+    </li>
+    <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
         <select>
             <option id="english" value="en">English</option>
             <option id="japanese" value="ja">日本語</option>
-            <option id="chinese" value="zh_CN">中文</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
             <option id="translate" value="translate">Translate</option>
         </select>
-    </label>
-</div>
-            </span>
-            
-            
-
-<div class="navbar-right hidden-sm hidden-xs">
-    <i class="fas fa-search"></i>
-    <input id="search" class="form-control" placeholder="Search..."/>
-</div>
-            
+    </li>
+</ul>
+            </ul>
         </div>
     </div>
 </div>
 
+
 <div class="container">
+
     <div class="row">
 
         
@@ -150,6 +136,8 @@
 <li class="toctree-l1"><a class="reference internal" href="block.html">Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">Transaction</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Harvesting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#eligibility-criteria">Eligibility criteria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#harvesting-mosaic">Harvesting mosaic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#local-harvesting">Local harvesting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#delegated-harvesting">Delegated harvesting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">Schemas</a><ul>
@@ -177,7 +165,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">Contributors</a></li>
 </ul>
 
-    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.4</a></small>
+    <p class="version">
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.5</a></small>
+    </p>
 </div>
 
 <div class="sidebar-xs visible-xs visible-sm">
@@ -207,6 +197,8 @@
 <li class="toctree-l1"><a class="reference internal" href="block.html">Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">Transaction</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Harvesting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#eligibility-criteria">Eligibility criteria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#harvesting-mosaic">Harvesting mosaic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#local-harvesting">Local harvesting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#delegated-harvesting">Delegated harvesting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">Schemas</a><ul>
@@ -238,54 +230,51 @@
 </div>
     </div>
 </div>
-        
         <div class="col-md-7 content">
-            <div id="edit-on-github" class="text-right">
-                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\harvesting.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose"
-                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
-
-            </div>
-
             
   <div class="section" id="harvesting">
 <h1>Harvesting<a class="headerlink" href="#harvesting" title="Permalink to this headline">¶</a></h1>
-<p>The process of creating new <a class="reference internal" href="block.html"><span class="doc">blocks</span></a> is called harvesting.
-The harvesting <a class="reference internal" href="account.html"><span class="doc">account</span></a> - called the harvester - gets the fees for the <a class="reference internal" href="transaction.html"><span class="doc">transactions</span></a>
-in the block. This gives the harvester an incentive to add as many transactions to the block as possible.</p>
-<p>The account importance determines the chances to create a new block. The importance is calculated as the relation between
-the number of harvesting mosaics the account owns and the total supply. To have importance greater than zero,
-the account needs to hold a <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties#L26">minimum amount</a> of this harvesting mosaic.</p>
-<p>Catapult software allows defining any <a class="reference internal" href="mosaic.html"><span class="doc">mosaic</span></a> for harvesting, using its configurable
-properties to fit the business needs. For example, consortium networks can distribute harvesting mosaics between the
-companies that are running the infrastructure, while other participants need to pay fees in the currency mosaic to consume services.</p>
+<p>The process of creating new <a class="reference internal" href="block.html"><span class="doc">blocks</span></a> is called harvesting.</p>
+<p>The harvesting <a class="reference internal" href="account.html"><span class="doc">account</span></a> - called the harvester - gets the fees for the <a class="reference internal" href="transaction.html"><span class="doc">transactions</span></a> in the block. This reward gives the harvester an incentive to add as many transactions to the block as possible.</p>
+<div class="section" id="eligibility-criteria">
+<h2>Eligibility criteria<a class="headerlink" href="#eligibility-criteria" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="account.html"><span class="doc">importance score</span></a> of the account determines the chances of creating a new block. This score is calculated as the relation between the number of <a class="reference internal" href="#harvesting-mosaic"><span class="std std-ref">harvesting mosaics</span></a> the account owns and the total supply available.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Configuration parameters are <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">editable</a>. Public network configuration may differ.</p>
+<p class="last">Configuration parameters are editable. The importance score calculation formula and the minimum amount required to harvest may differ for the public network configuration.</p>
 </div>
-<p>Harvester accounts can use their importance to create new blocks in a local or remote node.</p>
+<p>The account needs to hold a <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties#L26">minimum amount</a> of this harvesting mosaic to have importance greater than zero.</p>
+<p>Harvesting account owners can use their importance scores to create new blocks either by <a class="reference internal" href="#local-harvesting"><span class="std std-ref">running a node</span></a> or delegating it to a <a class="reference internal" href="#delegated-harvesting"><span class="std std-ref">remote node</span></a>.</p>
+</div>
+<div class="section" id="harvesting-mosaic">
+<span id="id1"></span><h2>Harvesting mosaic<a class="headerlink" href="#harvesting-mosaic" title="Permalink to this headline">¶</a></h2>
+<p>Catapult software allows the <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties#L13">definition</a> of any <a class="reference internal" href="mosaic.html"><span class="doc">mosaic</span></a> for harvesting purposes to fit the business needs. The catapult test network names this mosaic <code class="docutils literal"><span class="pre">cat.harvest</span></code>.</p>
+<p>For example, consortium networks can distribute harvesting mosaics between the companies that are running the infrastructure, while other participants need to pay fees in the form of <a class="reference internal" href="transaction.html#fees"><span class="std std-ref">currency mosaic</span></a> to consume services.</p>
+<p>By contrast, public networks might decide to use the same mosaic for paying transaction fees and running the network.</p>
+</div>
 <div class="section" id="local-harvesting">
-<h2>Local harvesting<a class="headerlink" href="#local-harvesting" title="Permalink to this headline">¶</a></h2>
-<p>During the installation of <a class="reference internal" href="node.html"><span class="doc">catapult-server</span></a> in local or in a VPS, you are asked to set up an account
-that will be used to harvest. The <a class="reference internal" href="block.html#block-header"><span class="std std-ref">block header</span></a> includes the public key and signature generated by
-the harvester account.</p>
+<span id="id2"></span><h2>Local harvesting<a class="headerlink" href="#local-harvesting" title="Permalink to this headline">¶</a></h2>
+<p>During the installation of a <a class="reference internal" href="node.html"><span class="doc">node</span></a>, you will be asked to set up an account that will be used to harvest. The <a class="reference internal" href="block.html#block-header"><span class="std std-ref">block header</span></a> includes the public key and signature generated by
+the harvesting account.</p>
+<p>Besides, each node can set a <code class="docutils literal"><span class="pre">beneficiary</span></code> public key to share a percentage of the harvesting rewards, where the sharing ratio is configurable for each network. When the node does not define a beneficiary, all the rewards go to the block signer.</p>
 <p>Local harvesting is secure as long as no one accesses your node instance, which is storing the private key.</p>
 </div>
 <div class="section" id="delegated-harvesting">
-<h2>Delegated harvesting<a class="headerlink" href="#delegated-harvesting" title="Permalink to this headline">¶</a></h2>
-<p>Delegated harvesting enables an account to use a proxy private key that can be shared with a catapult-server node
-securely. In other words, you can use the importance of your account to create new blocks without running a node.</p>
-<p>After an account activates delegated harvesting, its importance is transferred to a remote account. The remote account
-inherits the importance of the original account.</p>
-<p>Security-wise, sharing a proxy private key does not compromise the original account since:</p>
+<span id="id3"></span><h2>Delegated harvesting<a class="headerlink" href="#delegated-harvesting" title="Permalink to this headline">¶</a></h2>
+<p>Delegated harvesting enables an account to use a proxy private key that can be shared with a node securely. In other words, you can use the importance score of your account to create new blocks without running a node.</p>
+<p>After an account activates delegated harvesting, its importance score is transferred to a remote account. The remote account inherits the importance of the original account. Security-wise, sharing a proxy private key with a remote node does not compromise the original account since:</p>
 <ul class="simple">
 <li>The remote account has zero balance.</li>
 <li>The remote account by itself can’t transfer the importance to another account.</li>
 <li>The original account receives the resulting fees.</li>
 </ul>
-<table border="1" class="docutils" id="id1">
-<caption><span class="caption-text">Comparison between local and delegated harvesting</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<p>Remote harvesters may not receive the entire reward if the following conditions are met:</p>
+<ul class="simple">
+<li>The network harvesting sharing rate is greater than 0.</li>
+<li>The node selected has defined a <a class="reference internal" href="#local-harvesting"><span class="std std-ref">beneficiary account</span></a>.</li>
+</ul>
+<table border="1" class="docutils" id="id4">
+<caption><span class="caption-text">Comparison between local and delegated harvesting</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="33%" />
 <col width="33%" />
@@ -299,20 +288,20 @@ inherits the importance of the original account.</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><strong>Configuration</strong></td>
-<td>Setup catapult-server node.</td>
+<td>Setup node.</td>
 <td>Activate remote harvesting.</td>
 </tr>
 <tr class="row-odd"><td><strong>Cost</strong></td>
 <td>The node maintenance (electricity, cost VPN).</td>
-<td>The transaction fee.</td>
+<td>The activation transaction fee.</td>
 </tr>
 <tr class="row-even"><td><strong>Security</strong></td>
-<td>The private key is stored in the node.</td>
-<td>A proxy private key is shared with node.</td>
+<td>The node stores the private key.</td>
+<td>A proxy private key is shared with a node.</td>
 </tr>
 <tr class="row-odd"><td><strong>Reward</strong></td>
-<td>Equal.</td>
-<td>Equal.</td>
+<td>Total reward. The node owner can share part of the reward with a beneficiary account.</td>
+<td>Total reward - beneficiary share.</td>
 </tr>
 </tbody>
 </table>
@@ -321,8 +310,20 @@ inherits the importance of the original account.</p>
 <h2>Schemas<a class="headerlink" href="#schemas" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="accountlinktransaction">
 <span id="account-link-transaction"></span><h3>AccountLinkTransaction<a class="headerlink" href="#accountlinktransaction" title="Permalink to this headline">¶</a></h3>
-<p>Announce an AccountLinkTransaction to delegate the account importance to a proxy account. By doing so, you can enable
-delegated harvesting.</p>
+<p>Announce an AccountLinkTransaction to delegate the account importance to a proxy account. By doing so, you can enable delegated harvesting.</p>
+<p>In order for the proxy account to be accepted as the <code class="docutils literal"><span class="pre">remoteAccountKey</span></code> for delegated harvesting, it needs to meet the following conditions:</p>
+<ul class="simple">
+<li>It cannot own any mosaics.</li>
+<li>It cannot be a cosignatory of any other account.</li>
+<li>It cannot be a multisig account.</li>
+<li>It cannot already be a delegated account for another account.</li>
+<li>It cannot have its own delegated account.</li>
+</ul>
+<p>Furthermore, for the duration that the account is used as a delegated account, it is restricted from:</p>
+<ul class="simple">
+<li>initiating any transactions.</li>
+<li>involvement with any type of transactions.</li>
+</ul>
 <p><strong>Version</strong>: 0x02</p>
 <p><strong>Entity type</strong>: 0x414C</p>
 <p><strong>Inlines</strong>:</p>
@@ -384,12 +385,17 @@ delegated harvesting.</p>
   
   </div>
 
+            <p class="feedback top-gap">
+                <b>Did you find what you were looking for?</b>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a></p>
         </div>
          
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">Harvesting</a><ul>
+<li><a class="reference internal" href="#eligibility-criteria">Eligibility criteria</a></li>
+<li><a class="reference internal" href="#harvesting-mosaic">Harvesting mosaic</a></li>
 <li><a class="reference internal" href="#local-harvesting">Local harvesting</a></li>
 <li><a class="reference internal" href="#delegated-harvesting">Delegated harvesting</a></li>
 <li><a class="reference internal" href="#schemas">Schemas</a><ul>
@@ -418,8 +424,7 @@ delegated harvesting.</p>
                     <li><a href="../getting-started/what-is-nem.html">Getting Started</a></li>
                     <li><a href="account.html">Built-in Features</a></li>
                     <li><a href="cryptography.html">Protocol</a></li>
-                    <li><a href="../references.html">References</a></li>
-                    <li><a href="../guides/category/account.html">Guides</a></li>
+                    <li><a href="../api.html">References</a></li>
                     <li><a href="../contribute/contributing.html">Contribute</a></li>
                 </ul>
             </div>
@@ -473,13 +478,13 @@ delegated harvesting.</p>
     </div>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-<script type="text/javascript"> docsearch({
-    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
-    indexName: 'nemtech',
-    inputSelector: '#search',
-    algoliaOptions: {},
-    debug: false
-});
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '#search',
+        debug: false
+    });
 </script>
   </body>
 </html>

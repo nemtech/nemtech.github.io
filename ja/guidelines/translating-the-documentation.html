@@ -39,6 +39,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!--
 <script type="text/javascript">
     var _paq = window._paq || [];
     _paq.push(['disableCookies']);
@@ -51,7 +52,7 @@
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
     })();
-</script>
+</script>-->
 
   
   
@@ -70,56 +71,41 @@
 <div id="navbar"
      class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-        <div class="navbar-header">
-            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+        <div class="navbar-header col-md-3 col-sm-5">
             <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
                 developer center</a>
         </div>
-
-        <div class="collapse navbar-collapse nav-collapse">
-            <ul class="nav navbar-nav">
-                
-                <li><a href="../getting-started/what-is-nem.html">Getting started</a></li>
-                <li><a href="../concepts/account.html">Built-in features</a></li>
-                <li><a href="../concepts/cryptography.html">Protocol</a></li>
-                <li><a href="../references.html">References</a></li>
-                
-                
-                
-                
-                
-            </ul>
-            <span class="navbar-text navbar-language pull-left">
-                <div id="language" class="hidden-xs hidden-sm">
-    <label>
+        <div class="navbar-nav col-md-6 col-sm-7 hidden-xs">
+            <div class="search-box">
+    <input id="search" class="form-control" placeholder="Search for features, guides, or code examples"/>
+    <i class="fas fa-search"></i>
+</div>
+        </div>
+        <div class="navbar-right col-md-3">
+            <ul>
+                <ul class="list-inline">
+    <li id="edit-github" class="hidden-xs hidden-sm">
+        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guidelines\translating-the-documentation.rst"
+           rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+    </li>
+    <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
         <select>
             <option id="english" value="en">English</option>
             <option id="japanese" value="ja">日本語</option>
-            <option id="chinese" value="zh_CN">中文</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
             <option id="translate" value="translate">翻訳する</option>
         </select>
-    </label>
-</div>
-            </span>
-            
-            
-
-<div class="navbar-right hidden-sm hidden-xs">
-    <i class="fas fa-search"></i>
-    <input id="search" class="form-control" placeholder="Search..."/>
-</div>
-            
+    </li>
+</ul>
+            </ul>
         </div>
     </div>
 </div>
 
+
 <div class="container">
+
     <div class="row">
 
         
@@ -167,12 +153,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">貢献者</a></li>
 </ul>
 
-    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.2</a></small>
+    <p class="version">
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.5</a></small>
+    </p>
 </div>
 
 <div class="sidebar-xs visible-xs visible-sm">
     <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigation <b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">ナビゲーション <b class="caret"></b></a>
         <ul class="dropdown-menu globaltoc"><p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/what-is-nem.html">NEM とは？</a></li>
@@ -219,56 +207,86 @@
 </div>
     </div>
 </div>
-        
         <div class="col-md-7 content">
-            <div id="edit-on-github" class="text-right">
-                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guidelines\translating-the-documentation.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose"
-                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
-
-            </div>
-
             
   <div class="section" id="translating-the-documentation">
 <h1>ドキュメントの翻訳<a class="headerlink" href="#translating-the-documentation" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>この NEM 開発センターはドキュメント作成用 Python のフレームワークである Sphinx によって作成されています。その拡張である <a class="reference external" href="http://www.sphinx-doc.org/en/master/intl.html">sphinx-intl</a> は異なるドキュメントサイトをホストすることなく、ドキュメントを多言語に翻訳することができます。</p>
-<div class="section" id="adding-updating-translations">
-<h2>翻訳の追加/更新<a class="headerlink" href="#adding-updating-translations" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>The NEM Developer Center is translated using <strong>Transifex</strong>, a collaborative localization platform.</p>
+<div class="section" id="translators">
+<h2>Translators<a class="headerlink" href="#translators" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Follow this guide to start contributing to the docs translation.</p>
 <ol class="arabic simple">
-<li>リポジトリをクローンして、Python 2.7 または 3.4+ と pip がインストールされていることを確認してください。</li>
+<li>Sign up for an account</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; git clone https://github.com/nemtech/nem2-docs.git
+<p>Create a new Transifex account <a class="reference external" href="https://www.transifex.com/signup/?join_project=nem2docs">here</a> .  We recommend reading as well Transifex’s <a class="reference external" href="https://docs.transifex.com/getting-started-1/translators">Getting Started as a Translator guide</a>.</p>
+<ol class="arabic simple" start="2">
+<li>Join nem2-docs team and choose a language</li>
+</ol>
+<p>Explore the <a class="reference external" href="https://www.transifex.com/nemtech/nem2docs/">nem2-docs project in Transifex</a>. Check which languages are being translated and up to which point they are complete.</p>
+<p>Click on <a class="reference external" href="https://www.transifex.com/signup/?join_project=nem2docs">Help Translate 「nem2-docs」</a> button on the right side of the header, selecting the language you want to contribute.</p>
+<p>The translation coordinator will approve your request. Once accepted, you will receive an email. At this moment, you will be able to start translating the docs.</p>
+<ol class="arabic simple" start="3">
+<li>Find and translate content</li>
+</ol>
+<p>Once you have joined the team, read <a class="reference external" href="https://docs.transifex.com/translation/translating-with-the-web-editor">Translating with the Web Editor guide</a> to get started. You can also contribute by <a class="reference external" href="https://docs.transifex.com/translation/reviewing-strings">reviewing translations done by other users</a>.</p>
+</div>
+<div class="section" id="developers">
+<h2>Developers<a class="headerlink" href="#developers" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>This guide explains how to interact with Transifex service using <code class="docutils literal"><span class="pre">transifex-client</span></code> tool.</p>
+<div class="section" id="pull-latest-files">
+<h3>Pull latest files<a class="headerlink" href="#pull-latest-files" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Follow these instructions to download the latest translations from Transifex.</p>
+<ol class="arabic simple">
+<li>Install <code class="docutils literal"><span class="pre">transifex-client</span></code>.</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>pip install transifex-client
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
-<li>プロジェクトの必須項目をインストール</li>
+<li>Download the latest translated files. Replace &lt;lang&gt; with your <a class="reference external" href="https://en.wikipedia.org/wiki/ISO_639-1">language code</a>.</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; pip install -r requirements.txt
+<div class="highlight-bash"><div class="highlight"><pre><span></span>tx pull --mode onlyreviewed --language &lt;lang&gt;
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
-<li>.poファイルにドキュメントのメッセージを抽出</li>
+<li>Compile the docs for the target language.</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt;  make gettext
+<p><strong>Linux/Mac</strong></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>make -e <span class="nv">SPHINXOPTS</span><span class="o">=</span><span class="s2">&quot;-D language=&#39;&lt;lang&gt;&#39;&quot;</span> livehtml
 </pre></div>
 </div>
-<p>各ドキュメントファイルの .po ファイルは <code class="docutils literal"><span class="pre">build/gettext</span></code> に生成されます。</p>
-<ol class="arabic simple" start="4">
-<li>次のコマンドで <code class="docutils literal"><span class="pre">source/locale</span></code> へ翻訳ファイルをコピーしてください。これは英語のドキュメントが変更された時に、 .po ファイルを更新するためにも用います。</li>
-</ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt;  sphinx-intl update -p build/gettext -l &lt;lang&gt;
+<p><strong>Windows</strong></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="nv">SPHINXOPTS</span><span class="o">=</span>-D <span class="nv">language</span><span class="o">=</span>&lt;lang&gt;
+.<span class="se">\m</span>ake.bat html
 </pre></div>
 </div>
-<p>&lt;lang&gt; をあなたの <a class="reference external" href="https://en.wikipedia.org/wiki/ISO_639-1">言語コード</a> に置き換えてください。</p>
-<ol class="arabic simple" start="5">
-<li><code class="docutils literal"><span class="pre">source/locale/&lt;lang&gt;/LC_MESSAGES/</span></code> にある .po ファイルを翻訳してください。各 <code class="docutils literal"><span class="pre">msgid</span></code> は 翻訳された <code class="docutils literal"><span class="pre">msgstr</span></code> を提供します。</li>
-<li>翻訳されたドキュメントの生成と変更の確認</li>
+</div>
+<div class="section" id="push-new-literals">
+<h3>Push new literals<a class="headerlink" href="#push-new-literals" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Follow these instructions to publish updated source literals to Transifex.</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">You will need explicit permissions from the Transifex project coordinator to push source files.</p>
+</div>
+<ol class="arabic simple">
+<li>Generate the literals. For each documentation file, a .po file will be created under <code class="docutils literal"><span class="pre">build/gettext</span></code>.</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; make -e <span class="nv">SPHINXOPTS</span><span class="o">=</span><span class="s2">&quot;-D language=&#39;&lt;lang&gt;&#39;&quot;</span> livehtml
+<p><strong>Linux/Mac</strong></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>make gettext
+</pre></div>
+</div>
+<p><strong>Windows</strong></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>.<span class="se">\m</span>ake.bat gettext
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>Push the source literals to Transifex.</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>tx push --source
 </pre></div>
 </div>
 <p>nem2-docs リポジトリへ <a class="reference internal" href="suggesting-changes.html"><span class="doc">変更を提出</span></a> してください。</p>
+</div>
 </div>
 </div>
 
@@ -277,13 +295,21 @@
   
   </div>
 
+            <p class="feedback top-gap">
+                <b>Did you find what you were looking for?</b>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a></p>
         </div>
          
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">ドキュメントの翻訳</a><ul>
-<li><a class="reference internal" href="#adding-updating-translations">翻訳の追加/更新</a></li>
+<li><a class="reference internal" href="#translators">Translators</a></li>
+<li><a class="reference internal" href="#developers">Developers</a><ul>
+<li><a class="reference internal" href="#pull-latest-files">Pull latest files</a></li>
+<li><a class="reference internal" href="#push-new-literals">Push new literals</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -305,8 +331,7 @@
                     <li><a href="../getting-started/what-is-nem.html">入門</a></li>
                     <li><a href="../concepts/account.html">ビルドイン機能</a></li>
                     <li><a href="../concepts/cryptography.html">プロトコル</a></li>
-                    <li><a href="../references.html">リファレンス</a></li>
-                    <li><a href="../guides/category/account.html">ガイド</a></li>
+                    <li><a href="../api.html">リファレンス</a></li>
                     <li><a href="../contribute/contributing.html">貢献する</a></li>
                 </ul>
             </div>
@@ -360,13 +385,13 @@
     </div>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-<script type="text/javascript"> docsearch({
-    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
-    indexName: 'nemtech',
-    inputSelector: '#search',
-    algoliaOptions: {},
-    debug: false
-});
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '#search',
+        debug: false
+    });
 </script>
   </body>
 </html>

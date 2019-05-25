@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Preventing spam attacks with account filters &#8212; NEM Developer Center</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     'Master',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <script type="text/javascript" src="../../_static/examplecode.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon-32x32.png"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!--
+<script type="text/javascript">
+    var _paq = window._paq || [];
+    _paq.push(['disableCookies']);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="//analytics.nemtech.io/piwik/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>-->
+
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div id="navbar"
+     class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header col-md-3 col-sm-5">
+            <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/logo-nem.svg"></span>
+                developer center</a>
+        </div>
+        <div class="navbar-nav col-md-6 col-sm-7 hidden-xs">
+            <div class="search-box">
+    <input id="search" class="form-control" placeholder="Search for features, guides, or code examples"/>
+    <i class="fas fa-search"></i>
+</div>
+        </div>
+        <div class="navbar-right col-md-3">
+            <ul>
+                <ul class="list-inline">
+    <li id="edit-github" class="hidden-xs hidden-sm">
+        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\account\preventing-spam-attacks-with-account-filters.rst"
+           rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+    </li>
+    <li id="language" class="hidden-xs hidden-sm">
+        <i class="fas fa-language"></i>
+        <select>
+            <option id="english" value="en">English</option>
+            <option id="japanese" value="ja">日本語</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </li>
+</ul>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+
+    <div class="row">
+
+        
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary"><div class="sidebar-md hidden-xs hidden-sm">
+    <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/what-is-nem.html">NEM とは？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/setup-workstation.html">ワークステーションのセットアップ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/first-application.html">はじめてのアプリケーションを作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/training.html">自己ペーストレーニング</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">アカウント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account-filter.html">アカウントフィルタ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">マルチシグアカウント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">ネームスペース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">モザイク</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">転送トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">クロスチェーンスワップ</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/cryptography.html">暗号理論</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/block.html">ブロック</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/transaction.html">トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/receipt.html">レシート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/node.html">ノード</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">クライアント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">プロトタイピングツール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extensions.html">拡張</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/contributing.html">ガイドライン</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/community.html">コミュニティ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/contributors.html">貢献者</a></li>
+</ul>
+
+    <p class="version">
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.5</a></small>
+    </p>
+</div>
+
+<div class="sidebar-xs visible-xs visible-sm">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">ナビゲーション <b class="caret"></b></a>
+        <ul class="dropdown-menu globaltoc"><p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/what-is-nem.html">NEM とは？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/setup-workstation.html">ワークステーションのセットアップ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/first-application.html">はじめてのアプリケーションを作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/training.html">自己ペーストレーニング</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">アカウント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account-filter.html">アカウントフィルタ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">マルチシグアカウント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">ネームスペース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">モザイク</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">転送トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">クロスチェーンスワップ</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/cryptography.html">暗号理論</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/block.html">ブロック</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/transaction.html">トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/receipt.html">レシート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/node.html">ノード</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">クライアント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">プロトタイピングツール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extensions.html">拡張</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/contributing.html">ガイドライン</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/community.html">コミュニティ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/contributors.html">貢献者</a></li>
+</ul>
+</ul>
+    </li>
+</div>
+    </div>
+</div>
+        <div class="col-md-7 content">
+            
+  <div class="section" id="preventing-spam-attacks-with-account-filters">
+<h1>Preventing spam attacks with account filters<a class="headerlink" href="#preventing-spam-attacks-with-account-filters" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Learn how to add and remove account filters.</p>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Imagine you are a company using the public chain to certify the quality of your products.</p>
+<p>When the quality verification process concludes, an operator sends a <a class="reference internal" href="../../concepts/mosaic.html"><span class="doc">quality seal</span></a> to the product account, which the customers can review by scanning a QR code. For the convenience of the customers, you only want to show relevant transactions and prevent spam from cluttering the product account.</p>
+<p>The final customers can review the product mosaics scanning a QR code. For that reason, the company only wants to show related transactions, avoiding that others spam their products with non-related information.</p>
+<div class="figure align-center" id="id1">
+<img alt="../../_images/account-properties-spam1.png" src="../../_images/account-properties-spam1.png" style="width: 450px;" />
+<p class="caption"><span class="caption-text">Blocking spam attacks</span></p>
+</div>
+<p>Thus, you opt to configure the product <a class="reference internal" href="../../concepts/account-filter.html"><span class="doc">account filters</span></a> to only receive transactions that follow a set of conditions.</p>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>Finish <a class="reference internal" href="../transaction/sending-a-transfer-transaction.html"><span class="doc">sending a transfer transaction guide</span></a></li>
+<li>Finish <a class="reference internal" href="../mosaic/creating-a-mosaic.html"><span class="doc">creating a mosaic guide</span></a></li>
+</ul>
+</div>
+<div class="section" id="lets-get-into-some-code">
+<h2>Let’s get into some code<a class="headerlink" href="#lets-get-into-some-code" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Before starting solving the use case, you will need to set up two accounts with <a class="reference internal" href="../../cli.html"><span class="doc">NEM2-CLI</span></a>.</p>
+<ol class="arabic simple">
+<li>Create an account to represent the product.</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account generate
+
+Introduce network <span class="nb">type</span> <span class="o">(</span>MIJIN_TEST, MIJIN, MAIN_NET, TEST_NET<span class="o">)</span>: MIJIN_TEST
+Do you want to save it? <span class="o">[</span>y/n<span class="o">]</span>: y
+Introduce NEM <span class="m">2</span> Node URL. <span class="o">(</span>Example: http://localhost:3000<span class="o">)</span>: http://localhost:3000
+Insert profile name <span class="o">(</span>blank means default and it could overwrite the previous profile<span class="o">)</span>: product
+
+New Account:    SDFRDC-F6RXWX-EOOTVI-RLCNUK-KYRSU6-MXW2FC-OR4V
+Public Key:     8DC55282AC40307C230F432EE29E52BD93860C167011B11FA1BAEE124B76AB19
+Private Key:    123..456
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>Create another account for the company.</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account generate
+
+Introduce network <span class="nb">type</span> <span class="o">(</span>MIJIN_TEST, MIJIN, MAIN_NET, TEST_NET<span class="o">)</span>: MIJIN_TEST
+Do you want to save it? <span class="o">[</span>y/n<span class="o">]</span>: y
+Introduce NEM <span class="m">2</span> Node URL. <span class="o">(</span>Example: http://localhost:3000<span class="o">)</span>: http://localhost:3000
+Insert profile name <span class="o">(</span>blank means default and it could overwrite the previous profile<span class="o">)</span>: company
+
+New Account:    SBI774-YMFDZI-FPEPC5-4EKRC2-5DKDZJ-H2QVRW-4HBP
+Public Key:     DBA5A88911D01CE951A5DEAFD86108A029EA359BB211B399FC53B8908D6AE272
+Private Key:    654..321
+</pre></div>
+</div>
+<p>Next, you will configure the product’s account to only accept receiving transfer transactions that contain a specific mosaic.</p>
+<div class="section" id="blocking-transactions-by-address">
+<h3>Blocking transactions by address<a class="headerlink" href="#blocking-transactions-by-address" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>An account can decide to receive transactions only from an allowed list of <a class="reference internal" href="../../concepts/account.html"><span class="doc">addresses</span></a>. Similarly, an account can specify a blocked list of addresses to block transactions from.</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">Allow and block filters are mutually exclusive per filter type. In other words, an account can only be configured  to have either an allowed or blocked list per type of filter.</p>
+</div>
+<p>By default, when there is no filter set, all the accounts in the network can announce transactions to the stated account.</p>
+<p>Returning to our previous example, let us imagine that you want to configure the product account to only accept receiving transactions  that come from the company’s account. You might take the following steps to do so:</p>
+<ol class="arabic simple">
+<li>Define the account filter modification. Add to the company’s address (SBI774-YMFDZI-FPEPC5-4EKRC2-5DKDZJ-H2QVRW-4HBP) to the 「allowed list」.</li>
+</ol>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id2">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/FilteringByAddressAllowList.ts">View Code</a></span><a class="headerlink" href="#id2" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">companyAddress</span> <span class="o">=</span> <span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="s1">&#39;SBI774-YMFDZI-FPEPC5-4EKRC2-5DKDZJ-H2QVRW-4HBP&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">addressFilter</span> <span class="o">=</span> <span class="nx">AccountPropertyTransaction</span><span class="p">.</span><span class="nx">createAddressFilter</span><span class="p">(</span><span class="nx">PropertyModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span> <span class="nx">companyAddress</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li>Create an <code class="docutils literal"><span class="pre">AccountPropertyTransaction</span></code>, with propertyType 「AllowAddress」.  Add to the array the modification created in the previous step.</li>
+</ol>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id3">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/FilteringByAddressAllowList.ts">View Code</a></span><a class="headerlink" href="#id3" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">AccountPropertyTransaction</span>
+    <span class="p">.</span><span class="nx">createAddressPropertyModificationTransaction</span><span class="p">(</span>
+        <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+        <span class="nx">PropertyType</span><span class="p">.</span><span class="nx">AllowAddress</span><span class="p">,</span>
+        <span class="p">[</span><span class="nx">addressFilter</span><span class="p">],</span>
+        <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Sign and announce the transaction.</li>
+</ol>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id4">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/FilteringByAddressAllowList.ts">View Code</a></span><a class="headerlink" href="#id4" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">productPrivateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">productAccount</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">productPrivateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">productAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">transaction</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
+<span class="nx">transactionHttp</span>
+    <span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, if you send a <a class="reference internal" href="../transaction/sending-a-transfer-transaction.html"><span class="doc">transfer transaction</span></a> from another account, you will get an error as only 「SBI774-YMFDZI-FPEPC5-4EKRC2-5DKDZJ-H2QVRW-4HBP」 is allowed to send the transactions to the product.</p>
+<p>On the other hand, if you send a transaction from your company account, you will receive a confirmation message as you would normally.</p>
+</div>
+<div class="section" id="blocking-transactions-by-mosaic-id">
+<h3>Blocking transactions by mosaic id<a class="headerlink" href="#blocking-transactions-by-mosaic-id" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Imagine that the account that represents the company owns the following mosaics:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">company.share</span></code>: represents shares of the company.</li>
+<li><code class="docutils literal"><span class="pre">company.quality.seal</span></code>: represents that the product has passed a quality test.</li>
+<li><code class="docutils literal"><span class="pre">company.safety.seal</span></code>: represents that the product has passed a safety test.</li>
+</ul>
+<p>In this case, it might be useful if the product could only receive seals and not company shares.</p>
+<p>Thus, you could  narrow the type of transactions that the product can receive from the company’s account through the use of negation. Instead of specifically allowing the seals, the product can be set up to block receiving transactions that contain 「company.share」. This is how it can be done:</p>
+<ol class="arabic simple">
+<li>Define the account filter modification. Add the mosaic id you want to block to the 「blocked list」.</li>
+</ol>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id5">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/FilteringByMosaicBlockList.ts">View Code</a></span><a class="headerlink" href="#id5" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">companyShareMosaicId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;2b890153b7a18ff2&#39;</span><span class="p">);</span> <span class="c1">// Replace with the mosaic id representing the company share.</span>
+<span class="kr">const</span> <span class="nx">mosaicFilter</span> <span class="o">=</span> <span class="nx">AccountPropertyTransaction</span><span class="p">.</span><span class="nx">createMosaicFilter</span><span class="p">(</span><span class="nx">PropertyModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span> <span class="nx">companyShareMosaicId</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li>Create an <code class="docutils literal"><span class="pre">AccountPropertyTransaction</span></code>, with propertyType 「BlockMosaic」.  Add to the array the modification created in the previous step.</li>
+</ol>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id6">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/FilteringByMosaicBlockList.ts">View Code</a></span><a class="headerlink" href="#id6" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">AccountPropertyTransaction</span>
+    <span class="p">.</span><span class="nx">createMosaicPropertyModificationTransaction</span><span class="p">(</span>
+        <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+        <span class="nx">PropertyType</span><span class="p">.</span><span class="nx">BlockMosaic</span><span class="p">,</span>
+        <span class="p">[</span><span class="nx">mosaicFilter</span><span class="p">],</span>
+        <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Sign and announce the transaction.</li>
+</ol>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id7">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/FilteringByMosaicBlockList.ts">View Code</a></span><a class="headerlink" href="#id7" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">productPrivateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">productAccount</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">productPrivateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">productAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">transaction</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
+<span class="nx">transactionHttp</span>
+    <span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If the process was successful, the product account can now only receive transactions from the company’s account that does not include any 「company.share」 mosaic.</p>
+</div>
+<div class="section" id="removing-a-filter">
+<h3>Removing a filter<a class="headerlink" href="#removing-a-filter" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>After the company sells the product to the final client, they want to remove the condition that only allowed the company’s account to send transactions to the product. The account filters can be removed as easily as they were set up:</p>
+<ol class="arabic simple">
+<li>Define the account filter modification. Remove from the 「allowed list」 the company’s address.</li>
+</ol>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id8">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/FilteringByAddressRemoveFilter.ts">View Code</a></span><a class="headerlink" href="#id8" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">companyAddress</span> <span class="o">=</span> <span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="s1">&#39;SBI774-YMFDZI-FPEPC5-4EKRC2-5DKDZJ-H2QVRW-4HBP&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">addressFilter</span> <span class="o">=</span> <span class="nx">AccountPropertyTransaction</span><span class="p">.</span><span class="nx">createAddressFilter</span><span class="p">(</span><span class="nx">PropertyModificationType</span><span class="p">.</span><span class="nx">Remove</span><span class="p">,</span> <span class="nx">companyAddress</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li>Create an <code class="docutils literal"><span class="pre">AccountPropertyTransaction</span></code>, setting the type 「AllowAddress」. Add as well the modification created.</li>
+</ol>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id9">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/FilteringByAddressRemoveFilter.ts">View Code</a></span><a class="headerlink" href="#id9" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">AccountPropertyTransaction</span>
+    <span class="p">.</span><span class="nx">createAddressPropertyModificationTransaction</span><span class="p">(</span>
+        <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+        <span class="nx">PropertyType</span><span class="p">.</span><span class="nx">AllowAddress</span><span class="p">,</span>
+        <span class="p">[</span><span class="nx">addressFilter</span><span class="p">],</span>
+        <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Sign and announce the transaction.</li>
+</ol>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id10">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/FilteringByAddressRemoveFilter.ts">View Code</a></span><a class="headerlink" href="#id10" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">productPrivateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">productAccount</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">productPrivateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">productAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">transaction</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
+<span class="nx">transactionHttp</span>
+    <span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>After the transaction gets confirmed, you should be able to send transactions from any account to the product account once again.</p>
+</div>
+</div>
+</div>
+
+  <div class="section">
+  
+    
+
+
+
+
+  
+  
+  </div>
+
+            <p class="feedback top-gap">
+                <b>Did you find what you were looking for?</b>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a></p>
+        </div>
+         
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+        <ul>
+<li><a class="reference internal" href="#">Preventing spam attacks with account filters</a><ul>
+<li><a class="reference internal" href="#background">Background</a></li>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#lets-get-into-some-code">Let’s get into some code</a><ul>
+<li><a class="reference internal" href="#blocking-transactions-by-address">Blocking transactions by address</a></li>
+<li><a class="reference internal" href="#blocking-transactions-by-mosaic-id">Blocking transactions by mosaic id</a></li>
+<li><a class="reference internal" href="#removing-a-filter">Removing a filter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+ 
+    </div>
+</div>
+<footer class="footer">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-4">
+                <h4>学習する</h4>
+
+                <ul>
+                    <li><a href="../../getting-started/what-is-nem.html">入門</a></li>
+                    <li><a href="../../concepts/account.html">ビルドイン機能</a></li>
+                    <li><a href="../../concepts/cryptography.html">プロトコル</a></li>
+                    <li><a href="../../api.html">リファレンス</a></li>
+                    <li><a href="../../contribute/contributing.html">貢献する</a></li>
+                </ul>
+            </div>
+
+            <div class="col-sm-4">
+                <h4>リファレンス</h4>
+
+                <ul>
+                    <li><a href="../../api.html">REST API</a></li>
+                    <li><a href="../../sdk.html">SDKs</a></li>
+                    <li><a href="../../cli.html">クライアント</a></li>
+                    <li><a href="../../prototyping-tool.html">プロトタイピングツール</a></li>
+                    <li><a href="../../extensions.html">拡張</a></li>
+                </ul>
+            </div>
+
+
+            <div class="col-sm-4">
+                <h4>コミュニティ</h4>
+
+                <ul>
+                    <li>
+                        <a href="http://slack.nemtech.io/"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
+                    </li>
+                    <li>
+                        <a href="https://stackoverflow.com/tags/nem/">
+                            <i class="fab fa-stack-overflow"></i>
+                            <span> Ask development questions</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/nemtechdev">
+                            <i class="fab fa-twitter"></i>
+                            <span> Follow the dev updates</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/nemtech">
+                            <i class="fab fa-github"></i>
+                            <span> Explore our Github</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <p class="text-center top-gap">
+            &copy; Copyright 2018-2019, NEM.
+        </p>
+    </div>
+</footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '#search',
+        debug: false
+    });
+</script>
+  </body>
+</html>

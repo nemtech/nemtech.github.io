@@ -47,6 +47,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!--
 <script type="text/javascript">
     var _paq = window._paq || [];
     _paq.push(['disableCookies']);
@@ -59,7 +60,7 @@
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
     })();
-</script>
+</script>-->
 
   
   
@@ -78,56 +79,41 @@
 <div id="navbar"
      class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-        <div class="navbar-header">
-            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+        <div class="navbar-header col-md-3 col-sm-5">
             <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
                 developer center</a>
         </div>
-
-        <div class="collapse navbar-collapse nav-collapse">
-            <ul class="nav navbar-nav">
-                
-                <li><a href="what-is-nem.html">Getting started</a></li>
-                <li><a href="../concepts/account.html">Built-in features</a></li>
-                <li><a href="../concepts/cryptography.html">Protocol</a></li>
-                <li><a href="../references.html">References</a></li>
-                
-                
-                
-                
-                
-            </ul>
-            <span class="navbar-text navbar-language pull-left">
-                <div id="language" class="hidden-xs hidden-sm">
-    <label>
+        <div class="navbar-nav col-md-6 col-sm-7 hidden-xs">
+            <div class="search-box">
+    <input id="search" class="form-control" placeholder="Search for features, guides, or code examples"/>
+    <i class="fas fa-search"></i>
+</div>
+        </div>
+        <div class="navbar-right col-md-3">
+            <ul>
+                <ul class="list-inline">
+    <li id="edit-github" class="hidden-xs hidden-sm">
+        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/getting-started\setup-workstation.rst"
+           rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+    </li>
+    <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
         <select>
             <option id="english" value="en">English</option>
             <option id="japanese" value="ja">日本語</option>
-            <option id="chinese" value="zh_CN">中文</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
             <option id="translate" value="translate">翻訳する</option>
         </select>
-    </label>
-</div>
-            </span>
-            
-            
-
-<div class="navbar-right hidden-sm hidden-xs">
-    <i class="fas fa-search"></i>
-    <input id="search" class="form-control" placeholder="Search..."/>
-</div>
-            
+    </li>
+</ul>
+            </ul>
         </div>
     </div>
 </div>
 
+
 <div class="container">
+
     <div class="row">
 
         
@@ -180,12 +166,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">貢献者</a></li>
 </ul>
 
-    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.2</a></small>
+    <p class="version">
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.5</a></small>
+    </p>
 </div>
 
 <div class="sidebar-xs visible-xs visible-sm">
     <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigation <b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">ナビゲーション <b class="caret"></b></a>
         <ul class="dropdown-menu globaltoc"><p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="what-is-nem.html">NEM とは？</a></li>
@@ -237,33 +225,24 @@
 </div>
     </div>
 </div>
-        
         <div class="col-md-7 content">
-            <div id="edit-on-github" class="text-right">
-                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/getting-started\setup-workstation.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose"
-                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
-
-            </div>
-
             
   <div class="section" id="setting-up-your-workstation">
 <h1>ワークステーションのセットアップ<a class="headerlink" href="#setting-up-your-workstation" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>最初のガイドでは、NEM で開発を始めるために必要なツールのインストールをステップバイステップに進めていきます。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">⚠️ NEM’s next core engine, code-named <strong>Catapult</strong>, is <a class="reference external" href="https://github.com/nemtech/catapult-server/milestones">under development</a>. This bootstrap setup is for learning and development purposes, and it <strong>should not power any production Catapult instances</strong>.</p>
+</div>
 <div class="section" id="running-catapult-service-bootstrap">
 <span id="setup-catapult-service-bootstrap"></span><h2>Catapult サービスのブートストラップの実行<a class="headerlink" href="#running-catapult-service-bootstrap" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="figure align-center">
-<img alt="../_images/four-layer-architecture-basic.png" src="../_images/four-layer-architecture-basic.png" style="width: 650px;" />
-</div>
-<p><strong>Catapult サーバノード</strong> (第1層) はP2Pブロックチェーンネットワークを構築します。<strong>Catapult Rest ノード</strong> (第2層) はアプリケーションがブロックチェーンとその機能にアクセスするためのAPIゲートウェイを提供します。</p>
 <p><a href="https://github.com/tech-bureau/catapult-service-bootstrap" target="_blank">Catapult Service Bootstrap</a> を使用して学習用のプライベートチェーンを可動させていきます。このサービスは、Catapult サーバーインスタンスと Catapult RESTノードをローカルで実行します。</p>
 <ol class="arabic simple">
 <li>以下のコマンドを実行する前に、 <a class="reference external" href="https://docs.docker.com/install/">docker</a> と <a class="reference external" href="https://docs.docker.com/compose/install/">docker-compose</a> がインストールされていることを確認してください:</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; git clone https://github.com/tech-bureau/catapult-service-bootstrap.git
-$&gt; <span class="nb">cd</span> catapult-service-bootstrap
-$&gt; docker-compose up
+<div class="highlight-bash"><div class="highlight"><pre><span></span>git clone https://github.com/tech-bureau/catapult-service-bootstrap.git
+<span class="nb">cd</span> catapult-service-bootstrap
+docker-compose up
 </pre></div>
 </div>
 <div class="admonition note">
@@ -273,7 +252,7 @@ $&gt; docker-compose up
 <ol class="arabic simple" start="2">
 <li>最初のブロックの情報が取得できるかどうかを確認します:</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; curl localhost:3000/block/1
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl localhost:3000/block/1
 </pre></div>
 </div>
 </div>
@@ -286,21 +265,21 @@ $&gt; docker-compose up
 <ol class="arabic simple">
 <li><code class="docutils literal"><span class="pre">npm</span></code> を使って NEM2-CLI をインストールします。</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; sudo npm install --global nem2-cli
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo npm install --global nem2-cli
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
 <li>ターミナルを開き、 Catapult Bootstrap Service をダウンロードしたディレクトリへ移動してください。</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; <span class="nb">cd</span>  build/generated-addresses/
-$&gt; cat addresses.yaml
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span>  build/generated-addresses/
+cat addresses.yaml
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
 <li><code class="docutils literal"><span class="pre">nemesis_addresses</span></code>  のセクション下にて、<code class="docutils literal"><span class="pre">cat.currency</span></code> を持つキーペアを見つけることができます。ブロックチェーンに対するすべてのアクションは、ネットワークを検証して保護する人々にインセンティブを与えるために <code class="docutils literal"><span class="pre">cat.currency</span></code> 単位がかかります。</li>
 <li>NEM2-CLI に最初のアカウントを読み込みます。</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli profile create
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli profile create
 
 Introduce network <span class="nb">type</span> <span class="o">(</span>MIJIN_TEST, MIJIN, MAIN_NET, TEST_NET<span class="o">)</span>: MIJIN_TEST
 Introduce your private key: 41************************************************************FF
@@ -325,38 +304,38 @@ Private Key:    41....FF
 <div class="ui top attached tabular menu sphinx-menu container">
 <div class="active item sphinx-data-tab-0-0 container">
 <div class="container">
-Typescript</div>
+TypeScript</div>
 </div>
 <div class="item sphinx-data-tab-0-1 container">
 <div class="container">
-Javascript</div>
+JavaScript</div>
 </div>
 </div>
 <div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-0-0 active container">
 <ol class="arabic simple">
 <li><code class="docutils literal"><span class="pre">package.json</span></code> を作成します。バージョン 8.9.X 以上の Node.js が必要です。</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; npm init
+<div class="highlight-bash"><div class="highlight"><pre><span></span>npm init
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
 <li>nem2-sdk と rxjs ライブラリのインストール。</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; npm install nem2-sdk rxjs
+<div class="highlight-bash"><div class="highlight"><pre><span></span>npm install nem2-sdk rxjs
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
 <li>nem2-sdk は TypeScript で実装されています。NEM ブロックチェーンのアプリケーションの構築には <strong>JavaScript の代わりに TypeScript</strong> を使うことを推奨します。</li>
 </ol>
 <p>バージョン 2.5.X 以上がインストールされていることを確認してください。</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; sudo npm install --global typescript
-$&gt; typescript --version
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo npm install --global typescript
+typescript --version
 </pre></div>
 </div>
 <ol class="arabic simple" start="4">
 <li><a class="reference external" href="https://www.npmjs.com/package/ts-node">ts-node</a> を使うと TypeScript ファイルを node で実行できます。</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; sudo npm install --global ts-node
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo npm install --global ts-node
 </pre></div>
 </div>
 </div>
@@ -364,13 +343,13 @@ $&gt; typescript --version
 <ol class="arabic simple">
 <li><code class="docutils literal"><span class="pre">package.json</span></code> を作成します。バージョン 8.9.X 以上の Node.js が必要です。</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; npm init
+<div class="highlight-bash"><div class="highlight"><pre><span></span>npm init
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
 <li>nem2-sdk と rxjs ライブラリのインストール。</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; npm install nem2-sdk rxjs
+<div class="highlight-bash"><div class="highlight"><pre><span></span>npm install nem2-sdk rxjs
 </pre></div>
 </div>
 </div>
@@ -390,6 +369,9 @@ $&gt; typescript --version
   
   </div>
 
+            <p class="feedback top-gap">
+                <b>Did you find what you were looking for?</b>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a></p>
         </div>
          
 <div class="col-md-2">
@@ -420,8 +402,7 @@ $&gt; typescript --version
                     <li><a href="what-is-nem.html">入門</a></li>
                     <li><a href="../concepts/account.html">ビルドイン機能</a></li>
                     <li><a href="../concepts/cryptography.html">プロトコル</a></li>
-                    <li><a href="../references.html">リファレンス</a></li>
-                    <li><a href="../guides/category/account.html">ガイド</a></li>
+                    <li><a href="../api.html">リファレンス</a></li>
                     <li><a href="../contribute/contributing.html">貢献する</a></li>
                 </ul>
             </div>
@@ -475,13 +456,13 @@ $&gt; typescript --version
     </div>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-<script type="text/javascript"> docsearch({
-    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
-    indexName: 'nemtech',
-    inputSelector: '#search',
-    algoliaOptions: {},
-    debug: false
-});
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '#search',
+        debug: false
+    });
 </script>
   </body>
 </html>

@@ -38,11 +38,13 @@
     <link rel="shortcut icon" href="_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!--
 <script type="text/javascript">
     var _paq = window._paq || [];
     _paq.push(['disableCookies']);
@@ -55,7 +57,10 @@
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
     })();
-</script>
+</script>-->
+
+<link rel="stylesheet"
+      href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
 
   </head>
   <body>
@@ -63,137 +68,199 @@
 <div id="navbar"
      class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-        <div class="navbar-header">
-            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+        <div class="navbar-header col-md-3 col-sm-5">
             <a class="navbar-brand" href="#"><span><img src="_static/logo-nem.svg"></span>
                 developer center</a>
         </div>
-
-        <div class="collapse navbar-collapse nav-collapse">
-            <ul class="nav navbar-nav">
-                
-                <li><a href="getting-started/what-is-nem.html">Getting started</a></li>
-                <li><a href="concepts/account.html">Built-in features</a></li>
-                <li><a href="concepts/cryptography.html">Protocol</a></li>
-                <li><a href="references.html">References</a></li>
-                
-                
-                
-                
-                
-            </ul>
-            <span class="navbar-text navbar-language pull-left">
-                <div id="language" class="hidden-xs hidden-sm">
-    <label>
+        <div class="navbar-nav col-md-6 col-sm-7 hidden-xs">
+            <div class="search-box">
+    <input id="search" class="form-control" placeholder="Search for features, guides, or code examples"/>
+    <i class="fas fa-search"></i>
+</div>
+        </div>
+        <div class="navbar-right col-md-3">
+            <ul>
+                <ul class="list-inline">
+    <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
         <select>
             <option id="english" value="en">English</option>
             <option id="japanese" value="ja">日本語</option>
-            <option id="chinese" value="zh_CN">中文</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
             <option id="translate" value="translate">Translate</option>
         </select>
-    </label>
-</div>
-            </span>
-            
-            
-
-<div class="navbar-right hidden-sm hidden-xs">
-    <i class="fas fa-search"></i>
-    <input id="search" class="form-control" placeholder="Search..."/>
-</div>
-            
+    </li>
+</ul>
+            </ul>
         </div>
     </div>
 </div>
 
-<div class="container">
+
+<div id="index" class="container full-width">
+
     <div class="row">
 
-        
         
         <div class="col-md-12 content">
-
             
-<div class="home jumbotron text-center gap">
-    <h1>NEM Developer Center</h1>
-    <p>Start integrating NEM into your application.</p>
-    <div class="image-container">
-        <img src="_static/images/nem-developers.png"/>
-    </div>
-</div>
-<section class="container">
-    <div class="row custom-row">
-        <p> NEM is a <b>developer-friendly blockchain platform.</b> The latest NEM version, Catapult, gives you direct access to a specialized set of <b>tested</b> and <b> secure on-blockchain features</b> using your
-            favourite <b>programming language</b>.
-        </p>
-    </div>
-</section>
-<section class="home container card-container gap">
-    <div class="row top-gap">
+
+<section id="getting-started" class="row bg-blue inner-gap">
+    <div class="col-md-8 center-block">
         <div class="col-md-6">
-            <a href="getting-started/what-is-nem.html">
-                <div class="card">
-                    <div class="col-sm-4 hidden-xs card-img">
-                        <img class="align-center" src="_static/images/home-getting-started.png"/>
-                    </div>
-                    <div class="col-sm-8">
-                        <h3 class="card-title">Getting started</h3>
-                        <p class="card-text">Install the development kit and start coding your first blockchain app.</p>
-                        <b class="card-cta">START</b>
-                    </div>
-                </div>
-            </a>
+            <h1>Preview NEM's next core engine</h1>
+            <p>Choose a programming language to get started</p>
+            <div class="inner-gap">
+                <ul class="list-inline ">
+                    <li>
+                        <a href="getting-started/setup-workstation.html?code=typescript">
+                            <div class="card font-icon">
+                                <i class="devicon-typescript-plain colored"></i>
+                            </div>
+                        </a>
+                    </li>
+                    <li><a href="getting-started/setup-workstation.html?code=javascript">
+                        <div class="card font-icon">
+                            <i class="devicon-javascript-plain colored"></i>
+                        </div>
+                    </a></li>
+                    <li>
+                        <div class="card font-icon"  data-toggle="tooltip" data-placement="top" title="Coming soon!">
+                            <i class="devicon-java-plain"></i>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="card font-icon"  data-toggle="tooltip" data-placement="top" title="Coming soon!">
+                            <i class="devicon-python-plain"></i>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <p class="api-link"><b>Or connect to the <a href="api.html">REST API</a></b>.</p>
         </div>
         <div class="col-md-6">
-            <a href="concepts/account.html">
-                <div class="card">
-                    <div class="col-sm-4 hidden-xs card-img">
-                        <img class="align-center" src="_static/images/home-built-in-features.png"/>
-                    </div>
-                    <div class="col-sm-8">
-                        <h3 class="card-title">Built-in Features</h3>
-                        <p class="card-text">Architecture your solution connecting the features that make up the Smart Asset System.</p>
-                        <b class="card-cta">COMBINE</b>
-                    </div>
-                </div>
-            </a>
+            <img class="align-center hidden-sm hidden-xs" src="_static/images/use-cases.png"/>
+        </div>
+    </div>
+</section>
+
+
+<section id="featured-guides" class="inner-gap">
+    <div class="row gap">
+        <div class="col-md-8 center-block">
+            <div class="col-md-6">
+                <h2>Featured Guides</h2>
+                <p>Step by step guides with code examples.</p>
+            </div>
         </div>
     </div>
     <div class="row">
-
-        <div class="col-md-6">
-            <a href="concepts/cryptography.html">
+        <div class="col-md-8 center-block equal-height">
+            <div class="col-md-4">
                 <div class="card">
-                    <div class="col-sm-4 hidden-xs card-img">
-                        <img class="align-center" src="_static/images/home-guides.png"/>
-                    </div>
-                    <div class="col-sm-8">
-                        <h3 class="card-title">Protocol</h3>
-                        <p class="card-text">Learn in-depth how the blockchain protocol works.</p>
-                        <b class="card-cta">DISCOVER</b>
-                    </div>
+                    <h3 class="card-title">Account</h3>
+                    <p class="card-text">
+                        <ul>
+                            <li><a href="guides/account/creating-and-opening-an-account.html">Creating an account</a></li>
+                            <li><a href="guides/account/getting-account-information.html">Getting the account information</a></li>
+                            <li><a href="guides/account/reading-transactions-from-an-account.html">Getting transactions from an account</a></li>
+                        </ul>
+                    </p>
+                    <p class="card-cta"><a href="concepts/account.html#guides">View More</a></p>
                 </div>
-            </a>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <h3 class="card-title">Multisignature</h3>
+                    <p class="card-text">
+                        <ul>
+                            <li><a href="guides/account/converting-an-account-to-multisig.html">Creating a multisig contract</a></li>
+                            <li><a href="guides/transaction/sending-a-multisig-transaction.html">Sending a multisig transaction</a></li>
+                            <li><a href="guides/account/modifying-a-multisig-account.html">Modifying a multisig account</a></li>
+                        </ul>
+                    </p>
+                    <p class="card-cta"><a href="concepts/multisig-account.html#guides">View More</a></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <h3 class="card-title">Assets</h3>
+                    <p class="card-text">
+                        <ul>
+                            <li><a href="guides/mosaic/creating-a-mosaic.html">Creating a mosaic</a></li>
+                            <li><a href="guides/mosaic/getting-mosaic-information.html">Getting the mosaic information</a></li>
+                            <li><a href="guides/mosaic/modifying-mosaic-supply.html">Modify a mosaic supply</a></li>
+                            <li><a href="guides/namespace/registering-a-namespace.html">Registering a namespace</a></li>
+                        </ul>
+                    </p>
+                    <p class="card-cta"><a href="concepts/mosaic.html#guides">View More</a></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <h3 class="card-title">Transactions</h3>
+                    <p class="card-text">
+                        <ul>
+                            <li><a href="guides/transaction/sending-a-transfer-transaction.html">Sending a transfer transaction</a></li>
+                            <li><a href="guides/transaction/monitoring-a-transaction-status.html">Monitoring a transaction status</a></li>
+                            <li><a href="guides/transaction/sending-payouts-with-aggregate-complete-transaction.html">Grouping transactions</a></li>
+                        </ul>
+                    </p>
+                    <p class="card-cta"><a href="concepts/transaction.html#guides">View More</a></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <h3 class="card-title">Advanced Transactions</h3>
+                    <p class="card-text">
+                        <ul>
+                            <li><a href="guides/transaction/creating-an-escrow-with-aggregate-bonded-transaction.html">Creating an escrow contract</a></li>
+                            <li><a href="guides/transaction/signing-announced-aggregate-bonded-transactions.html">Cosigning transactions</a></li>
+                            <li><a href="guides/transaction/atomic-cross-chain-swap-between-NEM-public-and-private-chain.html">Atomic Cross-Chain Swap</a></li>
+                        </ul>
+                    </p>
+                    <p class="card-cta"><a href="concepts/aggregate-transaction.html#guides">View More</a></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <h3 class="card-title">Deploy</h3>
+                    <p class="card-text">
+                        <ul>
+                            <li><a href="getting-started/setup-workstation.html">Running Catapult locally</a></li>
+                            <li>Deploying a test net node <span class="label label-default">Coming soon</span></li>
+                            <li>Configuring your network <span class="label label-default">Coming soon</span></li>
+
+                        </ul>
+                    </p>
+                    <p class="card-cta"><a href="concepts/node.html">View More</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="technical-documentation" class="row inner-gap bg-gray">
+    <div class="col-md-8 center-block">
+        <div class="col-md-6">
+            <div>
+                <h2>Technical Documentation</h2>
+                <p class="card-text">Architecture your solution connecting the features that make up the Smart Asset System.</p>
+            </div>
+            <div class="top-gap">
+                <ul>
+                    <li><a href="getting-started/what-is-nem.html">What is NEM?</a></li>
+                    <li><a href="concepts/account.html">Built-in Features</a></li>
+                    <li><a href="concepts/cryptography.html">Protocol</a></li>
+                    <li><a href="api.html">REST API</a></li>
+                    <li><a href="sdk.html">SDKs</a></li>
+                    <li><a href="cli.html">Client</a></li>
+                    <li><a href="extensions.html">Extensions</a></li>
+                </ul>
+            </div>
         </div>
         <div class="col-md-6">
-            <a href="references.html">
-                <div class="card">
-                    <div class="col-sm-4 hidden-xs card-img">
-                        <img class="align-center" src="_static/images/home-references.png"/>
-                    </div>
-                    <div class="col-sm-8">
-                        <h3 class="card-title">References</h3>
-                        <p class="card-text">From SDKs to extensions that make blockchain development easier.</p>
-                        <b class="card-cta">DEVELOP</b>
-                    </div>
-                </div>
-            </a>
+            <img class="align-center hidden-sm hidden-xs" src="_static/images/solution.png"/>
         </div>
     </div>
 </section>
@@ -215,8 +282,7 @@
                     <li><a href="getting-started/what-is-nem.html">Getting Started</a></li>
                     <li><a href="concepts/account.html">Built-in Features</a></li>
                     <li><a href="concepts/cryptography.html">Protocol</a></li>
-                    <li><a href="references.html">References</a></li>
-                    <li><a href="guides/category/account.html">Guides</a></li>
+                    <li><a href="api.html">References</a></li>
                     <li><a href="contribute/contributing.html">Contribute</a></li>
                 </ul>
             </div>
@@ -270,13 +336,13 @@
     </div>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-<script type="text/javascript"> docsearch({
-    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
-    indexName: 'nemtech',
-    inputSelector: '#search',
-    algoliaOptions: {},
-    debug: false
-});
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '#search',
+        debug: false
+    });
 </script>
   </body>
 </html>

@@ -40,6 +40,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!--
 <script type="text/javascript">
     var _paq = window._paq || [];
     _paq.push(['disableCookies']);
@@ -52,7 +53,7 @@
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
     })();
-</script>
+</script>-->
 
   
   
@@ -71,56 +72,41 @@
 <div id="navbar"
      class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-        <div class="navbar-header">
-            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+        <div class="navbar-header col-md-3 col-sm-5">
             <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
                 developer center</a>
         </div>
-
-        <div class="collapse navbar-collapse nav-collapse">
-            <ul class="nav navbar-nav">
-                
-                <li><a href="../getting-started/what-is-nem.html">Getting started</a></li>
-                <li><a href="account.html">Built-in features</a></li>
-                <li><a href="cryptography.html">Protocol</a></li>
-                <li><a href="../references.html">References</a></li>
-                
-                
-                
-                
-                
-            </ul>
-            <span class="navbar-text navbar-language pull-left">
-                <div id="language" class="hidden-xs hidden-sm">
-    <label>
+        <div class="navbar-nav col-md-6 col-sm-7 hidden-xs">
+            <div class="search-box">
+    <input id="search" class="form-control" placeholder="Search for features, guides, or code examples"/>
+    <i class="fas fa-search"></i>
+</div>
+        </div>
+        <div class="navbar-right col-md-3">
+            <ul>
+                <ul class="list-inline">
+    <li id="edit-github" class="hidden-xs hidden-sm">
+        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\multisig-account.rst"
+           rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+    </li>
+    <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
         <select>
             <option id="english" value="en">English</option>
             <option id="japanese" value="ja">日本語</option>
-            <option id="chinese" value="zh_CN">中文</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
             <option id="translate" value="translate">Translate</option>
         </select>
-    </label>
-</div>
-            </span>
-            
-            
-
-<div class="navbar-right hidden-sm hidden-xs">
-    <i class="fas fa-search"></i>
-    <input id="search" class="form-control" placeholder="Search..."/>
-</div>
-            
+    </li>
+</ul>
+            </ul>
         </div>
     </div>
 </div>
 
+
 <div class="container">
+
     <div class="row">
 
         
@@ -138,14 +124,17 @@
 <li class="toctree-l1"><a class="reference internal" href="account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="account-filter.html">Account Filter</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Multisig Account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cosignatories">Cosignatories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#minimum-approval-and-removal">Minimum approval and removal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#constraints">Constraints</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#shared-accounts">Shared accounts</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#multi-factor-authorization">Multi-factor authorization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#assets-ownership">Assets ownership</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#manufacturing-and-supply-chains">Manufacturing and Supply Chains</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#fraud-detection">Fraud Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manufacturing-and-supply-chains">Manufacturing and supply chains</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#fraud-detection">Fraud Detection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">Schemas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#modifymultisigtransaction">ModifyMultisigTransaction</a></li>
@@ -185,7 +174,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">Contributors</a></li>
 </ul>
 
-    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.4</a></small>
+    <p class="version">
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.5</a></small>
+    </p>
 </div>
 
 <div class="sidebar-xs visible-xs visible-sm">
@@ -203,14 +194,17 @@
 <li class="toctree-l1"><a class="reference internal" href="account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="account-filter.html">Account Filter</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Multisig Account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cosignatories">Cosignatories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#minimum-approval-and-removal">Minimum approval and removal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#constraints">Constraints</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#shared-accounts">Shared accounts</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#multi-factor-authorization">Multi-factor authorization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#assets-ownership">Assets ownership</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#manufacturing-and-supply-chains">Manufacturing and Supply Chains</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#fraud-detection">Fraud Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manufacturing-and-supply-chains">Manufacturing and supply chains</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#fraud-detection">Fraud Detection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">Schemas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#modifymultisigtransaction">ModifyMultisigTransaction</a></li>
@@ -254,33 +248,35 @@
 </div>
     </div>
 </div>
-        
         <div class="col-md-7 content">
-            <div id="edit-on-github" class="text-right">
-                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\multisig-account.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose"
-                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
-
-            </div>
-
             
   <div class="section" id="multisig-account">
 <h1>Multisig Account<a class="headerlink" href="#multisig-account" title="Permalink to this headline">¶</a></h1>
 <p>Editable on-chain contracts, the most powerful way to secure funds and enable joint accounts.</p>
-<p>A NEM <a class="reference internal" href="account.html"><span class="doc">account</span></a> can be <a class="reference internal" href="../guides/account/converting-an-account-to-multisig.html"><span class="doc">converted to multisig</span></a>. From that moment on, the account cannot announce transactions by itself. It will require other accounts to announce transactions for them. These other accounts are the multisig <strong>cosignatories</strong>.</p>
-<p>Nevertheless, it is not always necessary to force all cosignatories to cosign the transaction. NEM allows to set up the minimum number of consignatory agreements. These properties can be edited afterwards to suit almost all needs. NEM’s current implementation of multisig is <em>“M-of-N”</em>. This means that M can be any number equal to or less than N, i.e., 1-of-4, 2-of-2, 4-of-9, 9-of-10 and so on.</p>
-<p>The number of minimum cosignatures to approve transactions and remove cosignatories is editable.</p>
+<div class="section" id="cosignatories">
+<h2>Cosignatories<a class="headerlink" href="#cosignatories" title="Permalink to this headline">¶</a></h2>
+<p>A NEM <a class="reference internal" href="account.html"><span class="doc">account</span></a> can be <a class="reference internal" href="../guides/account/converting-an-account-to-multisig.html"><span class="doc">converted to multisig</span></a>. The cosignatories - other accounts - of the multisig will become the account managers.</p>
+<p>From that moment on,  the multisig account cannot announce transactions by itself. One of the cosignatory has to propose the transaction involving the multisig, wrapping it in an <a class="reference internal" href="aggregate-transaction.html"><span class="doc">aggregate transaction</span></a>. To record the transaction in the block, the other cosignatories will have to agree.</p>
+</div>
+<div class="section" id="minimum-approval-and-removal">
+<h2>Minimum approval and removal<a class="headerlink" href="#minimum-approval-and-removal" title="Permalink to this headline">¶</a></h2>
+<p>It is not always necessary to force all cosignatories to cosign transactions associated with the multisig account. NEM allows to set up the minimum number of cosignatory agreements. These properties can be <a class="reference internal" href="../guides/account/modifying-a-multisig-account.html#guide-modify-a-multisig-account-min-approval"><span class="std std-ref">edited</span></a> afterward to suit almost all needs.</p>
+<p>NEM’s current implementation of multisig is <em>“M-of-N”</em>. This means that M can be any number equal to or less than N, i.e., 1-of-4, 2-of-2, 4-of-9, 9-of-10 and so on.</p>
+<p>Similarly, cosignatories can <a class="reference internal" href="../guides/account/modifying-a-multisig-account.html#guide-modify-a-multisig-account-add-new-cosignatory"><span class="std std-ref">invite other accounts to take part in the multisig</span></a>, or  <a class="reference internal" href="../guides/account/modifying-a-multisig-account.html#guide-modify-a-multisig-account-removing-a-cosignatory"><span class="std std-ref">propose to remove others</span></a> when the defined conditions are fulfilled.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Multisig accounts are a powerful tool, but please use this tool with caution.  If cosignatories keys get lost and minimum approval is not reached, it would result in the permanent loss of access to the funds held by the multisig account. Choose wisely <code class="docutils literal"><span class="pre">minimum</span> <span class="pre">removal</span></code> parameter to avoid this situation.</p>
+<p class="last">Multisig accounts are a powerful tool, but please use this tool with caution.  If the cosignatories keys get lost and minimum approval is not reached, it would result in the permanent loss of access to the funds held by the multisig account. Choose wisely <code class="docutils literal"><span class="pre">minimum</span> <span class="pre">removal</span></code> parameter to avoid this situation.</p>
 </div>
+</div>
+<div class="section" id="constraints">
+<h2>Constraints<a class="headerlink" href="#constraints" title="Permalink to this headline">¶</a></h2>
 <p>Some important considerations to keep in mind:</p>
 <ul class="simple">
 <li>Multisig accounts can have up to <code class="docutils literal"><span class="pre">10</span></code> cosignatories.</li>
 <li>An account can be cosigner of up to <code class="docutils literal"><span class="pre">5</span></code> multisig accounts.</li>
 <li>Multisig accounts can have as a cosigner another multisig, up to <code class="docutils literal"><span class="pre">3</span></code> levels. Multi-level multisig accounts add “AND/OR” logic to multi-signature transactions.</li>
 </ul>
+</div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <p>There is a broad range of useful applications for multisig accounts. Let’s take a look at some of the most common use cases.</p>
@@ -312,7 +308,7 @@
 </div>
 </div>
 <div class="section" id="manufacturing-and-supply-chains">
-<h3>Manufacturing and Supply Chains<a class="headerlink" href="#manufacturing-and-supply-chains" title="Permalink to this headline">¶</a></h3>
+<h3>Manufacturing and supply chains<a class="headerlink" href="#manufacturing-and-supply-chains" title="Permalink to this headline">¶</a></h3>
 <p>In this example, a manufacturer is shipping a pharmaceutical product.</p>
 <p>The product receives its quality approval <a class="reference internal" href="mosaic.html"><span class="doc">mosaic</span></a> only when its blockchain record shows it has a production date, safety inspection, and was shipped at the correct temperature.</p>
 <p>Sensors in the shipping container report temperature data every 5 minutes and consolidate it into a daily report.</p>
@@ -321,14 +317,14 @@
 <p class="caption"><span class="caption-text">Manufacturing and Supply Chains</span></p>
 </div>
 </div>
+</div>
 <div class="section" id="fraud-detection">
-<h3>Fraud Detection<a class="headerlink" href="#fraud-detection" title="Permalink to this headline">¶</a></h3>
+<h2>Fraud Detection<a class="headerlink" href="#fraud-detection" title="Permalink to this headline">¶</a></h2>
 <p>This example shows how a high-security account can be made easier to use.</p>
 <p>Transactions are only approved from a hardware wallet OR your phone AND a fraud detection AI. MLMA allows a variety of security configurations at the protocol level to keep businesses and their customers hack-free.</p>
 <div class="figure align-center" id="id5">
 <img alt="../_images/mlma-fraud-detection.png" src="../_images/mlma-fraud-detection.png" style="width: 550px;" />
 <p class="caption"><span class="caption-text">Fraud Detection</span></p>
-</div>
 </div>
 </div>
 <div class="section" id="guides">
@@ -361,8 +357,9 @@
 <span id="modify-multisig-account-transaction"></span><h3>ModifyMultisigTransaction<a class="headerlink" href="#modifymultisigtransaction" title="Permalink to this headline">¶</a></h3>
 <p>Announce a modify multisig account transaction to:</p>
 <ol class="loweralpha simple">
-<li>Transform an account to multisig.</li>
+<li>Transform an account to multisig account.</li>
 <li>Change the configurable properties of a multisig account.</li>
+<li>Add or delete cosignatories from a multisig account.</li>
 </ol>
 <p><strong>Version</strong>: 0x03</p>
 <p><strong>Entity type</strong>: 0x4155</p>
@@ -396,7 +393,7 @@
 <td>The number of modifications.</td>
 </tr>
 <tr class="row-odd"><td>modification</td>
-<td>array(<a class="reference internal" href="#cosignatory-modification"><span class="std std-ref">CosignatoryModification</span></a>, modificationsCount)</td>
+<td>array&lt;<a class="reference internal" href="#cosignatory-modification"><span class="std std-ref">CosignatoryModification</span></a>, modificationsCount&gt;</td>
 <td>The array of cosignatory <a class="reference internal" href="account.html"><span class="doc">accounts</span></a> to add or delete.</td>
 </tr>
 </tbody>
@@ -459,20 +456,26 @@
   
   </div>
 
+            <p class="feedback top-gap">
+                <b>Did you find what you were looking for?</b>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a></p>
         </div>
          
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">Multisig Account</a><ul>
+<li><a class="reference internal" href="#cosignatories">Cosignatories</a></li>
+<li><a class="reference internal" href="#minimum-approval-and-removal">Minimum approval and removal</a></li>
+<li><a class="reference internal" href="#constraints">Constraints</a></li>
 <li><a class="reference internal" href="#examples">Examples</a><ul>
 <li><a class="reference internal" href="#shared-accounts">Shared accounts</a></li>
 <li><a class="reference internal" href="#multi-factor-authorization">Multi-factor authorization</a></li>
 <li><a class="reference internal" href="#assets-ownership">Assets ownership</a></li>
-<li><a class="reference internal" href="#manufacturing-and-supply-chains">Manufacturing and Supply Chains</a></li>
-<li><a class="reference internal" href="#fraud-detection">Fraud Detection</a></li>
+<li><a class="reference internal" href="#manufacturing-and-supply-chains">Manufacturing and supply chains</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#fraud-detection">Fraud Detection</a></li>
 <li><a class="reference internal" href="#guides">Guides</a></li>
 <li><a class="reference internal" href="#schemas">Schemas</a><ul>
 <li><a class="reference internal" href="#modifymultisigtransaction">ModifyMultisigTransaction</a></li>
@@ -501,8 +504,7 @@
                     <li><a href="../getting-started/what-is-nem.html">Getting Started</a></li>
                     <li><a href="account.html">Built-in Features</a></li>
                     <li><a href="cryptography.html">Protocol</a></li>
-                    <li><a href="../references.html">References</a></li>
-                    <li><a href="../guides/category/account.html">Guides</a></li>
+                    <li><a href="../api.html">References</a></li>
                     <li><a href="../contribute/contributing.html">Contribute</a></li>
                 </ul>
             </div>
@@ -556,13 +558,13 @@
     </div>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-<script type="text/javascript"> docsearch({
-    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
-    indexName: 'nemtech',
-    inputSelector: '#search',
-    algoliaOptions: {},
-    debug: false
-});
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '#search',
+        debug: false
+    });
 </script>
   </body>
 </html>

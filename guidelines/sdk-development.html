@@ -38,6 +38,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!--
 <script type="text/javascript">
     var _paq = window._paq || [];
     _paq.push(['disableCookies']);
@@ -50,7 +51,7 @@
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
     })();
-</script>
+</script>-->
 
   
   
@@ -69,56 +70,41 @@
 <div id="navbar"
      class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-        <div class="navbar-header">
-            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+        <div class="navbar-header col-md-3 col-sm-5">
             <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
                 developer center</a>
         </div>
-
-        <div class="collapse navbar-collapse nav-collapse">
-            <ul class="nav navbar-nav">
-                
-                <li><a href="../getting-started/what-is-nem.html">Getting started</a></li>
-                <li><a href="../concepts/account.html">Built-in features</a></li>
-                <li><a href="../concepts/cryptography.html">Protocol</a></li>
-                <li><a href="../references.html">References</a></li>
-                
-                
-                
-                
-                
-            </ul>
-            <span class="navbar-text navbar-language pull-left">
-                <div id="language" class="hidden-xs hidden-sm">
-    <label>
+        <div class="navbar-nav col-md-6 col-sm-7 hidden-xs">
+            <div class="search-box">
+    <input id="search" class="form-control" placeholder="Search for features, guides, or code examples"/>
+    <i class="fas fa-search"></i>
+</div>
+        </div>
+        <div class="navbar-right col-md-3">
+            <ul>
+                <ul class="list-inline">
+    <li id="edit-github" class="hidden-xs hidden-sm">
+        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guidelines\sdk-development.rst"
+           rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+    </li>
+    <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
         <select>
             <option id="english" value="en">English</option>
             <option id="japanese" value="ja">日本語</option>
-            <option id="chinese" value="zh_CN">中文</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
             <option id="translate" value="translate">Translate</option>
         </select>
-    </label>
-</div>
-            </span>
-            
-            
-
-<div class="navbar-right hidden-sm hidden-xs">
-    <i class="fas fa-search"></i>
-    <input id="search" class="form-control" placeholder="Search..."/>
-</div>
-            
+    </li>
+</ul>
+            </ul>
         </div>
     </div>
 </div>
 
+
 <div class="container">
+
     <div class="row">
 
         
@@ -166,7 +152,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">Contributors</a></li>
 </ul>
 
-    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.4</a></small>
+    <p class="version">
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.5</a></small>
+    </p>
 </div>
 
 <div class="sidebar-xs visible-xs visible-sm">
@@ -218,16 +206,7 @@
 </div>
     </div>
 </div>
-        
         <div class="col-md-7 content">
-            <div id="edit-on-github" class="text-right">
-                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guidelines\sdk-development.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose"
-                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
-
-            </div>
-
             
   <div class="section" id="sdk-development">
 <h1>SDK Development<a class="headerlink" href="#sdk-development" title="Permalink to this headline">¶</a></h1>
@@ -295,7 +274,7 @@
 <li>Become familiar with the current <a class="reference internal" href="../concepts/account.html"><span class="doc">nem2-sdk via code examples</span></a> &amp; <a class="reference internal" href="../cli.html"><span class="doc">nem2-cli</span></a> .</li>
 <li><a class="reference external" href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM">Join</a> our Slack to ask Catapult related questions.</li>
 <li>Be sure no one is already working on the SDK you want to create. Check the <a class="reference internal" href="../sdk.html"><span class="doc">repository list</span></a> and  comment your intentions in  nem2 slack <code class="docutils literal"><span class="pre">#sig-api</span></code> channel. If someone is already working on it, we suggest you collaborate with him/her.</li>
-<li>Claim the SDK <a class="reference external" href="https://help.github.com/articles/creating-a-pull-request/">forking this repository</a> and add a new entry to the <a class="reference internal" href="../sdk.html"><span class="doc">repository list</span></a>.</li>
+<li>Claim the SDK <a class="reference external" href="https://help.github.com/en/articles/creating-a-pull-request/">forking this repository</a> and add a new entry to the <a class="reference internal" href="../sdk.html"><span class="doc">repository list</span></a>.</li>
 </ol>
 </div>
 <div class="section" id="development">
@@ -320,16 +299,24 @@ Conduct</a>.  Download <a class="reference download internal" href="../_download
 </ol>
 <p>A project with a good test coverage it’s more likely to be used and
 trusted by the developers!</p>
-<p>We <strong>strongly</strong> suggest to do <a class="reference external" href="https://en.wikipedia.org/wiki/Test-driven_development">Test-Driven Development</a> or Unit-Testing (test last). If you need inspiration, you can adapt the same <a class="reference external" href="https://github.com/nemtech/nem2-sdk-typescriptjavascript/tree/master/test">tests we
+<p>We <strong>strongly</strong> suggest to do <a class="reference external" href="https://en.wikipedia.org/wiki/Test-driven_development">Test-Driven Development</a> or Unit-Testing (test last). If you need inspiration, you can adapt the same <a class="reference external" href="https://github.com/nemtech/nem2-sdk-typescript-javascript/tree/master/test">tests we
 did</a>.</p>
 </div>
 <div class="section" id="api-wrapper">
 <h3>API Wrapper<a class="headerlink" href="#api-wrapper" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://swagger.io/tools/swagger-codegen/">Swagger Codegen</a> can handle the API generation. It supports multiple languages, and hopefully, yours is on the list.</p>
 <ol class="arabic simple">
-<li>Generate the <code class="docutils literal"><span class="pre">DTOs</span></code> and place them under <a class="reference external" href="https://github.com/nemtech/nem2-sdk-java/tree/master/src/main/java/io/nem/sdk/infrastructure">sdk/infrastructure</a>. The API swagger file definition can be found <a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/collections/swagger.yaml">here</a>.</li>
+<li>Generate the <code class="docutils literal"><span class="pre">DTOs</span></code> and place them under <a class="reference external" href="https://github.com/nemtech/nem2-sdk-java/tree/master/src/main/java/io/nem/sdk/infrastructure">sdk/infrastructure</a>.</li>
 </ol>
-<p>2. Drop the generated client classes and  implement them using the
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/swagger-api/swagger-codegen#development-in-docker">Swagger Codegen instructions</a></li>
+<li><a class="reference external" href="https://raw.githubusercontent.com/nemtech/nem2-docs/master/source/resources/collections/swagger2.yaml">Open API definition</a></li>
+</ul>
+<p>We run this instruction to generate the DTOs for the JavaScript SDK:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>docker run --rm -v <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>:/local swaggerapi/swagger-codegen-cli generate -i /local/swagger.yaml -l javascript -t /local/es6_promise --additional-properties <span class="nv">usePromises</span><span class="o">=</span><span class="nb">true</span> -o /local/nem2-js <span class="o">&amp;&amp;</span> rm -R nem2-js/test
+</pre></div>
+</div>
+<p>2. Drop the generated client classes and implement them using the
 <a class="reference external" href="https://martinfowler.com/eaaCatalog/repository.html">Repository pattern</a> returning <a class="reference external" href="https://en.wikipedia.org/wiki/Observer_pattern">Observables</a> of
 <a class="reference external" href="http://reactivex.io/">ReactiveX</a>.</p>
 <p>Example of a Repository and HTTP implementation:</p>
@@ -432,6 +419,9 @@ newer</a></li>
   
   </div>
 
+            <p class="feedback top-gap">
+                <b>Did you find what you were looking for?</b>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a></p>
         </div>
          
 <div class="col-md-2">
@@ -476,8 +466,7 @@ newer</a></li>
                     <li><a href="../getting-started/what-is-nem.html">Getting Started</a></li>
                     <li><a href="../concepts/account.html">Built-in Features</a></li>
                     <li><a href="../concepts/cryptography.html">Protocol</a></li>
-                    <li><a href="../references.html">References</a></li>
-                    <li><a href="../guides/category/account.html">Guides</a></li>
+                    <li><a href="../api.html">References</a></li>
                     <li><a href="../contribute/contributing.html">Contribute</a></li>
                 </ul>
             </div>
@@ -531,13 +520,13 @@ newer</a></li>
     </div>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-<script type="text/javascript"> docsearch({
-    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
-    indexName: 'nemtech',
-    inputSelector: '#search',
-    algoliaOptions: {},
-    debug: false
-});
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '#search',
+        debug: false
+    });
 </script>
   </body>
 </html>

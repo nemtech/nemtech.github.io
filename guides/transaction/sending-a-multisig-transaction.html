@@ -38,6 +38,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!--
 <script type="text/javascript">
     var _paq = window._paq || [];
     _paq.push(['disableCookies']);
@@ -50,7 +51,7 @@
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
     })();
-</script>
+</script>-->
 
   
   
@@ -69,282 +70,143 @@
 <div id="navbar"
      class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-        <div class="navbar-header">
-            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+        <div class="navbar-header col-md-3 col-sm-5">
             <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/logo-nem.svg"></span>
                 developer center</a>
         </div>
-
-        <div class="collapse navbar-collapse nav-collapse">
-            <ul class="nav navbar-nav">
-                
-                <li><a href="../../getting-started/what-is-nem.html">Getting started</a></li>
-                <li><a href="../../concepts/account.html">Built-in features</a></li>
-                <li><a href="../../concepts/cryptography.html">Protocol</a></li>
-                <li><a href="../../references.html">References</a></li>
-                
-                
-                
-                
-                
-            </ul>
-            <span class="navbar-text navbar-language pull-left">
-                <div id="language" class="hidden-xs hidden-sm">
-    <label>
+        <div class="navbar-nav col-md-6 col-sm-7 hidden-xs">
+            <div class="search-box">
+    <input id="search" class="form-control" placeholder="Search for features, guides, or code examples"/>
+    <i class="fas fa-search"></i>
+</div>
+        </div>
+        <div class="navbar-right col-md-3">
+            <ul>
+                <ul class="list-inline">
+    <li id="edit-github" class="hidden-xs hidden-sm">
+        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\transaction\sending-a-multisig-transaction.rst"
+           rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+    </li>
+    <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
         <select>
             <option id="english" value="en">English</option>
             <option id="japanese" value="ja">日本語</option>
-            <option id="chinese" value="zh_CN">中文</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
             <option id="translate" value="translate">Translate</option>
         </select>
-    </label>
-</div>
-            </span>
-            
-            
-
-<div class="navbar-right hidden-sm hidden-xs">
-    <i class="fas fa-search"></i>
-    <input id="search" class="form-control" placeholder="Search..."/>
-</div>
-            
+    </li>
+</ul>
+            </ul>
         </div>
     </div>
 </div>
 
+
 <div class="container">
+
     <div class="row">
 
         
 <div class="col-md-3">
-    <div id="sidebar" class="bs-sidenav" role="complementary">
-
-
-
-<div class="hidden-xs hidden-sm">
-    <p class="caption sidebar-current-ul"><span class="caption-text">Guides</span>
-        <span class="angle angle-down fas fa-chevron-down"></span>
-    </p>
-    
-<ul class="ablog-cloud current">
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/account.html" class="reference internal nav-header">
-            
-            Account (5)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/aggregate-transaction.html" class="reference internal nav-header">
-            
-            Aggregate Transaction (6)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/block.html" class="reference internal nav-header">
-            
-            Block (2)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/cross-chain-swaps.html" class="reference internal nav-header">
-            
-            Cross-Chain Swaps (1)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/monitoring.html" class="reference internal nav-header">
-            
-            Monitoring (2)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/mosaic.html" class="reference internal nav-header">
-            
-            Mosaic (4)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/multisig-account.html" class="reference internal nav-header">
-            
-            Multisig Account (5)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/namespace.html" class="reference internal nav-header">
-            
-            Namespace (5)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/tools.html" class="reference internal nav-header">
-            
-            Tools (1)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/transfer-transaction.html" class="reference internal nav-header">
-            
-            Transfer Transaction (2)
-        </a></li>
-    
-    
+    <div id="sidebar" class="bs-sidenav" role="complementary"><div class="sidebar-md hidden-xs hidden-sm">
+    <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/what-is-nem.html">What is NEM?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/setup-workstation.html">Setting up your workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/first-application.html">Writing your first application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/training.html">Self-paced training</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account-filter.html">Account Filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">Multisig Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">Mosaic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">Transfer Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/cryptography.html">Cryptography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/block.html">Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/transaction.html">Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/harvesting.html">Harvesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/receipt.html">Receipt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/node.html">Node</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">Prototyping Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/contributing.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/contributors.html">Contributors</a></li>
 </ul>
 
-    <a href="../../getting-started/training.html"><p class="caption"><span class="caption-text"><i
-            class="fas fa-chalkboard-teacher"></i> Courses</span></p></a>
+    <p class="version">
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.5</a></small>
+    </p>
 </div>
 
-<div class="visible-xs visible-sm">
+<div class="sidebar-xs visible-xs visible-sm">
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigation <b class="caret"></b></a>
-        <ul class="dropdown-menu globaltoc">
-<ul class="ablog-cloud current">
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/account.html" class="reference internal nav-header">
-            
-            Account (5)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/aggregate-transaction.html" class="reference internal nav-header">
-            
-            Aggregate Transaction (6)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/block.html" class="reference internal nav-header">
-            
-            Block (2)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/cross-chain-swaps.html" class="reference internal nav-header">
-            
-            Cross-Chain Swaps (1)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/monitoring.html" class="reference internal nav-header">
-            
-            Monitoring (2)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/mosaic.html" class="reference internal nav-header">
-            
-            Mosaic (4)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/multisig-account.html" class="reference internal nav-header">
-            
-            Multisig Account (5)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/namespace.html" class="reference internal nav-header">
-            
-            Namespace (5)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/tools.html" class="reference internal nav-header">
-            
-            Tools (1)
-        </a></li>
-    
-    
-    
-    
-    <li class="ablog-cloud toctree-l1">
-        <a href="../category/transfer-transaction.html" class="reference internal nav-header">
-            
-            Transfer Transaction (2)
-        </a></li>
-    
-    
+        <ul class="dropdown-menu globaltoc"><p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/what-is-nem.html">What is NEM?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/setup-workstation.html">Setting up your workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/first-application.html">Writing your first application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/training.html">Self-paced training</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account-filter.html">Account Filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">Multisig Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">Mosaic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">Transfer Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/cryptography.html">Cryptography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/block.html">Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/transaction.html">Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/harvesting.html">Harvesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/receipt.html">Receipt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/node.html">Node</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">Prototyping Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/contributing.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/contributors.html">Contributors</a></li>
 </ul>
 </ul>
     </li>
-
 </div>
-
-
     </div>
 </div>
-        
         <div class="col-md-7 content">
-            <div id="edit-on-github" class="text-right">
-                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\transaction\sending-a-multisig-transaction.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose"
-                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
-
-            </div>
-
             
   <div class="section" id="sending-a-multisig-transaction">
 <h1>Sending a multisig transaction<a class="headerlink" href="#sending-a-multisig-transaction" title="Permalink to this headline">¶</a></h1>
@@ -352,7 +214,7 @@
 <div class="section" id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-center" id="id2">
-<img alt="../../_images/multisig-transaction-1-of-2.png" src="../../_images/multisig-transaction-1-of-2.png" style="width: 600px;" />
+<img alt="../../_images/multisig-transaction-1-of-2.png" src="../../_images/multisig-transaction-1-of-2.png" style="width: 500px;" />
 <p class="caption"><span class="caption-text">Sending an aggregate complete transaction</span></p>
 </div>
 <p>Alice and Bob live together and have separate accounts. They also have a shared account so that if Bob is out shopping, he can buy groceries for both himself and Alice.</p>
@@ -383,7 +245,7 @@
 </ul>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id3">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingAMultisigTransactionAggregateComplete.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingAMultisigTransactionAggregateComplete.ts">View Code</a></span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span> <span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">cosignatoryPrivateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">COSIGNATORY_1_PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
@@ -397,7 +259,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper container" id="id4">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingAMultisigTransactionAggregateComplete.js" target="_blank">View Code</a></span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingAMultisigTransactionAggregateComplete.js">View Code</a></span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span> <span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">cosignatoryPrivateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">COSIGNATORY_1_PRIVATE_KEY</span><span class="p">;</span>
@@ -421,7 +283,7 @@
 </ul>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id5">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingAMultisigTransactionAggregateComplete.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingAMultisigTransactionAggregateComplete.ts">View Code</a></span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transferTransaction</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="nx">recipientAddress</span><span class="p">,</span>
@@ -432,7 +294,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper container" id="id6">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingAMultisigTransactionAggregateComplete.js" target="_blank">View Code</a></span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingAMultisigTransactionAggregateComplete.js">View Code</a></span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transferTransaction</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="nx">recipientAddress</span><span class="p">,</span>
@@ -449,7 +311,7 @@
 <p>An aggregate transaction is <strong>complete</strong> if before announcing it to the network, all required cosigners have signed it. In this case the multisig requires only one signature (1-of-2), so you can define the aggregate as complete.</p>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id7">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingAMultisigTransactionAggregateComplete.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingAMultisigTransactionAggregateComplete.ts">View Code</a></span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createComplete</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="p">[</span><span class="nx">transferTransaction</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">multisigAccount</span><span class="p">),],</span>
@@ -459,7 +321,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper container" id="id8">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingAMultisigTransactionAggregateComplete.js" target="_blank">View Code</a></span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingAMultisigTransactionAggregateComplete.js">View Code</a></span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createComplete</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="p">[</span><span class="nx">transferTransaction</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">multisigAccount</span><span class="p">),],</span>
@@ -474,7 +336,7 @@
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id9">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingAMultisigTransactionAggregateComplete.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingAMultisigTransactionAggregateComplete.ts">View Code</a></span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">);</span>
 
 <span class="nx">transactionHttp</span>
@@ -484,7 +346,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper container" id="id10">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingAMultisigTransactionAggregateComplete.js" target="_blank">View Code</a></span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingAMultisigTransactionAggregateComplete.js">View Code</a></span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">);</span>
 
 <span class="nx">transactionHttp</span>
@@ -499,13 +361,13 @@
 <h3>2-of-2 signatures required<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>What would have happened if the account was a 2-of-2 multisig instead of a 1-of-2? As all required cosigners did not sign the transaction, it should be announced as <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate bonded</span></a> and cosigned later with Alice’s account.</p>
 <div class="figure align-center" id="id11">
-<img alt="../../_images/multisig-transaction-2-of-2.png" src="../../_images/multisig-transaction-2-of-2.png" style="width: 600px;" />
+<img alt="../../_images/multisig-transaction-2-of-2.png" src="../../_images/multisig-transaction-2-of-2.png" style="width: 500px;" />
 <p class="caption"><span class="caption-text">Sending an aggregate bonded transaction</span></p>
 </div>
 <ol class="arabic simple">
 <li>Open a new terminal to <a class="reference internal" href="monitoring-a-transaction-status.html"><span class="doc">monitor</span></a> the aggregate bonded transaction.</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor aggregatebonded --address &lt;your-address-here&gt;
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli monitor aggregatebonded --address &lt;your-address-here&gt;
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
@@ -513,7 +375,7 @@
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id12">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingAMultisigTransactionAggregateBonded.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id12" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingAMultisigTransactionAggregateBonded.ts">View Code</a></span><a class="headerlink" href="#id12" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createBonded</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="p">[</span><span class="nx">transferTransaction</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">multisigAccount</span><span class="p">)],</span>
@@ -525,7 +387,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper container" id="id13">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingAMultisigTransactionAggregateBonded.js" target="_blank">View Code</a></span><a class="headerlink" href="#id13" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingAMultisigTransactionAggregateBonded.js">View Code</a></span><a class="headerlink" href="#id13" title="Permalink to this code">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createBonded</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="p">[</span><span class="nx">transferTransaction</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">multisigAccount</span><span class="p">)],</span>
@@ -542,30 +404,30 @@
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id14">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingAMultisigTransactionAggregateBonded.ts" target="_blank">View Code</a></span><a class="headerlink" href="#id14" title="Permalink to this code">¶</a></div>
-<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">lockFundsTransaction</span> <span class="o">=</span> <span class="nx">LockFundsTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingAMultisigTransactionAggregateBonded.ts">View Code</a></span><a class="headerlink" href="#id14" title="Permalink to this code">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">hashLockTransaction</span> <span class="o">=</span> <span class="nx">HashLockTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span>
-        <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;0dc67fbe1cad29e3&#39;</span><span class="p">),</span> <span class="c1">// Replace with your network currency mosaic id</span>
+        <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;0dc67fbe1cad29e3&#39;</span><span class="p">),</span> <span class="c1">//Replace with your network currency mosaic id</span>
         <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
     <span class="p">),</span>
     <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">480</span><span class="p">),</span>
     <span class="nx">signedTransaction</span><span class="p">,</span>
     <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
-<span class="kr">const</span> <span class="nx">lockFundsTransactionSigned</span> <span class="o">=</span> <span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">lockFundsTransaction</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">hashLockTransactionSigned</span> <span class="o">=</span> <span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">hashLockTransaction</span><span class="p">);</span>
 
 <span class="nx">listener</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
 
     <span class="nx">transactionHttp</span>
-        <span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">lockFundsTransactionSigned</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">hashLockTransactionSigned</span><span class="p">)</span>
         <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 
     <span class="nx">listener</span>
         <span class="p">.</span><span class="nx">confirmed</span><span class="p">(</span><span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">)</span>
         <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
             <span class="nx">filter</span><span class="p">((</span><span class="nx">transaction</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span> <span class="o">!==</span> <span class="kc">undefined</span>
-                <span class="o">&amp;&amp;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span><span class="p">.</span><span class="nx">hash</span> <span class="o">===</span> <span class="nx">lockFundsTransactionSigned</span><span class="p">.</span><span class="nx">hash</span><span class="p">),</span>
+                <span class="o">&amp;&amp;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span><span class="p">.</span><span class="nx">hash</span> <span class="o">===</span> <span class="nx">hashLockTransactionSigned</span><span class="p">.</span><span class="nx">hash</span><span class="p">),</span>
             <span class="nx">mergeMap</span><span class="p">(</span><span class="nx">ignored</span> <span class="o">=&gt;</span> <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBonded</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">))</span>
         <span class="p">)</span>
         <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">announcedAggregateBonded</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">announcedAggregateBonded</span><span class="p">),</span>
@@ -575,30 +437,30 @@
 </div>
 </div>
 <div class="literal-block-wrapper container" id="id15">
-<div class="code-block-caption"><span class="caption-text"><a href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingAMultisigTransactionAggregateBonded.js" target="_blank">View Code</a></span><a class="headerlink" href="#id15" title="Permalink to this code">¶</a></div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">lockFundsTransaction</span> <span class="o">=</span> <span class="nx">LockFundsTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingAMultisigTransactionAggregateBonded.js">View Code</a></span><a class="headerlink" href="#id15" title="Permalink to this code">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">hashLockTransaction</span> <span class="o">=</span> <span class="nx">HashLockTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span>
-        <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;0dc67fbe1cad29e3&#39;</span><span class="p">),</span> <span class="c1">// Replace with your network currency mosaic id</span>
+        <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;0dc67fbe1cad29e3&#39;</span><span class="p">),</span> <span class="c1">//Replace with your network currency mosaic id</span>
         <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
     <span class="p">),</span>
     <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">480</span><span class="p">),</span>
     <span class="nx">signedTransaction</span><span class="p">,</span>
     <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
-<span class="kr">const</span> <span class="nx">lockFundsTransactionSigned</span> <span class="o">=</span> <span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">lockFundsTransaction</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">hashLockTransactionSigned</span> <span class="o">=</span> <span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">hashLockTransaction</span><span class="p">);</span>
 
 <span class="nx">listener</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
 
     <span class="nx">transactionHttp</span>
-        <span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">lockFundsTransactionSigned</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">hashLockTransactionSigned</span><span class="p">)</span>
         <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 
     <span class="nx">listener</span>
         <span class="p">.</span><span class="nx">confirmed</span><span class="p">(</span><span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">)</span>
         <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
             <span class="nx">filter</span><span class="p">((</span><span class="nx">transaction</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span> <span class="o">!==</span> <span class="kc">undefined</span>
-                <span class="o">&amp;&amp;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span><span class="p">.</span><span class="nx">hash</span> <span class="o">===</span> <span class="nx">lockFundsTransactionSigned</span><span class="p">.</span><span class="nx">hash</span><span class="p">),</span>
+                <span class="o">&amp;&amp;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span><span class="p">.</span><span class="nx">hash</span> <span class="o">===</span> <span class="nx">hashLockTransactionSigned</span><span class="p">.</span><span class="nx">hash</span><span class="p">),</span>
             <span class="nx">mergeMap</span><span class="p">(</span><span class="nx">ignored</span> <span class="o">=&gt;</span> <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBonded</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">))</span>
         <span class="p">)</span>
         <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">announcedAggregateBonded</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">announcedAggregateBonded</span><span class="p">),</span>
@@ -615,7 +477,7 @@
 <ol class="arabic simple" start="4">
 <li><a class="reference internal" href="../../cli.html"><span class="doc">Cosign the aggregate transaction</span></a> with Alice’s account. Use the transaction hash output from the first step.</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction cosign --hash A6A374E66B32A3D5133018EFA9CD6E3169C8EEA339F7CCBE29C47D07086E068C --profile alice
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli transaction cosign --hash A6A374E66B32A3D5133018EFA9CD6E3169C8EEA339F7CCBE29C47D07086E068C --profile alice
 </pre></div>
 </div>
 </div>
@@ -633,6 +495,9 @@
   
   </div>
 
+            <p class="feedback top-gap">
+                <b>Did you find what you were looking for?</b>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a></p>
         </div>
          
 <div class="col-md-2">
@@ -667,8 +532,7 @@
                     <li><a href="../../getting-started/what-is-nem.html">Getting Started</a></li>
                     <li><a href="../../concepts/account.html">Built-in Features</a></li>
                     <li><a href="../../concepts/cryptography.html">Protocol</a></li>
-                    <li><a href="../../references.html">References</a></li>
-                    <li><a href="../category/account.html">Guides</a></li>
+                    <li><a href="../../api.html">References</a></li>
                     <li><a href="../../contribute/contributing.html">Contribute</a></li>
                 </ul>
             </div>
@@ -722,13 +586,13 @@
     </div>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-<script type="text/javascript"> docsearch({
-    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
-    indexName: 'nemtech',
-    inputSelector: '#search',
-    algoliaOptions: {},
-    debug: false
-});
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '#search',
+        debug: false
+    });
 </script>
   </body>
 </html>

@@ -41,6 +41,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!--
 <script type="text/javascript">
     var _paq = window._paq || [];
     _paq.push(['disableCookies']);
@@ -53,7 +54,7 @@
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
     })();
-</script>
+</script>-->
 
   
   
@@ -72,56 +73,41 @@
 <div id="navbar"
      class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-        <div class="navbar-header">
-            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+        <div class="navbar-header col-md-3 col-sm-5">
             <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
                 developer center</a>
         </div>
-
-        <div class="collapse navbar-collapse nav-collapse">
-            <ul class="nav navbar-nav">
-                
-                <li><a href="../getting-started/what-is-nem.html">Getting started</a></li>
-                <li><a href="account.html">Built-in features</a></li>
-                <li><a href="cryptography.html">Protocol</a></li>
-                <li><a href="../references.html">References</a></li>
-                
-                
-                
-                
-                
-            </ul>
-            <span class="navbar-text navbar-language pull-left">
-                <div id="language" class="hidden-xs hidden-sm">
-    <label>
+        <div class="navbar-nav col-md-6 col-sm-7 hidden-xs">
+            <div class="search-box">
+    <input id="search" class="form-control" placeholder="Search for features, guides, or code examples"/>
+    <i class="fas fa-search"></i>
+</div>
+        </div>
+        <div class="navbar-right col-md-3">
+            <ul>
+                <ul class="list-inline">
+    <li id="edit-github" class="hidden-xs hidden-sm">
+        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\mosaic.rst"
+           rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+    </li>
+    <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
         <select>
             <option id="english" value="en">English</option>
             <option id="japanese" value="ja">日本語</option>
-            <option id="chinese" value="zh_CN">中文</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
             <option id="translate" value="translate">翻訳する</option>
         </select>
-    </label>
-</div>
-            </span>
-            
-            
-
-<div class="navbar-right hidden-sm hidden-xs">
-    <i class="fas fa-search"></i>
-    <input id="search" class="form-control" placeholder="Search..."/>
-</div>
-            
+    </li>
+</ul>
+            </ul>
         </div>
     </div>
 </div>
 
+
 <div class="container">
+
     <div class="row">
 
         
@@ -141,6 +127,9 @@
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">モザイク</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#absolute-and-relative-amounts">Absolute and relative amounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cost">Cost</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">ガイド</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">スキーマ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#mosaicdefinitiontransaction">MosaicDefinitionTransaction</a></li>
@@ -182,12 +171,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">貢献者</a></li>
 </ul>
 
-    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.2</a></small>
+    <p class="version">
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.5</a></small>
+    </p>
 </div>
 
 <div class="sidebar-xs visible-xs visible-sm">
     <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigation <b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">ナビゲーション <b class="caret"></b></a>
         <ul class="dropdown-menu globaltoc"><p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/what-is-nem.html">NEM とは？</a></li>
@@ -202,6 +193,9 @@
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">モザイク</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#absolute-and-relative-amounts">Absolute and relative amounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cost">Cost</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">ガイド</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">スキーマ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#mosaicdefinitiontransaction">MosaicDefinitionTransaction</a></li>
@@ -247,22 +241,15 @@
 </div>
     </div>
 </div>
-        
         <div class="col-md-7 content">
-            <div id="edit-on-github" class="text-right">
-                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\mosaic.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose"
-                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
-
-            </div>
-
             
   <div class="section" id="mosaic">
 <h1>モザイク<a class="headerlink" href="#mosaic" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>モザイクは、スマートアセットシステムに一意性と柔軟さをもたらすものの一部です。これらは、変化しない複数の同一物の集合を表すことができる、NEM ブロックチェーン上に <strong>固定されたアセット</strong> です。</p>
 <p>モザイクはトークンといえますが、より特化したアセット: 報酬ポイント、株式、署名、状態フラグ、投票やその他の貨幣などのコレクションとみなすこともできます。</p>
-<p>各モザイクは設定可能なプロパティの集合を持ちます。モザイクを作成する時に定義できます:</p>
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Each mosaic has a unique identifier and a set of configurable properties. During the  <a class="reference internal" href="../guides/mosaic/creating-a-mosaic.html"><span class="doc">mosaic creation</span></a>, you can define:</p>
 <table border="1" class="docutils" id="mosaic-properties">
 <colgroup>
 <col width="33%" />
@@ -282,11 +269,11 @@
 </tr>
 <tr class="row-odd"><td>Duration</td>
 <td>Integer</td>
-<td>モザイクのレンタル期間の承認済みブロック数を指定します。期限が切れないモザイクを構成することが可能です。</td>
+<td>Specifies the number of confirmed blocks the mosaic is rented for. To create non-expiring mosaics, leave this property undefined.  Duration is allowed to lie up to <code class="docutils literal"><span class="pre">365</span></code> days.</td>
 </tr>
 <tr class="row-even"><td>Initial supply</td>
 <td>Integer</td>
-<td>モザイクの供給量の総数です。初期供給量は 0 から <code class="docutils literal"><span class="pre">9,000,000,000</span></code> の範囲でなければなりません。</td>
+<td>Indicates the amount of mosaic in circulation. The total supply must be in the range of 0 and <code class="docutils literal"><span class="pre">9,000,000,000</span></code>.</td>
 </tr>
 <tr class="row-odd"><td>Supply mutable</td>
 <td>Boolean</td>
@@ -298,6 +285,16 @@
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="absolute-and-relative-amounts">
+<h2>Absolute and relative amounts<a class="headerlink" href="#absolute-and-relative-amounts" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>NEM works with absolute amounts, removing the comma when the mosaic can be divisible. To get an absolute amount, multiply the amount of assets you want to create or send by 10<sup>divisibility</sup>.</p>
+<p>For example, if the mosaic has divisibility 2, to create or send 10 units (relative) you should define 1000 (absolute) instead.</p>
+</div>
+<div class="section" id="cost">
+<h2>Cost<a class="headerlink" href="#cost" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>The cost of creating a mosaic is <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">configurable per network</a>. By default, it has a cost of <code class="docutils literal"><span class="pre">500</span> <span class="pre">cat.currency</span></code> plus transaction fees.</p>
+</div>
 <div class="section" id="guides">
 <h2>ガイド<a class="headerlink" href="#guides" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="postlist-style-circle postlist">
@@ -309,6 +306,9 @@
 </li>
 <li><p class="first"><a class="reference internal" href="../guides/namespace/link-a-namespace-to-a-mosaic.html">ネームスペースをモザイクへリンクする</a></p>
 <p><a class="reference internal" href="namespace.html"><span class="doc">ネームスペース</span></a> を <a class="reference internal" href="#"><span class="doc">モザイク</span></a> にリンクしましょう。</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../guides/mosaic/getting-mosaic-information.html">Getting the mosaic information</a></p>
+<p>Get the ownership, divisibility, duration, and flags for a given <a class="reference internal" href="#"><span class="doc">mosaic</span></a> identifier.</p>
 </li>
 </ul>
 </div>
@@ -358,10 +358,10 @@
 </tr>
 <tr class="row-even"><td>divisibility</td>
 <td>uint8</td>
-<td>モザイクの可分性</td>
+<td>The mosaic divisibility. The maximum divisibility is <code class="docutils literal"><span class="pre">6</span></code>.</td>
 </tr>
 <tr class="row-odd"><td>properties</td>
-<td>array(<a class="reference internal" href="#mosaic-property"><span class="std std-ref">MosaicProperty</span></a>, count)</td>
+<td>array&lt;<a class="reference internal" href="#mosaic-property"><span class="std std-ref">MosaicProperty</span></a>, count&gt;</td>
 <td>オプションのモザイクプロパティ</td>
 </tr>
 </tbody>
@@ -423,7 +423,7 @@
 <td>uint8</td>
 <td>プロパティID (0x02) は期間を意味します。</td>
 </tr>
-<tr class="row-odd"><td>mosaicId</td>
+<tr class="row-odd"><td>value</td>
 <td>uint64</td>
 <td>モザイクプロパティの値</td>
 </tr>
@@ -526,10 +526,10 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>0</td>
-<td>増加</td>
+<td>減少</td>
 </tr>
 <tr class="row-odd"><td>1</td>
-<td>減少</td>
+<td>増加</td>
 </tr>
 </tbody>
 </table>
@@ -542,12 +542,18 @@
   
   </div>
 
+            <p class="feedback top-gap">
+                <b>Did you find what you were looking for?</b>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a></p>
         </div>
          
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">モザイク</a><ul>
+<li><a class="reference internal" href="#properties">Properties</a></li>
+<li><a class="reference internal" href="#absolute-and-relative-amounts">Absolute and relative amounts</a></li>
+<li><a class="reference internal" href="#cost">Cost</a></li>
 <li><a class="reference internal" href="#guides">ガイド</a></li>
 <li><a class="reference internal" href="#schemas">スキーマ</a><ul>
 <li><a class="reference internal" href="#mosaicdefinitiontransaction">MosaicDefinitionTransaction</a></li>
@@ -580,8 +586,7 @@
                     <li><a href="../getting-started/what-is-nem.html">入門</a></li>
                     <li><a href="account.html">ビルドイン機能</a></li>
                     <li><a href="cryptography.html">プロトコル</a></li>
-                    <li><a href="../references.html">リファレンス</a></li>
-                    <li><a href="../guides/category/account.html">ガイド</a></li>
+                    <li><a href="../api.html">リファレンス</a></li>
                     <li><a href="../contribute/contributing.html">貢献する</a></li>
                 </ul>
             </div>
@@ -635,13 +640,13 @@
     </div>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-<script type="text/javascript"> docsearch({
-    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
-    indexName: 'nemtech',
-    inputSelector: '#search',
-    algoliaOptions: {},
-    debug: false
-});
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '#search',
+        debug: false
+    });
 </script>
   </body>
 </html>

@@ -40,6 +40,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!--
 <script type="text/javascript">
     var _paq = window._paq || [];
     _paq.push(['disableCookies']);
@@ -52,7 +53,7 @@
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
     })();
-</script>
+</script>-->
 
   
   
@@ -71,56 +72,41 @@
 <div id="navbar"
      class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-        <div class="navbar-header">
-            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+        <div class="navbar-header col-md-3 col-sm-5">
             <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
                 developer center</a>
         </div>
-
-        <div class="collapse navbar-collapse nav-collapse">
-            <ul class="nav navbar-nav">
-                
-                <li><a href="what-is-nem.html">Getting started</a></li>
-                <li><a href="../concepts/account.html">Built-in features</a></li>
-                <li><a href="../concepts/cryptography.html">Protocol</a></li>
-                <li><a href="../references.html">References</a></li>
-                
-                
-                
-                
-                
-            </ul>
-            <span class="navbar-text navbar-language pull-left">
-                <div id="language" class="hidden-xs hidden-sm">
-    <label>
+        <div class="navbar-nav col-md-6 col-sm-7 hidden-xs">
+            <div class="search-box">
+    <input id="search" class="form-control" placeholder="Search for features, guides, or code examples"/>
+    <i class="fas fa-search"></i>
+</div>
+        </div>
+        <div class="navbar-right col-md-3">
+            <ul>
+                <ul class="list-inline">
+    <li id="edit-github" class="hidden-xs hidden-sm">
+        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/getting-started\first-application.rst"
+           rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+    </li>
+    <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
         <select>
             <option id="english" value="en">English</option>
             <option id="japanese" value="ja">日本語</option>
-            <option id="chinese" value="zh_CN">中文</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
             <option id="translate" value="translate">Translate</option>
         </select>
-    </label>
-</div>
-            </span>
-            
-            
-
-<div class="navbar-right hidden-sm hidden-xs">
-    <i class="fas fa-search"></i>
-    <input id="search" class="form-control" placeholder="Search..."/>
-</div>
-            
+    </li>
+</ul>
+            </ul>
         </div>
     </div>
 </div>
 
+
 <div class="container">
+
     <div class="row">
 
         
@@ -131,8 +117,18 @@
 <li class="toctree-l1"><a class="reference internal" href="what-is-nem.html">What is NEM?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup-workstation.html">Setting up your workstation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Writing your first application</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#background">Background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lets-get-into-some-code">Let’s get into some code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#background">Background</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-do-we-want-to-solve">What do we want to solve?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-should-we-use-nem">Why should we use NEM?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#lets-get-into-some-code">Let’s get into some code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-an-account-for-each-participant">Creating an account for each participant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#monitoring-the-blockchain">Monitoring the blockchain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-the-ticket">Creating the ticket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sending-the-ticket">Sending the ticket</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#what-s-next">What’s next?</a></li>
 </ul>
 </li>
@@ -173,7 +169,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">Contributors</a></li>
 </ul>
 
-    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.4</a></small>
+    <p class="version">
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.5</a></small>
+    </p>
 </div>
 
 <div class="sidebar-xs visible-xs visible-sm">
@@ -184,8 +182,18 @@
 <li class="toctree-l1"><a class="reference internal" href="what-is-nem.html">What is NEM?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup-workstation.html">Setting up your workstation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Writing your first application</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#background">Background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lets-get-into-some-code">Let’s get into some code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#background">Background</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-do-we-want-to-solve">What do we want to solve?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-should-we-use-nem">Why should we use NEM?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#lets-get-into-some-code">Let’s get into some code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-an-account-for-each-participant">Creating an account for each participant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#monitoring-the-blockchain">Monitoring the blockchain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-the-ticket">Creating the ticket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sending-the-ticket">Sending the ticket</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#what-s-next">What’s next?</a></li>
 </ul>
 </li>
@@ -230,16 +238,7 @@
 </div>
     </div>
 </div>
-        
         <div class="col-md-7 content">
-            <div id="edit-on-github" class="text-right">
-                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/getting-started\first-application.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose"
-                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
-
-            </div>
-
             
   <div class="section" id="writing-your-first-application">
 <h1>Writing your first application<a class="headerlink" href="#writing-your-first-application" title="Permalink to this headline">¶</a></h1>
@@ -248,7 +247,8 @@
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
 <p>The secondary ticket market, also known as the resale market, is the exchange of tickets that happens between individuals after they have purchased a ticket from an initial vendor. The initial vendor could be the event website, an online ticket vending platform, a shop or a stall at the entrance of the event.</p>
 <p>Buying a ticket from someone that is not the initial vendor does not necessarily only mean to pay more for the ticket. The is the chance to be a victim of buying a fake or duplicate ticket, where the initial original vendor can’t do anything to solve the issue.</p>
-<p><strong>What do we want to solve?</strong></p>
+<div class="section" id="what-do-we-want-to-solve">
+<h3>What do we want to solve?<a class="headerlink" href="#what-do-we-want-to-solve" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-center" id="id1">
 <img alt="../_images/getting-started.png" src="../_images/getting-started.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">Authorization model</span></p>
@@ -259,7 +259,9 @@
 <li>Avoid ticket reselling.</li>
 <li>Avoid non-authentic tickets and duplicate ones.</li>
 </ol>
-<p><strong>Why should we use NEM?</strong></p>
+</div>
+<div class="section" id="why-should-we-use-nem">
+<h3>Why should we use NEM?<a class="headerlink" href="#why-should-we-use-nem" title="Permalink to this headline">¶</a></h3>
 <p>Blockchain technology makes sense in cases where:</p>
 <ul class="simple">
 <li>There are different participants involved.</li>
@@ -269,9 +271,11 @@
 <p>NEM is a <strong>flexible blockchain</strong> technology. Instead of uploading all the application logic into the blockchain, you can use its tested features through <strong>API calls</strong> for transfer and storage of value, authorization, traceability, and identification.</p>
 <p>The rest of the code remains <strong>off-chain</strong>. This reduces the inherent immutability risk, as you could change the process when necessary.</p>
 </div>
+</div>
 <div class="section" id="lets-get-into-some-code">
 <h2>Let’s get into some code<a class="headerlink" href="#lets-get-into-some-code" title="Permalink to this headline">¶</a></h2>
-<p><strong>1.Creating an account for each participant</strong></p>
+<div class="section" id="creating-an-account-for-each-participant">
+<h3>Creating an account for each participant<a class="headerlink" href="#creating-an-account-for-each-participant" title="Permalink to this headline">¶</a></h3>
 <p>First, identify the actors involved in the problem we want to solve:</p>
 <ul class="simple">
 <li>The ticket vendor.</li>
@@ -282,7 +286,7 @@
 <ol class="arabic simple">
 <li>After running the following command, you should see on your screen a line similar to:</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account info
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account info
 
 
 New Account: SCVG35-ZSPMYP-L2POZQ-JGSVEG-RYOJ3V-BNIU3U-N2E6
@@ -298,37 +302,41 @@ Mosaics
 <li>This account owns <code class="docutils literal"><span class="pre">1.000.000</span> <span class="pre">cat.currency</span></code>. If your row after mosaics is empty, follow <a class="reference internal" href="setup-workstation.html"><span class="doc">the previous guide instructions</span></a>.</li>
 <li>Create a second account to identify the ticket buyer.</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account generate --network MIJIN_TEST --save --url http://localhost:3000 --profile buyer
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account generate --network MIJIN_TEST --save --url http://localhost:3000 --profile buyer
 </pre></div>
 </div>
-<p><strong>2. Monitoring the blockchain</strong></p>
+</div>
+<div class="section" id="monitoring-the-blockchain">
+<h3>Monitoring the blockchain<a class="headerlink" href="#monitoring-the-blockchain" title="Permalink to this headline">¶</a></h3>
 <p>Accounts change the blockchain state through transactions. Once an account announces a transaction, if properly formed, the server will return an OK response.</p>
 <p>Receiving an OK response does not mean the transaction is valid, which means it is still not included in a block. A good practice is to monitor transactions before being announced.</p>
 <p>Open three new terminals:</p>
 <ol class="arabic simple">
 <li>The first terminal <a class="reference internal" href="../guides/transaction/monitoring-a-transaction-status.html"><span class="doc">monitors announced transactions</span></a> validation errors.</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor status
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli monitor status
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
 <li>Monitoring <code class="docutils literal"><span class="pre">unconfirmed</span></code> shows you which transactions have reached the network, but are not included in a block yet.</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor unconfirmed
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli monitor unconfirmed
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
 <li>Once a transaction is included, you will see it under the <code class="docutils literal"><span class="pre">confirmed</span></code> terminal.</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli monitor confirmed
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli monitor confirmed
 </pre></div>
 </div>
-<p><strong>3. Creating the ticket</strong></p>
+</div>
+<div class="section" id="creating-the-ticket">
+<h3>Creating the ticket<a class="headerlink" href="#creating-the-ticket" title="Permalink to this headline">¶</a></h3>
 <p>We are representing the ticket as a NEM mosaic. <a class="reference internal" href="../concepts/mosaic.html"><span class="doc">Mosaics</span></a> can be used to represent any asset in the blockchain, such as objects, tickets, coupons, stock share representation, and even your cryptocurrency. They have configurable properties, which are defined at the moment of their creation. For example, we opt to set <strong>transferable property to false</strong>. This means that the ticket buyer can only send back the ticket to the creator of the mosaic, avoiding the ticket reselling.</p>
 <ol class="arabic simple">
 <li>Create a  mosaic named <code class="docutils literal"><span class="pre">ticket</span></code>:</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction mosaic --amount <span class="m">1000000</span> --supplymutable --divisibility <span class="m">0</span> --duration 1000
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli transaction mosaic --amount <span class="m">1000000</span> --supplymutable --divisibility <span class="m">0</span> --duration 1000
 </pre></div>
 </div>
 <table border="1" class="docutils">
@@ -369,10 +377,12 @@ Mosaics
 <ol class="arabic simple" start="2">
 <li>Copy the mosaicId returned in the <code class="docutils literal"><span class="pre">monitor</span> <span class="pre">confirmed</span></code> tab after the transaction gets confirmed.</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; ...  MosaicId:7cdf3b117a3c40cc ...
+<div class="highlight-bash"><div class="highlight"><pre><span></span>...  MosaicId:7cdf3b117a3c40cc ...
 </pre></div>
 </div>
-<p><strong>4. Sending the ticket</strong></p>
+</div>
+<div class="section" id="sending-the-ticket">
+<h3>Sending the ticket<a class="headerlink" href="#sending-the-ticket" title="Permalink to this headline">¶</a></h3>
 <p>Send one <code class="docutils literal"><span class="pre">company.ticket</span></code> to the ticket vendor account announcing a <a class="reference internal" href="../concepts/transfer-transaction.html#id1"><span class="std std-ref">transfer transaction</span></a>, one of the most commonly used actions in NEM.</p>
 <ol class="arabic simple">
 <li>Prepare the transfer transaction. The following attributes form a transfer transaction:</li>
@@ -453,15 +463,16 @@ Mosaics
 <span class="p">);</span>
 </pre></div>
 </div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli transaction transfer --recipient SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54 --mosaics 7cdf3b117a3c40cc::1 --message enjoy_your_ticket
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli transaction transfer --recipient SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54 --mosaics 7cdf3b117a3c40cc::1 --message enjoy_your_ticket
 </pre></div>
 </div>
 </div>
 <ol class="arabic simple" start="4">
 <li>When the transaction is confirmed, check that the ticket buyer has received the ticket.</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; nem2-cli account info --profile buyer
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account info --profile buyer
 </pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="what-s-next">
@@ -470,7 +481,7 @@ Mosaics
 <p>✅ Identify each ticket buyer: Creating NEM accounts for each buyer.</p>
 <p>✅ Avoid ticket reselling: Creating a non-transferable mosaic.</p>
 <p>✅ Avoid non-authentic tickets and duplicate ones: Creating a unique mosaic.</p>
-<p>Continue learning about more <a class="reference internal" href="../concepts/account.html"><span class="doc">NEM built-in features</span></a> or practicing with <a class="reference internal" href="training.html"><span class="doc">self-paced training</span></a>.</p>
+<p>Continue learning about more <a class="reference internal" href="../concepts/account.html"><span class="doc">NEM built-in features</span></a>.</p>
 </div>
 </div>
 
@@ -479,14 +490,27 @@ Mosaics
   
   </div>
 
+            <p class="feedback top-gap">
+                <b>Did you find what you were looking for?</b>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a></p>
         </div>
          
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">Writing your first application</a><ul>
-<li><a class="reference internal" href="#background">Background</a></li>
-<li><a class="reference internal" href="#lets-get-into-some-code">Let’s get into some code</a></li>
+<li><a class="reference internal" href="#background">Background</a><ul>
+<li><a class="reference internal" href="#what-do-we-want-to-solve">What do we want to solve?</a></li>
+<li><a class="reference internal" href="#why-should-we-use-nem">Why should we use NEM?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lets-get-into-some-code">Let’s get into some code</a><ul>
+<li><a class="reference internal" href="#creating-an-account-for-each-participant">Creating an account for each participant</a></li>
+<li><a class="reference internal" href="#monitoring-the-blockchain">Monitoring the blockchain</a></li>
+<li><a class="reference internal" href="#creating-the-ticket">Creating the ticket</a></li>
+<li><a class="reference internal" href="#sending-the-ticket">Sending the ticket</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#what-s-next">What’s next?</a></li>
 </ul>
 </li>
@@ -509,8 +533,7 @@ Mosaics
                     <li><a href="what-is-nem.html">Getting Started</a></li>
                     <li><a href="../concepts/account.html">Built-in Features</a></li>
                     <li><a href="../concepts/cryptography.html">Protocol</a></li>
-                    <li><a href="../references.html">References</a></li>
-                    <li><a href="../guides/category/account.html">Guides</a></li>
+                    <li><a href="../api.html">References</a></li>
                     <li><a href="../contribute/contributing.html">Contribute</a></li>
                 </ul>
             </div>
@@ -564,13 +587,13 @@ Mosaics
     </div>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-<script type="text/javascript"> docsearch({
-    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
-    indexName: 'nemtech',
-    inputSelector: '#search',
-    algoliaOptions: {},
-    debug: false
-});
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '#search',
+        debug: false
+    });
 </script>
   </body>
 </html>

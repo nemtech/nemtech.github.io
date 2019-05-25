@@ -40,6 +40,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!--
 <script type="text/javascript">
     var _paq = window._paq || [];
     _paq.push(['disableCookies']);
@@ -52,7 +53,7 @@
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
     })();
-</script>
+</script>-->
 
   
   
@@ -71,56 +72,41 @@
 <div id="navbar"
      class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-        <div class="navbar-header">
-            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+        <div class="navbar-header col-md-3 col-sm-5">
             <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
                 developer center</a>
         </div>
-
-        <div class="collapse navbar-collapse nav-collapse">
-            <ul class="nav navbar-nav">
-                
-                <li><a href="../getting-started/what-is-nem.html">Getting started</a></li>
-                <li><a href="account.html">Built-in features</a></li>
-                <li><a href="cryptography.html">Protocol</a></li>
-                <li><a href="../references.html">References</a></li>
-                
-                
-                
-                
-                
-            </ul>
-            <span class="navbar-text navbar-language pull-left">
-                <div id="language" class="hidden-xs hidden-sm">
-    <label>
+        <div class="navbar-nav col-md-6 col-sm-7 hidden-xs">
+            <div class="search-box">
+    <input id="search" class="form-control" placeholder="Search for features, guides, or code examples"/>
+    <i class="fas fa-search"></i>
+</div>
+        </div>
+        <div class="navbar-right col-md-3">
+            <ul>
+                <ul class="list-inline">
+    <li id="edit-github" class="hidden-xs hidden-sm">
+        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\account-filter.rst"
+           rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+    </li>
+    <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
         <select>
             <option id="english" value="en">English</option>
             <option id="japanese" value="ja">日本語</option>
-            <option id="chinese" value="zh_CN">中文</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
             <option id="translate" value="translate">Translate</option>
         </select>
-    </label>
-</div>
-            </span>
-            
-            
-
-<div class="navbar-right hidden-sm hidden-xs">
-    <i class="fas fa-search"></i>
-    <input id="search" class="form-control" placeholder="Search..."/>
-</div>
-            
+    </li>
+</ul>
+            </ul>
         </div>
     </div>
 </div>
 
+
 <div class="container">
+
     <div class="row">
 
         
@@ -138,13 +124,15 @@
 <li class="toctree-l1"><a class="reference internal" href="account.html">Account</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Account Filter</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#address-filter">Address filter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mosaic-filter">Mosaic filter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#entitytype-filter">EntityType filter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mosaic-filter">Mosaic filter</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#blocking-spam-transactions">Blocking spam transactions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#entitytype-filter">EntityType filter</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#enhancing-the-account-security">Enhancing the account security</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">Schemas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#accountpropertiesaddresstransaction">AccountPropertiesAddressTransaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#accountpropertiesmosaictransaction">AccountPropertiesMosaicTransaction</a></li>
@@ -190,7 +178,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">Contributors</a></li>
 </ul>
 
-    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.4</a></small>
+    <p class="version">
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.5</a></small>
+    </p>
 </div>
 
 <div class="sidebar-xs visible-xs visible-sm">
@@ -208,13 +198,15 @@
 <li class="toctree-l1"><a class="reference internal" href="account.html">Account</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Account Filter</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#address-filter">Address filter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mosaic-filter">Mosaic filter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#entitytype-filter">EntityType filter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mosaic-filter">Mosaic filter</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#blocking-spam-transactions">Blocking spam transactions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#entitytype-filter">EntityType filter</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#enhancing-the-account-security">Enhancing the account security</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">Schemas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#accountpropertiesaddresstransaction">AccountPropertiesAddressTransaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#accountpropertiesmosaictransaction">AccountPropertiesMosaicTransaction</a></li>
@@ -264,16 +256,7 @@
 </div>
     </div>
 </div>
-        
         <div class="col-md-7 content">
-            <div id="edit-on-github" class="text-right">
-                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\account-filter.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose"
-                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
-
-            </div>
-
             
   <div class="section" id="account-filter">
 <h1>Account Filter<a class="headerlink" href="#account-filter" title="Permalink to this headline">¶</a></h1>
@@ -295,29 +278,34 @@
 <div class="section" id="mosaic-filter">
 <h2>Mosaic filter<a class="headerlink" href="#mosaic-filter" title="Permalink to this headline">¶</a></h2>
 <p>An account can configure a filter to permit incoming transactions only if all the <a class="reference internal" href="mosaic.html"><span class="doc">mosaics</span></a> attached are allowed. On the other hand, the account can refuse to accept transactions containing a mosaic listed as blocked.</p>
-</div>
-<div class="section" id="entitytype-filter">
-<h2>EntityType filter<a class="headerlink" href="#entitytype-filter" title="Permalink to this headline">¶</a></h2>
-<p>An account can allow/block announcing outgoing transactions with a <a class="reference internal" href="transaction.html#id1"><span class="std std-ref">determined type</span></a>. By doing so, it increases its security, preventing the announcement by mistake of undesired transactions.</p>
-</div>
-<div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="blocking-spam-transactions">
 <h3>Blocking spam transactions<a class="headerlink" href="#blocking-spam-transactions" title="Permalink to this headline">¶</a></h3>
 <p>A company is using the public chain to certify the quality of their products.</p>
 <p>When the quality verification process concludes, an operator sends a <a class="reference internal" href="mosaic.html"><span class="doc">quality seal</span></a> to the product account.</p>
-<p>The final customers can review the product mosaics scanning a QR code. For that reason, the company only wants to show related transactions, avoiding others to spam their products with non-related information.</p>
+<p>The final customers can review the product mosaics scanning a QR code. For that reason, the company only wants to show related transactions, avoiding that others spam their products with non-related information.</p>
 <div class="figure align-center" id="id2">
 <img alt="../_images/account-properties-spam.png" src="../_images/account-properties-spam.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">Blocking spam transactions</span></p>
 </div>
 <p>The company opts to configure their product accounts filters, enabling only to receive transactions containing <code class="docutils literal"><span class="pre">company.quality.seal</span></code> mosaics.</p>
 </div>
+</div>
+<div class="section" id="entitytype-filter">
+<h2>EntityType filter<a class="headerlink" href="#entitytype-filter" title="Permalink to this headline">¶</a></h2>
+<p>An account can allow/block announcing outgoing transactions with a <a class="reference internal" href="transaction.html#id1"><span class="std std-ref">determined type</span></a>. By doing so, it increases its security, preventing the announcement by mistake of undesired transactions.</p>
 <div class="section" id="enhancing-the-account-security">
 <h3>Enhancing the account security<a class="headerlink" href="#enhancing-the-account-security" title="Permalink to this headline">¶</a></h3>
 <p>Lately, Alice is only using her main account to cosign aggregate transactions where she is a cosignatory for the <a class="reference internal" href="multisig-account.html"><span class="doc">multisig</span></a> account.</p>
 <p>As a temporary measure, Alice opts to disable announcing transfer transactions from her main account, double checking that any of the funds she owns will be transferred.</p>
 </div>
+</div>
+<div class="section" id="guides">
+<h2>Guides<a class="headerlink" href="#guides" title="Permalink to this headline">¶</a></h2>
+<ul class="postlist-style-circle postlist">
+<li><p class="first"><a class="reference internal" href="../guides/account/preventing-spam-attacks-with-account-filters.html">Preventing spam attacks with account filters</a></p>
+<p>Learn how to add and remove account filters.</p>
+</li>
+</ul>
 </div>
 <div class="section" id="schemas">
 <h2>Schemas<a class="headerlink" href="#schemas" title="Permalink to this headline">¶</a></h2>
@@ -349,14 +337,14 @@
 <tbody valign="top">
 <tr class="row-even"><td>propertyType</td>
 <td><a class="reference internal" href="#property-type"><span class="std std-ref">PropertyType</span></a></td>
-<td>The property type.</td>
+<td>Indicates the property type.</td>
 </tr>
 <tr class="row-odd"><td>modificationsCount</td>
 <td>uint8</td>
-<td>The number of modifications.</td>
+<td>The number of modifications in the transaction. A maximum of <code class="docutils literal"><span class="pre">255</span></code> modifications per transaction is allowed.</td>
 </tr>
 <tr class="row-even"><td>modifications</td>
-<td>array(<a class="reference internal" href="#address-modification"><span class="std std-ref">AddressModification</span></a>, modificationsCount)</td>
+<td>array&lt;<a class="reference internal" href="#address-modification"><span class="std std-ref">AddressModification</span></a>, modificationsCount&gt;</td>
 <td>The array of modifications.</td>
 </tr>
 </tbody>
@@ -386,14 +374,14 @@
 <tbody valign="top">
 <tr class="row-even"><td>propertyType</td>
 <td><a class="reference internal" href="#property-type"><span class="std std-ref">PropertyType</span></a></td>
-<td>The property type.</td>
+<td>Indicates the property type.</td>
 </tr>
 <tr class="row-odd"><td>modificationsCount</td>
 <td>uint8</td>
-<td>The number of modifications.</td>
+<td>The number of modifications in the transaction. A maximum of <code class="docutils literal"><span class="pre">255</span></code> modifications per transaction is allowed.</td>
 </tr>
 <tr class="row-even"><td>modifications</td>
-<td>array(<a class="reference internal" href="#mosaic-modification"><span class="std std-ref">MosaicModification</span></a>, modificationsCount)</td>
+<td>array&lt;<a class="reference internal" href="#mosaic-modification"><span class="std std-ref">MosaicModification</span></a>, modificationsCount&gt;</td>
 <td>The array of modifications.</td>
 </tr>
 </tbody>
@@ -423,14 +411,14 @@
 <tbody valign="top">
 <tr class="row-even"><td>propertyType</td>
 <td><a class="reference internal" href="#property-type"><span class="std std-ref">PropertyType</span></a></td>
-<td>The property type.</td>
+<td>Indicates the property type.</td>
 </tr>
 <tr class="row-odd"><td>modificationsCount</td>
 <td>uint8</td>
-<td>The number of modifications.</td>
+<td>The number of modifications in the transaction. A maximum of <code class="docutils literal"><span class="pre">255</span></code> modifications per transaction is allowed.</td>
 </tr>
 <tr class="row-even"><td>modifications</td>
-<td>array(<a class="reference internal" href="#entity-type-modification"><span class="std std-ref">EntityTypeModification</span></a>, modificationsCount)</td>
+<td>array&lt;<a class="reference internal" href="#entity-type-modification"><span class="std std-ref">EntityTypeModification</span></a>, modificationsCount&gt;</td>
 <td>The array of modifications.</td>
 </tr>
 </tbody>
@@ -551,19 +539,25 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>0x01</td>
-<td>The property type is an address.</td>
+<td>The property type only allows receiving transactions from an address.</td>
 </tr>
 <tr class="row-odd"><td>0x02</td>
-<td>The property type is mosaic id.</td>
+<td>The property type only allows receiving transactions containing a mosaic id.</td>
 </tr>
 <tr class="row-even"><td>0x04</td>
-<td>The property type is a transaction type.</td>
+<td>The property type only allows sending transactions with a given transaction type.</td>
 </tr>
 <tr class="row-odd"><td>0x05</td>
 <td>Property type sentinel.</td>
 </tr>
-<tr class="row-even"><td>0x80 + type</td>
-<td>The property is interpreted as a blocking operation.</td>
+<tr class="row-even"><td>0x81</td>
+<td>The property type blocks receiving transactions from an address.</td>
+</tr>
+<tr class="row-odd"><td>0x82</td>
+<td>The property type blocks receiving transactions containing a mosaic id.</td>
+</tr>
+<tr class="row-even"><td>0x84</td>
+<td>The property type blocks sending transactions with a given transaction type.</td>
 </tr>
 </tbody>
 </table>
@@ -599,6 +593,9 @@
   
   </div>
 
+            <p class="feedback top-gap">
+                <b>Did you find what you were looking for?</b>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a></p>
         </div>
          
 <div class="col-md-2">
@@ -606,13 +603,15 @@
         <ul>
 <li><a class="reference internal" href="#">Account Filter</a><ul>
 <li><a class="reference internal" href="#address-filter">Address filter</a></li>
-<li><a class="reference internal" href="#mosaic-filter">Mosaic filter</a></li>
-<li><a class="reference internal" href="#entitytype-filter">EntityType filter</a></li>
-<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#mosaic-filter">Mosaic filter</a><ul>
 <li><a class="reference internal" href="#blocking-spam-transactions">Blocking spam transactions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#entitytype-filter">EntityType filter</a><ul>
 <li><a class="reference internal" href="#enhancing-the-account-security">Enhancing the account security</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#guides">Guides</a></li>
 <li><a class="reference internal" href="#schemas">Schemas</a><ul>
 <li><a class="reference internal" href="#accountpropertiesaddresstransaction">AccountPropertiesAddressTransaction</a></li>
 <li><a class="reference internal" href="#accountpropertiesmosaictransaction">AccountPropertiesMosaicTransaction</a></li>
@@ -646,8 +645,7 @@
                     <li><a href="../getting-started/what-is-nem.html">Getting Started</a></li>
                     <li><a href="account.html">Built-in Features</a></li>
                     <li><a href="cryptography.html">Protocol</a></li>
-                    <li><a href="../references.html">References</a></li>
-                    <li><a href="../guides/category/account.html">Guides</a></li>
+                    <li><a href="../api.html">References</a></li>
                     <li><a href="../contribute/contributing.html">Contribute</a></li>
                 </ul>
             </div>
@@ -701,13 +699,13 @@
     </div>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-<script type="text/javascript"> docsearch({
-    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
-    indexName: 'nemtech',
-    inputSelector: '#search',
-    algoliaOptions: {},
-    debug: false
-});
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '#search',
+        debug: false
+    });
 </script>
   </body>
 </html>

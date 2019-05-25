@@ -40,6 +40,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!--
 <script type="text/javascript">
     var _paq = window._paq || [];
     _paq.push(['disableCookies']);
@@ -52,7 +53,7 @@
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
     })();
-</script>
+</script>-->
 
   
   
@@ -71,56 +72,41 @@
 <div id="navbar"
      class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-        <div class="navbar-header">
-            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+        <div class="navbar-header col-md-3 col-sm-5">
             <a class="navbar-brand" href="index.html"><span><img src="_static/logo-nem.svg"></span>
                 developer center</a>
         </div>
-
-        <div class="collapse navbar-collapse nav-collapse">
-            <ul class="nav navbar-nav">
-                
-                <li><a href="getting-started/what-is-nem.html">Getting started</a></li>
-                <li><a href="concepts/account.html">Built-in features</a></li>
-                <li><a href="concepts/cryptography.html">Protocol</a></li>
-                <li><a href="references.html">References</a></li>
-                
-                
-                
-                
-                
-            </ul>
-            <span class="navbar-text navbar-language pull-left">
-                <div id="language" class="hidden-xs hidden-sm">
-    <label>
+        <div class="navbar-nav col-md-6 col-sm-7 hidden-xs">
+            <div class="search-box">
+    <input id="search" class="form-control" placeholder="Search for features, guides, or code examples"/>
+    <i class="fas fa-search"></i>
+</div>
+        </div>
+        <div class="navbar-right col-md-3">
+            <ul>
+                <ul class="list-inline">
+    <li id="edit-github" class="hidden-xs hidden-sm">
+        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/api.rst"
+           rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+    </li>
+    <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
         <select>
             <option id="english" value="en">English</option>
             <option id="japanese" value="ja">日本語</option>
-            <option id="chinese" value="zh_CN">中文</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
             <option id="translate" value="translate">Translate</option>
         </select>
-    </label>
-</div>
-            </span>
-            
-            
-
-<div class="navbar-right hidden-sm hidden-xs">
-    <i class="fas fa-search"></i>
-    <input id="search" class="form-control" placeholder="Search..."/>
-</div>
-            
+    </li>
+</ul>
+            </ul>
         </div>
     </div>
 </div>
 
+
 <div class="container">
+
     <div class="row">
 
         
@@ -158,10 +144,10 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">REST API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#http-requests">Http requests</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#tools">Tools</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#serialization">Serialization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#http-errors">Http errors</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#http-status">Http status</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#uint64-lower-and-higher">uint64: lower and higher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uint64-lower-and-higher">UInt64: lower and higher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialization">Serialization</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#websockets">WebSockets</a><ul>
@@ -183,7 +169,9 @@
 <li class="toctree-l1"><a class="reference internal" href="contribute/contributors.html">Contributors</a></li>
 </ul>
 
-    <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.4</a></small>
+    <p class="version">
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.5</a></small>
+    </p>
 </div>
 
 <div class="sidebar-xs visible-xs visible-sm">
@@ -221,10 +209,10 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">REST API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#http-requests">Http requests</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#tools">Tools</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#serialization">Serialization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#http-errors">Http errors</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#http-status">Http status</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#uint64-lower-and-higher">uint64: lower and higher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uint64-lower-and-higher">UInt64: lower and higher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialization">Serialization</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#websockets">WebSockets</a><ul>
@@ -250,16 +238,7 @@
 </div>
     </div>
 </div>
-        
         <div class="col-md-7 content">
-            <div id="edit-on-github" class="text-right">
-                <a href="https://github.com/nemtech/nem2-docs/edit/master/source/api.rst"
-                   rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose"
-                   rel="nofollow"><i class="far fa-comment"></i>Feedback</a>
-
-            </div>
-
             
   <div class="section" id="rest-api">
 <h1>REST API<a class="headerlink" href="#rest-api" title="Permalink to this headline">¶</a></h1>
@@ -267,17 +246,13 @@
 <div class="section" id="http-requests">
 <span id="id1"></span><h2>Http requests<a class="headerlink" href="#http-requests" title="Permalink to this headline">¶</a></h2>
 <p>Catapult REST uses port <code class="docutils literal"><span class="pre">3000</span></code>. It accepts both HTTP <strong>GET</strong>, <strong>PUT</strong> and <strong>POST</strong> requests.</p>
-<p>Assuming that Catapult REST is running locally, HTTP GET requests can be executed from a browser and have the form:</p>
+<p>Assuming that Catapult REST is <a class="reference internal" href="getting-started/setup-workstation.html"><span class="doc">running locally</span></a>, HTTP GET requests can be executed from a browser and have the form:</p>
 <p><a class="reference external" href="http://localhost:3000">http://localhost:3000</a>/&lt;path-to-API-request&gt;</p>
 <p>HTTP PUT and POST requests use JSON structures in the request body. Request returns data using JSON structures. This kind of request cannot usually be executed from within the browser unless you use a plugin which enables you to do it.</p>
 <a href="/endpoints.html"><button class="btn btn-default">Catapult REST API Endpoints</button></a><div class="section" id="tools">
 <span id="id2"></span><h3>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h3>
 <p><strong>NEM2-SDK</strong></p>
 <p>The <strong>NEM2 Software Development Kit</strong> is the primary software development tool to create NEM2 components, such as additional tools, libraries or applications.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Consider using <strong>NEM2-SDK</strong> instead of calling the API directly.</p>
-</div>
 <ul class="simple">
 <li><a class="reference internal" href="sdk.html"><span class="doc">Reference</span></a></li>
 <li><a class="reference internal" href="concepts/account.html"><span class="doc">Guides</span></a></li>
@@ -289,29 +264,8 @@
 <li>Import the <a class="reference download internal" href="_downloads/insomnia.json" download=""><code class="xref download docutils literal"><span class="pre">Insomnia</span> <span class="pre">spec</span></code></a> for NEM.</li>
 </ol>
 </div>
-<div class="section" id="serialization">
-<span id="id3"></span><h3>Serialization<a class="headerlink" href="#serialization" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="https://github.com/nemtech/catbuffer">Catbuffer library</a> defines the protocol to serialize and deserialize Catapult entities. The library comes with code generators for different languages. SDKs and applications use the generated code to interact with REST transaction endpoint.</p>
-<div class="figure align-center" id="id8">
-<img alt="_images/catbuffer.png" src="_images/catbuffer.png" style="width: 450px;" />
-<p class="caption"><span class="caption-text">NEM2-SDK serialization module</span></p>
-</div>
-<p>The library accomplishes the following properties:</p>
-<p><strong>Memory Efficiency</strong></p>
-<p>Large networks compute a large number of transactions. Working with binary optimized in size makes the communication faster. Furthermore, reading entities from memory buffers -or just a part of them - is memory efficient.</p>
-<p><strong>Flexibility</strong></p>
-<p>REST <a class="reference external" href="https://nemtech.github.io/endpoints.html#operation/announceTransaction">transaction endpoints</a> handle the calls to update the blockchain state. The serialized payload of a transaction is appended to the body of the POST call. These endpoints allow the addition of new functionality to the server side without modifying the API contract.</p>
-<p><strong>Reusability</strong></p>
-<p>Applications can embed the generated code, without managing dependencies. This is particularly desirable in highly-secure environments. Besides, sharing a common codebase enables the addition of new features with less effort.</p>
-<p>The <a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas">schemas define</a> the entities data structure. The library generates the leanest code necessary to serialize and deserialize defined entities.</p>
-<p>Generate the code for a determined schema in one of the available languages. For example, run the following command to generate C++ transaction builders for a transfer transaction:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$&gt; python main.py --schema schemas/transfer/transfer.cats --generator cpp_builder
-</pre></div>
-</div>
-<p>The generator creates a new file under <code class="docutils literal"><span class="pre">_generated/cpp_builder</span></code> folder. Repeat the process using a different input schema <code class="docutils literal"><span class="pre">(-s)</span></code> or generator <code class="docutils literal"><span class="pre">(-g)</span></code> as needed.</p>
-</div>
 <div class="section" id="http-errors">
-<span id="id4"></span><h3>Http errors<a class="headerlink" href="#http-errors" title="Permalink to this headline">¶</a></h3>
+<span id="id3"></span><h3>Http errors<a class="headerlink" href="#http-errors" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <colgroup>
 <col width="50%" />
@@ -345,7 +299,7 @@
 </table>
 </div>
 <div class="section" id="http-status">
-<span id="id5"></span><h3>Http status<a class="headerlink" href="#http-status" title="Permalink to this headline">¶</a></h3>
+<span id="id4"></span><h3>Http status<a class="headerlink" href="#http-status" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <colgroup>
 <col width="50%" />
@@ -374,9 +328,49 @@
 </div>
 </div>
 <div class="section" id="uint64-lower-and-higher">
-<h3>uint64: lower and higher<a class="headerlink" href="#uint64-lower-and-higher" title="Permalink to this headline">¶</a></h3>
-<p>Javascript operate on 32 bit values. To enable representation up to 64 bits, the API returns numbers encoded in two parts: <code class="docutils literal"><span class="pre">lower</span></code> and <code class="docutils literal"><span class="pre">higher</span></code>.</p>
-<p>Check <a class="reference external" href="https://github.com/nemtech/nem2-library-js/blob/f171afb516a282f698081aea407339cfcd21cd63/src/coders/uint64.js#L37">how to compact lower and higher into a single value</a>.</p>
+<h3>UInt64: lower and higher<a class="headerlink" href="#uint64-lower-and-higher" title="Permalink to this headline">¶</a></h3>
+<p>Javascript operates on <strong>32-bit</strong> values. The server returns numbers encoded in a UInt64 object to enable numeric representation up to <strong>64 bits</strong>.</p>
+<p>The <strong>UInt64</strong> object returned is composed of two 32-bit numbers: <code class="docutils literal"><span class="pre">lower</span></code> and <code class="docutils literal"><span class="pre">higher</span></code>.</p>
+<p>The <a class="reference internal" href="sdk.html"><span class="doc">nem2-sdk</span></a> conveniently allows you to work with UInt64 values.</p>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span><span class="nx">UInt64</span><span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;nem2-sdk&quot;</span><span class="p">;</span>
+
+<span class="c1">// Create Uint64 from [lower, higher]</span>
+<span class="kr">const</span> <span class="nx">id</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UInt64</span><span class="p">([</span><span class="mi">123456</span><span class="p">,</span><span class="mi">654321</span><span class="p">]);</span>
+
+<span class="c1">// UInt64 to compact number</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">id</span><span class="p">.</span><span class="nx">compact</span><span class="p">());</span>
+<span class="c1">// 2810287296209472</span>
+
+<span class="c1">// UInt64 to Hex</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">id</span><span class="p">.</span><span class="nx">toHex</span><span class="p">());</span>
+<span class="c1">// 0009FBF10001E240</span>
+
+<span class="c1">// Create UInt64 from hex</span>
+<span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromHex</span><span class="p">(</span><span class="s1">&#39;0009FBF10001E240&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="serialization">
+<span id="id5"></span><h3>Serialization<a class="headerlink" href="#serialization" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://github.com/nemtech/catbuffer">Catbuffer library</a> defines the protocol to serialize and deserialize Catapult entities. The library comes with code generators for different languages. SDKs and applications use the generated code to interact with REST transaction endpoint.</p>
+<div class="figure align-center" id="id8">
+<img alt="_images/catbuffer.png" src="_images/catbuffer.png" style="width: 450px;" />
+<p class="caption"><span class="caption-text">NEM2-SDK serialization module</span></p>
+<div class="legend">
+The library accomplishes the following properties:</div>
+</div>
+<p><strong>Memory Efficiency</strong></p>
+<p>Large networks compute a large number of transactions. Working with binary optimized in size makes the communication faster. Furthermore, reading entities from memory buffers -or just a part of them - is memory efficient.</p>
+<p><strong>Flexibility</strong></p>
+<p>REST <a class="reference external" href="https://nemtech.github.io/endpoints.html#operation/announceTransaction">transaction endpoints</a> handle the calls to update the blockchain state. The serialized payload of a transaction is appended to the body of the POST call. These endpoints allow the addition of new functionality to the server side without modifying the API contract.</p>
+<p><strong>Reusability</strong></p>
+<p>Applications can embed the generated code, without managing dependencies. This is particularly desirable in highly-secure environments. Besides, sharing a common codebase enables the addition of new features with less effort.</p>
+<p>The <a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas">schemas define</a> the entities data structure. The library generates the leanest code necessary to serialize and deserialize defined entities.</p>
+<p>Generate the code for a determined schema in one of the available languages. For example, run the following command to generate C++ transaction builders for a transfer transaction:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>python main.py --schema schemas/transfer/transfer.cats --generator cpp_builder
+</pre></div>
+</div>
+<p>The generator creates a new file under <code class="docutils literal"><span class="pre">_generated/cpp_builder</span></code> folder. Repeat the process using a different input schema <code class="docutils literal"><span class="pre">(-s)</span></code> or generator <code class="docutils literal"><span class="pre">(-g)</span></code> as needed.</p>
 </div>
 </div>
 <div class="section" id="websockets">
@@ -485,13 +479,13 @@
 <td>Validation failed because the remote is not allowed to participate in the transaction.</td>
 </tr>
 <tr class="row-even"><td>Failure_Aggregate_Too_Many_Transactions</td>
-<td>Validation failed because an aggregate has too many transactions. An aggregate transaction can contain up to <code class="docutils literal"><span class="pre">1000</span></code> inner transactions.</td>
+<td>Validation failed because an aggregate has too many transactions.</td>
 </tr>
 <tr class="row-odd"><td>Failure_Aggregate_No_Transactions</td>
 <td>Validation failed because an aggregate does not have any transactions.</td>
 </tr>
 <tr class="row-even"><td>Failure_Aggregate_Too_Many_Cosignatures</td>
-<td>Validation failed because an aggregate has too many cosignatures. The maximum number of cosignatories allowed is <code class="docutils literal"><span class="pre">15</span></code>.</td>
+<td>Validation failed because an aggregate has too many cosignatures.</td>
 </tr>
 <tr class="row-odd"><td>Failure_Aggregate_Redundant_Cosignatures</td>
 <td>Validation failed because there are redundant cosignatures.</td>
@@ -503,10 +497,10 @@
 <td>Validation failed because at least one required cosigner is missing. The transaction was announced as complete but had missing cosignatures.</td>
 </tr>
 <tr class="row-even"><td>Failure_LockHash_Invalid_Mosaic_Id</td>
-<td>Validation failed because the lock does not allow the specified mosaic. The only mosaic allowed is <code class="docutils literal"><span class="pre">xem</span></code>.</td>
+<td>Validation failed because the lock does not allow the specified mosaic.</td>
 </tr>
 <tr class="row-odd"><td>Failure_LockHash_Invalid_Mosaic_Amount</td>
-<td>Validation failed because the lock does not allow the specified amount. The minimum amount is <code class="docutils literal"><span class="pre">10</span></code>.</td>
+<td>Validation failed because the lock does not allow the specified amount.</td>
 </tr>
 <tr class="row-even"><td>Failure_LockHash_Hash_Exists</td>
 <td>Validation failed because the hash is already present in cache.</td>
@@ -518,10 +512,10 @@
 <td>Validation failed because the hash is inactive.</td>
 </tr>
 <tr class="row-odd"><td>Failure_LockHash_Invalid_Duration</td>
-<td>Validation failed because the duration is too long. Duration is allowed to lie up to <code class="docutils literal"><span class="pre">2</span></code> days.</td>
+<td>Validation failed because the duration is too long.</td>
 </tr>
 <tr class="row-even"><td>Failure_LockSecret_Invalid_Hash_Algorithm</td>
-<td>Validation failed because the hash algorithm for lock type secret is invalid. See the <a class="reference internal" href="concepts/cross-chain-swaps.html"><span class="doc">available algorithms</span></a> list.</td>
+<td>Validation failed because the hash algorithm for lock type secret is invalid.</td>
 </tr>
 <tr class="row-odd"><td>Failure_LockSecret_Hash_Exists</td>
 <td>Validation failed because the hash is already present in cache.</td>
@@ -530,7 +524,7 @@
 <td>Validation failed because the hash is not implemented yet.</td>
 </tr>
 <tr class="row-odd"><td>Failure_LockSecret_Proof_Size_Out_Of_Bounds</td>
-<td>Validation failed because the proof is too small or too large. It should be between <code class="docutils literal"><span class="pre">10</span></code> and <code class="docutils literal"><span class="pre">1000</span></code> bytes.</td>
+<td>Validation failed because the proof is too small or too large.</td>
 </tr>
 <tr class="row-even"><td>Failure_LockSecret_Secret_Mismatch</td>
 <td>Validation failed because the secret does not match proof.</td>
@@ -545,13 +539,13 @@
 <td>Validation failed because the hash algorithm does not match.</td>
 </tr>
 <tr class="row-even"><td>Failure_LockSecret_Invalid_Duration</td>
-<td>Validation failed because the duration is too long. Duration is allowed to lie up to <code class="docutils literal"><span class="pre">30</span></code> days.</td>
+<td>Validation failed because the duration is too long.</td>
 </tr>
 <tr class="row-odd"><td>Failure_Mosaic_Invalid_Duration</td>
-<td>Validation failed because the duration has an invalid value. Duration is allowed to lie up to <code class="docutils literal"><span class="pre">365</span></code> days.</td>
+<td>Validation failed because the duration has an invalid value.</td>
 </tr>
 <tr class="row-even"><td>Failure_Mosaic_Invalid_Name</td>
-<td>Validation failed because the name is invalid. The mosaic name may have a maximum length of <code class="docutils literal"><span class="pre">64</span></code> characters. Allowed characters are <cite>a-to-z</cite>; <cite>0-to-9</cite> and the following special characters: `_-</td>
+<td>Validation failed because the name is invalid.</td>
 </tr>
 <tr class="row-odd"><td>Failure_Mosaic_Name_Id_Mismatch</td>
 <td>Validation failed because the name and id don’t match.</td>
@@ -575,7 +569,7 @@
 <td>Validation failed because the mosaic flags are invalid.</td>
 </tr>
 <tr class="row-even"><td>Failure_Mosaic_Invalid_Divisibility</td>
-<td>Validation failed because the mosaic divisibility is invalid. The specified divisibility is greater than <code class="docutils literal"><span class="pre">6</span></code> or negative.</td>
+<td>Validation failed because the mosaic divisibility is invalid.</td>
 </tr>
 <tr class="row-odd"><td>Failure_Mosaic_Invalid_Supply_Change_Direction</td>
 <td>Validation failed because the mosaic supply change direction is invalid: decrease (0) and  increase (1).</td>
@@ -602,13 +596,13 @@
 <td>Validation failed because the resulting mosaic supply is negative.</td>
 </tr>
 <tr class="row-odd"><td>Failure_Mosaic_Supply_Exceeded</td>
-<td>Validation failed because the resulting mosaic supply exceeds the maximum allowed value. The range should be between 0 and <code class="docutils literal"><span class="pre">9.000.000.000</span></code>.</td>
+<td>Validation failed because the resulting mosaic supply exceeds the maximum allowed value.</td>
 </tr>
 <tr class="row-even"><td>Failure_Mosaic_Non_Transferable</td>
 <td>Validation failed because the mosaic is not transferable. Only the creator of the mosaic is eligible to be the recipient of a non-transferable mosaic once transferred.</td>
 </tr>
 <tr class="row-odd"><td>Failure_Mosaic_Max_Mosaics_Exceeded</td>
-<td>Validation failed because the credit of the mosaic would exceed the maximum different mosaics an account is allowed to own. Set by default to <code class="docutils literal"><span class="pre">10.000</span></code> different mosaics per account.</td>
+<td>Validation failed because the credit of the mosaic would exceed the maximum different mosaics an account is allowed to own.</td>
 </tr>
 <tr class="row-even"><td>Failure_Multisig_Modify_Account_In_Both_Sets</td>
 <td>Validation failed because an account is specified to be both added and removed.</td>
@@ -638,25 +632,25 @@
 <td>Validation failed because the modification type is unsupported: add (0) and remove (1).</td>
 </tr>
 <tr class="row-odd"><td>Failure_Multisig_Modify_Max_Cosigned_Accounts</td>
-<td>Validation failed because the cosignatory already cosigns the maximum number of accounts. An account cannot be cosignatory of more than <code class="docutils literal"><span class="pre">5</span></code> multisig accounts.</td>
+<td>Validation failed because the cosignatory already cosigns the maximum number of accounts.</td>
 </tr>
 <tr class="row-even"><td>Failure_Multisig_Modify_Max_Cosigners</td>
-<td>Validation failed because the multisig account already has the maximum number of cosignatories. A multisig account cannot have more than <code class="docutils literal"><span class="pre">10</span></code> cosignatories.</td>
+<td>Validation failed because the multisig account already has the maximum number of cosignatories.</td>
 </tr>
 <tr class="row-odd"><td>Failure_Multisig_Modify_Loop</td>
 <td>Validation failed because a multisig loop is created. A multisig account cannot be cosignatory of itself. Neither an account can be turned into multisig having as cosignatory another multisig where the account is cosignatory.</td>
 </tr>
 <tr class="row-even"><td>Failure_Multisig_Modify_Max_Multisig_Depth</td>
-<td>Validation failed because the max multisig depth is exceeded. The maximum depth of a multilevel multisig account is <code class="docutils literal"><span class="pre">3</span></code>.</td>
+<td>Validation failed because the max multisig depth is exceeded.</td>
 </tr>
 <tr class="row-odd"><td>Failure_Multisig_Operation_Not_Permitted_By_Account</td>
 <td>Validation failed because an operation is not permitted by a multisig account. A multisig account cannot be converted into a multisig account again.</td>
 </tr>
 <tr class="row-even"><td>Failure_Namespace_Invalid_Duration</td>
-<td>Validation failed because the duration has an invalid value. Duration is allowed to lie up to <code class="docutils literal"><span class="pre">365</span></code> days.</td>
+<td>Validation failed because the duration has an invalid value.</td>
 </tr>
 <tr class="row-odd"><td>Failure_Namespace_Invalid_Name</td>
-<td>Validation failed because the namespace has an invalid name. The namespace name may have a maximum length of <code class="docutils literal"><span class="pre">64</span></code> characters. Allowed characters are <cite>a-to-z</cite>; <cite>0-to-9</cite> and the following special characters: `_-</td>
+<td>Validation failed because the namespace has an invalid name.</td>
 </tr>
 <tr class="row-even"><td>Failure_Namespace_Name_Id_Mismatch</td>
 <td>Validation failed because the name and id don’t match.</td>
@@ -677,7 +671,7 @@
 <td>Validation failed because the root namespace has a <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties#L60">reserved name</a>.</td>
 </tr>
 <tr class="row-even"><td>Failure_Namespace_Too_Deep</td>
-<td>Validation failed because the resulting namespace would exceed the maximum allowed namespace depth. Namespaces can have up to <code class="docutils literal"><span class="pre">3</span></code> nested levels.</td>
+<td>Validation failed because the resulting namespace would exceed the maximum allowed namespace depth.</td>
 </tr>
 <tr class="row-odd"><td>Failure_Namespace_Parent_Unknown</td>
 <td>Validation failed because the namespace parent is unknown.</td>
@@ -743,7 +737,7 @@
 <td>Validation failed because the transaction has too many modifications.</td>
 </tr>
 <tr class="row-even"><td>Failure_Property_Values_Count_Exceeded</td>
-<td>Validation failed because the resulting property has too many values. The maximum number of values a property can have is <code class="docutils literal"><span class="pre">512</span></code>.</td>
+<td>Validation failed because the resulting property has too many values.</td>
 </tr>
 <tr class="row-odd"><td>Failure_Property_Value_Invalid</td>
 <td>Validation failed because the property value is invalid.</td>
@@ -758,7 +752,7 @@
 <td>Validation failed because the transaction type is not allowed to be initiated by the signer.</td>
 </tr>
 <tr class="row-odd"><td>Failure_Transfer_Message_Too_Large</td>
-<td>Validation failed because the message is too large.  It exceeds the limit of <code class="docutils literal"><span class="pre">1024</span></code> bytes.</td>
+<td>Validation failed because the message is too large.</td>
 </tr>
 <tr class="row-even"><td>Failure_Transfer_Out_Of_Order_Mosaics</td>
 <td>Validation failed because the mosaics are out of order. Mosaics on a transfer transaction should be ordered by id value.</td>
@@ -819,7 +813,8 @@
 </tr>
 </tbody>
 </table>
-<p><a class="reference download internal" href="_downloads/swagger.yaml" download=""><code class="xref download docutils literal"><span class="pre">OpenAPI</span> <span class="pre">specification</span></code></a></p>
+<p><a class="reference download internal" href="_downloads/swagger2.yaml" download=""><code class="xref download docutils literal"><span class="pre">OpenAPI</span> <span class="pre">specification</span> <span class="pre">2</span></code></a>
+<a class="reference download internal" href="_downloads/openapi3.yaml" download=""><code class="xref download docutils literal"><span class="pre">OpenAPI</span> <span class="pre">specification</span> <span class="pre">3</span></code></a></p>
 </div>
 </div>
 </div>
@@ -829,6 +824,9 @@
   
   </div>
 
+            <p class="feedback top-gap">
+                <b>Did you find what you were looking for?</b>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a></p>
         </div>
          
 <div class="col-md-2">
@@ -837,10 +835,10 @@
 <li><a class="reference internal" href="#">REST API</a><ul>
 <li><a class="reference internal" href="#http-requests">Http requests</a><ul>
 <li><a class="reference internal" href="#tools">Tools</a></li>
-<li><a class="reference internal" href="#serialization">Serialization</a></li>
 <li><a class="reference internal" href="#http-errors">Http errors</a></li>
 <li><a class="reference internal" href="#http-status">Http status</a></li>
-<li><a class="reference internal" href="#uint64-lower-and-higher">uint64: lower and higher</a></li>
+<li><a class="reference internal" href="#uint64-lower-and-higher">UInt64: lower and higher</a></li>
+<li><a class="reference internal" href="#serialization">Serialization</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#websockets">WebSockets</a><ul>
@@ -869,8 +867,7 @@
                     <li><a href="getting-started/what-is-nem.html">Getting Started</a></li>
                     <li><a href="concepts/account.html">Built-in Features</a></li>
                     <li><a href="concepts/cryptography.html">Protocol</a></li>
-                    <li><a href="references.html">References</a></li>
-                    <li><a href="guides/category/account.html">Guides</a></li>
+                    <li><a href="#">References</a></li>
                     <li><a href="contribute/contributing.html">Contribute</a></li>
                 </ul>
             </div>
@@ -924,13 +921,13 @@
     </div>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-<script type="text/javascript"> docsearch({
-    apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
-    indexName: 'nemtech',
-    inputSelector: '#search',
-    algoliaOptions: {},
-    debug: false
-});
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '#search',
+        debug: false
+    });
 </script>
   </body>
 </html>
