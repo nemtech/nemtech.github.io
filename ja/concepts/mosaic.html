@@ -88,7 +88,7 @@
                 <ul class="list-inline">
     <li id="edit-github" class="hidden-xs hidden-sm">
         <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\mosaic.rst"
-           rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+           rel="nofollow"> <i class="fab fa-github"></i> 編集</a>
     </li>
     <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
@@ -127,9 +127,9 @@
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">モザイク</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#properties">Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#absolute-and-relative-amounts">Absolute and relative amounts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cost">Cost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#properties">プロパティ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#absolute-and-relative-amounts">絶対と相対量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cost">コスト</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">ガイド</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">スキーマ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#mosaicdefinitiontransaction">MosaicDefinitionTransaction</a></li>
@@ -193,9 +193,9 @@
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">モザイク</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#properties">Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#absolute-and-relative-amounts">Absolute and relative amounts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cost">Cost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#properties">プロパティ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#absolute-and-relative-amounts">絶対と相対量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cost">コスト</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">ガイド</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">スキーマ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#mosaicdefinitiontransaction">MosaicDefinitionTransaction</a></li>
@@ -248,8 +248,8 @@
 <p>モザイクは、スマートアセットシステムに一意性と柔軟さをもたらすものの一部です。これらは、変化しない複数の同一物の集合を表すことができる、NEM ブロックチェーン上に <strong>固定されたアセット</strong> です。</p>
 <p>モザイクはトークンといえますが、より特化したアセット: 報酬ポイント、株式、署名、状態フラグ、投票やその他の貨幣などのコレクションとみなすこともできます。</p>
 <div class="section" id="properties">
-<h2>Properties<a class="headerlink" href="#properties" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Each mosaic has a unique identifier and a set of configurable properties. During the  <a class="reference internal" href="../guides/mosaic/creating-a-mosaic.html"><span class="doc">mosaic creation</span></a>, you can define:</p>
+<h2>プロパティ<a class="headerlink" href="#properties" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>各モザイクは一意な識別子と設定可能なプロパティの集合を持ちます。 <a class="reference internal" href="../guides/mosaic/creating-a-mosaic.html"><span class="doc">モザイクを作成</span></a> する時に定義できます:</p>
 <table border="1" class="docutils" id="mosaic-properties">
 <colgroup>
 <col width="33%" />
@@ -269,11 +269,11 @@
 </tr>
 <tr class="row-odd"><td>Duration</td>
 <td>Integer</td>
-<td>Specifies the number of confirmed blocks the mosaic is rented for. To create non-expiring mosaics, leave this property undefined.  Duration is allowed to lie up to <code class="docutils literal"><span class="pre">365</span></code> days.</td>
+<td>モザイクのレンタル期間の承認済みブロック数を指定します。期限の切れないモザイクを作るためにはプロパティを未定義のままにしてください。期間は <code class="docutils literal"><span class="pre">365</span></code> 日まで許可されています。</td>
 </tr>
 <tr class="row-even"><td>Initial supply</td>
 <td>Integer</td>
-<td>Indicates the amount of mosaic in circulation. The total supply must be in the range of 0 and <code class="docutils literal"><span class="pre">9,000,000,000</span></code>.</td>
+<td>モザイクの供給量の総数です。合計供給量は 0 から <code class="docutils literal"><span class="pre">9,000,000,000</span></code> の範囲でなければなりません。</td>
 </tr>
 <tr class="row-odd"><td>Supply mutable</td>
 <td>Boolean</td>
@@ -287,12 +287,12 @@
 </table>
 </div>
 <div class="section" id="absolute-and-relative-amounts">
-<h2>Absolute and relative amounts<a class="headerlink" href="#absolute-and-relative-amounts" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>NEM works with absolute amounts, removing the comma when the mosaic can be divisible. To get an absolute amount, multiply the amount of assets you want to create or send by 10<sup>divisibility</sup>.</p>
-<p>For example, if the mosaic has divisibility 2, to create or send 10 units (relative) you should define 1000 (absolute) instead.</p>
+<h2>絶対と相対量<a class="headerlink" href="#absolute-and-relative-amounts" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>NEM はモザイクが可分は場合、カンマを取り除いた絶対量を扱います。絶対量を取得するには作成または送信したいアセットの量に 10<sup>divisibility</sup> を乗じてください。</p>
+<p>例えば、モザイクが可分性 2 である場合、10 単位 (相対) 作成または送信するには 1000 (絶対) と定義します。</p>
 </div>
 <div class="section" id="cost">
-<h2>Cost<a class="headerlink" href="#cost" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>コスト<a class="headerlink" href="#cost" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>The cost of creating a mosaic is <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">configurable per network</a>. By default, it has a cost of <code class="docutils literal"><span class="pre">500</span> <span class="pre">cat.currency</span></code> plus transaction fees.</p>
 </div>
 <div class="section" id="guides">
@@ -358,7 +358,7 @@
 </tr>
 <tr class="row-even"><td>divisibility</td>
 <td>uint8</td>
-<td>The mosaic divisibility. The maximum divisibility is <code class="docutils literal"><span class="pre">6</span></code>.</td>
+<td>モザイクの可分性。最大値は <code class="docutils literal"><span class="pre">6</span></code> です。</td>
 </tr>
 <tr class="row-odd"><td>properties</td>
 <td>array&lt;<a class="reference internal" href="#mosaic-property"><span class="std std-ref">MosaicProperty</span></a>, count&gt;</td>
@@ -543,17 +543,17 @@
   </div>
 
             <p class="feedback top-gap">
-                <b>Did you find what you were looking for?</b>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a></p>
+                <b>お探しのものは見つかりましたか？</b>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">フィードバックをください。</a></p>
         </div>
          
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">モザイク</a><ul>
-<li><a class="reference internal" href="#properties">Properties</a></li>
-<li><a class="reference internal" href="#absolute-and-relative-amounts">Absolute and relative amounts</a></li>
-<li><a class="reference internal" href="#cost">Cost</a></li>
+<li><a class="reference internal" href="#properties">プロパティ</a></li>
+<li><a class="reference internal" href="#absolute-and-relative-amounts">絶対と相対量</a></li>
+<li><a class="reference internal" href="#cost">コスト</a></li>
 <li><a class="reference internal" href="#guides">ガイド</a></li>
 <li><a class="reference internal" href="#schemas">スキーマ</a><ul>
 <li><a class="reference internal" href="#mosaicdefinitiontransaction">MosaicDefinitionTransaction</a></li>

@@ -88,7 +88,7 @@
                 <ul class="list-inline">
     <li id="edit-github" class="hidden-xs hidden-sm">
         <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\harvesting.rst"
-           rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+           rel="nofollow"> <i class="fab fa-github"></i> 編集</a>
     </li>
     <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
@@ -137,8 +137,8 @@
 <li class="toctree-l1"><a class="reference internal" href="block.html">ブロック</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">トランザクション</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ハーベスティング</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#eligibility-criteria">Eligibility criteria</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#harvesting-mosaic">Harvesting mosaic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#eligibility-criteria">適格基準</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#harvesting-mosaic">ハーベスティングモザイク</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#local-harvesting">ローカルハーベスティング</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#delegated-harvesting">デリゲートハーベスティング</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">スキーマ</a><ul>
@@ -198,8 +198,8 @@
 <li class="toctree-l1"><a class="reference internal" href="block.html">ブロック</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">トランザクション</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ハーベスティング</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#eligibility-criteria">Eligibility criteria</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#harvesting-mosaic">Harvesting mosaic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#eligibility-criteria">適格基準</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#harvesting-mosaic">ハーベスティングモザイク</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#local-harvesting">ローカルハーベスティング</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#delegated-harvesting">デリゲートハーベスティング</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">スキーマ</a><ul>
@@ -235,10 +235,10 @@
             
   <div class="section" id="harvesting">
 <h1>ハーベスティング<a class="headerlink" href="#harvesting" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>The process of creating new <a class="reference internal" href="block.html"><span class="doc">blocks</span></a> is called harvesting.</p>
-<p>The harvesting <a class="reference internal" href="account.html"><span class="doc">account</span></a> - called the harvester - gets the fees for the <a class="reference internal" href="transaction.html"><span class="doc">transactions</span></a> in the block. This reward gives the harvester an incentive to add as many transactions to the block as possible.</p>
+<p>新しい <a class="reference internal" href="block.html"><span class="doc">ブロック</span></a> を生成するプロセスをハーベスティングと呼びます。</p>
+<p>ハーベスティング <a class="reference internal" href="account.html"><span class="doc">アカウント</span></a> - ハーベスターと呼びます - はブロック内の <a class="reference internal" href="transaction.html"><span class="doc">トランザクション</span></a> に応じた手数料を取得します。これによりハーベスターにはできるだけ多くのトランザクションをブロックに追加するインセンティブが与えられます。</p>
 <div class="section" id="eligibility-criteria">
-<h2>Eligibility criteria<a class="headerlink" href="#eligibility-criteria" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>適格基準<a class="headerlink" href="#eligibility-criteria" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>The <a class="reference internal" href="account.html"><span class="doc">importance score</span></a> of the account determines the chances of creating a new block. This score is calculated as the relation between the number of <a class="reference internal" href="#harvesting-mosaic"><span class="std std-ref">harvesting mosaics</span></a> the account owns and the total supply available.</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
@@ -248,9 +248,9 @@
 <p>Harvesting account owners can use their importance scores to create new blocks either by <a class="reference internal" href="#local-harvesting"><span class="std std-ref">running a node</span></a> or delegating it to a <a class="reference internal" href="#delegated-harvesting"><span class="std std-ref">remote node</span></a>.</p>
 </div>
 <div class="section" id="harvesting-mosaic">
-<span id="id1"></span><h2>Harvesting mosaic<a class="headerlink" href="#harvesting-mosaic" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Catapult software allows the <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties#L13">definition</a> of any <a class="reference internal" href="mosaic.html"><span class="doc">mosaic</span></a> for harvesting purposes to fit the business needs. The catapult test network names this mosaic <code class="docutils literal"><span class="pre">cat.harvest</span></code>.</p>
-<p>For example, consortium networks can distribute harvesting mosaics between the companies that are running the infrastructure, while other participants need to pay fees in the form of <a class="reference internal" href="transaction.html#fees"><span class="std std-ref">currency mosaic</span></a> to consume services.</p>
+<span id="id1"></span><h2>ハーベスティングモザイク<a class="headerlink" href="#harvesting-mosaic" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Catapult ソフトウェアはビジネスニーズに合わせて構成可能なプロパティを使用して、ハーベスティング用の <a class="reference internal" href="mosaic.html"><span class="doc">モザイク</span></a> を <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties#L13">定義</a> することが許可されています。Catapult テストネットワークはこのモザイクを <code class="docutils literal"><span class="pre">cat.harvest</span></code> と命名しています。</p>
+<p>例えばコンソーシアムネットワークではインフラを運営する企業間でハーベスティングモザイクを配布することができますが、他の参加者はサービスを利用するために <a class="reference internal" href="transaction.html#fees"><span class="std std-ref">通貨モザイク</span></a> を支払う必要があります。</p>
 <p>By contrast, public networks might decide to use the same mosaic for paying transaction fees and running the network.</p>
 </div>
 <div class="section" id="local-harvesting">
@@ -262,7 +262,7 @@ the harvesting account.</p>
 </div>
 <div class="section" id="delegated-harvesting">
 <span id="id3"></span><h2>デリゲートハーベスティング<a class="headerlink" href="#delegated-harvesting" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Delegated harvesting enables an account to use a proxy private key that can be shared with a node securely. In other words, you can use the importance score of your account to create new blocks without running a node.</p>
+<p>デリゲートハーベスティングでは、アカウントはノードと安全に共有できるプロキシ秘密鍵を使用できます。つまり、自分のアカウントの重要性スコアを利用して、ノードの運用をせずに新しいブロックを作成することができます。</p>
 <p>After an account activates delegated harvesting, its importance score is transferred to a remote account. The remote account inherits the importance of the original account. Security-wise, sharing a proxy private key with a remote node does not compromise the original account since:</p>
 <ul class="simple">
 <li>リモートアカウントは残高0です。</li>
@@ -289,16 +289,16 @@ the harvesting account.</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><strong>設定</strong></td>
-<td>Setup node.</td>
+<td>ノードのセットアップ</td>
 <td>リモートハーベスティングの有効化</td>
 </tr>
 <tr class="row-odd"><td><strong>コスト</strong></td>
 <td>ノードのメンテナンス(電気、VPNのコスト)</td>
-<td>The activation transaction fee.</td>
+<td>トランザクション手数料の有効化</td>
 </tr>
 <tr class="row-even"><td><strong>セキュリティ</strong></td>
-<td>The node stores the private key.</td>
-<td>A proxy private key is shared with a node.</td>
+<td>ノードは秘密鍵を保存します。</td>
+<td>プロキシ秘密鍵はノードと共有されます。</td>
 </tr>
 <tr class="row-odd"><td><strong>報酬</strong></td>
 <td>Total reward. The node owner can share part of the reward with a beneficiary account.</td>
@@ -314,13 +314,13 @@ the harvesting account.</p>
 <p>アカウントのインポータンスをプロキシアカウントにデリゲートするために、アカウントリンクトランザクションをアナウンスします。そうすることで、デリゲートハーベスティングが有効にできます。</p>
 <p>In order for the proxy account to be accepted as the <code class="docutils literal"><span class="pre">remoteAccountKey</span></code> for delegated harvesting, it needs to meet the following conditions:</p>
 <ul class="simple">
-<li>It cannot own any mosaics.</li>
+<li>モザイクを保有することはできません。</li>
 <li>It cannot be a cosignatory of any other account.</li>
-<li>It cannot be a multisig account.</li>
+<li>マルチシグアカウントになることはできません。</li>
 <li>It cannot already be a delegated account for another account.</li>
-<li>It cannot have its own delegated account.</li>
+<li>自身のデリゲートアカウントになることはできません。</li>
 </ul>
-<p>Furthermore, for the duration that the account is used as a delegated account, it is restricted from:</p>
+<p>さらにアカウントがデリゲートアカウントとして使用されている間は、次のことが制限されます:</p>
 <ul class="simple">
 <li>initiating any transactions.</li>
 <li>involvement with any type of transactions.</li>
@@ -387,16 +387,16 @@ the harvesting account.</p>
   </div>
 
             <p class="feedback top-gap">
-                <b>Did you find what you were looking for?</b>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a></p>
+                <b>お探しのものは見つかりましたか？</b>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">フィードバックをください。</a></p>
         </div>
          
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">ハーベスティング</a><ul>
-<li><a class="reference internal" href="#eligibility-criteria">Eligibility criteria</a></li>
-<li><a class="reference internal" href="#harvesting-mosaic">Harvesting mosaic</a></li>
+<li><a class="reference internal" href="#eligibility-criteria">適格基準</a></li>
+<li><a class="reference internal" href="#harvesting-mosaic">ハーベスティングモザイク</a></li>
 <li><a class="reference internal" href="#local-harvesting">ローカルハーベスティング</a></li>
 <li><a class="reference internal" href="#delegated-harvesting">デリゲートハーベスティング</a></li>
 <li><a class="reference internal" href="#schemas">スキーマ</a><ul>

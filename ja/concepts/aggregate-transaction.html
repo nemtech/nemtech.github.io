@@ -88,7 +88,7 @@
                 <ul class="list-inline">
     <li id="edit-github" class="hidden-xs hidden-sm">
         <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\aggregate-transaction.rst"
-           rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+           rel="nofollow"> <i class="fab fa-github"></i> 編集</a>
     </li>
     <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
@@ -272,7 +272,7 @@
 <p>アグリゲートトランザクションは、他の参加者からの署名が必要な場合に <strong>ボンド</strong> となることを考慮してください。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">Before announcing an <strong>aggregate bonded transaction</strong>, an account must announce and get confirmed a <a class="reference internal" href="#hash-lock-transaction"><span class="std std-ref">hash lock transaction</span></a> locking <code class="docutils literal"><span class="pre">10</span> <span class="pre">cat.currency</span></code>.</p>
+<p class="last"><strong>アグリゲートボンドトランザクション</strong> を送信する前に、アカウントは <a class="reference internal" href="#hash-lock-transaction"><span class="std std-ref">ハッシュロックトランザクション</span></a> をアナウンスして承認されており <code class="docutils literal"><span class="pre">10</span> <span class="pre">cat.currency</span></code> をロックしなければなりません。</p>
 </div>
 <p>アグリゲートボンドがアナウンスされると、パーシャル状態になり、WebSocket または HTTP API 呼び出しによって状態を通知します。</p>
 <p>連署者がトランザクションに署名し <a class="reference internal" href="#cosignature"><span class="std std-ref">アグリゲートボンド連署をアナウンスする</span></a> たびに、ネットワークは必要な連署者が署名しているかどうかをチェックします。すべての署名が取得されると、ネットワークがそれをブロックに含めるまで、トランザクションは未承認状態へ遷移します。</p>
@@ -330,7 +330,7 @@
 </div>
 <div class="section" id="aggregatetransaction">
 <h3>AggregateTransaction<a class="headerlink" href="#aggregatetransaction" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Announce an aggregate transaction to combine multiple transactions together.</p>
+<p>複数の転送トランザクションを集約するためにアグリゲートトランザクションをアナウンスします。</p>
 <p><strong>バージョン</strong>: 0x02</p>
 <p><strong>エンティティタイプ</strong>: 0x4141 (<a class="reference internal" href="#aggregate-complete"><span class="std std-ref">コンプリート</span></a>), 0x4241 (<a class="reference internal" href="#aggregate-bonded"><span class="std std-ref">ボンド</span></a>)</p>
 <p><strong>インライン</strong></p>
@@ -354,7 +354,7 @@
 </tr>
 <tr class="row-odd"><td>transactions</td>
 <td>array&lt;byte, payloadSize&gt;</td>
-<td>The array of transactions, which can be initiated by different accounts. An aggregate transaction can contain up to <code class="docutils literal"><span class="pre">1000</span></code> inner transactions involving up to <code class="docutils literal"><span class="pre">15</span></code> different cosignatories. Other aggregate transactions are not allowed as inner transactions.</td>
+<td>異なるアカウントによって開始されたトランザクション配列です。アグリゲートトランザクションは <code class="docutils literal"><span class="pre">1000</span></code> までのインナートランザクションを内包し <code class="docutils literal"><span class="pre">15</span></code> までの連署者を設定できます。他のアグリゲートトランザクションをインナートランザクションとして内包することはできません。</td>
 </tr>
 <tr class="row-even"><td>cosignatures</td>
 <td>array&lt;byte, size - payloadSize&gt;</td>
@@ -422,14 +422,14 @@
 <div class="section" id="hashlocktransaction">
 <span id="hash-lock-transaction"></span><h3>HashLockTransaction<a class="headerlink" href="#hashlocktransaction" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><strong>Alias</strong>: LockFundsTransaction</p>
-<p>Lock funds with a hash lock transaction before sending an <a class="reference internal" href="#id1"><span class="std std-ref">aggregate bonded transaction</span></a>. This transaction prevents spamming the partial cache with transactions that never will complete.</p>
-<p>After enough funds are locked, the aggregate transaction can be announced and added into the partial transactions cache.</p>
+<p><a class="reference internal" href="#id1"><span class="std std-ref">アグリゲートボンドトランザクション</span></a> を送信する前にハッシュロックトランザクションで資産をロックします。このトランザクションは決して完了しないトランザクションで部分キャッシュをスパムすることを防止します。</p>
+<p>十分な資金がロックされた後、アグリゲートトランザクションをアナウンスして部分トランザクションキャッシュに追加することができます。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">It’s not necessary to sign the aggregate and its hash lock transaction with the same account. For example, if Bob wants to announce an aggregate and does not have enough funds to announce a hash lock transaction, he can ask Alice to send the hash lock funds transaction sharing the signed aggregate transaction hash.</p>
+<p class="last">アグリゲートとそのハッシュロックトランザクションに同じアカウントで署名する必要はありません。たとえば、ボブがアグリゲートをアナウンスしたいがハッシュロックトランザクションをアナウンスするのに十分な資産がない場合、アリスに署名されたアグリゲートトランザクションハッシュを共有するハッシュロックファンドトランザクションを送信するように依頼することができます。</p>
 </div>
-<p>Upon completion of the aggregate, the locked funds become available in the account that signed the initial hash lock transaction.</p>
-<p>If the aggregate bonded transaction duration is reached without being signed by all cosignatories, the locked amount becomes a reward collected by the block harvester at the height where the lock expires.</p>
+<p>アグリゲートが完了すると、ロックされた資産は最初のハッシュロックトランザクションに署名したアカウントで利用可能になります。</p>
+<p>すべての連署者によって署名されずにアグリゲートボンドトランザクションが期間に達した場合、ロックされた資産はブロックのハーベスタによってロックの有効期限が切れるブロック高でハーベストされ報酬となります。</p>
 <p><strong>バージョン</strong>: 0x01</p>
 <p><strong>エンティティタイプ</strong>: 0x4148</p>
 <p><strong>インライン</strong></p>
@@ -455,7 +455,7 @@
 </tr>
 <tr class="row-odd"><td>duration</td>
 <td>uint64</td>
-<td>The lock duration. Duration is allowed to lie up to <code class="docutils literal"><span class="pre">2</span></code> days.</td>
+<td>ロック期間。期間は <code class="docutils literal"><span class="pre">2</span></code> 日までとすることができます。</td>
 </tr>
 <tr class="row-even"><td>hash</td>
 <td>32 bytes (binary)</td>
@@ -473,8 +473,8 @@
   </div>
 
             <p class="feedback top-gap">
-                <b>Did you find what you were looking for?</b>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a></p>
+                <b>お探しのものは見つかりましたか？</b>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">フィードバックをください。</a></p>
         </div>
          
 <div class="col-md-2">

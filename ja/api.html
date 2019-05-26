@@ -88,7 +88,7 @@
                 <ul class="list-inline">
     <li id="edit-github" class="hidden-xs hidden-sm">
         <a href="https://github.com/nemtech/nem2-docs/edit/master/source/api.rst"
-           rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+           rel="nofollow"> <i class="fab fa-github"></i> 編集</a>
     </li>
     <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
@@ -147,13 +147,13 @@
 <li class="toctree-l3"><a class="reference internal" href="#tools">ツール</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#http-errors">HTTP エラー</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#http-status">HTTP ステータス</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#uint64-lower-and-higher">UInt64: lower and higher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uint64-lower-and-higher">UInt64: 低位と高位</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#serialization">シリアル化</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#websockets">WebSockets</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#channels">チャンネル</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#status-errors">Status errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#status-errors">ステータスエラー</a></li>
 </ul>
 </li>
 </ul>
@@ -212,13 +212,13 @@
 <li class="toctree-l3"><a class="reference internal" href="#tools">ツール</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#http-errors">HTTP エラー</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#http-status">HTTP ステータス</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#uint64-lower-and-higher">UInt64: lower and higher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uint64-lower-and-higher">UInt64: 低位と高位</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#serialization">シリアル化</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#websockets">WebSockets</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#channels">チャンネル</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#status-errors">Status errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#status-errors">ステータスエラー</a></li>
 </ul>
 </li>
 </ul>
@@ -247,7 +247,7 @@
 <div class="section" id="http-requests">
 <span id="id1"></span><h2>HTTP リクエスト<a class="headerlink" href="#http-requests" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Catapult REST はポート <code class="docutils literal"><span class="pre">3000</span></code> 番を使用します。HTTP <strong>GET</strong> 、 <strong>PUT</strong> そして <strong>POST</strong> リクエストを受け付けます。</p>
-<p>Assuming that Catapult REST is <a class="reference internal" href="getting-started/setup-workstation.html"><span class="doc">running locally</span></a>, HTTP GET requests can be executed from a browser and have the form:</p>
+<p>Catapult REST が <a class="reference internal" href="getting-started/setup-workstation.html"><span class="doc">ローカルで動いている</span></a> と仮定して、HTTP GET リクエストはブラウザからこのように実行できます:</p>
 <p><a class="reference external" href="http://localhost:3000">http://localhost:3000</a>/&lt;path-to-API-request&gt;</p>
 <p>HTTP PUT と POST リクエストはボディ部にJSON形式を使用します。リクエストはデータをJSON形式で返します。この種のリクエストはそれが可能なプラグインを利用しないことにはブラウザから実行することができません。</p>
 <a href="/endpoints.html"><button class="btn btn-default">Catapult REST API Endpoints</button></a><div class="section" id="tools">
@@ -329,10 +329,10 @@
 </div>
 </div>
 <div class="section" id="uint64-lower-and-higher">
-<h3>UInt64: lower and higher<a class="headerlink" href="#uint64-lower-and-higher" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Javascript operates on <strong>32-bit</strong> values. The server returns numbers encoded in a UInt64 object to enable numeric representation up to <strong>64 bits</strong>.</p>
-<p>The <strong>UInt64</strong> object returned is composed of two 32-bit numbers: <code class="docutils literal"><span class="pre">lower</span></code> and <code class="docutils literal"><span class="pre">higher</span></code>.</p>
-<p>The <a class="reference internal" href="sdk.html"><span class="doc">nem2-sdk</span></a> conveniently allows you to work with UInt64 values.</p>
+<h3>UInt64: 低位と高位<a class="headerlink" href="#uint64-lower-and-higher" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Javascript は <strong>32 bit</strong> 値を操作します。サーバーは最大 <strong>64 bit</strong> 値の数値表現を可能にするために UInt64 オブジェクトにエンコードした数値を返します。</p>
+<p>返却される <strong>UInt64</strong> オブジェクトは2つの 32-bit 数から成り立ちます: <code class="docutils literal"><span class="pre">lower</span></code> と <code class="docutils literal"><span class="pre">higher</span></code>。</p>
+<p><a class="reference internal" href="sdk.html"><span class="doc">nem2-sdk</span></a> は UInt64 値を便利に扱うことができます。</p>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span><span class="nx">UInt64</span><span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;nem2-sdk&quot;</span><span class="p">;</span>
 
 <span class="c1">// Create Uint64 from [lower, higher]</span>
@@ -402,7 +402,7 @@
 <p>ステータスチャンネルはアドレスに関連するトランザクションでエラーが発生したときに通知を行います。メッセージにはエラーとトランザクションハッシュが含まれます。</p>
 </div>
 <div class="section" id="status-errors">
-<span id="id7"></span><h3>Status errors<a class="headerlink" href="#status-errors" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="id7"></span><h3>ステータスエラー<a class="headerlink" href="#status-errors" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>このセクションでは、トランザクションをアナウンスした後に、ステータスチャンネルが返却するエラーメッセージの説明をします。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
@@ -814,8 +814,7 @@
 </tr>
 </tbody>
 </table>
-<p><a class="reference download internal" href="_downloads/swagger2.yaml" download=""><code class="xref download docutils literal"><span class="pre">OpenAPI</span> <span class="pre">specification</span> <span class="pre">2</span></code></a>
-<a class="reference download internal" href="_downloads/openapi3.yaml" download=""><code class="xref download docutils literal"><span class="pre">OpenAPI</span> <span class="pre">specification</span> <span class="pre">3</span></code></a></p>
+<p><a class="reference download internal" href="_downloads/swagger2.yaml" download=""><code class="xref download docutils literal"><span class="pre">OpenAPI</span> <span class="pre">2</span> <span class="pre">仕様</span></code></a> <a class="reference download internal" href="_downloads/openapi3.yaml" download=""><code class="xref download docutils literal"><span class="pre">OpenAPI</span> <span class="pre">3</span> <span class="pre">仕様</span></code></a></p>
 </div>
 </div>
 </div>
@@ -826,8 +825,8 @@
   </div>
 
             <p class="feedback top-gap">
-                <b>Did you find what you were looking for?</b>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a></p>
+                <b>お探しのものは見つかりましたか？</b>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">フィードバックをください。</a></p>
         </div>
          
 <div class="col-md-2">
@@ -838,13 +837,13 @@
 <li><a class="reference internal" href="#tools">ツール</a></li>
 <li><a class="reference internal" href="#http-errors">HTTP エラー</a></li>
 <li><a class="reference internal" href="#http-status">HTTP ステータス</a></li>
-<li><a class="reference internal" href="#uint64-lower-and-higher">UInt64: lower and higher</a></li>
+<li><a class="reference internal" href="#uint64-lower-and-higher">UInt64: 低位と高位</a></li>
 <li><a class="reference internal" href="#serialization">シリアル化</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#websockets">WebSockets</a><ul>
 <li><a class="reference internal" href="#channels">チャンネル</a></li>
-<li><a class="reference internal" href="#status-errors">Status errors</a></li>
+<li><a class="reference internal" href="#status-errors">ステータスエラー</a></li>
 </ul>
 </li>
 </ul>

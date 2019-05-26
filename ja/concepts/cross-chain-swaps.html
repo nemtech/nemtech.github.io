@@ -88,7 +88,7 @@
                 <ul class="list-inline">
     <li id="edit-github" class="hidden-xs hidden-sm">
         <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\cross-chain-swaps.rst"
-           rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+           rel="nofollow"> <i class="fab fa-github"></i> 編集</a>
     </li>
     <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
@@ -262,15 +262,15 @@
 <p>クロスチェーンスワップを行うために、シークレットロックトランザクションを使用します:</p>
 <ol class="arabic simple">
 <li>送信先のアカウントに送りたいモザイクの単位を定義してください。</li>
-<li>Generate a random set of bytes called <code class="docutils literal"><span class="pre">proof</span></code>. The proof should have a size between <code class="docutils literal"><span class="pre">10</span></code> and <code class="docutils literal"><span class="pre">1000</span></code> bytes.</li>
+<li><code class="docutils literal"><span class="pre">proof</span></code> と呼ばれるランダムなバイトを生成してください。proof は <code class="docutils literal"><span class="pre">10</span></code> から <code class="docutils literal"><span class="pre">1000</span></code> バイトの間でなければなりません。</li>
 <li>得られた proof を利用可能なアルゴリズムの1つでハッシュ化して <code class="docutils literal"><span class="pre">secret</span></code> を生成します。</li>
 </ol>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">Different secret lock transactions can share the same secret, as long as the recipients are different.</p>
+<p class="last">受信者が異なる場合に限って、異なるシークレットロックトランザクションでも同じシークレットを共有できます。</p>
 </div>
 <ol class="arabic simple" start="4">
-<li>Select during how much time the mosaics will be locked and announce the Secret Lock Transaction.</li>
+<li>モザイクがロックされる時間を選択し、シークレットロックトランザクションをアナウンスします。</li>
 </ol>
 <p>特定のモザイクは妥当な <a class="reference internal" href="#secret-proof-transaction"><span class="std std-ref">シークレットプルーフトランザクション</span></a> がそれらをアンロックするまで、ロックされたままになります。</p>
 <p>トランザクションが証明されずに期間に到達した場合、ロックされた総量はロックトランザクションを開始したアカウントへ戻ります。</p>
@@ -299,7 +299,7 @@
 </tr>
 <tr class="row-odd"><td>duration</td>
 <td>uint64</td>
-<td>Duration is allowed to lie up to <code class="docutils literal"><span class="pre">30</span></code> days. If reached, the mosaics will be returned to the initiator.</td>
+<td>期間は <code class="docutils literal"><span class="pre">30</span></code> 日までが許可されています。到達した場合、モザイクは開始者へ返還されます。</td>
 </tr>
 <tr class="row-even"><td>hashAlgorithm</td>
 <td><a class="reference internal" href="#lock-hash-algorithm"><span class="std std-ref">LockHashAlgorithm</span></a></td>
@@ -353,7 +353,7 @@
 </tr>
 <tr class="row-odd"><td>proof</td>
 <td>array&lt;byte, proofSize&gt;</td>
-<td>The original random set of bytes.</td>
+<td>元のランダムなバイト列</td>
 </tr>
 </tbody>
 </table>
@@ -373,16 +373,16 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>0 (Op_Sha3_256)</td>
-<td>The proof is hashed using Sha-256.</td>
+<td>Sha-256 によってハッシュ化された proof</td>
 </tr>
 <tr class="row-odd"><td>1 (Op_Keccak_256)</td>
-<td>The proof is hashed using Keccak (ETH compatibility).</td>
+<td>Keccak によってハッシュ化された proof (ETH 互換)</td>
 </tr>
 <tr class="row-even"><td>2 (Op_Hash_160)</td>
-<td>The proof is hashed twice: first with Sha-256 and then with RIPEMD-160 (bitcoin’s OP_HASH160).</td>
+<td>最初に Sha-256 を、その後 RIPEMD-160 によって2回のハッシュ化された proof (bitcoin’s OP_HASH160)</td>
 </tr>
 <tr class="row-odd"><td>3 (Op_Hash_256)</td>
-<td>The proof is hashed twice with Sha-256 (bitcoin’s OP_HASH256).</td>
+<td>Sha-256 によって2回のハッシュ化されたproof (bitcoin’s OP_HASH256)</td>
 </tr>
 </tbody>
 </table>
@@ -396,8 +396,8 @@
   </div>
 
             <p class="feedback top-gap">
-                <b>Did you find what you were looking for?</b>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a></p>
+                <b>お探しのものは見つかりましたか？</b>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">フィードバックをください。</a></p>
         </div>
          
 <div class="col-md-2">

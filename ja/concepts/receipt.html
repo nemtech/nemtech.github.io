@@ -88,7 +88,7 @@
                 <ul class="list-inline">
     <li id="edit-github" class="hidden-xs hidden-sm">
         <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\receipt.rst"
-           rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+           rel="nofollow"> <i class="fab fa-github"></i> 編集</a>
     </li>
     <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
@@ -252,9 +252,9 @@
 <h2>トランザクションステートメント<a class="headerlink" href="#transaction-statement" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference internal" href="#id3"><span class="std std-ref">トランザクションステートメント</span></a> は特定のブロック内のトランザクションにリンクしたレシートの集合です。ステートメントは以下の基礎タイプをもつレシートを含みます:</p>
 <ul class="simple">
-<li><strong>Balance Transfer</strong>: The invisible state change triggered a mosaic transfer.</li>
-<li><strong>Balance Change</strong>: The invisible state change changed an account balance.</li>
-<li><strong>Artifact Expiry</strong>: An artifact (e.g. <a class="reference internal" href="namespace.html"><span class="doc">namespace</span></a>, <a class="reference internal" href="mosaic.html"><span class="doc">mosaic</span></a>) expired.</li>
+<li><strong>Balance Transfer</strong>: モザイク転送によりトリガされた不可視の状態変化。</li>
+<li><strong>Balance Change</strong>: アカウントの残高変化によりトリガされた不可視の状態変化。</li>
+<li><strong>Artifact Expiry</strong>: アーティファクト (例 <a class="reference internal" href="namespace.html"><span class="doc">ネームスペース</span></a> 、 <a class="reference internal" href="mosaic.html"><span class="doc">モザイク</span></a> ) の期限が切れた。</li>
 </ul>
 </div>
 <div class="section" id="resolution-statement">
@@ -422,7 +422,7 @@
 </div>
 <div class="section" id="balancetransferreceipt">
 <span id="balance-transfer-receipt"></span><h3>BalanceTransferReceipt<a class="headerlink" href="#balancetransferreceipt" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>The invisible state change triggered a mosaic transfer.</p>
+<p>モザイク転送によりトリガされた不可視の状態変化。</p>
 <ul class="simple">
 <li><strong>version</strong>: 0x1</li>
 <li><strong>basicType</strong>: 0x1</li>
@@ -465,7 +465,7 @@
 </div>
 <div class="section" id="balancechangereceipt">
 <span id="balance-change-receipt"></span><h3>BalanceChangeReceipt<a class="headerlink" href="#balancechangereceipt" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>The invisible state change changed an account balance.</p>
+<p>アカウントの残高変化によりトリガされた不可視の状態変化。</p>
 <ul class="simple">
 <li><strong>version</strong>: 0x1</li>
 <li><strong>basicType</strong>: (0x2) credit or (0x3) debit</li>
@@ -504,7 +504,7 @@
 </div>
 <div class="section" id="artifactexpiryreceipt">
 <span id="artifact-expiry-receipt"></span><h3>ArtifactExpiryReceipt<a class="headerlink" href="#artifactexpiryreceipt" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>An artifact (e.g. <a class="reference internal" href="namespace.html"><span class="doc">namespace</span></a>, <a class="reference internal" href="mosaic.html"><span class="doc">mosaic</span></a>) expired.</p>
+<p>アーティファクト (例 <a class="reference internal" href="namespace.html"><span class="doc">ネームスペース</span></a> 、 <a class="reference internal" href="mosaic.html"><span class="doc">モザイク</span></a> ) の期限が切れた。</p>
 <ul class="simple">
 <li><strong>version</strong>: 0x1</li>
 <li><strong>basicType</strong>: 0x4</li>
@@ -535,7 +535,7 @@
 </div>
 <div class="section" id="transactionstatement">
 <span id="id3"></span><h3>TransactionStatement<a class="headerlink" href="#transactionstatement" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>The collection of receipts related to a transaction.</p>
+<p>トランザクションに関するレシートのコレクション。</p>
 <ul class="simple">
 <li><strong>version</strong>: 0x1</li>
 <li><strong>type</strong>: Transaction_Group</li>
@@ -559,7 +559,7 @@
 <tbody valign="top">
 <tr class="row-even"><td>source</td>
 <td><a class="reference internal" href="#receipt-source"><span class="std std-ref">ReceiptSource</span></a></td>
-<td>The transaction that triggered the receipt.</td>
+<td>レシートをトリガしたトランザクション。</td>
 </tr>
 <tr class="row-odd"><td>receipts</td>
 <td>array&lt;<a class="reference internal" href="#id1"><span class="std std-ref">Receipt</span></a>, receiptsSize&gt;</td>
@@ -624,14 +624,14 @@
 </tr>
 <tr class="row-odd"><td>source</td>
 <td><a class="reference internal" href="#receipt-source"><span class="std std-ref">ReceiptSource</span></a></td>
-<td>The transaction that triggered the receipt.</td>
+<td>レシートをトリガしたトランザクション。</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="receiptsource">
 <span id="receipt-source"></span><h3>ReceiptSource<a class="headerlink" href="#receiptsource" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>The transaction that triggered the receipt.</p>
+<p>レシートをトリガしたトランザクション。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="33%" />
@@ -647,7 +647,7 @@
 <tbody valign="top">
 <tr class="row-even"><td>primaryId</td>
 <td>uint32</td>
-<td>The transaction index within the block.</td>
+<td>ブロック内のトランザクションインデックス。</td>
 </tr>
 <tr class="row-odd"><td>secondaryId</td>
 <td>uint32</td>
@@ -665,8 +665,8 @@
   </div>
 
             <p class="feedback top-gap">
-                <b>Did you find what you were looking for?</b>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a></p>
+                <b>お探しのものは見つかりましたか？</b>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">フィードバックをください。</a></p>
         </div>
          
 <div class="col-md-2">
