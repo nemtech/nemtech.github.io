@@ -129,6 +129,7 @@
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Cross-Chain Swaps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#protocol">Protocol</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">Schemas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#secretlocktransaction">SecretLockTransaction</a></li>
@@ -188,6 +189,7 @@
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Cross-Chain Swaps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#protocol">Protocol</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">Schemas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#secretlocktransaction">SecretLockTransaction</a></li>
@@ -230,19 +232,59 @@
             
   <div class="section" id="cross-chain-swaps">
 <h1>Cross-Chain Swaps<a class="headerlink" href="#cross-chain-swaps" title="Permalink to this headline">¶</a></h1>
-<p>A cross-chain swap enables <strong>trading tokens</strong> across <strong>different blockchains</strong>, without using an intermediary party (eg. an exchange service) in the process.</p>
+<p>A cross-chain swap enables <strong>trading tokens</strong> across <strong>different blockchains</strong>, without using an intermediary party (e.g. an exchange service) in the process.</p>
 <div class="figure align-center" id="id1">
 <img alt="../_images/cross-chain-swap.png" src="../_images/cross-chain-swap.png" style="width: 400px;" />
 <p class="caption"><span class="caption-text">Atomic cross-chain swap between public and private network</span></p>
 </div>
 <p>In order to create a trustless environment for an exchange, a specific transaction type is required that is commonly referred to as <strong>Hashed TimeLock Contract</strong> (HTLC). Two additional components characterize this transaction type: <em>hashlocks</em> and <em>timelocks</em>. A thorough explanation can be found on the <a class="reference external" href="https://en.bitcoin.it/wiki/Hashed_Timelock_Contracts">Bitcoin Wiki</a>.</p>
-<p>In other words, to reduce counterparty risk, the receiver of a payment needs to present a proof for the transaction to execute. Failing to do so, the locked funds are released after the deadline is reached, even if just one actor does not agree.
-The figure below illustrates the cross-chain swap protocol.</p>
+<p>In other words, to reduce counterparty risk, the receiver of a payment needs to present a proof for the transaction to execute. Failing to do so, the locked funds are released after the deadline is reached, even if just one actor does not agree.</p>
+<div class="section" id="protocol">
+<h2>Protocol<a class="headerlink" href="#protocol" title="Permalink to this headline">¶</a></h2>
+<p>Alice and Bob want to exchange <strong>10 alice tokens for 10 bob tokens</strong>. The problem is that they are not in the same blockchain: alice token is defined in NEM public chain, whereas bob token is only present in a private chain using Catapult technology.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">NEM’s private and future public chain share the SDK. You could implement atomic cross-chain swap between blockchains that use different technologies if they permit the <a class="reference internal" href="#lock-hash-algorithm"><span class="std std-ref">secret lock/proof mechanism</span></a>.</p>
+</div>
 <div class="figure align-center" id="id2">
 <img alt="../_images/cross-chain-swap-cycle.png" src="../_images/cross-chain-swap-cycle.png" style="width: 700px;" />
 <p class="caption"><span class="caption-text">Atomic cross-chain swap sequence diagram</span></p>
 </div>
-<p>When talking about tokens in NEM, we are actually referring to <a class="reference internal" href="mosaic.html"><span class="doc">mosaics</span></a>. Catapult enables atomic swaps through <a class="reference internal" href="#secret-lock-transaction"><span class="std std-ref">secret lock</span></a> / <a class="reference internal" href="#secret-proof-transaction"><span class="std std-ref">secret proof transaction</span></a> mechanism.</p>
+<ol class="arabic simple">
+<li>Alice generates a random set of bytes called <code class="docutils literal"><span class="pre">proof</span></code>. The proof should have a size between <code class="docutils literal"><span class="pre">10</span></code> and <code class="docutils literal"><span class="pre">1000</span></code> bytes.</li>
+<li>Alice hashes the obtained proof with one of the <a class="reference internal" href="#lock-hash-algorithm"><span class="std std-ref">available algorithms</span></a> to generate the <code class="docutils literal"><span class="pre">secret</span></code>.</li>
+<li>Alice defines the <a class="reference internal" href="#secret-lock-transaction"><span class="std std-ref">secret lock transaction</span></a> TX1:</li>
+</ol>
+<ul class="simple">
+<li>Mosaic: 10 alice token</li>
+<li>Recipient: Bob’s address (Private Chain)</li>
+<li>Algorithm: h</li>
+<li>Secret:  h(proof)</li>
+<li>Duration: 96h</li>
+<li>Network: Private Chain</li>
+</ul>
+<ol class="arabic simple" start="4">
+<li>Alice announces TX1 to the private network and shares with Bob the secret.</li>
+<li>Bob defines announces the following <a class="reference internal" href="#secret-lock-transaction"><span class="std std-ref">secret lock transaction</span></a> TX2 to the public network:</li>
+</ol>
+<ul class="simple">
+<li>Mosaic: 10 bob token</li>
+<li>Recipient: Alice’s address (Public Chain)</li>
+<li>Algorithm: h</li>
+<li>Secret:  h(proof)</li>
+<li>Duration: 84h</li>
+<li>Network: Public Chain</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The amount of time in which funds can be unlocked should be a smaller time frame than TX1’s. Alice knows the secret, so Bob must be sure he will have some time left after Alice releases the secret.</p>
+</div>
+<ol class="arabic simple" start="6">
+<li>Alice announces the <a class="reference internal" href="#secret-proof-transaction"><span class="std std-ref">secret proof transaction</span></a> TX3 to the public network. This transaction defines the encrypting algorithm used, the original proof and the secret.</li>
+<li>Once TX3 is confirmed, the proof is revealed. TX2 transaction is unlocked and Alice receives the locked funds.</li>
+<li>Bob picks the proof and announces the <a class="reference internal" href="#secret-proof-transaction"><span class="std std-ref">secret proof transaction</span></a> TX4 to the private network, receiving the locked funds from TX1.</li>
+</ol>
+</div>
 <div class="section" id="guides">
 <h2>Guides<a class="headerlink" href="#guides" title="Permalink to this headline">¶</a></h2>
 <ul class="postlist-style-circle postlist">
@@ -259,20 +301,7 @@ The figure below illustrates the cross-chain swap protocol.</p>
 </div>
 <div class="section" id="secretlocktransaction">
 <span id="secret-lock-transaction"></span><h3>SecretLockTransaction<a class="headerlink" href="#secretlocktransaction" title="Permalink to this headline">¶</a></h3>
-<p>Use a secret lock transaction to start the cross-chain swap:</p>
-<ol class="arabic simple">
-<li>Define the mosaic units you want to transfer to a determined account.</li>
-<li>Generate a random set of bytes called <code class="docutils literal"><span class="pre">proof</span></code>. The proof should have a size between <code class="docutils literal"><span class="pre">10</span></code> and <code class="docutils literal"><span class="pre">1000</span></code> bytes.</li>
-<li>Hash the obtained proof with one of the available algorithms to generate the <code class="docutils literal"><span class="pre">secret</span></code>.</li>
-</ol>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Different secret lock transactions can share the same secret, as long as the recipients are different.</p>
-</div>
-<ol class="arabic simple" start="4">
-<li>Select during how much time the mosaics will be locked and announce the Secret Lock Transaction.</li>
-</ol>
-<p>The specified mosaics remain locked until a valid <a class="reference internal" href="#secret-proof-transaction"><span class="std std-ref">Secret Proof Transaction</span></a> unlocks them.</p>
+<p>Use a secret lock transaction to transfer mosaics between two accounts. The specified mosaics remain locked until a valid <a class="reference internal" href="#secret-proof-transaction"><span class="std std-ref">Secret Proof Transaction</span></a> unlocks them.</p>
 <p>If the transaction duration is reached without being proved, the locked amount goes back to the initiator of the secret lock transaction.</p>
 <p><strong>Version</strong>: 0x01</p>
 <p><strong>Entity type</strong>: 0x4152</p>
@@ -360,6 +389,7 @@ The figure below illustrates the cross-chain swap protocol.</p>
 </div>
 <div class="section" id="lockhashalgorithm">
 <span id="lock-hash-algorithm"></span><h3>LockHashAlgorithm<a class="headerlink" href="#lockhashalgorithm" title="Permalink to this headline">¶</a></h3>
+<p>The list of supported hashing algorithms.</p>
 <p>Enumeration: uint8</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -404,6 +434,7 @@ The figure below illustrates the cross-chain swap protocol.</p>
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">Cross-Chain Swaps</a><ul>
+<li><a class="reference internal" href="#protocol">Protocol</a></li>
 <li><a class="reference internal" href="#guides">Guides</a></li>
 <li><a class="reference internal" href="#schemas">Schemas</a><ul>
 <li><a class="reference internal" href="#secretlocktransaction">SecretLockTransaction</a></li>
