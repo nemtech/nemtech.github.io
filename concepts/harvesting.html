@@ -1,4 +1,6 @@
+
 <!DOCTYPE html>
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
@@ -32,12 +34,12 @@
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Receipt" href="receipt.html" />
+    <link rel="next" title="Inflation" href="inflation.html" />
     <link rel="prev" title="Transaction" href="transaction.html" />
   
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
 <!--
@@ -73,8 +75,12 @@
      class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header col-md-3 col-sm-5">
-            <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
-                developer center</a>
+            <a class="navbar-brand" href="../index.html">
+                
+                <span><img src="../_static/logo-nem.svg" alt="NEM logo"></span>
+                
+                developer center
+            </a>
         </div>
         <div class="navbar-nav col-md-6 col-sm-7 hidden-xs">
             <div class="search-box">
@@ -85,10 +91,12 @@
         <div class="navbar-right col-md-3">
             <ul>
                 <ul class="list-inline">
+    
     <li id="edit-github" class="hidden-xs hidden-sm">
         <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\harvesting.rst"
            rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
     </li>
+    
     <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
         <select>
@@ -104,14 +112,20 @@
     </div>
 </div>
 
-
-<div class="container">
+<div
+         class="container"
+        >
 
     <div class="row">
 
         
+
+        
+
 <div class="col-md-3">
-    <div id="sidebar" class="bs-sidenav" role="complementary"><div class="sidebar-md hidden-xs hidden-sm">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
     <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/what-is-nem.html">What is NEM?</a></li>
@@ -147,6 +161,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="inflation.html">Inflation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receipt.html">Receipt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="node.html">Node</a></li>
 </ul>
@@ -166,7 +181,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.5</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.6</a></small>
     </p>
 </div>
 
@@ -208,6 +223,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="inflation.html">Inflation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receipt.html">Receipt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="node.html">Node</a></li>
 </ul>
@@ -228,14 +244,18 @@
 </ul>
     </li>
 </div>
+        
     </div>
 </div>
+
+
+        
         <div class="col-md-7 content">
             
   <div class="section" id="harvesting">
 <h1>Harvesting<a class="headerlink" href="#harvesting" title="Permalink to this headline">¶</a></h1>
 <p>The process of creating new <a class="reference internal" href="block.html"><span class="doc">blocks</span></a> is called harvesting.</p>
-<p>The harvesting <a class="reference internal" href="account.html"><span class="doc">account</span></a> - called the harvester - gets the fees for the <a class="reference internal" href="transaction.html"><span class="doc">transactions</span></a> in the block. This reward gives the harvester an incentive to add as many transactions to the block as possible.</p>
+<p>The harvesting <a class="reference internal" href="account.html"><span class="doc">account</span></a> - called the harvester - gets the <a class="reference internal" href="transaction.html#fees"><span class="std std-ref">fees</span></a> for the transactions in the block and <a class="reference internal" href="inflation.html"><span class="doc">inflation</span></a>. This reward gives the harvester an incentive to add as many transactions to the block as possible.</p>
 <div class="section" id="eligibility-criteria">
 <h2>Eligibility criteria<a class="headerlink" href="#eligibility-criteria" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference internal" href="account.html"><span class="doc">importance score</span></a> of the account determines the chances of creating a new block. This score is calculated as the relation between the number of <a class="reference internal" href="#harvesting-mosaic"><span class="std std-ref">harvesting mosaics</span></a> the account owns and the total supply available.</p>
@@ -256,7 +276,7 @@
 <span id="id2"></span><h2>Local harvesting<a class="headerlink" href="#local-harvesting" title="Permalink to this headline">¶</a></h2>
 <p>During the installation of a <a class="reference internal" href="node.html"><span class="doc">node</span></a>, you will be asked to set up an account that will be used to harvest. The <a class="reference internal" href="block.html#block-header"><span class="std std-ref">block header</span></a> includes the public key and signature generated by
 the harvesting account.</p>
-<p>Besides, each node can set a <code class="docutils literal"><span class="pre">beneficiary</span></code> public key to share a percentage of the harvesting rewards, where the sharing ratio is configurable for each network. When the node does not define a beneficiary, all the rewards go to the block signer.</p>
+<p>Besides, each node can set a <code class="docutils literal"><span class="pre">beneficiary</span></code> public key to share a percentage of the harvesting rewards (<a class="reference internal" href="transaction.html#fees"><span class="std std-ref">fees</span></a> and <a class="reference internal" href="inflation.html"><span class="doc">inflation</span></a>), where the sharing ratio is configurable for each network. When the node does not define a beneficiary, all the rewards go to the block signer.</p>
 <p>Local harvesting is secure as long as no one accesses your node instance, which is storing the private key.</p>
 </div>
 <div class="section" id="delegated-harvesting">
@@ -385,11 +405,15 @@ the harvesting account.</p>
   
   </div>
 
+            
             <p class="feedback top-gap">
                 <b>Did you find what you were looking for?</b>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a></p>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a>
+            </p>
+            
         </div>
          
+
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
@@ -409,9 +433,11 @@ the harvesting account.</p>
 
     </div>
 </div>
+
  
     </div>
 </div>
+
 <footer class="footer">
     <div class="container">
 
@@ -419,19 +445,27 @@ the harvesting account.</p>
 
             <div class="col-sm-4">
                 <h4>Learn</h4>
-
                 <ul>
-                    <li><a href="../getting-started/what-is-nem.html">Getting Started</a></li>
-                    <li><a href="account.html">Built-in Features</a></li>
-                    <li><a href="cryptography.html">Protocol</a></li>
-                    <li><a href="../api.html">References</a></li>
-                    <li><a href="../contribute/contributing.html">Contribute</a></li>
+                    <li>
+                        <a href="../getting-started/what-is-nem.html">Getting Started</a>
+                    </li>
+                    <li>
+                        <a href="account.html">Built-in Features</a>
+                    </li>
+                    <li>
+                        <a href="cryptography.html">Protocol</a>
+                    </li>
+                    <li>
+                        <a href="../api.html">References</a>
+                    </li>
+                    <li>
+                        <a href="../contribute/contributing.html">Contribute</a>
+                    </li>
                 </ul>
             </div>
 
             <div class="col-sm-4">
                 <h4>References</h4>
-
                 <ul>
                     <li><a href="../api.html">REST API</a></li>
                     <li><a href="../sdk.html">SDKs</a></li>
@@ -444,10 +478,11 @@ the harvesting account.</p>
 
             <div class="col-sm-4">
                 <h4>Community</h4>
-
                 <ul>
                     <li>
-                        <a href="http://slack.nemtech.io/"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
+                        <a href="http://slack.nemtech.io/">
+                            <i class="fab fa-slack"></i> <span> Join #general discussion</span>
+                        </a>
                     </li>
                     <li>
                         <a href="https://stackoverflow.com/tags/nem/">
@@ -473,7 +508,12 @@ the harvesting account.</p>
         </div>
 
         <p class="text-center top-gap">
+            
+            
             &copy; Copyright 2018-2019, NEM.
+            
+            
+            
         </p>
     </div>
 </footer>
@@ -486,5 +526,6 @@ the harvesting account.</p>
         debug: false
     });
 </script>
+
   </body>
 </html>

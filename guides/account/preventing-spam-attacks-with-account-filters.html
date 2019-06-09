@@ -1,4 +1,6 @@
+
 <!DOCTYPE html>
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
@@ -35,7 +37,7 @@
   
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
 <!--
@@ -71,8 +73,12 @@
      class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header col-md-3 col-sm-5">
-            <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/logo-nem.svg"></span>
-                developer center</a>
+            <a class="navbar-brand" href="../../index.html">
+                
+                <span><img src="../../_static/logo-nem.svg" alt="NEM logo"></span>
+                
+                developer center
+            </a>
         </div>
         <div class="navbar-nav col-md-6 col-sm-7 hidden-xs">
             <div class="search-box">
@@ -83,10 +89,12 @@
         <div class="navbar-right col-md-3">
             <ul>
                 <ul class="list-inline">
+    
     <li id="edit-github" class="hidden-xs hidden-sm">
         <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\account\preventing-spam-attacks-with-account-filters.rst"
            rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
     </li>
+    
     <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
         <select>
@@ -102,14 +110,20 @@
     </div>
 </div>
 
-
-<div class="container">
+<div
+         class="container"
+        >
 
     <div class="row">
 
         
+
+        
+
 <div class="col-md-3">
-    <div id="sidebar" class="bs-sidenav" role="complementary"><div class="sidebar-md hidden-xs hidden-sm">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
     <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../getting-started/what-is-nem.html">What is NEM?</a></li>
@@ -134,6 +148,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/block.html">Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transaction.html">Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/harvesting.html">Harvesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/inflation.html">Inflation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/receipt.html">Receipt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/node.html">Node</a></li>
 </ul>
@@ -153,7 +168,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.5</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.6</a></small>
     </p>
 </div>
 
@@ -184,6 +199,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/block.html">Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transaction.html">Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/harvesting.html">Harvesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/inflation.html">Inflation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/receipt.html">Receipt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/node.html">Node</a></li>
 </ul>
@@ -204,8 +220,12 @@
 </ul>
     </li>
 </div>
+        
     </div>
 </div>
+
+
+        
         <div class="col-md-7 content">
             
   <div class="section" id="preventing-spam-attacks-with-account-filters">
@@ -279,7 +299,7 @@ Private Key:    654..321
 <div class="literal-block-wrapper container" id="id2">
 <div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/FilteringByAddressAllowList.ts">View Code</a></span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">companyAddress</span> <span class="o">=</span> <span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="s1">&#39;SBI774-YMFDZI-FPEPC5-4EKRC2-5DKDZJ-H2QVRW-4HBP&#39;</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">addressFilter</span> <span class="o">=</span> <span class="nx">AccountPropertyTransaction</span><span class="p">.</span><span class="nx">createAddressFilter</span><span class="p">(</span><span class="nx">PropertyModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span> <span class="nx">companyAddress</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">addressFilter</span> <span class="o">=</span> <span class="nx">AccountPropertyModification</span><span class="p">.</span><span class="nx">createForAddress</span><span class="p">(</span><span class="nx">PropertyModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span> <span class="nx">companyAddress</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -307,8 +327,9 @@ Private Key:    654..321
 <div class="literal-block-wrapper container" id="id4">
 <div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/FilteringByAddressAllowList.ts">View Code</a></span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">productPrivateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">networkGenerationHash</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NETWORK_GENERATION_HASH</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">productAccount</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">productPrivateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">)</span>
-<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">productAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">transaction</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">productAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">transaction</span><span class="p">,</span> <span class="nx">networkGenerationHash</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 <span class="nx">transactionHttp</span>
@@ -338,7 +359,7 @@ Private Key:    654..321
 <div class="literal-block-wrapper container" id="id5">
 <div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/FilteringByMosaicBlockList.ts">View Code</a></span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">companyShareMosaicId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;2b890153b7a18ff2&#39;</span><span class="p">);</span> <span class="c1">// Replace with the mosaic id representing the company share.</span>
-<span class="kr">const</span> <span class="nx">mosaicFilter</span> <span class="o">=</span> <span class="nx">AccountPropertyTransaction</span><span class="p">.</span><span class="nx">createMosaicFilter</span><span class="p">(</span><span class="nx">PropertyModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span> <span class="nx">companyShareMosaicId</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">mosaicFilter</span> <span class="o">=</span> <span class="nx">AccountPropertyModification</span><span class="p">.</span><span class="nx">createForMosaic</span><span class="p">(</span><span class="nx">PropertyModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span> <span class="nx">companyShareMosaicId</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -366,8 +387,9 @@ Private Key:    654..321
 <div class="literal-block-wrapper container" id="id7">
 <div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/FilteringByMosaicBlockList.ts">View Code</a></span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">productPrivateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">networkGenerationHash</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NETWORK_GENERATION_HASH</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">productAccount</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">productPrivateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">)</span>
-<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">productAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">transaction</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">productAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">transaction</span><span class="p">,</span> <span class="nx">networkGenerationHash</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 <span class="nx">transactionHttp</span>
@@ -389,7 +411,7 @@ Private Key:    654..321
 <div class="literal-block-wrapper container" id="id8">
 <div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/FilteringByAddressRemoveFilter.ts">View Code</a></span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">companyAddress</span> <span class="o">=</span> <span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="s1">&#39;SBI774-YMFDZI-FPEPC5-4EKRC2-5DKDZJ-H2QVRW-4HBP&#39;</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">addressFilter</span> <span class="o">=</span> <span class="nx">AccountPropertyTransaction</span><span class="p">.</span><span class="nx">createAddressFilter</span><span class="p">(</span><span class="nx">PropertyModificationType</span><span class="p">.</span><span class="nx">Remove</span><span class="p">,</span> <span class="nx">companyAddress</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">addressFilter</span> <span class="o">=</span> <span class="nx">AccountPropertyModification</span><span class="p">.</span><span class="nx">createForAddress</span><span class="p">(</span><span class="nx">PropertyModificationType</span><span class="p">.</span><span class="nx">Remove</span><span class="p">,</span> <span class="nx">companyAddress</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -417,8 +439,9 @@ Private Key:    654..321
 <div class="literal-block-wrapper container" id="id10">
 <div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/FilteringByAddressRemoveFilter.ts">View Code</a></span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">productPrivateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">networkGenerationHash</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NETWORK_GENERATION_HASH</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">productAccount</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">productPrivateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">)</span>
-<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">productAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">transaction</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">productAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">transaction</span><span class="p">,</span><span class="nx">networkGenerationHash</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 <span class="nx">transactionHttp</span>
@@ -444,11 +467,15 @@ Private Key:    654..321
   
   </div>
 
+            
             <p class="feedback top-gap">
                 <b>Did you find what you were looking for?</b>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a></p>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a>
+            </p>
+            
         </div>
          
+
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
@@ -467,9 +494,11 @@ Private Key:    654..321
 
     </div>
 </div>
+
  
     </div>
 </div>
+
 <footer class="footer">
     <div class="container">
 
@@ -477,19 +506,27 @@ Private Key:    654..321
 
             <div class="col-sm-4">
                 <h4>Learn</h4>
-
                 <ul>
-                    <li><a href="../../getting-started/what-is-nem.html">Getting Started</a></li>
-                    <li><a href="../../concepts/account.html">Built-in Features</a></li>
-                    <li><a href="../../concepts/cryptography.html">Protocol</a></li>
-                    <li><a href="../../api.html">References</a></li>
-                    <li><a href="../../contribute/contributing.html">Contribute</a></li>
+                    <li>
+                        <a href="../../getting-started/what-is-nem.html">Getting Started</a>
+                    </li>
+                    <li>
+                        <a href="../../concepts/account.html">Built-in Features</a>
+                    </li>
+                    <li>
+                        <a href="../../concepts/cryptography.html">Protocol</a>
+                    </li>
+                    <li>
+                        <a href="../../api.html">References</a>
+                    </li>
+                    <li>
+                        <a href="../../contribute/contributing.html">Contribute</a>
+                    </li>
                 </ul>
             </div>
 
             <div class="col-sm-4">
                 <h4>References</h4>
-
                 <ul>
                     <li><a href="../../api.html">REST API</a></li>
                     <li><a href="../../sdk.html">SDKs</a></li>
@@ -502,10 +539,11 @@ Private Key:    654..321
 
             <div class="col-sm-4">
                 <h4>Community</h4>
-
                 <ul>
                     <li>
-                        <a href="http://slack.nemtech.io/"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
+                        <a href="http://slack.nemtech.io/">
+                            <i class="fab fa-slack"></i> <span> Join #general discussion</span>
+                        </a>
                     </li>
                     <li>
                         <a href="https://stackoverflow.com/tags/nem/">
@@ -531,7 +569,12 @@ Private Key:    654..321
         </div>
 
         <p class="text-center top-gap">
+            
+            
             &copy; Copyright 2018-2019, NEM.
+            
+            
+            
         </p>
     </div>
 </footer>
@@ -544,5 +587,6 @@ Private Key:    654..321
         debug: false
     });
 </script>
+
   </body>
 </html>

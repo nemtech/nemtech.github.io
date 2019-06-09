@@ -1,4 +1,6 @@
+
 <!DOCTYPE html>
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
@@ -37,7 +39,7 @@
   
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
 <!--
@@ -73,8 +75,12 @@
      class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header col-md-3 col-sm-5">
-            <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
-                developer center</a>
+            <a class="navbar-brand" href="../index.html">
+                
+                <span><img src="../_static/logo-nem.svg" alt="NEM logo"></span>
+                
+                developer center
+            </a>
         </div>
         <div class="navbar-nav col-md-6 col-sm-7 hidden-xs">
             <div class="search-box">
@@ -85,10 +91,12 @@
         <div class="navbar-right col-md-3">
             <ul>
                 <ul class="list-inline">
+    
     <li id="edit-github" class="hidden-xs hidden-sm">
         <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\mosaic.rst"
            rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
     </li>
+    
     <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
         <select>
@@ -104,14 +112,20 @@
     </div>
 </div>
 
-
-<div class="container">
+<div
+         class="container"
+        >
 
     <div class="row">
 
         
+
+        
+
 <div class="col-md-3">
-    <div id="sidebar" class="bs-sidenav" role="complementary"><div class="sidebar-md hidden-xs hidden-sm">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
     <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/what-is-nem.html">What is NEM?</a></li>
@@ -129,6 +143,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#properties">Properties</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#absolute-and-relative-amounts">Absolute and relative amounts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#cost">Cost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">Schemas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#mosaicdefinitiontransaction">MosaicDefinitionTransaction</a></li>
@@ -152,6 +167,7 @@
 <li class="toctree-l1"><a class="reference internal" href="block.html">Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="harvesting.html">Harvesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inflation.html">Inflation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receipt.html">Receipt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="node.html">Node</a></li>
 </ul>
@@ -171,7 +187,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.5</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.6</a></small>
     </p>
 </div>
 
@@ -195,6 +211,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#properties">Properties</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#absolute-and-relative-amounts">Absolute and relative amounts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#cost">Cost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">Schemas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#mosaicdefinitiontransaction">MosaicDefinitionTransaction</a></li>
@@ -218,6 +235,7 @@
 <li class="toctree-l1"><a class="reference internal" href="block.html">Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="harvesting.html">Harvesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inflation.html">Inflation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receipt.html">Receipt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="node.html">Node</a></li>
 </ul>
@@ -238,8 +256,12 @@
 </ul>
     </li>
 </div>
+        
     </div>
 </div>
+
+
+        
         <div class="col-md-7 content">
             
   <div class="section" id="mosaic">
@@ -293,6 +315,45 @@
 <div class="section" id="cost">
 <h2>Cost<a class="headerlink" href="#cost" title="Permalink to this headline">¶</a></h2>
 <p>The cost of creating a mosaic is <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">configurable per network</a>. By default, it has a cost of <code class="docutils literal"><span class="pre">500</span> <span class="pre">cat.currency</span></code> plus transaction fees.</p>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>A private company, ComfyClothingCompany, decides that it wants to go public. Instead of a traditional IPO, the company decides to do an STO to issue tokens through the NEM platform.</p>
+<p>Thus, the company must create a mosaic to represent shares to their company. Here is how the company might configure the mosaic properties:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Configuration</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Duration</td>
+<td>undefined</td>
+</tr>
+<tr class="row-odd"><td>Divisibility</td>
+<td>2</td>
+</tr>
+<tr class="row-even"><td>Initial supply</td>
+<td>1000000000 (10.000.000,00)</td>
+</tr>
+<tr class="row-odd"><td>Supply mutable</td>
+<td>true</td>
+</tr>
+<tr class="row-even"><td>Transferability</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Duration:</strong> Shares of the company should exist as long as the company is in business. The ComfyClothingCompany leaves this property <code class="docutils literal"><span class="pre">undefined</span></code>, creating a non-expiring mosaic representing their assets.</p>
+<p><strong>Divisibility:</strong> Although brokerages and investment firms can fractionalize shares, the traditional minimum number of shares an investor can purchase from the open market is 1.</p>
+<p>However, NEM mosaics offer more flexibility in tokenizing their company shares. ComfyClothingCompany chooses the divisibility to be <code class="docutils literal"><span class="pre">2</span></code>, allowing the smallest fraction of their shares to be 0.01.</p>
+<p>Fractional ownership, along with the ability to trade 24/7, brings additional liquidity to the market. These same characteristics also open up the market to smaller investors.</p>
+<p><strong>Supply:</strong> ComfyClothingCompany sets the initial supply of the mosaic to a typical startup amount of <code class="docutils literal"><span class="pre">10.000.000</span></code> authorized shares. As the company grows, it could choose to increase the number of shares, so the supply mutable is set to <code class="docutils literal"><span class="pre">true</span></code>.</p>
+<p><strong>Transferability:</strong> Once the initial shares are distributed, the shares will be on the market to be traded in public. Thus, the transferability property needs to be set to <code class="docutils literal"><span class="pre">true</span></code>.</p>
 </div>
 <div class="section" id="guides">
 <h2>Guides<a class="headerlink" href="#guides" title="Permalink to this headline">¶</a></h2>
@@ -360,7 +421,7 @@
 <td>The mosaic divisibility. The maximum divisibility is <code class="docutils literal"><span class="pre">6</span></code>.</td>
 </tr>
 <tr class="row-odd"><td>properties</td>
-<td>array&lt;<a class="reference internal" href="#mosaic-property"><span class="std std-ref">MosaicProperty</span></a>, count&gt;</td>
+<td>array(<a class="reference internal" href="#mosaic-property"><span class="std std-ref">MosaicProperty</span></a>, propertiesCount)</td>
 <td>The optional mosaic properties.</td>
 </tr>
 </tbody>
@@ -504,9 +565,6 @@
 <tr class="row-even"><td>0x02</td>
 <td>The mosaic is transferable.</td>
 </tr>
-<tr class="row-odd"><td>0x04</td>
-<td>The mosaic levy is mutable</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -541,11 +599,15 @@
   
   </div>
 
+            
             <p class="feedback top-gap">
                 <b>Did you find what you were looking for?</b>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a></p>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a>
+            </p>
+            
         </div>
          
+
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
@@ -553,6 +615,7 @@
 <li><a class="reference internal" href="#properties">Properties</a></li>
 <li><a class="reference internal" href="#absolute-and-relative-amounts">Absolute and relative amounts</a></li>
 <li><a class="reference internal" href="#cost">Cost</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
 <li><a class="reference internal" href="#guides">Guides</a></li>
 <li><a class="reference internal" href="#schemas">Schemas</a><ul>
 <li><a class="reference internal" href="#mosaicdefinitiontransaction">MosaicDefinitionTransaction</a></li>
@@ -570,9 +633,11 @@
 
     </div>
 </div>
+
  
     </div>
 </div>
+
 <footer class="footer">
     <div class="container">
 
@@ -580,19 +645,27 @@
 
             <div class="col-sm-4">
                 <h4>Learn</h4>
-
                 <ul>
-                    <li><a href="../getting-started/what-is-nem.html">Getting Started</a></li>
-                    <li><a href="account.html">Built-in Features</a></li>
-                    <li><a href="cryptography.html">Protocol</a></li>
-                    <li><a href="../api.html">References</a></li>
-                    <li><a href="../contribute/contributing.html">Contribute</a></li>
+                    <li>
+                        <a href="../getting-started/what-is-nem.html">Getting Started</a>
+                    </li>
+                    <li>
+                        <a href="account.html">Built-in Features</a>
+                    </li>
+                    <li>
+                        <a href="cryptography.html">Protocol</a>
+                    </li>
+                    <li>
+                        <a href="../api.html">References</a>
+                    </li>
+                    <li>
+                        <a href="../contribute/contributing.html">Contribute</a>
+                    </li>
                 </ul>
             </div>
 
             <div class="col-sm-4">
                 <h4>References</h4>
-
                 <ul>
                     <li><a href="../api.html">REST API</a></li>
                     <li><a href="../sdk.html">SDKs</a></li>
@@ -605,10 +678,11 @@
 
             <div class="col-sm-4">
                 <h4>Community</h4>
-
                 <ul>
                     <li>
-                        <a href="http://slack.nemtech.io/"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
+                        <a href="http://slack.nemtech.io/">
+                            <i class="fab fa-slack"></i> <span> Join #general discussion</span>
+                        </a>
                     </li>
                     <li>
                         <a href="https://stackoverflow.com/tags/nem/">
@@ -634,7 +708,12 @@
         </div>
 
         <p class="text-center top-gap">
+            
+            
             &copy; Copyright 2018-2019, NEM.
+            
+            
+            
         </p>
     </div>
 </footer>
@@ -647,5 +726,6 @@
         debug: false
     });
 </script>
+
   </body>
 </html>

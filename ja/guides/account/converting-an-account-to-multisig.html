@@ -1,4 +1,6 @@
+
 <!DOCTYPE html>
+
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
@@ -36,7 +38,7 @@
   
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
 <!--
@@ -72,8 +74,12 @@
      class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header col-md-3 col-sm-5">
-            <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/logo-nem.svg"></span>
-                developer center</a>
+            <a class="navbar-brand" href="../../index.html">
+                
+                <span><img src="../../_static/logo-nem.svg" alt="NEM logo"></span>
+                
+                developer center
+            </a>
         </div>
         <div class="navbar-nav col-md-6 col-sm-7 hidden-xs">
             <div class="search-box">
@@ -84,10 +90,12 @@
         <div class="navbar-right col-md-3">
             <ul>
                 <ul class="list-inline">
+    
     <li id="edit-github" class="hidden-xs hidden-sm">
         <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\account\converting-an-account-to-multisig.rst"
            rel="nofollow"> <i class="fab fa-github"></i> 編集</a>
     </li>
+    
     <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
         <select>
@@ -103,14 +111,20 @@
     </div>
 </div>
 
-
-<div class="container">
+<div
+         class="container"
+        >
 
     <div class="row">
 
         
+
+        
+
 <div class="col-md-3">
-    <div id="sidebar" class="bs-sidenav" role="complementary"><div class="sidebar-md hidden-xs hidden-sm">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
     <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../getting-started/what-is-nem.html">NEM とは？</a></li>
@@ -135,6 +149,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/block.html">ブロック</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transaction.html">トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/inflation.html">インフレーション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/receipt.html">レシート</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/node.html">ノード</a></li>
 </ul>
@@ -154,7 +169,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.5</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.6</a></small>
     </p>
 </div>
 
@@ -185,6 +200,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/block.html">ブロック</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transaction.html">トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/inflation.html">インフレーション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/receipt.html">レシート</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/node.html">ノード</a></li>
 </ul>
@@ -205,8 +221,12 @@
 </ul>
     </li>
 </div>
+        
     </div>
 </div>
+
+
+        
         <div class="col-md-7 content">
             
   <div class="section" id="converting-an-account-to-multisig">
@@ -241,12 +261,12 @@
 <span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Listener</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
 
-<span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span> <span class="c1">// Private key of the account to convert into multisig</span>
+<span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">MULTISIG_ACCOUNT_PUBLIC_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
-<span class="kr">const</span> <span class="nx">cosignatory1PublicKey</span> <span class="o">=</span> <span class="s1">&#39;7D08373CFFE4154E129E04F0827E5F3D6907587E348757B0F87D2F839BF88246&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">cosignatory1PublicKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">COSIGNATORY_1_PUBLIC_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">cosignatory1</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">cosignatory1PublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">cosignatory2PublicKey</span> <span class="o">=</span> <span class="s1">&#39;F82527075248B043994F1CAFD965F3848324C9ABFEC506BC05FBCF5DD7307C9D&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">cosignatory2PublicKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">COSIGNATORY_2_PUBLIC_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">cosignatory2</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">cosignatory2PublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -257,12 +277,12 @@
 <span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Listener</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
 
-<span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span><span class="p">;</span> <span class="c1">// Private key of the account to convert into multisig</span>
+<span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">MULTISIG_ACCOUNT_PUBLIC_KEY</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
-<span class="kr">const</span> <span class="nx">cosignatory1PublicKey</span> <span class="o">=</span> <span class="s1">&#39;7D08373CFFE4154E129E04F0827E5F3D6907587E348757B0F87D2F839BF88246&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">cosignatory1PublicKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">COSIGNATORY_1_PUBLIC_KEY</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">cosignatory1</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">cosignatory1PublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">cosignatory2PublicKey</span> <span class="o">=</span> <span class="s1">&#39;F82527075248B043994F1CAFD965F3848324C9ABFEC506BC05FBCF5DD7307C9D&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">cosignatory2PublicKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">COSIGNATORY_2_PUBLIC_KEY</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">cosignatory2</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">cosignatory2PublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -312,7 +332,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="3">
-<li>Create an <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate bonded transaction</span></a>, wrapping the modify multisig account transaction. This is necessary since Alice and Bob must opt-in to become cosignatories of the new multisig account.</li>
+<li>マルチシグアカウント変更トランザクションをラップする <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">アグリゲートボンドトランザクション</span></a> を作成します。Alice と Bob が新しいマルチシグアカウントの署名者になるためにオプトインする必要があるので必要なことです。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id6">
@@ -335,41 +355,44 @@
 </div>
 </div>
 <ol class="arabic simple" start="4">
-<li>Sign the aggregate transaction using the private key of the multisig account.</li>
+<li>マルチシグアカウントの秘密鍵を使ってアグリゲートトランザクションに署名します。</li>
 </ol>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">自分のネットワークでのみ妥当なトランザクションを作るには、最初のブロック生成ハッシュを含めます。新しいタブで <code class="docutils literal"><span class="pre">http://localhost:3000/block/1</span></code> を開いて <code class="docutils literal"><span class="pre">meta.generationHash</span></code> の値をコピーします。</p>
+</div>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id8">
 <div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/ConvertingAnAccountToMultisig.ts">View Code</a></span><a class="headerlink" href="#id8" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">);</span>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">networkGenerationHash</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NETWORK_GENERATION_HASH</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">,</span> <span class="nx">networkGenerationHash</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">.</span><span class="nx">hash</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper container" id="id9">
 <div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/account/ConvertingAnAccountToMultisig.js">View Code</a></span><a class="headerlink" href="#id9" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">);</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">networkGenerationHash</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NETWORK_GENERATION_HASH</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">,</span> <span class="nx">networkGenerationHash</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">.</span><span class="nx">hash</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </div>
 <ol class="arabic simple" start="5">
-<li>Before sending an aggregate bonded transaction, the future multisig account needs to <a class="reference internal" href="../../concepts/aggregate-transaction.html#hash-lock-transaction"><span class="std std-ref">lock</span></a> at least <code class="docutils literal"><span class="pre">10</span></code> cat.currency. This transaction is required to prevent network spamming and ensure that the inner transactions are cosigned. After the hash lock transaction has been confirmed, announce the aggregate transaction.</li>
+<li>アグリゲートボンドトランザクションを送信する前に、マルチシグアカウント候補は <a class="reference internal" href="../../concepts/aggregate-transaction.html#hash-lock-transaction"><span class="std std-ref">ロックする</span></a> ために最低 <code class="docutils literal"><span class="pre">10</span></code> cat.currency を必要とします。このトランザクションはネットワークスパムを防止するためとインナートランザクションに署名することを促すために要求されます。ハッシュロックトランザクションが承認されると、アグリゲートトランザクションをアナウンスできます。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id10">
 <div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/ConvertingAnAccountToMultisig.ts">View Code</a></span><a class="headerlink" href="#id10" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">hashLockTransaction</span> <span class="o">=</span> <span class="nx">HashLockTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
-    <span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span>
-        <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;0dc67fbe1cad29e3&#39;</span><span class="p">),</span> <span class="c1">//Replace with your network currency mosaic id</span>
-        <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
-    <span class="p">),</span>
+    <span class="nx">NetworkCurrencyMosaic</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
     <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">480</span><span class="p">),</span>
     <span class="nx">signedTransaction</span><span class="p">,</span>
     <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
-<span class="kr">const</span> <span class="nx">hashLockTransactionSigned</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">hashLockTransaction</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">hashLockTransactionSigned</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">hashLockTransaction</span><span class="p">,</span> <span class="nx">networkGenerationHash</span><span class="p">);</span>
 
 <span class="nx">listener</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
 
@@ -394,15 +417,12 @@
 <div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/account/ConvertingAnAccountToMultisig.js">View Code</a></span><a class="headerlink" href="#id11" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">hashLockTransaction</span> <span class="o">=</span> <span class="nx">HashLockTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
-    <span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span>
-        <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;0dc67fbe1cad29e3&#39;</span><span class="p">),</span> <span class="c1">//Replace with your network currency mosaic id</span>
-        <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
-    <span class="p">),</span>
+    <span class="nx">NetworkCurrencyMosaic</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
     <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">480</span><span class="p">),</span>
     <span class="nx">signedTransaction</span><span class="p">,</span>
     <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
-<span class="kr">const</span> <span class="nx">hashLockTransactionSigned</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">hashLockTransaction</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">hashLockTransactionSigned</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">hashLockTransaction</span><span class="p">,</span> <span class="nx">networkGenerationHash</span><span class="p">);</span>
 
 <span class="nx">listener</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
 
@@ -425,13 +445,13 @@
 </div>
 </div>
 <ol class="arabic simple" start="6">
-<li><a class="reference internal" href="../transaction/signing-announced-aggregate-bonded-transactions.html"><span class="doc">Cosign the aggregate transaction</span></a> with Alice’s account.</li>
+<li>Alice のアカウントで <a class="reference internal" href="../transaction/signing-announced-aggregate-bonded-transactions.html"><span class="doc">アグリゲートトランザクションに署名</span></a> します。</li>
 </ol>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli transaction cosign --hash A6A374E66B32A3D5133018EFA9CD6E3169C8EEA339F7CCBE29C47D07086E068C --profile alice
 </pre></div>
 </div>
 <ol class="arabic simple" start="7">
-<li><a class="reference internal" href="../transaction/signing-announced-aggregate-bonded-transactions.html"><span class="doc">Cosign the aggregate transaction</span></a> with Bob’s account.</li>
+<li>Bob のアカウントで <a class="reference internal" href="../transaction/signing-announced-aggregate-bonded-transactions.html"><span class="doc">アグリゲートトランザクションに署名</span></a> します。</li>
 </ol>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli transaction cosign --hash A6A374E66B32A3D5133018EFA9CD6E3169C8EEA339F7CCBE29C47D07086E068C --profile bob
 </pre></div>
@@ -453,22 +473,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper container" id="id13">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/java/src/test/java/nem2/guides/examples/account/GettingMultisigAccountInformation.java">View Code</a></span><a class="headerlink" href="#id13" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="kd">final</span> <span class="n">AccountHttp</span> <span class="n">accountHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AccountHttp</span><span class="o">(</span><span class="s">&quot;http://localhost:3000&quot;</span><span class="o">);</span>
-
-        <span class="c1">// Replace with address</span>
-        <span class="kd">final</span> <span class="n">String</span> <span class="n">addressRaw</span> <span class="o">=</span> <span class="s">&quot;SB2RPH-EMTFMB-KELX2Y-Q3MZTD-RV7DQG-UZEADV-CYKC&quot;</span><span class="o">;</span>
-
-        <span class="kd">final</span> <span class="n">Address</span> <span class="n">address</span> <span class="o">=</span> <span class="n">Address</span><span class="o">.</span><span class="na">createFromRawAddress</span><span class="o">(</span><span class="n">addressRaw</span><span class="o">);</span>
-
-        <span class="kd">final</span> <span class="n">MultisigAccountInfo</span> <span class="n">multisigAccountInfo</span> <span class="o">=</span> <span class="n">accountHttp</span><span class="o">.</span><span class="na">getMultisigAccountInfo</span><span class="o">(</span><span class="n">address</span><span class="o">).</span><span class="na">toFuture</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
-
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">multisigAccountInfo</span><span class="o">);</span>
-</pre></div>
-</div>
-</div>
-<div class="literal-block-wrapper container" id="id14">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/account/GettingMultisigAccountCosignatories.js">View Code</a></span><a class="headerlink" href="#id14" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/account/GettingMultisigAccountCosignatories.js">View Code</a></span><a class="headerlink" href="#id13" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">accountHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AccountHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">address</span> <span class="o">=</span> <span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="s1">&#39;SCSGBN-HYJD6P-KJHACX-3R2BI3-QUMMOY-QSNW5J-ICLK&#39;</span><span class="p">);</span>
@@ -498,11 +503,15 @@
   
   </div>
 
+            
             <p class="feedback top-gap">
                 <b>お探しのものは見つかりましたか？</b>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">フィードバックをください。</a></p>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">フィードバックをください。</a>
+            </p>
+            
         </div>
          
+
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
@@ -517,9 +526,11 @@
 
     </div>
 </div>
+
  
     </div>
 </div>
+
 <footer class="footer">
     <div class="container">
 
@@ -527,19 +538,27 @@
 
             <div class="col-sm-4">
                 <h4>学習する</h4>
-
                 <ul>
-                    <li><a href="../../getting-started/what-is-nem.html">入門</a></li>
-                    <li><a href="../../concepts/account.html">ビルドイン機能</a></li>
-                    <li><a href="../../concepts/cryptography.html">プロトコル</a></li>
-                    <li><a href="../../api.html">リファレンス</a></li>
-                    <li><a href="../../contribute/contributing.html">貢献する</a></li>
+                    <li>
+                        <a href="../../getting-started/what-is-nem.html">入門</a>
+                    </li>
+                    <li>
+                        <a href="../../concepts/account.html">ビルドイン機能</a>
+                    </li>
+                    <li>
+                        <a href="../../concepts/cryptography.html">プロトコル</a>
+                    </li>
+                    <li>
+                        <a href="../../api.html">リファレンス</a>
+                    </li>
+                    <li>
+                        <a href="../../contribute/contributing.html">貢献する</a>
+                    </li>
                 </ul>
             </div>
 
             <div class="col-sm-4">
                 <h4>リファレンス</h4>
-
                 <ul>
                     <li><a href="../../api.html">REST API</a></li>
                     <li><a href="../../sdk.html">SDKs</a></li>
@@ -552,10 +571,11 @@
 
             <div class="col-sm-4">
                 <h4>コミュニティ</h4>
-
                 <ul>
                     <li>
-                        <a href="http://slack.nemtech.io/"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
+                        <a href="http://slack.nemtech.io/">
+                            <i class="fab fa-slack"></i> <span> Join #general discussion</span>
+                        </a>
                     </li>
                     <li>
                         <a href="https://stackoverflow.com/tags/nem/">
@@ -581,7 +601,12 @@
         </div>
 
         <p class="text-center top-gap">
+            
+            
             &copy; Copyright 2018-2019, NEM.
+            
+            
+            
         </p>
     </div>
 </footer>
@@ -594,5 +619,6 @@
         debug: false
     });
 </script>
+
   </body>
 </html>

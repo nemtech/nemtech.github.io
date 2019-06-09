@@ -1,4 +1,6 @@
+
 <!DOCTYPE html>
+
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
@@ -38,7 +40,7 @@
   
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
 <!--
@@ -74,8 +76,12 @@
      class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header col-md-3 col-sm-5">
-            <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-nem.svg"></span>
-                developer center</a>
+            <a class="navbar-brand" href="../index.html">
+                
+                <span><img src="../_static/logo-nem.svg" alt="NEM logo"></span>
+                
+                developer center
+            </a>
         </div>
         <div class="navbar-nav col-md-6 col-sm-7 hidden-xs">
             <div class="search-box">
@@ -86,10 +92,12 @@
         <div class="navbar-right col-md-3">
             <ul>
                 <ul class="list-inline">
+    
     <li id="edit-github" class="hidden-xs hidden-sm">
         <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\cross-chain-swaps.rst"
            rel="nofollow"> <i class="fab fa-github"></i> 編集</a>
     </li>
+    
     <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
         <select>
@@ -105,14 +113,20 @@
     </div>
 </div>
 
-
-<div class="container">
+<div
+         class="container"
+        >
 
     <div class="row">
 
         
+
+        
+
 <div class="col-md-3">
-    <div id="sidebar" class="bs-sidenav" role="complementary"><div class="sidebar-md hidden-xs hidden-sm">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
     <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/what-is-nem.html">NEM とは？</a></li>
@@ -130,6 +144,7 @@
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">クロスチェーンスワップ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#protocol">プロトコル</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">ガイド</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">スキーマ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#secretlocktransaction">SecretLockTransaction</a></li>
@@ -146,6 +161,7 @@
 <li class="toctree-l1"><a class="reference internal" href="block.html">ブロック</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inflation.html">インフレーション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receipt.html">レシート</a></li>
 <li class="toctree-l1"><a class="reference internal" href="node.html">ノード</a></li>
 </ul>
@@ -165,7 +181,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.5</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.6</a></small>
     </p>
 </div>
 
@@ -189,6 +205,7 @@
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">クロスチェーンスワップ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#protocol">プロトコル</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">ガイド</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">スキーマ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#secretlocktransaction">SecretLockTransaction</a></li>
@@ -205,6 +222,7 @@
 <li class="toctree-l1"><a class="reference internal" href="block.html">ブロック</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inflation.html">インフレーション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receipt.html">レシート</a></li>
 <li class="toctree-l1"><a class="reference internal" href="node.html">ノード</a></li>
 </ul>
@@ -225,8 +243,12 @@
 </ul>
     </li>
 </div>
+        
     </div>
 </div>
+
+
+        
         <div class="col-md-7 content">
             
   <div class="section" id="cross-chain-swaps">
@@ -237,12 +259,53 @@
 <p class="caption"><span class="caption-text">パブリックとプライベート間のアトミッククロスチェイン交換</span></p>
 </div>
 <p>トラストレスな交換環境を作るために、特定のトランザクションが要求されます。一般的に <strong>Hashed TimeLock Contract</strong> (HTLC)と呼ばれる特定のトランザクションタイプが必要です。このトランザクションタイプは <em>ハッシュロック</em> と <em>タイムロック</em> の2つの追加コンポーネントによって特徴付けられます。徹底した説明は <a class="reference external" href="https://en.bitcoin.it/wiki/Hashed_Timelock_Contracts">Bitcoin Wiki</a> で閲覧できます。</p>
-<p>つまり、カウンターパーティーリスクを軽減させるために、支払の受信者はトランザクションを実行するための証拠を提示する必要があります。それに失敗した場合、1人のアクタだけが同意しなくても、期限に到達した後にロックファンドはリリースされます。以下の図はクロスチェーンスワッププロトコルを図示したものです。</p>
+<p>つまり、カウンターパーティーリスクを軽減させるために、支払の受信者はトランザクションを実行するための証拠を提示する必要があります。それに失敗した場合、1人のアクタだけが同意しなくても、期限に到達した後にロックファンドはリリースされます。</p>
+<div class="section" id="protocol">
+<h2>プロトコル<a class="headerlink" href="#protocol" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Alice と Bob は <strong>10 alice:tokens を 10 bob:tokens</strong> に交換したいと思っています。課題は彼らが同じブロックチェーン上に存在していないことです: alice:token は NEM のパブリックチェーン上に、一方で bob:token は Catapult テクノロジーによるプライベートネットワーク上に定義されています。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">NEM のプライベートと将来のパブリックチェーンは SDK を共有しています。 <a class="reference internal" href="#lock-hash-algorithm"><span class="std std-ref">シークレットロック/プルーフメカニズム</span></a> が許可されているなら、別のテクノロジーによるブロックチェーン間でもアトミックスワップを実装できるでしょう。</p>
+</div>
 <div class="figure align-center" id="id2">
 <img alt="../_images/cross-chain-swap-cycle.png" src="../_images/cross-chain-swap-cycle.png" style="width: 700px;" />
 <p class="caption"><span class="caption-text">アトミッククロスチェーンスワップ シーケンスダイアグラム</span></p>
 </div>
-<p>NEM トークンについて語るときは、本当によく <a class="reference internal" href="mosaic.html"><span class="doc">モザイク</span></a> を参照します。Catapult は <a class="reference internal" href="#secret-lock-transaction"><span class="std std-ref">シークレットロック</span></a> / <a class="reference internal" href="#secret-proof-transaction"><span class="std std-ref">シークレット証明トランザクション</span></a> を通じてアトミックスワップを可能にします。</p>
+<ol class="arabic simple">
+<li>Alice は <code class="docutils literal"><span class="pre">proof</span></code> と呼ばれるランダムなバイトを生成します。proof は <code class="docutils literal"><span class="pre">10</span></code> から <code class="docutils literal"><span class="pre">1000</span></code> バイトの間でなければなりません。</li>
+<li>Alice は得られた proof を <a class="reference internal" href="#lock-hash-algorithm"><span class="std std-ref">利用可能なアルゴリズム</span></a> の1つでハッシュ化して <code class="docutils literal"><span class="pre">secret</span></code> を生成します。</li>
+<li>Alice は <a class="reference internal" href="#secret-lock-transaction"><span class="std std-ref">シークレットロックトランザクション</span></a> TX1 を定義します:</li>
+</ol>
+<ul class="simple">
+<li>モザイク: 10 alice token</li>
+<li>受信者: Bob のアドレス (プライベートチェーン )</li>
+<li>アルゴリズム: h</li>
+<li>シークレット:  h(proof)</li>
+<li>期間: 96h</li>
+<li>ネットワーク: プライベートチェーン</li>
+</ul>
+<ol class="arabic simple" start="4">
+<li>Alice は TX1 をプライベートネットワークへアナウンスし Bob とシークレットを共有します。</li>
+<li>Bob は以下の <a class="reference internal" href="#secret-lock-transaction"><span class="std std-ref">シークレットロックトランザクション</span></a> TX2 をパブリックネットワークへアナウンスします。</li>
+</ol>
+<ul class="simple">
+<li>モザイク: 10 bob token</li>
+<li>受信者: Alice のアドレス (パブリックチェーン )</li>
+<li>アルゴリズム: h</li>
+<li>シークレット:  h(proof)</li>
+<li>期間: 84h</li>
+<li>ネットワーク: パブリックチェーン</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">資産をアンロックできる時間は、TX1 のタイムフレームよりも短くする必要があります。Alice はシークレットを知っていて、Bob はそれを確信しているので、Alice がシークレットを公開したあとに、彼にはいくらかの時間があるでしょう。</p>
+</div>
+<ol class="arabic simple" start="6">
+<li>Alice は <a class="reference internal" href="#secret-proof-transaction"><span class="std std-ref">シークレット証明トランザクション</span></a> TX3 をパブリックネットワークへアナウンスします。このトランザクションは使用している暗号化アルゴリズム、オリジナルの証明とシークレットを定義します。</li>
+<li>TX3 が承認されると、proof は明かされます。TX2 トランザクションはアンロックされて Alice はロックされた資産を受け取ります。</li>
+<li>Bob は proof を手に入れて <a class="reference internal" href="#secret-proof-transaction"><span class="std std-ref">シークレット証明トランザクション</span></a> TX4 をプライベートネットワークへアナウンスし、ロックされた資産を TX1 から受け取ります。</li>
+</ol>
+</div>
 <div class="section" id="guides">
 <h2>ガイド<a class="headerlink" href="#guides" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="postlist-style-circle postlist">
@@ -259,26 +322,13 @@
 </div>
 <div class="section" id="secretlocktransaction">
 <span id="secret-lock-transaction"></span><h3>SecretLockTransaction<a class="headerlink" href="#secretlocktransaction" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>クロスチェーンスワップを行うために、シークレットロックトランザクションを使用します:</p>
-<ol class="arabic simple">
-<li>送信先のアカウントに送りたいモザイクの単位を定義してください。</li>
-<li><code class="docutils literal"><span class="pre">proof</span></code> と呼ばれるランダムなバイトを生成してください。proof は <code class="docutils literal"><span class="pre">10</span></code> から <code class="docutils literal"><span class="pre">1000</span></code> バイトの間でなければなりません。</li>
-<li>得られた proof を利用可能なアルゴリズムの1つでハッシュ化して <code class="docutils literal"><span class="pre">secret</span></code> を生成します。</li>
-</ol>
-<div class="admonition note">
-<p class="first admonition-title">注釈</p>
-<p class="last">受信者が異なる場合に限って、異なるシークレットロックトランザクションでも同じシークレットを共有できます。</p>
-</div>
-<ol class="arabic simple" start="4">
-<li>モザイクがロックされる時間を選択し、シークレットロックトランザクションをアナウンスします。</li>
-</ol>
-<p>特定のモザイクは妥当な <a class="reference internal" href="#secret-proof-transaction"><span class="std std-ref">シークレットプルーフトランザクション</span></a> がそれらをアンロックするまで、ロックされたままになります。</p>
+<p>2 つのアカウント間でモザイクを転送するにはシークレットロックトランザクションを使用します。特定のモザイクは妥当な <a class="reference internal" href="#secret-proof-transaction"><span class="std std-ref">シークレット証明トランザクション</span></a> がそれらをアンロックするまで、ロックされたままになります。</p>
 <p>トランザクションが証明されずに期間に到達した場合、ロックされた総量はロックトランザクションを開始したアカウントへ戻ります。</p>
 <p><strong>バージョン</strong>: 0x01</p>
 <p><strong>エンティティタイプ</strong>: 0x4152</p>
 <p><strong>インライン</strong></p>
 <ul class="simple">
-<li><a class="reference internal" href="transaction.html#id5"><span class="std std-ref">Transaction</span></a> または <a class="reference internal" href="transaction.html#embedded-transaction"><span class="std std-ref">EmbeddedTransaction</span></a></li>
+<li><a class="reference internal" href="transaction.html#id4"><span class="std std-ref">Transaction</span></a> または <a class="reference internal" href="transaction.html#embedded-transaction"><span class="std std-ref">EmbeddedTransaction</span></a></li>
 </ul>
 <table border="1" class="docutils">
 <colgroup>
@@ -299,7 +349,7 @@
 </tr>
 <tr class="row-odd"><td>duration</td>
 <td>uint64</td>
-<td>期間は <code class="docutils literal"><span class="pre">30</span></code> 日までが許可されています。到達した場合、モザイクは開始者へ返還されます。</td>
+<td>期間は <code class="docutils literal"><span class="pre">30</span></code> 日までが許可されています。到達した場合はモザイクが開始者へ返還されます。</td>
 </tr>
 <tr class="row-even"><td>hashAlgorithm</td>
 <td><a class="reference internal" href="#lock-hash-algorithm"><span class="std std-ref">LockHashAlgorithm</span></a></td>
@@ -311,7 +361,7 @@
 </tr>
 <tr class="row-even"><td>recipient</td>
 <td>25 bytes (binary)</td>
-<td>ロック後、ファンドを受け取るアドレス</td>
+<td>ロック解除後、ファンドを受け取るアドレス</td>
 </tr>
 </tbody>
 </table>
@@ -324,7 +374,7 @@
 <p><strong>Entity type</strong>: 0x4252</p>
 <p><strong>インライン</strong></p>
 <ul class="simple">
-<li><a class="reference internal" href="transaction.html#id5"><span class="std std-ref">Transaction</span></a> または <a class="reference internal" href="transaction.html#embedded-transaction"><span class="std std-ref">EmbeddedTransaction</span></a></li>
+<li><a class="reference internal" href="transaction.html#id4"><span class="std std-ref">Transaction</span></a> または <a class="reference internal" href="transaction.html#embedded-transaction"><span class="std std-ref">EmbeddedTransaction</span></a></li>
 </ul>
 <table border="1" class="docutils">
 <colgroup>
@@ -347,12 +397,16 @@
 <td>64 bytes (binary)</td>
 <td>ハッシュ化された証明</td>
 </tr>
-<tr class="row-even"><td>proofSize</td>
+<tr class="row-even"><td>recipient</td>
+<td>25 bytes (binary)</td>
+<td>ロック解除後、ファンドを受け取るアドレス</td>
+</tr>
+<tr class="row-odd"><td>proofSize</td>
 <td>uint16</td>
 <td>バイト換算のプルーフサイズ</td>
 </tr>
-<tr class="row-odd"><td>proof</td>
-<td>array&lt;byte, proofSize&gt;</td>
+<tr class="row-even"><td>proof</td>
+<td>array(byte, proofSize)</td>
 <td>元のランダムなバイト列</td>
 </tr>
 </tbody>
@@ -360,6 +414,7 @@
 </div>
 <div class="section" id="lockhashalgorithm">
 <span id="lock-hash-algorithm"></span><h3>LockHashAlgorithm<a class="headerlink" href="#lockhashalgorithm" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>サポートされているハッシュアルゴリズムのリスト</p>
 <p>Enumeration: uint8</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -395,15 +450,20 @@
   
   </div>
 
+            
             <p class="feedback top-gap">
                 <b>お探しのものは見つかりましたか？</b>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">フィードバックをください。</a></p>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">フィードバックをください。</a>
+            </p>
+            
         </div>
          
+
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">クロスチェーンスワップ</a><ul>
+<li><a class="reference internal" href="#protocol">プロトコル</a></li>
 <li><a class="reference internal" href="#guides">ガイド</a></li>
 <li><a class="reference internal" href="#schemas">スキーマ</a><ul>
 <li><a class="reference internal" href="#secretlocktransaction">SecretLockTransaction</a></li>
@@ -417,9 +477,11 @@
 
     </div>
 </div>
+
  
     </div>
 </div>
+
 <footer class="footer">
     <div class="container">
 
@@ -427,19 +489,27 @@
 
             <div class="col-sm-4">
                 <h4>学習する</h4>
-
                 <ul>
-                    <li><a href="../getting-started/what-is-nem.html">入門</a></li>
-                    <li><a href="account.html">ビルドイン機能</a></li>
-                    <li><a href="cryptography.html">プロトコル</a></li>
-                    <li><a href="../api.html">リファレンス</a></li>
-                    <li><a href="../contribute/contributing.html">貢献する</a></li>
+                    <li>
+                        <a href="../getting-started/what-is-nem.html">入門</a>
+                    </li>
+                    <li>
+                        <a href="account.html">ビルドイン機能</a>
+                    </li>
+                    <li>
+                        <a href="cryptography.html">プロトコル</a>
+                    </li>
+                    <li>
+                        <a href="../api.html">リファレンス</a>
+                    </li>
+                    <li>
+                        <a href="../contribute/contributing.html">貢献する</a>
+                    </li>
                 </ul>
             </div>
 
             <div class="col-sm-4">
                 <h4>リファレンス</h4>
-
                 <ul>
                     <li><a href="../api.html">REST API</a></li>
                     <li><a href="../sdk.html">SDKs</a></li>
@@ -452,10 +522,11 @@
 
             <div class="col-sm-4">
                 <h4>コミュニティ</h4>
-
                 <ul>
                     <li>
-                        <a href="http://slack.nemtech.io/"><i class="fab fa-slack"></i> <span> Join #general discussion</span></a>
+                        <a href="http://slack.nemtech.io/">
+                            <i class="fab fa-slack"></i> <span> Join #general discussion</span>
+                        </a>
                     </li>
                     <li>
                         <a href="https://stackoverflow.com/tags/nem/">
@@ -481,7 +552,12 @@
         </div>
 
         <p class="text-center top-gap">
+            
+            
             &copy; Copyright 2018-2019, NEM.
+            
+            
+            
         </p>
     </div>
 </footer>
@@ -494,5 +570,6 @@
         debug: false
     });
 </script>
+
   </body>
 </html>
