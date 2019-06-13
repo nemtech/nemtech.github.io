@@ -143,11 +143,10 @@
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">モザイク</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">アグリゲートトランザクション</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#aggregate-complete">アグリゲートコンプリート</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#aggregate-complete">アグリゲートコンプリート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aggregate-bonded">アグリゲートボンド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">例</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#sending-payouts">支払の送信</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#aggregate-bonded">アグリゲートボンド</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#multi-asset-escrowed-transactions">マルチアセットエスクロートランザクション</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#paying-for-others-fees">他人の手数料を支払う</a></li>
 </ul>
@@ -177,6 +176,7 @@
 <p class="caption"><span class="caption-text">References</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server.html">サーバ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">クライアント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">プロトタイピングツール</a></li>
@@ -184,13 +184,13 @@
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">ガイドライン</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">コミュニティ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">ガイドライン</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">貢献者</a></li>
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.6</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.7</a></small>
     </p>
 </div>
 
@@ -213,11 +213,10 @@
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">モザイク</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">アグリゲートトランザクション</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#aggregate-complete">アグリゲートコンプリート</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#aggregate-complete">アグリゲートコンプリート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aggregate-bonded">アグリゲートボンド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">例</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#sending-payouts">支払の送信</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#aggregate-bonded">アグリゲートボンド</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#multi-asset-escrowed-transactions">マルチアセットエスクロートランザクション</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#paying-for-others-fees">他人の手数料を支払う</a></li>
 </ul>
@@ -247,6 +246,7 @@
 <p class="caption"><span class="caption-text">References</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server.html">サーバ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">クライアント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">プロトタイピングツール</a></li>
@@ -254,8 +254,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">ガイドライン</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">コミュニティ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">ガイドライン</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">貢献者</a></li>
 </ul>
 </ul>
@@ -271,21 +271,17 @@
             
   <div class="section" id="aggregate-transaction">
 <h1>アグリゲートトランザクション<a class="headerlink" href="#aggregate-transaction" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p id="id1">アグリゲートトランザクションは複数のトランザクションを1つにまとめ、 <strong>トラストレスな交換</strong> やその他高度なロジックを可能にします。NEM はワンタイムの破棄可能なスマートコントラクトを生成することでこれを実現しています。アグリゲートトランザクションへ全ての <a class="reference internal" href="account.html"><span class="doc">アカウント</span></a> が署名をすると、全てのインナートランザクションは同時に実行されます。</p>
+<p id="id1">アグリゲートトランザクションは複数のトランザクションを一つにまとめ、 <strong>トラストレスな交換</strong> や高度なロジックを可能にします。NEM は一度きりの破棄可能なスマートコントラクトを生成することでこれを実現しています。</p>
+<div class="figure align-center" id="id5">
+<img alt="../_images/aggregate-escrow-1.png" src="../_images/aggregate-escrow-1.png" style="width: 450px;" />
+<p class="caption"><span class="caption-text">2人の参加者間におけるアグリゲートトランザクションの例</span></p>
+</div>
+<p>アグリゲートトランザクションへ全ての <a class="reference internal" href="account.html"><span class="doc">アカウント</span></a> が署名をすると、全てのインナートランザクションは同時に実行されます。</p>
 <div class="section" id="aggregate-complete">
 <span id="id2"></span><h2>アグリゲートコンプリート<a class="headerlink" href="#aggregate-complete" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>要求されている参加者全員が署名をすると、アグリゲートトランザクションは <strong>コンプリート</strong> になります。</p>
 <p>連署者はそのトランザクションに、ブロックチェーンを使うことなく署名することができます。必要な署名をすべて取得したら、彼らのうちの1人がネットワークにアナウンスできます。インナートランザクションのセットアップが正当で、バリデーションエラーがない場合、トランザクションは同時に実行されます。</p>
 <p>アグリゲートコンプリートトランザクションは、複数のインナートランザクションを集めることで、ブロックへさらに多くのトランザクションを追加できます。</p>
-<div class="section" id="sending-payouts">
-<h3>支払の送信<a class="headerlink" href="#sending-payouts" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Dan は2つの転送トランザクションを集約したアグリゲートトランザクションをアナウンスします。</p>
-<p>彼だけが必須の署名者なので、署名した後、トランザクションはコンプリートと見なされます。これがネットワークへアナウンスされると Alice と Bob は同時にモザイクを受け取るでしょう。</p>
-<div class="figure align-center" id="id5">
-<img alt="../_images/aggregate-sending-payouts.png" src="../_images/aggregate-sending-payouts.png" style="width: 450px;" />
-<p class="caption"><span class="caption-text">アグリゲート完了トランザクションによって支払を送信する</span></p>
-</div>
-</div>
 </div>
 <div class="section" id="aggregate-bonded">
 <span id="id3"></span><h2>アグリゲートボンド<a class="headerlink" href="#aggregate-bonded" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -300,10 +296,22 @@
 <img alt="../_images/aggregate-bonded-transaction-cycle.png" src="../_images/aggregate-bonded-transaction-cycle.png" style="width: 900px;" />
 <p class="caption"><span class="caption-text">アグリゲートボンドトランザクションサイクル</span></p>
 </div>
+</div>
+<div class="section" id="examples">
+<h2>例<a class="headerlink" href="#examples" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="sending-payouts">
+<h3>支払の送信<a class="headerlink" href="#sending-payouts" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Dan は2つの転送トランザクションを集約したアグリゲートトランザクションをアナウンスします。</p>
+<p>彼が唯一必須の署名者なので、署名した後、トランザクションはコンプリートと見なされます。これがネットワークへアナウンスされると、Alice と Bob は同時にモザイクを受け取るでしょう。</p>
+<div class="figure align-center" id="id7">
+<img alt="../_images/aggregate-sending-payouts.png" src="../_images/aggregate-sending-payouts.png" style="width: 450px;" />
+<p class="caption"><span class="caption-text">アグリゲート完了トランザクションによって支払を送信する</span></p>
+</div>
+</div>
 <div class="section" id="multi-asset-escrowed-transactions">
 <h3>マルチアセットエスクロートランザクション<a class="headerlink" href="#multi-asset-escrowed-transactions" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>この例では、Alice はチケットを <code class="docutils literal"><span class="pre">currency:euro</span></code>  <a class="reference internal" href="mosaic.html"><span class="doc">モザイク</span></a> で購入しています。チケット販売者はアグリゲートトランザクションに署名し、交換はアトミックに起こります。</p>
-<div class="figure align-center" id="id7">
+<div class="figure align-center" id="id8">
 <img alt="../_images/aggregate-escrow-1.png" src="../_images/aggregate-escrow-1.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">マルチアセットエスクロートランザクション</span></p>
 </div>
@@ -313,7 +321,7 @@
 <p>Alice は 10 <code class="docutils literal"><span class="pre">currency.euro</span></code> を Bob へ支払うためにアプリで送ります。しかし彼女はブロックチェーンのトランザクション手数料を支払う分の cat.currency を持っていません。</p>
 <p>アグリゲートボンドトランザクションを作ることで、彼女は EUR を手数料のための cat.currency に替えることができます。これで Alice と Bob は cat.currency を購入したり保有することなく、ブロックチェーンを使うことができます。</p>
 <p>アプリの製作者は、オープンソースの支払いアプリに独自ブランドを付けることができるので、Alice と Bob は彼らがブロックチェーンを使っていることすら知らないでしょう。</p>
-<div class="figure align-center" id="id8">
+<div class="figure align-center" id="id9">
 <img alt="../_images/aggregate-paying-for-others-fees.png" src="../_images/aggregate-paying-for-others-fees.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">他人の手数料を支払う</span></p>
 </div>
@@ -505,11 +513,10 @@
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">アグリゲートトランザクション</a><ul>
-<li><a class="reference internal" href="#aggregate-complete">アグリゲートコンプリート</a><ul>
+<li><a class="reference internal" href="#aggregate-complete">アグリゲートコンプリート</a></li>
+<li><a class="reference internal" href="#aggregate-bonded">アグリゲートボンド</a></li>
+<li><a class="reference internal" href="#examples">例</a><ul>
 <li><a class="reference internal" href="#sending-payouts">支払の送信</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#aggregate-bonded">アグリゲートボンド</a><ul>
 <li><a class="reference internal" href="#multi-asset-escrowed-transactions">マルチアセットエスクロートランザクション</a></li>
 <li><a class="reference internal" href="#paying-for-others-fees">他人の手数料を支払う</a></li>
 </ul>
@@ -563,9 +570,9 @@
                 <h4>リファレンス</h4>
                 <ul>
                     <li><a href="../api.html">REST API</a></li>
+                    <li><a href="../server.html">Server</a></li>
                     <li><a href="../sdk.html">SDKs</a></li>
                     <li><a href="../cli.html">クライアント</a></li>
-                    <li><a href="../prototyping-tool.html">プロトタイピングツール</a></li>
                     <li><a href="../extensions.html">拡張</a></li>
                 </ul>
             </div>

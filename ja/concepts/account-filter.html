@@ -139,11 +139,10 @@
 <li class="toctree-l1"><a class="reference internal" href="account.html">アカウント</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">アカウントフィルタ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#address-filter">アドレスフィルタ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mosaic-filter">モザイクフィルタ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mosaic-filter">モザイクフィルタ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#entitytype-filter">エンティティタイプフィルタ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">例</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#blocking-spam-transactions">スパムトランザクションのブロック</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#entitytype-filter">エンティティタイプフィルタ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#enhancing-the-account-security">アカウントのセキュリティ向上</a></li>
 </ul>
 </li>
@@ -182,6 +181,7 @@
 <p class="caption"><span class="caption-text">References</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server.html">サーバ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">クライアント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">プロトタイピングツール</a></li>
@@ -189,13 +189,13 @@
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">ガイドライン</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">コミュニティ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">ガイドライン</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">貢献者</a></li>
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.6</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.7</a></small>
     </p>
 </div>
 
@@ -214,11 +214,10 @@
 <li class="toctree-l1"><a class="reference internal" href="account.html">アカウント</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">アカウントフィルタ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#address-filter">アドレスフィルタ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mosaic-filter">モザイクフィルタ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mosaic-filter">モザイクフィルタ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#entitytype-filter">エンティティタイプフィルタ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">例</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#blocking-spam-transactions">スパムトランザクションのブロック</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#entitytype-filter">エンティティタイプフィルタ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#enhancing-the-account-security">アカウントのセキュリティ向上</a></li>
 </ul>
 </li>
@@ -257,6 +256,7 @@
 <p class="caption"><span class="caption-text">References</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server.html">サーバ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">クライアント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">プロトタイピングツール</a></li>
@@ -264,8 +264,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">ガイドライン</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">コミュニティ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">ガイドライン</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">貢献者</a></li>
 </ul>
 </ul>
@@ -298,6 +298,13 @@
 <div class="section" id="mosaic-filter">
 <h2>モザイクフィルタ<a class="headerlink" href="#mosaic-filter" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>アカウントは、許可した <a class="reference internal" href="mosaic.html"><span class="doc">モザイク</span></a> が添付されている場合にだけ、受信トランザクションを許可するフィルターを構成できます。一方で、アカウントはブロックリストにあるモザイクを含んでいるトランザクションを拒否できます。</p>
+</div>
+<div class="section" id="entitytype-filter">
+<h2>エンティティタイプフィルタ<a class="headerlink" href="#entitytype-filter" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>アカウントは送信トランザクションのアナウンスを <a class="reference internal" href="transaction.html#id1"><span class="std std-ref">規則タイプ</span></a> によって許可/ブロックすることができます。それにより、セキュリティを向上させ、ミスによる意図しないトランザクションのアナウンスを防止できます。</p>
+</div>
+<div class="section" id="examples">
+<h2>例<a class="headerlink" href="#examples" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="blocking-spam-transactions">
 <h3>スパムトランザクションのブロック<a class="headerlink" href="#blocking-spam-transactions" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>企業は自社製品の品質を証明するためにパブリックチェーンを使用しています。</p>
@@ -309,10 +316,6 @@
 </div>
 <p>会社は <code class="docutils literal"><span class="pre">company.quality.seal</span></code> モザイクだけを受け入れるフィルタを製品アカウントに構成することにしました。</p>
 </div>
-</div>
-<div class="section" id="entitytype-filter">
-<h2>エンティティタイプフィルタ<a class="headerlink" href="#entitytype-filter" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>アカウントは送信トランザクションのアナウンスを <a class="reference internal" href="transaction.html#id1"><span class="std std-ref">規則タイプ</span></a> によって許可/ブロックすることができます。それにより、セキュリティを向上させ、ミスによる意図しないトランザクションのアナウンスを防止できます。</p>
 <div class="section" id="enhancing-the-account-security">
 <h3>アカウントのセキュリティ向上<a class="headerlink" href="#enhancing-the-account-security" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>最近 Alice は、メインアカウントを彼女が連署者である <a class="reference internal" href="multisig-account.html"><span class="doc">マルチシグ</span></a> アカウントのアグリゲートトランザクションに署名するためだけに使用しています。</p>
@@ -627,11 +630,10 @@
         <ul>
 <li><a class="reference internal" href="#">アカウントフィルタ</a><ul>
 <li><a class="reference internal" href="#address-filter">アドレスフィルタ</a></li>
-<li><a class="reference internal" href="#mosaic-filter">モザイクフィルタ</a><ul>
+<li><a class="reference internal" href="#mosaic-filter">モザイクフィルタ</a></li>
+<li><a class="reference internal" href="#entitytype-filter">エンティティタイプフィルタ</a></li>
+<li><a class="reference internal" href="#examples">例</a><ul>
 <li><a class="reference internal" href="#blocking-spam-transactions">スパムトランザクションのブロック</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#entitytype-filter">エンティティタイプフィルタ</a><ul>
 <li><a class="reference internal" href="#enhancing-the-account-security">アカウントのセキュリティ向上</a></li>
 </ul>
 </li>
@@ -689,9 +691,9 @@
                 <h4>リファレンス</h4>
                 <ul>
                     <li><a href="../api.html">REST API</a></li>
+                    <li><a href="../server.html">Server</a></li>
                     <li><a href="../sdk.html">SDKs</a></li>
                     <li><a href="../cli.html">クライアント</a></li>
-                    <li><a href="../prototyping-tool.html">プロトタイピングツール</a></li>
                     <li><a href="../extensions.html">拡張</a></li>
                 </ul>
             </div>

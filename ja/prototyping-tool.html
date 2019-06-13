@@ -158,6 +158,7 @@
 <p class="caption"><span class="caption-text">References</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server.html">サーバ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">クライアント</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">プロトタイピングツール</a><ul>
@@ -165,12 +166,15 @@
 <li class="toctree-l2"><a class="reference internal" href="#configuring-nodes">ノードの設定</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#configuring-an-api-gateway">API ゲートウェイの設定</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#running-a-flow">フローの実行</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#importing-a-flow">フローのインポート</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#examples">例</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#importing-a-flow">フローのインポート</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#basics">基本</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#applications">アプリケーション</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#exporting-a-flow">フローのエクスポート</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sharing-a-flow">フローの共有</a></li>
 </ul>
 </li>
 </ul>
@@ -179,13 +183,13 @@
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="contribute/contributing.html">ガイドライン</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contribute/community.html">コミュニティ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute/contributing.html">ガイドライン</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contribute/contributors.html">貢献者</a></li>
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.6</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.7</a></small>
     </p>
 </div>
 
@@ -223,6 +227,7 @@
 <p class="caption"><span class="caption-text">References</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server.html">サーバ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">クライアント</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">プロトタイピングツール</a><ul>
@@ -230,12 +235,15 @@
 <li class="toctree-l2"><a class="reference internal" href="#configuring-nodes">ノードの設定</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#configuring-an-api-gateway">API ゲートウェイの設定</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#running-a-flow">フローの実行</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#importing-a-flow">フローのインポート</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#examples">例</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#importing-a-flow">フローのインポート</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#basics">基本</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#applications">アプリケーション</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#exporting-a-flow">フローのエクスポート</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sharing-a-flow">フローの共有</a></li>
 </ul>
 </li>
 </ul>
@@ -244,8 +252,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="contribute/contributing.html">ガイドライン</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contribute/community.html">コミュニティ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute/contributing.html">ガイドライン</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contribute/contributors.html">貢献者</a></li>
 </ul>
 </ul>
@@ -263,7 +271,7 @@
 <h1>プロトタイピングツール<a class="headerlink" href="#prototyping-tool" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">⚠️ プロトタイピングツールは最新バージョンの catapult-server (0.3) と互換性がありません。</p>
+<p class="last">⚠️ プロトタイピングツールは catapult-server 0.1 だけに対応しています。</p>
 </div>
 <div class="figure align-center">
 <img alt="https://gist.githubusercontent.com/jorisadri/7061090eb3cbf724c80e4f49e03e1b94/raw/69b1b9f80594feb9a415aac8de62c769295c397b/transferTransaction.png" src="https://gist.githubusercontent.com/jorisadri/7061090eb3cbf724c80e4f49e03e1b94/raw/69b1b9f80594feb9a415aac8de62c769295c397b/transferTransaction.png" />
@@ -346,18 +354,17 @@
 <p class="caption"><span class="caption-text">debug タブの下の出力を確認してください。</span></p>
 </div>
 </div>
+</div>
 <div class="section" id="importing-a-flow">
-<h3>フローのインポート<a class="headerlink" href="#importing-a-flow" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>例を開いたら、サイトの下部にあるボタンで JSON をコピーしてください。</p>
-<p>Node-REDで <code class="docutils literal"><span class="pre">Import</span> <span class="pre">&gt;</span> <span class="pre">Clipboard</span> <span class="pre">from</span> <span class="pre">the</span> <span class="pre">menu</span></code> (Ctrl-E) を選択してください。JSON フローをペーストして、インポートボタンをクリックします。</p>
-</div>
-</div>
-<div class="section" id="examples">
-<h2>例<a class="headerlink" href="#examples" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>フローのインポート<a class="headerlink" href="#importing-a-flow" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ol class="arabic simple">
+<li>Node-REDで <code class="docutils literal"><span class="pre">Import</span> <span class="pre">&gt;</span> <span class="pre">Clipboard</span> <span class="pre">from</span> <span class="pre">the</span> <span class="pre">menu</span></code> (Ctrl-E) を選択してください。</li>
+<li>JSON フローをペーストして <code class="docutils literal"><span class="pre">Import</span></code> ボタンをクリックします。</li>
+</ol>
 <div class="section" id="basics">
 <h3>基本<a class="headerlink" href="#basics" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
-<li><a class="reference external" href="https://flows.nodered.org/flow/7061090eb3cbf724c80e4f49e03e1b94">Create a transfer transaction</a></li>
+<li><a class="reference external" href="https://flows.nodered.org/flow/7061090eb3cbf724c80e4f49e03e1b94">転送トランザクションの作成</a></li>
 <li><a class="reference external" href="https://flows.nodered.org/flow/3d87669bfc71e99f29f5ad82ba2a402e">ネームスペースの作成</a></li>
 <li><a class="reference external" href="https://flows.nodered.org/flow/04a643b66a8e0daa1e12fa61e3b36b7c">モザイクの作成</a></li>
 <li><a class="reference external" href="https://flows.nodered.org/flow/ba75b67684b2a1bc2af849cc70a7c4b5">マルチシグアカウントの作成</a></li>
@@ -370,8 +377,17 @@
 <ul class="simple">
 <li><a class="reference external" href="https://flows.nodered.org/flow/e8bfbab9d73e0f35ed6b4c9a9f7e4958">シンプルなチャット</a></li>
 </ul>
+</div>
+</div>
+<div class="section" id="exporting-a-flow">
+<h2>フローのエクスポート<a class="headerlink" href="#exporting-a-flow" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ol class="arabic simple">
+<li>Node-RED でエクスポートしたいフローを選択します。</li>
+<li>メニュー (Ctrl-E) から <code class="docutils literal"><span class="pre">Export</span> <span class="pre">&gt;</span> <span class="pre">Clipboard</span></code> を開き、ダイアログから JSON をコピーしてください。</li>
+</ol>
+<div class="section" id="sharing-a-flow">
+<h3>フローの共有<a class="headerlink" href="#sharing-a-flow" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>私たちは私たちのコミュニティ - そう、あなた！ からの貢献をを喜んで受け入れます。あなたのフローをドキュメントへ含めるために、これらのガイドラインに従ってください。</p>
-<p>最初のステップは、あなたの作ったフローをエクスポートすることです。Node-RED では、メニュー (Ctrl-E) から <code class="docutils literal"><span class="pre">Export</span> <span class="pre">&gt;</span> <span class="pre">Clipboard</span></code> を開き、ダイアログから JSON をコピーしてください。</p>
 <p>私たちはフローの共有に <a href="https://flows.nodered.org/?term=nem2&type=flow&num_pages=1" target="_blank">Node RED flows repository</a> を使用しています。</p>
 <ol class="arabic simple">
 <li><code class="docutils literal"><span class="pre">Add</span> <span class="pre">flow</span></code> をクリック</li>
@@ -379,7 +395,6 @@
 <li>共有したいフローの JSON をペーストしてください。</li>
 <li><code class="docutils literal"><span class="pre">NEM2</span></code> のタグを追加します。</li>
 </ol>
-<p>しばらくすると、あなたのフローと GitHub ユーザー名がこのページに反映されます。</p>
 </div>
 </div>
 </div>
@@ -406,12 +421,15 @@
 <li><a class="reference internal" href="#configuring-nodes">ノードの設定</a><ul>
 <li><a class="reference internal" href="#configuring-an-api-gateway">API ゲートウェイの設定</a></li>
 <li><a class="reference internal" href="#running-a-flow">フローの実行</a></li>
-<li><a class="reference internal" href="#importing-a-flow">フローのインポート</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#examples">例</a><ul>
+<li><a class="reference internal" href="#importing-a-flow">フローのインポート</a><ul>
 <li><a class="reference internal" href="#basics">基本</a></li>
 <li><a class="reference internal" href="#applications">アプリケーション</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#exporting-a-flow">フローのエクスポート</a><ul>
+<li><a class="reference internal" href="#sharing-a-flow">フローの共有</a></li>
 </ul>
 </li>
 </ul>
@@ -455,9 +473,9 @@
                 <h4>リファレンス</h4>
                 <ul>
                     <li><a href="api.html">REST API</a></li>
+                    <li><a href="server.html">Server</a></li>
                     <li><a href="sdk.html">SDKs</a></li>
                     <li><a href="cli.html">クライアント</a></li>
-                    <li><a href="#">プロトタイピングツール</a></li>
                     <li><a href="extensions.html">拡張</a></li>
                 </ul>
             </div>

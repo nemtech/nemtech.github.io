@@ -148,7 +148,7 @@
 <p class="caption"><span class="caption-text">Protocol</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">暗号理論</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#private-and-public-key">秘密鍵と公開鍵</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#key-pair">キーペア</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#address">アドレス</a></li>
 </ul>
 </li>
@@ -162,6 +162,7 @@
 <p class="caption"><span class="caption-text">References</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server.html">サーバ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">クライアント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">プロトタイピングツール</a></li>
@@ -169,13 +170,13 @@
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">ガイドライン</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">コミュニティ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">ガイドライン</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">貢献者</a></li>
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.6</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.7</a></small>
     </p>
 </div>
 
@@ -203,7 +204,7 @@
 <p class="caption"><span class="caption-text">Protocol</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">暗号理論</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#private-and-public-key">秘密鍵と公開鍵</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#key-pair">キーペア</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#address">アドレス</a></li>
 </ul>
 </li>
@@ -217,6 +218,7 @@
 <p class="caption"><span class="caption-text">References</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server.html">サーバ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">クライアント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">プロトタイピングツール</a></li>
@@ -224,8 +226,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">ガイドライン</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">コミュニティ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">ガイドライン</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">貢献者</a></li>
 </ul>
 </ul>
@@ -241,10 +243,15 @@
             
   <div class="section" id="cryptography">
 <h1>暗号理論<a class="headerlink" href="#cryptography" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>NEMは <strong>楕円曲線暗号</strong> に基づく暗号を使用しています。基礎となる曲線の選択は、セキュリティとスピードを保証する上で重要です。</p>
-<div class="section" id="private-and-public-key">
-<span id="keypair"></span><h2>秘密鍵と公開鍵<a class="headerlink" href="#private-and-public-key" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><strong>秘密鍵</strong> はランダムな 256-bit の整数です。<strong>公開鍵</strong> は秘密鍵から暗号学的に導出されます。NEM では <code class="docutils literal"><span class="pre">Ed25519曲線</span></code> と <code class="docutils literal"><span class="pre">sha3</span></code> ハッシュアルゴリズムを使用しています。</p>
+<div class="section" id="key-pair">
+<span id="keypair"></span><h2>キーペア<a class="headerlink" href="#key-pair" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>鍵ペアは秘密鍵と公開鍵で構成されます:</p>
+<ul class="simple">
+<li><strong>秘密鍵</strong>: <a class="reference internal" href="block.html#verifiable-entity"><span class="std std-ref">エンティティ</span></a> に署名するために使用するランダムな 256-bit 整数</li>
+<li><strong>公開鍵</strong>: キーペアの公開識別子。対となる秘密鍵で署名されたエンティティを証明します。</li>
+</ul>
+<p>公開鍵は暗号理論によって秘密鍵から導出されます。Catapult は <a href="https://en.wikipedia.org/wiki/Twisted_Edwards_curve/" target="_blank">Twisted Edwards curve</a> を <a href="https://ed25519.cr.yp.to/" target="_blank">Ed25519</a> と呼ばれるデジタル署名アルゴリズムと共に使用します。</p>
+<p>catapult-server の <code class="docutils literal"><span class="pre">crypto</span></code> モジュール下に <a href="https://github.com/nemtech/catapult-server/blob/master/src/catapult/crypto/KeyGenerator.cpp#L31" target="_blank">implementation</a> があります。</p>
 </div>
 <div class="section" id="address">
 <span id="id1"></span><h2>アドレス<a class="headerlink" href="#address" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -254,14 +261,33 @@
 <li>アカウントの公開鍵の 160-bit ハッシュ</li>
 <li>アドレスのミスタイプを素早く確認するための 4 byte チェックサム</li>
 </ul>
-<p>以下のステップで公開鍵をアドレスに変換します:</p>
+<p>次のステップでは <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/src/catapult/model/Address.cpp#L50">公開鍵をアドレスに変換</a> します:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">Address</span> <span class="nf">PublicKeyToAddress</span><span class="p">(</span><span class="k">const</span> <span class="n">Key</span><span class="o">&amp;</span> <span class="n">publicKey</span><span class="p">,</span> <span class="n">NetworkIdentifier</span> <span class="n">networkIdentifier</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// step 1: sha3 hash of the public key</span>
+        <span class="n">Hash256</span> <span class="n">publicKeyHash</span><span class="p">;</span>
+        <span class="n">CatapultHash</span><span class="p">(</span><span class="n">publicKey</span><span class="p">,</span> <span class="n">publicKeyHash</span><span class="p">);</span>
+
+        <span class="c1">// step 2: ripemd160 hash of (1)</span>
+        <span class="n">Address</span> <span class="n">decoded</span><span class="p">;</span>
+        <span class="n">crypto</span><span class="o">::</span><span class="n">Ripemd160</span><span class="p">(</span><span class="n">publicKeyHash</span><span class="p">,</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">Hash160</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">decoded</span><span class="p">[</span><span class="mi">1</span><span class="p">]));</span>
+
+        <span class="c1">// step 3: add network identifier byte in front of (2)</span>
+        <span class="n">decoded</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">utils</span><span class="o">::</span><span class="n">to_underlying_type</span><span class="p">(</span><span class="n">networkIdentifier</span><span class="p">);</span>
+
+        <span class="c1">// step 4: concatenate (3) and the checksum of (3)</span>
+        <span class="n">Hash256</span> <span class="n">step3Hash</span><span class="p">;</span>
+        <span class="n">CatapultHash</span><span class="p">(</span><span class="n">RawBuffer</span><span class="p">{</span> <span class="n">decoded</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="n">Hash160_Size</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">},</span> <span class="n">step3Hash</span><span class="p">);</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">copy</span><span class="p">(</span><span class="n">step3Hash</span><span class="p">.</span><span class="n">cbegin</span><span class="p">(),</span> <span class="n">step3Hash</span><span class="p">.</span><span class="n">cbegin</span><span class="p">()</span> <span class="o">+</span> <span class="n">Checksum_Size</span><span class="p">,</span> <span class="n">decoded</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span> <span class="o">+</span> <span class="n">Hash160_Size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="n">decoded</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <ol class="arabic simple">
-<li>公開鍵に 256-bit sha3 を適用します。</li>
-<li>ステップ 1 の結果に 160-bit Ripemd ハッシュを適用します。</li>
-<li>Ripemd ハッシュにバージョンバイト (0x68 か 0x98) を接頭します。</li>
-<li>結果に 256-bit sha3 を適用し、最初の 4 byte をチェックサムとします。</li>
-<li>ステップ 3 の出力とステップ4のチェックサムを結合します。</li>
-<li>base32 を使ってエンコードした結果</li>
+<li>公開鍵の SHA3-256</li>
+<li>ripemd160 で (1) のハッシュを生成。</li>
+<li>ネットワーク識別バイトを (2) の前に追加する。</li>
+<li>上記 (3) と (3) のチェックサムを結合する。</li>
 </ol>
 <p>上記の説明通り、ブロックチェーンとの疎通無しにアドレスを作ることができます。ブロックチェーンは最低でも1つのトランザクションが関係するアドレスだけを追跡します。</p>
 </div>
@@ -285,7 +311,7 @@
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">暗号理論</a><ul>
-<li><a class="reference internal" href="#private-and-public-key">秘密鍵と公開鍵</a></li>
+<li><a class="reference internal" href="#key-pair">キーペア</a></li>
 <li><a class="reference internal" href="#address">アドレス</a></li>
 </ul>
 </li>
@@ -328,9 +354,9 @@
                 <h4>リファレンス</h4>
                 <ul>
                     <li><a href="../api.html">REST API</a></li>
+                    <li><a href="../server.html">Server</a></li>
                     <li><a href="../sdk.html">SDKs</a></li>
                     <li><a href="../cli.html">クライアント</a></li>
-                    <li><a href="../prototyping-tool.html">プロトタイピングツール</a></li>
                     <li><a href="../extensions.html">拡張</a></li>
                 </ul>
             </div>

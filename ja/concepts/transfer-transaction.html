@@ -142,9 +142,16 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">モザイク</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">転送トランザクション</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#recipient">受信者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mosaics">モザイク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#message">メッセージ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#encrypted-message">暗号化メッセージ</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">ガイド</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">スキーマ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#transfertransaction">TransferTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#messagetype">MessageType</a></li>
 </ul>
 </li>
 </ul>
@@ -165,6 +172,7 @@
 <p class="caption"><span class="caption-text">References</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server.html">サーバ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">クライアント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">プロトタイピングツール</a></li>
@@ -172,13 +180,13 @@
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">ガイドライン</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">コミュニティ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">ガイドライン</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">貢献者</a></li>
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.6</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.7</a></small>
     </p>
 </div>
 
@@ -200,9 +208,16 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">モザイク</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">転送トランザクション</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#recipient">受信者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mosaics">モザイク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#message">メッセージ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#encrypted-message">暗号化メッセージ</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">ガイド</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">スキーマ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#transfertransaction">TransferTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#messagetype">MessageType</a></li>
 </ul>
 </li>
 </ul>
@@ -223,6 +238,7 @@
 <p class="caption"><span class="caption-text">References</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server.html">サーバ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">クライアント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">プロトタイピングツール</a></li>
@@ -230,8 +246,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">ガイドライン</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">コミュニティ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">ガイドライン</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">貢献者</a></li>
 </ul>
 </ul>
@@ -247,14 +263,35 @@
             
   <div class="section" id="transfer-transaction">
 <h1>転送トランザクション<a class="headerlink" href="#transfer-transaction" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>転送トランザクションは <a class="reference internal" href="mosaic.html"><span class="doc">モザイク</span></a> を2つの <a class="reference internal" href="account.html"><span class="doc">アカウント</span></a> 間で送信するために使われます。 <code class="docutils literal"><span class="pre">1023</span></code> 文字以内のメッセージを含めることもできます。</p>
+<p>転送トランザクションは <a class="reference internal" href="mosaic.html"><span class="doc">モザイク</span></a> とメッセージを2つの <a class="reference internal" href="account.html"><span class="doc">アカウント</span></a> 間で送信するために使われます。</p>
 <div class="figure align-center" id="id2">
 <img alt="../_images/transfer-transaction.png" src="../_images/transfer-transaction.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">Alice は 10 cat.currency を Bob へ送る</span></p>
 </div>
+<div class="section" id="recipient">
+<h2>受信者<a class="headerlink" href="#recipient" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>受信者は転送トランザクションを受け取る <a class="reference internal" href="account.html"><span class="doc">アカウント</span></a> のアドレスです。</p>
+<p>過去にトランザクションに関与したことがなくても、正当なアドレスであればモザイクを送信することができます。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">過去にトランザクションに関与したことがなくても、正当なアドレスであればモザイクを送信することができます。 もし受信するアドレスの秘密鍵を誰も持っていない場合、その資産は永久に使うことができなくなります。</p>
+<p class="last">もし受信するアドレスの秘密鍵を誰も持っていない場合、その資産は永久に使うことができなくなります。</p>
+</div>
+</div>
+<div class="section" id="mosaics">
+<h2>モザイク<a class="headerlink" href="#mosaics" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference internal" href="mosaic.html"><span class="doc">モザイク</span></a> はトークンといえますが、報酬ポイント、株式、署名、状態フラグ、投票やその他の貨幣などのより特化した資産とみなすこともできます。</p>
+<p>同じトランザクションで異なるモザイクの組み合わせを送信することができます。</p>
+</div>
+<div class="section" id="message">
+<h2>メッセージ<a class="headerlink" href="#message" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>転送トランザクションは <code class="docutils literal"><span class="pre">1023</span></code> 文字までの長さのメッセージを持つことができ、ブロックチェーンにデータを永続的にタイムスタンプするのに適しています。</p>
+<p>デフォルトでは添付されたメッセージはネットワーク参加者の全員が見ることができます。</p>
+<div class="section" id="encrypted-message">
+<h3>暗号化メッセージ<a class="headerlink" href="#encrypted-message" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>暗号化メッセージは送信者と受信者だけが平文を読むことができます。</p>
+<p>NEM は <a class="reference external" href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CBC">CBC モード</a> の  Bouncy Castle’s AES ブロック暗号化実装を使ってメッセージの暗号化と復号を行います。</p>
+<p>クライアント側はメッセージの暗号化と復号を処理します。<code class="docutils literal"><span class="pre">crypto</span></code> モジュールの下に暗号化メッセージの <a class="reference external" href="https://github.com/nemtech/nem2-library-js/blob/master/src/crypto/crypto.js#L255">エンコード</a> と <a class="reference external" href="https://github.com/nemtech/nem2-library-js/blob/master/src/crypto/crypto.js#L287">デコード</a> の方法を発見することができますが、替わりに <a class="reference external" href="https://nemtech.github.io/nem2-sdk-typescript-javascript/classes/_model_account_account_.account.html#decryptmessage">SDK のパブリックメソッド</a> を使用することを推奨します。</p>
+</div>
 </div>
 <div class="section" id="guides">
 <h2>ガイド<a class="headerlink" href="#guides" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -264,6 +301,9 @@
 </li>
 <li><p class="first"><a class="reference internal" href="../guides/transaction/monitoring-a-transaction-status.html">トランザクションの監視</a></p>
 <p>アナウンスした後に <a class="reference internal" href="transaction.html"><span class="doc">トランザクション</span></a> がブロックチェーンに含まれることを理解してください。</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../guides/transaction/sending-an-encrypted-message.html">暗号化メッセージの送信</a></p>
+<p>受信者アカウントでしか読めない暗号化メッセージを送信します。</p>
 </li>
 </ul>
 </div>
@@ -309,11 +349,34 @@
 </tr>
 <tr class="row-odd"><td>message</td>
 <td>array(byte, messageSize)</td>
-<td>メッセージタイプ (0) と <code class="docutils literal"><span class="pre">1023</span></code> バイトまでのペイロード</td>
+<td><a class="reference internal" href="#message-type"><span class="std std-ref">MessageType</span></a> と <code class="docutils literal"><span class="pre">1023</span></code> バイトまでのペイロード</td>
 </tr>
 <tr class="row-even"><td>mosaics</td>
 <td>array(<a class="reference internal" href="mosaic.html#unresolved-mosaic"><span class="std std-ref">UnresolvedMosaic</span></a>, mosaicsCount)</td>
-<td>異なるモザイクを送信する</td>
+<td>送信するモザイクの配列</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="messagetype">
+<span id="message-type"></span><h3>MessageType<a class="headerlink" href="#messagetype" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Enumeration: uint8</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Id</th>
+<th class="head">説明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>平文メッセージ</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>暗号化メッセージ</td>
 </tr>
 </tbody>
 </table>
@@ -339,9 +402,16 @@
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">転送トランザクション</a><ul>
+<li><a class="reference internal" href="#recipient">受信者</a></li>
+<li><a class="reference internal" href="#mosaics">モザイク</a></li>
+<li><a class="reference internal" href="#message">メッセージ</a><ul>
+<li><a class="reference internal" href="#encrypted-message">暗号化メッセージ</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#guides">ガイド</a></li>
 <li><a class="reference internal" href="#schemas">スキーマ</a><ul>
 <li><a class="reference internal" href="#transfertransaction">TransferTransaction</a></li>
+<li><a class="reference internal" href="#messagetype">MessageType</a></li>
 </ul>
 </li>
 </ul>
@@ -385,9 +455,9 @@
                 <h4>リファレンス</h4>
                 <ul>
                     <li><a href="../api.html">REST API</a></li>
+                    <li><a href="../server.html">Server</a></li>
                     <li><a href="../sdk.html">SDKs</a></li>
                     <li><a href="../cli.html">クライアント</a></li>
-                    <li><a href="../prototyping-tool.html">プロトタイピングツール</a></li>
                     <li><a href="../extensions.html">拡張</a></li>
                 </ul>
             </div>

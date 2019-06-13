@@ -164,6 +164,7 @@
 <p class="caption"><span class="caption-text">References</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server.html">サーバ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">クライアント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">プロトタイピングツール</a></li>
@@ -171,13 +172,13 @@
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">ガイドライン</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">コミュニティ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">ガイドライン</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">貢献者</a></li>
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.6</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.7</a></small>
     </p>
 </div>
 
@@ -221,6 +222,7 @@
 <p class="caption"><span class="caption-text">References</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server.html">サーバ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">クライアント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">プロトタイピングツール</a></li>
@@ -228,8 +230,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">ガイドライン</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">コミュニティ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">ガイドライン</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">貢献者</a></li>
 </ul>
 </ul>
@@ -245,8 +247,13 @@
             
   <div class="section" id="account">
 <h1>アカウント<a class="headerlink" href="#account" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>アカウントとは、NEM ブロックチェーン上に保存される変更可能な状態に関連付く <strong>キーペア</strong> (秘密鍵と公開鍵)です。言い換えると、ブロックチェーン上に金庫があり、あなたのキーでのみ変更をすることができます。秘密鍵はその名の通り、常に秘密にしておかなければなりません。秘密鍵にアクセスできる人なら、誰でもアカウントを完全にコントロールできてしまいます。</p>
-<p>NEM アカウントをブロックチェーン内の <strong>資産のコンテナ</strong> として考えてみてください。よくあるブロックチェーンのように、アカウントは預け入れられたトークンを表現します。しかし、唯一の更新可能な: 出荷されるパッケージ、家の譲渡証書、公証書類のような <strong>単一のオブジェクト</strong> としても表現できます。</p>
+<p>アカウントとは NEM ブロックチェーン上に保存される、変更可能な状態に関連付く <strong>キーペア</strong>  (秘密鍵と公開鍵)です。言い換えるとブロックチェーン上にある、あなたの秘密鍵でのみ変更をすることができる <strong>金庫</strong> です。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">秘密鍵はその名の通り、必ず秘密にしておかなければなりません。秘密鍵にアクセスできる人なら誰でもアカウントを完全にコントロールできてしまいます。</p>
+</div>
+<p>NEM アカウントをブロックチェーン内の <strong>資産のコンテナ</strong> として考えてみてください。よくあるブロックチェーンのように、アカウントは預け入れられたトークンを表現します。</p>
+<p>さらに、NEM アカウントは一意でかつ更新可能な <strong>代替できない資産</strong> : 出荷パッケージ、家屋譲渡証書、公証文書を表現することができます。</p>
 <div class="section" id="properties">
 <h2>プロパティ<a class="headerlink" href="#properties" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>アカウントは以下のプロパティを持ちます:</p>
@@ -267,7 +274,8 @@
 </div>
 <div class="section" id="multisig-account">
 <h2>マルチシグアカウント<a class="headerlink" href="#multisig-account" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>どのように相互に関連して制御するか、どのようにその内容を更新や転送をするかの定義を、直接 NEM ブロックチェーン上に特別なルールとして設定しておけば、アカウントはとてもスマートなものになります。1つの重要なルールタイプは、アカウントベースの資産の所有権を複数の当事者間でさまざまな方法で共有できる <a class="reference internal" href="multisig-account.html"><span class="doc">マルチシグ</span></a> コントロールです。</p>
+<p>どのように相互に関連して制御するか、どのようにその内容を更新や転送をするかの定義を直接 NEM ブロックチェーン上に特別なルールとして設定しておけば、アカウントはとてもスマートなものになります。</p>
+<p>1つの重要なルールタイプは、アカウントベースの資産の所有権を複数の当事者間でさまざまな方法で共有できる <a class="reference internal" href="multisig-account.html"><span class="doc">マルチシグ</span></a> コントロールです。</p>
 </div>
 <div class="section" id="filters">
 <h2>フィルタ<a class="headerlink" href="#filters" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -358,9 +366,9 @@
                 <h4>リファレンス</h4>
                 <ul>
                     <li><a href="../api.html">REST API</a></li>
+                    <li><a href="../server.html">Server</a></li>
                     <li><a href="../sdk.html">SDKs</a></li>
                     <li><a href="../cli.html">クライアント</a></li>
-                    <li><a href="../prototyping-tool.html">プロトタイピングツール</a></li>
                     <li><a href="../extensions.html">拡張</a></li>
                 </ul>
             </div>

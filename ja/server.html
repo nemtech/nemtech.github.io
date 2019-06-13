@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>拡張 &#8212; NEM Developer Center</title>
+    <title>サーバ &#8212; NEM Developer Center</title>
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
@@ -35,8 +35,8 @@
     <link rel="shortcut icon" href="_static/favicon-32x32.png"/>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
-    <link rel="next" title="コミュニティ" href="contribute/community.html" />
-    <link rel="prev" title="プロトタイピングツール" href="prototyping-tool.html" />
+    <link rel="next" title="SDK" href="sdk.html" />
+    <link rel="prev" title="REST API" href="api.html" />
   
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -94,7 +94,7 @@
                 <ul class="list-inline">
     
     <li id="edit-github" class="hidden-xs hidden-sm">
-        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/extensions.rst"
+        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/server.rst"
            rel="nofollow"> <i class="fab fa-github"></i> 編集</a>
     </li>
     
@@ -158,15 +158,15 @@
 <p class="caption"><span class="caption-text">References</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="api.html">REST API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="server.html">サーバ</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">サーバ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">インストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#guides">ガイド</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">クライアント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prototyping-tool.html">プロトタイピングツール</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">拡張</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#supported-extensions">サポートされている拡張</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#community-extensions">コミュニティの拡張</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">拡張</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
@@ -214,15 +214,15 @@
 <p class="caption"><span class="caption-text">References</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="api.html">REST API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="server.html">サーバ</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">サーバ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">インストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#guides">ガイド</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">クライアント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prototyping-tool.html">プロトタイピングツール</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">拡張</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#supported-extensions">サポートされている拡張</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#community-extensions">コミュニティの拡張</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">拡張</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
@@ -241,57 +241,33 @@
         
         <div class="col-md-7 content">
             
-  <div class="section" id="extensions">
-<h1>拡張<a class="headerlink" href="#extensions" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>開発者は NEM により多くの機能を追加する拡張を作成することもできます。しかし受理された拡張になるには <a href="https://github.com/nemtech/NIP" target="_blank">NEM Improvement Proposal</a> として提案する必要があります。</p>
-<p><a href="https://github.com/nemtech/NIP" target="_blank">NEM Improvement Proposal</a> の背景としては、NEM 開発者間でレビュー、テスト、共有された新しいライブラリを保証するためです。</p>
+  <div class="section" id="server">
+<h1>サーバ<a class="headerlink" href="#server" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>ブロックチェーンプラットフォームである NEM はスマートアセットトランザクションの強力で、安定した、安全なプラットフォームを提供するために、非中央集権ネットワークのノードに依存しています。</p>
+<p>これらのノードは4年以上稼働し続けてきた、従来 JAVA で書かれていた NEM 分散台帳を C++ でリライトした <a href="https://github.com/nemtech/catapult-server" target="_blank">catapult-server</a> ソフトウェアを使用してデプロイされます。</p>
+<p>その多層アーキテクチャーを通じて、ピアツーピアネットワークの分離と提案された REST APIレイヤーを使用して、より優れた API 統合フローを実装することが可能です。</p>
+<p>また Catapult ではプライベートネットワーク向けに catapult-server ノード用の <strong>プラグイン</strong> を開発することで独自のトランザクションタイプを追加する機能を提供します。</p>
+<div class="section" id="installation">
+<h2>インストール<a class="headerlink" href="#installation" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Catapult-server はノード所有者の柔軟性を向上します。同じソフトウェアは異なる2種類の <a class="reference internal" href="concepts/node.html"><span class="doc">ノード</span></a> に設定することができます:</p>
 <ul class="simple">
-<li>受理された仕様</li>
-<li>コードレビューを正常に通過した実装が少なくとも１つあること。</li>
-<li>同じ NIP ライブラリを実装/使用しているサードパーティープロジェクトと互換性があります。</li>
+<li><strong>Peer ノード</strong> (P2P コンポーネント): Peer ノードは API がトランザクションを P2P ネットワークにプッシュすると、それを検証または破棄します。ノードはコンセンサスアルゴリズムを実行して新しいブロックを作成し、そしてネットワークを通して変更を伝播します。</li>
+<li><strong>API ノード</strong> (API コンポーネント): API ノードの主な役割はトランザクションが検証された後に MongoDB データベースにデータを正しく保存することです。</li>
 </ul>
-<div class="section" id="supported-extensions">
-<h2>サポートされている拡張<a class="headerlink" href="#supported-extensions" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<table border="1" class="docutils">
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">名称</th>
-<th class="head">説明</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><a class="reference external" href="https://github.com/nemtech/catapult-service-bootstrap">catapult service bootstrap</a></td>
-<td>開発者を立ち上げるための Catapult サービスをスタータープロジェクト。</td>
-</tr>
-<tr class="row-odd"><td><a class="reference external" href="https://github.com/nemtech/nem2-camel">nem2-camel</a></td>
-<td>非同期なトランザクションのアナウンスを同期的に変えるコンポーネント</td>
-</tr>
-</tbody>
-</table>
+<p><a href="https://github.com/tech-bureau/catapult-service-bootstrap" target="_blank">Catapult Service Bootstrap</a> で開発目的または学習目的で独自のネットワークを展開する catapult-server ソフトウェアをテストすることができます。</p>
+<p>catapult-server だけをビルドして動作させるにはこの <a href="https://github.com/nemtech/catapult-server/blob/master/BUILDING.md" target="_blank">instructions for Ubuntu</a> に従ってください。</p>
 </div>
-<div class="section" id="community-extensions">
-<h2>コミュニティの拡張<a class="headerlink" href="#community-extensions" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<table border="1" class="docutils">
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">名称</th>
-<th class="head">説明</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><a class="reference external" href="https://github.com/luxtagofficial/Apostille-library">Apostille library</a></td>
-<td>譲渡可能、更新可能、ブランド付き、共同所有のブロックチェーン公証</td>
-</tr>
-</tbody>
-</table>
-<p>拡張を作成するために NIP を作成する必要がありますか？いいえ。実際 NEM ブロックチェーンとそれを使用するさまざまなプロジェクトを改善する拡張を構築するまでは、NIP を提出しないことをお勧めします。拡張は何度も変更されるので、開発者は後で仕様を作成し、実験と学習をより多くの時間を費やす必要があります。</p>
-<p>新しい拡張をこのページに追加したい場合は、画面の右上にある <em>「Edit on Github」</em> ボタンをクリックしてください。</p>
+<div class="section" id="guides">
+<h2>ガイド<a class="headerlink" href="#guides" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><a href="https://github.com/tech-bureau/catapult-service-bootstrap/" target="_blank"><b>Running Catapult locally</b></a></li>
+</ul>
+<p>Catapult フルノードを学習と開発目的でデプロイする。</p>
+<ul class="simple">
+<li><strong>テストネットノードのデプロイ</strong> (<a class="reference internal" href="guidelines/suggesting-changes.html"><span class="doc">乞うご期待</span></a>)</li>
+<li><strong>プライベートネットワークの設定</strong> (<a class="reference internal" href="guidelines/suggesting-changes.html"><span class="doc">乞うご期待</span></a>)</li>
+<li><strong>カスタムプラグインの作成</strong> (<a class="reference internal" href="guidelines/suggesting-changes.html"><span class="doc">乞うご期待</span></a>)</li>
+</ul>
 </div>
 </div>
 
@@ -312,9 +288,9 @@
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
-<li><a class="reference internal" href="#">拡張</a><ul>
-<li><a class="reference internal" href="#supported-extensions">サポートされている拡張</a></li>
-<li><a class="reference internal" href="#community-extensions">コミュニティの拡張</a></li>
+<li><a class="reference internal" href="#">サーバ</a><ul>
+<li><a class="reference internal" href="#installation">インストール</a></li>
+<li><a class="reference internal" href="#guides">ガイド</a></li>
 </ul>
 </li>
 </ul>
@@ -356,10 +332,10 @@
                 <h4>リファレンス</h4>
                 <ul>
                     <li><a href="api.html">REST API</a></li>
-                    <li><a href="server.html">Server</a></li>
+                    <li><a href="#">Server</a></li>
                     <li><a href="sdk.html">SDKs</a></li>
                     <li><a href="cli.html">クライアント</a></li>
-                    <li><a href="#">拡張</a></li>
+                    <li><a href="extensions.html">拡張</a></li>
                 </ul>
             </div>
 
