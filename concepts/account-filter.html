@@ -138,11 +138,10 @@
 <li class="toctree-l1"><a class="reference internal" href="account.html">Account</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Account Filter</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#address-filter">Address filter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mosaic-filter">Mosaic filter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mosaic-filter">Mosaic filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#entitytype-filter">EntityType filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#blocking-spam-transactions">Blocking spam transactions</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#entitytype-filter">EntityType filter</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#enhancing-the-account-security">Enhancing the account security</a></li>
 </ul>
 </li>
@@ -181,6 +180,7 @@
 <p class="caption"><span class="caption-text">References</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
@@ -188,13 +188,13 @@
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">Contributors</a></li>
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.6</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.7</a></small>
     </p>
 </div>
 
@@ -213,11 +213,10 @@
 <li class="toctree-l1"><a class="reference internal" href="account.html">Account</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Account Filter</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#address-filter">Address filter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mosaic-filter">Mosaic filter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mosaic-filter">Mosaic filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#entitytype-filter">EntityType filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#blocking-spam-transactions">Blocking spam transactions</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#entitytype-filter">EntityType filter</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#enhancing-the-account-security">Enhancing the account security</a></li>
 </ul>
 </li>
@@ -256,6 +255,7 @@
 <p class="caption"><span class="caption-text">References</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
@@ -263,8 +263,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">Contributors</a></li>
 </ul>
 </ul>
@@ -297,6 +297,13 @@
 <div class="section" id="mosaic-filter">
 <h2>Mosaic filter<a class="headerlink" href="#mosaic-filter" title="Permalink to this headline">¶</a></h2>
 <p>An account can configure a filter to permit incoming transactions only if all the <a class="reference internal" href="mosaic.html"><span class="doc">mosaics</span></a> attached are allowed. On the other hand, the account can refuse to accept transactions containing a mosaic listed as blocked.</p>
+</div>
+<div class="section" id="entitytype-filter">
+<h2>EntityType filter<a class="headerlink" href="#entitytype-filter" title="Permalink to this headline">¶</a></h2>
+<p>An account can allow/block announcing outgoing transactions with a <a class="reference internal" href="transaction.html#id1"><span class="std std-ref">determined type</span></a>. By doing so, it increases its security, preventing the announcement by mistake of undesired transactions.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="blocking-spam-transactions">
 <h3>Blocking spam transactions<a class="headerlink" href="#blocking-spam-transactions" title="Permalink to this headline">¶</a></h3>
 <p>A company is using the public chain to certify the quality of their products.</p>
@@ -308,10 +315,6 @@
 </div>
 <p>The company opts to configure their product accounts filters, enabling only to receive transactions containing <code class="docutils literal"><span class="pre">company.quality.seal</span></code> mosaics.</p>
 </div>
-</div>
-<div class="section" id="entitytype-filter">
-<h2>EntityType filter<a class="headerlink" href="#entitytype-filter" title="Permalink to this headline">¶</a></h2>
-<p>An account can allow/block announcing outgoing transactions with a <a class="reference internal" href="transaction.html#id1"><span class="std std-ref">determined type</span></a>. By doing so, it increases its security, preventing the announcement by mistake of undesired transactions.</p>
 <div class="section" id="enhancing-the-account-security">
 <h3>Enhancing the account security<a class="headerlink" href="#enhancing-the-account-security" title="Permalink to this headline">¶</a></h3>
 <p>Lately, Alice is only using her main account to cosign aggregate transactions where she is a cosignatory for the <a class="reference internal" href="multisig-account.html"><span class="doc">multisig</span></a> account.</p>
@@ -626,11 +629,10 @@
         <ul>
 <li><a class="reference internal" href="#">Account Filter</a><ul>
 <li><a class="reference internal" href="#address-filter">Address filter</a></li>
-<li><a class="reference internal" href="#mosaic-filter">Mosaic filter</a><ul>
+<li><a class="reference internal" href="#mosaic-filter">Mosaic filter</a></li>
+<li><a class="reference internal" href="#entitytype-filter">EntityType filter</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
 <li><a class="reference internal" href="#blocking-spam-transactions">Blocking spam transactions</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#entitytype-filter">EntityType filter</a><ul>
 <li><a class="reference internal" href="#enhancing-the-account-security">Enhancing the account security</a></li>
 </ul>
 </li>
@@ -688,9 +690,9 @@
                 <h4>References</h4>
                 <ul>
                     <li><a href="../api.html">REST API</a></li>
+                    <li><a href="../server.html">Server</a></li>
                     <li><a href="../sdk.html">SDKs</a></li>
                     <li><a href="../cli.html">Client</a></li>
-                    <li><a href="../prototyping-tool.html">Prototyping Tool</a></li>
                     <li><a href="../extensions.html">Extensions</a></li>
                 </ul>
             </div>

@@ -141,9 +141,16 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">Mosaic</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Transfer Transaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#recipient">Recipient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mosaics">Mosaics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#message">Message</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#encrypted-message">Encrypted message</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">Schemas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#transfertransaction">TransferTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#messagetype">MessageType</a></li>
 </ul>
 </li>
 </ul>
@@ -164,6 +171,7 @@
 <p class="caption"><span class="caption-text">References</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
@@ -171,13 +179,13 @@
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">Contributors</a></li>
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.6</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.7</a></small>
     </p>
 </div>
 
@@ -199,9 +207,16 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">Mosaic</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Transfer Transaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#recipient">Recipient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mosaics">Mosaics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#message">Message</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#encrypted-message">Encrypted message</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">Schemas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#transfertransaction">TransferTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#messagetype">MessageType</a></li>
 </ul>
 </li>
 </ul>
@@ -222,6 +237,7 @@
 <p class="caption"><span class="caption-text">References</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
@@ -229,8 +245,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">Contributors</a></li>
 </ul>
 </ul>
@@ -246,14 +262,35 @@
             
   <div class="section" id="transfer-transaction">
 <h1>Transfer Transaction<a class="headerlink" href="#transfer-transaction" title="Permalink to this headline">¶</a></h1>
-<p>Transfer transactions are used to send <a class="reference internal" href="mosaic.html"><span class="doc">mosaics</span></a> between two <a class="reference internal" href="account.html"><span class="doc">accounts</span></a>. They can hold a messages of length <code class="docutils literal"><span class="pre">1023</span></code> characters.</p>
+<p>Transfer transactions are used to send <a class="reference internal" href="mosaic.html"><span class="doc">mosaics</span></a> and messages between two <a class="reference internal" href="account.html"><span class="doc">accounts</span></a>.</p>
 <div class="figure align-center" id="id2">
 <img alt="../_images/transfer-transaction.png" src="../_images/transfer-transaction.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">Alice sends 10 cat.currency to Bob</span></p>
 </div>
+<div class="section" id="recipient">
+<h2>Recipient<a class="headerlink" href="#recipient" title="Permalink to this headline">¶</a></h2>
+<p>The recipient is the address of the <a class="reference internal" href="account.html"><span class="doc">account</span></a> that receives the transfer transaction.</p>
+<p>It is possible to send mosaics to any valid address, even if the address has not previously participated in any transaction.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">It is possible to send mosaics to any valid address even if the address has not previously participated in any transaction. If nobody owns the private key of the recipient’s account, the funds are most likely lost forever.</p>
+<p class="last">If nobody owns the private key of the recipient’s account, the funds are most likely lost forever.</p>
+</div>
+</div>
+<div class="section" id="mosaics">
+<h2>Mosaics<a class="headerlink" href="#mosaics" title="Permalink to this headline">¶</a></h2>
+<p>A <a class="reference internal" href="mosaic.html"><span class="doc">mosaic</span></a> could be a token, but it could also be more specialized assets such as reward points, shares of stock, signatures, status flags, votes or even other currencies.</p>
+<p>You can send a combination of different mosaics in the same transaction.</p>
+</div>
+<div class="section" id="message">
+<h2>Message<a class="headerlink" href="#message" title="Permalink to this headline">¶</a></h2>
+<p>A transfer transaction can hold a message up to <code class="docutils literal"><span class="pre">1023</span></code> characters in length, making them suitable for timestamping data permanently on the blockchain.</p>
+<p>The messages attached are visible by default to all network participants.</p>
+<div class="section" id="encrypted-message">
+<h3>Encrypted message<a class="headerlink" href="#encrypted-message" title="Permalink to this headline">¶</a></h3>
+<p>Encrypted messages are only accessible by the sender and the recipient.</p>
+<p>NEM uses Bouncy Castle’s AES block cipher implementation in <a class="reference external" href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CBC">CBC mode</a> to encrypt and decrypt messages.</p>
+<p>The client-side handles the encryption and decryption of the message. You can find under the <code class="docutils literal"><span class="pre">crypto</span></code> module how to <a class="reference external" href="https://github.com/nemtech/nem2-library-js/blob/master/src/crypto/crypto.js#L255">encode</a> and <a class="reference external" href="https://github.com/nemtech/nem2-library-js/blob/master/src/crypto/crypto.js#L287">decode</a> encrypted messages, but we recommend you to use the available <a class="reference external" href="https://nemtech.github.io/nem2-sdk-typescript-javascript/classes/_model_account_account_.account.html#decryptmessage">SDK public methods</a> instead.</p>
+</div>
 </div>
 <div class="section" id="guides">
 <h2>Guides<a class="headerlink" href="#guides" title="Permalink to this headline">¶</a></h2>
@@ -264,13 +301,16 @@
 <li><p class="first"><a class="reference internal" href="../guides/transaction/monitoring-a-transaction-status.html">Monitoring a transaction status</a></p>
 <p>Make sure a <a class="reference internal" href="transaction.html"><span class="doc">transaction</span></a> gets included in the blockchain after being announced.</p>
 </li>
+<li><p class="first"><a class="reference internal" href="../guides/transaction/sending-an-encrypted-message.html">Sending an encrypted message</a></p>
+<p>Send an encrypted message that only can be read by the recipient account.</p>
+</li>
 </ul>
 </div>
 <div class="section" id="schemas">
 <h2>Schemas<a class="headerlink" href="#schemas" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Configuration parameters are <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">editable</a> . Public network configuration may differ.</p>
+<p class="last">Configuration parameters are <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">editable</a>. Public network configuration may differ.</p>
 </div>
 <div class="section" id="transfertransaction">
 <span id="id1"></span><h3>TransferTransaction<a class="headerlink" href="#transfertransaction" title="Permalink to this headline">¶</a></h3>
@@ -308,11 +348,34 @@
 </tr>
 <tr class="row-odd"><td>message</td>
 <td>array(byte, messageSize)</td>
-<td>The message type (0) and a payload of up to <code class="docutils literal"><span class="pre">1023</span></code> bytes.</td>
+<td>The <a class="reference internal" href="#message-type"><span class="std std-ref">MessageType</span></a> and a payload of up to <code class="docutils literal"><span class="pre">1023</span></code> bytes.</td>
 </tr>
 <tr class="row-even"><td>mosaics</td>
 <td>array(<a class="reference internal" href="mosaic.html#unresolved-mosaic"><span class="std std-ref">UnresolvedMosaic</span></a>, mosaicsCount)</td>
-<td>The different mosaic to be sent.</td>
+<td>The array of mosaic to send.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="messagetype">
+<span id="message-type"></span><h3>MessageType<a class="headerlink" href="#messagetype" title="Permalink to this headline">¶</a></h3>
+<p>Enumeration: uint8</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Id</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>Plain message.</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>Encrypted message.</td>
 </tr>
 </tbody>
 </table>
@@ -338,9 +401,16 @@
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">Transfer Transaction</a><ul>
+<li><a class="reference internal" href="#recipient">Recipient</a></li>
+<li><a class="reference internal" href="#mosaics">Mosaics</a></li>
+<li><a class="reference internal" href="#message">Message</a><ul>
+<li><a class="reference internal" href="#encrypted-message">Encrypted message</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#guides">Guides</a></li>
 <li><a class="reference internal" href="#schemas">Schemas</a><ul>
 <li><a class="reference internal" href="#transfertransaction">TransferTransaction</a></li>
+<li><a class="reference internal" href="#messagetype">MessageType</a></li>
 </ul>
 </li>
 </ul>
@@ -384,9 +454,9 @@
                 <h4>References</h4>
                 <ul>
                     <li><a href="../api.html">REST API</a></li>
+                    <li><a href="../server.html">Server</a></li>
                     <li><a href="../sdk.html">SDKs</a></li>
                     <li><a href="../cli.html">Client</a></li>
-                    <li><a href="../prototyping-tool.html">Prototyping Tool</a></li>
                     <li><a href="../extensions.html">Extensions</a></li>
                 </ul>
             </div>

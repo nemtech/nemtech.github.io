@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Getting the namespace information &#8212; NEM Developer Center</title>
+    <title>Sending an encrypted message &#8212; NEM Developer Center</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
@@ -91,7 +91,7 @@
                 <ul class="list-inline">
     
     <li id="edit-github" class="hidden-xs hidden-sm">
-        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\namespace\getting-namespace-information.rst"
+        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\transaction\sending-an-encrypted-message.rst"
            rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
     </li>
     
@@ -230,48 +230,140 @@
         
         <div class="col-md-7 content">
             
-  <div class="section" id="getting-the-namespace-information">
-<h1>Getting the namespace information<a class="headerlink" href="#getting-the-namespace-information" title="Permalink to this headline">¶</a></h1>
-<p>Get the ownership and duration for a given <a class="reference internal" href="../../concepts/namespace.html"><span class="doc">namespace</span></a> identifier.</p>
+  <div class="section" id="sending-an-encrypted-message">
+<h1>Sending an encrypted message<a class="headerlink" href="#sending-an-encrypted-message" title="Permalink to this headline">¶</a></h1>
+<p>Send an encrypted message that only can be read by the recipient account.</p>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Finish <a class="reference internal" href="registering-a-namespace.html"><span class="doc">registering a namespace guide</span></a></li>
+<li>Finish the <a class="reference internal" href="../../getting-started/setup-workstation.html"><span class="doc">getting started section</span></a></li>
+<li>Finish <a class="reference internal" href="sending-a-transfer-transaction.html"><span class="doc">sending a transfer transaction guide</span></a></li>
+<li>Have one <a class="reference internal" href="../../getting-started/setup-workstation.html#setup-getting-a-test-account"><span class="std std-ref">account with cat.currency</span></a></li>
 </ul>
+</div>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>Imagine that Alice wants to timestamp a sensitive message to send to an account representing her academic certificate.</p>
+<p>Alice knows that sending a transfer transaction with a plain message through the public network will make the content of the message publicly available.</p>
+<p>Thus, Alice sends an encrypted message that is only readable by herself and those with access to the academic certificate.</p>
 </div>
 <div class="section" id="lets-get-into-some-code">
 <h2>Let’s get into some code<a class="headerlink" href="#lets-get-into-some-code" title="Permalink to this headline">¶</a></h2>
-<p>Call <code class="docutils literal"><span class="pre">getNamespace</span></code> function, passing the namespace identifier you want to check as a parameter.</p>
+<ol class="arabic simple">
+<li>Create an account for Alice, and another for the certificate  using <code class="docutils literal"><span class="pre">nem2-cli</span></code>.</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account generate --save
+
+Introduce network <span class="nb">type</span> <span class="o">(</span>MIJIN_TEST, MIJIN, MAIN_NET, TEST_NET<span class="o">)</span>: MIJIN_TEST
+Do you want to save it? <span class="o">[</span>y/n<span class="o">]</span>: y
+Introduce NEM <span class="m">2</span> Node URL. <span class="o">(</span>Example: http://localhost:3000<span class="o">)</span>: http://localhost:3000
+Insert profile name <span class="o">(</span>blank means default and it could overwrite the previous profile<span class="o">)</span>: alice
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account generate --save
+
+Introduce network <span class="nb">type</span> <span class="o">(</span>MIJIN_TEST, MIJIN, MAIN_NET, TEST_NET<span class="o">)</span>: MIJIN_TEST
+Do you want to save it? <span class="o">[</span>y/n<span class="o">]</span>: y
+Introduce NEM <span class="m">2</span> Node URL. <span class="o">(</span>Example: http://localhost:3000<span class="o">)</span>: http://localhost:3000
+Insert profile name <span class="o">(</span>blank means default and it could overwrite the previous profile<span class="o">)</span>: certificate
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>Create an encrypted message for the certificate, signing it with Alice’s account.</li>
+</ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id1">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/namespace/GettingNamespaceInformation.ts">View Code</a></span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
-<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">namespaceHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NamespaceHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">namespaceId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NamespaceId</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingATransferTransactionEncryptedMessage.ts">View Code</a></span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">alicePrivateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">ALICE_PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">aliceAccount</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">alicePrivateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
-<span class="nx">namespaceHttp</span>
-    <span class="p">.</span><span class="nx">getNamespace</span><span class="p">(</span><span class="nx">namespaceId</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">namespaceInfo</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">namespaceInfo</span><span class="p">),</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+<span class="kr">const</span> <span class="nx">certificatePublicKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">CERTIFICATE_PUBLIC_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">certificatePublicAccount</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">certificatePublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">encryptedMessage</span> <span class="o">=</span> <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">encryptMessage</span><span class="p">(</span><span class="s1">&#39;This message is secret&#39;</span><span class="p">,</span> <span class="nx">certificatePublicAccount</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Attach the encrypted message to a transfer transaction, setting the certificate address as the recipient.</li>
+</ol>
+<div class="example-code container">
 <div class="literal-block-wrapper container" id="id2">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/namespace/GettingNamespaceInformation.js">View Code</a></span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">namespaceHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NamespaceHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">namespaceId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NamespaceId</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>
-
-<span class="nx">namespaceHttp</span>
-    <span class="p">.</span><span class="nx">getNamespace</span><span class="p">(</span><span class="nx">namespaceId</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">namespaceInfo</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">namespaceInfo</span><span class="p">),</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingATransferTransactionEncryptedMessage.ts">View Code</a></span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transferTransaction</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="nx">certificatePublicAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">,</span>
+    <span class="p">[],</span>
+    <span class="nx">encryptedMessage</span><span class="p">,</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
+</div>
+<ol class="arabic simple" start="4">
+<li>Sign the transaction with Alice’s account.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To make the transaction only valid for your network, include the first block generation hash. Open <code class="docutils literal"><span class="pre">http://localhost:3000/block/1</span></code> in a new tab and copy the <code class="docutils literal"><span class="pre">meta.generationHash</span></code> value.</p>
+</div>
+<div class="example-code container">
 <div class="literal-block-wrapper container" id="id3">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/bash/namespace/GettingNamespaceInformation.sh">View Code</a></span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli namespace info --name foo
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingATransferTransactionEncryptedMessage.ts">View Code</a></span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">networkGenerationHash</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NETWORK_GENERATION_HASH</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">transferTransaction</span><span class="p">,</span> <span class="nx">networkGenerationHash</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">.</span><span class="nx">hash</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </div>
+<ol class="arabic simple" start="5">
+<li>Once signed, <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">announce the transaction</span></a> to the network.</li>
+</ol>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id4">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingATransferTransactionEncryptedMessage.ts">View Code</a></span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
+
+<span class="nx">transactionHttp</span>
+    <span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="6">
+<li>After the transaction gets confirmed, fetch it using the transaction hash output from (3). You can now decrypt the message using either the certificate account or address account.</li>
+</ol>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id5">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/DecodingAnEncryptedMessage.ts">View Code</a></span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">certificatePrivateAccount</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">CERTIFICATE_PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">certificateAccount</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">certificatePrivateAccount</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">alicePublicKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">ALICE_PUBLIC_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">alicePublicAccount</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">alicePublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">transactionHash</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">TRANSACTION_HASH</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
+
+<span class="nx">transactionHttp</span>
+    <span class="p">.</span><span class="nx">getTransaction</span><span class="p">(</span><span class="nx">transactionHash</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
+        <span class="nx">map</span><span class="p">(</span> <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">x</span> <span class="kr">as</span> <span class="nx">TransferTransaction</span> <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">transaction</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Raw message: &quot;</span><span class="p">,</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">message</span><span class="p">.</span><span class="nx">payload</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Message: &quot;</span><span class="p">,</span> <span class="nx">certificateAccount</span><span class="p">.</span><span class="nx">decryptMessage</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">message</span><span class="p">,</span> <span class="nx">alicePublicAccount</span><span class="p">).</span><span class="nx">payload</span><span class="p">);</span>
+    <span class="p">},</span> <span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">)));</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you managed to read the message, try to decrypt it using another unrelated account to ensure that only the defined participants can read the encrypted content.</p>
 </div>
 </div>
 
@@ -298,8 +390,9 @@
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
-<li><a class="reference internal" href="#">Getting the namespace information</a><ul>
+<li><a class="reference internal" href="#">Sending an encrypted message</a><ul>
 <li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#background">Background</a></li>
 <li><a class="reference internal" href="#lets-get-into-some-code">Let’s get into some code</a></li>
 </ul>
 </li>

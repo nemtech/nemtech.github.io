@@ -142,11 +142,10 @@
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">Mosaic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Aggregate Transaction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#aggregate-complete">Aggregate complete</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#aggregate-complete">Aggregate complete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aggregate-bonded">Aggregate bonded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#sending-payouts">Sending payouts</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#aggregate-bonded">Aggregate bonded</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#multi-asset-escrowed-transactions">Multi-Asset Escrowed Transactions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#paying-for-others-fees">Paying for others fees</a></li>
 </ul>
@@ -176,6 +175,7 @@
 <p class="caption"><span class="caption-text">References</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
@@ -183,13 +183,13 @@
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">Contributors</a></li>
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.6</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.7</a></small>
     </p>
 </div>
 
@@ -212,11 +212,10 @@
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">Mosaic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Aggregate Transaction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#aggregate-complete">Aggregate complete</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#aggregate-complete">Aggregate complete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aggregate-bonded">Aggregate bonded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#sending-payouts">Sending payouts</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#aggregate-bonded">Aggregate bonded</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#multi-asset-escrowed-transactions">Multi-Asset Escrowed Transactions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#paying-for-others-fees">Paying for others fees</a></li>
 </ul>
@@ -246,6 +245,7 @@
 <p class="caption"><span class="caption-text">References</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
@@ -253,8 +253,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">Contributors</a></li>
 </ul>
 </ul>
@@ -270,21 +270,17 @@
             
   <div class="section" id="aggregate-transaction">
 <h1>Aggregate Transaction<a class="headerlink" href="#aggregate-transaction" title="Permalink to this headline">¶</a></h1>
-<p id="id1">Aggregated Transactions merge multiple transactions into one, allowing <strong>trustless swaps</strong>, and other advanced logic. NEM does this by generating a one-time disposable smart contract. When all involved <a class="reference internal" href="account.html"><span class="doc">accounts</span></a> have cosigned the aggregate transaction, all the inner transactions are executed at the same time.</p>
+<p id="id1">Aggregated Transactions merge multiple transactions into one, allowing <strong>trustless swaps</strong>, and other advanced logic. NEM does this by generating a one-time disposable smart contract.</p>
+<div class="figure align-center" id="id5">
+<img alt="../_images/aggregate-escrow-1.png" src="../_images/aggregate-escrow-1.png" style="width: 450px;" />
+<p class="caption"><span class="caption-text">Example of an aggregate transaction between two participants</span></p>
+</div>
+<p>When all involved <a class="reference internal" href="account.html"><span class="doc">accounts</span></a> have cosigned the aggregate transaction, all the inner transactions are executed at the same time.</p>
 <div class="section" id="aggregate-complete">
 <span id="id2"></span><h2>Aggregate complete<a class="headerlink" href="#aggregate-complete" title="Permalink to this headline">¶</a></h2>
 <p>An aggregate transaction is  <strong>complete</strong> when all the required participants have signed it.</p>
 <p>The cosigners can sign the transaction without using the blockchain. Once it has all the required signatures, one of them can announce it to the network. If the inner transaction setup is valid, and there is no validation error, the transactions will get executed at the same time.</p>
 <p>Aggregate complete transactions enable adding more transactions per block by gathering multiple inner transactions.</p>
-<div class="section" id="sending-payouts">
-<h3>Sending payouts<a class="headerlink" href="#sending-payouts" title="Permalink to this headline">¶</a></h3>
-<p>Dan announces an aggregate transaction that merges two transfer transactions.</p>
-<p>As he is the only required signatory, the transaction is considered complete after he signed. After announcing it to the network, Alice and Bob will receive the mosaics at the same time.</p>
-<div class="figure align-center" id="id5">
-<img alt="../_images/aggregate-sending-payouts.png" src="../_images/aggregate-sending-payouts.png" style="width: 450px;" />
-<p class="caption"><span class="caption-text">Sending payouts with aggregate complete transactions</span></p>
-</div>
-</div>
 </div>
 <div class="section" id="aggregate-bonded">
 <span id="id3"></span><h2>Aggregate bonded<a class="headerlink" href="#aggregate-bonded" title="Permalink to this headline">¶</a></h2>
@@ -299,20 +295,32 @@
 <img alt="../_images/aggregate-bonded-transaction-cycle.png" src="../_images/aggregate-bonded-transaction-cycle.png" style="width: 900px;" />
 <p class="caption"><span class="caption-text">Aggregate bonded transaction cycle</span></p>
 </div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sending-payouts">
+<h3>Sending payouts<a class="headerlink" href="#sending-payouts" title="Permalink to this headline">¶</a></h3>
+<p>Dan announces an aggregate transaction that merges two transfer transactions.</p>
+<p>As Dan is the only required signatory, the transaction is considered complete after he signed. After announcing it to the network, Alice and Bob will receive the mosaics at the same time.</p>
+<div class="figure align-center" id="id7">
+<img alt="../_images/aggregate-sending-payouts.png" src="../_images/aggregate-sending-payouts.png" style="width: 450px;" />
+<p class="caption"><span class="caption-text">Sending payouts with aggregate complete transactions</span></p>
+</div>
+</div>
 <div class="section" id="multi-asset-escrowed-transactions">
 <h3>Multi-Asset Escrowed Transactions<a class="headerlink" href="#multi-asset-escrowed-transactions" title="Permalink to this headline">¶</a></h3>
 <p>In this example, Alice is buying tickets with <code class="docutils literal"><span class="pre">currency.euro</span></code> <a class="reference internal" href="mosaic.html"><span class="doc">mosaic</span></a>. When the ticket distributor cosigns the aggregate transaction, the swap will happen atomically.</p>
-<div class="figure align-center" id="id7">
+<div class="figure align-center" id="id8">
 <img alt="../_images/aggregate-escrow-1.png" src="../_images/aggregate-escrow-1.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">Multi-Asset Escrowed Transactions</span></p>
 </div>
 </div>
 <div class="section" id="paying-for-others-fees">
 <h3>Paying for others fees<a class="headerlink" href="#paying-for-others-fees" title="Permalink to this headline">¶</a></h3>
-<p>Alice sends 10 <code class="docutils literal"><span class="pre">currency.euro</span></code> to Bob using an app to make payments. But she doesn’t have any cat.currency to pay the blockchain transaction fee.</p>
-<p>By creating an aggregate bonded transaction, she can convert EUR to cat.currency to pay the fee. Now Alice and Bob can use NEM blockchain without ever having to buy or hold cat.currency.</p>
+<p>Alice sends 10 <code class="docutils literal"><span class="pre">currency.euro</span></code> to Bob using an app to make payments. But Alice doesn’t own cat.currency to pay the transaction fee.</p>
+<p>By creating an aggregate bonded transaction, Alice can convert EUR to cat.currency to pay the fee. Now, Alice and Bob can use NEM blockchain without ever having to buy or hold cat.currency.</p>
 <p>Since the app creator can put their own branding on the open source payment app, Alice and Bob may not even know they are using blockchain.</p>
-<div class="figure align-center" id="id8">
+<div class="figure align-center" id="id9">
 <img alt="../_images/aggregate-paying-for-others-fees.png" src="../_images/aggregate-paying-for-others-fees.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">Paying for others fees</span></p>
 </div>
@@ -504,11 +512,10 @@
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">Aggregate Transaction</a><ul>
-<li><a class="reference internal" href="#aggregate-complete">Aggregate complete</a><ul>
+<li><a class="reference internal" href="#aggregate-complete">Aggregate complete</a></li>
+<li><a class="reference internal" href="#aggregate-bonded">Aggregate bonded</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
 <li><a class="reference internal" href="#sending-payouts">Sending payouts</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#aggregate-bonded">Aggregate bonded</a><ul>
 <li><a class="reference internal" href="#multi-asset-escrowed-transactions">Multi-Asset Escrowed Transactions</a></li>
 <li><a class="reference internal" href="#paying-for-others-fees">Paying for others fees</a></li>
 </ul>
@@ -562,9 +569,9 @@
                 <h4>References</h4>
                 <ul>
                     <li><a href="../api.html">REST API</a></li>
+                    <li><a href="../server.html">Server</a></li>
                     <li><a href="../sdk.html">SDKs</a></li>
                     <li><a href="../cli.html">Client</a></li>
-                    <li><a href="../prototyping-tool.html">Prototyping Tool</a></li>
                     <li><a href="../extensions.html">Extensions</a></li>
                 </ul>
             </div>

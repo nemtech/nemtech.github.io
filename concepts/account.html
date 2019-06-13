@@ -163,6 +163,7 @@
 <p class="caption"><span class="caption-text">References</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
@@ -170,13 +171,13 @@
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">Contributors</a></li>
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.6</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.7</a></small>
     </p>
 </div>
 
@@ -220,6 +221,7 @@
 <p class="caption"><span class="caption-text">References</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
@@ -227,8 +229,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">Contributors</a></li>
 </ul>
 </ul>
@@ -244,8 +246,13 @@
             
   <div class="section" id="account">
 <h1>Account<a class="headerlink" href="#account" title="Permalink to this headline">¶</a></h1>
-<p>An account is a <strong>key pair</strong> (private and public key) associated with a mutable state stored on the NEM blockchain. In other words, you have a deposit box in the blockchain, which only you can modify with your key pair. As the name suggests, the private key has to be kept secret at all times. Anyone with access to the private key, ultimately has control over the account.</p>
-<p>Think about NEM accounts as a <strong>container for assets</strong> in the blockchain. An account could represent a deposit of tokens, like most blockchains. However, it could also represent a <strong>single object</strong> that must be unique and updatable: a package to be shipped, a deed to a house or a document to be notarized.</p>
+<p>An account is a <strong>key pair</strong> (private and public key) associated with a mutable state stored on the NEM blockchain. In other words, you have a <strong>deposit box</strong>, which only you can modify with your private key.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The private key has to be kept secret at all times. Anyone with access to the private key, ultimately has control over the account.</p>
+</div>
+<p>Think of an account as <strong>container for assets</strong>. It can be used to hold XEM or other mosaics, whether they are tokens or specialized assets.</p>
+<p>Moreover, NEM accounts can also represent <strong>non-fungible assets</strong> that must be unique and updatable: a package to be shipped, a house deed or a document to be notarized.</p>
 <div class="section" id="properties">
 <h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
 <p>Accounts have the following properties:</p>
@@ -266,7 +273,8 @@
 </div>
 <div class="section" id="multisig-account">
 <h2>Multisig Account<a class="headerlink" href="#multisig-account" title="Permalink to this headline">¶</a></h2>
-<p>Accounts become truly smart when configured with special rules – directly on the NEM blockchain – that define how they relate and control each other, as well as how their contents can be updated and transferred. One crucial type of rule is <a class="reference internal" href="multisig-account.html"><span class="doc">multisig</span></a> control that allows ownership of account based assets to be shared in a variety of ways between multiple parties.</p>
+<p>Accounts become truly smart when configured with special rules – directly on the NEM blockchain – that define how they relate and control each other, as well as how their contents can be updated and transferred.</p>
+<p>One crucial type of rule is <a class="reference internal" href="multisig-account.html"><span class="doc">multisig</span></a> control that allows ownership of account based assets to be shared in a variety of ways between multiple parties.</p>
 </div>
 <div class="section" id="filters">
 <h2>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h2>
@@ -357,9 +365,9 @@
                 <h4>References</h4>
                 <ul>
                     <li><a href="../api.html">REST API</a></li>
+                    <li><a href="../server.html">Server</a></li>
                     <li><a href="../sdk.html">SDKs</a></li>
                     <li><a href="../cli.html">Client</a></li>
-                    <li><a href="../prototyping-tool.html">Prototyping Tool</a></li>
                     <li><a href="../extensions.html">Extensions</a></li>
                 </ul>
             </div>
