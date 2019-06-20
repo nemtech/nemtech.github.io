@@ -134,12 +134,12 @@
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/account-filter.html">Account Filter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">Multisig Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/mosaic.html">Mosaic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Protocol</span></p>
@@ -169,7 +169,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.7</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.8</a></small>
     </p>
 </div>
 
@@ -186,12 +186,12 @@
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/account-filter.html">Account Filter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">Multisig Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/mosaic.html">Mosaic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Protocol</span></p>
@@ -301,14 +301,8 @@
 </div>
 <div class="section" id="development">
 <h2>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h2>
-<p>You can base your work in <a class="reference external" href="https://github.com/nemtech/nem2-sdk-typescript-javascript">TypeScript</a> and <a class="reference external" href="https://github.com/nemtech/nem2-sdk-java">Java</a> SDKs. The TypeScript version is the first SDK getting the latest updates. Meanwhile, Java takes longer to be updated.</p>
-<p>Unfortunately, the TypeScript version has one specific implementation detail: the low-level implementation is separated from the SDK, called <a class="reference external" href="https://github.com/nemtech/nem2-library-js">nem2-library-js</a>. There
-was a need to create this low-level library to perform specific chain testing.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The SDKs you create does not require this separate implementation.</p>
-</div>
-<p>Regularly check the <a class="reference external" href="https://github.com/nemtech/nem2-sdk-java/blob/master/CHANGELOG.md">Changelog</a> to be sure you didn’t miss any code change update.</p>
+<p>You can base your work in <a class="reference external" href="https://github.com/nemtech/nem2-sdk-typescript-javascript">TypeScript</a>. The TypeScript version is the first SDK getting the latest updates. Meanwhile, Java takes longer to be updated.</p>
+<p>Regularly check the <a class="reference external" href="https://github.com/nemtech/nem2-sdk-typescript-javascript/blob/master/CHANGELOG.md">Changelog</a> to be sure you didn’t miss any code change update.</p>
 <div class="section" id="creating-the-project">
 <h3>Creating the project<a class="headerlink" href="#creating-the-project" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
@@ -319,49 +313,136 @@ Conduct</a>.  Download <a class="reference download internal" href="../_download
 <li>Add a <a class="reference external" href="https://help.github.com/articles/setting-guidelines-for-repository-contributors/">Contributors guidelines</a> to help others know how they can help you. Find <a class="reference download internal" href="../_downloads/CONTRIBUTING.md" download=""><code class="xref download docutils literal"><span class="pre">here</span> <span class="pre">a</span> <span class="pre">CONTRIBUTING.md</span> <span class="pre">template</span></code></a>.</li>
 <li>Setup the Continuous Integration system. We use <a class="reference external" href="https://travis-ci.org/">travis-ci</a>, but feel free to use the one suits you best.</li>
 </ol>
-<p>A project with a good test coverage it’s more likely to be used and
-trusted by the developers!</p>
+<p>A project with a good test coverage it’s more likely to be used and trusted by the developers!</p>
 <p>We <strong>strongly</strong> suggest to do <a class="reference external" href="https://en.wikipedia.org/wiki/Test-driven_development">Test-Driven Development</a> or Unit-Testing (test last). If you need inspiration, you can adapt the same <a class="reference external" href="https://github.com/nemtech/nem2-sdk-typescript-javascript/tree/master/test">tests we
 did</a>.</p>
 </div>
 <div class="section" id="api-wrapper">
 <h3>API Wrapper<a class="headerlink" href="#api-wrapper" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="https://swagger.io/tools/swagger-codegen/">Swagger Codegen</a> can handle the API generation. It supports multiple languages, and hopefully, yours is on the list.</p>
+<p>The <a class="reference external" href="https://openapi-generator.tech/">OpenAPI Generator</a>  handles the API generation. It supports multiple languages, and hopefully, yours is on the list.</p>
+<p>These are the steps we are following to generate the Typescript DTOs (data transfer objects):</p>
 <ol class="arabic simple">
-<li>Generate the <code class="docutils literal"><span class="pre">DTOs</span></code> and place them under <a class="reference external" href="https://github.com/nemtech/nem2-sdk-java/tree/master/src/main/java/io/nem/sdk/infrastructure">sdk/infrastructure</a>.</li>
+<li>Download the latest Open API definition.</li>
 </ol>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/swagger-api/swagger-codegen#development-in-docker">Swagger Codegen instructions</a></li>
-<li><a class="reference external" href="https://raw.githubusercontent.com/nemtech/nem2-docs/master/source/resources/collections/swagger2.yaml">Open API definition</a></li>
-</ul>
-<p>We run this instruction to generate the DTOs for the JavaScript SDK:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>docker run --rm -v <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>:/local swaggerapi/swagger-codegen-cli generate -i /local/swagger.yaml -l javascript -t /local/es6_promise --additional-properties <span class="nv">usePromises</span><span class="o">=</span><span class="nb">true</span> -o /local/nem2-js <span class="o">&amp;&amp;</span> rm -R nem2-js/test
+<div class="highlight-bash"><div class="highlight"><pre><span></span>git clone git@github.com:nemtech/nem2-docs
+<span class="nb">cd</span> nem2-docs <span class="o">&amp;&amp;</span> mkdir sdks <span class="o">&amp;&amp;</span> <span class="nb">cd</span> sdks
+cp ../source/resources/collections/swagger.yaml .
 </pre></div>
 </div>
-<p>2. Drop the generated client classes and implement them using the
+<ul class="simple">
+<li><a class="reference external" href="https://raw.githubusercontent.com/nemtech/nem2-docs/master/source/resources/collections/swagger2.yaml">Open API definition</a></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li>Copy the <code class="docutils literal"><span class="pre">templates</span> <span class="pre">folder</span></code> from <code class="docutils literal"><span class="pre">{nem2-sdk-typescript-javascript}/infrastructure/</span></code> into a new folder.</li>
+<li>Download the OpenAPI generator and generate the DTOs.</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>brew install openapi-generator
+openapi-generator generate -i ./swagger2.yaml -g typescript-node -t templates/ -o ./nem2-ts-sdk/ <span class="o">&amp;&amp;</span> rm -R nem2-ts-sdk/test
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/swagger-api/swagger-codegen#development-in-docker">Swagger Codegen instructions</a></li>
+</ul>
+<ol class="arabic simple" start="4">
+<li>As the typescript generator does not recognize <code class="docutils literal"><span class="pre">enum</span></code> type alias, we need to manually move enum classes into the <code class="docutils literal"><span class="pre">enumsMap</span></code> list. You can jump this step if the code generator for your language supports them.</li>
+</ol>
+<ul class="simple">
+<li>Open the generated file <code class="docutils literal"><span class="pre">./nem2-ts-sdk/model/models.ts</span></code> in your favorite editor.</li>
+<li>Search for line contains <code class="docutils literal"><span class="pre">let</span> <span class="pre">enumsMap:</span> <span class="pre">{[index:</span> <span class="pre">string]:</span> <span class="pre">any}</span></code>.</li>
+<li>Move all <code class="docutils literal"><span class="pre">xxxTypeEnum</span></code> entries from below <code class="docutils literal"><span class="pre">typeMap</span></code> into <code class="docutils literal"><span class="pre">enumsMap</span></code>.</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">enumsMap</span><span class="o">:</span> <span class="p">{[</span><span class="nx">index</span>: <span class="kt">string</span><span class="p">]</span><span class="o">:</span> <span class="nx">any</span><span class="p">}</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;AccountPropertyTypeEnum&quot;</span><span class="o">:</span> <span class="nx">AccountPropertyTypeEnum</span><span class="p">,</span>
+    <span class="s2">&quot;AliasTypeEnum&quot;</span><span class="o">:</span> <span class="nx">AliasTypeEnum</span><span class="p">,</span>
+    <span class="s2">&quot;MosaicPropertyIdEnum&quot;</span><span class="o">:</span> <span class="nx">MosaicPropertyIdEnum</span><span class="p">,</span>
+    <span class="s2">&quot;MultisigModificationTypeEnum&quot;</span><span class="o">:</span> <span class="nx">MultisigModificationTypeEnum</span><span class="p">,</span>
+    <span class="s2">&quot;NamespaceTypeEnum&quot;</span><span class="o">:</span> <span class="nx">NamespaceTypeEnum</span><span class="p">,</span>
+    <span class="s2">&quot;ReceiptTypeEnum&quot;</span><span class="o">:</span> <span class="nx">ReceiptTypeEnum</span><span class="p">,</span>
+    <span class="s2">&quot;RolesTypeEnum&quot;</span><span class="o">:</span> <span class="nx">RolesTypeEnum</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">typeMap</span><span class="o">:</span> <span class="p">{[</span><span class="nx">index</span>: <span class="kt">string</span><span class="p">]</span><span class="o">:</span> <span class="nx">any</span><span class="p">}</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;AccountDTO&quot;</span><span class="o">:</span> <span class="nx">AccountDTO</span><span class="p">,</span>
+    <span class="s2">&quot;AccountIds&quot;</span><span class="o">:</span> <span class="nx">AccountIds</span><span class="p">,</span>
+    <span class="s2">&quot;AccountInfoDTO&quot;</span><span class="o">:</span> <span class="nx">AccountInfoDTO</span><span class="p">,</span>
+    <span class="s2">&quot;AccountMetaDTO&quot;</span><span class="o">:</span> <span class="nx">AccountMetaDTO</span><span class="p">,</span>
+    <span class="s2">&quot;AccountNamesDTO&quot;</span><span class="o">:</span> <span class="nx">AccountNamesDTO</span><span class="p">,</span>
+    <span class="s2">&quot;AccountPropertiesDTO&quot;</span><span class="o">:</span> <span class="nx">AccountPropertiesDTO</span><span class="p">,</span>
+    <span class="s2">&quot;AccountPropertiesInfoDTO&quot;</span><span class="o">:</span> <span class="nx">AccountPropertiesInfoDTO</span><span class="p">,</span>
+    <span class="s2">&quot;AccountPropertyDTO&quot;</span><span class="o">:</span> <span class="nx">AccountPropertyDTO</span><span class="p">,</span>
+    <span class="s2">&quot;AliasDTO&quot;</span><span class="o">:</span> <span class="nx">AliasDTO</span><span class="p">,</span>
+    <span class="s2">&quot;AnnounceTransactionInfoDTO&quot;</span><span class="o">:</span> <span class="nx">AnnounceTransactionInfoDTO</span><span class="p">,</span>
+    <span class="s2">&quot;BlockDTO&quot;</span><span class="o">:</span> <span class="nx">BlockDTO</span><span class="p">,</span>
+    <span class="s2">&quot;BlockInfoDTO&quot;</span><span class="o">:</span> <span class="nx">BlockInfoDTO</span><span class="p">,</span>
+    <span class="s2">&quot;BlockMetaDTO&quot;</span><span class="o">:</span> <span class="nx">BlockMetaDTO</span><span class="p">,</span>
+    <span class="s2">&quot;BlockchainScoreDTO&quot;</span><span class="o">:</span> <span class="nx">BlockchainScoreDTO</span><span class="p">,</span>
+    <span class="s2">&quot;CommunicationTimestamps&quot;</span><span class="o">:</span> <span class="nx">CommunicationTimestamps</span><span class="p">,</span>
+    <span class="s2">&quot;Cosignature&quot;</span><span class="o">:</span> <span class="nx">Cosignature</span><span class="p">,</span>
+    <span class="s2">&quot;HeightInfoDTO&quot;</span><span class="o">:</span> <span class="nx">HeightInfoDTO</span><span class="p">,</span>
+    <span class="s2">&quot;MerklePathItem&quot;</span><span class="o">:</span> <span class="nx">MerklePathItem</span><span class="p">,</span>
+    <span class="s2">&quot;MerkleProofInfo&quot;</span><span class="o">:</span> <span class="nx">MerkleProofInfo</span><span class="p">,</span>
+    <span class="s2">&quot;MerkleProofInfoDTO&quot;</span><span class="o">:</span> <span class="nx">MerkleProofInfoDTO</span><span class="p">,</span>
+    <span class="s2">&quot;MosaicDTO&quot;</span><span class="o">:</span> <span class="nx">MosaicDTO</span><span class="p">,</span>
+    <span class="s2">&quot;MosaicDefinitionDTO&quot;</span><span class="o">:</span> <span class="nx">MosaicDefinitionDTO</span><span class="p">,</span>
+    <span class="s2">&quot;MosaicIds&quot;</span><span class="o">:</span> <span class="nx">MosaicIds</span><span class="p">,</span>
+    <span class="s2">&quot;MosaicInfoDTO&quot;</span><span class="o">:</span> <span class="nx">MosaicInfoDTO</span><span class="p">,</span>
+    <span class="s2">&quot;MosaicMetaDTO&quot;</span><span class="o">:</span> <span class="nx">MosaicMetaDTO</span><span class="p">,</span>
+    <span class="s2">&quot;MosaicNamesDTO&quot;</span><span class="o">:</span> <span class="nx">MosaicNamesDTO</span><span class="p">,</span>
+    <span class="s2">&quot;MosaicPropertyDTO&quot;</span><span class="o">:</span> <span class="nx">MosaicPropertyDTO</span><span class="p">,</span>
+    <span class="s2">&quot;MultisigAccountGraphInfoDTO&quot;</span><span class="o">:</span> <span class="nx">MultisigAccountGraphInfoDTO</span><span class="p">,</span>
+    <span class="s2">&quot;MultisigAccountInfoDTO&quot;</span><span class="o">:</span> <span class="nx">MultisigAccountInfoDTO</span><span class="p">,</span>
+    <span class="s2">&quot;MultisigDTO&quot;</span><span class="o">:</span> <span class="nx">MultisigDTO</span><span class="p">,</span>
+    <span class="s2">&quot;NamespaceDTO&quot;</span><span class="o">:</span> <span class="nx">NamespaceDTO</span><span class="p">,</span>
+    <span class="s2">&quot;NamespaceIds&quot;</span><span class="o">:</span> <span class="nx">NamespaceIds</span><span class="p">,</span>
+    <span class="s2">&quot;NamespaceInfoDTO&quot;</span><span class="o">:</span> <span class="nx">NamespaceInfoDTO</span><span class="p">,</span>
+    <span class="s2">&quot;NamespaceMetaDTO&quot;</span><span class="o">:</span> <span class="nx">NamespaceMetaDTO</span><span class="p">,</span>
+    <span class="s2">&quot;NamespaceNameDTO&quot;</span><span class="o">:</span> <span class="nx">NamespaceNameDTO</span><span class="p">,</span>
+    <span class="s2">&quot;NetworkTypeDTO&quot;</span><span class="o">:</span> <span class="nx">NetworkTypeDTO</span><span class="p">,</span>
+    <span class="s2">&quot;NodeInfoDTO&quot;</span><span class="o">:</span> <span class="nx">NodeInfoDTO</span><span class="p">,</span>
+    <span class="s2">&quot;NodeTimeDTO&quot;</span><span class="o">:</span> <span class="nx">NodeTimeDTO</span><span class="p">,</span>
+    <span class="s2">&quot;ResolutionEntryDTO&quot;</span><span class="o">:</span> <span class="nx">ResolutionEntryDTO</span><span class="p">,</span>
+    <span class="s2">&quot;ResolutionStatementDTO&quot;</span><span class="o">:</span> <span class="nx">ResolutionStatementDTO</span><span class="p">,</span>
+    <span class="s2">&quot;ServerDTO&quot;</span><span class="o">:</span> <span class="nx">ServerDTO</span><span class="p">,</span>
+    <span class="s2">&quot;ServerInfoDTO&quot;</span><span class="o">:</span> <span class="nx">ServerInfoDTO</span><span class="p">,</span>
+    <span class="s2">&quot;SourceDTO&quot;</span><span class="o">:</span> <span class="nx">SourceDTO</span><span class="p">,</span>
+    <span class="s2">&quot;StatementsDTO&quot;</span><span class="o">:</span> <span class="nx">StatementsDTO</span><span class="p">,</span>
+    <span class="s2">&quot;StorageInfoDTO&quot;</span><span class="o">:</span> <span class="nx">StorageInfoDTO</span><span class="p">,</span>
+    <span class="s2">&quot;TransactionHashes&quot;</span><span class="o">:</span> <span class="nx">TransactionHashes</span><span class="p">,</span>
+    <span class="s2">&quot;TransactionIds&quot;</span><span class="o">:</span> <span class="nx">TransactionIds</span><span class="p">,</span>
+    <span class="s2">&quot;TransactionInfoDTO&quot;</span><span class="o">:</span> <span class="nx">TransactionInfoDTO</span><span class="p">,</span>
+    <span class="s2">&quot;TransactionMetaDTO&quot;</span><span class="o">:</span> <span class="nx">TransactionMetaDTO</span><span class="p">,</span>
+    <span class="s2">&quot;TransactionPayload&quot;</span><span class="o">:</span> <span class="nx">TransactionPayload</span><span class="p">,</span>
+    <span class="s2">&quot;TransactionStatementDTO&quot;</span><span class="o">:</span> <span class="nx">TransactionStatementDTO</span><span class="p">,</span>
+    <span class="s2">&quot;TransactionStatusDTO&quot;</span><span class="o">:</span> <span class="nx">TransactionStatusDTO</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li>Copy the generated files into the <a class="reference external" href="https://github.com/nemtech/nem2-sdk-typescript-javascript/tree/master/src/infrastructure">nem2-sdk infrastructure folder</a>.</li>
+</ol>
+<p>6. Drop the generated client classes and implement them using the
 <a class="reference external" href="https://martinfowler.com/eaaCatalog/repository.html">Repository pattern</a> returning <a class="reference external" href="https://en.wikipedia.org/wiki/Observer_pattern">Observables</a> of
 <a class="reference external" href="http://reactivex.io/">ReactiveX</a>.</p>
 <p>Example of a Repository and HTTP implementation:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/nemtech/nem2-sdk-java/blob/master/src/main/java/io/nem/sdk/infrastructure/BlockchainRepository.java">BlockchainRepository</a></li>
-<li><a class="reference external" href="https://github.com/nemtech/nem2-sdk-java/blob/master/src/main/java/io/nem/sdk/infrastructure/BlockchainHttp.java">BlockchainHttp</a></li>
+<li><a class="reference external" href="https://github.com/nemtech/nem2-sdk-typescript-javascript/blob/master/src/infrastructure/BlockRepository.ts">BlockchainRepository</a></li>
+<li><a class="reference external" href="https://github.com/nemtech/nem2-sdk-typescript-javascript/blob/master/src/infrastructure/BlockHttp.ts">BlockchainHttp</a></li>
 </ul>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">The <strong>repositories return models instead of DTOs</strong>. You will need to code the models before finishing the API wrapper.</p>
-</div>
+<ol class="arabic simple" start="7">
+<li>The <strong>repositories return models instead of DTOs</strong>. You will need to code the models before finishing the API wrapper.</li>
+</ol>
 </div>
 <div class="section" id="models">
 <h3>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference external" href="https://github.com/nemtech/nem2-sdk-java/tree/master/src/main/java/io/nem/sdk/model">models</a> are by default immutable and aim to hide the complexity, like type conversion or relationship between objects.</p>
-<p>You will find in the different implementations different invariants to
-ensure the object is well constructed and a nicer API is published.</p>
+<p>You will find in the different implementations different invariants to ensure the object is well constructed and a nicer API is published.</p>
 <p>Particular decisions to consider:</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">uint64</span></code> support: meanwhile <a class="reference external" href="https://docs.oracle.com/javase/7/docs/api/java/math/BigInteger.html">Java supports big numbers</a>, for example JavaScript doesn’t. The JavaScript SDK has a custom class to handle the <a class="reference external" href="https://github.com/nemtech/nem2-sdk-typescript-javascript/blob/master/src/model/UInt64.ts">uint64 types</a>. If your language supports <code class="docutils literal"><span class="pre">uint64</span></code> use that implementation instead.</li>
 <li>API conversions: Sometimes, the data returned by API is compressed. You
 might need to convert those types for the user.</li>
-<li><a class="reference external" href="https://github.com/nemtech/nem2-sdk-java/blob/master/src/main/java/io/nem/sdk/model/namespace/NamespaceId.java">Namespace</a> ID:  At creation time you add the string name, but when you receive the Namespace from the network, it comes in formatted as <code class="docutils literal"><span class="pre">uint64</span></code> ID. A specific endpoint returns the Namespace <code class="docutils literal"><span class="pre">string</span></code> name.</li>
+<li><a class="reference external" href="https://github.com/nemtech/nem2-sdk-typescript-javascript/blob/master/src/model/namespace/NamespaceId.ts">Namespace</a> ID:  At creation time you add the string name, but when you receive the Namespace from the network, it comes in formatted as <code class="docutils literal"><span class="pre">uint64</span></code> ID. A specific endpoint returns the Namespace <code class="docutils literal"><span class="pre">string</span></code> name.</li>
 </ul>
 </div>
 <div class="section" id="transaction-serialization">

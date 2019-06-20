@@ -136,7 +136,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#why-should-we-use-nem">Why should we use NEM?</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#lets-get-into-some-code">Let’s get into some code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#getting-into-some-code">Getting into some code</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#creating-an-account-for-each-participant">Creating an account for each participant</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#monitoring-the-blockchain">Monitoring the blockchain</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#creating-the-ticket">Creating the ticket</a></li>
@@ -151,12 +151,12 @@
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/account-filter.html">Account Filter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">Multisig Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/mosaic.html">Mosaic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Protocol</span></p>
@@ -186,7 +186,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.7</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.8</a></small>
     </p>
 </div>
 
@@ -203,7 +203,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#why-should-we-use-nem">Why should we use NEM?</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#lets-get-into-some-code">Let’s get into some code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#getting-into-some-code">Getting into some code</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#creating-an-account-for-each-participant">Creating an account for each participant</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#monitoring-the-blockchain">Monitoring the blockchain</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#creating-the-ticket">Creating the ticket</a></li>
@@ -218,12 +218,12 @@
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/account-filter.html">Account Filter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">Multisig Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/mosaic.html">Mosaic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Protocol</span></p>
@@ -294,8 +294,8 @@
 <p>The rest of the code remains <strong>off-chain</strong>. This reduces the inherent immutability risk, as you could change the process when necessary.</p>
 </div>
 </div>
-<div class="section" id="lets-get-into-some-code">
-<h2>Let’s get into some code<a class="headerlink" href="#lets-get-into-some-code" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="getting-into-some-code">
+<h2>Getting into some code<a class="headerlink" href="#getting-into-some-code" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="creating-an-account-for-each-participant">
 <h3>Creating an account for each participant<a class="headerlink" href="#creating-an-account-for-each-participant" title="Permalink to this headline">¶</a></h3>
 <p>First, identify the actors involved in the problem we want to solve:</p>
@@ -321,7 +321,7 @@ Mosaics
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
-<li>This account owns <code class="docutils literal"><span class="pre">1.000.000</span> <span class="pre">cat.currency</span></code>. If your row after mosaics is empty, follow <a class="reference internal" href="setup-workstation.html"><span class="doc">the previous guide instructions</span></a>.</li>
+<li>This account owns <code class="docutils literal"><span class="pre">1,000,000</span> <span class="pre">cat.currency</span></code>. If your row after mosaics is empty, follow <a class="reference internal" href="setup-workstation.html"><span class="doc">the previous guide instructions</span></a>.</li>
 <li>Create a second account to identify the ticket buyer.</li>
 </ol>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account generate --network MIJIN_TEST --save --url http://localhost:3000 --profile buyer
@@ -575,7 +575,7 @@ Mosaics
 <li><a class="reference internal" href="#why-should-we-use-nem">Why should we use NEM?</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#lets-get-into-some-code">Let’s get into some code</a><ul>
+<li><a class="reference internal" href="#getting-into-some-code">Getting into some code</a><ul>
 <li><a class="reference internal" href="#creating-an-account-for-each-participant">Creating an account for each participant</a></li>
 <li><a class="reference internal" href="#monitoring-the-blockchain">Monitoring the blockchain</a></li>
 <li><a class="reference internal" href="#creating-the-ticket">Creating the ticket</a></li>

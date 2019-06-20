@@ -34,7 +34,7 @@
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Account Filter" href="account-filter.html" />
+    <link rel="next" title="Mosaic" href="mosaic.html" />
     <link rel="prev" title="Self-paced training" href="../getting-started/training.html" />
   
 <meta charset='utf-8'>
@@ -138,16 +138,16 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Account</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#properties">Properties</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#multisig-account">Multisig Account</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#filters">Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#restrictions">Restrictions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="account-filter.html">Account Filter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">Mosaic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Protocol</span></p>
@@ -177,7 +177,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.7</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.8</a></small>
     </p>
 </div>
 
@@ -196,16 +196,16 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Account</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#properties">Properties</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#multisig-account">Multisig Account</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#filters">Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#restrictions">Restrictions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="account-filter.html">Account Filter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">Mosaic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Protocol</span></p>
@@ -247,20 +247,16 @@
   <div class="section" id="account">
 <h1>Account<a class="headerlink" href="#account" title="Permalink to this headline">¶</a></h1>
 <p>An account is a <strong>key pair</strong> (private and public key) associated with a mutable state stored on the NEM blockchain. In other words, you have a <strong>deposit box</strong>, which only you can modify with your private key.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The private key has to be kept secret at all times. Anyone with access to the private key, ultimately has control over the account.</p>
-</div>
 <p>Think of an account as <strong>container for assets</strong>. It can be used to hold XEM or other mosaics, whether they are tokens or specialized assets.</p>
 <p>Moreover, NEM accounts can also represent <strong>non-fungible assets</strong> that must be unique and updatable: a package to be shipped, a house deed or a document to be notarized.</p>
 <div class="section" id="properties">
 <h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
 <p>Accounts have the following properties:</p>
 <p><strong>Private key</strong></p>
-<p>A <a class="reference internal" href="cryptography.html#keypair"><span class="std std-ref">private key</span></a> is a key to an account. Anyone having the private key to an account can initiate any account related action.</p>
+<p>A <a class="reference internal" href="cryptography.html#keypair"><span class="std std-ref">private key</span></a> is a key to an account. Anyone with access to the private key, ultimately has control over the account.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The private key must be kept secret at all costs. Make sure your private key is backed up safely somewhere offline.</p>
+<p class="last">The private key must be kept secret. Make sure your private key is backed up safely somewhere offline.</p>
 </div>
 <p><strong>Public key</strong></p>
 <p>The <a class="reference internal" href="cryptography.html#keypair"><span class="std std-ref">public key</span></a> can be used to verify signatures of the account. The public key is stored in the blockchain with the first issued transaction. An account which has not issued any transaction has its public key field empty.</p>
@@ -276,9 +272,9 @@
 <p>Accounts become truly smart when configured with special rules – directly on the NEM blockchain – that define how they relate and control each other, as well as how their contents can be updated and transferred.</p>
 <p>One crucial type of rule is <a class="reference internal" href="multisig-account.html"><span class="doc">multisig</span></a> control that allows ownership of account based assets to be shared in a variety of ways between multiple parties.</p>
 </div>
-<div class="section" id="filters">
-<h2>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h2>
-<p>Accounts may configure a set of smart rules to block announcing or receiving transactions <a class="reference internal" href="account-filter.html"><span class="doc">given a series of constraints</span></a>.</p>
+<div class="section" id="restrictions">
+<h2>Restrictions<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<p>Accounts may configure a set of smart rules to block announcing or receiving transactions <a class="reference internal" href="account-restrictions.html"><span class="doc">given a series of restrictions</span></a>.</p>
 </div>
 <div class="section" id="guides">
 <h2>Guides<a class="headerlink" href="#guides" title="Permalink to this headline">¶</a></h2>
@@ -322,7 +318,7 @@
 <li><a class="reference internal" href="#">Account</a><ul>
 <li><a class="reference internal" href="#properties">Properties</a></li>
 <li><a class="reference internal" href="#multisig-account">Multisig Account</a></li>
-<li><a class="reference internal" href="#filters">Filters</a></li>
+<li><a class="reference internal" href="#restrictions">Restrictions</a></li>
 <li><a class="reference internal" href="#guides">Guides</a></li>
 </ul>
 </li>

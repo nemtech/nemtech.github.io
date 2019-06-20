@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Linking a namespace to a mosaic &#8212; NEM Developer Center</title>
+    <title>Extending a namespace registration period &#8212; NEM Developer Center</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
@@ -91,7 +91,7 @@
                 <ul class="list-inline">
     
     <li id="edit-github" class="hidden-xs hidden-sm">
-        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\namespace\link-a-namespace-to-a-mosaic.rst"
+        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\namespace\extending-a-namespace-registration-period.rst"
            rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
     </li>
     
@@ -230,57 +230,67 @@
         
         <div class="col-md-7 content">
             
-  <div class="section" id="linking-a-namespace-to-a-mosaic">
-<h1>Linking a namespace to a mosaic<a class="headerlink" href="#linking-a-namespace-to-a-mosaic" title="Permalink to this headline">¶</a></h1>
-<p>Link a <a class="reference internal" href="../../concepts/namespace.html"><span class="doc">namespace</span></a> to a <a class="reference internal" href="../../concepts/mosaic.html"><span class="doc">mosaic</span></a>.</p>
+  <div class="section" id="extending-a-namespace-registration-period">
+<h1>Extending a namespace registration period<a class="headerlink" href="#extending-a-namespace-registration-period" title="Permalink to this headline">¶</a></h1>
+<p>Extend a <a class="reference internal" href="../../concepts/namespace.html"><span class="doc">namespace</span></a> registration period.</p>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>Namespaces are registered for a certain amount of blocks. The owner can <strong>extend the registration period</strong> by sending a <a class="reference internal" href="../../concepts/namespace.html#register-namespace-transaction"><span class="std std-ref">register namespace transaction</span></a> with the desired number of additional blocks.</p>
+<p>In this guide, we are going to show how to extend the rental period of a namespace. The guide will use the namespace <code class="docutils literal"><span class="pre">foo</span></code>, but you should follow along with another <a class="reference internal" href="registering-a-namespace.html"><span class="doc">namespace you have registered</span></a>.</p>
+</div>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Have registered one <a class="reference internal" href="../../concepts/namespace.html"><span class="doc">namespace</span></a></li>
-<li>Have registered one <a class="reference internal" href="../../concepts/mosaic.html"><span class="doc">mosaic</span></a></li>
-<li>Have one <a class="reference internal" href="../../getting-started/setup-workstation.html#setup-getting-a-test-account"><span class="std std-ref">account with cat.currency</span></a></li>
+<li>Finish <a class="reference internal" href="registering-a-namespace.html"><span class="doc">registering a namespace guide</span></a></li>
+<li>Have one <a class="reference internal" href="../../getting-started/setup-workstation.html#setup-getting-a-test-account"><span class="std std-ref">account with cat.currency</span></a> and at least one namespace</li>
 </ul>
 </div>
 <div class="section" id="getting-into-some-code">
 <h2>Getting into some code<a class="headerlink" href="#getting-into-some-code" title="Permalink to this headline">¶</a></h2>
-<p>An account can link a registered <a class="reference internal" href="../../concepts/namespace.html"><span class="doc">name</span></a> (namespace or subnamespace) with a <a class="reference internal" href="../../concepts/mosaic.html"><span class="doc">mosaic</span></a>.</p>
 <ol class="arabic simple">
-<li>Define the namespaceId and the address you want to link.</li>
+<li>Get your namespace information, and inspect the value of the property <code class="docutils literal"><span class="pre">endHeight</span></code>.</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli namespace info --name foo
+
+Namespace: foo
+--------------
+
+hexadecimal:    82a9d1ac587ec054
+uint:           <span class="o">[</span> 1484701780, <span class="m">2192167340</span> <span class="o">]</span>
+type:           Root namespace
+owner:          SAKT3C-...-X4ND
+startHeight:    52000
+endHeight:      53000
+</pre></div>
+</div>
+<p>The information shows that the namespace <code class="docutils literal"><span class="pre">foo</span></code> will become inactive at height <code class="docutils literal"><span class="pre">5300</span></code>. The next step is to figure out the current height of the chain, and calculate the number of blocks remaining before your namespace becomes inactive.</p>
+<ol class="arabic simple" start="2">
+<li>Check the current blockchain height.</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli blockchain height
+
+52500
+</pre></div>
+</div>
+<p>As you can see, the namespace is going to expire in <code class="docutils literal"><span class="pre">500</span></code> blocks (53000-52500).  To avoid losing all the subnamespaces and aliases linked to foo, we are going to extend the namespace duration.</p>
+<ol class="arabic simple" start="3">
+<li>Extend the namespace duration for <code class="docutils literal"><span class="pre">1000</span></code> more blocks.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id1">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/namespace/LinkingANamespaceToAMosaic.ts">View Code</a></span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
-<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">namespaceId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NamespaceId</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">mosaicId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;7cdf3b117a3c40cc&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="literal-block-wrapper container" id="id2">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/namespace/LinkingANamespaceToAMosaic.js">View Code</a></span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">namespaceId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NamespaceId</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">mosaicId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;7cdf3b117a3c40cc&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-</div>
-<ol class="arabic simple" start="2">
-<li>Announce the alias transaction.</li>
-</ol>
-<div class="example-code container">
-<div class="literal-block-wrapper container" id="id3">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/namespace/LinkingANamespaceToAMosaic.ts">View Code</a></span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
-<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">mosaicAliasTransaction</span> <span class="o">=</span> <span class="nx">AliasTransaction</span><span class="p">.</span><span class="nx">createForMosaic</span><span class="p">(</span>
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/namespace/RegisteringANamespace.ts">View Code</a></span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">namespaceName</span> <span class="o">=</span> <span class="s2">&quot;foo&quot;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">registerNamespaceTransaction</span> <span class="o">=</span> <span class="nx">RegisterNamespaceTransaction</span><span class="p">.</span><span class="nx">createRootNamespace</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
-    <span class="nx">AliasActionType</span><span class="p">.</span><span class="nx">Link</span><span class="p">,</span>
-    <span class="nx">namespaceId</span><span class="p">,</span>
-    <span class="nx">mosaicId</span><span class="p">,</span>
-    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span>
-<span class="p">);</span>
+    <span class="nx">namespaceName</span><span class="p">,</span>
+    <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">networkGenerationHash</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NETWORK_GENERATION_HASH</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
-<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">mosaicAliasTransaction</span><span class="p">,</span> <span class="nx">networkGenerationHash</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">registerNamespaceTransaction</span><span class="p">,</span> <span class="nx">networkGenerationHash</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 <span class="nx">transactionHttp</span>
@@ -289,20 +299,20 @@
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper container" id="id4">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/namespace/LinkingANamespaceToAMosaic.js">View Code</a></span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">mosaicAliasTransaction</span> <span class="o">=</span> <span class="nx">AliasTransaction</span><span class="p">.</span><span class="nx">createForMosaic</span><span class="p">(</span>
+<div class="literal-block-wrapper container" id="id2">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/namespace/RegisteringANamespace.js">View Code</a></span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">namespaceName</span> <span class="o">=</span> <span class="s2">&quot;foo&quot;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">registerNamespaceTransaction</span> <span class="o">=</span> <span class="nx">RegisterNamespaceTransaction</span><span class="p">.</span><span class="nx">createRootNamespace</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
-    <span class="nx">AliasActionType</span><span class="p">.</span><span class="nx">Link</span><span class="p">,</span>
-    <span class="nx">namespaceId</span><span class="p">,</span>
-    <span class="nx">mosaicId</span><span class="p">,</span>
-    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span>
-<span class="p">);</span>
+    <span class="nx">namespaceName</span><span class="p">,</span>
+    <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">networkGenerationHash</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NETWORK_GENERATION_HASH</span><span class="p">;</span>
-<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">mosaicAliasTransaction</span><span class="p">,</span> <span class="nx">networkGenerationHash</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">registerNamespaceTransaction</span><span class="p">,</span> <span class="nx">networkGenerationHash</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 <span class="nx">transactionHttp</span>
@@ -311,41 +321,33 @@
 </pre></div>
 </div>
 </div>
-</div>
-<p>If you want to unlink the alias, change alias action type to <code class="docutils literal"><span class="pre">AliasActionType.Unlink</span></code>.</p>
-</div>
-<div class="section" id="what-s-next">
-<h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
-<p>Now you can send transactions using the namespace linked to the mosaic instead of defining the complete mosaicId.</p>
-<div class="example-code container">
-<div class="literal-block-wrapper container" id="id5">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingATransferTransactionMosaicAlias.ts">View Code</a></span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
-<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">recipientAddress</span> <span class="o">=</span> <span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="s1">&#39;SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54&#39;</span><span class="p">);</span>
-
-<span class="kr">const</span> <span class="nx">transferTransaction</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
-    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
-    <span class="nx">recipientAddress</span><span class="p">,</span>
-    <span class="p">[</span><span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span><span class="k">new</span> <span class="nx">NamespaceId</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">),</span>
-            <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">10000000</span><span class="p">))],</span>
-    <span class="nx">EmptyMessage</span><span class="p">,</span>
-    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+<div class="literal-block-wrapper container" id="id3">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/bash/namespace/RegisteringANamespace.sh">View Code</a></span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli transaction namespace --name foo --rootnamespace --duration 1000
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper container" id="id6">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingATransferTransactionMosaicAlias.js">View Code</a></span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">recipientAddress</span> <span class="o">=</span> <span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="s1">&#39;SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54&#39;</span><span class="p">);</span>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Use the following formula to convert approximately days to blocks <code class="docutils literal"><span class="pre">duration</span> <span class="pre">≈</span> <span class="pre">numberOfDays</span> <span class="pre">*</span> <span class="pre">86400</span> <span class="pre">/</span> <span class="pre">blockGenerationTargetTime</span></code>. The blockGenerationTargetTime is <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">configurable per network</a>.</p>
+</div>
+<p>Once the <strong>RegisterNamespaceTransaction</strong> gets confirmed, double-check that the namespace duration has been extended.</p>
+<ol class="arabic simple" start="4">
+<li>Validate that <code class="docutils literal"><span class="pre">endHeight</span></code> has increased by <code class="docutils literal"><span class="pre">1000</span></code> block units.</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli namespace info --name foo
 
-<span class="kr">const</span> <span class="nx">transferTransaction</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
-    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
-    <span class="nx">recipientAddress</span><span class="p">,</span>
-    <span class="p">[</span><span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span><span class="k">new</span> <span class="nx">NamespaceId</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">),</span>
-            <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">10000000</span><span class="p">))],</span>
-    <span class="nx">EmptyMessage</span><span class="p">,</span>
-    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+Namespace: foo
+--------------
+
+hexadecimal:    82a9d1ac587ec054
+uint:           <span class="o">[</span> 1484701780, <span class="m">2192167340</span> <span class="o">]</span>
+type:           Root namespace
+owner:          SAKT3C-...-X4ND
+startHeight:    52000
+endHeight:      54000
 </pre></div>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -373,10 +375,10 @@
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
-<li><a class="reference internal" href="#">Linking a namespace to a mosaic</a><ul>
+<li><a class="reference internal" href="#">Extending a namespace registration period</a><ul>
+<li><a class="reference internal" href="#background">Background</a></li>
 <li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
 <li><a class="reference internal" href="#getting-into-some-code">Getting into some code</a></li>
-<li><a class="reference internal" href="#what-s-next">What’s next?</a></li>
 </ul>
 </li>
 </ul>

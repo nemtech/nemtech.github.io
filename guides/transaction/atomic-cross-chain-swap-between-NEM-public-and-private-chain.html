@@ -134,12 +134,12 @@
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/account-filter.html">Account Filter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">Multisig Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">Mosaic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Protocol</span></p>
@@ -169,7 +169,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.7</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.8</a></small>
     </p>
 </div>
 
@@ -186,12 +186,12 @@
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/account-filter.html">Account Filter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">Multisig Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">Mosaic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Protocol</span></p>
@@ -254,8 +254,8 @@
 <li>Know how to <a class="reference internal" href="../mosaic/creating-a-mosaic.html"><span class="doc">create mosaics</span></a></li>
 </ul>
 </div>
-<div class="section" id="let-s-get-into-some-code">
-<h2>Let’s get into some code<a class="headerlink" href="#let-s-get-into-some-code" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="getting-into-some-code">
+<h2>Getting into some code<a class="headerlink" href="#getting-into-some-code" title="Permalink to this headline">¶</a></h2>
 <p>Trading tokens directly from one blockchain to the other is not possible, due to the technological differences between them.</p>
 <p>In case of NEM public and private chain, the same mosaic name could have a different definition and distribution, or even not exist. Between Bitcoin and NEM, the difference is even more evident, as each blockchain uses an entirely different technology.</p>
 <p>Instead of transferring tokens between different chains, the trade will be performed inside each chain. The Secret proof / secret lock mechanism guarantees the token swap occurs atomically.</p>
@@ -302,8 +302,8 @@
 <ul class="simple">
 <li>Mosaic: <code class="docutils literal"><span class="pre">10</span></code> <cite>10 [520597229,83226871]`</cite> alice token</li>
 <li>Recipient: Bob’s address (Private Chain)</li>
-<li>Algorithm: Sha3-256</li>
-<li>Secret:  Sha3-256(proof)</li>
+<li>Algorithm: SHA3-256</li>
+<li>Secret:  SHA3-256(proof)</li>
 <li>Duration: 96h</li>
 <li>Network: Private Chain</li>
 </ul>
@@ -344,8 +344,8 @@
 <ul class="simple">
 <li>Mosaic: <code class="docutils literal"><span class="pre">10</span> <span class="pre">[2061634929,1373884888]</span></code> bob token</li>
 <li>Recipient: Alice’s address (Public Chain)</li>
-<li>Algorithm: Sha3-256</li>
-<li>Secret:  Sha3-256(proof)</li>
+<li>Algorithm: SHA3-256</li>
+<li>Secret:  SHA3-256(proof)</li>
 <li>Duration: 84h</li>
 <li>Network: Public Chain</li>
 </ul>
@@ -464,7 +464,7 @@
 <li><a class="reference internal" href="#">Atomic cross-chain swap between NEM public and private chain</a><ul>
 <li><a class="reference internal" href="#background">Background</a></li>
 <li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
-<li><a class="reference internal" href="#let-s-get-into-some-code">Let’s get into some code</a></li>
+<li><a class="reference internal" href="#getting-into-some-code">Getting into some code</a></li>
 <li><a class="reference internal" href="#is-it-atomic">Is it atomic?</a></li>
 </ul>
 </li>
