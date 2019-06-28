@@ -194,7 +194,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.8</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.9</a></small>
     </p>
 </div>
 
@@ -281,9 +281,10 @@
   <div class="section" id="account-restrictions">
 <h1>Account Restrictions<a class="headerlink" href="#account-restrictions" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference internal" href="account.html"><span class="doc">Accounts</span></a> may configure a set of smart rules to block announcing or receiving transactions given a series of restrictions.</p>
+<p>The account owners - plural in case of multisig accounts - can edit the account restrictions at a later time announcing the specific <a class="reference internal" href="#account-address-restriction-transaction"><span class="std std-ref">account restriction transaction</span></a>.</p>
 <div class="section" id="address-restriction">
 <h2>Address restriction<a class="headerlink" href="#address-restriction" title="Permalink to this headline">¶</a></h2>
-<p>An account can decide to receive transactions only from an allowed list of <a class="reference internal" href="account.html"><span class="doc">addresses</span></a>. Similarly, an account can specify a list of addresses that don’t want to receive transactions from.</p>
+<p>An account can decide to only <strong>receive</strong> transactions from a list of allowed <a class="reference internal" href="account.html"><span class="doc">addresses</span></a>. Similarly, the account can define a list of blocked addresses.</p>
 <div class="figure align-center" id="id1">
 <img alt="../_images/account-restrictions-address.png" src="../_images/account-restrictions-address.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">Address restriction diagram</span></p>
@@ -292,33 +293,33 @@
 <p class="first admonition-title">Note</p>
 <p class="last">Allow and block restrictions are mutually exclusive. In other words, an account can only configure a block or an allow list per type of restriction.</p>
 </div>
-<p>By default, when there is no restriction set, all the accounts in the network can announce transactions to the stated account.</p>
+<p>By default, when there are no restrictions set, all the accounts in the network can announce transactions to the unrestricted account.</p>
 </div>
 <div class="section" id="mosaic-restriction">
 <h2>Mosaic restriction<a class="headerlink" href="#mosaic-restriction" title="Permalink to this headline">¶</a></h2>
-<p>An account can configure a restriction to permit incoming transactions only if all the <a class="reference internal" href="mosaic.html"><span class="doc">mosaics</span></a> attached are allowed. On the other hand, the account can refuse to accept transactions containing a mosaic listed as blocked.</p>
+<p>An account can configure a restriction to permit <strong>incoming</strong> transactions only if all the <a class="reference internal" href="mosaic.html"><span class="doc">mosaics</span></a> attached are allowed. On the other hand, the account can refuse to accept transactions containing a mosaic listed as blocked.</p>
 </div>
 <div class="section" id="operation-restriction">
 <h2>Operation restriction<a class="headerlink" href="#operation-restriction" title="Permalink to this headline">¶</a></h2>
-<p>An account can allow/block announcing outgoing transactions with a <a class="reference internal" href="transaction.html#id1"><span class="std std-ref">determined operation type</span></a>. By doing so, it increases its security, preventing the announcement by mistake of undesired transactions.</p>
+<p>An account can allow/block announcing <strong>outgoing</strong> transactions with a <a class="reference internal" href="transaction.html#id1"><span class="std std-ref">determined operation type</span></a>. By doing so, the account increases its security, preventing the announcement by mistake of undesired transactions.</p>
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="blocking-spam-transactions">
 <h3>Blocking spam transactions<a class="headerlink" href="#blocking-spam-transactions" title="Permalink to this headline">¶</a></h3>
-<p>A company is using the public chain to certify the quality of their products.</p>
+<p>A pharmaceutical company is using the public chain to certify the quality of their products.</p>
 <p>When the quality verification process concludes, an operator sends a <a class="reference internal" href="mosaic.html"><span class="doc">quality seal</span></a> to the product account.</p>
 <p>The final customers can review the product mosaics scanning a QR code. For that reason, the company only wants to show related transactions, avoiding that others spam their products with non-related information.</p>
 <div class="figure align-center" id="id2">
 <img alt="../_images/account-restrictions-spam.png" src="../_images/account-restrictions-spam.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">Blocking spam transactions</span></p>
 </div>
-<p>The company opts to configure their product accounts restrictions, enabling only to receive transactions containing <code class="docutils literal"><span class="pre">company.quality.seal</span></code> mosaics.</p>
+<p>The company opts to configure their product accounts restrictions, enabling only to receive transactions containing <code class="docutils literal"><span class="pre">pharmaceutical.quality.seal</span></code> mosaics.</p>
 </div>
 <div class="section" id="enhancing-the-account-security">
 <h3>Enhancing the account security<a class="headerlink" href="#enhancing-the-account-security" title="Permalink to this headline">¶</a></h3>
 <p>Lately, Alice is only using her main account to cosign aggregate transactions where she is a cosignatory for the <a class="reference internal" href="multisig-account.html"><span class="doc">multisig</span></a> account.</p>
-<p>As a temporary measure, Alice opts to disable announcing transfer transactions from her main account, double checking that any of the funds she owns will be transferred.</p>
+<p>As a temporary security measure, Alice opts to disable announcing transfer transactions from her main account. Doing so, Alice double-checks that the funds held in the main account are not going to be transferred by mistake.</p>
 </div>
 </div>
 <div class="section" id="guides">

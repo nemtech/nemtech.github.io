@@ -191,7 +191,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.8</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.9</a></small>
     </p>
 </div>
 
@@ -274,11 +274,12 @@
             
   <div class="section" id="multisig-account">
 <h1>Multisig Account<a class="headerlink" href="#multisig-account" title="Permalink to this headline">¶</a></h1>
-<p>Editable on-chain contracts, the most powerful way to secure funds and enable joint accounts.</p>
+<p>Multisig <a class="reference internal" href="account.html"><span class="doc">accounts</span></a> require additional signatures to initiate actions/transfers.</p>
 <div class="section" id="cosignatories">
 <h2>Cosignatories<a class="headerlink" href="#cosignatories" title="Permalink to this headline">¶</a></h2>
 <p>A NEM <a class="reference internal" href="account.html"><span class="doc">account</span></a> can be <a class="reference internal" href="../guides/account/converting-an-account-to-multisig.html"><span class="doc">converted to multisig</span></a>. The cosignatories - other accounts - of the multisig will become the account managers.</p>
-<p>From that moment on,  the multisig account cannot announce transactions by itself. One of the cosignatory has to propose the transaction involving the multisig, wrapping it in an <a class="reference internal" href="aggregate-transaction.html"><span class="doc">aggregate transaction</span></a>. To record the transaction in the block, the other cosignatories will have to agree.</p>
+<p>From that moment on, the multisig account cannot announce transactions by itself. A multisig cosignatory has to propose a transaction involving the multisig, wrapping it in an <a class="reference internal" href="aggregate-transaction.html"><span class="doc">aggregate transaction</span></a>.</p>
+<p>To record the transaction in the block, the other cosignatories will have to agree.</p>
 </div>
 <div class="section" id="minimum-approval-and-removal">
 <h2>Minimum approval and removal<a class="headerlink" href="#minimum-approval-and-removal" title="Permalink to this headline">¶</a></h2>
@@ -292,7 +293,6 @@
 </div>
 <div class="section" id="constraints">
 <h2>Constraints<a class="headerlink" href="#constraints" title="Permalink to this headline">¶</a></h2>
-<p>Some important considerations to keep in mind:</p>
 <ul class="simple">
 <li>Multisig accounts can have up to <code class="docutils literal"><span class="pre">10</span></code> cosignatories.</li>
 <li>An account can be cosigner of up to <code class="docutils literal"><span class="pre">5</span></code> multisig accounts.</li>
@@ -384,7 +384,7 @@
 <li>Change the configurable properties of a multisig account.</li>
 <li>Add or delete cosignatories from a multisig account.</li>
 </ol>
-<p><strong>Version</strong>: 0x03</p>
+<p><strong>Version</strong>: 0x01</p>
 <p><strong>Entity type</strong>: 0x4155</p>
 <p><strong>Inlines</strong>:</p>
 <ul class="simple">

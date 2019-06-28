@@ -35,8 +35,8 @@
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="モザイク" href="mosaic.html" />
-    <link rel="prev" title="マルチシグアカウント" href="multisig-account.html" />
+    <link rel="next" title="転送トランザクション" href="transfer-transaction.html" />
+    <link rel="prev" title="モザイク" href="mosaic.html" />
   
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -137,11 +137,12 @@
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="account.html">アカウント</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-filter.html">アカウントフィルタ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic.html">モザイク</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ネームスペース</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#name">名称</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#subnamespaces">サブネームスペース</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#alias">エイリアス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#duration">期間</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#cost">コスト</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#example">例</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#identifying-the-sender">送信者の識別</a></li>
@@ -160,9 +161,10 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="mosaic.html">モザイク</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">アカウントの制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Protocol</span></p>
@@ -192,7 +194,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.7</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.8</a></small>
     </p>
 </div>
 
@@ -209,11 +211,12 @@
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="account.html">アカウント</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-filter.html">アカウントフィルタ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic.html">モザイク</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ネームスペース</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#name">名称</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#subnamespaces">サブネームスペース</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#alias">エイリアス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#duration">期間</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#cost">コスト</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#example">例</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#identifying-the-sender">送信者の識別</a></li>
@@ -232,9 +235,10 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="mosaic.html">モザイク</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">アカウントの制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Protocol</span></p>
@@ -276,8 +280,11 @@
   <div class="section" id="namespace">
 <h1>ネームスペース<a class="headerlink" href="#namespace" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>ネームスペースによって、NEM ブロックチェーン上にあなたのビジネスと資産のための <a class="reference internal" href="../guides/namespace/registering-a-namespace.html"><span class="doc">一意な場所をチェーン上に作ること</span></a> ができます。</p>
-<p>ネームスペースはインターネットドメイン名と同様に選択した一意の名前で始まります。ある <a class="reference internal" href="account.html"><span class="doc">アカウント</span></a> がネームスペースを作成すると、それは NEM エコシステム内で一意に表現されるようになります。</p>
+<div class="section" id="name">
+<h2>名称<a class="headerlink" href="#name" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ネームスペースはインターネットドメイン名と同様に選択した名前で始まります。名前はネットワーク内でユニークで、<code class="docutils literal"><span class="pre">64</span></code> 文字以内の必要があります。利用可能な文字は a, b, c, …, z, 0, 1, 2, …, 9, _ , -  です。</p>
 <p>アカウントは登録済みの名前(ネームスペースまたはサブネームスペース)を <a class="reference internal" href="../guides/namespace/link-a-namespace-to-an-address.html"><span class="doc">アカウント</span></a> または <a class="reference internal" href="../guides/namespace/link-a-namespace-to-a-mosaic.html"><span class="doc">モザイク</span></a> 識別子にリンクすることができます。</p>
+</div>
 <div class="section" id="subnamespaces">
 <h2>サブネームスペース<a class="headerlink" href="#subnamespaces" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>インターネット上でドメインはサブドメインを持つように、ネームスペースはサブネームスペースを持ちます。</p>
@@ -286,13 +293,30 @@
 </div>
 <div class="section" id="alias">
 <h2>エイリアス<a class="headerlink" href="#alias" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference internal" href="#address-alias-transaction"><span class="std std-ref">エイリアストランザクション</span></a> は長いアドレスを覚えやすく、モザイクを認識しやすくします。</p>
-<p>ネームスペースの作成者はネームスペースとアセット間のリンクを編集できます。あるトランザクションへのエイリアスの関連は、後にブロックの <a class="reference internal" href="receipt.html"><span class="doc">receipts</span></a> から取得することができます。</p>
+<p><a class="reference internal" href="#address-alias-transaction"><span class="std std-ref">エイリアストランザクション</span></a> はネームスペースをとアカウントとモザイクにリンクします。</p>
+<p>エイリアスまたはそのリンク済みアセットはトランザクションを送信するときに互換的に使用できます。エイリアスを使用すると長いアドレスを覚えやすく、モザイクを認識しやすくします。</p>
+<p>ネームスペースをアカウントまたはモザイクにリンクできるのはネームスペース作成者だけです。このリンクは編集可能で、作成者は以前に設定したエイリアスのリンクを解除することができます。</p>
+<p>ブロック <a class="reference internal" href="receipt.html"><span class="doc">レシート</span></a> は与えられたトランザクションのエイリアスの解決を保存します。</p>
 <p>制約事項:</p>
 <ul class="simple">
 <li>アカウントは１つのアカウントまたはモザイクに名前を関連付けることしかできませんが、たくさんのエイリアスリンクを持つことができます。</li>
-<li>アカウントは <a class="reference internal" href="account-filter.html"><span class="doc">アドレスネームスペーストランザクション</span></a> の受信を許可している、あらゆるアカウントへ名前を割り当てることができます。対照的に、アカウントがエイリアスをモザイクIDに割り当てたい場合は、モザイク作成者でなければなりません。</li>
+<li>アカウントは <a class="reference internal" href="account-restrictions.html"><span class="doc">アドレスネームスペーストランザクション</span></a> の受信を許可している、あらゆるアカウントへ名前を割り当てることができます。対照的に、アカウントがエイリアスをモザイクIDに割り当てたい場合は、モザイク作成者でなければなりません。</li>
+<li>アカウントがモザイク作成者である場合、アカウントはエイリアスを mosaicId にだけリンクできます。</li>
 </ul>
+</div>
+<div class="section" id="duration">
+<h2>期間<a class="headerlink" href="#duration" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="figure align-center" id="id1">
+<img alt="../_images/namespace-life-cycle.png" src="../_images/namespace-life-cycle.png" style="width: 800px;" />
+<p class="caption"><span class="caption-text">ネームスペースのライフサイクル</span></p>
+</div>
+<p>ネームスペース <strong>登録</strong> の際にネームスペースを借りたい確認済みブロックの数を設定する必要があります。</p>
+<p>ネームスペース期間は最大で <code class="docutils literal"><span class="pre">365</span></code> 日です。デフォルトではネットワークは <code class="docutils literal"><span class="pre">15</span></code> 秒毎にブロック生成するように設定されています。次の式を使用しておよその日数をブロックに変換できます。</p>
+<blockquote>
+<div>duration ≈ numberOfDays * 86400 / blockGenerationTargetTimeInSeconds</div></blockquote>
+<p>レンタル期間中、ネームスペース所有者はサブネームスペース、エイリアスアカウント、およびモザイクを作成できます。所有者は <a class="reference internal" href="#register-namespace-transaction"><span class="std std-ref">register namespace transaction</span></a> を希望する追加ブロック数で送信することにより <strong>レンタルを延長する</strong> こともできます。</p>
+<p>ネットワークはネームスペース所有者が有効期限を過ぎて登録可能になる前に、名前空間を更新することを可能にする <strong>猶予期間</strong> を <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">定義する</a> ことができます。</p>
+<p>猶予期間が終了すると、既存のエイリアスとサブネームスペースは整頓され <strong>非アクティブ</strong> になります。すると他のアカウントがネームスペースを再度登録できるようになります。</p>
 </div>
 <div class="section" id="cost">
 <h2>コスト<a class="headerlink" href="#cost" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -301,7 +325,7 @@
 <div class="section" id="example">
 <h2>例<a class="headerlink" href="#example" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>顧客はイベントのチケットを購入します。チケット販売会社は顧客のアカウントへチケットを送信します。</p>
-<div class="figure align-center" id="id1">
+<div class="figure align-center" id="id2">
 <img alt="../_images/namespace-tickets.png" src="../_images/namespace-tickets.png" style="width: 500px;" />
 <p class="caption"><span class="caption-text">認識しやすいモザイクとアドレス</span></p>
 </div>
@@ -339,6 +363,9 @@
 <li><p class="first"><a class="reference internal" href="../guides/namespace/getting-namespace-information.html">ネームスペースの情報を取得する</a></p>
 <p><a class="reference internal" href="#"><span class="doc">ネームスペース</span></a> 識別子による所有権と期間の取得</p>
 </li>
+<li><p class="first"><a class="reference internal" href="../guides/namespace/extending-a-namespace-registration-period.html">ネームスペース登録期限の延長</a></p>
+<p><a class="reference internal" href="#"><span class="doc">ネームスペース</span></a> 登録期限の延長。</p>
+</li>
 </ul>
 </div>
 <div class="section" id="schemas">
@@ -350,7 +377,7 @@
 <div class="section" id="registernamespacetransaction">
 <span id="register-namespace-transaction"></span><h3>RegisterNamespaceTransaction<a class="headerlink" href="#registernamespacetransaction" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>ネームスペース取得トランザクションはネームスペースの取得と再取得に使用します。</p>
-<p><strong>バージョン</strong>: 0x02</p>
+<p><strong>Version</strong>: 0x01</p>
 <p><strong>エンティティタイプ</strong>: 0x414E</p>
 <p><strong>インライン</strong></p>
 <ul class="simple">
@@ -375,7 +402,7 @@
 </tr>
 <tr class="row-odd"><td>duration</td>
 <td>uint64</td>
-<td>レンタル期間はネームスペースのレンタルを希望する承認済みブロック数を表します。期間は <code class="docutils literal"><span class="pre">365</span></code> 日までとすることができます。レンタル期間中に余分なブロックを持つ <a class="reference internal" href="#register-namespace-transaction"><span class="std std-ref">ネームスペース登録トランザクション</span></a> を送信して、ネームスペースをレンタルすることによって、レンタル期間を延長することが可能です。レンタル期間が終わると、ネームスペースは非活性になります。</td>
+<td>レンタル期間はネームスペースのレンタルを希望する承認済みブロック数を表します。期間は <code class="docutils literal"><span class="pre">365</span></code> 日までとすることができます。レンタル期間中に延長したいブロック数の <a class="reference internal" href="#register-namespace-transaction"><span class="std std-ref">ネームスペース登録トランザクション</span></a> を送信して、ネームスペースをレンタルすることによって、レンタル期間を延長することが可能です。レンタル期間が終わると、ネームスペースは非活性になります。</td>
 </tr>
 <tr class="row-even"><td>parentId</td>
 <td>uint64</td>
@@ -391,7 +418,7 @@
 </tr>
 <tr class="row-odd"><td>name</td>
 <td>array(bytes, namespaceNameSize)</td>
-<td>ネームスペース名は一意でなければならず、最大 <code class="docutils literal"><span class="pre">64</span></code> 文字です。利用可能な文字は a, b, c, …, z, 0, 1, 2, …, 9, 『, _ , -. です。</td>
+<td>ネームスペース名は一意でなければならず、最大 <code class="docutils literal"><span class="pre">64</span></code> 文字です。利用可能な文字は a, b, c, …, z, 0, 1, 2, …, 9, _ , - です。</td>
 </tr>
 </tbody>
 </table>
@@ -537,8 +564,10 @@
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">ネームスペース</a><ul>
+<li><a class="reference internal" href="#name">名称</a></li>
 <li><a class="reference internal" href="#subnamespaces">サブネームスペース</a></li>
 <li><a class="reference internal" href="#alias">エイリアス</a></li>
+<li><a class="reference internal" href="#duration">期間</a></li>
 <li><a class="reference internal" href="#cost">コスト</a></li>
 <li><a class="reference internal" href="#example">例</a><ul>
 <li><a class="reference internal" href="#identifying-the-sender">送信者の識別</a></li>

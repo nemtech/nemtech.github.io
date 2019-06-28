@@ -137,7 +137,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#why-should-we-use-nem">何故NEMを使うのでしょう？</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#lets-get-into-some-code">それではコードを見ていきましょう</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#getting-into-some-code">それではコードを見ていきましょう</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#creating-an-account-for-each-participant">各参加者のアカウントを作成</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#monitoring-the-blockchain">ブロックチェーンの監視</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#creating-the-ticket">チケットの作成</a></li>
@@ -152,12 +152,12 @@
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">アカウント</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/account-filter.html">アカウントフィルタ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">マルチシグアカウント</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/mosaic.html">モザイク</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/account-restrictions.html">アカウントの制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Protocol</span></p>
@@ -187,7 +187,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.7</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.8</a></small>
     </p>
 </div>
 
@@ -204,7 +204,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#why-should-we-use-nem">何故NEMを使うのでしょう？</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#lets-get-into-some-code">それではコードを見ていきましょう</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#getting-into-some-code">それではコードを見ていきましょう</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#creating-an-account-for-each-participant">各参加者のアカウントを作成</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#monitoring-the-blockchain">ブロックチェーンの監視</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#creating-the-ticket">チケットの作成</a></li>
@@ -219,12 +219,12 @@
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/account.html">アカウント</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/account-filter.html">アカウントフィルタ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">マルチシグアカウント</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/mosaic.html">モザイク</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/account-restrictions.html">アカウントの制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Protocol</span></p>
@@ -295,8 +295,8 @@
 <p>残りのコードは <strong>オフチェーン</strong> のままです。これにより必要に応じてプロセスを変更できるため、固有の不変性リスクが軽減されます。</p>
 </div>
 </div>
-<div class="section" id="lets-get-into-some-code">
-<h2>それではコードを見ていきましょう<a class="headerlink" href="#lets-get-into-some-code" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="getting-into-some-code">
+<h2>それではコードを見ていきましょう<a class="headerlink" href="#getting-into-some-code" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="creating-an-account-for-each-participant">
 <h3>各参加者のアカウントを作成<a class="headerlink" href="#creating-an-account-for-each-participant" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>まず、私達が解決したい問題の渦中にいるアクタを認識します:</p>
@@ -576,7 +576,7 @@ Mosaics
 <li><a class="reference internal" href="#why-should-we-use-nem">何故NEMを使うのでしょう？</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#lets-get-into-some-code">それではコードを見ていきましょう</a><ul>
+<li><a class="reference internal" href="#getting-into-some-code">それではコードを見ていきましょう</a><ul>
 <li><a class="reference internal" href="#creating-an-account-for-each-participant">各参加者のアカウントを作成</a></li>
 <li><a class="reference internal" href="#monitoring-the-blockchain">ブロックチェーンの監視</a></li>
 <li><a class="reference internal" href="#creating-the-ticket">チケットの作成</a></li>

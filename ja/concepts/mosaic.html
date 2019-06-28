@@ -35,8 +35,8 @@
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="転送トランザクション" href="transfer-transaction.html" />
-    <link rel="prev" title="ネームスペース" href="namespace.html" />
+    <link rel="next" title="ネームスペース" href="namespace.html" />
+    <link rel="prev" title="アカウント" href="account.html" />
   
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -137,9 +137,6 @@
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="account.html">アカウント</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-filter.html">アカウントフィルタ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
-<li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">モザイク</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#properties">プロパティ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#absolute-and-relative-amounts">絶対と相対量</a></li>
@@ -158,8 +155,11 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">アカウントの制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Protocol</span></p>
@@ -189,7 +189,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.7</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.8</a></small>
     </p>
 </div>
 
@@ -206,9 +206,6 @@
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="account.html">アカウント</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-filter.html">アカウントフィルタ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
-<li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">モザイク</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#properties">プロパティ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#absolute-and-relative-amounts">絶対と相対量</a></li>
@@ -227,8 +224,11 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">アカウントの制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Protocol</span></p>
@@ -341,7 +341,7 @@
 <td>2</td>
 </tr>
 <tr class="row-even"><td>Initial supply</td>
-<td>1000000000 (10.000.000,00)</td>
+<td>1000000000 (10,000,000.00)</td>
 </tr>
 <tr class="row-odd"><td>Supply mutable</td>
 <td>true</td>
@@ -355,7 +355,7 @@
 <p><strong>Divisibility:</strong> 証券会社や投資会社は株式を分割することができますが、投資家が公開市場から購入できる伝統的な最小株式数は 1 です。</p>
 <p>ただし、NEM モザイクでは自社の株式をトークン化する場合の柔軟性が向上しています。ComfyClothingCompany は可分性を <code class="docutils literal"><span class="pre">2</span></code> に選択し、その株式の最小端数が 0.01 になるようにします。</p>
 <p>分別所有権は 24 時間 365 日の取引能力と共に、市場にさらなる流動性をもたらします。これらの同じ特性は小規模投資家にも市場を開放します。</p>
-<p><strong>Supply:</strong> ComfyClothingCompany はモザイクの初期供給量を、一般的なスタートアップにおける授権株式の量である <code class="docutils literal"><span class="pre">10,000.000</span></code> に設定します。会社が成長するにつれて、株式数を増やすことを選択できるので供給可変性は <code class="docutils literal"><span class="pre">true</span></code> に設定されます。</p>
+<p><strong>Supply:</strong> ComfyClothingCompany はモザイクの初期供給量を、一般的なスタートアップにおける授権株式の量である <code class="docutils literal"><span class="pre">10,000,000</span></code> に設定します。会社が成長するにつれて、株式数を増やすことを選択できるので供給可変性は <code class="docutils literal"><span class="pre">true</span></code> に設定されます。</p>
 <p><strong>Transferability:</strong> 初期株式が分配されるとその株式は上場して公開されます。したがって譲渡性は <code class="docutils literal"><span class="pre">true</span></code> に設定する必要があります。</p>
 </div>
 <div class="section" id="guides">
@@ -384,7 +384,7 @@
 <div class="section" id="mosaicdefinitiontransaction">
 <span id="mosaic-definition-transaction"></span><h3>MosaicDefinitionTransaction<a class="headerlink" href="#mosaicdefinitiontransaction" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>新しいモザイクを作るためにモザイク定義トランザクションをアナウンスしてください。</p>
-<p><strong>バージョン</strong>: 0x02</p>
+<p><strong>Version</strong>: 0x01</p>
 <p><strong>エンティティタイプ</strong>: 0x414D</p>
 <p><strong>インライン</strong></p>
 <ul class="simple">
@@ -433,7 +433,7 @@
 <div class="section" id="mosaicsupplychangetransaction">
 <span id="mosaic-supply-change-transaction"></span><h3>MosaicSupplyChangeTransaction<a class="headerlink" href="#mosaicsupplychangetransaction" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>モザイクの供給量を増加または減少させるために供給量変更トランザクションをアナウンスする。</p>
-<p><strong>バージョン</strong>: 0x02</p>
+<p><strong>Version</strong>: 0x01</p>
 <p><strong>エンティティタイプ</strong>: 0x424D</p>
 <p><strong>インライン</strong></p>
 <ul class="simple">

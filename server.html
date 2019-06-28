@@ -158,6 +158,8 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="api.html">REST API</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#node-types">Node types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#package-organization">Package organization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 </ul>
@@ -175,7 +177,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.8</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.9</a></small>
     </p>
 </div>
 
@@ -214,6 +216,8 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="api.html">REST API</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#node-types">Node types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#package-organization">Package organization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 </ul>
@@ -246,15 +250,66 @@
 <p>These nodes are deployed using <a href="https://github.com/nemtech/catapult-server" target="_blank">catapult-server</a> software, a C++ rewrite of the previous Java-written NEM distributed ledger that has been running for more than 4 years.</p>
 <p>Through its multi-tier architecture, it is possible to isolate the peer-to-peer network and implement better API integration flows with the proposed REST API layer.</p>
 <p>Also, Catapult offers private networks the ability to add their own transaction types by developing <strong>plugins</strong> for the catapult-server nodes.</p>
+<div class="section" id="node-types">
+<h2>Node types<a class="headerlink" href="#node-types" title="Permalink to this headline">¶</a></h2>
+<p>Catapult-server provides increased flexibility for the node owners. The same software can be used to configure three different types of <a class="reference internal" href="concepts/node.html"><span class="doc">nodes</span></a>:</p>
+<ul class="simple">
+<li><strong>Peer node</strong>: The peer node verifies or discards the transactions once the API pushes them into the P2P network. It runs the consensus algorithm, creates new blocks, and propagates the changes through the network.</li>
+<li><strong>API node</strong>: The primary responsibility of the API node is to properly store data in the MongoDB database once transactions are validated. They also identify and store partial aggregate bonded transactions.</li>
+<li><strong>Dual node</strong>: The dual node combines a peer and API nodes into a single server instance.</li>
+</ul>
+</div>
+<div class="section" id="package-organization">
+<h2>Package organization<a class="headerlink" href="#package-organization" title="Permalink to this headline">¶</a></h2>
+<p><strong>Repository</strong>: <a href="https://github.com/nemtech/catapult-server" target="_blank">catapult-server</a></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Folder name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>/extensions</td>
+<td>Modules that add features to the bare catapult-server. They range from extensions that are critical like consensus and networking to optional extensions like ZMQ messaging and other API conveniences.</td>
+</tr>
+<tr class="row-odd"><td>/external</td>
+<td>Implementations of the hashing algorithms used.</td>
+</tr>
+<tr class="row-even"><td>/plugins</td>
+<td>Modules that introduce new and different ways to alter the chain’s state via transactions.</td>
+</tr>
+<tr class="row-odd"><td>/resources</td>
+<td>Node and network configurable properties.</td>
+</tr>
+<tr class="row-even"><td>/scripts</td>
+<td>Utility scripts for developers.</td>
+</tr>
+<tr class="row-odd"><td>/sdk</td>
+<td>Reusable code used by tests and tools.</td>
+</tr>
+<tr class="row-even"><td>/seed</td>
+<td>Nemesis blocks used in tests.</td>
+</tr>
+<tr class="row-odd"><td>/src</td>
+<td>Catapult’s core engine.</td>
+</tr>
+<tr class="row-even"><td>/tests</td>
+<td>Collection of tests.</td>
+</tr>
+<tr class="row-odd"><td>/tools</td>
+<td>Tools to deploy and monitor networks and nodes.</td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p>Catapult-server provides increased flexibility for the node owners. The same software can be used to configure two different types of <a class="reference internal" href="concepts/node.html"><span class="doc">nodes</span></a>:</p>
-<ul class="simple">
-<li><strong>Peer node</strong> (P2P Component): The peer node verifies or discards the transactions once the API pushes them into the P2P network. It runs the consensus algorithm, creates new blocks, and propagates the changes through the network.</li>
-<li><strong>API node</strong> (API Component): The primary responsibility of the API node is to properly store data in the MongoDB database once transactions are validated.</li>
-</ul>
-<p>You can test catapult-server software deploying your own network for development or learning purposes with <a href="https://github.com/tech-bureau/catapult-service-bootstrap" target="_blank">Catapult Service Bootstrap</a>.</p>
-<p>To build and run catapult-server only, follow the <a href="https://github.com/nemtech/catapult-server/blob/master/BUILDING.md" target="_blank">instructions for Ubuntu</a>.</p>
+<p>Test catapult-server software deploying your own network for development or learning purposes with <a href="https://github.com/tech-bureau/catapult-service-bootstrap" target="_blank">Catapult Service Bootstrap</a>.</p>
+<p>You can create a new catapult-server image following the building <a href="https://github.com/nemtech/catapult-server/blob/master/BUILDING.md" target="_blank">instructions for Ubuntu</a>.</p>
 </div>
 <div class="section" id="guides">
 <h2>Guides<a class="headerlink" href="#guides" title="Permalink to this headline">¶</a></h2>
@@ -288,6 +343,8 @@
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">Server</a><ul>
+<li><a class="reference internal" href="#node-types">Node types</a></li>
+<li><a class="reference internal" href="#package-organization">Package organization</a></li>
 <li><a class="reference internal" href="#installation">Installation</a></li>
 <li><a class="reference internal" href="#guides">Guides</a></li>
 </ul>

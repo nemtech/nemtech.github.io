@@ -135,12 +135,12 @@
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">アカウント</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/account-filter.html">アカウントフィルタ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">マルチシグアカウント</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">モザイク</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account-restrictions.html">アカウントの制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Protocol</span></p>
@@ -170,7 +170,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.7</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.8</a></small>
     </p>
 </div>
 
@@ -187,12 +187,12 @@
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">アカウント</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/account-filter.html">アカウントフィルタ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">マルチシグアカウント</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">モザイク</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account-restrictions.html">アカウントの制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Protocol</span></p>
@@ -239,7 +239,7 @@
 <blockquote>
 <div><strong>エスクロー</strong> とは <em>第三者が主要取引当事者のために、金銭または書類を受け取り・支払い</em> をする <em>契約上の取り決め</em> です。この支払いは <em>取引当事者によって合意された条件</em> または 取引の完了または終了までの間、ブローカーの本人または他の人物に代わって <em>資産を保持するためにブローカーによって確立されたアカウント</em> に依存します。</div></blockquote>
 <p>完全な説明は <a href="https://en.wikipedia.org/wiki/Escrow" target="_blank">Wikipedia</a> を参照してください。</p>
-<p>For this example, imagine that the two parties agree on a virtual service, implying that the escrow can be executed immediately:</p>
+<p>この例では2つの当事者が実質的なサービスに同意すると仮定して、エスクローが即時に実行できることを意味します:</p>
 <ol class="arabic simple">
 <li>買い手と売り手が規約に同意する</li>
 <li>買い手がエスクローへ商品代を送る</li>
@@ -250,12 +250,12 @@
 <p><strong>どのように NEM に適用するのか？</strong></p>
 <p>NEM に関連するコンセプトへと正規化していきます:</p>
 <ul class="simple">
-<li><strong>contractual arrangement</strong>: A new type of transaction called Aggregate Transaction.</li>
-<li><strong>third party receives and disburses money</strong>: There is no third party, we are going to use blockchain technology.</li>
-<li><strong>primary transacting parties</strong>: NEM accounts will represent the participants.</li>
-<li><strong>conditions agreed to by the transacting parties</strong>: When every participant signs the aggregate transaction.</li>
-<li><strong>account established by a broker for holding funds</strong>: There will not be an intermediate account, the exchange will happen atomically using an aggregate transaction.</li>
-<li><strong>until the consummation or termination of a transaction</strong>: The transaction gets included in a block or expires.</li>
+<li><strong>契約上の取り決め</strong>: アグリゲートトランザクションと呼ばれる新しいタイプの取引。</li>
+<li><strong>第三者がお金を受け取って支払いをする</strong>: 第三者は介在しない、私たちはブロックチェーン技術を使うつもりです。</li>
+<li><strong>主要取引当事者</strong>: NEMアカウントが参加者を表現します。</li>
+<li><strong>トランザクション当事者によって合意される条件</strong>: すべての参加者がアグリゲートトランザクションに署名するとき。</li>
+<li><strong>資産を保持するためにブローカーによって確立された口座</strong>: 中間口座はありません、交換はアグリゲートトランザクションを使用してアトミックに行われます。</li>
+<li><strong>取引の完了または終了まで</strong>: トランザクションはブロックに含まれるか期限切れになります。</li>
 </ul>
 </div>
 <div class="section" id="prerequisites">
@@ -266,8 +266,8 @@
 <li><a class="reference internal" href="sending-payouts-with-aggregate-complete-transaction.html"><span class="doc">アグリゲート完了トランザクションによって支払いを送信</span></a> を終了している</li>
 </ul>
 </div>
-<div class="section" id="let-s-get-into-some-code">
-<h2>それではコードを見ていきましょう<a class="headerlink" href="#let-s-get-into-some-code" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="getting-into-some-code">
+<h2>それではコードを見ていきましょう<a class="headerlink" href="#getting-into-some-code" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="figure align-center" id="id1">
 <img alt="../../_images/aggregate-escrow-11.png" src="../../_images/aggregate-escrow-11.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">マルチアセットエスクロートランザクション</span></p>
@@ -302,8 +302,8 @@
 </tr>
 </tbody>
 </table>
-<p>Before continuing, <a class="reference internal" href="../../getting-started/setup-workstation.html#setup-getting-a-test-account"><span class="std std-ref">create the two accounts</span></a> loaded with cat.currency.</p>
-<p>Then, <a class="reference internal" href="../mosaic/creating-a-mosaic.html"><span class="doc">create a mosaic</span></a> with the ticket distributor account. This new mosaic will represent the ticket.</p>
+<p>続ける前に cat.currency を保有した <a class="reference internal" href="../../getting-started/setup-workstation.html#setup-getting-a-test-account"><span class="std std-ref">アカウントを2つ作成</span></a> してください。</p>
+<p>次にチケット販売者アカウントで <a class="reference internal" href="../mosaic/creating-a-mosaic.html"><span class="doc">モザイクを作成</span></a> します。この新しいモザイクはチケットを表現します。</p>
 </div>
 <div class="section" id="creating-the-escrow-contract">
 <h3>エスクローコントラクトの作成<a class="headerlink" href="#creating-the-escrow-contract" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -317,7 +317,7 @@
 </ol>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">The museum ticket does not have the id 7cdf3b117a3c40cc in your network. Replace the MosaicId for the one you have created in the previous step.</p>
+<p class="last">博物館のチケットはネットワーク内の ID 7cdf3b117a3c40cc を持っていません。前の手順で作成したものに MosaicId を置き換えてください。</p>
 </div>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id2">
@@ -479,18 +479,18 @@
 <p class="first admonition-title">注釈</p>
 <p class="last">クライアントサイドで使用する場合は(例, Angular, React, Vue) <a class="reference internal" href="monitoring-a-transaction-status.html#monitoring-transactions-client-side"><span class="std std-ref">リスナーの実装は変わります</span></a> 。</p>
 </div>
-<p>The distributor has not signed the aggregate bonded transaction yet, so the exchange has not been completed.</p>
-<p>Copy the aggregate transaction hash, and check how to <a class="reference internal" href="signing-announced-aggregate-bonded-transactions.html"><span class="doc">cosign the aggregate transaction</span></a> in the following guide.</p>
+<p>販売者はまだアグリゲートボンドトランザクションに署名していないため、交換は完了していません。</p>
+<p>アグリゲートトランザクションのハッシュをコピーして、続くガイドで <a class="reference internal" href="signing-announced-aggregate-bonded-transactions.html"><span class="doc">アグリゲートトランザクションに署名をする</span></a> 方法を確認してください。</p>
 </div>
 </div>
 <div class="section" id="is-it-possible-without-aggregate-transactions">
 <h2>この取引をアグリゲートトランザクション無しに可能でしょうか？<a class="headerlink" href="#is-it-possible-without-aggregate-transactions" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><strong>これは安全ではありません</strong> なぜなら:</p>
 <ul class="simple">
-<li>Alice could decide not to pay the distributor after receiving the ticket.</li>
-<li>The distributor could choose not to send the ticket after receiving the payment.</li>
+<li>Alice はチケットを受け取った後に配給業者に支払いをしない可能性があります。</li>
+<li>配給業者は支払いを受領した後にチケットを送付しない可能性があります。</li>
 </ul>
-<p>Using the aggregate transaction feature we ensure that multiple transactions are executed at the same time when all the participants agree.</p>
+<p>アグリゲートトランザクション機能を使用して、すべての参加者が合意したときに複数のトランザクションが同時に実行されるようにします。</p>
 </div>
 <div class="section" id="what-s-next">
 <h2>次は？<a class="headerlink" href="#what-s-next" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -528,7 +528,7 @@
 <li><a class="reference internal" href="#">アグリゲートボンドトランザクションを使ったエスクローの作成</a><ul>
 <li><a class="reference internal" href="#background">背景</a></li>
 <li><a class="reference internal" href="#prerequisites">前提条件</a></li>
-<li><a class="reference internal" href="#let-s-get-into-some-code">それではコードを見ていきましょう</a><ul>
+<li><a class="reference internal" href="#getting-into-some-code">それではコードを見ていきましょう</a><ul>
 <li><a class="reference internal" href="#setting-up-the-required-accounts-and-mosaics">要求されているアカウントとモザイクをセットアップします</a></li>
 <li><a class="reference internal" href="#creating-the-escrow-contract">エスクローコントラクトの作成</a></li>
 </ul>

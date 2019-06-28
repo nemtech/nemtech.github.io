@@ -153,17 +153,17 @@
 <li class="toctree-l1"><a class="reference internal" href="inflation.html">Inflation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receipt.html">Receipt</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Node</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#p2p-component">P2P Component</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#p2p-component">P2P component</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#node-reputation">Node reputation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rocksdb">RocksDB</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#api-component">API Component</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#api-component">API component</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#mongodb">MongoDB</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#zmq">ZMQ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#rest-component">REST Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rest-component">REST component</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 </ul>
 </li>
@@ -185,7 +185,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.8</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.9</a></small>
     </p>
 </div>
 
@@ -219,17 +219,17 @@
 <li class="toctree-l1"><a class="reference internal" href="inflation.html">Inflation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receipt.html">Receipt</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Node</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#p2p-component">P2P Component</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#p2p-component">P2P component</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#node-reputation">Node reputation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rocksdb">RocksDB</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#api-component">API Component</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#api-component">API component</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#mongodb">MongoDB</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#zmq">ZMQ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#rest-component">REST Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rest-component">REST component</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 </ul>
 </li>
@@ -269,9 +269,9 @@
 </div>
 <p>The four-layered architecture allows developers to update any of these tiers without disrupting the others, which improves security.</p>
 <div class="section" id="p2p-component">
-<h2>P2P Component<a class="headerlink" href="#p2p-component" title="Permalink to this headline">¶</a></h2>
+<h2>P2P component<a class="headerlink" href="#p2p-component" title="Permalink to this headline">¶</a></h2>
 <p><strong>Repository:</strong> <a href="https://github.com/nemtech/catapult-server" target="_blank">Catapult Server</a></p>
-<p>The P2P nodes form the backbone of the blockchain, making the network robust since it cannot be shut down by eliminating a single entity. The role of the node is to <a class="reference internal" href="transaction.html#transaction-validation"><span class="std std-ref">verify transactions</span></a> and <a class="reference internal" href="block.html"><span class="doc">blocks</span></a>, run the consensus algorithm, create new blocks, and propagate the changes through the network.</p>
+<p>The peer nodes form the backbone of the blockchain, making the network robust since it cannot be shut down by eliminating a single entity. The role of the node is to <a class="reference internal" href="transaction.html#transaction-validation"><span class="std std-ref">verify transactions</span></a> and <a class="reference internal" href="block.html"><span class="doc">blocks</span></a>, run the consensus algorithm, create new blocks, and propagate the changes through the network.</p>
 <p>The API push new transactions to the P2P network, where they are <a class="reference internal" href="harvesting.html"><span class="doc">included in a block</span></a> or discarded. After the block is processed:</p>
 <ul class="simple">
 <li>The binary of the block is saved on disk as a flat file.</li>
@@ -296,15 +296,15 @@
 </div>
 </div>
 <div class="section" id="api-component">
-<h2>API Component<a class="headerlink" href="#api-component" title="Permalink to this headline">¶</a></h2>
+<h2>API component<a class="headerlink" href="#api-component" title="Permalink to this headline">¶</a></h2>
 <p><strong>Repository:</strong> <a href="https://github.com/nemtech/catapult-server" target="_blank">Catapult Server</a></p>
-<p>P2P nodes can be configured to have an API layer. The primary responsibility of the API is to store the data in a readable form in MongoDB.</p>
-<p>The API <a class="reference internal" href="transaction.html#transaction-validation"><span class="std std-ref">validates transactions</span></a> received from the REST component. Additionally, the broker process that stores changes in MongoDB, forwards them to ZMQ.</p>
-<p>This component is also responsible for collecting the cosignatures of <a class="reference internal" href="aggregate-transaction.html"><span class="doc">aggregated bonded transactions</span></a>, that are only processed once they are complete.</p>
+<p>Peer nodes can be configured to have an API layer. The primary responsibility of an API node is to store the data in a readable form in MongoDB.</p>
+<p>The API nodes <a class="reference internal" href="transaction.html#transaction-validation"><span class="std std-ref">validate transactions</span></a> received from the REST nodes. Additionally, the broker process that stores changes in MongoDB, forwards them to ZMQ.</p>
+<p>API nodes are also responsible for collecting the cosignatures of <a class="reference internal" href="aggregate-transaction.html"><span class="doc">aggregated bonded transactions</span></a>, that are only processed once they are complete.</p>
 <div class="section" id="mongodb">
 <h3>MongoDB<a class="headerlink" href="#mongodb" title="Permalink to this headline">¶</a></h3>
 <p><a href="https://es.wikipedia.org/wiki/MongoDB" target="_blank">MongoDB</a> stores blocks, transactions and chain state for high query performance.</p>
-<p>The API updates the MongoDB when:</p>
+<p>The API node updates the linked MongoDB instance when:</p>
 <ul class="simple">
 <li>A new block / a bunch of blocks finished processing.</li>
 <li>New unconfirmed transactions completed processing.</li>
@@ -316,14 +316,14 @@
 </div>
 <div class="section" id="zmq">
 <h3>ZMQ<a class="headerlink" href="#zmq" title="Permalink to this headline">¶</a></h3>
-<p><a href=" https://en.wikipedia.org/wiki/ZeroMQ" target="_blank">ZeroMQ</a> is an asynchronous messaging library, which enables real-time subscriptions. It transports notifications from the API server to the ZMQ endpoint, where the Catapult REST component listens. It is an alternative to REST WebSockets, aimed to be used when performance is critical.</p>
+<p><a href=" https://en.wikipedia.org/wiki/ZeroMQ" target="_blank">ZeroMQ</a> is an asynchronous messaging library, which enables real-time subscriptions. It transports notifications from the API node to the ZMQ endpoint, where Catapult REST listens. It is an alternative to REST WebSockets, aimed to be used when performance is critical.</p>
 </div>
 </div>
 <div class="section" id="rest-component">
-<h2>REST Component<a class="headerlink" href="#rest-component" title="Permalink to this headline">¶</a></h2>
+<h2>REST component<a class="headerlink" href="#rest-component" title="Permalink to this headline">¶</a></h2>
 <p><strong>Repository:</strong> <a href="https://github.com/nemtech/catapult-rest" target="_blank">Catapult REST</a></p>
-<p>The REST component handles <strong>JSON API</strong> client requests. This reads from MongoDB, formats the response, and returns it to the client. This component is responsible as well to return events to the client using <a class="reference internal" href="../api.html#websockets"><span class="std std-ref">WebSockets</span></a>.</p>
-<p>Each REST component connects to one API instance, sending new transactions using sockets.</p>
+<p>The REST node handles <strong>JSON API</strong> client requests. This reads from MongoDB, formats the response, and returns it to the client. This component is responsible as well to return events to the client using <a class="reference internal" href="../api.html#websockets"><span class="std std-ref">WebSockets</span></a>.</p>
+<p>Each REST node connects to one API instance, sending new transactions using sockets.</p>
 </div>
 <div class="section" id="guides">
 <h2>Guides<a class="headerlink" href="#guides" title="Permalink to this headline">¶</a></h2>
@@ -357,17 +357,17 @@
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">Node</a><ul>
-<li><a class="reference internal" href="#p2p-component">P2P Component</a><ul>
+<li><a class="reference internal" href="#p2p-component">P2P component</a><ul>
 <li><a class="reference internal" href="#node-reputation">Node reputation</a></li>
 <li><a class="reference internal" href="#rocksdb">RocksDB</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#api-component">API Component</a><ul>
+<li><a class="reference internal" href="#api-component">API component</a><ul>
 <li><a class="reference internal" href="#mongodb">MongoDB</a></li>
 <li><a class="reference internal" href="#zmq">ZMQ</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#rest-component">REST Component</a></li>
+<li><a class="reference internal" href="#rest-component">REST component</a></li>
 <li><a class="reference internal" href="#guides">Guides</a></li>
 </ul>
 </li>

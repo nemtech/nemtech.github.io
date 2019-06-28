@@ -35,7 +35,7 @@
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="アカウントフィルタ" href="account-filter.html" />
+    <link rel="next" title="モザイク" href="mosaic.html" />
     <link rel="prev" title="自己ペーストレーニング" href="../getting-started/training.html" />
   
 <meta charset='utf-8'>
@@ -139,16 +139,16 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">アカウント</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#properties">プロパティ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#multisig-account">マルチシグアカウント</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#filters">フィルタ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#restrictions">制約事項:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">ガイド</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="account-filter.html">アカウントフィルタ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
-<li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">モザイク</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">アカウントの制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Protocol</span></p>
@@ -178,7 +178,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.7</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.8</a></small>
     </p>
 </div>
 
@@ -197,16 +197,16 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">アカウント</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#properties">プロパティ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#multisig-account">マルチシグアカウント</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#filters">フィルタ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#restrictions">制約事項:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">ガイド</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="account-filter.html">アカウントフィルタ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
-<li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">モザイク</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">アカウントの制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Protocol</span></p>
@@ -248,20 +248,16 @@
   <div class="section" id="account">
 <h1>アカウント<a class="headerlink" href="#account" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>アカウントとは NEM ブロックチェーン上に保存される、変更可能な状態に関連付く <strong>キーペア</strong>  (秘密鍵と公開鍵)です。言い換えるとブロックチェーン上にある、あなたの秘密鍵でのみ変更をすることができる <strong>金庫</strong> です。</p>
-<div class="admonition note">
-<p class="first admonition-title">注釈</p>
-<p class="last">秘密鍵はその名の通り、必ず秘密にしておかなければなりません。秘密鍵にアクセスできる人なら誰でもアカウントを完全にコントロールできてしまいます。</p>
-</div>
 <p>NEM アカウントをブロックチェーン内の <strong>資産のコンテナ</strong> として考えてみてください。よくあるブロックチェーンのように、アカウントは預け入れられたトークンを表現します。</p>
 <p>さらに、NEM アカウントは一意でかつ更新可能な <strong>代替できない資産</strong> : 出荷パッケージ、家屋譲渡証書、公証文書を表現することができます。</p>
 <div class="section" id="properties">
 <h2>プロパティ<a class="headerlink" href="#properties" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>アカウントは以下のプロパティを持ちます:</p>
 <p><strong>秘密鍵</strong></p>
-<p><a class="reference internal" href="cryptography.html#keypair"><span class="std std-ref">プライベートキー</span></a> はアカウントのものです。アカウントに紐づくプライベートキーを持っている人なら、誰でもアカウントに関するアクションを実行できます。</p>
+<p><a class="reference internal" href="cryptography.html#keypair"><span class="std std-ref">秘密鍵</span></a> はアカウントの鍵です。秘密鍵にアクセスできる人なら誰でもアカウントを完全にコントロールできてしまいます。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">プライベートキーはどんなコストを掛けてでも、必ず秘密にしてください。オフラインのどこか安全な場所に秘密鍵がバックアップされていることを確認してください。</p>
+<p class="last">プライベートキーは必ず秘密であることを守ってください。オフラインのどこか安全な場所に秘密鍵がバックアップされていることを確認してください。</p>
 </div>
 <p><strong>公開鍵</strong></p>
 <p><a class="reference internal" href="cryptography.html#keypair"><span class="std std-ref">公開鍵</span></a> はアカウントの署名を検証するために使われます。公開鍵は、最初のトランザクションが発行とともにブロックチェーンに格納されます。トランザクションを発行していないアカウントは公開鍵フィールドが空になります。</p>
@@ -277,9 +273,9 @@
 <p>どのように相互に関連して制御するか、どのようにその内容を更新や転送をするかの定義を直接 NEM ブロックチェーン上に特別なルールとして設定しておけば、アカウントはとてもスマートなものになります。</p>
 <p>1つの重要なルールタイプは、アカウントベースの資産の所有権を複数の当事者間でさまざまな方法で共有できる <a class="reference internal" href="multisig-account.html"><span class="doc">マルチシグ</span></a> コントロールです。</p>
 </div>
-<div class="section" id="filters">
-<h2>フィルタ<a class="headerlink" href="#filters" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>アカウントはスマートなルールの集合を構成し、 <a class="reference internal" href="account-filter.html"><span class="doc">一連の制約</span></a> の下、アナウンスまたはトランザクションの受信をブロックすることができます。</p>
+<div class="section" id="restrictions">
+<h2>制約事項:<a class="headerlink" href="#restrictions" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>アカウントはスマートなルールの集合を構成し、 <a class="reference internal" href="account-restrictions.html"><span class="doc">一連の制約</span></a> の下、アナウンスまたはトランザクションの受信をブロックすることができます。</p>
 </div>
 <div class="section" id="guides">
 <h2>ガイド<a class="headerlink" href="#guides" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -323,7 +319,7 @@
 <li><a class="reference internal" href="#">アカウント</a><ul>
 <li><a class="reference internal" href="#properties">プロパティ</a></li>
 <li><a class="reference internal" href="#multisig-account">マルチシグアカウント</a></li>
-<li><a class="reference internal" href="#filters">フィルタ</a></li>
+<li><a class="reference internal" href="#restrictions">制約事項:</a></li>
 <li><a class="reference internal" href="#guides">ガイド</a></li>
 </ul>
 </li>
