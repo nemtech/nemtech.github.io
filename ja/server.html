@@ -159,6 +159,8 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="api.html">REST API</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">サーバ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#node-types">ノードタイプ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#package-organization">パッケージ構成</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installation">インストール</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">ガイド</a></li>
 </ul>
@@ -176,7 +178,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.8</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.9</a></small>
     </p>
 </div>
 
@@ -215,6 +217,8 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="api.html">REST API</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">サーバ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#node-types">ノードタイプ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#package-organization">パッケージ構成</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installation">インストール</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">ガイド</a></li>
 </ul>
@@ -247,15 +251,66 @@
 <p>これらのノードは4年以上稼働し続けてきた、従来 JAVA で書かれていた NEM 分散台帳を C++ でリライトした <a href="https://github.com/nemtech/catapult-server" target="_blank">catapult-server</a> ソフトウェアを使用してデプロイされます。</p>
 <p>その多層アーキテクチャーを通じて、ピアツーピアネットワークの分離と提案された REST APIレイヤーを使用して、より優れた API 統合フローを実装することが可能です。</p>
 <p>また Catapult ではプライベートネットワーク向けに catapult-server ノード用の <strong>プラグイン</strong> を開発することで独自のトランザクションタイプを追加する機能を提供します。</p>
+<div class="section" id="node-types">
+<h2>ノードタイプ<a class="headerlink" href="#node-types" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Catapult-server はノード所有者の柔軟性を向上します。同じソフトウェアは異なる3種類の <a class="reference internal" href="concepts/node.html"><span class="doc">ノード</span></a> に設定することができます:</p>
+<ul class="simple">
+<li><strong>Peer ノード</strong>: Peer ノードは API がトランザクションを P2P ネットワークにプッシュすると、それを検証または破棄します。ノードはコンセンサスアルゴリズムを実行して新しいブロックを作成し、そしてネットワークを通して変更を伝播します。</li>
+<li><strong>API ノード</strong>: API ノードの主な役割はトランザクションが検証された後に MongoDB データベースにデータを正しく保存することです。これらはパーシャルなアグリゲートボンドトランザクションを識別して保存もします。</li>
+<li><strong>Dual ノード</strong>: Dual ノードは Peer と API ノードを1つのサーバインスタンスにまとめたものです。</li>
+</ul>
+</div>
+<div class="section" id="package-organization">
+<h2>パッケージ構成<a class="headerlink" href="#package-organization" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><strong>リポジトリ:</strong> <a href="https://github.com/nemtech/catapult-server" target="_blank">catapult-server</a></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">フォルダ名</th>
+<th class="head">説明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>/extensions</td>
+<td>無垢な catapult-server に機能を追加するモジュール。それらはコンセンサスやネットワーキングのように重要な拡張から ZMQ メッセージングのようなオプションの拡張やその他便利な API まで多岐にわたります。</td>
+</tr>
+<tr class="row-odd"><td>/external</td>
+<td>使用しているハッシュアルゴリズムの実装。</td>
+</tr>
+<tr class="row-even"><td>/plugins</td>
+<td>トランザクション経由でチェーンの状態を変更するための新しい方法を紹介するモジュール。</td>
+</tr>
+<tr class="row-odd"><td>/resources</td>
+<td>ノードとネットワークの設定可能プロパティ</td>
+</tr>
+<tr class="row-even"><td>/scripts</td>
+<td>開発者向けユーティリティスクリプト</td>
+</tr>
+<tr class="row-odd"><td>/sdk</td>
+<td>テストとツールによる再利用可能なコード</td>
+</tr>
+<tr class="row-even"><td>/seed</td>
+<td>テスト用ネメシスブロック</td>
+</tr>
+<tr class="row-odd"><td>/src</td>
+<td>Catapult のコアエンジン</td>
+</tr>
+<tr class="row-even"><td>/tests</td>
+<td>テストの集合</td>
+</tr>
+<tr class="row-odd"><td>/tools</td>
+<td>ネットワークとノードをデプロイとモニタリングするツール</td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="installation">
 <h2>インストール<a class="headerlink" href="#installation" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Catapult-server はノード所有者の柔軟性を向上します。同じソフトウェアは異なる2種類の <a class="reference internal" href="concepts/node.html"><span class="doc">ノード</span></a> に設定することができます:</p>
-<ul class="simple">
-<li><strong>Peer ノード</strong> (P2P コンポーネント): Peer ノードは API がトランザクションを P2P ネットワークにプッシュすると、それを検証または破棄します。ノードはコンセンサスアルゴリズムを実行して新しいブロックを作成し、そしてネットワークを通して変更を伝播します。</li>
-<li><strong>API ノード</strong> (API コンポーネント): API ノードの主な役割はトランザクションが検証された後に MongoDB データベースにデータを正しく保存することです。</li>
-</ul>
-<p><a href="https://github.com/tech-bureau/catapult-service-bootstrap" target="_blank">Catapult Service Bootstrap</a> で開発目的または学習目的で独自のネットワークを展開する catapult-server ソフトウェアをテストすることができます。</p>
-<p>catapult-server だけをビルドして動作させるにはこの <a href="https://github.com/nemtech/catapult-server/blob/master/BUILDING.md" target="_blank">instructions for Ubuntu</a> に従ってください。</p>
+<p><a href="https://github.com/tech-bureau/catapult-service-bootstrap" target="_blank">Catapult Service Bootstrap</a> で開発目的または学習目的で独自のネットワークを展開する catapult-server ソフトウェアをテストします。</p>
+<p>ビルド <a href="https://github.com/nemtech/catapult-server/blob/master/BUILDING.md" target="_blank">instructions for Ubuntu</a> に従うことで、新しいカタパルトサーバーイメージを作成することができます。</p>
 </div>
 <div class="section" id="guides">
 <h2>ガイド<a class="headerlink" href="#guides" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -289,6 +344,8 @@
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">サーバ</a><ul>
+<li><a class="reference internal" href="#node-types">ノードタイプ</a></li>
+<li><a class="reference internal" href="#package-organization">パッケージ構成</a></li>
 <li><a class="reference internal" href="#installation">インストール</a></li>
 <li><a class="reference internal" href="#guides">ガイド</a></li>
 </ul>

@@ -159,12 +159,12 @@
 <li class="toctree-l3"><a class="reference internal" href="#rocksdb">RocksDB</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#api-component">API コンポーネント</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#api-component">API component</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#mongodb">MongoDB</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#zmq">ZMQ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#rest-component">REST コンポーネント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rest-component">REST component</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">ガイド</a></li>
 </ul>
 </li>
@@ -186,7 +186,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.8</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.9</a></small>
     </p>
 </div>
 
@@ -225,12 +225,12 @@
 <li class="toctree-l3"><a class="reference internal" href="#rocksdb">RocksDB</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#api-component">API コンポーネント</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#api-component">API component</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#mongodb">MongoDB</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#zmq">ZMQ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#rest-component">REST コンポーネント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rest-component">REST component</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">ガイド</a></li>
 </ul>
 </li>
@@ -272,7 +272,7 @@
 <div class="section" id="p2p-component">
 <h2>P2P コンポーネント<a class="headerlink" href="#p2p-component" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><strong>リポジトリ:</strong> <a href="https://github.com/nemtech/catapult-server" target="_blank">Catapult Server</a></p>
-<p>P2P ノードは、単一のエンティティを排除してもシャットダウンできない、堅牢なネットワークであるブロックチェーンのバックボーンを構成します。ノードの役割は <a class="reference internal" href="transaction.html#transaction-validation"><span class="std std-ref">トランザクション</span></a> と <a class="reference internal" href="block.html"><span class="doc">ブロック</span></a> を検証すること、コンセンサスアルゴリズムの実行、新しいブロックの生成、ネットワークへの変更の伝播を実行することです。</p>
+<p>Peer ノードは、単一のエンティティを排除してもシャットダウンできない、堅牢なネットワークであるブロックチェーンのバックボーンを構成します。ノードの役割は <a class="reference internal" href="transaction.html#transaction-validation"><span class="std std-ref">トランザクション</span></a> と <a class="reference internal" href="block.html"><span class="doc">ブロック</span></a> を検証すること、コンセンサスアルゴリズムの実行、新しいブロックの生成、ネットワークへの変更の伝播を実行することです。</p>
 <p>API は新しいトランザクションを P2P ネットワークにプッシュし、それらは <a class="reference internal" href="harvesting.html"><span class="doc">ブロックに含まれる</span></a> かまたは廃棄されます。ブロックが処理された後に:</p>
 <ul class="simple">
 <li>ブロックのバイナリはフラットなファイルとしてディスクに保存されます。</li>
@@ -297,15 +297,15 @@
 </div>
 </div>
 <div class="section" id="api-component">
-<h2>API コンポーネント<a class="headerlink" href="#api-component" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>API component<a class="headerlink" href="#api-component" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><strong>リポジトリ:</strong> <a href="https://github.com/nemtech/catapult-server" target="_blank">Catapult Server</a></p>
-<p>P2P ノードは API 層を持つように構成できます。API の主な役割は MongoDB にデータを読み取り可能な形式で格納することです。</p>
-<p>API は REST コンポーネントから受け取った <a class="reference internal" href="transaction.html#transaction-validation"><span class="std std-ref">トランザクションの検証</span></a> をし、さらに MongoDB への変更の保存、ZMQ へ転送のブローカープロセスも行います。</p>
-<p>このコンポーネントは <a class="reference internal" href="aggregate-transaction.html"><span class="doc">アグリゲートボンドトランザクション</span></a> の連署名を集める役割も果たし、それが完成したときにだけ処理されます。</p>
+<p>Peer ノードは API 層を持つように構成できます。API ノードの主たる役割は MongoDB にデータを読み取り可能な形式で格納することです。</p>
+<p>API ノードは REST ノードから受け取った <a class="reference internal" href="transaction.html#transaction-validation"><span class="std std-ref">トランザクションの検証</span></a> を行い、さらに MongoDB への変更の保存、ZMQ へ転送のブローカープロセスも行います。</p>
+<p>API ノードは <a class="reference internal" href="aggregate-transaction.html"><span class="doc">アグリゲートボンドトランザクション</span></a> の連署名を集める役割も果たし、それが完成したときにだけ処理されます。</p>
 <div class="section" id="mongodb">
 <h3>MongoDB<a class="headerlink" href="#mongodb" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><a href="https://es.wikipedia.org/wiki/MongoDB" target="_blank">MongoDB</a> はブロック、トランザクションとチェーン状態をハイパフォーマンスの実現のために保存します。</p>
-<p>APIは次の場合にMongoDBを更新します:</p>
+<p>次の場合に API ノードはリンクした MongoDB を更新します:</p>
 <ul class="simple">
 <li>新しいブロック/ブロックの束の処理が終了しました。</li>
 <li>新しい未承認トランザクションの処理を完了しました。</li>
@@ -317,14 +317,14 @@
 </div>
 <div class="section" id="zmq">
 <h3>ZMQ<a class="headerlink" href="#zmq" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><a href=" https://en.wikipedia.org/wiki/ZeroMQ" target="_blank">ZeroMQ</a> はリアルタイムの購読を可能にする非同期メッセージングライブラリです。API サーバーから ZMQ エンドポイントに通知を転送し、それを Catapult REST コンポーネントがリスンします。これは REST WebSocket に代わるもので、パフォーマンスが重要な場合に使用することを目的としています。</p>
+<p><a href=" https://en.wikipedia.org/wiki/ZeroMQ" target="_blank">ZeroMQ</a> はリアルタイムの購読を可能にする非同期メッセージングライブラリです。API ノードから ZMQ エンドポイントに通知を転送し、それを Catapult REST が購読します。これは REST WebSocket に代わるもので、パフォーマンスが重要な場合に使用することを目的としています。</p>
 </div>
 </div>
 <div class="section" id="rest-component">
-<h2>REST コンポーネント<a class="headerlink" href="#rest-component" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>REST component<a class="headerlink" href="#rest-component" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><strong>リポジトリ:</strong> <a href="https://github.com/nemtech/catapult-rest" target="_blank">Catapult REST</a></p>
-<p>Catapult REST コンポーネントは <strong>JSON API</strong> クライアントリクエストを処理します。MongoDB から読み取り、レスポンスをフォーマットして、それをクライアントに返却します。このコンポーネントは <a class="reference internal" href="../api.html#websockets"><span class="std std-ref">WebSockets</span></a> でクライアントにイベントを返却する役割も果たします。</p>
-<p>各 REST コンポーネントは1つの API インスタンスに接続し、ソケットを使用して新しいトランザクションを送信します。</p>
+<p>Catapult REST ノードは <strong>JSON API</strong> クライアントリクエストを処理します。MongoDB から読み取り、レスポンスをフォーマットして、それをクライアントに返却します。このコンポーネントは <a class="reference internal" href="../api.html#websockets"><span class="std std-ref">WebSockets</span></a> でクライアントにイベントを返却する役割も果たします。</p>
+<p>各 REST ノードは1つの API インスタンスに接続し、ソケットを使用して新しいトランザクションを送信します。</p>
 </div>
 <div class="section" id="guides">
 <h2>ガイド<a class="headerlink" href="#guides" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -363,12 +363,12 @@
 <li><a class="reference internal" href="#rocksdb">RocksDB</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#api-component">API コンポーネント</a><ul>
+<li><a class="reference internal" href="#api-component">API component</a><ul>
 <li><a class="reference internal" href="#mongodb">MongoDB</a></li>
 <li><a class="reference internal" href="#zmq">ZMQ</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#rest-component">REST コンポーネント</a></li>
+<li><a class="reference internal" href="#rest-component">REST component</a></li>
 <li><a class="reference internal" href="#guides">ガイド</a></li>
 </ul>
 </li>

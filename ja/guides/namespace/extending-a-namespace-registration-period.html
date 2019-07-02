@@ -1,0 +1,484 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ネームスペース登録期限の延長 &#8212; NEM Developer Center</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     'Master',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <script type="text/javascript" src="../../_static/examplecode.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon-32x32.png"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!--
+<script type="text/javascript">
+    var _paq = window._paq || [];
+    _paq.push(['disableCookies']);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="//analytics.nemtech.io/piwik/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>-->
+
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div id="navbar"
+     class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header col-md-3 col-sm-5">
+            <a class="navbar-brand" href="../../index.html">
+                
+                <span><img src="../../_static/logo-nem.svg" alt="NEM logo"></span>
+                
+                developer center
+            </a>
+        </div>
+        <div class="navbar-nav col-md-6 col-sm-7 hidden-xs">
+            <div class="search-box">
+    <input id="search" class="form-control" placeholder="Search for features, guides, or code examples"/>
+    <i class="fas fa-search"></i>
+</div>
+        </div>
+        <div class="navbar-right col-md-3">
+            <ul>
+                <ul class="list-inline">
+    
+    <li id="edit-github" class="hidden-xs hidden-sm">
+        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\namespace\extending-a-namespace-registration-period.rst"
+           rel="nofollow"> <i class="fab fa-github"></i> 編集</a>
+    </li>
+    
+    <li id="language" class="hidden-xs hidden-sm">
+        <i class="fas fa-language"></i>
+        <select>
+            <option id="english" value="en">English</option>
+            <option id="japanese" value="ja">日本語</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </li>
+</ul>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div
+         class="container"
+        >
+
+    <div class="row">
+
+        
+
+        
+
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
+    <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/what-is-nem.html">NEM とは？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/setup-workstation.html">ワークステーションのセットアップ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/first-application.html">はじめてのアプリケーションを作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/training.html">自己ペーストレーニング</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">アカウント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">モザイク</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">ネームスペース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">転送トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account-restrictions.html">アカウントの制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">マルチシグアカウント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">クロスチェーンスワップ</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/cryptography.html">暗号理論</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/block.html">ブロック</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/transaction.html">トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/inflation.html">インフレーション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/receipt.html">レシート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/node.html">ノード</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server.html">サーバ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">クライアント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">プロトタイピングツール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extensions.html">拡張</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/community.html">コミュニティ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/contributing.html">ガイドライン</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/contributors.html">貢献者</a></li>
+</ul>
+
+    <p class="version">
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.9</a></small>
+    </p>
+</div>
+
+<div class="sidebar-xs visible-xs visible-sm">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">ナビゲーション <b class="caret"></b></a>
+        <ul class="dropdown-menu globaltoc"><p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/what-is-nem.html">NEM とは？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/setup-workstation.html">ワークステーションのセットアップ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/first-application.html">はじめてのアプリケーションを作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/training.html">自己ペーストレーニング</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">アカウント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">モザイク</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">ネームスペース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">転送トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account-restrictions.html">アカウントの制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">マルチシグアカウント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">クロスチェーンスワップ</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/cryptography.html">暗号理論</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/block.html">ブロック</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/transaction.html">トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/inflation.html">インフレーション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/receipt.html">レシート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/node.html">ノード</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server.html">サーバ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">クライアント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">プロトタイピングツール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extensions.html">拡張</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/community.html">コミュニティ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/contributing.html">ガイドライン</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/contributors.html">貢献者</a></li>
+</ul>
+</ul>
+    </li>
+</div>
+        
+    </div>
+</div>
+
+
+        
+        <div class="col-md-7 content">
+            
+  <div class="section" id="extending-a-namespace-registration-period">
+<h1>ネームスペース登録期限の延長<a class="headerlink" href="#extending-a-namespace-registration-period" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference internal" href="../../concepts/namespace.html"><span class="doc">ネームスペース</span></a> 登録期限の延長。</p>
+<div class="section" id="background">
+<h2>背景<a class="headerlink" href="#background" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ネームスペースは一定量のブロックに対して登録されます。所有者は <a class="reference internal" href="../../concepts/namespace.html#register-namespace-transaction"><span class="std std-ref">register namespace transaction</span></a> を希望する追加ブロック数で送信することにより <strong>登録期間を延長する</strong> ことができます。</p>
+<p>このガイドではネームスペースのレンタル期間の延長の方法を記します。このガイドはネームスペース <code class="docutils literal"><span class="pre">foo</span></code> を使いますが、 <a class="reference internal" href="registering-a-namespace.html"><span class="doc">あなたが取得したネームスペース</span></a> でも従ってください。</p>
+</div>
+<div class="section" id="prerequisites">
+<h2>前提条件<a class="headerlink" href="#prerequisites" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="registering-a-namespace.html"><span class="doc">ネームスペースの取得ガイド</span></a> を終了している</li>
+<li><a class="reference internal" href="../../getting-started/setup-workstation.html#setup-getting-a-test-account"><span class="std std-ref">cat.currency</span></a>  を保有するアカウントと、1つ以上のネームスペース</li>
+</ul>
+</div>
+<div class="section" id="getting-into-some-code">
+<h2>それではコードを見ていきましょう<a class="headerlink" href="#getting-into-some-code" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ol class="arabic simple">
+<li>あなたのネームスペース情報を取得して、<code class="docutils literal"><span class="pre">endHeight</span></code> プロパティの値を確認してください。</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli namespace info --name foo
+
+Namespace: foo
+--------------
+
+hexadecimal:    82a9d1ac587ec054
+uint:           <span class="o">[</span> 1484701780, <span class="m">2192167340</span> <span class="o">]</span>
+type:           Root namespace
+owner:          SAKT3C-...-X4ND
+startHeight:    52000
+endHeight:      53000
+</pre></div>
+</div>
+<p>この情報はネームスペース <code class="docutils literal"><span class="pre">foo</span></code> がブロック高 <code class="docutils literal"><span class="pre">5300</span></code> で非アクティブになることを示しています。次のステップは現在のチェーン高を把握し、ネームスペースが非アクティブになるまでに残っているブロック数を計算することです。</p>
+<ol class="arabic simple" start="2">
+<li>現在のブロック高を確認する。</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli blockchain height
+
+52500
+</pre></div>
+</div>
+<p>ご覧のとおり、ネームスペースは <code class="docutils literal"><span class="pre">500</span></code> ブロック(53000-52500)で期限切れになります。foo にリンクしているすべてのサブネームスペースとエイリアスが失われないようにするためにネームスペースの期間を延長します。</p>
+<ol class="arabic simple" start="3">
+<li>ネームスペース期間を <code class="docutils literal"><span class="pre">1000</span></code> ブロック延長します。</li>
+</ol>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id1">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/namespace/RegisteringANamespace.ts">View Code</a></span><a class="headerlink" href="#id1" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">namespaceName</span> <span class="o">=</span> <span class="s2">&quot;foo&quot;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">registerNamespaceTransaction</span> <span class="o">=</span> <span class="nx">RegisterNamespaceTransaction</span><span class="p">.</span><span class="nx">createRootNamespace</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="nx">namespaceName</span><span class="p">,</span>
+    <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">networkGenerationHash</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NETWORK_GENERATION_HASH</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">registerNamespaceTransaction</span><span class="p">,</span> <span class="nx">networkGenerationHash</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
+<span class="nx">transactionHttp</span>
+    <span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id2">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/namespace/RegisteringANamespace.js">View Code</a></span><a class="headerlink" href="#id2" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">namespaceName</span> <span class="o">=</span> <span class="s2">&quot;foo&quot;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">registerNamespaceTransaction</span> <span class="o">=</span> <span class="nx">RegisterNamespaceTransaction</span><span class="p">.</span><span class="nx">createRootNamespace</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="nx">namespaceName</span><span class="p">,</span>
+    <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">networkGenerationHash</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NETWORK_GENERATION_HASH</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">registerNamespaceTransaction</span><span class="p">,</span> <span class="nx">networkGenerationHash</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
+<span class="nx">transactionHttp</span>
+    <span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id3">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/bash/namespace/RegisteringANamespace.sh">View Code</a></span><a class="headerlink" href="#id3" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli transaction namespace --name foo --rootnamespace --duration 1000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">この公式 <code class="docutils literal"><span class="pre">duration</span> <span class="pre">≈</span> <span class="pre">numberOfDays</span> <span class="pre">*</span> <span class="pre">86400</span> <span class="pre">/</span> <span class="pre">blockGenerationTargetTime</span></code> を使っておよその日数をブロックに変換します。blockGenerationTargetTime は <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">ネットワークごとに設定</a> されます。</p>
+</div>
+<p><strong>RegisterNamespaceTransaction</strong> が承認されたら、ネームスペースの期限が延長されたことも確認してください。</p>
+<ol class="arabic simple" start="4">
+<li><code class="docutils literal"><span class="pre">endHeight</span></code> が ブロック単位で <code class="docutils literal"><span class="pre">1000</span></code> 増加していることを確認してください。</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli namespace info --name foo
+
+Namespace: foo
+--------------
+
+hexadecimal:    82a9d1ac587ec054
+uint:           <span class="o">[</span> 1484701780, <span class="m">2192167340</span> <span class="o">]</span>
+type:           Root namespace
+owner:          SAKT3C-...-X4ND
+startHeight:    52000
+endHeight:      54000
+</pre></div>
+</div>
+</div>
+</div>
+
+  <div class="section">
+  
+    
+
+
+
+
+  
+  
+  </div>
+
+            
+            <p class="feedback top-gap">
+                <b>お探しのものは見つかりましたか？</b>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">フィードバックをください。</a>
+            </p>
+            
+        </div>
+         
+
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+        <ul>
+<li><a class="reference internal" href="#">ネームスペース登録期限の延長</a><ul>
+<li><a class="reference internal" href="#background">背景</a></li>
+<li><a class="reference internal" href="#prerequisites">前提条件</a></li>
+<li><a class="reference internal" href="#getting-into-some-code">それではコードを見ていきましょう</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+
+ 
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-4">
+                <h4>学習する</h4>
+                <ul>
+                    <li>
+                        <a href="../../getting-started/what-is-nem.html">入門</a>
+                    </li>
+                    <li>
+                        <a href="../../concepts/account.html">ビルドイン機能</a>
+                    </li>
+                    <li>
+                        <a href="../../concepts/cryptography.html">プロトコル</a>
+                    </li>
+                    <li>
+                        <a href="../../api.html">リファレンス</a>
+                    </li>
+                    <li>
+                        <a href="../../contribute/contributing.html">貢献する</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-sm-4">
+                <h4>リファレンス</h4>
+                <ul>
+                    <li><a href="../../api.html">REST API</a></li>
+                    <li><a href="../../server.html">Server</a></li>
+                    <li><a href="../../sdk.html">SDKs</a></li>
+                    <li><a href="../../cli.html">クライアント</a></li>
+                    <li><a href="../../extensions.html">拡張</a></li>
+                </ul>
+            </div>
+
+
+            <div class="col-sm-4">
+                <h4>コミュニティ</h4>
+                <ul>
+                    <li>
+                        <a href="http://slack.nemtech.io/">
+                            <i class="fab fa-slack"></i> <span> Join #general discussion</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stackoverflow.com/tags/nem/">
+                            <i class="fab fa-stack-overflow"></i>
+                            <span> Ask development questions</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/nemtechdev">
+                            <i class="fab fa-twitter"></i>
+                            <span> Follow the dev updates</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/nemtech">
+                            <i class="fab fa-github"></i>
+                            <span> Explore our Github</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <p class="text-center top-gap">
+            
+            
+            &copy; Copyright 2018-2019, NEM.
+            
+            
+            
+        </p>
+    </div>
+</footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '#search',
+        debug: false
+    });
+</script>
+
+  </body>
+</html>
