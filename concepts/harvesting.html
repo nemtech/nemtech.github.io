@@ -35,7 +35,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Inflation" href="inflation.html" />
-    <link rel="prev" title="Transaction" href="transaction.html" />
+    <link rel="prev" title="Consensus Algorithm" href="consensus-algorithm.html" />
   
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -149,6 +149,7 @@
 <li class="toctree-l1"><a class="reference internal" href="cryptography.html">Cryptography</a></li>
 <li class="toctree-l1"><a class="reference internal" href="block.html">Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consensus-algorithm.html">Consensus Algorithm</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Harvesting</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#eligibility-criteria">Eligibility criteria</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#harvesting-mosaic">Harvesting mosaic</a></li>
@@ -182,7 +183,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.9</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.0</a></small>
     </p>
 </div>
 
@@ -212,6 +213,7 @@
 <li class="toctree-l1"><a class="reference internal" href="cryptography.html">Cryptography</a></li>
 <li class="toctree-l1"><a class="reference internal" href="block.html">Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consensus-algorithm.html">Consensus Algorithm</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Harvesting</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#eligibility-criteria">Eligibility criteria</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#harvesting-mosaic">Harvesting mosaic</a></li>
@@ -260,12 +262,12 @@
 <p>The harvesting <a class="reference internal" href="account.html"><span class="doc">account</span></a> - called the harvester - gets the <a class="reference internal" href="transaction.html#fees"><span class="std std-ref">fees</span></a> for the transactions in the block and <a class="reference internal" href="inflation.html"><span class="doc">inflation</span></a>. This reward gives the harvester an incentive to add as many transactions to the block as possible.</p>
 <div class="section" id="eligibility-criteria">
 <h2>Eligibility criteria<a class="headerlink" href="#eligibility-criteria" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference internal" href="account.html"><span class="doc">importance score</span></a> of the account determines the chances of creating a new block. This score is calculated as the relation between the number of <a class="reference internal" href="#harvesting-mosaic"><span class="std std-ref">harvesting mosaics</span></a> the account owns and the total supply available.</p>
+<p>The <a class="reference internal" href="consensus-algorithm.html#importance-calculation"><span class="std std-ref">importance score</span></a> determines the probability of an account to harvest the next block in case the account has harvesting turned on and all other accounts are harvesting too.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Configuration parameters are editable. The importance score calculation formula and the minimum amount required to harvest may differ for the public network configuration.</p>
 </div>
-<p>The account needs to hold a <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties#L26">minimum amount</a> of this harvesting mosaic to have importance greater than zero.</p>
+<p>The account needs to hold a <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties#L30">minimum amount</a> of this harvesting mosaic to have importance greater than zero.</p>
 <p>Harvesting account owners can use their importance scores to create new blocks either by <a class="reference internal" href="#local-harvesting"><span class="std std-ref">running a node</span></a> or delegating it to a <a class="reference internal" href="#delegated-harvesting"><span class="std std-ref">remote node</span></a>.</p>
 </div>
 <div class="section" id="harvesting-mosaic">
@@ -284,7 +286,8 @@ the harvesting account.</p>
 <div class="section" id="delegated-harvesting">
 <span id="id3"></span><h2>Delegated harvesting<a class="headerlink" href="#delegated-harvesting" title="Permalink to this headline">¶</a></h2>
 <p>Delegated harvesting enables an account to use a proxy private key that can be shared with a node securely. In other words, you can use the importance score of your account to create new blocks without running a node.</p>
-<p>After an account activates delegated harvesting, its importance score is transferred to a remote account. The remote account inherits the importance of the original account. Security-wise, sharing a proxy private key with a remote node does not compromise the original account since:</p>
+<p>After an account activates delegated harvesting, its importance score is transferred to a remote account. The remote account inherits the importance of the original account.</p>
+<p>Security-wise, sharing a proxy private key with a remote node does not compromise the original account since:</p>
 <ul class="simple">
 <li>The remote account has zero balance.</li>
 <li>The remote account by itself can’t transfer the importance to another account.</li>
