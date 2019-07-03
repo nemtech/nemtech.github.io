@@ -36,7 +36,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="next" title="インフレーション" href="inflation.html" />
-    <link rel="prev" title="トランザクション" href="transaction.html" />
+    <link rel="prev" title="コンセンサスアルゴリズム" href="consensus-algorithm.html" />
   
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -150,6 +150,7 @@
 <li class="toctree-l1"><a class="reference internal" href="cryptography.html">暗号理論</a></li>
 <li class="toctree-l1"><a class="reference internal" href="block.html">ブロック</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consensus-algorithm.html">コンセンサスアルゴリズム</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ハーベスティング</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#eligibility-criteria">適格基準</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#harvesting-mosaic">ハーベスティングモザイク</a></li>
@@ -183,7 +184,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.17.9</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.0</a></small>
     </p>
 </div>
 
@@ -213,6 +214,7 @@
 <li class="toctree-l1"><a class="reference internal" href="cryptography.html">暗号理論</a></li>
 <li class="toctree-l1"><a class="reference internal" href="block.html">ブロック</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consensus-algorithm.html">コンセンサスアルゴリズム</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ハーベスティング</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#eligibility-criteria">適格基準</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#harvesting-mosaic">ハーベスティングモザイク</a></li>
@@ -261,12 +263,12 @@
 <p>ハーベスティング <a class="reference internal" href="account.html"><span class="doc">アカウント</span></a> - ハーベスタと呼びます - はブロック内のトランザクションに応じた <a class="reference internal" href="transaction.html#fees"><span class="std std-ref">手数料</span></a> と <a class="reference internal" href="inflation.html"><span class="doc">インフレーション</span></a> を取得します。これによりハーベスタにはできるだけ多くのトランザクションをブロックに追加するインセンティブが与えられます。</p>
 <div class="section" id="eligibility-criteria">
 <h2>適格基準<a class="headerlink" href="#eligibility-criteria" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>アカウントの <a class="reference internal" href="account.html"><span class="doc">インポータンススコア</span></a> は新しいブロックを生成する機会を決定します。このスコアはアカウントが保有する <a class="reference internal" href="#harvesting-mosaic"><span class="std std-ref">ハーベスティングモザイク</span></a> の数量とその有効な合計供給量との間の相対として計算されます。</p>
+<p><a class="reference internal" href="consensus-algorithm.html#importance-calculation"><span class="std std-ref">インポータンススコア</span></a> はそのアカウントがハーベスティングがオンになっていて、他のすべてのアカウントもハーベストしている場合に、アカウントが次のブロックをハーベストする確率を決定します。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
 <p class="last">設定パラメータは編集可能です。インポータンススコア計算式とハーベストに必要な最小保有量の設定はパブリックネットワークでは異なる可能性があります。</p>
 </div>
-<p>このアカウントはインポータンスを 0 より大きい値にするために、ハーベスティングモザイクの <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties#L26">最小保有量</a> を保有する必要があります。</p>
+<p>このアカウントはインポータンスを 0 より大きい値にするために、ハーベスティングモザイクの <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties#L30">最小保有量</a> を保有する必要があります。</p>
 <p>ハーベスティングアカウントの所有者は <a class="reference internal" href="#local-harvesting"><span class="std std-ref">運用しているノード</span></a> または <a class="reference internal" href="#delegated-harvesting"><span class="std std-ref">リモートノード</span></a> へのデリゲートによって、インポータンススコアを新しいブロックの生成に利用できます。</p>
 </div>
 <div class="section" id="harvesting-mosaic">
@@ -284,7 +286,8 @@
 <div class="section" id="delegated-harvesting">
 <span id="id3"></span><h2>デリゲートハーベスティング<a class="headerlink" href="#delegated-harvesting" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>デリゲートハーベスティングでは、アカウントはノードと安全に共有できるプロキシ秘密鍵を使用できます。つまり、自分のアカウントの重要性スコアを利用して、ノードの運用をせずに新しいブロックを作成することができます。</p>
-<p>アカウントがデリゲートハーベスティングをアクティブすると、インポータンススコアがリモートアカウントへ転送されていきます。このリモートアカウントは元のアカウントのインポータンスを継承します。セキュリティ面において、プロキシ秘密鍵をリモートノードと共有しても、次の理由から元のアカウントが危険にさらされることはありません:</p>
+<p>アカウントのデリゲートハーベスティングを有効になると、そのインポータンススコアがリモートアカウントに転送されます。リモートアカウントは元のアカウントの重要性を継承します。</p>
+<p>セキュリティについて、リモートノードとプロキシ秘密鍵を共有しても次の理由から元のアカウントが侵害されることはありません:</p>
 <ul class="simple">
 <li>リモートアカウントは残高0です。</li>
 <li>リモートアカウントそれ自身だけでは、インポータンスを他のアカウントに移すことはできません。</li>

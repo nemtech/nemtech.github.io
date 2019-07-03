@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>転送トランザクション &#8212; NEM Developer Center</title>
+    <title>コンセンサスアルゴリズム &#8212; NEM Developer Center</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
@@ -35,8 +35,8 @@
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="アグリゲートトランザクション" href="aggregate-transaction.html" />
-    <link rel="prev" title="ネームスペース" href="namespace.html" />
+    <link rel="next" title="ハーベスティング" href="harvesting.html" />
+    <link rel="prev" title="トランザクション" href="transaction.html" />
   
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -94,7 +94,7 @@
                 <ul class="list-inline">
     
     <li id="edit-github" class="hidden-xs hidden-sm">
-        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\transfer-transaction.rst"
+        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\consensus-algorithm.rst"
            rel="nofollow"> <i class="fab fa-github"></i> 編集</a>
     </li>
     
@@ -135,36 +135,28 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/training.html">自己ペーストレーニング</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="account.html">アカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">モザイク</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">転送トランザクション</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#recipient">受信者</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mosaics">モザイク</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#message">メッセージ</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#encrypted-message">暗号化メッセージ</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#guides">ガイド</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#schemas">スキーマ</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#transfertransaction">TransferTransaction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#messagetype">MessageType</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">アカウントの制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Protocol</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="cryptography.html">暗号理論</a></li>
 <li class="toctree-l1"><a class="reference internal" href="block.html">ブロック</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">トランザクション</a></li>
-<li class="toctree-l1"><a class="reference internal" href="consensus-algorithm.html">コンセンサスアルゴリズム</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">コンセンサスアルゴリズム</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#factors">要因</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scores">スコア</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#constants">制約</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#calculation">算出</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="harvesting.html">ハーベスティング</a></li>
 <li class="toctree-l1"><a class="reference internal" href="inflation.html">インフレーション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receipt.html">レシート</a></li>
@@ -202,36 +194,28 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/training.html">自己ペーストレーニング</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="account.html">アカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">モザイク</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">転送トランザクション</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#recipient">受信者</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mosaics">モザイク</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#message">メッセージ</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#encrypted-message">暗号化メッセージ</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#guides">ガイド</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#schemas">スキーマ</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#transfertransaction">TransferTransaction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#messagetype">MessageType</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">アカウントの制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Protocol</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="cryptography.html">暗号理論</a></li>
 <li class="toctree-l1"><a class="reference internal" href="block.html">ブロック</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transaction.html">トランザクション</a></li>
-<li class="toctree-l1"><a class="reference internal" href="consensus-algorithm.html">コンセンサスアルゴリズム</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">コンセンサスアルゴリズム</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#factors">要因</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scores">スコア</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#constants">制約</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#calculation">算出</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="harvesting.html">ハーベスティング</a></li>
 <li class="toctree-l1"><a class="reference internal" href="inflation.html">インフレーション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receipt.html">レシート</a></li>
@@ -263,126 +247,72 @@
         
         <div class="col-md-7 content">
             
-  <div class="section" id="transfer-transaction">
-<h1>転送トランザクション<a class="headerlink" href="#transfer-transaction" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>転送トランザクションは <a class="reference internal" href="mosaic.html"><span class="doc">モザイク</span></a> とメッセージを2つの <a class="reference internal" href="account.html"><span class="doc">アカウント</span></a> 間で送信するために使われます。</p>
-<div class="figure align-center" id="id2">
-<img alt="../_images/transfer-transaction.png" src="../_images/transfer-transaction.png" style="width: 450px;" />
-<p class="caption"><span class="caption-text">Alice は 10 cat.currency を Bob へ送る</span></p>
-</div>
-<div class="section" id="recipient">
-<h2>受信者<a class="headerlink" href="#recipient" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>受信者は転送トランザクションを受け取る <a class="reference internal" href="account.html"><span class="doc">アカウント</span></a> のアドレスです。</p>
-<p>過去にトランザクションに関与したことがなくても、正当なアドレスであればモザイクを送信することができます。</p>
-<div class="admonition note">
-<p class="first admonition-title">注釈</p>
-<p class="last">もし受信するアドレスの秘密鍵を誰も持っていない場合、その資産は永久に使うことができなくなります。</p>
-</div>
-</div>
-<div class="section" id="mosaics">
-<h2>モザイク<a class="headerlink" href="#mosaics" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference internal" href="mosaic.html"><span class="doc">モザイク</span></a> はトークンといえますが、報酬ポイント、株式、署名、状態フラグ、投票やその他の貨幣などのより特化した資産とみなすこともできます。</p>
-<p>同じトランザクションで異なるモザイクの組み合わせを送信することができます。</p>
-</div>
-<div class="section" id="message">
-<h2>メッセージ<a class="headerlink" href="#message" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>転送トランザクションは <code class="docutils literal"><span class="pre">1023</span></code> 文字までの長さのメッセージを持つことができ、ブロックチェーンにデータを永続的にタイムスタンプするのに適しています。</p>
-<p>デフォルトでは添付されたメッセージはネットワーク参加者の全員が見ることができます。</p>
-<div class="section" id="encrypted-message">
-<h3>暗号化メッセージ<a class="headerlink" href="#encrypted-message" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>暗号化メッセージは送信者と受信者だけが平文を読むことができます。</p>
-<p>NEM は <a class="reference external" href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CBC">CBC モード</a> の  Bouncy Castle’s AES ブロック暗号化実装を使ってメッセージの暗号化と復号を行います。</p>
-<p>クライアント側はメッセージの暗号化と復号を処理します。<code class="docutils literal"><span class="pre">crypto</span></code> モジュールの下に暗号化メッセージの <a class="reference external" href="https://github.com/nemtech/nem2-library-js/blob/master/src/crypto/crypto.js#L255">エンコード</a> と <a class="reference external" href="https://github.com/nemtech/nem2-library-js/blob/master/src/crypto/crypto.js#L287">デコード</a> の方法を発見することができますが、替わりに <a class="reference external" href="https://nemtech.github.io/nem2-sdk-typescript-javascript/classes/_model_account_account_.account.html#decryptmessage">SDK のパブリックメソッド</a> を使用することを推奨します。</p>
-</div>
-</div>
-<div class="section" id="guides">
-<h2>ガイド<a class="headerlink" href="#guides" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="postlist-style-circle postlist">
-<li><p class="first"><a class="reference internal" href="../guides/transaction/sending-a-transfer-transaction.html">転送トランザクションの送信</a></p>
-<p><a class="reference internal" href="mosaic.html"><span class="doc">モザイク</span></a> とメッセージを2つのアカウント間で転送します。</p>
-</li>
-<li><p class="first"><a class="reference internal" href="../guides/transaction/monitoring-a-transaction-status.html">トランザクションの監視</a></p>
-<p>アナウンスした後に <a class="reference internal" href="transaction.html"><span class="doc">トランザクション</span></a> がブロックチェーンに含まれることを理解してください。</p>
-</li>
-<li><p class="first"><a class="reference internal" href="../guides/transaction/sending-an-encrypted-message.html">暗号化メッセージの送信</a></p>
-<p>受信者アカウントでしか読めない暗号化メッセージを送信します。</p>
-</li>
-</ul>
-</div>
-<div class="section" id="schemas">
-<h2>スキーマ<a class="headerlink" href="#schemas" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="admonition note">
-<p class="first admonition-title">注釈</p>
-<p class="last">設定パラメータは <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">編集可能</a> です。公開ネットワークでは異なる可能性があります。</p>
-</div>
-<div class="section" id="transfertransaction">
-<span id="id1"></span><h3>TransferTransaction<a class="headerlink" href="#transfertransaction" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><a class="reference internal" href="mosaic.html"><span class="doc">モザイク</span></a> またはメッセージを2つの <a class="reference internal" href="account.html"><span class="doc">アカウント</span></a> 間で送信するためには、転送トランザクションをアナウンスします。</p>
-<p><strong>Version</strong>: 0x01</p>
-<p><strong>エンティティタイプ</strong>: 0x4154</p>
-<p><strong>インライン</strong></p>
+  <div class="section" id="consensus-algorithm">
+<h1>コンセンサスアルゴリズム<a class="headerlink" href="#consensus-algorithm" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Catapult は Proof of Stake Plus (<strong>PoS+</strong>) と命名された Proof of Stake を修正したコンセンサスアルゴリズムを使用しています。</p>
+<p>基本の Proof of Stake (<a href="https://en.wikipedia.org/wiki/Proof_of_stake" target="_blank">PoS</a>) コンセンサスアルゴリズムでは、ブロックチェーン内における後続ブロック形成は、関係者の資産に関連する要因の組み合わせによって重み付けされた、ブロックチェーンのコイン保有ステークホルダーへ確率的に割り当てられます。</p>
+<p>改良したプロトコルはネットワークへのアカウントのステークを考慮し、それらの活動に基づき積極的な支持者に報酬を与え、富ある者がより豊かになる問題を軽減します。</p>
+<div class="section" id="factors">
+<span id="importance-calculation"></span><h2>要因<a class="headerlink" href="#factors" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>このアルゴリズムはエコシステム健全性の観点を改善するために以下の要因を考慮します:</p>
 <ul class="simple">
-<li><a class="reference internal" href="transaction.html#id4"><span class="std std-ref">Transaction</span></a> または <a class="reference internal" href="transaction.html#embedded-transaction"><span class="std std-ref">EmbeddedTransaction</span></a></li>
+<li><strong>Stake</strong>: 保有している <a class="reference internal" href="harvesting.html#harvesting-mosaic"><span class="std std-ref">ハーベスティングモザイク</span></a> の総量。より大きい残高の保有者はエコシステムが繁栄するのを見るためにインセンティブを持つべきです。</li>
+<li><strong>Transactions</strong>: アカウントが支払った手数料の合計量。ネットワーク上でアクティブなアカウントになることを推奨します。</li>
+<li><strong>Nodes</strong>: アカウントがブロックの受益者である回数。ネットワークを安全に保つため、ネットワークはノードを実行しているアクティブなアカウントへインセンティブを与えるべきです。</li>
 </ul>
+<p>すべての高価値アカウントはこれら 3 つの要素に基づいて <strong>インポータンススコア</strong> を受け取り、それがブロックを <a class="reference internal" href="harvesting.html"><span class="doc">ハーベスト</span></a> する確率を決定します。</p>
+<p>このアカウントは 0 より大きい重要度を持つために最低限の <a class="reference internal" href="harvesting.html#harvesting-mosaic"><span class="std std-ref">ハーベスティングモザイク</span></a> を保有する必要があります。</p>
+</div>
+<div class="section" id="scores">
+<h2>スコア<a class="headerlink" href="#scores" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ネットワークは各要因をすべての高価値アカウントに対して以下のサブスコアを計算します:</p>
+<ul class="simple">
+<li><strong>Stake Score (S`)</strong>: 時間 P におけるすべての高価値アカウントの実効残高の割合</li>
+<li><strong>Transaction Score (T`)</strong>: 期間 P-1 から P までのすべての高価値アカウントにおける合計トランザクション手数料の割合</li>
+<li><strong>Node Score (N`)</strong>: P-1 から P までの全ブロックにおける受益者合計の割合</li>
+</ul>
+</div>
+<div class="section" id="constants">
+<h2>制約<a class="headerlink" href="#constants" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>各ネットワークは独自の合意アルゴリズム <a href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties#L18" target="_blank">constants</a> を定義できます。</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
+<col width="30%" />
+<col width="30%" />
+<col width="40%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">プロパティ</th>
-<th class="head">タイプ</th>
+<tr class="row-odd"><th class="head">制約</th>
+<th class="head">値</th>
 <th class="head">説明</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>recipient</td>
-<td>25 bytes (binary)</td>
-<td>受信アカウントのアドレス</td>
+<tr class="row-even"><td>a</td>
+<td>0.05</td>
+<td>活動スコアのネットワーク全体の貢献</td>
 </tr>
-<tr class="row-odd"><td>messageSize</td>
-<td>uint16</td>
-<td>添付されたメッセージのサイズ</td>
+<tr class="row-odd"><td>p</td>
+<td>10000</td>
+<td>活動スコアから段階的にフェーズアウトを調整するための定数</td>
 </tr>
-<tr class="row-even"><td>mosaicsCount</td>
-<td>uint8</td>
-<td>添付されたモザイクの数</td>
+<tr class="row-even"><td>t</td>
+<td>0.8</td>
+<td>トランザクションスコア乗数</td>
 </tr>
-<tr class="row-odd"><td>message</td>
-<td>array(byte, messageSize)</td>
-<td><a class="reference internal" href="#message-type"><span class="std std-ref">MessageType</span></a> と <code class="docutils literal"><span class="pre">1023</span></code> バイトまでのペイロード</td>
-</tr>
-<tr class="row-even"><td>mosaics</td>
-<td>array(<a class="reference internal" href="mosaic.html#unresolved-mosaic"><span class="std std-ref">UnresolvedMosaic</span></a>, mosaicsCount)</td>
-<td>送信するモザイクの配列</td>
+<tr class="row-odd"><td>n</td>
+<td>0.2</td>
+<td>ノードスコア乗数</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="messagetype">
-<span id="message-type"></span><h3>MessageType<a class="headerlink" href="#messagetype" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Enumeration: uint8</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Id</th>
-<th class="head">説明</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>0x00</td>
-<td>平文メッセージ</td>
-</tr>
-<tr class="row-odd"><td>0x01</td>
-<td>暗号化メッセージ</td>
-</tr>
-</tbody>
-</table>
-</div>
+<div class="section" id="calculation">
+<h2>算出<a class="headerlink" href="#calculation" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>インポータンスはアカウントごとに次の方法で計算できます:</p>
+<blockquote>
+<div>(1 - a) * (S』) + a * || p / (S』) * (t * (T』) + n * (N』)) ||</div></blockquote>
+<p>トランザクションスコアとノードスコアの組み合わせはステークスコアが低い場合に乗数効果があります。逆に、ステークスコアが高い場合に乗数効果は重要ではありません。</p>
 </div>
 </div>
 
@@ -403,19 +333,11 @@
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
-<li><a class="reference internal" href="#">転送トランザクション</a><ul>
-<li><a class="reference internal" href="#recipient">受信者</a></li>
-<li><a class="reference internal" href="#mosaics">モザイク</a></li>
-<li><a class="reference internal" href="#message">メッセージ</a><ul>
-<li><a class="reference internal" href="#encrypted-message">暗号化メッセージ</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#guides">ガイド</a></li>
-<li><a class="reference internal" href="#schemas">スキーマ</a><ul>
-<li><a class="reference internal" href="#transfertransaction">TransferTransaction</a></li>
-<li><a class="reference internal" href="#messagetype">MessageType</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">コンセンサスアルゴリズム</a><ul>
+<li><a class="reference internal" href="#factors">要因</a></li>
+<li><a class="reference internal" href="#scores">スコア</a></li>
+<li><a class="reference internal" href="#constants">制約</a></li>
+<li><a class="reference internal" href="#calculation">算出</a></li>
 </ul>
 </li>
 </ul>
