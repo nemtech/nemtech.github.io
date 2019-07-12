@@ -157,7 +157,7 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -189,7 +189,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.0</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
     </p>
 </div>
 
@@ -227,7 +227,7 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -374,13 +374,16 @@
 <li><p class="first"><a class="reference internal" href="../guides/mosaic/getting-mosaic-information.html">Getting the mosaic information</a></p>
 <p>Get the ownership, divisibility, duration, and flags for a given <a class="reference internal" href="#"><span class="doc">mosaic</span></a> identifier.</p>
 </li>
+<li><p class="first"><a class="reference internal" href="../guides/blockchain/getting-the-mosaic-identifier-behind-a-namespace-with-receipts.html">Getting the asset identifier behind a namespace with receipts</a></p>
+<p>Get the resolution for a given alias and transaction using receipts.</p>
+</li>
 </ul>
 </div>
 <div class="section" id="schemas">
 <h2>Schemas<a class="headerlink" href="#schemas" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Configuration parameters are <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">editable</a> . Public network configuration may differ.</p>
+<p class="last">Configuration parameters are <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">editable</a>. Public network configuration may differ.</p>
 </div>
 <div class="section" id="mosaicdefinitiontransaction">
 <span id="mosaic-definition-transaction"></span><h3>MosaicDefinitionTransaction<a class="headerlink" href="#mosaicdefinitiontransaction" title="Permalink to this headline">¶</a></h3>
@@ -409,24 +412,24 @@
 <td>Random nonce used to generate the mosaic id.</td>
 </tr>
 <tr class="row-odd"><td>mosaicId</td>
-<td>uint64</td>
-<td>The mosaic Id.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L4">MosaicId</a></td>
+<td>Identifier of the mosaic.</td>
 </tr>
 <tr class="row-even"><td>propertiesCount</td>
 <td>uint8</td>
-<td>The number of elements in optional properties</td>
+<td>Number of elements in optional properties</td>
 </tr>
 <tr class="row-odd"><td>flags</td>
 <td><a class="reference internal" href="#mosaic-flags"><span class="std std-ref">MosaicFlag</span></a></td>
-<td>The mosaic flags.</td>
+<td>Mosaic flags.</td>
 </tr>
 <tr class="row-even"><td>divisibility</td>
 <td>uint8</td>
-<td>The mosaic divisibility. The maximum divisibility is <code class="docutils literal"><span class="pre">6</span></code>.</td>
+<td>Mosaic divisibility. Maximum divisibility is <code class="docutils literal"><span class="pre">6</span></code>.</td>
 </tr>
 <tr class="row-odd"><td>properties</td>
 <td>array(<a class="reference internal" href="#mosaic-property"><span class="std std-ref">MosaicProperty</span></a>, propertiesCount)</td>
-<td>The optional mosaic properties.</td>
+<td>Optional mosaic properties.</td>
 </tr>
 </tbody>
 </table>
@@ -454,16 +457,16 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>mosaicId</td>
-<td>uint64</td>
-<td>The id of the affected mosaic.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L3">UnresolvedMosaicId</a></td>
+<td>Identifier of the affected mosaic.</td>
 </tr>
 <tr class="row-odd"><td>direction</td>
 <td><a class="reference internal" href="#mosaic-supply-change-direction"><span class="std std-ref">MosaicSupplyChangeDirection</span></a></td>
-<td>The supply change direction.</td>
+<td>Supply change direction.</td>
 </tr>
 <tr class="row-even"><td>delta</td>
-<td>uint64</td>
-<td>The amount of supply to increase or decrease.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L1">Amount</a></td>
+<td>Amount of supply to increase or decrease.</td>
 </tr>
 </tbody>
 </table>
@@ -485,7 +488,7 @@
 <tbody valign="top">
 <tr class="row-even"><td>id</td>
 <td>uint8</td>
-<td>The property id. (0x02) stands for duration.</td>
+<td>Mosaic property identifier. (0x02) stands for duration.</td>
 </tr>
 <tr class="row-odd"><td>value</td>
 <td>uint64</td>
@@ -510,12 +513,12 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>mosaicId</td>
-<td>uint64</td>
-<td>The mosaic id.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L4">MosaicId</a></td>
+<td>Mosaic identifier.</td>
 </tr>
 <tr class="row-odd"><td>amount</td>
-<td>uint64</td>
-<td>The amount of the mosaic.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L1">Amount</a></td>
+<td>Amount of the mosaic.</td>
 </tr>
 </tbody>
 </table>
@@ -536,12 +539,12 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>mosaicId</td>
-<td>uint64</td>
-<td>The mosaic id.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L3">UnresolvedMosaicId</a></td>
+<td>Mosaic identifier.</td>
 </tr>
 <tr class="row-odd"><td>amount</td>
-<td>uint64</td>
-<td>The amount of the mosaic.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L1">Amount</a></td>
+<td>Amount of the mosaic.</td>
 </tr>
 </tbody>
 </table>
@@ -564,10 +567,10 @@
 <td>No flags present.</td>
 </tr>
 <tr class="row-odd"><td>0x01</td>
-<td>The mosaic supply is mutable.</td>
+<td>Mosaic supports supply changes even when mosaic owner owns partial supply.</td>
 </tr>
 <tr class="row-even"><td>0x02</td>
-<td>The mosaic is transferable.</td>
+<td>Mosaic supports transfers between arbitrary accounts. When not set, mosaic can only be transferred to and from mosaic owner.</td>
 </tr>
 </tbody>
 </table>
@@ -660,6 +663,9 @@
                         <a href="cryptography.html">Protocol</a>
                     </li>
                     <li>
+                        <a href="../guides/category.html">Guides</a>
+                    </li>
+                    <li>
                         <a href="../api.html">References</a>
                     </li>
                     <li>
@@ -695,9 +701,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/nemtechdev">
+                        <a href="https://twitter.com/NEMofficial">
                             <i class="fab fa-twitter"></i>
-                            <span> Follow the dev updates</span>
+                            <span> Follow the updates</span>
                         </a>
                     </li>
                     <li>

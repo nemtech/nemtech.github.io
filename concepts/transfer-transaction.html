@@ -154,7 +154,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -186,7 +186,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.0</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
     </p>
 </div>
 
@@ -221,7 +221,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -337,24 +337,24 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>recipient</td>
-<td>25 bytes (binary)</td>
-<td>The address of the recipient account.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L7">UnresolvedAddress</a></td>
+<td>Address of the recipient.</td>
 </tr>
 <tr class="row-odd"><td>messageSize</td>
 <td>uint16</td>
-<td>The size of the attached message.</td>
+<td>Size of the attached message.</td>
 </tr>
 <tr class="row-even"><td>mosaicsCount</td>
 <td>uint8</td>
-<td>The number of attached mosaics.</td>
+<td>Number of attached mosaics.</td>
 </tr>
 <tr class="row-odd"><td>message</td>
 <td>array(byte, messageSize)</td>
-<td>The <a class="reference internal" href="#message-type"><span class="std std-ref">MessageType</span></a> and a payload of up to <code class="docutils literal"><span class="pre">1023</span></code> bytes.</td>
+<td><a class="reference internal" href="#message-type"><span class="std std-ref">Message type</span></a> and a payload of up to <code class="docutils literal"><span class="pre">1023</span></code> bytes.</td>
 </tr>
 <tr class="row-even"><td>mosaics</td>
 <td>array(<a class="reference internal" href="mosaic.html#unresolved-mosaic"><span class="std std-ref">UnresolvedMosaic</span></a>, mosaicsCount)</td>
-<td>The array of mosaic to send.</td>
+<td>Array of mosaics to send.</td>
 </tr>
 </tbody>
 </table>
@@ -444,6 +444,9 @@
                         <a href="cryptography.html">Protocol</a>
                     </li>
                     <li>
+                        <a href="../guides/category.html">Guides</a>
+                    </li>
+                    <li>
                         <a href="../api.html">References</a>
                     </li>
                     <li>
@@ -479,9 +482,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/nemtechdev">
+                        <a href="https://twitter.com/NEMofficial">
                             <i class="fab fa-twitter"></i>
-                            <span> Follow the dev updates</span>
+                            <span> Follow the updates</span>
                         </a>
                     </li>
                     <li>

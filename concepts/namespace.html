@@ -162,7 +162,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -194,7 +194,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.0</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
     </p>
 </div>
 
@@ -237,7 +237,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -290,7 +290,7 @@
 <h2>Subnamespaces<a class="headerlink" href="#subnamespaces" title="Permalink to this headline">¶</a></h2>
 <p>On the internet, a domain can have a sub-domain. In NEM, namespaces can have subnamespaces.</p>
 <p>You can <a class="reference internal" href="../guides/namespace/registering-a-subnamespace.html"><span class="doc">create multiple subnamespaces</span></a> with the same name in different namespaces. For example, you can create the subnamespaces <code class="docutils literal"><span class="pre">foo.bar</span></code> and <code class="docutils literal"><span class="pre">foo2.bar</span></code>.</p>
-<p>Namespaces can have up to <code class="docutils literal"><span class="pre">3</span></code> levels, a namespace and its two levels of subnamespace domains.</p>
+<p>Namespaces can have up to <code class="docutils literal"><span class="pre">3</span></code> levels, a namespace and its two levels of subnamespace domains. A subnamespaces has the same duration as its parent namespace.</p>
 </div>
 <div class="section" id="alias">
 <h2>Alias<a class="headerlink" href="#alias" title="Permalink to this headline">¶</a></h2>
@@ -301,7 +301,7 @@
 <p>Restrictions:</p>
 <ul class="simple">
 <li>An account can only associate a name with one account or mosaic, but those can have many aliases linked.</li>
-<li>An account can assign a name to any account that permits receiving <a class="reference internal" href="account-restrictions.html"><span class="doc">AddressNamespaceTransactions</span></a>. In contrast, if the account wants to assign the alias to a mosaicId, it should be the creator of the mosaic.</li>
+<li>An account can assign a name to any account that permits receiving <a class="reference internal" href="account-restriction.html"><span class="doc">AddressNamespaceTransactions</span></a>. In contrast, if the account wants to assign the alias to a mosaicId, it should be the creator of the mosaic.</li>
 <li>An account can only link the alias to a mosaicId when the account is the creator of the mosaic.</li>
 </ul>
 </div>
@@ -321,7 +321,7 @@
 </div>
 <div class="section" id="cost">
 <h2>Cost<a class="headerlink" href="#cost" title="Permalink to this headline">¶</a></h2>
-<p>The cost of creating a namespace is  <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">configurable per network</a>. By default, registering a namespace costs <code class="docutils literal"><span class="pre">1</span> <span class="pre">cat.currency</span> <span class="pre">per</span> <span class="pre">block</span></code> plus transactions fees. Registering a subnamespace has a fixed cost of <code class="docutils literal"><span class="pre">100</span> <span class="pre">cat.currency</span></code> plus transaction fees.</p>
+<p>The cost of creating a namespace is <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">configurable per network</a>. By default, registering a namespace costs <code class="docutils literal"><span class="pre">1</span> <span class="pre">cat.currency</span> <span class="pre">per</span> <span class="pre">block</span></code> plus transactions fees. Registering a subnamespace has a fixed cost of <code class="docutils literal"><span class="pre">100</span> <span class="pre">cat.currency</span></code> plus transaction fees.</p>
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
@@ -373,7 +373,7 @@
 <h2>Schemas<a class="headerlink" href="#schemas" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Configuration parameters are <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">editable</a> . Public network configuration may differ.</p>
+<p class="last">Configuration parameters are <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">editable</a>. Public network configuration may differ.</p>
 </div>
 <div class="section" id="registernamespacetransaction">
 <span id="register-namespace-transaction"></span><h3>RegisterNamespaceTransaction<a class="headerlink" href="#registernamespacetransaction" title="Permalink to this headline">¶</a></h3>
@@ -399,19 +399,19 @@
 <tbody valign="top">
 <tr class="row-even"><td>namespaceType</td>
 <td><a class="reference internal" href="#namespace-type"><span class="std std-ref">NamespaceType</span></a></td>
-<td>The type of the registered namespace.</td>
+<td>Type of the registered namespace.</td>
 </tr>
 <tr class="row-odd"><td>duration</td>
-<td>uint64</td>
-<td>The renting duration represents the number of confirmed blocks you would like to rent the namespace for. Duration is allowed to lie up to <code class="docutils literal"><span class="pre">365</span></code> days. During the renting period, it is possible to extend the rental by sending a <a class="reference internal" href="#register-namespace-transaction"><span class="std std-ref">register namespace transaction</span></a> with the extra number of blocks to rent the namespace. When a renting period ends, the namespace will become inactive.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L2">BlockDuration</a></td>
+<td>Number of confirmed blocks you would like to rent the namespace for. Duration is allowed to lie up to <code class="docutils literal"><span class="pre">365</span></code> days. Required for root namespaces.</td>
 </tr>
 <tr class="row-even"><td>parentId</td>
-<td>uint64</td>
-<td>If it is a subdomain, a reference to parent namespace name is required.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/namespace/namespace_types.cats#L1">NamespaceId</a></td>
+<td>Identifier of the parent namespace. Required for subnamespaces.</td>
 </tr>
 <tr class="row-odd"><td>namespaceId</td>
-<td>uint64</td>
-<td>The id of the namespace.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/namespace/namespace_types.cats#L1">NamespaceId</a></td>
+<td>Identifier of the namespace.</td>
 </tr>
 <tr class="row-even"><td>namespaceNameSize</td>
 <td>uint8</td>
@@ -448,15 +448,15 @@
 <tbody valign="top">
 <tr class="row-even"><td>aliasAction</td>
 <td><a class="reference internal" href="#alias-action"><span class="std std-ref">AliasAction</span></a></td>
-<td>The alias action.</td>
+<td>Alias action.</td>
 </tr>
 <tr class="row-odd"><td>namespaceId</td>
-<td>uint64</td>
-<td>The id of the namespace that will become an alias.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/namespace/namespace_types.cats#L1">NamespaceId</a></td>
+<td>Identifier of the namespace that will become an alias.</td>
 </tr>
 <tr class="row-even"><td>address</td>
-<td>25 bytes (binary)</td>
-<td>The aliased address.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L8">Address</a></td>
+<td>Aliased address.</td>
 </tr>
 </tbody>
 </table>
@@ -485,15 +485,15 @@
 <tbody valign="top">
 <tr class="row-even"><td>aliasAction</td>
 <td><a class="reference internal" href="#alias-action"><span class="std std-ref">AliasAction</span></a></td>
-<td>The alias action.</td>
+<td>Alias action.</td>
 </tr>
 <tr class="row-odd"><td>namespaceId</td>
-<td>uint64</td>
-<td>The id of the namespace that will become an alias.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/namespace/namespace_types.cats#L1">NamespaceId</a></td>
+<td>Identifier of the namespace that will become an alias.</td>
 </tr>
 <tr class="row-even"><td>mosaicId</td>
-<td>uint64</td>
-<td>The aliased mosaic id.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L4">MosaicId</a></td>
+<td>Identifier of the aliased mosaic.</td>
 </tr>
 </tbody>
 </table>
@@ -614,6 +614,9 @@
                         <a href="cryptography.html">Protocol</a>
                     </li>
                     <li>
+                        <a href="../guides/category.html">Guides</a>
+                    </li>
+                    <li>
                         <a href="../api.html">References</a>
                     </li>
                     <li>
@@ -649,9 +652,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/nemtechdev">
+                        <a href="https://twitter.com/NEMofficial">
                             <i class="fab fa-twitter"></i>
-                            <span> Follow the dev updates</span>
+                            <span> Follow the updates</span>
                         </a>
                     </li>
                     <li>

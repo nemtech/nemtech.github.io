@@ -140,7 +140,7 @@
 <li class="toctree-l1"><a class="reference internal" href="concepts/namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/account-restriction.html">Account Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -186,7 +186,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.0</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
     </p>
 </div>
 
@@ -207,7 +207,7 @@
 <li class="toctree-l1"><a class="reference internal" href="concepts/namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/account-restriction.html">Account Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -293,10 +293,6 @@
 </div>
 <p>By default, NEM2-CLI will always use the default profile. To use a named profile, add the –profile option to the command.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account info --profile mijin_test_net_profile
-</pre></div>
-</div>
-<p>If you are going to use named profile for multiple commands, you can use the NEM2_PROFILE environment variable at the command line.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">NEM2_PROFILE</span><span class="o">=</span>mijin_test_net_profile
 </pre></div>
 </div>
 <p>If you do not have a private key to create a profile you can generate a new account, add a node url and save it as default or named profile.</p>
@@ -573,6 +569,16 @@ nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222AED49B0
 <div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli namespace info --uint <span class="o">[</span>929036875,2226345261<span class="o">]</span>
 </pre></div>
 </div>
+<p><strong>Owned</strong></p>
+<p>Gets all the <a class="reference internal" href="concepts/namespace.html"><span class="doc">namespaces</span></a> owned by an account.</p>
+<p>Options</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-a, --address &lt;address&gt; - Address
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli namespace owned --address SCEKUG-H2IJBF-7JZRNK-ECMW52-E66SZ6-ODLB4W-NI7K
+</pre></div>
+</div>
 </div>
 <div class="section" id="mosaic">
 <h3>Mosaic<a class="headerlink" href="#mosaic" title="Permalink to this headline">¶</a></h3>
@@ -700,6 +706,9 @@ nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222AED49B0
                         <a href="concepts/cryptography.html">Protocol</a>
                     </li>
                     <li>
+                        <a href="guides/category.html">Guides</a>
+                    </li>
+                    <li>
                         <a href="api.html">References</a>
                     </li>
                     <li>
@@ -735,9 +744,9 @@ nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222AED49B0
                         </a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/nemtechdev">
+                        <a href="https://twitter.com/NEMofficial">
                             <i class="fab fa-twitter"></i>
-                            <span> Follow the dev updates</span>
+                            <span> Follow the updates</span>
                         </a>
                     </li>
                     <li>

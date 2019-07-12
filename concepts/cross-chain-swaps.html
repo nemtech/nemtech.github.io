@@ -140,7 +140,7 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Cross-Chain Swaps</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#protocol">Protocol</a></li>
@@ -182,7 +182,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.0</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
     </p>
 </div>
 
@@ -203,7 +203,7 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Cross-Chain Swaps</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#protocol">Protocol</a></li>
@@ -321,7 +321,7 @@
 <h2>Schemas<a class="headerlink" href="#schemas" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Configuration parameters are <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">editable</a> . Public network configuration may differ.</p>
+<p class="last">Configuration parameters are <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">editable</a>. Public network configuration may differ.</p>
 </div>
 <div class="section" id="secretlocktransaction">
 <span id="secret-lock-transaction"></span><h3>SecretLockTransaction<a class="headerlink" href="#secretlocktransaction" title="Permalink to this headline">¶</a></h3>
@@ -347,24 +347,24 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>mosaic</td>
-<td><a class="reference internal" href="mosaic.html#id1"><span class="std std-ref">Mosaic</span></a></td>
+<td><a class="reference internal" href="mosaic.html#unresolved-mosaic"><span class="std std-ref">UnresolvedMosaic</span></a></td>
 <td>Locked mosaic.</td>
 </tr>
 <tr class="row-odd"><td>duration</td>
-<td>uint64</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L2">BlockDuration</a></td>
 <td>Duration is allowed to lie up to <code class="docutils literal"><span class="pre">30</span></code> days. If reached, the mosaics will be returned to the initiator.</td>
 </tr>
 <tr class="row-even"><td>hashAlgorithm</td>
 <td><a class="reference internal" href="#lock-hash-algorithm"><span class="std std-ref">LockHashAlgorithm</span></a></td>
-<td>The algorithm used to hash the proof.</td>
+<td>Algorithm used to hash the proof.</td>
 </tr>
 <tr class="row-odd"><td>secret</td>
-<td>64 bytes (binary)</td>
-<td>The proof hashed.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L9">Hash256</a></td>
+<td>Proof hashed.</td>
 </tr>
 <tr class="row-even"><td>recipient</td>
-<td>25 bytes (binary)</td>
-<td>The address that receives the funds once unlocked.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L7">UnresolvedAddress</a></td>
+<td>Address that receives the funds once unlocked.</td>
 </tr>
 </tbody>
 </table>
@@ -394,23 +394,23 @@
 <tbody valign="top">
 <tr class="row-even"><td>hashAlgorithm</td>
 <td><a class="reference internal" href="#lock-hash-algorithm"><span class="std std-ref">LockHashAlgorithm</span></a></td>
-<td>The algorithm used to hash the proof.</td>
+<td>Algorithm used to hash the proof.</td>
 </tr>
 <tr class="row-odd"><td>secret</td>
-<td>64 bytes (binary)</td>
-<td>The proof hashed.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L9">Hash256</a></td>
+<td>Proof hashed.</td>
 </tr>
 <tr class="row-even"><td>recipient</td>
-<td>25 bytes (binary)</td>
-<td>The address that receives the funds once unlocked.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L7">UnresolvedAddress</a></td>
+<td>Address that receives the funds once unlocked.</td>
 </tr>
 <tr class="row-odd"><td>proofSize</td>
 <td>uint16</td>
-<td>The proof size in bytes.</td>
+<td>Proof size in bytes.</td>
 </tr>
 <tr class="row-even"><td>proof</td>
 <td>array(byte, proofSize)</td>
-<td>The original random set of bytes.</td>
+<td>Original random set of bytes.</td>
 </tr>
 </tbody>
 </table>
@@ -431,16 +431,16 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>0 (Op_Sha3_256)</td>
-<td>The proof is hashed using SHA3-256.</td>
+<td>Proof is hashed using SHA3-256.</td>
 </tr>
 <tr class="row-odd"><td>1 (Op_Keccak_256)</td>
-<td>The proof is hashed using Keccak (ETH compatibility).</td>
+<td>Proof is hashed using Keccak (ETH compatibility).</td>
 </tr>
 <tr class="row-even"><td>2 (Op_Hash_160)</td>
-<td>The proof is hashed twice: first with SHA-256 and then with RIPEMD-160 (bitcoin’s OP_HASH160).</td>
+<td>Proof is hashed twice: first with SHA-256 and then with RIPEMD-160 (bitcoin’s OP_HASH160).</td>
 </tr>
 <tr class="row-odd"><td>3 (Op_Hash_256)</td>
-<td>The proof is hashed twice with SHA-256 (bitcoin’s OP_HASH256).</td>
+<td>Proof is hashed twice with SHA-256 (bitcoin’s OP_HASH256).</td>
 </tr>
 </tbody>
 </table>
@@ -503,6 +503,9 @@
                         <a href="cryptography.html">Protocol</a>
                     </li>
                     <li>
+                        <a href="../guides/category.html">Guides</a>
+                    </li>
+                    <li>
                         <a href="../api.html">References</a>
                     </li>
                     <li>
@@ -538,9 +541,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/nemtechdev">
+                        <a href="https://twitter.com/NEMofficial">
                             <i class="fab fa-twitter"></i>
-                            <span> Follow the dev updates</span>
+                            <span> Follow the updates</span>
                         </a>
                     </li>
                     <li>

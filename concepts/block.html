@@ -140,7 +140,7 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -182,7 +182,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.0</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
     </p>
 </div>
 
@@ -203,7 +203,7 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -260,10 +260,6 @@
 <p>Since the blocks in the chain are ordered, the complete transaction history is held in the blockchain. Subsequent blocks in the blockchain have increasing heights that differ by one.</p>
 <p>Blocks are stored in a database as permanent medium. NEM calls the first block in the chain the nemesis block.</p>
 <p>NEM blocks complete every <code class="docutils literal"><span class="pre">15</span></code> seconds, making transactions confirm quickly enough for everyday use.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Configuration parameters are <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">editable</a>. Public network configuration may differ.</p>
-</div>
 <div class="section" id="block-creation">
 <h2>Block creation<a class="headerlink" href="#block-creation" title="Permalink to this headline">¶</a></h2>
 <p>Blocks are created by <a class="reference internal" href="account.html"><span class="doc">accounts</span></a>. The process of creating new blocks is called <a class="reference internal" href="harvesting.html"><span class="doc">harvesting</span></a>. The harvesting account - called the harvester - gets the <a class="reference internal" href="transaction.html#fees"><span class="std std-ref">fees</span></a> for the transactions in the block and <a class="reference internal" href="inflation.html"><span class="doc">inflation</span></a>. This gives the harvester an incentive to add as many transactions to the block as possible.</p>
@@ -281,8 +277,13 @@
 </div>
 <div class="section" id="schemas">
 <h2>Schemas<a class="headerlink" href="#schemas" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Configuration parameters are <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">editable</a>. Public network configuration may differ.</p>
+</div>
 <div class="section" id="blockheader">
 <span id="block-header"></span><h3>BlockHeader<a class="headerlink" href="#blockheader" title="Permalink to this headline">¶</a></h3>
+<p>Serialization of the block header.</p>
 <p><strong>Inlines:</strong></p>
 <ul class="simple">
 <li><a class="reference internal" href="#verifiable-entity"><span class="std std-ref">VerifiableEntity</span></a></li>
@@ -303,39 +304,39 @@
 <tbody valign="top">
 <tr class="row-even"><td>height</td>
 <td>uint64</td>
-<td>The height of the blockchain. Each blockchain has a unique height. Subsequent blocks differ in height by 1.</td>
+<td>Height of the blockchain. Each block has a unique height. Subsequent blocks differ in height by 1.</td>
 </tr>
 <tr class="row-odd"><td>timestamp</td>
-<td>uint64</td>
-<td>The number of seconds elapsed since the creation of the nemesis block.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L5">Timestamp</a></td>
+<td>Number of seconds elapsed since the creation of the nemesis block.</td>
 </tr>
 <tr class="row-even"><td>difficulty</td>
 <td>uint64</td>
-<td>The average difficulty divided by the average block creation time for the last <code class="docutils literal"><span class="pre">60</span></code> blocks. If the new difficulty is more than 5% greater or smaller than the difficulty of the last block, then the change is capped to 5%. Additionally, difficulties are kept within certain bounds. The new difficulty is clamped to the boundaries if it is greater than 10<sup>15</sup> or smaller than 10<sup>13</sup>.</td>
+<td>Average difficulty divided by the average block creation time for the last <code class="docutils literal"><span class="pre">60</span></code> blocks. If the new difficulty is more than 5% greater or smaller than the difficulty of the last block, then the change is capped to 5%. Additionally, difficulties are kept within certain bounds. The new difficulty is clamped to the boundaries if it is greater than 10<sup>15</sup> or smaller than 10<sup>13</sup>.</td>
 </tr>
 <tr class="row-odd"><td>feeMultiplier</td>
 <td>uint32</td>
-<td>The fee multiplier applied to transactions contained in block.</td>
+<td>Fee multiplier applied to transactions contained in block.</td>
 </tr>
 <tr class="row-even"><td>previousBlockHash</td>
-<td>32 bytes (binary)</td>
-<td>The hash of the previous block.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L9">Hash256</a></td>
+<td>Hash of the previous block.</td>
 </tr>
 <tr class="row-odd"><td>blockTransactionHash</td>
-<td>32 bytes (binary)</td>
-<td>The transactions included in a block are hashed forming a <a href="https://en.wikipedia.org/wiki/Merkle_tree" target="_blank">merkle tree</a>. The root of the tree summarizes them.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L9">Hash256</a></td>
+<td>Transactions included in a block are hashed forming a <a href="https://en.wikipedia.org/wiki/Merkle_tree" target="_blank">merkle tree</a>. The root of the tree summarizes them.</td>
 </tr>
 <tr class="row-even"><td>blockReceiptsHash</td>
-<td>32 bytes (binary)</td>
-<td>The collection of <a class="reference internal" href="receipt.html"><span class="doc">receipts</span></a> are hashed into a <a href="https://en.wikipedia.org/wiki/Merkle_tree" target="_blank">merkle tree</a> and linked to a <a class="reference internal" href="#"><span class="doc">block</span></a>. The block header stores the root hash.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L9">Hash256</a></td>
+<td>Collection of <a class="reference internal" href="receipt.html"><span class="doc">receipts</span></a> are hashed into a <a href="https://en.wikipedia.org/wiki/Merkle_tree" target="_blank">merkle tree</a> and linked to a <a class="reference internal" href="#"><span class="doc">block</span></a>. The block header stores the root hash.</td>
 </tr>
 <tr class="row-odd"><td>stateHash</td>
-<td>32 bytes (binary)</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L9">Hash256</a></td>
 <td>For each block, the state of the blockchain is stored in RocksDB, forming a <a href="https://en.wikipedia.org/wiki/Radix_tree" target="_blank">patricia tree</a>. The root of the tree summarizes the state of the blockchain for a given block.</td>
 </tr>
 <tr class="row-even"><td>beneficiary</td>
-<td>32 bytes (binary)</td>
-<td>The public key of the optional beneficiary designated by harvester.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L11">Key</a></td>
+<td>Public key of the optional beneficiary designated by harvester.</td>
 </tr>
 </tbody>
 </table>
@@ -388,6 +389,7 @@
 </div>
 <div class="section" id="verifiableentity">
 <span id="verifiable-entity"></span><h3>VerifiableEntity<a class="headerlink" href="#verifiableentity" title="Permalink to this headline">¶</a></h3>
+<p>Serialization of an entity that should be signed by an account.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="33%" />
@@ -402,14 +404,15 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>signature</td>
-<td>64 bytes (binary)</td>
-<td>The entity signature generated by the signer.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L12">Signature</a></td>
+<td>Entity signature generated by the signer.</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="entitybody">
 <span id="entity-body"></span><h3>EntityBody<a class="headerlink" href="#entitybody" title="Permalink to this headline">¶</a></h3>
+<p>Serialization of an entity. An entity could be a block, a <a class="reference internal" href="transaction.html"><span class="doc">transaction</span></a> or a <a class="reference internal" href="receipt.html"><span class="doc">receipt</span></a>.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="33%" />
@@ -424,16 +427,16 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>signer</td>
-<td>32 bytes (binary)</td>
-<td>The entity signer’s <a class="reference internal" href="account.html"><span class="doc">public key</span></a>.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L11">Key</a></td>
+<td>Public key of the signer of the entity.</td>
 </tr>
 <tr class="row-odd"><td>version</td>
 <td>uint16</td>
-<td>The version of the structure.</td>
+<td>Version of the structure.</td>
 </tr>
 <tr class="row-even"><td>type</td>
 <td>uint16</td>
-<td>The entity type. For transaction types, see <a class="reference internal" href="transaction.html#id1"><span class="std std-ref">transaction types</span></a>.</td>
+<td>Entity type. For transaction types, see <a class="reference internal" href="transaction.html#id1"><span class="std std-ref">transaction types</span></a>.</td>
 </tr>
 </tbody>
 </table>
@@ -496,6 +499,9 @@
                         <a href="cryptography.html">Protocol</a>
                     </li>
                     <li>
+                        <a href="../guides/category.html">Guides</a>
+                    </li>
+                    <li>
                         <a href="../api.html">References</a>
                     </li>
                     <li>
@@ -531,9 +537,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/nemtechdev">
+                        <a href="https://twitter.com/NEMofficial">
                             <i class="fab fa-twitter"></i>
-                            <span> Follow the dev updates</span>
+                            <span> Follow the updates</span>
                         </a>
                     </li>
                     <li>

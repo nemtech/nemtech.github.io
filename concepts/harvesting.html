@@ -140,7 +140,7 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -183,7 +183,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.0</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
     </p>
 </div>
 
@@ -204,7 +204,7 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -267,12 +267,12 @@
 <p class="first admonition-title">Note</p>
 <p class="last">Configuration parameters are editable. The importance score calculation formula and the minimum amount required to harvest may differ for the public network configuration.</p>
 </div>
-<p>The account needs to hold a <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties#L30">minimum amount</a> of this harvesting mosaic to have importance greater than zero.</p>
+<p>The account needs to hold a <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">minimum amount</a> of this harvesting mosaic to have importance greater than zero.</p>
 <p>Harvesting account owners can use their importance scores to create new blocks either by <a class="reference internal" href="#local-harvesting"><span class="std std-ref">running a node</span></a> or delegating it to a <a class="reference internal" href="#delegated-harvesting"><span class="std std-ref">remote node</span></a>.</p>
 </div>
 <div class="section" id="harvesting-mosaic">
 <span id="id1"></span><h2>Harvesting mosaic<a class="headerlink" href="#harvesting-mosaic" title="Permalink to this headline">¶</a></h2>
-<p>Catapult software allows the <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties#L13">definition</a> of any <a class="reference internal" href="mosaic.html"><span class="doc">mosaic</span></a> for harvesting purposes to fit the business needs. The catapult test network names this mosaic <code class="docutils literal"><span class="pre">cat.harvest</span></code>.</p>
+<p>Catapult software allows the <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">definition</a> of any <a class="reference internal" href="mosaic.html"><span class="doc">mosaic</span></a> for harvesting purposes to fit the business needs. The catapult test network names this mosaic <code class="docutils literal"><span class="pre">cat.harvest</span></code>.</p>
 <p>For example, consortium networks can distribute harvesting mosaics between the companies that are running the infrastructure, while other participants need to pay fees in the form of <a class="reference internal" href="transaction.html#fees"><span class="std std-ref">currency mosaic</span></a> to consume services.</p>
 <p>By contrast, public networks might decide to use the same mosaic for paying transaction fees and running the network.</p>
 </div>
@@ -369,12 +369,12 @@ the harvesting account.</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>remoteAccountKey</td>
-<td>32 bytes (binary)</td>
-<td>The public key of the remote account.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L11">Key</a></td>
+<td>Public key of the remote account.</td>
 </tr>
 <tr class="row-odd"><td>linkAction</td>
 <td><a class="reference internal" href="#link-action"><span class="std std-ref">LinkAction</span></a></td>
-<td>The account link action.</td>
+<td>Account link action.</td>
 </tr>
 </tbody>
 </table>
@@ -394,10 +394,10 @@ the harvesting account.</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>0</td>
-<td>Link.</td>
+<td>Link account.</td>
 </tr>
 <tr class="row-odd"><td>1</td>
-<td>Unlink.</td>
+<td>Unlink account.</td>
 </tr>
 </tbody>
 </table>
@@ -461,6 +461,9 @@ the harvesting account.</p>
                         <a href="cryptography.html">Protocol</a>
                     </li>
                     <li>
+                        <a href="../guides/category.html">Guides</a>
+                    </li>
+                    <li>
                         <a href="../api.html">References</a>
                     </li>
                     <li>
@@ -496,9 +499,9 @@ the harvesting account.</p>
                         </a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/nemtechdev">
+                        <a href="https://twitter.com/NEMofficial">
                             <i class="fab fa-twitter"></i>
-                            <span> Follow the dev updates</span>
+                            <span> Follow the updates</span>
                         </a>
                     </li>
                     <li>

@@ -140,7 +140,7 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -156,6 +156,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#transaction-statement">Transaction statement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#resolution-statement">Resolution statement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#recorded-receipts">Recorded receipts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">Schemas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">Receipt</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#balancetransferreceipt">BalanceTransferReceipt</a></li>
@@ -189,7 +190,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.0</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
     </p>
 </div>
 
@@ -210,7 +211,7 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -226,6 +227,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#transaction-statement">Transaction statement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#resolution-statement">Resolution statement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#recorded-receipts">Recorded receipts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">Schemas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">Receipt</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#balancetransferreceipt">BalanceTransferReceipt</a></li>
@@ -413,6 +415,14 @@
 </tbody>
 </table>
 </div>
+<div class="section" id="guides">
+<h2>Guides<a class="headerlink" href="#guides" title="Permalink to this headline">¶</a></h2>
+<ul class="postlist-style-circle postlist">
+<li><p class="first"><a class="reference internal" href="../guides/blockchain/getting-the-mosaic-identifier-behind-a-namespace-with-receipts.html">Getting the asset identifier behind a namespace with receipts</a></p>
+<p>Get the resolution for a given alias and transaction using receipts.</p>
+</li>
+</ul>
+</div>
 <div class="section" id="schemas">
 <h2>Schemas<a class="headerlink" href="#schemas" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id1">
@@ -437,11 +447,11 @@
 <tbody valign="top">
 <tr class="row-even"><td>version</td>
 <td>uint16</td>
-<td>The receipt version.</td>
+<td>Receipt version.</td>
 </tr>
 <tr class="row-odd"><td>type</td>
 <td>ReceiptType</td>
-<td>The receipt type.</td>
+<td>Receipt type.</td>
 </tr>
 </tbody>
 </table>
@@ -471,20 +481,20 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>sender</td>
-<td>32 bytes (binary)</td>
-<td>The public key of the sender.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L11">Key</a></td>
+<td>Public key of the sender.</td>
 </tr>
 <tr class="row-odd"><td>recipient</td>
-<td>32 bytes (binary)</td>
-<td>The public key of the recipient.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L8">Address</a></td>
+<td>Address of the recipient.</td>
 </tr>
 <tr class="row-even"><td>mosaicId</td>
-<td>uint64</td>
-<td>The mosaic id.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L4">MosaicId</a></td>
+<td>Identifier of the mosaic.</td>
 </tr>
 <tr class="row-odd"><td>amount</td>
-<td>uint64</td>
-<td>The amount of mosaics.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L1">Amount</a></td>
+<td>Amount of mosaics to send.</td>
 </tr>
 </tbody>
 </table>
@@ -514,16 +524,16 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>account</td>
-<td>32 bytes (binary)</td>
-<td>The target account public key.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L11">Key</a></td>
+<td>Public key of the target account.</td>
 </tr>
 <tr class="row-odd"><td>mosaicId</td>
-<td>uint64</td>
-<td>The mosaic id.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L4">MosaicId</a></td>
+<td>Identifier of the mosaic.</td>
 </tr>
 <tr class="row-even"><td>amount</td>
-<td>uint64</td>
-<td>The amount of the mosaic.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L1">Amount</a></td>
+<td>Amount of mosaics to increase or decrease.</td>
 </tr>
 </tbody>
 </table>
@@ -553,8 +563,8 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>artifactId</td>
-<td>uint64</td>
-<td>The id of the artifact.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L4">MosaicId</a> or <a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/namespace/namespace_types.cats#L1">NamespaceId</a></td>
+<td>Identifier of the artifact.</td>
 </tr>
 </tbody>
 </table>
@@ -583,12 +593,12 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>mosaicId</td>
-<td>uint64</td>
-<td>The mosaic id created.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L4">MosaicId</a></td>
+<td>Identifier of the mosaic that has been created.</td>
 </tr>
 <tr class="row-odd"><td>amount</td>
-<td>uint64</td>
-<td>The amount created.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L1">Amount</a></td>
+<td>Number of mosaics created.</td>
 </tr>
 </tbody>
 </table>
@@ -619,11 +629,11 @@
 <tbody valign="top">
 <tr class="row-even"><td>source</td>
 <td><a class="reference internal" href="#receipt-source"><span class="std std-ref">ReceiptSource</span></a></td>
-<td>The transaction that triggered the receipt.</td>
+<td>Transaction that triggered the receipt.</td>
 </tr>
 <tr class="row-odd"><td>receipts</td>
 <td>array(<a class="reference internal" href="#id1"><span class="std std-ref">Receipt</span></a>, size=receiptsSize)</td>
-<td>The array of receipts.</td>
+<td>Array of receipts.</td>
 </tr>
 </tbody>
 </table>
@@ -653,12 +663,12 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>unresolved</td>
-<td>25 bytes (binary) or uint64</td>
-<td>An unresolved address or unresolved mosaicId.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L7">UnresolvedAddress</a> or <a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L3">UnresolvedMosaicId</a></td>
+<td>Unresolved address or unresolved mosaic identifier.</td>
 </tr>
 <tr class="row-odd"><td>resolutionEntries</td>
 <td>array(<a class="reference internal" href="#resolution-entry"><span class="std std-ref">ResolutionEntry</span></a>, size=resolvedEntriesSize)</td>
-<td>The array of resolution entries linked to the unresolved namespaceId. It is an array instead of a single UInt64 field since within one block the resolution might change for different sources due to alias related transactions.</td>
+<td>Array of resolution entries linked to the unresolved namespace identifier. It is an array instead of a single UInt64 field since within one block the resolution might change for different sources due to alias related transactions.</td>
 </tr>
 </tbody>
 </table>
@@ -679,12 +689,12 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>resolvedValue</td>
-<td>25 bytes (binary) or uint64</td>
-<td>A resolved address or resolved mosaicId.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L8">Address</a> or <a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L4">MosaicId</a></td>
+<td>Resolved address or resolved mosaic identifier.</td>
 </tr>
 <tr class="row-odd"><td>source</td>
 <td><a class="reference internal" href="#receipt-source"><span class="std std-ref">ReceiptSource</span></a></td>
-<td>The transaction that triggered the receipt.</td>
+<td>Information about the transaction that triggered the receipt.</td>
 </tr>
 </tbody>
 </table>
@@ -707,11 +717,11 @@
 <tbody valign="top">
 <tr class="row-even"><td>primaryId</td>
 <td>uint32</td>
-<td>The transaction index within the block.</td>
+<td>Transaction index within the block.</td>
 </tr>
 <tr class="row-odd"><td>secondaryId</td>
 <td>uint32</td>
-<td>The transaction index inside within the aggregate transaction. If the transaction is not an inner transaction, then the secondary id is set to 0.</td>
+<td>Transaction index inside within the aggregate transaction. If the transaction is not an inner transaction, then the secondary identifier is set to 0.</td>
 </tr>
 </tbody>
 </table>
@@ -740,6 +750,7 @@
 <li><a class="reference internal" href="#transaction-statement">Transaction statement</a></li>
 <li><a class="reference internal" href="#resolution-statement">Resolution statement</a></li>
 <li><a class="reference internal" href="#recorded-receipts">Recorded receipts</a></li>
+<li><a class="reference internal" href="#guides">Guides</a></li>
 <li><a class="reference internal" href="#schemas">Schemas</a><ul>
 <li><a class="reference internal" href="#id1">Receipt</a></li>
 <li><a class="reference internal" href="#balancetransferreceipt">BalanceTransferReceipt</a></li>
@@ -781,6 +792,9 @@
                         <a href="cryptography.html">Protocol</a>
                     </li>
                     <li>
+                        <a href="../guides/category.html">Guides</a>
+                    </li>
+                    <li>
                         <a href="../api.html">References</a>
                     </li>
                     <li>
@@ -816,9 +830,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/nemtechdev">
+                        <a href="https://twitter.com/NEMofficial">
                             <i class="fab fa-twitter"></i>
-                            <span> Follow the dev updates</span>
+                            <span> Follow the updates</span>
                         </a>
                     </li>
                     <li>

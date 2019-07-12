@@ -140,7 +140,7 @@
 <li class="toctree-l1"><a class="reference internal" href="concepts/namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/account-restriction.html">Account Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -159,9 +159,20 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="api.html">REST API</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Server</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#node-types">Node types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#package-organization">Package organization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tools">Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#catapult-tools-address">catapult.tools.address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catapult-tools-nemgen">catapult.tools.nemgen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catapult-tools-benchmark">catapult.tools.benchmark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catapult-tools-network">catapult.tools.network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catapult-tools-statusgen">catapult.tools.statusgen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catapult-tools-health">catapult.tools.health</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 </ul>
 </li>
@@ -178,7 +189,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.0</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
     </p>
 </div>
 
@@ -199,7 +210,7 @@
 <li class="toctree-l1"><a class="reference internal" href="concepts/namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/account-restriction.html">Account Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -218,9 +229,20 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="api.html">REST API</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Server</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#node-types">Node types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#package-organization">Package organization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tools">Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#catapult-tools-address">catapult.tools.address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catapult-tools-nemgen">catapult.tools.nemgen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catapult-tools-benchmark">catapult.tools.benchmark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catapult-tools-network">catapult.tools.network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catapult-tools-statusgen">catapult.tools.statusgen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catapult-tools-health">catapult.tools.health</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 </ul>
 </li>
@@ -251,15 +273,38 @@
 <p>As a blockchain platform, NEM relies on a decentralized network of nodes to provide a powerful, stable, and secure platform for Smart Asset transactions.</p>
 <p>These nodes are deployed using <a href="https://github.com/nemtech/catapult-server" target="_blank">catapult-server</a> software, a C++ rewrite of the previous Java-written NEM distributed ledger that has been running for more than 4 years.</p>
 <p>Through its multi-tier architecture, it is possible to isolate the peer-to-peer network and implement better API integration flows with the proposed REST API layer.</p>
-<p>Also, Catapult offers private networks the ability to add their own transaction types by developing <strong>plugins</strong> for the catapult-server nodes.</p>
-<div class="section" id="node-types">
-<h2>Node types<a class="headerlink" href="#node-types" title="Permalink to this headline">¶</a></h2>
-<p>Catapult-server provides increased flexibility for the node owners. The same software can be used to configure three different types of <a class="reference internal" href="concepts/node.html"><span class="doc">nodes</span></a>:</p>
+<p>The same software can be used to configure three different types of <a class="reference internal" href="concepts/node.html"><span class="doc">nodes</span></a>:</p>
 <ul class="simple">
 <li><strong>Peer node</strong>: The peer node verifies or discards the transactions once the API pushes them into the P2P network. It runs the consensus algorithm, creates new blocks, and propagates the changes through the network.</li>
 <li><strong>API node</strong>: The primary responsibility of the API node is to properly store data in the MongoDB database once transactions are validated. They also identify and store partial aggregate bonded transactions.</li>
 <li><strong>Dual node</strong>: The dual node combines a peer and API nodes into a single server instance.</li>
 </ul>
+<p>Also, Catapult offers private networks the ability to add their own transaction types by developing <strong>plugins</strong> for the catapult-server nodes.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Test catapult-server software deploying your own network for development or learning purposes with <a href="https://github.com/tech-bureau/catapult-service-bootstrap" target="_blank">Catapult Service Bootstrap</a>.</p>
+<p>You can create a new catapult-server image following the building <a href="https://github.com/nemtech/catapult-server/blob/master/BUILDING.md" target="_blank">instructions for Ubuntu</a>.</p>
+<div class="section" id="troubleshooting">
+<h3>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h3>
+<p>This section highlights common errors or difficulties one may encounter whilst setting a Catapult node.</p>
+<p><strong>Mosaic outflows</strong></p>
+<p>This error usually looks like:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">14:19:34.719477 0x000000010dfbf5c0: &lt;error&gt; (local::HostUtils.h@43) Throwing exception: harvesting outflows (0) do not add up to power ten multiple of expected importance (15000000)</span>
+</pre></div>
+</div>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">14:19:34.719477 0x000000010dfbf5c0: &lt;error&gt; (local::HostUtils.h@43) Throwing exception: harvesting outflows (15000000) do not add up to power ten multiple of expected importance (17000000)</span>
+</pre></div>
+</div>
+<p><strong>What does it mean?</strong></p>
+<p>This error can happen in the event of the following situations:</p>
+<ol class="loweralpha simple">
+<li>The supply of the <code class="docutils literal"><span class="pre">cat.harvest</span></code> mosaic the nemesis block does not match the supply inside of the <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">config-network.properties</a> file.</li>
+<li>The mosaicId inside of the <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">config-network.properties</a> does not match the one generated inside of the nemesis block.</li>
+</ol>
+<p><strong>How to fix it?</strong></p>
+<p>For the first scenario, change the <code class="docutils literal"><span class="pre">totalChainImportance</span></code> in your resources <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">config-network.properties</a> to match the supply set in the nemesis block.</p>
+<p>For the second scenario, you will have to find the correct mosaic identifier that the nemgen tool creates. You can run <a class="reference internal" href="#catapult-server-tools"><span class="std std-ref">nemgen</span></a>, and output the result to to a txt file. Then, search for the <code class="docutils literal"><span class="pre">cat.&lt;harvest</span> <span class="pre">|</span> <span class="pre">currency&gt;</span></code> identifier.</p>
+</div>
 </div>
 <div class="section" id="package-organization">
 <h2>Package organization<a class="headerlink" href="#package-organization" title="Permalink to this headline">¶</a></h2>
@@ -308,10 +353,129 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p>Test catapult-server software deploying your own network for development or learning purposes with <a href="https://github.com/tech-bureau/catapult-service-bootstrap" target="_blank">Catapult Service Bootstrap</a>.</p>
-<p>You can create a new catapult-server image following the building <a href="https://github.com/nemtech/catapult-server/blob/master/BUILDING.md" target="_blank">instructions for Ubuntu</a>.</p>
+<div class="section" id="tools">
+<span id="catapult-server-tools"></span><h2>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
+<p>Catapult server comes with tools to check the health of the network, generate nemesis blocks, create keypairs, recover the server in the event of an abrupt exit, and more.</p>
+<p>You can find them inside of <code class="docutils literal"><span class="pre">catapult-server/build/bin</span></code>.</p>
+<div class="section" id="catapult-tools-address">
+<h3>catapult.tools.address<a class="headerlink" href="#catapult-tools-address" title="Permalink to this headline">¶</a></h3>
+<p>Generates keypairs and addresses.</p>
+<p>Options</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">-h [ --help ]     print help message</span>
+<span class="go">-l [ --loggingConfigurationPath ] arg</span>
+<span class="go">                  the path to the logging configuration file</span>
+<span class="go">-g [ --generate ] arg (=10)</span>
+<span class="go">                  number of random keys to generate</span>
+<span class="go">-p [ --public ] arg</span>
+<span class="go">                  show address associated with public key</span>
+<span class="go">-s [ --secret ] arg</span>
+<span class="go">                  show address and public key associated with private key</span>
+<span class="go">-n [ --network ] arg (=public)</span>
+<span class="go">                  network, possible values: mijin, mijin-test, public (default), public-test</span>
+<span class="go">-e [ --useHighEntropySource ]</span>
+<span class="go">                  true if a high entropy source should be used for randomness</span>
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">./catapult.tools.address -g  10 -n mijin-test</span>
+</pre></div>
+</div>
+<p>If you want the save the output, add an output stream at the end:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">./catapult.tools.address -g  10 -n mijin-test &gt; myKeys.txt.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="catapult-tools-nemgen">
+<h3>catapult.tools.nemgen<a class="headerlink" href="#catapult-tools-nemgen" title="Permalink to this headline">¶</a></h3>
+<p>Creates a nemesis block out of a <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/tools/nemgen/resources/mijin-test.properties">mijin-test.properties</a> file. The output generated is used to start a new chain.</p>
+<p>Options</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">-h [ --help ]     print help message</span>
+<span class="go">-l [ --loggingConfigurationPath ] arg</span>
+<span class="go">                the path to the logging configuration file</span>
+<span class="go">-r [ --resources ] arg (=..)</span>
+<span class="go">                the path to the resources directory</span>
+<span class="go">-p [ --nemesisProperties ] arg</span>
+<span class="go">                the path to the nemesis properties file</span>
+<span class="go">-s [ --summary ] arg</span>
+<span class="go">                the path to summary output file (default: &lt;bindir&gt;/summary.txt)</span>
+<span class="go">-n [ --no-summary ]</span>
+<span class="go">                don&#39;t generate summary file</span>
+<span class="go">-t [ --useTemporaryCacheDatabase ]</span>
+<span class="go">                true if a temporary cache database should be created and destroyed</span>
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">./catapult.tools.nemgen -p &lt;nemesis_block_properties_path&gt; -r &lt;resources_path&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="catapult-tools-benchmark">
+<h3>catapult.tools.benchmark<a class="headerlink" href="#catapult-tools-benchmark" title="Permalink to this headline">¶</a></h3>
+<p>Executes CPU-based performance tests of catapult functions, such as hashing or encryption.</p>
+<p>Options</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">-h [ --help ]     print help message</span>
+<span class="go">-l [ --loggingConfigurationPath ] arg</span>
+<span class="go">                  the path to the logging configuration file</span>
+<span class="go">-t [ --num threads ] arg (=0)</span>
+<span class="go">                  the number of threads</span>
+<span class="go">-p [ --num partitions ] arg (=0)</span>
+<span class="go">                  the number of partitions</span>
+<span class="go">-o [ --ops / partition ] arg (=1000)</span>
+<span class="go">                  the number of operations per partition</span>
+<span class="go">-s [ --data size ] arg (=148)</span>
+<span class="go">                  the size of the data to generate</span>
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">./catapult.tools.benchmark</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="catapult-tools-network">
+<h3>catapult.tools.network<a class="headerlink" href="#catapult-tools-network" title="Permalink to this headline">¶</a></h3>
+<p>Outputs node info, partner node connectivity info, and a partner node table for known peers within <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/peers-p2p.json">peers-p2p.json</a> and <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/peers-api.json">peers-api.json</a>.</p>
+<p>Options</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">-h [ --help ]     print help message</span>
+<span class="go">-l [ --loggingConfigurationPath ] arg</span>
+<span class="go">                  the path to the logging configuration file</span>
+<span class="go">-r [ --resources ] arg (=..)</span>
+<span class="go">                  the path to the resources directory</span>
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">./catapult.tools.network -r &lt;resources_path&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="catapult-tools-statusgen">
+<h3>catapult.tools.statusgen<a class="headerlink" href="#catapult-tools-statusgen" title="Permalink to this headline">¶</a></h3>
+<p>Generates the list of status errors that the server might return after receiving a transaction.</p>
+<p>Options</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">-h [ --help ]     print help message</span>
+<span class="go">-l [ --loggingConfigurationPath ] arg</span>
+<span class="go">                  the path to the logging configuration file</span>
+</pre></div>
+</div>
+<p>Command</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">./catapult.tools.statusgen</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="catapult-tools-health">
+<h3>catapult.tools.health<a class="headerlink" href="#catapult-tools-health" title="Permalink to this headline">¶</a></h3>
+<p>Checks the health and displays statistics (like the unconfirmed transaction cache) for the nodes found inside of <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/peers-p2p.json">peers-p2p.json</a> and <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/peers-api.json">peers-api.json</a>.</p>
+<p>Options</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">-h [ --help ]     print help message</span>
+<span class="go">-l [ --loggingConfigurationPath ] arg</span>
+<span class="go">                  the path to the logging configuration file</span>
+<span class="go">-r [ --resources ] arg (=..)</span>
+<span class="go">                  the path to the resources directory</span>
+</pre></div>
+</div>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">./catapult.tools.health -r &lt;resources_path&gt;</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="guides">
 <h2>Guides<a class="headerlink" href="#guides" title="Permalink to this headline">¶</a></h2>
@@ -345,9 +509,20 @@
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">Server</a><ul>
-<li><a class="reference internal" href="#node-types">Node types</a></li>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#package-organization">Package organization</a></li>
-<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#tools">Tools</a><ul>
+<li><a class="reference internal" href="#catapult-tools-address">catapult.tools.address</a></li>
+<li><a class="reference internal" href="#catapult-tools-nemgen">catapult.tools.nemgen</a></li>
+<li><a class="reference internal" href="#catapult-tools-benchmark">catapult.tools.benchmark</a></li>
+<li><a class="reference internal" href="#catapult-tools-network">catapult.tools.network</a></li>
+<li><a class="reference internal" href="#catapult-tools-statusgen">catapult.tools.statusgen</a></li>
+<li><a class="reference internal" href="#catapult-tools-health">catapult.tools.health</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#guides">Guides</a></li>
 </ul>
 </li>
@@ -376,6 +551,9 @@
                     </li>
                     <li>
                         <a href="concepts/cryptography.html">Protocol</a>
+                    </li>
+                    <li>
+                        <a href="guides/category.html">Guides</a>
                     </li>
                     <li>
                         <a href="api.html">References</a>
@@ -413,9 +591,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/nemtechdev">
+                        <a href="https://twitter.com/NEMofficial">
                             <i class="fab fa-twitter"></i>
-                            <span> Follow the dev updates</span>
+                            <span> Follow the updates</span>
                         </a>
                     </li>
                     <li>

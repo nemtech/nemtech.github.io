@@ -35,7 +35,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Cross-Chain Swaps" href="cross-chain-swaps.html" />
-    <link rel="prev" title="Account Restrictions" href="account-restrictions.html" />
+    <link rel="prev" title="Account Restriction" href="account-restriction.html" />
   
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -140,7 +140,7 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Multisig Account</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#cosignatories">Cosignatories</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#minimum-approval-and-removal">Minimum approval and removal</a></li>
@@ -192,7 +192,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.0</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
     </p>
 </div>
 
@@ -213,7 +213,7 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Multisig Account</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#cosignatories">Cosignatories</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#minimum-approval-and-removal">Minimum approval and removal</a></li>
@@ -376,7 +376,7 @@
 <h2>Schemas<a class="headerlink" href="#schemas" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Configuration parameters are <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">editable</a> . Public network configuration may differ.</p>
+<p class="last">Configuration parameters are <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">editable</a>. Public network configuration may differ.</p>
 </div>
 <div class="section" id="modifymultisigtransaction">
 <span id="modify-multisig-account-transaction"></span><h3>ModifyMultisigTransaction<a class="headerlink" href="#modifymultisigtransaction" title="Permalink to this headline">¶</a></h3>
@@ -407,19 +407,19 @@
 <tbody valign="top">
 <tr class="row-even"><td>minRemovalDelta</td>
 <td>int8</td>
-<td>The number of signatures needed to remove a cosignatory. If we are modifying an existing multisig account, this indicates the relative change of the minimum cosignatories.</td>
+<td>Number of signatures needed to remove a cosignatory. If we are modifying an existing multisig account, this indicates the relative change of the minimum cosignatories.</td>
 </tr>
 <tr class="row-odd"><td>minApprovalDelta</td>
 <td>int8</td>
-<td>The number of signatures needed to approve a transaction. If we are modifying an existing multisig account, this indicates the relative change of the minimum cosignatories.</td>
+<td>Number of signatures needed to approve a transaction. If we are modifying an existing multisig account, this indicates the relative change of the minimum cosignatories.</td>
 </tr>
 <tr class="row-even"><td>modificationsCount</td>
 <td>uint8</td>
-<td>The number of modifications.</td>
+<td>Number of modifications.</td>
 </tr>
 <tr class="row-odd"><td>modification</td>
 <td>array(<a class="reference internal" href="#cosignatory-modification"><span class="std std-ref">CosignatoryModification</span></a>, modificationsCount)</td>
-<td>The array of cosignatory <a class="reference internal" href="account.html"><span class="doc">accounts</span></a> to add or delete.</td>
+<td>Array of cosignatory <a class="reference internal" href="account.html"><span class="doc">accounts</span></a> to add or delete.</td>
 </tr>
 </tbody>
 </table>
@@ -441,11 +441,11 @@
 <tbody valign="top">
 <tr class="row-even"><td>modificationType</td>
 <td><a class="reference internal" href="#cosignatory-modification-type"><span class="std std-ref">CosignatoryModificationType</span></a></td>
-<td>The cosignatory modification type.</td>
+<td>Cosignatory modification type.</td>
 </tr>
 <tr class="row-odd"><td>cosignatoryPublicKey</td>
-<td>32 bytes (binary)</td>
-<td>The public key of the cosignatory.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L11">Key</a></td>
+<td>Public key of the cosignatory.</td>
 </tr>
 </tbody>
 </table>
@@ -541,6 +541,9 @@
                         <a href="cryptography.html">Protocol</a>
                     </li>
                     <li>
+                        <a href="../guides/category.html">Guides</a>
+                    </li>
+                    <li>
                         <a href="../api.html">References</a>
                     </li>
                     <li>
@@ -576,9 +579,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/nemtechdev">
+                        <a href="https://twitter.com/NEMofficial">
                             <i class="fab fa-twitter"></i>
-                            <span> Follow the dev updates</span>
+                            <span> Follow the updates</span>
                         </a>
                     </li>
                     <li>

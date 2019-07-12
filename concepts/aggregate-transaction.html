@@ -34,7 +34,7 @@
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Account Restrictions" href="account-restrictions.html" />
+    <link rel="next" title="Account Restriction" href="account-restriction.html" />
     <link rel="prev" title="Transfer Transaction" href="transfer-transaction.html" />
   
 <meta charset='utf-8'>
@@ -158,7 +158,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -190,7 +190,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.0</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
     </p>
 </div>
 
@@ -229,7 +229,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -355,7 +355,7 @@
 <h2>Schemas<a class="headerlink" href="#schemas" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Configuration parameters are <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">editable</a> . Public network configuration may differ.</p>
+<p class="last">Configuration parameters are <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">editable</a>. Public network configuration may differ.</p>
 </div>
 <div class="section" id="aggregatetransaction">
 <h3>AggregateTransaction<a class="headerlink" href="#aggregatetransaction" title="Permalink to this headline">¶</a></h3>
@@ -379,15 +379,15 @@
 <tbody valign="top">
 <tr class="row-even"><td>payloadSize</td>
 <td>uint32</td>
-<td>The transaction payload size in bytes. In other words, the total number of bytes occupied by all inner transactions.</td>
+<td>Transaction payload size in bytes. In other words, the total number of bytes occupied by all inner transactions.</td>
 </tr>
 <tr class="row-odd"><td>transactions</td>
-<td>array(Transaction, size=payloadSize)</td>
-<td>The array of transactions, which can be initiated by different accounts.  An aggregate transaction can contain up to <code class="docutils literal"><span class="pre">1000</span></code> inner transactions involving up to <code class="docutils literal"><span class="pre">15</span></code> different cosignatories. Other aggregate transactions are not allowed as inner transactions.</td>
+<td>array(<a class="reference internal" href="transaction.html#id4"><span class="std std-ref">Transaction</span></a>, size=payloadSize)</td>
+<td>Array of inner transactions.  An aggregate transaction can contain up to <code class="docutils literal"><span class="pre">1000</span></code> inner transactions involving up to <code class="docutils literal"><span class="pre">15</span></code> different cosignatories. Other aggregate transactions are not allowed as inner transactions.</td>
 </tr>
 <tr class="row-even"><td>cosignatures</td>
-<td>array(Cosignature, __FILL__)</td>
-<td>An array of transaction <a class="reference internal" href="#cosignature"><span class="std std-ref">cosignatures</span></a>. Fills the remaining body space after transactions.</td>
+<td>array(<a class="reference internal" href="#cosignature"><span class="std std-ref">Cosignature</span></a>, __FILL__)</td>
+<td>Array of transaction <a class="reference internal" href="#cosignature"><span class="std std-ref">cosignatures</span></a>. Fills the remaining body space after transactions.</td>
 </tr>
 </tbody>
 </table>
@@ -413,8 +413,8 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>parentHash</td>
-<td>32 bytes (binary)</td>
-<td>The aggregate bonded transaction hash to cosign.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L9">Hash256</a></td>
+<td>Aggregate bonded transaction hash to cosign.</td>
 </tr>
 </tbody>
 </table>
@@ -438,12 +438,12 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>signer</td>
-<td>32 bytes (binary)</td>
-<td>The cosigner public key.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L11">Key</a></td>
+<td>Cosigner public key.</td>
 </tr>
 <tr class="row-odd"><td>signature</td>
-<td>64 bytes (binary)</td>
-<td>The transaction signature.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L12">Signature</a></td>
+<td>Transaction signature.</td>
 </tr>
 </tbody>
 </table>
@@ -479,16 +479,16 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>mosaic</td>
-<td><a class="reference internal" href="mosaic.html#id1"><span class="std std-ref">Mosaic</span></a></td>
+<td><a class="reference internal" href="mosaic.html#unresolved-mosaic"><span class="std std-ref">UnresolvedMosaic</span></a></td>
 <td>Locked mosaic, must be at least <code class="docutils literal"><span class="pre">10</span> <span class="pre">cat.currency</span></code>.</td>
 </tr>
 <tr class="row-odd"><td>duration</td>
-<td>uint64</td>
-<td>The lock duration. Duration is allowed to lie up to <code class="docutils literal"><span class="pre">2</span></code> days.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L2">BlockDuration</a></td>
+<td>Lock duration. Duration is allowed to lie up to <code class="docutils literal"><span class="pre">2</span></code> days.</td>
 </tr>
 <tr class="row-even"><td>hash</td>
-<td>32 bytes (binary)</td>
-<td>The aggregate bonded transaction hash that has to be confirmed before unlocking the mosaics.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L9">Hash256</a></td>
+<td>Aggregate bonded transaction hash that has to be confirmed before unlocking the mosaics.</td>
 </tr>
 </tbody>
 </table>
@@ -559,6 +559,9 @@
                         <a href="cryptography.html">Protocol</a>
                     </li>
                     <li>
+                        <a href="../guides/category.html">Guides</a>
+                    </li>
+                    <li>
                         <a href="../api.html">References</a>
                     </li>
                     <li>
@@ -594,9 +597,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/nemtechdev">
+                        <a href="https://twitter.com/NEMofficial">
                             <i class="fab fa-twitter"></i>
-                            <span> Follow the dev updates</span>
+                            <span> Follow the updates</span>
                         </a>
                     </li>
                     <li>

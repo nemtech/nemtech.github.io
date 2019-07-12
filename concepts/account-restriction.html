@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Account Restrictions &#8212; NEM Developer Center</title>
+    <title>Account Restriction &#8212; NEM Developer Center</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
@@ -93,7 +93,7 @@
                 <ul class="list-inline">
     
     <li id="edit-github" class="hidden-xs hidden-sm">
-        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\account-restrictions.rst"
+        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\account-restriction.rst"
            rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
     </li>
     
@@ -140,7 +140,7 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Account Restrictions</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Account Restriction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#address-restriction">Address restriction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mosaic-restriction">Mosaic restriction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#operation-restriction">Operation restriction</a></li>
@@ -195,7 +195,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.0</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
     </p>
 </div>
 
@@ -216,7 +216,7 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Account Restrictions</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Account Restriction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#address-restriction">Address restriction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mosaic-restriction">Mosaic restriction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#operation-restriction">Operation restriction</a></li>
@@ -280,8 +280,8 @@
         
         <div class="col-md-7 content">
             
-  <div class="section" id="account-restrictions">
-<h1>Account Restrictions<a class="headerlink" href="#account-restrictions" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="account-restriction">
+<h1>Account Restriction<a class="headerlink" href="#account-restriction" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference internal" href="account.html"><span class="doc">Accounts</span></a> may configure a set of smart rules to block announcing or receiving transactions given a series of restrictions.</p>
 <p>The account owners - plural in case of multisig accounts - can edit the account restrictions at a later time announcing the specific <a class="reference internal" href="#account-address-restriction-transaction"><span class="std std-ref">account restriction transaction</span></a>.</p>
 <div class="section" id="address-restriction">
@@ -336,7 +336,7 @@
 <h2>Schemas<a class="headerlink" href="#schemas" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Configuration parameters are <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">editable</a> . Public network configuration may differ.</p>
+<p class="last">Configuration parameters are <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">editable</a>. Public network configuration may differ.</p>
 </div>
 <div class="section" id="accountaddressrestrictiontransaction">
 <span id="account-address-restriction-transaction"></span><h3>AccountAddressRestrictionTransaction<a class="headerlink" href="#accountaddressrestrictiontransaction" title="Permalink to this headline">¶</a></h3>
@@ -362,15 +362,15 @@
 <tbody valign="top">
 <tr class="row-even"><td>restrictionType</td>
 <td><a class="reference internal" href="#account-restriction-type"><span class="std std-ref">AccountRestrictionType</span></a></td>
-<td>Indicates the account restriction type.</td>
+<td>Type of the account restriction.</td>
 </tr>
 <tr class="row-odd"><td>modificationsCount</td>
 <td>uint8</td>
-<td>The number of modifications in the transaction. A maximum of <code class="docutils literal"><span class="pre">255</span></code> modifications per transaction is allowed.</td>
+<td>Number of modifications in the transaction. A maximum of <code class="docutils literal"><span class="pre">255</span></code> modifications per transaction is allowed.</td>
 </tr>
 <tr class="row-even"><td>modifications</td>
 <td>array(<a class="reference internal" href="#account-address-restriction-modification"><span class="std std-ref">AccountAddressRestrictionModification</span></a>, modificationsCount)</td>
-<td>The array of modifications.</td>
+<td>Array of account address restriction modifications.</td>
 </tr>
 </tbody>
 </table>
@@ -399,15 +399,15 @@
 <tbody valign="top">
 <tr class="row-even"><td>restrictionType</td>
 <td><a class="reference internal" href="#account-restriction-type"><span class="std std-ref">AccountRestrictionType</span></a></td>
-<td>Indicates the account restriction type.</td>
+<td>Type of the account restriction.</td>
 </tr>
 <tr class="row-odd"><td>modificationsCount</td>
 <td>uint8</td>
-<td>The number of modifications in the transaction. A maximum of <code class="docutils literal"><span class="pre">255</span></code> modifications per transaction is allowed.</td>
+<td>Number of modifications in the transaction. A maximum of <code class="docutils literal"><span class="pre">255</span></code> modifications per transaction is allowed.</td>
 </tr>
 <tr class="row-even"><td>modifications</td>
 <td>array(<a class="reference internal" href="#account-mosaic-restriction-modification"><span class="std std-ref">AccountMosaicRestrictionModification</span></a>, modificationsCount)</td>
-<td>The array of modifications.</td>
+<td>Array of account mosaic restriction modifications.</td>
 </tr>
 </tbody>
 </table>
@@ -436,7 +436,7 @@
 <tbody valign="top">
 <tr class="row-even"><td>restrictionType</td>
 <td><a class="reference internal" href="#account-restriction-type"><span class="std std-ref">AccountRestrictionType</span></a></td>
-<td>Indicates the account restriction type.</td>
+<td>Type of the account restriction.</td>
 </tr>
 <tr class="row-odd"><td>modificationsCount</td>
 <td>uint8</td>
@@ -444,7 +444,7 @@
 </tr>
 <tr class="row-even"><td>modifications</td>
 <td>array(<a class="reference internal" href="#account-operation-restriction-modification"><span class="std std-ref">AccountOperationRestrictionModification</span></a>, modificationsCount)</td>
-<td>The array of modifications.</td>
+<td>Array of account operation restriction modifications.</td>
 </tr>
 </tbody>
 </table>
@@ -469,8 +469,8 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>value</td>
-<td>25 bytes (binary)</td>
-<td>The address to allow/block.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L8">Address</a></td>
+<td>Address to allow/block.</td>
 </tr>
 </tbody>
 </table>
@@ -495,8 +495,8 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>value</td>
-<td>uint64</td>
-<td>The mosaic id to allow/block.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L4">MosaicId</a></td>
+<td>Identifier of the mosaic to allow/block.</td>
 </tr>
 </tbody>
 </table>
@@ -522,7 +522,7 @@
 <tbody valign="top">
 <tr class="row-even"><td>value</td>
 <td>uint16</td>
-<td>The <a class="reference internal" href="transaction.html#id1"><span class="std std-ref">entity type</span></a> to allow/block.</td>
+<td><a class="reference internal" href="transaction.html#id1"><span class="std std-ref">Operation</span></a> to allow/block.</td>
 </tr>
 </tbody>
 </table>
@@ -544,7 +544,7 @@
 <tbody valign="top">
 <tr class="row-even"><td>modificationType</td>
 <td><a class="reference internal" href="#account-restriction-modification-type"><span class="std std-ref">AccountRestrictionModificationType</span></a></td>
-<td>The modification type.</td>
+<td>Type of the account restriction modification.</td>
 </tr>
 </tbody>
 </table>
@@ -564,25 +564,25 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>0x01</td>
-<td>The account restriction type only allows receiving transactions from an address.</td>
+<td>Allow only receiving transactions from an address.</td>
 </tr>
 <tr class="row-odd"><td>0x02</td>
-<td>The account restriction type only allows receiving transactions containing a mosaic id.</td>
+<td>Allow only receiving transactions containing a mosaic id.</td>
 </tr>
 <tr class="row-even"><td>0x04</td>
-<td>The account restriction type only allows sending transactions with a given transaction type.</td>
+<td>Allow only sending transactions with a given transaction type.</td>
 </tr>
 <tr class="row-odd"><td>0x05</td>
 <td>Account restriction sentinel.</td>
 </tr>
 <tr class="row-even"><td>0x81</td>
-<td>The account restriction type blocks receiving transactions from an address.</td>
+<td>Block receiving transactions from an address.</td>
 </tr>
 <tr class="row-odd"><td>0x82</td>
-<td>The account restriction type blocks receiving transactions containing a mosaic id.</td>
+<td>Block receiving transactions containing a mosaic id.</td>
 </tr>
 <tr class="row-even"><td>0x84</td>
-<td>The account restriction type blocks sending transactions with a given transaction type.</td>
+<td>Block sending transactions with a given transaction type.</td>
 </tr>
 </tbody>
 </table>
@@ -630,7 +630,7 @@
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
-<li><a class="reference internal" href="#">Account Restrictions</a><ul>
+<li><a class="reference internal" href="#">Account Restriction</a><ul>
 <li><a class="reference internal" href="#address-restriction">Address restriction</a></li>
 <li><a class="reference internal" href="#mosaic-restriction">Mosaic restriction</a></li>
 <li><a class="reference internal" href="#operation-restriction">Operation restriction</a></li>
@@ -681,6 +681,9 @@
                         <a href="cryptography.html">Protocol</a>
                     </li>
                     <li>
+                        <a href="../guides/category.html">Guides</a>
+                    </li>
+                    <li>
                         <a href="../api.html">References</a>
                     </li>
                     <li>
@@ -716,9 +719,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/nemtechdev">
+                        <a href="https://twitter.com/NEMofficial">
                             <i class="fab fa-twitter"></i>
-                            <span> Follow the dev updates</span>
+                            <span> Follow the updates</span>
                         </a>
                     </li>
                     <li>

@@ -138,7 +138,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account-restriction.html">Account Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -170,7 +170,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.0</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
     </p>
 </div>
 
@@ -191,7 +191,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account-restriction.html">Account Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -243,7 +243,7 @@
 </div>
 <div class="section" id="getting-into-some-code">
 <h2>Getting into some code<a class="headerlink" href="#getting-into-some-code" title="Permalink to this headline">¶</a></h2>
-<p>In this example, you will fetch the latest confirmed transactions for a given account using the <code class="docutils literal"><span class="pre">accountHttp</span></code> repository.</p>
+<p>Use the <a class="reference external" href="https://nemtech.github.io/nem2-sdk-typescript-javascript/classes/_infrastructure_accounthttp_.accounthttp.html">accountHttp</a>  repository to get the latest confirmed transactions for a given account.</p>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id1">
 <div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/GettingConfirmedTransactions.ts">View Code</a></span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
@@ -286,11 +286,10 @@
 <p class="first admonition-title">Note</p>
 <p class="last">By default, the SDK provides up to 10 transactions. The page size can be increased up to 100 transactions.</p>
 </div>
-<p>To <a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/GettingAllConfirmedTransactions.ts">get more than 100 transactions</a>,   you will have to make further requests. For each additional call, add to the <code class="docutils literal"><span class="pre">QueryParams</span></code> the optional parameter <code class="docutils literal"><span class="pre">transactionId</span></code> with the latest transaction identifier known returned by the previous request.</p>
+<p>To <a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/GettingAllConfirmedTransactions.ts">get more than 100 transactions</a>,  you will have to make further requests. For each additional call, add to the <code class="docutils literal"><span class="pre">QueryParams</span></code> the optional parameter <code class="docutils literal"><span class="pre">transactionId</span></code> with the latest transaction identifier known returned by the previous request.</p>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="nx">QueryParams</span><span class="p">(</span><span class="nx">pageSize</span><span class="p">,</span> <span class="nx">transactions</span><span class="p">[</span><span class="nx">transactions</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="nx">transactionInfo</span><span class="p">.</span><span class="nx">id</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>You can also get filtered the transactions received (incoming) from the ones sent (outgoing) checking the complete <a class="reference external" href="https://nemtech.github.io/nem2-sdk-typescript-javascript/classes/_infrastructure_accounthttp_.accounthttp.html">accountHttp reference</a>.</p>
 </div>
 </div>
 
@@ -349,6 +348,9 @@
                         <a href="../../concepts/cryptography.html">Protocol</a>
                     </li>
                     <li>
+                        <a href="../category.html">Guides</a>
+                    </li>
+                    <li>
                         <a href="../../api.html">References</a>
                     </li>
                     <li>
@@ -384,9 +386,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/nemtechdev">
+                        <a href="https://twitter.com/NEMofficial">
                             <i class="fab fa-twitter"></i>
-                            <span> Follow the dev updates</span>
+                            <span> Follow the updates</span>
                         </a>
                     </li>
                     <li>

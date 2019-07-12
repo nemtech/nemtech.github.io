@@ -140,7 +140,7 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -189,7 +189,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.0</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
     </p>
 </div>
 
@@ -210,7 +210,7 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">Account Restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -348,20 +348,20 @@
 <td><a class="reference internal" href="aggregate-transaction.html#cosignature-transaction"><span class="std std-ref">Cosignature</span></a></td>
 <td>Cosign an aggregate bonded transaction.</td>
 </tr>
-<tr class="row-odd"><td><strong>Account filters</strong></td>
+<tr class="row-odd"><td><strong>Account restrictions</strong></td>
 <td>&#160;</td>
 <td>&#160;</td>
 </tr>
 <tr class="row-even"><td>0x4150</td>
-<td><a class="reference internal" href="account-restrictions.html#account-address-restriction-transaction"><span class="std std-ref">Account Properties Address</span></a></td>
+<td><a class="reference internal" href="account-restriction.html#account-address-restriction-transaction"><span class="std std-ref">Account Address Restriction</span></a></td>
 <td>Allow or block incoming transactions for a given a set of addresses.</td>
 </tr>
 <tr class="row-odd"><td>0x4250</td>
-<td><a class="reference internal" href="account-restrictions.html#account-mosaic-restriction-transaction"><span class="std std-ref">Account Properties Mosaic</span></a></td>
+<td><a class="reference internal" href="account-restriction.html#account-mosaic-restriction-transaction"><span class="std std-ref">Account Mosaic Restriction</span></a></td>
 <td>Allow or block incoming transactions containing a given set of mosaics.</td>
 </tr>
 <tr class="row-even"><td>0x4350</td>
-<td><a class="reference internal" href="account-restrictions.html#account-operation-restriction-transaction"><span class="std std-ref">Account Properties Entity Type</span></a></td>
+<td><a class="reference internal" href="account-restriction.html#account-operation-restriction-transaction"><span class="std std-ref">Account Operation Restriction</span></a></td>
 <td>Allow or block outgoing transactions by transaction type.</td>
 </tr>
 <tr class="row-odd"><td><strong>Cross-chain swaps</strong></td>
@@ -382,7 +382,7 @@
 </tr>
 <tr class="row-odd"><td>0x414C</td>
 <td><a class="reference internal" href="harvesting.html#account-link-transaction"><span class="std std-ref">Account Link</span></a></td>
-<td>Delegates the account importance to a proxy account to enable <a class="reference internal" href="harvesting.html"><span class="doc">delegated harvesting</span></a>.</td>
+<td>Delegate the account importance to a proxy account.</td>
 </tr>
 </tbody>
 </table>
@@ -513,7 +513,7 @@
 <div class="section" id="rollbacks">
 <h2>Rollbacks<a class="headerlink" href="#rollbacks" title="Permalink to this headline">¶</a></h2>
 <p>Blockchains are designed in a way that under certain circumstances recent blocks need to be rolled back. These are essential to resolve forks of the blockchain.</p>
-<p>The <a href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties#L19" target="_blank">rewrite limit</a> is the maximum number of blocks that can be rolled back. Hence, forks can only be resolved up to a certain depth too.</p>
+<p>The <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">rewrite limit</a> is the maximum number of blocks that can be rolled back. Hence, forks can only be resolved up to a certain depth too.</p>
 <p>NEM has a rewrite limit of <code class="docutils literal"><span class="pre">40</span></code> blocks. Once a transaction has more than 40 confirmations, it cannot be reversed.</p>
 </div>
 <div class="section" id="guides">
@@ -531,6 +531,7 @@
 <h2>Schemas<a class="headerlink" href="#schemas" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id4">
 <span id="id5"></span><h3>Transaction<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Serialization of a transaction.</p>
 <p><strong>Inlines</strong>:</p>
 <ul class="simple">
 <li><a class="reference internal" href="#size-prefixed-entity"><span class="std std-ref">SizePrefixedEntity</span></a></li>
@@ -551,18 +552,19 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>max_fee</td>
-<td>uint64</td>
-<td>The maximum fee allowed to spend for the transaction.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L1">Amount</a></td>
+<td>Maximum fee allowed to spend for the transaction.</td>
 </tr>
 <tr class="row-odd"><td>deadline</td>
-<td>uint64</td>
-<td>The maximum amount of time to include the transaction in the blockchain. Deadlines are only allowed to lie up to <code class="docutils literal"><span class="pre">24</span></code> hours ahead.</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L5">Timestamp</a></td>
+<td>Number of seconds elapsed since the creation of the nemesis block. If a transaction does not get included in a block before the deadline is reached, it is deleted. Deadlines are only allowed to lie up to <code class="docutils literal"><span class="pre">24</span></code> hours ahead.</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="embeddedtransaction">
 <span id="embedded-transaction"></span><h3>EmbeddedTransaction<a class="headerlink" href="#embeddedtransaction" title="Permalink to this headline">¶</a></h3>
+<p>Serialization of an <a class="reference internal" href="aggregate-transaction.html"><span class="doc">aggregate</span></a> inner transaction.</p>
 <p><strong>Inlines</strong>:</p>
 <ul class="simple">
 <li><a class="reference internal" href="#size-prefixed-entity"><span class="std std-ref">SizePrefixedEntity</span></a></li>
@@ -571,6 +573,7 @@
 </div>
 <div class="section" id="sizeprefixedentity">
 <span id="size-prefixed-entity"></span><h3>SizePrefixedEntity<a class="headerlink" href="#sizeprefixedentity" title="Permalink to this headline">¶</a></h3>
+<p>Serialization of an entity that has a prefixed size.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="33%" />
@@ -586,7 +589,7 @@
 <tbody valign="top">
 <tr class="row-even"><td>size</td>
 <td>unit32</td>
-<td>The size of the transaction.</td>
+<td>Size of the transaction.</td>
 </tr>
 </tbody>
 </table>
@@ -656,6 +659,9 @@
                         <a href="cryptography.html">Protocol</a>
                     </li>
                     <li>
+                        <a href="../guides/category.html">Guides</a>
+                    </li>
+                    <li>
                         <a href="../api.html">References</a>
                     </li>
                     <li>
@@ -691,9 +697,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/nemtechdev">
+                        <a href="https://twitter.com/NEMofficial">
                             <i class="fab fa-twitter"></i>
-                            <span> Follow the dev updates</span>
+                            <span> Follow the updates</span>
                         </a>
                     </li>
                     <li>
