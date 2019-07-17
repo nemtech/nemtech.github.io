@@ -59,6 +59,8 @@
 </script>-->
 
   
+  <link rel="alternate" type="application/atom+xml"  href="../guides/atom.xml" title="Blog">
+  
   
   <style type="text/css">
     ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
@@ -158,7 +160,7 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">アカウントの制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
@@ -190,7 +192,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.0</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
     </p>
 </div>
 
@@ -228,7 +230,7 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">アカウントの制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
@@ -305,7 +307,7 @@
 <td>Boolean</td>
 <td>true にセットした場合、モザイク供給量は後の時点で変更できるようになります。そうでない場合、変更できません。</td>
 </tr>
-<tr class="row-even"><td>Transferability</td>
+<tr class="row-even"><td>Transferable</td>
 <td>Boolean</td>
 <td>true にセットした場合、モザイクは任意のアカウント間で転送できます。そうでない場合、モザイクはモザイク作成者へ送り返すことしかできません。</td>
 </tr>
@@ -319,7 +321,7 @@
 </div>
 <div class="section" id="cost">
 <h2>コスト<a class="headerlink" href="#cost" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>モザイク作成のコストは <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">ネットワークごとに設定可能</a> です。デフォルトでは、このコストは <code class="docutils literal"><span class="pre">500</span> <span class="pre">cat.currency</span></code> とトランザクション手数料です。</p>
+<p>モザイク作成のコストは <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">ネットワークごとに設定可能</a>  です。デフォルトでは、このコストは <code class="docutils literal"><span class="pre">500</span> <span class="pre">cat.currency</span></code> とトランザクション手数料です。</p>
 </div>
 <div class="section" id="example">
 <h2>例<a class="headerlink" href="#example" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -348,7 +350,7 @@
 <tr class="row-odd"><td>Supply mutable</td>
 <td>true</td>
 </tr>
-<tr class="row-even"><td>Transferability</td>
+<tr class="row-even"><td>Transferable</td>
 <td>true</td>
 </tr>
 </tbody>
@@ -356,9 +358,9 @@
 <p><strong>Duration:</strong> 会社の株式は会社が事業を営んでいる限り存在するはずです。ComfyClothingCompany はこのプロパティを <code class="docutils literal"><span class="pre">undefined</span></code> として、資産を表現する期限切れがないモザイクを作成します。</p>
 <p><strong>Divisibility:</strong> 証券会社や投資会社は株式を分割することができますが、投資家が公開市場から購入できる伝統的な最小株式数は 1 です。</p>
 <p>ただし、NEM モザイクでは自社の株式をトークン化する場合の柔軟性が向上しています。ComfyClothingCompany は可分性を <code class="docutils literal"><span class="pre">2</span></code> に選択し、その株式の最小端数が 0.01 になるようにします。</p>
-<p>分別所有権は 24 時間 365 日の取引能力と共に、市場にさらなる流動性をもたらします。これらの同じ特性は小規模投資家にも市場を開放します。</p>
+<p>分別所有権は 24/7 の取引能力と共に、市場にさらなる流動性をもたらします。これらの同じ特性は小規模投資家にも市場を開放します。</p>
 <p><strong>Supply:</strong> ComfyClothingCompany はモザイクの初期供給量を、一般的なスタートアップにおける授権株式の量である <code class="docutils literal"><span class="pre">10,000,000</span></code> に設定します。会社が成長するにつれて、株式数を増やすことを選択できるので供給可変性は <code class="docutils literal"><span class="pre">true</span></code> に設定されます。</p>
-<p><strong>Transferability:</strong> 初期株式が分配されるとその株式は上場して公開されます。したがって譲渡性は <code class="docutils literal"><span class="pre">true</span></code> に設定する必要があります。</p>
+<p><strong>Transferable:</strong> Once the initial shares are distributed, the shares will be on the market to be traded in public. Thus, the transferability property needs to be set to <code class="docutils literal"><span class="pre">true</span></code>.</p>
 </div>
 <div class="section" id="guides">
 <h2>ガイド<a class="headerlink" href="#guides" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -374,6 +376,9 @@
 </li>
 <li><p class="first"><a class="reference internal" href="../guides/mosaic/getting-mosaic-information.html">モザイクの情報を取得する</a></p>
 <p><a class="reference internal" href="#"><span class="doc">モザイク</span></a> 識別子による所有権、可分性、期間、フラグの取得</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../guides/blockchain/getting-the-mosaic-identifier-behind-a-namespace-with-receipts.html">レシート付きネームスペースの背後にあるアセットの識別子を取得</a></p>
+<p>レシートを使用して特定のエイリアスとトランザクションの解決を取得します。</p>
 </li>
 </ul>
 </div>
@@ -410,8 +415,8 @@
 <td>モザイクIDを生成するために使用されるランダムなノンス値</td>
 </tr>
 <tr class="row-odd"><td>mosaicId</td>
-<td>uint64</td>
-<td>モザイクID</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L4">MosaicId</a></td>
+<td>モザイクの識別子</td>
 </tr>
 <tr class="row-even"><td>propertiesCount</td>
 <td>uint8</td>
@@ -419,11 +424,11 @@
 </tr>
 <tr class="row-odd"><td>flags</td>
 <td><a class="reference internal" href="#mosaic-flags"><span class="std std-ref">MosaicFlag</span></a></td>
-<td>モザイクフラグ</td>
+<td>Mosaic flags.</td>
 </tr>
 <tr class="row-even"><td>divisibility</td>
 <td>uint8</td>
-<td>モザイクの可分性。最大値は <code class="docutils literal"><span class="pre">6</span></code> です。</td>
+<td>モザイクの可分性。最大値は <code class="docutils literal"><span class="pre">6</span></code> 。</td>
 </tr>
 <tr class="row-odd"><td>properties</td>
 <td>array(<a class="reference internal" href="#mosaic-property"><span class="std std-ref">MosaicProperty</span></a>, propertiesCount)</td>
@@ -455,15 +460,15 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>mosaicId</td>
-<td>uint64</td>
-<td>影響のあったモザイクのID</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L3">UnresolvedMosaicId</a></td>
+<td>影響を受けたモザイクの識別子</td>
 </tr>
 <tr class="row-odd"><td>direction</td>
 <td><a class="reference internal" href="#mosaic-supply-change-direction"><span class="std std-ref">MosaicSupplyChangeDirection</span></a></td>
 <td>供給量変更の方向</td>
 </tr>
 <tr class="row-even"><td>delta</td>
-<td>uint64</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L1">Amount</a></td>
 <td>モザイク供給量の増加または減少の総量。</td>
 </tr>
 </tbody>
@@ -486,7 +491,7 @@
 <tbody valign="top">
 <tr class="row-even"><td>id</td>
 <td>uint8</td>
-<td>プロパティID (0x02) は期間を意味します。</td>
+<td>プロパティ識別子 (0x02) は期間を意味します。</td>
 </tr>
 <tr class="row-odd"><td>value</td>
 <td>uint64</td>
@@ -511,12 +516,12 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>mosaicId</td>
-<td>uint64</td>
-<td>モザイクID</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L4">MosaicId</a></td>
+<td>Mosaic identifier.</td>
 </tr>
 <tr class="row-odd"><td>amount</td>
-<td>uint64</td>
-<td>モザイクの量</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L1">Amount</a></td>
+<td>Amount of the mosaic.</td>
 </tr>
 </tbody>
 </table>
@@ -537,12 +542,12 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>mosaicId</td>
-<td>uint64</td>
-<td>モザイクID</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L3">UnresolvedMosaicId</a></td>
+<td>Mosaic identifier.</td>
 </tr>
 <tr class="row-odd"><td>amount</td>
-<td>uint64</td>
-<td>モザイクの量</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L1">Amount</a></td>
+<td>Amount of the mosaic.</td>
 </tr>
 </tbody>
 </table>
@@ -565,10 +570,10 @@
 <td>フラグ無し</td>
 </tr>
 <tr class="row-odd"><td>0x01</td>
-<td>モザイク供給量は変更可能</td>
+<td>モザイクの所有者が供給量を部分的に保有している場合でも、モザイクは供給の変更をサポートします。</td>
 </tr>
 <tr class="row-even"><td>0x02</td>
-<td>モザイクは転送可能</td>
+<td>モザイクは任意のアカウント間の振替をサポートします。not を設定した場合はモザイクはモザイクの所有者との間でしか転送できません。</td>
 </tr>
 </tbody>
 </table>
@@ -661,6 +666,9 @@
                         <a href="cryptography.html">プロトコル</a>
                     </li>
                     <li>
+                        <a href="../guides/category.html">ガイド</a>
+                    </li>
+                    <li>
                         <a href="../api.html">リファレンス</a>
                     </li>
                     <li>
@@ -673,7 +681,7 @@
                 <h4>リファレンス</h4>
                 <ul>
                     <li><a href="../api.html">REST API</a></li>
-                    <li><a href="../server.html">Server</a></li>
+                    <li><a href="../server.html">サーバ</a></li>
                     <li><a href="../sdk.html">SDKs</a></li>
                     <li><a href="../cli.html">クライアント</a></li>
                     <li><a href="../extensions.html">拡張</a></li>
@@ -696,9 +704,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/nemtechdev">
+                        <a href="https://twitter.com/NEMofficial">
                             <i class="fab fa-twitter"></i>
-                            <span> Follow the dev updates</span>
+                            <span> Follow the updates</span>
                         </a>
                     </li>
                     <li>

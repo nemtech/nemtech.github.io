@@ -59,6 +59,8 @@
 </script>-->
 
   
+  <link rel="alternate" type="application/atom+xml"  href="../guides/atom.xml" title="Blog">
+  
   
   <style type="text/css">
     ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
@@ -163,7 +165,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">アカウントの制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
@@ -195,7 +197,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.0</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
     </p>
 </div>
 
@@ -238,7 +240,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">アカウントの制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
@@ -291,7 +293,7 @@
 <h2>サブネームスペース<a class="headerlink" href="#subnamespaces" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>インターネット上でドメインはサブドメインを持つように、ネームスペースはサブネームスペースを持ちます。</p>
 <p><a class="reference internal" href="../guides/namespace/registering-a-subnamespace.html"><span class="doc">複数のサブネームスペース</span></a> を異なるネームスペースに同じ名前で作ることができます。例えば <code class="docutils literal"><span class="pre">foo.bar</span></code> と <code class="docutils literal"><span class="pre">foo2.bar</span></code> を作ることができます。</p>
-<p>ネームスペースは、ネームスペースと2階層のサブネームスペースドメインの <code class="docutils literal"><span class="pre">3</span></code> 階層まで持つことができます。</p>
+<p>ネームスペースは、ネームスペースと2階層のサブネームスペースドメインの <code class="docutils literal"><span class="pre">3</span></code> 階層まで持つことができます。サブネームスペースはこの親ネームスペースと同じ有効期間を持ちます。</p>
 </div>
 <div class="section" id="alias">
 <h2>エイリアス<a class="headerlink" href="#alias" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -302,8 +304,8 @@
 <p>制約事項:</p>
 <ul class="simple">
 <li>アカウントは１つのアカウントまたはモザイクに名前を関連付けることしかできませんが、たくさんのエイリアスリンクを持つことができます。</li>
-<li>アカウントは <a class="reference internal" href="account-restrictions.html"><span class="doc">アドレスネームスペーストランザクション</span></a> の受信を許可している、あらゆるアカウントへ名前を割り当てることができます。対照的に、アカウントがエイリアスをモザイクIDに割り当てたい場合は、モザイク作成者でなければなりません。</li>
-<li>アカウントがモザイク作成者である場合、アカウントはエイリアスを mosaicId にだけリンクできます。</li>
+<li>アカウントは <a class="reference internal" href="account-restriction.html"><span class="doc">アドレスネームスペーストランザクション</span></a> の受信を許可している、あらゆるアカウントへ名前を割り当てることができます。対照的に、アカウントがエイリアスをモザイクIDに割り当てたい場合は、モザイク作成者でなければなりません。</li>
+<li>アカウントがモザイク作成者である場合は、エイリアスを mosaicId にだけリンクできます。</li>
 </ul>
 </div>
 <div class="section" id="duration">
@@ -317,7 +319,7 @@
 <blockquote>
 <div>duration ≈ numberOfDays * 86400 / blockGenerationTargetTimeInSeconds</div></blockquote>
 <p>レンタル期間中、ネームスペース所有者はサブネームスペース、エイリアスアカウント、およびモザイクを作成できます。所有者は <a class="reference internal" href="#register-namespace-transaction"><span class="std std-ref">register namespace transaction</span></a> を希望する追加ブロック数で送信することにより <strong>レンタルを延長する</strong> こともできます。</p>
-<p>ネットワークはネームスペース所有者が有効期限を過ぎて登録可能になる前に、名前空間を更新することを可能にする <strong>猶予期間</strong> を <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">定義する</a> ことができます。</p>
+<p>ネットワークはネームスペース所有者が有効期限を過ぎて登録可能になる前に、名前空間を更新することを可能にする <strong>猶予期間</strong> を <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">定義</a> することができます。</p>
 <p>猶予期間が終了すると、既存のエイリアスとサブネームスペースは整頓され <strong>非アクティブ</strong> になります。すると他のアカウントがネームスペースを再度登録できるようになります。</p>
 </div>
 <div class="section" id="cost">
@@ -403,16 +405,16 @@
 <td>登録ネームスペースのタイプ</td>
 </tr>
 <tr class="row-odd"><td>duration</td>
-<td>uint64</td>
-<td>レンタル期間はネームスペースのレンタルを希望する承認済みブロック数を表します。期間は <code class="docutils literal"><span class="pre">365</span></code> 日までとすることができます。レンタル期間中に延長したいブロック数の <a class="reference internal" href="#register-namespace-transaction"><span class="std std-ref">ネームスペース登録トランザクション</span></a> を送信して、ネームスペースをレンタルすることによって、レンタル期間を延長することが可能です。レンタル期間が終わると、ネームスペースは非活性になります。</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L2">BlockDuration</a></td>
+<td>ネームスペースをレンタルしたい期間の承認済みブロック数を指定します。期間は <code class="docutils literal"><span class="pre">365</span></code> 日まで許可されています。ルートネームスペースでは必須項目です。</td>
 </tr>
 <tr class="row-even"><td>parentId</td>
-<td>uint64</td>
-<td>それがサブネームスペースの場合、親ネームスペースへの参照は必須です。</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/namespace/namespace_types.cats#L1">NamespaceId</a></td>
+<td>親ネームスペースの識別子。サブネームスペースでは必須項目です。</td>
 </tr>
 <tr class="row-odd"><td>namespaceId</td>
-<td>uint64</td>
-<td>ネームスペースのID</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/namespace/namespace_types.cats#L1">NamespaceId</a></td>
+<td>ネームスペースの識別子</td>
 </tr>
 <tr class="row-even"><td>namespaceNameSize</td>
 <td>uint8</td>
@@ -452,12 +454,12 @@
 <td>エイリアスアクション</td>
 </tr>
 <tr class="row-odd"><td>namespaceId</td>
-<td>uint64</td>
-<td>エイリアスになるネームスペースのID</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/namespace/namespace_types.cats#L1">NamespaceId</a></td>
+<td>エイリアスになるネームスペースの識別子</td>
 </tr>
 <tr class="row-even"><td>address</td>
-<td>25 bytes (binary)</td>
-<td>エイリアスアドレス</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L8">Address</a></td>
+<td>Aliased address.</td>
 </tr>
 </tbody>
 </table>
@@ -489,12 +491,12 @@
 <td>エイリアスアクション</td>
 </tr>
 <tr class="row-odd"><td>namespaceId</td>
-<td>uint64</td>
-<td>エイリアスになるネームスペースのID</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/namespace/namespace_types.cats#L1">NamespaceId</a></td>
+<td>エイリアスになるネームスペースの識別子</td>
 </tr>
 <tr class="row-even"><td>mosaicId</td>
-<td>uint64</td>
-<td>エイリアスモザイクID</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L4">MosaicId</a></td>
+<td>エイリアス付加済みモザイクの識別子</td>
 </tr>
 </tbody>
 </table>
@@ -615,6 +617,9 @@
                         <a href="cryptography.html">プロトコル</a>
                     </li>
                     <li>
+                        <a href="../guides/category.html">ガイド</a>
+                    </li>
+                    <li>
                         <a href="../api.html">リファレンス</a>
                     </li>
                     <li>
@@ -627,7 +632,7 @@
                 <h4>リファレンス</h4>
                 <ul>
                     <li><a href="../api.html">REST API</a></li>
-                    <li><a href="../server.html">Server</a></li>
+                    <li><a href="../server.html">サーバ</a></li>
                     <li><a href="../sdk.html">SDKs</a></li>
                     <li><a href="../cli.html">クライアント</a></li>
                     <li><a href="../extensions.html">拡張</a></li>
@@ -650,9 +655,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/nemtechdev">
+                        <a href="https://twitter.com/NEMofficial">
                             <i class="fab fa-twitter"></i>
-                            <span> Follow the dev updates</span>
+                            <span> Follow the updates</span>
                         </a>
                     </li>
                     <li>

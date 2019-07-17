@@ -59,6 +59,8 @@
 </script>-->
 
   
+  <link rel="alternate" type="application/atom+xml"  href="../guides/atom.xml" title="Blog">
+  
   
   <style type="text/css">
     ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
@@ -141,7 +143,7 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">アカウントの制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
@@ -157,6 +159,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#transaction-statement">トランザクションステートメント</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#resolution-statement">解決ステートメント</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#recorded-receipts">記録済みレシート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">スキーマ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">レシート</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#balancetransferreceipt">BalanceTransferReceipt</a></li>
@@ -190,7 +193,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.0</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
     </p>
 </div>
 
@@ -211,7 +214,7 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">アカウントの制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
@@ -227,6 +230,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#transaction-statement">トランザクションステートメント</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#resolution-statement">解決ステートメント</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#recorded-receipts">記録済みレシート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schemas">スキーマ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">レシート</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#balancetransferreceipt">BalanceTransferReceipt</a></li>
@@ -306,7 +310,7 @@
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Id</th>
 <th class="head">レシート</th>
-<th class="head">Basic type</th>
+<th class="head">基本タイプ</th>
 <th class="head">説明</th>
 </tr>
 </thead>
@@ -414,6 +418,14 @@
 </tbody>
 </table>
 </div>
+<div class="section" id="guides">
+<h2>Guides<a class="headerlink" href="#guides" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="postlist-style-circle postlist">
+<li><p class="first"><a class="reference internal" href="../guides/blockchain/getting-the-mosaic-identifier-behind-a-namespace-with-receipts.html">レシート付きネームスペースの背後にあるアセットの識別子を取得</a></p>
+<p>レシートを使用して特定のエイリアスとトランザクションの解決を取得します。</p>
+</li>
+</ul>
+</div>
 <div class="section" id="schemas">
 <h2>スキーマ<a class="headerlink" href="#schemas" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id1">
@@ -472,20 +484,20 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>sender</td>
-<td>32 bytes (binary)</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L11">Key</a></td>
 <td>送信者の公開鍵</td>
 </tr>
 <tr class="row-odd"><td>recipient</td>
-<td>32 bytes (binary)</td>
-<td>受信者の公開鍵</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L8">Address</a></td>
+<td>受信者のアドレス</td>
 </tr>
 <tr class="row-even"><td>mosaicId</td>
-<td>uint64</td>
-<td>モザイクID</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L4">MosaicId</a></td>
+<td>モザイクの識別子</td>
 </tr>
 <tr class="row-odd"><td>amount</td>
-<td>uint64</td>
-<td>モザイクの量</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L1">Amount</a></td>
+<td>送信するモザイクの量</td>
 </tr>
 </tbody>
 </table>
@@ -515,16 +527,16 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>account</td>
-<td>32 bytes (binary)</td>
-<td>ターゲットのアカウント公開鍵</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L11">Key</a></td>
+<td>ターゲットアカウントの公開鍵</td>
 </tr>
 <tr class="row-odd"><td>mosaicId</td>
-<td>uint64</td>
-<td>モザイクID</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L4">MosaicId</a></td>
+<td>モザイクの識別子</td>
 </tr>
 <tr class="row-even"><td>amount</td>
-<td>uint64</td>
-<td>モザイクの量</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L1">Amount</a></td>
+<td>モザイクの増加または減少の量</td>
 </tr>
 </tbody>
 </table>
@@ -554,8 +566,8 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>artifactId</td>
-<td>uint64</td>
-<td>アーティファクトのID</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L4">MosaicId</a> または <a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/namespace/namespace_types.cats#L1">NamespaceId</a></td>
+<td>アーティファクトの識別子</td>
 </tr>
 </tbody>
 </table>
@@ -584,12 +596,12 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>mosaicId</td>
-<td>uint64</td>
-<td>作成されたモザイクID</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L4">MosaicId</a></td>
+<td>作成されたモザイクの識別子</td>
 </tr>
 <tr class="row-odd"><td>amount</td>
-<td>uint64</td>
-<td>作成された量</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L1">Amount</a></td>
+<td>作成されたモザイクの数</td>
 </tr>
 </tbody>
 </table>
@@ -654,12 +666,12 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>unresolved</td>
-<td>25 bytes (binary) or uint64</td>
-<td>未解決アドレスまたは未解決モザイクID</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L7">UnresolvedAddress</a> または <a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L3">UnresolvedMosaicId</a></td>
+<td>未解決アドレスまたは未解決モザイクの識別子</td>
 </tr>
 <tr class="row-odd"><td>resolutionEntries</td>
 <td>array(<a class="reference internal" href="#resolution-entry"><span class="std std-ref">ResolutionEntry</span></a>, size=resolvedEntriesSize)</td>
-<td>未解決 namespaceId にリンクされている解決エントリの配列。1 ブロック内でエイリアス関連のトランザクションが原因で解決が異なるソースで変わる可能性があるため、これは単一の UInt64 フィールドではなく配列です。</td>
+<td>未解決のネームスペース識別子にリンクされている解決エントリの配列。1 ブロック内でエイリアス関連のトランザクションが原因で解決が異なるソースで変わる可能性があるため、これは単一の UInt64 フィールドではなく配列です。</td>
 </tr>
 </tbody>
 </table>
@@ -680,12 +692,12 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>resolvedValue</td>
-<td>25 bytes (binary) or uint64</td>
-<td>解決済みアドレスまたは解決済みモザイクID</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L8">Address</a> または <a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L4">MosaicId</a></td>
+<td>解決済みアドレスまたは解決済みモザイクの識別子</td>
 </tr>
 <tr class="row-odd"><td>source</td>
 <td><a class="reference internal" href="#receipt-source"><span class="std std-ref">ReceiptSource</span></a></td>
-<td>レシートをトリガしたトランザクション。</td>
+<td>レシートをトリガしたトランザクションの情報。</td>
 </tr>
 </tbody>
 </table>
@@ -712,7 +724,7 @@
 </tr>
 <tr class="row-odd"><td>secondaryId</td>
 <td>uint32</td>
-<td>アグリゲートトランザクション内のトランザクションのインデックス。トランザクションがインナートランザクションではない場合、セカンダリIDは 0 に設定されます。</td>
+<td>アグリゲートトランザクション内のトランザクションのインデックス。トランザクションがインナートランザクションではない場合、セカンダリ識別子は 0 に設定されます。</td>
 </tr>
 </tbody>
 </table>
@@ -741,6 +753,7 @@
 <li><a class="reference internal" href="#transaction-statement">トランザクションステートメント</a></li>
 <li><a class="reference internal" href="#resolution-statement">解決ステートメント</a></li>
 <li><a class="reference internal" href="#recorded-receipts">記録済みレシート</a></li>
+<li><a class="reference internal" href="#guides">Guides</a></li>
 <li><a class="reference internal" href="#schemas">スキーマ</a><ul>
 <li><a class="reference internal" href="#id1">レシート</a></li>
 <li><a class="reference internal" href="#balancetransferreceipt">BalanceTransferReceipt</a></li>
@@ -782,6 +795,9 @@
                         <a href="cryptography.html">プロトコル</a>
                     </li>
                     <li>
+                        <a href="../guides/category.html">ガイド</a>
+                    </li>
+                    <li>
                         <a href="../api.html">リファレンス</a>
                     </li>
                     <li>
@@ -794,7 +810,7 @@
                 <h4>リファレンス</h4>
                 <ul>
                     <li><a href="../api.html">REST API</a></li>
-                    <li><a href="../server.html">Server</a></li>
+                    <li><a href="../server.html">サーバ</a></li>
                     <li><a href="../sdk.html">SDKs</a></li>
                     <li><a href="../cli.html">クライアント</a></li>
                     <li><a href="../extensions.html">拡張</a></li>
@@ -817,9 +833,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/nemtechdev">
+                        <a href="https://twitter.com/NEMofficial">
                             <i class="fab fa-twitter"></i>
-                            <span> Follow the dev updates</span>
+                            <span> Follow the updates</span>
                         </a>
                     </li>
                     <li>

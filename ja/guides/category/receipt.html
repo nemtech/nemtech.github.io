@@ -5,9 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>モザイクの情報を取得する &#8212; NEM Developer Center</title>
+    <title>Posts in Receipt &#8212; NEM Developer Center</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx_tabs/tabs.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx_tabs/semantic-ui-2.2.10/segment.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx_tabs/semantic-ui-2.2.10/menu.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.css" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
@@ -25,6 +29,8 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/sphinx_tabs/tabs.js"></script>
+    <script type="text/javascript" src="../../_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.js"></script>
     <script type="text/javascript" src="../../_static/js/custom.js"></script>
     <script type="text/javascript" src="../../_static/translations.js"></script>
     <script type="text/javascript" src="../../_static/examplecode.js"></script>
@@ -57,7 +63,7 @@
 </script>-->
 
   
-  <link rel="alternate" type="application/atom+xml"  href="../../guides/atom.xml" title="Blog">
+  <link rel="alternate" type="application/atom+xml"  href="../../guides/atom.xml" title="Posts in Receipt">
   
   
   <style type="text/css">
@@ -92,11 +98,6 @@
         <div class="navbar-right col-md-3">
             <ul>
                 <ul class="list-inline">
-    
-    <li id="edit-github" class="hidden-xs hidden-sm">
-        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\mosaic\getting-mosaic-information.rst"
-           rel="nofollow"> <i class="fab fa-github"></i> 編集</a>
-    </li>
     
     <li id="language" class="hidden-xs hidden-sm">
         <i class="fas fa-language"></i>
@@ -235,81 +236,27 @@
         
         <div class="col-md-7 content">
             
-  <div class="section" id="getting-the-mosaic-information">
-<h1>モザイクの情報を取得する<a class="headerlink" href="#getting-the-mosaic-information" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a class="reference internal" href="../../concepts/mosaic.html"><span class="doc">モザイク</span></a> 識別子による所有権、可分性、期間、フラグの取得</p>
-<div class="section" id="prerequisites">
-<h2>前提条件<a class="headerlink" href="#prerequisites" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><a class="reference internal" href="creating-a-mosaic.html"><span class="doc">モザイクの作成ガイド</span></a> を終了していること</li>
-</ul>
-</div>
-<div class="section" id="getting-into-some-code">
-<h2>それではコードを見ていきましょう<a class="headerlink" href="#getting-into-some-code" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>確認したいモザイクIDをパラメタとして <code class="docutils literal"><span class="pre">getMosaic`</span></code> 関数に渡して呼び出してください。</p>
-<div class="example-code container">
-<div class="literal-block-wrapper container" id="id1">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/mosaic/GettingMosaicInformation.ts">View Code</a></span><a class="headerlink" href="#id1" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">mosaicHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">mosaicId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;71415AC19C818709&#39;</span><span class="p">);</span>
-
-<span class="nx">mosaicHttp</span>
-    <span class="p">.</span><span class="nx">getMosaic</span><span class="p">(</span><span class="nx">mosaicId</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">mosaicInfo</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mosaicInfo</span><span class="p">),</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
-</pre></div>
-</div>
-</div>
-<div class="literal-block-wrapper container" id="id2">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/mosaic/GettingMosaicInformation.js">View Code</a></span><a class="headerlink" href="#id2" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">mosaicHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">mosaicId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;71415AC19C818709&#39;</span><span class="p">);</span>
-
-<span class="nx">mosaicHttp</span>
-    <span class="p">.</span><span class="nx">getMosaic</span><span class="p">(</span><span class="nx">mosaicId</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">mosaicInfo</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mosaicInfo</span><span class="p">),</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
-</pre></div>
-</div>
-</div>
-<div class="literal-block-wrapper container" id="id3">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/bash/mosaic/GettingMosaicInformation.sh">View Code</a></span><a class="headerlink" href="#id3" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli mosaic info --hex 71415AC19C818709
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-  <div class="section">
-  
-    
+<h1>Receipt ガイド</h1>
 
 
 
+<div class="section">
+    <h2><a href="../blockchain/getting-the-mosaic-identifier-behind-a-namespace-with-receipts.html">レシート付きネームスペースの背後にあるアセットの識別子を取得</a></h2>
+    <p>レシートを使用して特定のエイリアスとトランザクションの解決を取得します。</p>
 
-  
-  
-  </div>
+    <p><a href="../blockchain/getting-the-mosaic-identifier-behind-a-namespace-with-receipts.html">もっと読む</a></p>
+    <hr>
+</div>
 
-            
-            <p class="feedback top-gap">
-                <b>お探しのものは見つかりましたか？</b>
-                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">フィードバックをください。</a>
-            </p>
+
+
             
         </div>
          
 
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
-        <ul>
-<li><a class="reference internal" href="#">モザイクの情報を取得する</a><ul>
-<li><a class="reference internal" href="#prerequisites">前提条件</a></li>
-<li><a class="reference internal" href="#getting-into-some-code">それではコードを見ていきましょう</a></li>
-</ul>
-</li>
-</ul>
-
+        
     </div>
 </div>
 

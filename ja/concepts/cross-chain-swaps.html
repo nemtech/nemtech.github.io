@@ -59,6 +59,8 @@
 </script>-->
 
   
+  <link rel="alternate" type="application/atom+xml"  href="../guides/atom.xml" title="Blog">
+  
   
   <style type="text/css">
     ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
@@ -141,7 +143,7 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">アカウントの制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">クロスチェーンスワップ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#protocol">プロトコル</a></li>
@@ -183,7 +185,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.0</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
     </p>
 </div>
 
@@ -204,7 +206,7 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">アカウントの制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">クロスチェーンスワップ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#protocol">プロトコル</a></li>
@@ -322,7 +324,7 @@
 <h2>スキーマ<a class="headerlink" href="#schemas" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">設定パラメータは <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">編集可能</a> です。公開ネットワークとは異なる可能性があります。</p>
+<p class="last">設定パラメータは <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">編集可能</a> です。公開ネットワークでは異なる可能性があります。</p>
 </div>
 <div class="section" id="secretlocktransaction">
 <span id="secret-lock-transaction"></span><h3>SecretLockTransaction<a class="headerlink" href="#secretlocktransaction" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -348,11 +350,11 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>mosaic</td>
-<td><a class="reference internal" href="mosaic.html#id1"><span class="std std-ref">Mosaic</span></a></td>
+<td><a class="reference internal" href="mosaic.html#unresolved-mosaic"><span class="std std-ref">UnresolvedMosaic</span></a></td>
 <td>ロックされたモザイク</td>
 </tr>
 <tr class="row-odd"><td>duration</td>
-<td>uint64</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L2">BlockDuration</a></td>
 <td>期間は <code class="docutils literal"><span class="pre">30</span></code> 日までが許可されています。到達した場合はモザイクが開始者へ返還されます。</td>
 </tr>
 <tr class="row-even"><td>hashAlgorithm</td>
@@ -360,11 +362,11 @@
 <td>proof に使用されているハッシュアルゴリズム</td>
 </tr>
 <tr class="row-odd"><td>secret</td>
-<td>64 bytes (binary)</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L9">Hash256</a></td>
 <td>ハッシュ化された証明</td>
 </tr>
 <tr class="row-even"><td>recipient</td>
-<td>25 bytes (binary)</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L7">UnresolvedAddress</a></td>
 <td>ロック解除後、ファンドを受け取るアドレス</td>
 </tr>
 </tbody>
@@ -398,11 +400,11 @@
 <td>proof に使用されているハッシュアルゴリズム</td>
 </tr>
 <tr class="row-odd"><td>secret</td>
-<td>64 bytes (binary)</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L9">Hash256</a></td>
 <td>ハッシュ化された証明</td>
 </tr>
 <tr class="row-even"><td>recipient</td>
-<td>25 bytes (binary)</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L7">UnresolvedAddress</a></td>
 <td>ロック解除後、ファンドを受け取るアドレス</td>
 </tr>
 <tr class="row-odd"><td>proofSize</td>
@@ -504,6 +506,9 @@
                         <a href="cryptography.html">プロトコル</a>
                     </li>
                     <li>
+                        <a href="../guides/category.html">ガイド</a>
+                    </li>
+                    <li>
                         <a href="../api.html">リファレンス</a>
                     </li>
                     <li>
@@ -516,7 +521,7 @@
                 <h4>リファレンス</h4>
                 <ul>
                     <li><a href="../api.html">REST API</a></li>
-                    <li><a href="../server.html">Server</a></li>
+                    <li><a href="../server.html">サーバ</a></li>
                     <li><a href="../sdk.html">SDKs</a></li>
                     <li><a href="../cli.html">クライアント</a></li>
                     <li><a href="../extensions.html">拡張</a></li>
@@ -539,9 +544,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/nemtechdev">
+                        <a href="https://twitter.com/NEMofficial">
                             <i class="fab fa-twitter"></i>
-                            <span> Follow the dev updates</span>
+                            <span> Follow the updates</span>
                         </a>
                     </li>
                     <li>

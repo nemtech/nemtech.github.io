@@ -35,7 +35,7 @@
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="アカウントの制限" href="account-restrictions.html" />
+    <link rel="next" title="アカウント制限" href="account-restriction.html" />
     <link rel="prev" title="転送トランザクション" href="transfer-transaction.html" />
   
 <meta charset='utf-8'>
@@ -58,6 +58,8 @@
     })();
 </script>-->
 
+  
+  <link rel="alternate" type="application/atom+xml"  href="../guides/atom.xml" title="Blog">
   
   
   <style type="text/css">
@@ -159,7 +161,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">アカウントの制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
@@ -191,7 +193,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.0</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
     </p>
 </div>
 
@@ -230,7 +232,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">アカウントの制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
@@ -304,7 +306,7 @@
 <div class="section" id="sending-payouts">
 <h3>支払の送信<a class="headerlink" href="#sending-payouts" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Dan は2つの転送トランザクションを集約したアグリゲートトランザクションをアナウンスします。</p>
-<p>彼が唯一必須の署名者なので、署名した後、トランザクションはコンプリートと見なされます。これがネットワークへアナウンスされると、Alice と Bob は同時にモザイクを受け取るでしょう。</p>
+<p>Dan が唯一必須の署名者なので、署名した後にトランザクションはコンプリートと見なされます。これがネットワークへアナウンスされると、Alice と Bob は同時にモザイクを受け取るでしょう。</p>
 <div class="figure align-center" id="id7">
 <img alt="../_images/aggregate-sending-payouts.png" src="../_images/aggregate-sending-payouts.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">アグリゲート完了トランザクションによって支払を送信する</span></p>
@@ -312,7 +314,7 @@
 </div>
 <div class="section" id="multi-asset-escrowed-transactions">
 <h3>マルチアセットエスクロートランザクション<a class="headerlink" href="#multi-asset-escrowed-transactions" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>この例では、Alice はチケットを <code class="docutils literal"><span class="pre">currency:euro</span></code>  <a class="reference internal" href="mosaic.html"><span class="doc">モザイク</span></a> で購入しています。チケット販売者はアグリゲートトランザクションに署名し、交換はアトミックに起こります。</p>
+<p>この例では Alice がチケットを <code class="docutils literal"><span class="pre">currency:euro</span></code>  <a class="reference internal" href="mosaic.html"><span class="doc">モザイク</span></a> で購入しています。チケット販売者はアグリゲートトランザクションに署名し、交換はアトミックに起こります。</p>
 <div class="figure align-center" id="id8">
 <img alt="../_images/aggregate-escrow-1.png" src="../_images/aggregate-escrow-1.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">マルチアセットエスクロートランザクション</span></p>
@@ -383,11 +385,11 @@
 <td>バイト単位のトランザクションのペイロードサイズ。つまりインナートランザクションすべてによって占有されている合計バイト数。</td>
 </tr>
 <tr class="row-odd"><td>transactions</td>
-<td>array(Transaction, size=payloadSize)</td>
-<td>異なるアカウントによって開始されたトランザクション配列です。アグリゲートトランザクションは <code class="docutils literal"><span class="pre">1000</span></code> までのインナートランザクションを内包し <code class="docutils literal"><span class="pre">15</span></code> までの連署者を設定できます。他のアグリゲートトランザクションをインナートランザクションとして内包することはできません。</td>
+<td>array(<a class="reference internal" href="transaction.html#id4"><span class="std std-ref">Transaction</span></a>, size=payloadSize)</td>
+<td>内包されたトランザクションの配列です。アグリゲートトランザクションは <code class="docutils literal"><span class="pre">1000</span></code> までのインナートランザクションを内包でき <code class="docutils literal"><span class="pre">15</span></code> までの連署者を設定できます。他のアグリゲートトランザクションをインナートランザクションとして内包することはできません。</td>
 </tr>
 <tr class="row-even"><td>cosignatures</td>
-<td>array(Cosignature, __FILL__)</td>
+<td>array(<a class="reference internal" href="#cosignature"><span class="std std-ref">Cosignature</span></a>, __FILL__)</td>
 <td><a class="reference internal" href="#cosignature"><span class="std std-ref">連署者</span></a> トランザクションの配列。トランザクションの後ろの残りの本体スペースを埋めます。</td>
 </tr>
 </tbody>
@@ -414,8 +416,8 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>parentHash</td>
-<td>32 bytes (binary)</td>
-<td>署名するアグリゲートボンドトランザクションハッシュ</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L9">Hash256</a></td>
+<td>署名すべきアグリゲートボンドトランザクションハッシュ</td>
 </tr>
 </tbody>
 </table>
@@ -439,11 +441,11 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>signer</td>
-<td>32 bytes (binary)</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L11">Key</a></td>
 <td>連署者の公開鍵</td>
 </tr>
 <tr class="row-odd"><td>signature</td>
-<td>64 bytes (binary)</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L12">Signature</a></td>
 <td>トランザクションの署名</td>
 </tr>
 </tbody>
@@ -480,15 +482,15 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>mosaic</td>
-<td><a class="reference internal" href="mosaic.html#id1"><span class="std std-ref">Mosaic</span></a></td>
+<td><a class="reference internal" href="mosaic.html#unresolved-mosaic"><span class="std std-ref">UnresolvedMosaic</span></a></td>
 <td>ロックモザイク <code class="docutils literal"><span class="pre">10</span> <span class="pre">cat.currency</span></code> 以上必要です。</td>
 </tr>
 <tr class="row-odd"><td>duration</td>
-<td>uint64</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L2">BlockDuration</a></td>
 <td>ロック期間。期間は <code class="docutils literal"><span class="pre">2</span></code> 日までとすることができます。</td>
 </tr>
 <tr class="row-even"><td>hash</td>
-<td>32 bytes (binary)</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L9">Hash256</a></td>
 <td>モザイクをアンロックする前に、アグリゲートボンドトランザクションハッシュが承認されていなければなりません。</td>
 </tr>
 </tbody>
@@ -560,6 +562,9 @@
                         <a href="cryptography.html">プロトコル</a>
                     </li>
                     <li>
+                        <a href="../guides/category.html">ガイド</a>
+                    </li>
+                    <li>
                         <a href="../api.html">リファレンス</a>
                     </li>
                     <li>
@@ -572,7 +577,7 @@
                 <h4>リファレンス</h4>
                 <ul>
                     <li><a href="../api.html">REST API</a></li>
-                    <li><a href="../server.html">Server</a></li>
+                    <li><a href="../server.html">サーバ</a></li>
                     <li><a href="../sdk.html">SDKs</a></li>
                     <li><a href="../cli.html">クライアント</a></li>
                     <li><a href="../extensions.html">拡張</a></li>
@@ -595,9 +600,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/nemtechdev">
+                        <a href="https://twitter.com/NEMofficial">
                             <i class="fab fa-twitter"></i>
-                            <span> Follow the dev updates</span>
+                            <span> Follow the updates</span>
                         </a>
                     </li>
                     <li>

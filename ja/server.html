@@ -59,6 +59,8 @@
 </script>-->
 
   
+  <link rel="alternate" type="application/atom+xml"  href="guides/atom.xml" title="Blog">
+  
   
   <style type="text/css">
     ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
@@ -141,7 +143,7 @@
 <li class="toctree-l1"><a class="reference internal" href="concepts/namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/aggregate-transaction.html">アグリゲートトランザクション</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/account-restrictions.html">アカウントの制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/account-restriction.html">アカウント制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
@@ -160,9 +162,20 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="api.html">REST API</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">サーバ</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#node-types">ノードタイプ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">インストール</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting">トラブルシューティング</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#package-organization">パッケージ構成</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installation">インストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tools">Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#catapult-tools-address">catapult.tools.address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catapult-tools-nemgen">catapult.tools.nemgen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catapult-tools-benchmark">catapult.tools.benchmark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catapult-tools-network">catapult.tools.network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catapult-tools-statusgen">catapult.tools.statusgen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catapult-tools-health">catapult.tools.health</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">ガイド</a></li>
 </ul>
 </li>
@@ -179,7 +192,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.0</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
     </p>
 </div>
 
@@ -200,7 +213,7 @@
 <li class="toctree-l1"><a class="reference internal" href="concepts/namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/aggregate-transaction.html">アグリゲートトランザクション</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/account-restrictions.html">アカウントの制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/account-restriction.html">アカウント制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
@@ -219,9 +232,20 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="api.html">REST API</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">サーバ</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#node-types">ノードタイプ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">インストール</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting">トラブルシューティング</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#package-organization">パッケージ構成</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installation">インストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tools">Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#catapult-tools-address">catapult.tools.address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catapult-tools-nemgen">catapult.tools.nemgen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catapult-tools-benchmark">catapult.tools.benchmark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catapult-tools-network">catapult.tools.network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catapult-tools-statusgen">catapult.tools.statusgen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catapult-tools-health">catapult.tools.health</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">ガイド</a></li>
 </ul>
 </li>
@@ -251,16 +275,39 @@
 <h1>サーバ<a class="headerlink" href="#server" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>ブロックチェーンプラットフォームである NEM はスマートアセットトランザクションの強力で、安定した、安全なプラットフォームを提供するために、非中央集権ネットワークのノードに依存しています。</p>
 <p>これらのノードは4年以上稼働し続けてきた、従来 JAVA で書かれていた NEM 分散台帳を C++ でリライトした <a href="https://github.com/nemtech/catapult-server" target="_blank">catapult-server</a> ソフトウェアを使用してデプロイされます。</p>
-<p>その多層アーキテクチャーを通じて、ピアツーピアネットワークの分離と提案された REST APIレイヤーを使用して、より優れた API 統合フローを実装することが可能です。</p>
-<p>また Catapult ではプライベートネットワーク向けに catapult-server ノード用の <strong>プラグイン</strong> を開発することで独自のトランザクションタイプを追加する機能を提供します。</p>
-<div class="section" id="node-types">
-<h2>ノードタイプ<a class="headerlink" href="#node-types" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Catapult-server はノード所有者の柔軟性を向上します。同じソフトウェアは異なる3種類の <a class="reference internal" href="concepts/node.html"><span class="doc">ノード</span></a> に設定することができます:</p>
+<p>その多層アーキテクチャーを通じて、ピアツーピアネットワークの分離と提案された REST API レイヤーを使用して、より優れた API 統合フローを実装することが可能です。</p>
+<p>ソフトウェアは異なる3種類の <a class="reference internal" href="concepts/node.html"><span class="doc">ノード</span></a> に設定することができます:</p>
 <ul class="simple">
 <li><strong>Peer ノード</strong>: Peer ノードは API がトランザクションを P2P ネットワークにプッシュすると、それを検証または破棄します。ノードはコンセンサスアルゴリズムを実行して新しいブロックを作成し、そしてネットワークを通して変更を伝播します。</li>
 <li><strong>API ノード</strong>: API ノードの主な役割はトランザクションが検証された後に MongoDB データベースにデータを正しく保存することです。これらはパーシャルなアグリゲートボンドトランザクションを識別して保存もします。</li>
 <li><strong>Dual ノード</strong>: Dual ノードは Peer と API ノードを1つのサーバインスタンスにまとめたものです。</li>
 </ul>
+<p>また Catapult ではプライベートネットワーク向けに catapult-server ノード用の <strong>プラグイン</strong> を開発することで独自のトランザクションタイプを追加する機能を提供します。</p>
+<div class="section" id="installation">
+<h2>インストール<a class="headerlink" href="#installation" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a href="https://github.com/tech-bureau/catapult-service-bootstrap" target="_blank">Catapult Service Bootstrap</a> で開発目的または学習目的で独自のネットワークを展開する catapult-server ソフトウェアをテストします。</p>
+<p>ビルド <a href="https://github.com/nemtech/catapult-server/blob/master/BUILDING.md" target="_blank">instructions for Ubuntu</a> に従うことで、新しいカタパルトサーバーイメージを作成することができます。</p>
+<div class="section" id="troubleshooting">
+<h3>トラブルシューティング<a class="headerlink" href="#troubleshooting" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>このセクションでは catapult ノードを設定する際によくあるエラーや問題について説明します。</p>
+<p><strong>モザイクの源泉</strong></p>
+<p>このエラーは通常次のようになります:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">14:19:34.719477 0x000000010dfbf5c0: &lt;error&gt; (local::HostUtils.h@43) Throwing exception: harvesting outflows (0) do not add up to power ten multiple of expected importance (15000000)</span>
+</pre></div>
+</div>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">14:19:34.719477 0x000000010dfbf5c0: &lt;error&gt; (local::HostUtils.h@43) Throwing exception: harvesting outflows (15000000) do not add up to power ten multiple of expected importance (17000000)</span>
+</pre></div>
+</div>
+<p><strong>何を意味するのか？</strong></p>
+<p>このエラーは以下の状況で発生する可能性があります:</p>
+<ol class="loweralpha simple">
+<li>nemesis ブロックの <code class="docutils literal"><span class="pre">cat.harvest</span></code> モザイクの供給は <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">config-network.properties</a> ファイル内の供給とは一致しません。</li>
+<li><a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">config-network.properties</a> 内の mosaicId は nemesis ブロック内で生成されたものとは一致しません。</li>
+</ol>
+<p><strong>どのように修正するのか？</strong></p>
+<p>最初のシナリオでは、あなたのリソース <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">config-network.properties</a>  <code class="docutils literal"><span class="pre">totalChainImportance</span></code> を nemesis ブロックで設定された供給に合わせて変更してください。</p>
+<p>2番目のシナリオでは nemgen ツールによって作成された正しいモザイク識別子を見つける必要があります。 <a class="reference internal" href="#catapult-server-tools"><span class="std std-ref">nemgen</span></a> を実行し、結果を txt ファイルに出力することができます。それから <code class="docutils literal"><span class="pre">cat.&lt;harvest</span> <span class="pre">|</span> <span class="pre">currency&gt;</span></code> 識別子を探します。</p>
+</div>
 </div>
 <div class="section" id="package-organization">
 <h2>パッケージ構成<a class="headerlink" href="#package-organization" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -309,10 +356,129 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="installation">
-<h2>インストール<a class="headerlink" href="#installation" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a href="https://github.com/tech-bureau/catapult-service-bootstrap" target="_blank">Catapult Service Bootstrap</a> で開発目的または学習目的で独自のネットワークを展開する catapult-server ソフトウェアをテストします。</p>
-<p>ビルド <a href="https://github.com/nemtech/catapult-server/blob/master/BUILDING.md" target="_blank">instructions for Ubuntu</a> に従うことで、新しいカタパルトサーバーイメージを作成することができます。</p>
+<div class="section" id="tools">
+<span id="catapult-server-tools"></span><h2>Tools<a class="headerlink" href="#tools" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Catapult サーバーにはネットワークの健全性チェック、nemesis ブロックの生成、キーペアの作成、突然の終了時のサーバ復旧などを行うツールが付属しています。</p>
+<p>それらは <code class="docutils literal"><span class="pre">catapult-server/build/bin</span></code> の中にあります。</p>
+<div class="section" id="catapult-tools-address">
+<h3>catapult.tools.address<a class="headerlink" href="#catapult-tools-address" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>キーペアとアドレスの生成。</p>
+<p>オプション</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">-h [ --help ]     print help message</span>
+<span class="go">-l [ --loggingConfigurationPath ] arg</span>
+<span class="go">                  the path to the logging configuration file</span>
+<span class="go">-g [ --generate ] arg (=10)</span>
+<span class="go">                  number of random keys to generate</span>
+<span class="go">-p [ --public ] arg</span>
+<span class="go">                  show address associated with public key</span>
+<span class="go">-s [ --secret ] arg</span>
+<span class="go">                  show address and public key associated with private key</span>
+<span class="go">-n [ --network ] arg (=public)</span>
+<span class="go">                  network, possible values: mijin, mijin-test, public (default), public-test</span>
+<span class="go">-e [ --useHighEntropySource ]</span>
+<span class="go">                  true if a high entropy source should be used for randomness</span>
+</pre></div>
+</div>
+<p>コマンド</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">./catapult.tools.address -g  10 -n mijin-test</span>
+</pre></div>
+</div>
+<p>出力を保存したい場合は最後に出力ストリームを追加します:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">./catapult.tools.address -g  10 -n mijin-test &gt; myKeys.txt.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="catapult-tools-nemgen">
+<h3>catapult.tools.nemgen<a class="headerlink" href="#catapult-tools-nemgen" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/tools/nemgen/resources/mijin-test.properties">mijin-test.properties</a> ファイルから nemesis ブロックを生成します。この生成された出力は新しいチェーンの開始に使用されます。</p>
+<p>オプション</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">-h [ --help ]     print help message</span>
+<span class="go">-l [ --loggingConfigurationPath ] arg</span>
+<span class="go">                the path to the logging configuration file</span>
+<span class="go">-r [ --resources ] arg (=..)</span>
+<span class="go">                the path to the resources directory</span>
+<span class="go">-p [ --nemesisProperties ] arg</span>
+<span class="go">                the path to the nemesis properties file</span>
+<span class="go">-s [ --summary ] arg</span>
+<span class="go">                the path to summary output file (default: &lt;bindir&gt;/summary.txt)</span>
+<span class="go">-n [ --no-summary ]</span>
+<span class="go">                don&#39;t generate summary file</span>
+<span class="go">-t [ --useTemporaryCacheDatabase ]</span>
+<span class="go">                true if a temporary cache database should be created and destroyed</span>
+</pre></div>
+</div>
+<p>コマンド</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">./catapult.tools.nemgen -p &lt;nemesis_block_properties_path&gt; -r &lt;resources_path&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="catapult-tools-benchmark">
+<h3>catapult.tools.benchmark<a class="headerlink" href="#catapult-tools-benchmark" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ハッシュや暗号化など Catapult 機能のCPUベースのパフォーマンステストを実行します。</p>
+<p>オプション</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">-h [ --help ]     print help message</span>
+<span class="go">-l [ --loggingConfigurationPath ] arg</span>
+<span class="go">                  the path to the logging configuration file</span>
+<span class="go">-t [ --num threads ] arg (=0)</span>
+<span class="go">                  the number of threads</span>
+<span class="go">-p [ --num partitions ] arg (=0)</span>
+<span class="go">                  the number of partitions</span>
+<span class="go">-o [ --ops / partition ] arg (=1000)</span>
+<span class="go">                  the number of operations per partition</span>
+<span class="go">-s [ --data size ] arg (=148)</span>
+<span class="go">                  the size of the data to generate</span>
+</pre></div>
+</div>
+<p>コマンド</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">./catapult.tools.benchmark</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="catapult-tools-network">
+<h3>catapult.tools.network<a class="headerlink" href="#catapult-tools-network" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/peers-p2p.json">peers-p2p.json</a> および <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/peers-api.json">peers-api.json</a> 内の既知のピアについて、ノード情報、パートナーノード接続情報、およびパートナーノードテーブルを出力します。</p>
+<p>オプション</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">-h [ --help ]     print help message</span>
+<span class="go">-l [ --loggingConfigurationPath ] arg</span>
+<span class="go">                  the path to the logging configuration file</span>
+<span class="go">-r [ --resources ] arg (=..)</span>
+<span class="go">                  the path to the resources directory</span>
+</pre></div>
+</div>
+<p>コマンド</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">./catapult.tools.network -r &lt;resources_path&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="catapult-tools-statusgen">
+<h3>catapult.tools.statusgen<a class="headerlink" href="#catapult-tools-statusgen" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>トランザクションの受信後にサーバが返却する可能性のあるステータスエラーのリストを生成します。</p>
+<p>オプション</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">-h [ --help ]     print help message</span>
+<span class="go">-l [ --loggingConfigurationPath ] arg</span>
+<span class="go">                  the path to the logging configuration file</span>
+</pre></div>
+</div>
+<p>コマンド</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">./catapult.tools.statusgen</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="catapult-tools-health">
+<h3>catapult.tools.health<a class="headerlink" href="#catapult-tools-health" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/peers-p2p.json">peers-p2p.json</a> および <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/peers-api.json">peers-api.json</a> 内のノードについて、健全性をチェックし、統計情報(未確認のトランザクションキャッシュなど)を表示します。</p>
+<p>オプション</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">-h [ --help ]     print help message</span>
+<span class="go">-l [ --loggingConfigurationPath ] arg</span>
+<span class="go">                  the path to the logging configuration file</span>
+<span class="go">-r [ --resources ] arg (=..)</span>
+<span class="go">                  the path to the resources directory</span>
+</pre></div>
+</div>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">./catapult.tools.health -r &lt;resources_path&gt;</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="guides">
 <h2>ガイド<a class="headerlink" href="#guides" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -346,9 +512,20 @@
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">サーバ</a><ul>
-<li><a class="reference internal" href="#node-types">ノードタイプ</a></li>
+<li><a class="reference internal" href="#installation">インストール</a><ul>
+<li><a class="reference internal" href="#troubleshooting">トラブルシューティング</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#package-organization">パッケージ構成</a></li>
-<li><a class="reference internal" href="#installation">インストール</a></li>
+<li><a class="reference internal" href="#tools">Tools</a><ul>
+<li><a class="reference internal" href="#catapult-tools-address">catapult.tools.address</a></li>
+<li><a class="reference internal" href="#catapult-tools-nemgen">catapult.tools.nemgen</a></li>
+<li><a class="reference internal" href="#catapult-tools-benchmark">catapult.tools.benchmark</a></li>
+<li><a class="reference internal" href="#catapult-tools-network">catapult.tools.network</a></li>
+<li><a class="reference internal" href="#catapult-tools-statusgen">catapult.tools.statusgen</a></li>
+<li><a class="reference internal" href="#catapult-tools-health">catapult.tools.health</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#guides">ガイド</a></li>
 </ul>
 </li>
@@ -379,6 +556,9 @@
                         <a href="concepts/cryptography.html">プロトコル</a>
                     </li>
                     <li>
+                        <a href="guides/category.html">ガイド</a>
+                    </li>
+                    <li>
                         <a href="api.html">リファレンス</a>
                     </li>
                     <li>
@@ -391,7 +571,7 @@
                 <h4>リファレンス</h4>
                 <ul>
                     <li><a href="api.html">REST API</a></li>
-                    <li><a href="#">Server</a></li>
+                    <li><a href="#">サーバ</a></li>
                     <li><a href="sdk.html">SDKs</a></li>
                     <li><a href="cli.html">クライアント</a></li>
                     <li><a href="extensions.html">拡張</a></li>
@@ -414,9 +594,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/nemtechdev">
+                        <a href="https://twitter.com/NEMofficial">
                             <i class="fab fa-twitter"></i>
-                            <span> Follow the dev updates</span>
+                            <span> Follow the updates</span>
                         </a>
                     </li>
                     <li>

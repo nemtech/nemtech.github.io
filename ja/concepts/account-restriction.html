@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>アカウントの制限 &#8212; NEM Developer Center</title>
+    <title>アカウント制限 &#8212; NEM Developer Center</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
@@ -59,6 +59,8 @@
 </script>-->
 
   
+  <link rel="alternate" type="application/atom+xml"  href="../guides/atom.xml" title="Blog">
+  
   
   <style type="text/css">
     ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
@@ -94,7 +96,7 @@
                 <ul class="list-inline">
     
     <li id="edit-github" class="hidden-xs hidden-sm">
-        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\account-restrictions.rst"
+        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\account-restriction.rst"
            rel="nofollow"> <i class="fab fa-github"></i> 編集</a>
     </li>
     
@@ -141,7 +143,7 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">アカウントの制限</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">アカウント制限</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#address-restriction">アドレス制限</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mosaic-restriction">モザイク制限</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#operation-restriction">操作制限</a></li>
@@ -196,7 +198,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.0</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
     </p>
 </div>
 
@@ -217,7 +219,7 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">アカウントの制限</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">アカウント制限</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#address-restriction">アドレス制限</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mosaic-restriction">モザイク制限</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#operation-restriction">操作制限</a></li>
@@ -281,8 +283,8 @@
         
         <div class="col-md-7 content">
             
-  <div class="section" id="account-restrictions">
-<h1>アカウントの制限<a class="headerlink" href="#account-restrictions" title="このヘッドラインへのパーマリンク">¶</a></h1>
+  <div class="section" id="account-restriction">
+<h1>アカウント制限<a class="headerlink" href="#account-restriction" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><a class="reference internal" href="account.html"><span class="doc">アカウント</span></a>  はスマートなルールの集合を構成し、一連の制限の下、アナウンスまたはトランザクションを受信をブロックすることができます。</p>
 <p>アカウントの保有者 - マルチシグアカウントの場合は複数 - は後に特定の <a class="reference internal" href="#account-address-restriction-transaction"><span class="std std-ref">アカウント制限トランザクション</span></a> を発表してアカウント制限を編集できます。</p>
 <div class="section" id="address-restriction">
@@ -337,7 +339,7 @@
 <h2>スキーマ<a class="headerlink" href="#schemas" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">設定パラメータは <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">編集可能</a> です。公開ネットワークとは異なる可能性があります。</p>
+<p class="last">設定パラメータは <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">編集可能</a> です。公開ネットワークでは異なる可能性があります。</p>
 </div>
 <div class="section" id="accountaddressrestrictiontransaction">
 <span id="account-address-restriction-transaction"></span><h3>AccountAddressRestrictionTransaction<a class="headerlink" href="#accountaddressrestrictiontransaction" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -346,7 +348,7 @@
 <p><strong>Entity type</strong>: 0x4150</p>
 <p><strong>Inlines</strong>:</p>
 <ul class="simple">
-<li><a class="reference internal" href="transaction.html#id4"><span class="std std-ref">Transaction</span></a> or <a class="reference internal" href="transaction.html#embedded-transaction"><span class="std std-ref">EmbeddedTransaction</span></a></li>
+<li><a class="reference internal" href="transaction.html#id4"><span class="std std-ref">Transaction</span></a> または <a class="reference internal" href="transaction.html#embedded-transaction"><span class="std std-ref">EmbeddedTransaction</span></a></li>
 </ul>
 <table border="1" class="docutils">
 <colgroup>
@@ -355,15 +357,15 @@
 <col width="33%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Property</th>
-<th class="head">Type</th>
-<th class="head">Description</th>
+<tr class="row-odd"><th class="head">プロパティ</th>
+<th class="head">タイプ</th>
+<th class="head">説明</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>restrictionType</td>
 <td><a class="reference internal" href="#account-restriction-type"><span class="std std-ref">AccountRestrictionType</span></a></td>
-<td>アカウント制限タイプを表す</td>
+<td>アカウント制限のタイプ</td>
 </tr>
 <tr class="row-odd"><td>modificationsCount</td>
 <td>uint8</td>
@@ -371,7 +373,7 @@
 </tr>
 <tr class="row-even"><td>modifications</td>
 <td>array(<a class="reference internal" href="#account-address-restriction-modification"><span class="std std-ref">AccountAddressRestrictionModification</span></a>, modificationsCount)</td>
-<td>変更の配列</td>
+<td>アドレス制限変更の配列</td>
 </tr>
 </tbody>
 </table>
@@ -383,7 +385,7 @@
 <p><strong>Entity type</strong>: 0x4250</p>
 <p><strong>Inlines</strong>:</p>
 <ul class="simple">
-<li><a class="reference internal" href="transaction.html#id4"><span class="std std-ref">Transaction</span></a> or <a class="reference internal" href="transaction.html#embedded-transaction"><span class="std std-ref">EmbeddedTransaction</span></a></li>
+<li><a class="reference internal" href="transaction.html#id4"><span class="std std-ref">Transaction</span></a> または <a class="reference internal" href="transaction.html#embedded-transaction"><span class="std std-ref">EmbeddedTransaction</span></a></li>
 </ul>
 <table border="1" class="docutils">
 <colgroup>
@@ -392,15 +394,15 @@
 <col width="33%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Property</th>
-<th class="head">Type</th>
-<th class="head">Description</th>
+<tr class="row-odd"><th class="head">プロパティ</th>
+<th class="head">タイプ</th>
+<th class="head">説明</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>restrictionType</td>
 <td><a class="reference internal" href="#account-restriction-type"><span class="std std-ref">AccountRestrictionType</span></a></td>
-<td>アカウント制限タイプを表す</td>
+<td>アカウント制限のタイプ</td>
 </tr>
 <tr class="row-odd"><td>modificationsCount</td>
 <td>uint8</td>
@@ -408,7 +410,7 @@
 </tr>
 <tr class="row-even"><td>modifications</td>
 <td>array(<a class="reference internal" href="#account-mosaic-restriction-modification"><span class="std std-ref">AccountMosaicRestrictionModification</span></a>, modificationsCount)</td>
-<td>変更の配列</td>
+<td>モザイク制限変更の配列</td>
 </tr>
 </tbody>
 </table>
@@ -420,7 +422,7 @@
 <p><strong>Entity type</strong>: 0x4350</p>
 <p><strong>Inlines</strong>:</p>
 <ul class="simple">
-<li><a class="reference internal" href="transaction.html#id4"><span class="std std-ref">Transaction</span></a> or <a class="reference internal" href="transaction.html#embedded-transaction"><span class="std std-ref">EmbeddedTransaction</span></a></li>
+<li><a class="reference internal" href="transaction.html#id4"><span class="std std-ref">Transaction</span></a> または <a class="reference internal" href="transaction.html#embedded-transaction"><span class="std std-ref">EmbeddedTransaction</span></a></li>
 </ul>
 <table border="1" class="docutils">
 <colgroup>
@@ -429,15 +431,15 @@
 <col width="33%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Property</th>
-<th class="head">Type</th>
-<th class="head">Description</th>
+<tr class="row-odd"><th class="head">プロパティ</th>
+<th class="head">タイプ</th>
+<th class="head">説明</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>restrictionType</td>
 <td><a class="reference internal" href="#account-restriction-type"><span class="std std-ref">AccountRestrictionType</span></a></td>
-<td>アカウント制限タイプを表す</td>
+<td>アカウント制限のタイプ</td>
 </tr>
 <tr class="row-odd"><td>modificationsCount</td>
 <td>uint8</td>
@@ -445,7 +447,7 @@
 </tr>
 <tr class="row-even"><td>modifications</td>
 <td>array(<a class="reference internal" href="#account-operation-restriction-modification"><span class="std std-ref">AccountOperationRestrictionModification</span></a>, modificationsCount)</td>
-<td>変更の配列</td>
+<td>操作制限変更の配列</td>
 </tr>
 </tbody>
 </table>
@@ -463,14 +465,14 @@
 <col width="33%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Property</th>
-<th class="head">Type</th>
-<th class="head">Description</th>
+<tr class="row-odd"><th class="head">プロパティ</th>
+<th class="head">タイプ</th>
+<th class="head">説明</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>value</td>
-<td>25 bytes (binary)</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L8">Address</a></td>
 <td>許可/ブロックするアドレス</td>
 </tr>
 </tbody>
@@ -489,15 +491,15 @@
 <col width="33%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Property</th>
-<th class="head">Type</th>
-<th class="head">Description</th>
+<tr class="row-odd"><th class="head">プロパティ</th>
+<th class="head">タイプ</th>
+<th class="head">説明</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>value</td>
-<td>uint64</td>
-<td>許可/ブロックするモザイク</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L4">MosaicId</a></td>
+<td>許可/ブロックするモザイクの識別子</td>
 </tr>
 </tbody>
 </table>
@@ -515,15 +517,15 @@
 <col width="33%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Property</th>
-<th class="head">Type</th>
-<th class="head">Description</th>
+<tr class="row-odd"><th class="head">プロパティ</th>
+<th class="head">タイプ</th>
+<th class="head">説明</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>value</td>
 <td>uint16</td>
-<td>許可/ブロックする <a class="reference internal" href="transaction.html#id1"><span class="std std-ref">エンティティタイプ</span></a></td>
+<td>許可/ブロックする <a class="reference internal" href="transaction.html#id1"><span class="std std-ref">オペレーション</span></a></td>
 </tr>
 </tbody>
 </table>
@@ -537,15 +539,15 @@
 <col width="33%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Property</th>
-<th class="head">Type</th>
-<th class="head">Description</th>
+<tr class="row-odd"><th class="head">プロパティ</th>
+<th class="head">タイプ</th>
+<th class="head">説明</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>modificationType</td>
 <td><a class="reference internal" href="#account-restriction-modification-type"><span class="std std-ref">AccountRestrictionModificationType</span></a></td>
-<td>The modification type.</td>
+<td>アカウント制限変更のタイプ</td>
 </tr>
 </tbody>
 </table>
@@ -560,30 +562,30 @@
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Id</th>
-<th class="head">Description</th>
+<th class="head">説明</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>0x01</td>
-<td>あるアドレスからのトランザクションの受信のみを許可するアカウント制限タイプです。</td>
+<td>あるアドレスからのトランザクションの受信のみを許可する</td>
 </tr>
 <tr class="row-odd"><td>0x02</td>
-<td>あるモザイクIDを含むトランザクションの受信のみを許可するアカウント制限タイプです。</td>
+<td>あるモザイクIDを含むトランザクションの受信のみを許可する</td>
 </tr>
 <tr class="row-even"><td>0x04</td>
-<td>特定のトランザクションタイプのトランザクションのみ送信可能にするアカウント制限タイプです。</td>
+<td>特定のトランザクションタイプのトランザクションのみ送信可能にする</td>
 </tr>
 <tr class="row-odd"><td>0x05</td>
 <td>アカウント制限センチネル</td>
 </tr>
 <tr class="row-even"><td>0x81</td>
-<td>あるアドレスからのトランザクションの受信をブロックするアカウント制限タイプです。</td>
+<td>あるアドレスからのトランザクションの受信をブロックする</td>
 </tr>
 <tr class="row-odd"><td>0x82</td>
-<td>あるモザイクIDを含むトランザクションの受信をブロックするアカウント制限タイプです。</td>
+<td>あるモザイクIDを含むトランザクションの受信をブロックする</td>
 </tr>
 <tr class="row-even"><td>0x84</td>
-<td>特定のトランザクションタイプのトランザクションの送信をブロックするアカウント制限タイプです。</td>
+<td>特定のトランザクションタイプのトランザクションの送信をブロックする</td>
 </tr>
 </tbody>
 </table>
@@ -598,7 +600,7 @@
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Id</th>
-<th class="head">Description</th>
+<th class="head">説明</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -631,7 +633,7 @@
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
-<li><a class="reference internal" href="#">アカウントの制限</a><ul>
+<li><a class="reference internal" href="#">アカウント制限</a><ul>
 <li><a class="reference internal" href="#address-restriction">アドレス制限</a></li>
 <li><a class="reference internal" href="#mosaic-restriction">モザイク制限</a></li>
 <li><a class="reference internal" href="#operation-restriction">操作制限</a></li>
@@ -682,6 +684,9 @@
                         <a href="cryptography.html">プロトコル</a>
                     </li>
                     <li>
+                        <a href="../guides/category.html">ガイド</a>
+                    </li>
+                    <li>
                         <a href="../api.html">リファレンス</a>
                     </li>
                     <li>
@@ -694,7 +699,7 @@
                 <h4>リファレンス</h4>
                 <ul>
                     <li><a href="../api.html">REST API</a></li>
-                    <li><a href="../server.html">Server</a></li>
+                    <li><a href="../server.html">サーバ</a></li>
                     <li><a href="../sdk.html">SDKs</a></li>
                     <li><a href="../cli.html">クライアント</a></li>
                     <li><a href="../extensions.html">拡張</a></li>
@@ -717,9 +722,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/nemtechdev">
+                        <a href="https://twitter.com/NEMofficial">
                             <i class="fab fa-twitter"></i>
-                            <span> Follow the dev updates</span>
+                            <span> Follow the updates</span>
                         </a>
                     </li>
                     <li>

@@ -59,6 +59,8 @@
 </script>-->
 
   
+  <link rel="alternate" type="application/atom+xml"  href="../guides/atom.xml" title="Blog">
+  
   
   <style type="text/css">
     ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
@@ -141,7 +143,7 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">アカウントの制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
@@ -183,7 +185,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.0</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
     </p>
 </div>
 
@@ -204,7 +206,7 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
-<li class="toctree-l1"><a class="reference internal" href="account-restrictions.html">アカウントの制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
@@ -261,10 +263,6 @@
 <p>チェーン内のブロックは順序付けられており、完了したトランザクション履歴はブロックチェーンに保持されます。後に続くブロックチェーン内のブロックは、1づつ高さを増やしていきます。</p>
 <p>ブロックはデータベースに永続的なメディアとして保存されます。NEM はチェーン内の最初のブロックであるネメシスブロックを呼び出します。</p>
 <p>NEM ブロックは <code class="docutils literal"><span class="pre">15</span></code> 秒毎に完了し、日々の使用に対して十分にトランザクションを承認します。</p>
-<div class="admonition note">
-<p class="first admonition-title">注釈</p>
-<p class="last">設定パラメータは <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">編集可能</a> です。公開ネットワークでは異なる可能性があります。</p>
-</div>
 <div class="section" id="block-creation">
 <h2>ブロック生成<a class="headerlink" href="#block-creation" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>ブロックは <a class="reference internal" href="account.html"><span class="doc">アカウント</span></a> によって作成されます。新しいブロックの生成プロセスは <a class="reference internal" href="harvesting.html"><span class="doc">ハーベスティング</span></a> と呼ばれます。ハーベスティングアカウント - ハーベスターと呼ばれます - はブロック内のトランザクションに応じた <a class="reference internal" href="transaction.html#fees"><span class="std std-ref">手数料</span></a> と <a class="reference internal" href="inflation.html"><span class="doc">インフレーション</span></a> を受け取ります。これによりハーベスターにはできるだけ多くのトランザクションをブロックに追加するインセンティブが与えられます。</p>
@@ -282,8 +280,13 @@
 </div>
 <div class="section" id="schemas">
 <h2>スキーマ<a class="headerlink" href="#schemas" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">設定パラメータは <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">編集可能</a> です。公開ネットワークでは異なる可能性があります。</p>
+</div>
 <div class="section" id="blockheader">
 <span id="block-header"></span><h3>ブロックヘッダ<a class="headerlink" href="#blockheader" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ブロックヘッダのシリアル化</p>
 <p><strong>インライン</strong></p>
 <ul class="simple">
 <li><a class="reference internal" href="#verifiable-entity"><span class="std std-ref">VerifiableEntity</span></a></li>
@@ -304,10 +307,10 @@
 <tbody valign="top">
 <tr class="row-even"><td>height</td>
 <td>uint64</td>
-<td>ブロックチェーンの高さ。各ブロックチェーンは一意な高さを持っています。後ろに続くブロックとは 1 だけ高さが異なります。</td>
+<td>ブロックチェーンの高さ。各ブロックは一意な高さを持っています。後ろに続くブロックとは 1 だけ高さが異なります。</td>
 </tr>
 <tr class="row-odd"><td>timestamp</td>
-<td>uint64</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L5">Timestamp</a></td>
 <td>ネメシスブロックが生成されてから経過した秒です。</td>
 </tr>
 <tr class="row-even"><td>difficulty</td>
@@ -319,23 +322,23 @@
 <td>手数料乗数はブロックに含まれるトランザクションに適用されます。</td>
 </tr>
 <tr class="row-even"><td>previousBlockHash</td>
-<td>32 bytes (binary)</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L9">Hash256</a></td>
 <td>前ブロックのハッシュ</td>
 </tr>
 <tr class="row-odd"><td>blockTransactionHash</td>
-<td>32 bytes (binary)</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L9">Hash256</a></td>
 <td>ブロックに含まれたトランザクションは <a href="https://en.wikipedia.org/wiki/Merkle_tree" target="_blank">merkle tree</a> としてハッシュ化されます。この木のルートはそれらを要約しています。</td>
 </tr>
 <tr class="row-even"><td>blockReceiptsHash</td>
-<td>32 bytes (binary)</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L9">Hash256</a></td>
 <td><a class="reference internal" href="receipt.html"><span class="doc">レシート</span></a> の集合はハッシュ化されて <a href="https://en.wikipedia.org/wiki/Merkle_tree" target="_blank">merkle tree</a> に入り <a class="reference internal" href="#"><span class="doc">ブロック</span></a> にリンクされます。ブロックヘッダはルートハッシュを格納します。</td>
 </tr>
 <tr class="row-odd"><td>stateHash</td>
-<td>32 bytes (binary)</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L9">Hash256</a></td>
 <td>各ブロックごとにブロックチェーンの状態が RocksDB に <a href="https://en.wikipedia.org/wiki/Radix_tree" target="_blank">patricia tree</a> の形で保存されています。ツリーのルートは与えられたブロックのブロックチェーンの状態を要約しています。</td>
 </tr>
 <tr class="row-even"><td>beneficiary</td>
-<td>32 bytes (binary)</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L11">Key</a></td>
 <td>ハーベスタによって指定されたオプション受益者の公開鍵。</td>
 </tr>
 </tbody>
@@ -389,6 +392,7 @@
 </div>
 <div class="section" id="verifiableentity">
 <span id="verifiable-entity"></span><h3>VerifiableEntity<a class="headerlink" href="#verifiableentity" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>アカウントによって署名されるべきエンティティのシリアル化。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="33%" />
@@ -403,7 +407,7 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>signature</td>
-<td>64 bytes (binary)</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L12">Signature</a></td>
 <td>署名者により生成されたエンティティの署名。</td>
 </tr>
 </tbody>
@@ -411,6 +415,7 @@
 </div>
 <div class="section" id="entitybody">
 <span id="entity-body"></span><h3>EntityBody<a class="headerlink" href="#entitybody" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>エンティティのシリアル化。エンティティはブロック、 <a class="reference internal" href="transaction.html"><span class="doc">トランザクション</span></a> または <a class="reference internal" href="receipt.html"><span class="doc">レシート</span></a> となります。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="33%" />
@@ -425,8 +430,8 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>signer</td>
-<td>32 bytes (binary)</td>
-<td>エンティティ署名者の <a class="reference internal" href="account.html"><span class="doc">公開鍵</span></a></td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L11">Key</a></td>
+<td>エンティティの署名者の公開鍵</td>
 </tr>
 <tr class="row-odd"><td>version</td>
 <td>uint16</td>
@@ -497,6 +502,9 @@
                         <a href="cryptography.html">プロトコル</a>
                     </li>
                     <li>
+                        <a href="../guides/category.html">ガイド</a>
+                    </li>
+                    <li>
                         <a href="../api.html">リファレンス</a>
                     </li>
                     <li>
@@ -509,7 +517,7 @@
                 <h4>リファレンス</h4>
                 <ul>
                     <li><a href="../api.html">REST API</a></li>
-                    <li><a href="../server.html">Server</a></li>
+                    <li><a href="../server.html">サーバ</a></li>
                     <li><a href="../sdk.html">SDKs</a></li>
                     <li><a href="../cli.html">クライアント</a></li>
                     <li><a href="../extensions.html">拡張</a></li>
@@ -532,9 +540,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/nemtechdev">
+                        <a href="https://twitter.com/NEMofficial">
                             <i class="fab fa-twitter"></i>
-                            <span> Follow the dev updates</span>
+                            <span> Follow the updates</span>
                         </a>
                     </li>
                     <li>
