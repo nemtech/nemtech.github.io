@@ -42,21 +42,22 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
-<!--
 <script type="text/javascript">
     var _paq = window._paq || [];
     _paq.push(['disableCookies']);
     _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);
     (function() {
-        var u="//analytics.nemtech.io/piwik/";
+        var u="https://nemtech.matomo.cloud/";
         _paq.push(['setTrackerUrl', u+'matomo.php']);
         _paq.push(['setSiteId', '1']);
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src='//cdn.matomo.cloud/nemtech.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
     })();
-</script>-->
+</script>
 
+  
+  <link rel="alternate" type="application/atom+xml"  href="guides/atom.xml" title="Blog">
   
   
   <style type="text/css">
@@ -132,6 +133,7 @@
 <li class="toctree-l1"><a class="reference internal" href="getting-started/setup-workstation.html">Setting up your workstation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting-started/first-application.html">Writing your first application</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting-started/training.html">Self-paced training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/migration/migrating-from-nis1-to-catapult.html">Migrating from NIS1 to Catapult</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
@@ -160,7 +162,7 @@
 <li class="toctree-l1"><a class="reference internal" href="api.html">REST API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="server.html">Server</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">SDK</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#supported-sdks">Supported SDKs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#supported-languages">Supported languages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ongoing-work">Ongoing work</a></li>
 </ul>
 </li>
@@ -176,7 +178,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.2</a></small>
     </p>
 </div>
 
@@ -189,6 +191,7 @@
 <li class="toctree-l1"><a class="reference internal" href="getting-started/setup-workstation.html">Setting up your workstation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting-started/first-application.html">Writing your first application</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting-started/training.html">Self-paced training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/migration/migrating-from-nis1-to-catapult.html">Migrating from NIS1 to Catapult</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
@@ -217,7 +220,7 @@
 <li class="toctree-l1"><a class="reference internal" href="api.html">REST API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="server.html">Server</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">SDK</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#supported-sdks">Supported SDKs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#supported-languages">Supported languages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ongoing-work">Ongoing work</a></li>
 </ul>
 </li>
@@ -244,30 +247,27 @@
             
   <div class="section" id="sdk">
 <h1>SDK<a class="headerlink" href="#sdk" title="Permalink to this headline">¶</a></h1>
-<p>The NEM2 Software Development Kit is the primary software development tool to create NEM2 components, such as additional tools, libraries or applications. Almost all, if not all, components should use <strong>NEM2-SDK</strong> instead of raw API.</p>
-<p>The new SDK enables developers to focus on their product rather than on the NEM2 Blockchain specific API details due to its higher abstraction.</p>
-<p>The best way to learn to use the SDKs is through <a class="reference internal" href="guides/category.html" title="Categories"><span class="xref std std-ref">guides</span></a>.</p>
-<div class="section" id="supported-sdks">
-<h2>Supported SDKs<a class="headerlink" href="#supported-sdks" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>NEM2 Software Development Kit</strong> is the primary software development tool to create NEM2 components, such as additional tools, libraries, or applications.</p>
+<p>It enables developers to focus on their product rather than on the specific API details due to its higher abstraction.</p>
+<p>Learn how to use NEM’s SDK following the <a class="reference internal" href="guides/category.html" title="Categories"><span class="xref std std-ref">guided implementation examples</span></a>.</p>
+<div class="section" id="supported-languages">
+<h2>Supported languages<a class="headerlink" href="#supported-languages" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Language</th>
 <th class="head">Repository</th>
 <th class="head">Reference</th>
-<th class="head">Target version</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>TypeScript &amp; JS SDK</td>
 <td><a href="https://github.com/nemtech/nem2-sdk-typescript-javascript" target="_blank">Repository</a></td>
 <td><a href="https://nemtech.github.io/nem2-sdk-typescript-javascript/" target="_blank">Documentation</a></td>
-<td>0.4 (latest)</td>
 </tr>
 </tbody>
 </table>
@@ -276,67 +276,57 @@
 <h2>Ongoing work<a class="headerlink" href="#ongoing-work" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">⚠️ The following SDKs are not compatible with the latest version of catapult-server (0.4).</p>
+<p class="last">⚠️ The following SDKs are not compatible with the latest version of catapult-server.</p>
 </div>
-<p>Read the open issues to know about the current status of each project.</p>
+<p>Read the <a href="https://github.com/nemtech/community/blob/master/projects-status.md#protocol-version-compatibilities/" target="_blank">protocol compatibility report</a> to know more about the status of each project.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Language</th>
 <th class="head">Repository</th>
 <th class="head">Reference</th>
-<th class="head">Target version</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>Java SDK</td>
 <td><a href="https://github.com/nemtech/nem2-sdk-java" target="_blank">Repository</a></td>
 <td><a href="https://nemtech.github.io/nem2-sdk-java/" target="_blank">Documentation</a></td>
-<td>0.1</td>
 </tr>
 <tr class="row-odd"><td>C# SDK</td>
 <td><a href="https://github.com/nemtech/nem2-sdk-csharp/" target="_blank">Repository</a></td>
 <td>&#160;</td>
-<td>0.1</td>
 </tr>
 <tr class="row-even"><td>Go SDK</td>
 <td><a href="https://github.com/proximax-storage/nem2-sdk-go/" target="_blank">Repository</a></td>
 <td>&#160;</td>
-<td>0.1</td>
 </tr>
 <tr class="row-odd"><td>Swift SDK</td>
 <td><a href="https://github.com/proximax-storage/nem2-sdk-swift/" target="_blank">Repository</a></td>
 <td>&#160;</td>
-<td>0.1</td>
 </tr>
 <tr class="row-even"><td>C++</td>
-<td>&#160;</td>
 <td>&#160;</td>
 <td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>PHP SDK</td>
 <td>&#160;</td>
 <td>&#160;</td>
-<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>Ruby SDK</td>
-<td>&#160;</td>
 <td>&#160;</td>
 <td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>Python SDK</td>
 <td>&#160;</td>
 <td>&#160;</td>
-<td>&#160;</td>
 </tr>
 </tbody>
 </table>
-<p>If you want to create a new SDK, check the <a class="reference internal" href="guidelines/sdk-development.html"><span class="doc">SDK Development guidelines</span></a>.</p>
+<p>If you want to create a new SDK, check the <a class="reference internal" href="guidelines/sdk-development.html"><span class="doc">development guidelines</span></a>.</p>
 </div>
 </div>
 
@@ -358,7 +348,7 @@
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">SDK</a><ul>
-<li><a class="reference internal" href="#supported-sdks">Supported SDKs</a></li>
+<li><a class="reference internal" href="#supported-languages">Supported languages</a></li>
 <li><a class="reference internal" href="#ongoing-work">Ongoing work</a></li>
 </ul>
 </li>

@@ -1,0 +1,512 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Migrating from NIS1 to Catapult &#8212; NEM Developer Center</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     'Master',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../../_static/examplecode.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon-32x32.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Account" href="../../concepts/account.html" />
+    <link rel="prev" title="Self-paced training" href="../../getting-started/training.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<script type="text/javascript">
+    var _paq = window._paq || [];
+    _paq.push(['disableCookies']);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="https://nemtech.matomo.cloud/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src='//cdn.matomo.cloud/nemtech.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../../guides/atom.xml" title="Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div id="navbar"
+     class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header col-md-3 col-sm-5">
+            <a class="navbar-brand" href="../../index.html">
+                
+                <span><img src="../../_static/logo-nem.svg" alt="NEM logo"></span>
+                
+                developer center
+            </a>
+        </div>
+        <div class="navbar-nav col-md-6 col-sm-7 hidden-xs">
+            <div class="search-box">
+    <input id="search" class="form-control" placeholder="Search for features, guides, or code examples"/>
+    <i class="fas fa-search"></i>
+</div>
+        </div>
+        <div class="navbar-right col-md-3">
+            <ul>
+                <ul class="list-inline">
+    
+    <li id="edit-github" class="hidden-xs hidden-sm">
+        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\migration\migrating-from-nis1-to-catapult.rst"
+           rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+    </li>
+    
+    <li id="language" class="hidden-xs hidden-sm">
+        <i class="fas fa-language"></i>
+        <select>
+            <option id="english" value="en">English</option>
+            <option id="japanese" value="ja">日本語</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">Translate</option>
+        </select>
+    </li>
+</ul>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div
+         class="container"
+        >
+
+    <div class="row">
+
+        
+
+        
+
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
+    <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/what-is-nem.html">What is NEM?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/setup-workstation.html">Setting up your workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/first-application.html">Writing your first application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/training.html">Self-paced training</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Migrating from NIS1 to Catapult</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#test-network">Test network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#legacy-api-incompatibility">Legacy API incompatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#accounts-management">Accounts management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#legacy-transactions">Legacy transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transaction-fees">Transaction fees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mosaics-namespaces">Mosaics &amp; namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multisignature-management">Multisignature management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#need-help">Need help?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">Mosaic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">Transfer Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account-restriction.html">Account Restriction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">Multisig Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/cryptography.html">Cryptography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/block.html">Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/transaction.html">Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/consensus-algorithm.html">Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/harvesting.html">Harvesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/inflation.html">Inflation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/receipt.html">Receipt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/node.html">Node</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server.html">Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">Prototyping Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/contributing.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/contributors.html">Contributors</a></li>
+</ul>
+
+    <p class="version">
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.2</a></small>
+    </p>
+</div>
+
+<div class="sidebar-xs visible-xs visible-sm">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigation <b class="caret"></b></a>
+        <ul class="dropdown-menu globaltoc"><p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/what-is-nem.html">What is NEM?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/setup-workstation.html">Setting up your workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/first-application.html">Writing your first application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/training.html">Self-paced training</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Migrating from NIS1 to Catapult</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#test-network">Test network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#legacy-api-incompatibility">Legacy API incompatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#accounts-management">Accounts management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#legacy-transactions">Legacy transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transaction-fees">Transaction fees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mosaics-namespaces">Mosaics &amp; namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multisignature-management">Multisignature management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#need-help">Need help?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">Mosaic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">Transfer Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account-restriction.html">Account Restriction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">Multisig Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/cryptography.html">Cryptography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/block.html">Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/transaction.html">Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/consensus-algorithm.html">Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/harvesting.html">Harvesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/inflation.html">Inflation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/receipt.html">Receipt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/node.html">Node</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server.html">Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">Prototyping Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/contributing.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/contributors.html">Contributors</a></li>
+</ul>
+</ul>
+    </li>
+</div>
+        
+    </div>
+</div>
+
+
+        
+        <div class="col-md-7 content">
+            
+  <div class="section" id="migrating-from-nis1-to-catapult">
+<h1>Migrating from NIS1 to Catapult<a class="headerlink" href="#migrating-from-nis1-to-catapult" title="Permalink to this headline">¶</a></h1>
+<p>With Catapult, most of the previously available NIS1 features have evolved. This document will help you <strong>upgrade your application</strong> previous NIS1 features, to the newly available Catapult technology.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This guide is a live document. The information could change as Catapult development advances.</p>
+</div>
+<div class="section" id="test-network">
+<h2>Test network<a class="headerlink" href="#test-network" title="Permalink to this headline">¶</a></h2>
+<p>The package <a href="https://github.com/tech-bureau/catapult-service-bootstrap" target="_blank">catapult-service-bootstrap</a> brings a set of scripts to deploy a complete Catapult test network for development and learning purposes.</p>
+<ul class="simple">
+<li>Guide: <a class="reference internal" href="../../getting-started/setup-workstation.html"><span class="doc">Running a local network with Catapult Service Bootstrap</span></a></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">⚠️Catapult software and the service bootstrap scripts are still <a href="https://github.com/nemtech/catapult-server/milestones/" target="_blank">under development</a>. Do not power any network in production using these packages.</p>
+</div>
+</div>
+<div class="section" id="legacy-api-incompatibility">
+<h2>Legacy API incompatibility<a class="headerlink" href="#legacy-api-incompatibility" title="Permalink to this headline">¶</a></h2>
+<p>Legacy API calls that used to work for NIS1 network nodes are <strong>not compatible</strong> with Catapult. With Catapult, API requests mostly happen with REST API nodes, usually on port <strong>3000</strong>.</p>
+<ul class="simple">
+<li>Protocol: <a class="reference internal" href="../../concepts/node.html"><span class="doc">Catapult’s Architecture</span></a></li>
+<li>Reference: <a class="reference internal" href="../../api.html"><span class="doc">Catapult REST</span></a></li>
+<li>Reference: <a class="reference external" href="/endpoints.html">REST API contract</a></li>
+</ul>
+<p>There are several <strong>Software Development Kits</strong> that have been - and some that are - under development for Catapult distributed ledgers consumer applications.
+As of now, the <a class="reference internal" href="../../sdk.html"><span class="doc">planned SDKs</span></a> to be supported are written in: Typescript / Javascript / NodeJS, Java, C#, Go, Python and Swift.</p>
+<p>As a starting point, we suggest reviewing the <a href="https://github.com/nemtech/nem2-sdk-typescript-javascript" target="_blank">TS/JS SDK</a> as it is the most used SDK and leads in <a href="https://nemtech.github.io/nem2-sdk-typescript-javascript/" target="_blank">documentation</a>.
+The architecture of the TS SDK is inspired in <a href="https://nemproject.github.io/nem-library-docs/" target="_blank">NEM Library</a> from NIS1.</p>
+</div>
+<div class="section" id="accounts-management">
+<h2>Accounts management<a class="headerlink" href="#accounts-management" title="Permalink to this headline">¶</a></h2>
+<p>Management of <a class="reference internal" href="../../concepts/account.html"><span class="doc">account</span></a> with Catapult has not changed much compared to the previous NIS1 public network accounts. A few notable changes have happened as to public verifiability of accounts and field names returned in the REST endpoints.</p>
+<ul class="simple">
+<li>Guide: <a class="reference internal" href="../account/creating-and-opening-an-account.html"><span class="doc">Creating and opening an account</span></a></li>
+<li>Guide: <a class="reference internal" href="../account/getting-account-information.html"><span class="doc">Getting the account information</span></a></li>
+</ul>
+</div>
+<div class="section" id="legacy-transactions">
+<h2>Legacy transactions<a class="headerlink" href="#legacy-transactions" title="Permalink to this headline">¶</a></h2>
+<p>NIS1 transactions <strong>serialization format is not compatible</strong> with Catapult. Yet, most of the transaction types have only evolved and none have been removed. This implies a possible upgrade to Catapult transactions that involve fewer changes.</p>
+<p>The first notable change about transactions is that the status response is received through <a class="reference internal" href="../../api.html#websockets"><span class="std std-ref">WebSocket channels</span></a>. In NIS1, the client received the response of the API call right after announcing a transaction. Catapult receives the response of the call <strong>asynchronously</strong>, eliminating blocking calls.</p>
+<ul class="simple">
+<li>Protocol: <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">Transaction life-cycle</span></a></li>
+<li>Protocol: <a href="https://github.com/nemtech/catbuffer/tree/master/schemas/" target="_blank">Serialization schemas</a></li>
+<li>Guide: <a class="reference internal" href="../transaction/monitoring-a-transaction-status.html"><span class="doc">Monitoring a transaction status</span></a></li>
+</ul>
+<p>Additionally, there is only one transfer transaction version remaining in which mosaics are always pushed in the mosaics array, when available. This is different from NIS1 transfer transactions which, in their first version, attached XEM without using the mosaics array.</p>
+</div>
+<div class="section" id="transaction-fees">
+<h2>Transaction fees<a class="headerlink" href="#transaction-fees" title="Permalink to this headline">¶</a></h2>
+<p>The fee that needs to be paid for a transaction now depends on the transaction size and node owners can specify a positive (or zero) fee multiplier. The <strong>effective fee</strong> paid for a transaction can be calculated reading the <strong>fee multiplier</strong> from the block in which the transaction got confirmed and multiplying it by the <strong>size of the transaction</strong>.</p>
+<p>Transactions fees are specified with the <code class="docutils literal"><span class="pre">maxFee</span></code>  field. This field represents the maximum fee allowed to be paid for this transaction to confirm.</p>
+<ul class="simple">
+<li>Protocol: <a class="reference internal" href="../../concepts/transaction.html#fees"><span class="std std-ref">Transaction fees</span></a></li>
+</ul>
+</div>
+<div class="section" id="mosaics-namespaces">
+<h2>Mosaics &amp; namespaces<a class="headerlink" href="#mosaics-namespaces" title="Permalink to this headline">¶</a></h2>
+<p>Notable changes have happened at protocol level with regards to <a class="reference internal" href="../../concepts/mosaic.html"><span class="doc">mosaics</span></a> management as they are now <strong>independent</strong> of <a class="reference internal" href="../../concepts/namespace.html"><span class="doc">namespaces</span></a>.
+In fact, in NIS1, it happened that namespaces would expire altogether with assets linked to them.</p>
+<p>With Catapult, mosaics are configured to have their own <code class="docutils literal"><span class="pre">duration</span></code> instead, as well as being assigned a unique <code class="docutils literal"><span class="pre">nonce</span></code> value.</p>
+<p>Lastly, <strong>levies are not available on Catapult</strong>, those must be reproduced with aggregate transactions instead.</p>
+<ul class="simple">
+<li>Guide: <a class="reference internal" href="../mosaic/creating-a-mosaic.html"><span class="doc">Creating a mosaic</span></a></li>
+<li>Guide: <a class="reference internal" href="../namespace/registering-a-namespace.html"><span class="doc">Registering a namespace</span></a></li>
+<li>Guide: <a class="reference internal" href="../namespace/registering-a-subnamespace.html"><span class="doc">Creating a subnamespace</span></a></li>
+</ul>
+<p>Namespaces can still refer to mosaics byways of <a class="reference internal" href="../../concepts/namespace.html#mosaic-alias-transaction"><span class="std std-ref">alias transactions</span></a>. A namespace owner can attach either of an account or a mosaic id to one of its’ namespaces. The namespace information endpoint will return the linked object in the alias field.</p>
+<p>Also, root namespaces have a <code class="docutils literal"><span class="pre">duration</span></code> field that is <strong>expressed in a count of blocks</strong> which means yearly renewal is not mandatory anymore.</p>
+<ul class="simple">
+<li>Guide: <a class="reference internal" href="../namespace/link-a-namespace-to-a-mosaic.html"><span class="doc">Linking a namespace to a mosaic</span></a></li>
+<li>Guide: <a class="reference internal" href="../namespace/link-a-namespace-to-an-address.html"><span class="doc">Linking a namespace to an address</span></a></li>
+</ul>
+<p>In order to facilitate the transfer of mosaics, a mosaic owner should register a namespace and alias the mosaic with that namespace. End-users can <strong>send transactions using the alias</strong> to refer to the mosaic.</p>
+<ul class="simple">
+<li>Guide: <a class="reference internal" href="../namespace/link-a-namespace-to-a-mosaic.html#sending-a-transfer-transaction-with-an-aliased-mosaic"><span class="std std-ref">Sending a transfer transaction with an aliased mosaic</span></a></li>
+<li>Guide: <a class="reference internal" href="../namespace/link-a-namespace-to-an-address.html#sending-a-transfer-transaction-to-an-aliased-address"><span class="std std-ref">Sending a transfer transaction to an aliased address</span></a></li>
+</ul>
+<p>When a transaction includes an alias, a so-called <strong>resolution</strong> reflects the resolved value of that alias in the block.
+To get the real identifier behind an aliased address or mosaic, the client application needs to fetch the related <a class="reference internal" href="../../concepts/receipt.html"><span class="doc">resolution receipt</span></a> linked to the block where the transaction gets included.</p>
+<ul class="simple">
+<li>Guide: <a class="reference internal" href="../blockchain/getting-the-mosaic-identifier-behind-a-namespace-with-receipts.html"><span class="doc">Getting the asset identifier behind a namespace with receipts</span></a></li>
+</ul>
+</div>
+<div class="section" id="multisignature-management">
+<h2>Multisignature management<a class="headerlink" href="#multisignature-management" title="Permalink to this headline">¶</a></h2>
+<p>With multisignature accounts managed on-chain, the NEM multisignature implementation is different from many other - so-called client-side - multisignature implementations.</p>
+<ol class="arabic simple">
+<li>An account must be converted to a <a class="reference internal" href="../../concepts/multisig-account.html"><span class="doc">multisignature account</span></a>.</li>
+</ol>
+<p>Different to NIS1, the account modification entries now hold fields for <code class="docutils literal"><span class="pre">minimum</span> <span class="pre">approval</span></code> and <code class="docutils literal"><span class="pre">minimum</span> <span class="pre">removal</span></code>:</p>
+<p><strong>Minimum removal</strong>: Defines how many cosignatories are required to broadcast transactions removing cosignatories from the multisignature account.</p>
+<p><strong>Minimum approval</strong>: Defines how many cosignatories are required for any other type of transaction.</p>
+<p>Additionally, cosignatories that are added to multisignature accounts now have to confirm the modification by sending a <strong>cosignature</strong> (opt-in process). In order to facilitate this process, transactions with type <a class="reference internal" href="../../concepts/multisig-account.html#modify-multisig-account-transaction"><span class="std std-ref">ModifyMultisigAccount</span></a> must be wrapped in an <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate transaction</span></a>.</p>
+<ul class="simple">
+<li>Guide: <a class="reference internal" href="../account/converting-an-account-to-multisig.html"><span class="doc">Converting an account to multisignature</span></a></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li>Multi-Signature transactions work with <a class="reference internal" href="../../concepts/aggregate-transaction.html"><span class="doc">aggregate transactions</span></a>.</li>
+</ol>
+<p>The new aggregate transaction permits to wrap multiple transactions together involving different participants. If all the participants cosign the aggregate, the inner transactions are included atomically in the block. Otherwise, none of the transactions will get confirmed.</p>
+<p>To send a multisig transaction as in NIS1, the initiator of the transaction has to add it <strong>as an inner transaction of the aggregate</strong>. Then, the minimum number of cosignatories defined in the multisignature will have to cosign the aggregate to allow announcing transactions from the shared account.</p>
+<ul class="simple">
+<li>Guide: <a class="reference internal" href="../transaction/sending-a-multisig-transaction.html"><span class="doc">Sending a multisignature transaction</span></a></li>
+</ul>
+</div>
+<div class="section" id="need-help">
+<h2>Need help?<a class="headerlink" href="#need-help" title="Permalink to this headline">¶</a></h2>
+<p>While migrating from NIS1 to Catapult, you might still have some unanswered questions.
+In the <a class="reference internal" href="../../getting-started/setup-workstation.html"><span class="doc">NEM Developer Center</span></a>, you can find more new features described along with step-by-step integration guides.</p>
+<p>You can also ask integration related questions on <a href="https://stackoverflow.com/tags/nem/" target="_blank">StackOverflow</a>, or reach our community of developers joining the official <a href="http://slack.nemtech.io/" target="_blank">Slack</a>.</p>
+</div>
+</div>
+
+  <div class="section">
+  
+    
+
+
+
+
+  
+  
+  </div>
+
+            
+            <p class="feedback top-gap">
+                <b>Did you find what you were looking for?</b>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a>
+            </p>
+            
+        </div>
+         
+
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+        <ul>
+<li><a class="reference internal" href="#">Migrating from NIS1 to Catapult</a><ul>
+<li><a class="reference internal" href="#test-network">Test network</a></li>
+<li><a class="reference internal" href="#legacy-api-incompatibility">Legacy API incompatibility</a></li>
+<li><a class="reference internal" href="#accounts-management">Accounts management</a></li>
+<li><a class="reference internal" href="#legacy-transactions">Legacy transactions</a></li>
+<li><a class="reference internal" href="#transaction-fees">Transaction fees</a></li>
+<li><a class="reference internal" href="#mosaics-namespaces">Mosaics &amp; namespaces</a></li>
+<li><a class="reference internal" href="#multisignature-management">Multisignature management</a></li>
+<li><a class="reference internal" href="#need-help">Need help?</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+
+ 
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-4">
+                <h4>Learn</h4>
+                <ul>
+                    <li>
+                        <a href="../../getting-started/what-is-nem.html">Getting Started</a>
+                    </li>
+                    <li>
+                        <a href="../../concepts/account.html">Built-in Features</a>
+                    </li>
+                    <li>
+                        <a href="../../concepts/cryptography.html">Protocol</a>
+                    </li>
+                    <li>
+                        <a href="../category.html">Guides</a>
+                    </li>
+                    <li>
+                        <a href="../../api.html">References</a>
+                    </li>
+                    <li>
+                        <a href="../../contribute/contributing.html">Contribute</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-sm-4">
+                <h4>References</h4>
+                <ul>
+                    <li><a href="../../api.html">REST API</a></li>
+                    <li><a href="../../server.html">Server</a></li>
+                    <li><a href="../../sdk.html">SDKs</a></li>
+                    <li><a href="../../cli.html">Client</a></li>
+                    <li><a href="../../extensions.html">Extensions</a></li>
+                </ul>
+            </div>
+
+
+            <div class="col-sm-4">
+                <h4>Community</h4>
+                <ul>
+                    <li>
+                        <a href="http://slack.nemtech.io/">
+                            <i class="fab fa-slack"></i> <span> Join #general discussion</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stackoverflow.com/tags/nem/">
+                            <i class="fab fa-stack-overflow"></i>
+                            <span> Ask development questions</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/NEMofficial">
+                            <i class="fab fa-twitter"></i>
+                            <span> Follow the updates</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/nemtech">
+                            <i class="fab fa-github"></i>
+                            <span> Explore our Github</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <p class="text-center top-gap">
+            
+            
+            &copy; Copyright 2018-2019, NEM.
+            
+            
+            
+        </p>
+    </div>
+</footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '#search',
+        debug: false
+    });
+</script>
+
+  </body>
+</html>

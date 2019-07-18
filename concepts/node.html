@@ -42,21 +42,22 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
-<!--
 <script type="text/javascript">
     var _paq = window._paq || [];
     _paq.push(['disableCookies']);
     _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);
     (function() {
-        var u="//analytics.nemtech.io/piwik/";
+        var u="https://nemtech.matomo.cloud/";
         _paq.push(['setTrackerUrl', u+'matomo.php']);
         _paq.push(['setSiteId', '1']);
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src='//cdn.matomo.cloud/nemtech.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
     })();
-</script>-->
+</script>
 
+  
+  <link rel="alternate" type="application/atom+xml"  href="../guides/atom.xml" title="Blog">
   
   
   <style type="text/css">
@@ -132,6 +133,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">Setting up your workstation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">Writing your first application</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/training.html">Self-paced training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/migration/migrating-from-nis1-to-catapult.html">Migrating from NIS1 to Catapult</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
@@ -154,17 +156,17 @@
 <li class="toctree-l1"><a class="reference internal" href="inflation.html">Inflation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receipt.html">Receipt</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Node</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#p2p-component">P2P component</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#node-reputation">Node reputation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#peer-node">Peer node</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#rocksdb">RocksDB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#node-reputation">Node reputation</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#api-component">API component</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#api-node">API node</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#mongodb">MongoDB</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#zmq">ZMQ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#rest-component">REST component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rest-node">REST node</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 </ul>
 </li>
@@ -186,7 +188,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.2</a></small>
     </p>
 </div>
 
@@ -199,6 +201,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">Setting up your workstation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">Writing your first application</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/training.html">Self-paced training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/migration/migrating-from-nis1-to-catapult.html">Migrating from NIS1 to Catapult</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
@@ -221,17 +224,17 @@
 <li class="toctree-l1"><a class="reference internal" href="inflation.html">Inflation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receipt.html">Receipt</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Node</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#p2p-component">P2P component</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#node-reputation">Node reputation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#peer-node">Peer node</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#rocksdb">RocksDB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#node-reputation">Node reputation</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#api-component">API component</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#api-node">API node</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#mongodb">MongoDB</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#zmq">ZMQ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#rest-component">REST component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rest-node">REST node</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
 </ul>
 </li>
@@ -264,52 +267,60 @@
             
   <div class="section" id="node">
 <h1>Node<a class="headerlink" href="#node" title="Permalink to this headline">¶</a></h1>
-<p>The NEM blockchain platform is built from a network of nodes. These nodes provide a powerful, stable, and secure platform where Smart Assets transactions are conducted, searched, and immutably logged to the blockchain ledger.</p>
+<p>The NEM blockchain platform is built from a network of nodes. These nodes provide a powerful, stable, and secure platform where Smart Assets transactions are conducted, searched, and immutably logged on the blockchain ledger.</p>
 <div class="figure align-center" id="id1">
-<img alt="../_images/four-layer-architecture.png" src="../_images/four-layer-architecture.png" style="width: 650px;" />
+<img alt="../_images/four-layer-architecture.png" src="../_images/four-layer-architecture.png" style="width: 500px;" />
 <p class="caption"><span class="caption-text">Catapult’s Performance Advantage: A Four-Layered Architecture</span></p>
 </div>
 <p>The four-layered architecture allows developers to update any of these tiers without disrupting the others, which improves security.</p>
-<div class="section" id="p2p-component">
-<h2>P2P component<a class="headerlink" href="#p2p-component" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="peer-node">
+<h2>Peer node<a class="headerlink" href="#peer-node" title="Permalink to this headline">¶</a></h2>
 <p><strong>Repository:</strong> <a href="https://github.com/nemtech/catapult-server" target="_blank">Catapult Server</a></p>
-<p>The peer nodes form the backbone of the blockchain, making the network robust since it cannot be shut down by eliminating a single entity. The role of the node is to <a class="reference internal" href="transaction.html#transaction-validation"><span class="std std-ref">verify transactions</span></a> and <a class="reference internal" href="block.html"><span class="doc">blocks</span></a>, run the consensus algorithm, create new blocks, and propagate the changes through the network.</p>
-<p>The API push new transactions to the P2P network, where they are <a class="reference internal" href="harvesting.html"><span class="doc">included in a block</span></a> or discarded. After the block is processed:</p>
-<ul class="simple">
-<li>The binary of the block is saved on disk as a flat file.</li>
-<li>The updated chain state is saved in memory or RocksDB (configurable).</li>
-</ul>
-<div class="section" id="node-reputation">
-<h3>Node reputation<a class="headerlink" href="#node-reputation" title="Permalink to this headline">¶</a></h3>
-<p>Public networks enable anyone to run a node. Some of these nodes could share invalid information or try to disturb the network.</p>
-<p>To reduce communication attempts, the nodes keep track of the results of preceding communications.</p>
-<p>When a node connects to a remote peer, it first increments the trust towards the remote peer. Otherwise, the node increments the failure counter. Likewise, the node updates the trust counters accordingly after processing the data requested.</p>
-<p>From these interactions, the node assigns a weight between 500 and 10000 to every peer reached.</p>
-<p>The probability of selecting a remote node depends linearly on its weight. Every four rounds of node selections, the criteria changes to prevent <a href=" https://en.wikipedia.org/wiki/Sybil_attack" target="_blank">Sybil attacks</a>. The node selects a peer with high importance instead.</p>
+<div class="figure align-center" id="id2">
+<img alt="../_images/peer-detail.png" src="../_images/peer-detail.png" style="width: 200px;" />
+<p class="caption"><span class="caption-text">Peer node communication</span></p>
 </div>
+<p>The peer nodes form the backbone of the blockchain, making the network robust since it cannot be shut down by eliminating a single entity. The role of the node is to <a class="reference internal" href="transaction.html#transaction-validation"><span class="std std-ref">verify transactions</span></a> and <a class="reference internal" href="block.html"><span class="doc">blocks</span></a>, run the consensus algorithm, create new blocks, and propagate the changes through the network.</p>
+<p>The API nodes push new transactions to the P2P network, where they are <a class="reference internal" href="harvesting.html"><span class="doc">included in a block</span></a> or discarded. After the block is processed, the node saves:</p>
+<ul class="simple">
+<li>The binary of each block as a flat-file on disk.</li>
+<li>The updated chain state in memory or RocksDB (configurable).</li>
+</ul>
 <div class="section" id="rocksdb">
 <h3>RocksDB<a class="headerlink" href="#rocksdb" title="Permalink to this headline">¶</a></h3>
-<p><a href=" https://en.wikipedia.org/wiki/RocksDB" target="_blank">RocksDB</a> stores the chain state. The data structures cached are serialized and stored as value to a corresponding key. For example, a column maps the public keys to addresses. Another one, the account state entries as the value to corresponding address keys.</p>
+<p>Peer nodes store the chain state in <a href=" https://en.wikipedia.org/wiki/RocksDB" target="_blank">RocksDB</a>. The data structures cached are serialized and stored as values to corresponding keys. For example, one particular column maps the public keys to addresses. Another one, the account state entries as the values to corresponding address keys.</p>
 <p>Storing the state in memory is usually faster than using RocksDB. However, storing state information in RocksDB demands less memory of the network nodes.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Persisting the state is convenient in networks with a large number of accounts.</p>
+<p class="last">Persisting the state in RocksDB is convenient in networks with a large number of accounts.</p>
 </div>
 </div>
+<div class="section" id="node-reputation">
+<h3>Node reputation<a class="headerlink" href="#node-reputation" title="Permalink to this headline">¶</a></h3>
+<p>Public networks enable anyone to run a node. Some of these nodes could share invalid information or try to disturb the network.</p>
+<p>To reduce miscommunication attempts, the nodes keep track of the results of preceding communications. Every node with P2P capabilities keeps a success and a failure counter for every other peer node that it has interacted with.</p>
+<p>Nodes update the counters accordingly after processing the data requested. If a node successfully connects to a remote peer, it first increments the success counter towards the remote peer. If the communication attempt fails,  the node increments the remote peer’s failure counter. Likewise, the node updates the peer counters accordingly after processing data shared.</p>
+<p>Extrapolating from these scores, the node assigns a weight between 500 and 10000 to every peer reached.</p>
+<p>The probability of selecting a remote node to read data from depends linearly on its weight. Every four rounds of node selections, the criteria changes to prevent <a href=" https://en.wikipedia.org/wiki/Sybil_attack" target="_blank">Sybil attacks</a>. Then the node selects a peer with high importance.</p>
 </div>
-<div class="section" id="api-component">
-<h2>API component<a class="headerlink" href="#api-component" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="api-node">
+<h2>API node<a class="headerlink" href="#api-node" title="Permalink to this headline">¶</a></h2>
 <p><strong>Repository:</strong> <a href="https://github.com/nemtech/catapult-server" target="_blank">Catapult Server</a></p>
-<p>Peer nodes can be configured to have an API layer. The primary responsibility of an API node is to store the data in a readable form in MongoDB.</p>
-<p>The API nodes <a class="reference internal" href="transaction.html#transaction-validation"><span class="std std-ref">validate transactions</span></a> received from the REST nodes. Additionally, the broker process that stores changes in MongoDB, forwards them to ZMQ.</p>
-<p>API nodes are also responsible for collecting the cosignatures of <a class="reference internal" href="aggregate-transaction.html"><span class="doc">aggregated bonded transactions</span></a>, that are only processed once they are complete.</p>
+<div class="figure align-center" id="id3">
+<img alt="../_images/api-detail.png" src="../_images/api-detail.png" style="width: 400px;" />
+<p class="caption"><span class="caption-text">API node communication</span></p>
+</div>
+<p>The catapult-server software allows you to configure peer nodes as API nodes. The primary responsibility of an API node is to store the data in a readable form in MongoDB.</p>
+<p>Instead of writing the data directly into MongoDB, the nodes write it into a file-based queue called <code class="docutils literal"><span class="pre">spool</span></code>. A broker service consumes the data from the spool and updates MongoDB accordingly. Once a block is processed, the broker service notifies the changes to catapult-rest instances using ZMQ.</p>
+<p>API nodes are also responsible for collecting the cosignatures of <a class="reference internal" href="aggregate-transaction.html"><span class="doc">aggregated bonded transactions</span></a>, which are only processed once they are complete.</p>
 <div class="section" id="mongodb">
 <h3>MongoDB<a class="headerlink" href="#mongodb" title="Permalink to this headline">¶</a></h3>
-<p><a href="https://es.wikipedia.org/wiki/MongoDB" target="_blank">MongoDB</a> stores blocks, transactions and chain state for high query performance.</p>
-<p>The API node updates the linked MongoDB instance when:</p>
+<p><a href="https://es.wikipedia.org/wiki/MongoDB" target="_blank">MongoDB</a> stores blocks, transactions, and chain states for high query performance.</p>
+<p>The broker service updates the linked MongoDB instance when:</p>
 <ul class="simple">
-<li>A new block / a bunch of blocks finished processing.</li>
-<li>New unconfirmed transactions completed processing.</li>
+<li>A new block / a bunch of blocks finish processing.</li>
+<li>New unconfirmed transactions complete processing.</li>
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -321,11 +332,15 @@
 <p><a href=" https://en.wikipedia.org/wiki/ZeroMQ" target="_blank">ZeroMQ</a> is an asynchronous messaging library, which enables real-time subscriptions. It transports notifications from the API node to the ZMQ endpoint, where Catapult REST listens. It is an alternative to REST WebSockets, aimed to be used when performance is critical.</p>
 </div>
 </div>
-<div class="section" id="rest-component">
-<h2>REST component<a class="headerlink" href="#rest-component" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="rest-node">
+<h2>REST node<a class="headerlink" href="#rest-node" title="Permalink to this headline">¶</a></h2>
 <p><strong>Repository:</strong> <a href="https://github.com/nemtech/catapult-rest" target="_blank">Catapult REST</a></p>
-<p>The REST node handles <strong>JSON API</strong> client requests. This reads from MongoDB, formats the response, and returns it to the client. This component is responsible as well to return events to the client using <a class="reference internal" href="../api.html#websockets"><span class="std std-ref">WebSockets</span></a>.</p>
-<p>Each REST node connects to one API instance, sending new transactions using sockets.</p>
+<div class="figure align-center" id="id4">
+<img alt="../_images/rest-detail.png" src="../_images/rest-detail.png" style="width: 450px;" />
+<p class="caption"><span class="caption-text">REST node communication</span></p>
+</div>
+<p>The REST nodes handle <a class="reference internal" href="../api.html"><span class="doc">JSON API</span></a> client requests. A node reads from MongoDB, formats the response, and returns it to the client. This component is also responsible for returning events to the client using <a class="reference internal" href="../api.html#websockets"><span class="std std-ref">WebSockets</span></a>.</p>
+<p>Each REST node connects to one API instance to send new transactions requests triggered from the client-side and receive updates in real-time using sockets.</p>
 </div>
 <div class="section" id="guides">
 <h2>Guides<a class="headerlink" href="#guides" title="Permalink to this headline">¶</a></h2>
@@ -359,17 +374,17 @@
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">Node</a><ul>
-<li><a class="reference internal" href="#p2p-component">P2P component</a><ul>
-<li><a class="reference internal" href="#node-reputation">Node reputation</a></li>
+<li><a class="reference internal" href="#peer-node">Peer node</a><ul>
 <li><a class="reference internal" href="#rocksdb">RocksDB</a></li>
+<li><a class="reference internal" href="#node-reputation">Node reputation</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#api-component">API component</a><ul>
+<li><a class="reference internal" href="#api-node">API node</a><ul>
 <li><a class="reference internal" href="#mongodb">MongoDB</a></li>
 <li><a class="reference internal" href="#zmq">ZMQ</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#rest-component">REST component</a></li>
+<li><a class="reference internal" href="#rest-node">REST node</a></li>
 <li><a class="reference internal" href="#guides">Guides</a></li>
 </ul>
 </li>

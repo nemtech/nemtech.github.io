@@ -42,21 +42,22 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
-<!--
 <script type="text/javascript">
     var _paq = window._paq || [];
     _paq.push(['disableCookies']);
     _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);
     (function() {
-        var u="//analytics.nemtech.io/piwik/";
+        var u="https://nemtech.matomo.cloud/";
         _paq.push(['setTrackerUrl', u+'matomo.php']);
         _paq.push(['setSiteId', '1']);
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src='//cdn.matomo.cloud/nemtech.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
     })();
-</script>-->
+</script>
 
+  
+  <link rel="alternate" type="application/atom+xml"  href="guides/atom.xml" title="Blog">
   
   
   <style type="text/css">
@@ -132,6 +133,7 @@
 <li class="toctree-l1"><a class="reference internal" href="getting-started/setup-workstation.html">Setting up your workstation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting-started/first-application.html">Writing your first application</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting-started/training.html">Self-paced training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/migration/migrating-from-nis1-to-catapult.html">Migrating from NIS1 to Catapult</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
@@ -189,7 +191,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.2</a></small>
     </p>
 </div>
 
@@ -202,6 +204,7 @@
 <li class="toctree-l1"><a class="reference internal" href="getting-started/setup-workstation.html">Setting up your workstation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting-started/first-application.html">Writing your first application</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting-started/training.html">Self-paced training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/migration/migrating-from-nis1-to-catapult.html">Migrating from NIS1 to Catapult</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
@@ -273,17 +276,16 @@
 <p>As a blockchain platform, NEM relies on a decentralized network of nodes to provide a powerful, stable, and secure platform for Smart Asset transactions.</p>
 <p>These nodes are deployed using <a href="https://github.com/nemtech/catapult-server" target="_blank">catapult-server</a> software, a C++ rewrite of the previous Java-written NEM distributed ledger that has been running for more than 4 years.</p>
 <p>Through its multi-tier architecture, it is possible to isolate the peer-to-peer network and implement better API integration flows with the proposed REST API layer.</p>
-<p>The same software can be used to configure three different types of <a class="reference internal" href="concepts/node.html"><span class="doc">nodes</span></a>:</p>
+<p>Also, Catapult offers private networks the ability to add their own transaction types by developing <strong>plugins</strong> for the catapult-server nodes.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p><strong>Catapult server</strong> can be used to configure three different types of <a class="reference internal" href="concepts/node.html"><span class="doc">nodes</span></a>:</p>
 <ul class="simple">
 <li><strong>Peer node</strong>: The peer node verifies or discards the transactions once the API pushes them into the P2P network. It runs the consensus algorithm, creates new blocks, and propagates the changes through the network.</li>
 <li><strong>API node</strong>: The primary responsibility of the API node is to properly store data in the MongoDB database once transactions are validated. They also identify and store partial aggregate bonded transactions.</li>
 <li><strong>Dual node</strong>: The dual node combines a peer and API nodes into a single server instance.</li>
 </ul>
-<p>Also, Catapult offers private networks the ability to add their own transaction types by developing <strong>plugins</strong> for the catapult-server nodes.</p>
-<div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p>Test catapult-server software deploying your own network for development or learning purposes with <a href="https://github.com/tech-bureau/catapult-service-bootstrap" target="_blank">Catapult Service Bootstrap</a>.</p>
-<p>You can create a new catapult-server image following the building <a href="https://github.com/nemtech/catapult-server/blob/master/BUILDING.md" target="_blank">instructions for Ubuntu</a>.</p>
+<p>You can create a new catapult-server image following the building <a href="https://github.com/nemtech/catapult-server/blob/master/BUILDING.md" target="_blank">instructions for Ubuntu</a>, but we recommend deploying your own network for development or learning purposes with <a href="https://github.com/tech-bureau/catapult-service-bootstrap" target="_blank">Catapult Service Bootstrap</a>.</p>
 <div class="section" id="troubleshooting">
 <h3>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h3>
 <p>This section highlights common errors or difficulties one may encounter whilst setting a Catapult node.</p>

@@ -40,21 +40,22 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
-<!--
 <script type="text/javascript">
     var _paq = window._paq || [];
     _paq.push(['disableCookies']);
     _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);
     (function() {
-        var u="//analytics.nemtech.io/piwik/";
+        var u="https://nemtech.matomo.cloud/";
         _paq.push(['setTrackerUrl', u+'matomo.php']);
         _paq.push(['setSiteId', '1']);
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src='//cdn.matomo.cloud/nemtech.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
     })();
-</script>-->
+</script>
 
+  
+  <link rel="alternate" type="application/atom+xml"  href="../guides/atom.xml" title="Blog">
   
   
   <style type="text/css">
@@ -130,6 +131,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">Setting up your workstation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">Writing your first application</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/training.html">Self-paced training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/migration/migrating-from-nis1-to-catapult.html">Migrating from NIS1 to Catapult</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
@@ -170,7 +172,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.2</a></small>
     </p>
 </div>
 
@@ -183,6 +185,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">Setting up your workstation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">Writing your first application</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/training.html">Self-paced training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/migration/migrating-from-nis1-to-catapult.html">Migrating from NIS1 to Catapult</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
@@ -244,7 +247,8 @@
 </ul>
 <div class="section" id="architecture">
 <h2>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h2>
-<p><strong>Characteristics</strong></p>
+<div class="section" id="characteristics">
+<h3>Characteristics<a class="headerlink" href="#characteristics" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><strong>Standardized Contracts</strong>: Guaranteeing interoperability and harmonization of data models.</li>
 <li><strong>Loose Coupling</strong>: Reducing the degree of component coupling fosters.</li>
@@ -253,7 +257,22 @@
 <li><strong>Stateless</strong>: Increasing availability and scalability of components allowing them to interoperate more frequently and reliably.</li>
 <li><strong>Composability</strong>: For components to be effectively composable they must be interoperable.</li>
 </ul>
-<p><strong>Reactive</strong></p>
+</div>
+<div class="section" id="package-organization">
+<h3>Package Organization<a class="headerlink" href="#package-organization" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-center" id="id2">
+<img alt="../_images/nem2-sdk-architecture.png" src="../_images/nem2-sdk-architecture.png" style="width: 400px;" />
+<p class="caption"><span class="caption-text">Package organization diagram</span></p>
+</div>
+<p><strong>Infrastructure</strong></p>
+<p>The HTTP requests are made following the Repository Pattern, and they return NEM Domain immutable models via the Observable Pattern.</p>
+<p><strong>Models</strong></p>
+<p>The NEM Domain models are, usually, immutable by definition. The developer cannot change its attributes. Instead, the developers have to create new Transactions and dispatch them to NEM Blockchain via TransactionHTTP, to change the NEM Blockchain state.</p>
+<p><strong>Services</strong></p>
+<p>Common operations that require multiple <a class="reference internal" href="../api.html"><span class="doc">REST API</span></a> requests are handled by services provided.</p>
+</div>
+<div class="section" id="reactive">
+<h3>Reactive<a class="headerlink" href="#reactive" title="Permalink to this headline">¶</a></h3>
 <p>NEM2-SDK uses ReactiveX Library intensely.</p>
 <ul class="simple">
 <li><strong>Functional</strong>: Developers can avoid complex stateful programs using clean input/output functions over observable streams.</li>
@@ -275,18 +294,6 @@
 <li><a href="https://en.wikipedia.org/wiki/Observer_pattern" target="_black">Observer Pattern</a></li>
 <li><a href="http://reactivex.io/" target="_black">ReactiveX</a></li>
 </ul>
-<div class="section" id="package-organization">
-<h3>Package Organization<a class="headerlink" href="#package-organization" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-center" id="id2">
-<img alt="../_images/nem2-sdk-architecture.png" src="../_images/nem2-sdk-architecture.png" style="width: 400px;" />
-<p class="caption"><span class="caption-text">Package organization diagram</span></p>
-</div>
-<p><strong>Infrastructure</strong></p>
-<p>The HTTP requests are made following the Repository Pattern, and they return NEM Domain immutable models via the Observable Pattern.</p>
-<p><strong>Models</strong></p>
-<p>The NEM Domain models are, usually, immutable by definition. The developer cannot change its attributes. Instead, the developers have to create new Transactions and dispatch them to NEM Blockchain via TransactionHTTP, to change the NEM Blockchain state.</p>
-<p><strong>Services</strong></p>
-<p>Common operations that require multiple <a class="reference internal" href="../api.html"><span class="doc">REST API</span></a> requests are handled by services provided.</p>
 </div>
 </div>
 <div class="section" id="before-starting">
@@ -538,7 +545,9 @@ newer</a></li>
         <ul>
 <li><a class="reference internal" href="#">SDK Development</a><ul>
 <li><a class="reference internal" href="#architecture">Architecture</a><ul>
+<li><a class="reference internal" href="#characteristics">Characteristics</a></li>
 <li><a class="reference internal" href="#package-organization">Package Organization</a></li>
+<li><a class="reference internal" href="#reactive">Reactive</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#before-starting">Before starting</a></li>
