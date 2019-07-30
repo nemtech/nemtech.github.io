@@ -41,20 +41,19 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
-<!--
 <script type="text/javascript">
     var _paq = window._paq || [];
     _paq.push(['disableCookies']);
     _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);
     (function() {
-        var u="//analytics.nemtech.io/piwik/";
+        var u="https://nemtech.matomo.cloud/";
         _paq.push(['setTrackerUrl', u+'matomo.php']);
         _paq.push(['setSiteId', '1']);
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src='//cdn.matomo.cloud/nemtech.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
     })();
-</script>-->
+</script>
 
   
   <link rel="alternate" type="application/atom+xml"  href="../guides/atom.xml" title="Blog">
@@ -133,6 +132,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">ワークステーションのセットアップ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">はじめてのアプリケーションを作成</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/training.html">自己ペーストレーニング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/migration/migrating-from-nis1-to-catapult.html">NIS1 から Catapult へのマイグレーション</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
@@ -173,7 +173,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.2</a></small>
     </p>
 </div>
 
@@ -186,6 +186,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">ワークステーションのセットアップ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">はじめてのアプリケーションを作成</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/training.html">自己ペーストレーニング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/migration/migrating-from-nis1-to-catapult.html">NIS1 から Catapult へのマイグレーション</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
@@ -247,7 +248,8 @@
 </ul>
 <div class="section" id="architecture">
 <h2>アーキテクチャ<a class="headerlink" href="#architecture" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>特徴</p>
+<div class="section" id="characteristics">
+<h3>特徴<a class="headerlink" href="#characteristics" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li><strong>標準化された契約</strong>: データモデルの相互運用性と調和を保証する。</li>
 <li><strong>疎結合</strong>: コンポーネントの結合度合いを取り除く。</li>
@@ -256,7 +258,22 @@
 <li><strong>ステートレス</strong>: コンポーネントの可用性と拡張性を高め、より頻繁で信頼できる相互運用を可能にします。</li>
 <li><strong>合成性</strong>: 効果的なコンポーネントの構成のために、相互運用可能でなければなりません。</li>
 </ul>
-<p>リアクティブ</p>
+</div>
+<div class="section" id="package-organization">
+<h3>パッケージ構成<a class="headerlink" href="#package-organization" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="figure align-center" id="id2">
+<img alt="../_images/nem2-sdk-architecture.png" src="../_images/nem2-sdk-architecture.png" style="width: 400px;" />
+<p class="caption"><span class="caption-text">パッケージ構成ダイアグラム</span></p>
+</div>
+<p>インフラストラクチャ</p>
+<p>HTTP リクエストはリポジトリパターンに則しており、これらはオブザーバルパターンを介して、NEM の変更不可なモデルを返します。</p>
+<p><strong>モデル</strong></p>
+<p>NEM ドメインモデルは通常は定義によっては不変ですが、開発者はその属性を変更できません。代わりに開発者は新しいトランザクションを作成し、TransactionHTTP 経由で NEM ブロックチェーンに送り出して、NEM ブロックチェーン状態を変更する必要があります。</p>
+<p><strong>サービス</strong></p>
+<p>複数の <a class="reference internal" href="../api.html"><span class="doc">REST API</span></a> 要求を必要とする一般的な操作は、提供されているサービスによって処理されます。</p>
+</div>
+<div class="section" id="reactive">
+<h3>リアクティブ<a class="headerlink" href="#reactive" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>NEM2-SDK は ReactiveX ライブラリを多用しています。</p>
 <ul class="simple">
 <li><strong>機能性</strong>: 開発者はオブザーバブルなストリームにクリーンな入出力関数を使用して、複雑でステートフルなプログラムを避けることができます。</li>
@@ -278,18 +295,6 @@
 <li><a href="https://en.wikipedia.org/wiki/Observer_pattern" target="_black">Observer Pattern</a></li>
 <li><a href="http://reactivex.io/" target="_black">ReactiveX</a></li>
 </ul>
-<div class="section" id="package-organization">
-<h3>パッケージ構成<a class="headerlink" href="#package-organization" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="figure align-center" id="id2">
-<img alt="../_images/nem2-sdk-architecture.png" src="../_images/nem2-sdk-architecture.png" style="width: 400px;" />
-<p class="caption"><span class="caption-text">パッケージ構成ダイアグラム</span></p>
-</div>
-<p>インフラストラクチャ</p>
-<p>HTTP リクエストはリポジトリパターンに則しており、これらはオブザーバルパターンを介して、NEM の変更不可なモデルを返します。</p>
-<p><strong>モデル</strong></p>
-<p>NEM ドメインモデルは通常は定義によっては不変ですが、開発者はその属性を変更できません。代わりに開発者は新しいトランザクションを作成し、TransactionHTTP 経由で NEM ブロックチェーンに送り出して、NEM ブロックチェーン状態を変更する必要があります。</p>
-<p><strong>サービス</strong></p>
-<p>複数の <a class="reference internal" href="../api.html"><span class="doc">REST API</span></a> 要求を必要とする一般的な操作は、提供されているサービスによって処理されます。</p>
 </div>
 </div>
 <div class="section" id="before-starting">
@@ -327,7 +332,7 @@ did</a>.</p>
 <p>The <a class="reference external" href="https://openapi-generator.tech/">OpenAPI Generator</a>  handles the API generation. It supports multiple languages, and hopefully, yours is on the list.</p>
 <p>These are the steps we are following to generate the Typescript DTOs (data transfer objects):</p>
 <ol class="arabic simple">
-<li>Download the latest Open API definition.</li>
+<li>最新の Open API 定義をダウンロード。</li>
 </ol>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>git clone git@github.com:nemtech/nem2-docs
 <span class="nb">cd</span> nem2-docs <span class="o">&amp;&amp;</span> mkdir sdks <span class="o">&amp;&amp;</span> <span class="nb">cd</span> sdks
@@ -356,7 +361,7 @@ openapi-generator generate -i ./swagger2.yaml -g typescript-node -t templates/ -
 <li>Search for line contains <code class="docutils literal"><span class="pre">let</span> <span class="pre">enumsMap:</span> <span class="pre">{[index:</span> <span class="pre">string]:</span> <span class="pre">any}</span></code>.</li>
 <li>Move all <code class="docutils literal"><span class="pre">xxxTypeEnum</span></code> entries from below <code class="docutils literal"><span class="pre">typeMap</span></code> into <code class="docutils literal"><span class="pre">enumsMap</span></code>.</li>
 </ul>
-<p>Example:</p>
+<p>例:</p>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">enumsMap</span><span class="o">:</span> <span class="p">{[</span><span class="nx">index</span>: <span class="kt">string</span><span class="p">]</span><span class="o">:</span> <span class="nx">any</span><span class="p">}</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;AccountPropertyTypeEnum&quot;</span><span class="o">:</span> <span class="nx">AccountPropertyTypeEnum</span><span class="p">,</span>
     <span class="s2">&quot;AliasTypeEnum&quot;</span><span class="o">:</span> <span class="nx">AliasTypeEnum</span><span class="p">,</span>
@@ -541,7 +546,9 @@ newer</a></li>
         <ul>
 <li><a class="reference internal" href="#">SDK 開発</a><ul>
 <li><a class="reference internal" href="#architecture">アーキテクチャ</a><ul>
+<li><a class="reference internal" href="#characteristics">特徴</a></li>
 <li><a class="reference internal" href="#package-organization">パッケージ構成</a></li>
+<li><a class="reference internal" href="#reactive">リアクティブ</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#before-starting">始める前に</a></li>

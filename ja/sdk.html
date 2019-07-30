@@ -43,20 +43,19 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
-<!--
 <script type="text/javascript">
     var _paq = window._paq || [];
     _paq.push(['disableCookies']);
     _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);
     (function() {
-        var u="//analytics.nemtech.io/piwik/";
+        var u="https://nemtech.matomo.cloud/";
         _paq.push(['setTrackerUrl', u+'matomo.php']);
         _paq.push(['setSiteId', '1']);
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src='//cdn.matomo.cloud/nemtech.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
     })();
-</script>-->
+</script>
 
   
   <link rel="alternate" type="application/atom+xml"  href="guides/atom.xml" title="Blog">
@@ -135,6 +134,7 @@
 <li class="toctree-l1"><a class="reference internal" href="getting-started/setup-workstation.html">ワークステーションのセットアップ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting-started/first-application.html">はじめてのアプリケーションを作成</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting-started/training.html">自己ペーストレーニング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/migration/migrating-from-nis1-to-catapult.html">NIS1 から Catapult へのマイグレーション</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
@@ -163,7 +163,7 @@
 <li class="toctree-l1"><a class="reference internal" href="api.html">REST API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="server.html">サーバ</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">SDK</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#supported-sdks">サポート中の SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#supported-languages">サポート言語</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ongoing-work">開発中</a></li>
 </ul>
 </li>
@@ -179,7 +179,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.2</a></small>
     </p>
 </div>
 
@@ -192,6 +192,7 @@
 <li class="toctree-l1"><a class="reference internal" href="getting-started/setup-workstation.html">ワークステーションのセットアップ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting-started/first-application.html">はじめてのアプリケーションを作成</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting-started/training.html">自己ペーストレーニング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/migration/migrating-from-nis1-to-catapult.html">NIS1 から Catapult へのマイグレーション</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
@@ -220,7 +221,7 @@
 <li class="toctree-l1"><a class="reference internal" href="api.html">REST API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="server.html">サーバ</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">SDK</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#supported-sdks">サポート中の SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#supported-languages">サポート言語</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ongoing-work">開発中</a></li>
 </ul>
 </li>
@@ -247,30 +248,27 @@
             
   <div class="section" id="sdk">
 <h1>SDK<a class="headerlink" href="#sdk" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>NEM2 ソフトウェア開発キットは、NEM2 コンポーネント、このような追加ツール、ライブラリ、アプリケーションなどを作成するための主要なソフトウェア開発ツールです。すべての、またはほぼすべてのコンポーネントは、API を直接使うのではなく <strong>NEM2-SDK</strong> を使用する必要があります。</p>
-<p>新しい SDK を使用することで開発者は、NEM2 ブロックチェーン特有の API の抽象化ではなく、彼らの製品に焦点を当てることができます。</p>
-<p>SDK の使い方を学ぶには <a class="reference internal" href="guides/category.html" title="Categories"><span class="xref std std-ref">ガイド</span></a> を参照するのが最適です。</p>
-<div class="section" id="supported-sdks">
-<h2>サポート中の SDK<a class="headerlink" href="#supported-sdks" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><strong>NEM2 ソフトウェア開発キット</strong> とは NEM2 コンポーネント、このような追加ツール、ライブラリ、アプリケーションなどを作成するための主要なソフトウェア開発ツールです。</p>
+<p>これを利用することで、開発者は特有な API の抽象化ではなく、彼らの製品に焦点を当てることができます。</p>
+<p>NEM SDK の使い方を学ぶには <a class="reference internal" href="guides/category.html" title="Categories"><span class="xref std std-ref">ガイド付き実装サンプル</span></a> を参照してください。</p>
+<div class="section" id="supported-languages">
+<h2>サポート言語<a class="headerlink" href="#supported-languages" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">言語</th>
 <th class="head">リポジトリ</th>
 <th class="head">リファレンス</th>
-<th class="head">ターゲットバージョン</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>TypeScript &amp; JS SDK</td>
 <td><a href="https://github.com/nemtech/nem2-sdk-typescript-javascript" target="_blank">Repository</a></td>
 <td><a href="https://nemtech.github.io/nem2-sdk-typescript-javascript/" target="_blank">Documentation</a></td>
-<td>0.4 (latest)</td>
 </tr>
 </tbody>
 </table>
@@ -279,67 +277,57 @@
 <h2>開発中<a class="headerlink" href="#ongoing-work" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">⚠️ 以下の SDK は最新バージョンの catapult-server (0.4) と互換性がありません。</p>
+<p class="last">⚠️ 以下の SDK は最新バージョンの catapult-server と互換性がありません。</p>
 </div>
-<p>各プロジェクトの進捗について知るために未解決の問題を読んでください。</p>
+<p>各プロジェクトの進捗を確認するために <a href="https://github.com/nemtech/community/blob/master/projects-status.md#protocol-version-compatibilities/" target="_blank">protocol compatibility report</a> を読んでください。</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">言語</th>
 <th class="head">リポジトリ</th>
 <th class="head">リファレンス</th>
-<th class="head">ターゲットバージョン</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>Java SDK</td>
 <td><a href="https://github.com/nemtech/nem2-sdk-java" target="_blank">Repository</a></td>
 <td><a href="https://nemtech.github.io/nem2-sdk-java/" target="_blank">Documentation</a></td>
-<td>0.1</td>
 </tr>
 <tr class="row-odd"><td>C# SDK</td>
 <td><a href="https://github.com/nemtech/nem2-sdk-csharp/" target="_blank">Repository</a></td>
 <td>&#160;</td>
-<td>0.1</td>
 </tr>
 <tr class="row-even"><td>Go SDK</td>
 <td><a href="https://github.com/proximax-storage/nem2-sdk-go/" target="_blank">Repository</a></td>
 <td>&#160;</td>
-<td>0.1</td>
 </tr>
 <tr class="row-odd"><td>Swift SDK</td>
 <td><a href="https://github.com/proximax-storage/nem2-sdk-swift/" target="_blank">Repository</a></td>
 <td>&#160;</td>
-<td>0.1</td>
 </tr>
 <tr class="row-even"><td>C++</td>
-<td>&#160;</td>
 <td>&#160;</td>
 <td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>PHP SDK</td>
 <td>&#160;</td>
 <td>&#160;</td>
-<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>Ruby SDK</td>
-<td>&#160;</td>
 <td>&#160;</td>
 <td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>Python SDK</td>
 <td>&#160;</td>
 <td>&#160;</td>
-<td>&#160;</td>
 </tr>
 </tbody>
 </table>
-<p>新しい SDK を作りたい場合は <a class="reference internal" href="guidelines/sdk-development.html"><span class="doc">SDK 開発ガイドライン</span></a> を確認してください。</p>
+<p>新しい SDK を作りたい場合は <a class="reference internal" href="guidelines/sdk-development.html"><span class="doc">開発ガイドライン</span></a> を確認してください。</p>
 </div>
 </div>
 
@@ -361,7 +349,7 @@
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">SDK</a><ul>
-<li><a class="reference internal" href="#supported-sdks">サポート中の SDK</a></li>
+<li><a class="reference internal" href="#supported-languages">サポート言語</a></li>
 <li><a class="reference internal" href="#ongoing-work">開発中</a></li>
 </ul>
 </li>

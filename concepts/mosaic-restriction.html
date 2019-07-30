@@ -1,0 +1,695 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Mosaic Restriction &#8212; NEM Developer Center</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'Master',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../_static/examplecode.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Multisig Account" href="multisig-account.html" />
+    <link rel="prev" title="Account Restriction" href="account-restriction.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<script type="text/javascript">
+    var _paq = window._paq || [];
+    _paq.push(['disableCookies']);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="https://nemtech.matomo.cloud/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src='//cdn.matomo.cloud/nemtech.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../guides/atom.xml" title="Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div id="navbar"
+     class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header col-md-3 col-sm-5">
+            <a class="navbar-brand" href="../index.html">
+                
+                <span><img src="../_static/logo-nem.svg" alt="NEM logo"></span>
+                
+                developer center
+            </a>
+        </div>
+        <div class="navbar-nav col-md-6 col-sm-7 hidden-xs">
+            <div class="search-box">
+    <input id="search" class="form-control" placeholder="Search for features, guides, or code examples"/>
+    <i class="fas fa-search"></i>
+</div>
+        </div>
+        <div class="navbar-right col-md-3">
+            <ul>
+                <ul class="list-inline">
+    
+    <li id="edit-github" class="hidden-xs hidden-sm">
+        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/concepts\mosaic-restriction.rst"
+           rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+    </li>
+    
+    <li id="language" class="hidden-xs hidden-sm">
+        <i class="fas fa-language"></i>
+        <select>
+            <option id="english" value="en">English</option>
+            <option id="japanese" value="ja">日本語</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">Translate</option>
+        </select>
+    </li>
+</ul>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div
+         class="container"
+        >
+
+    <div class="row">
+
+        
+
+        
+
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
+    <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/what-is-nem.html">What is NEM?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">Setting up your workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">Writing your first application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/training.html">Self-paced training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/migration/migrating-from-nis1-to-catapult.html">Migrating from NIS1 to Catapult</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="account.html">Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic.html">Mosaic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Mosaic Restriction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#global-restriction">Global restriction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#address-restriction">Address restriction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#verifying-accounts-that-can-buy-assets">Verifying accounts that can buy assets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#delegating-the-kyc-process-to-a-specialized-company">Delegating the KYC process to a specialized company</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#schemas">Schemas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mosaicglobalrestrictiontransaction">MosaicGlobalRestrictionTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mosaicaddressrestrictiontransaction">MosaicAddressRestrictionTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mosaicrestrictiontype">MosaicRestrictionType</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cryptography.html">Cryptography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="block.html">Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transaction.html">Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consensus-algorithm.html">Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="harvesting.html">Harvesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inflation.html">Inflation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receipt.html">Receipt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="node.html">Node</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server.html">Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">Contributors</a></li>
+</ul>
+
+    <p class="version">
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.3</a></small>
+    </p>
+</div>
+
+<div class="sidebar-xs visible-xs visible-sm">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigation <b class="caret"></b></a>
+        <ul class="dropdown-menu globaltoc"><p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/what-is-nem.html">What is NEM?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">Setting up your workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">Writing your first application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/training.html">Self-paced training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/migration/migrating-from-nis1-to-catapult.html">Migrating from NIS1 to Catapult</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="account.html">Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic.html">Mosaic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Mosaic Restriction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#global-restriction">Global restriction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#address-restriction">Address restriction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#verifying-accounts-that-can-buy-assets">Verifying accounts that can buy assets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#delegating-the-kyc-process-to-a-specialized-company">Delegating the KYC process to a specialized company</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#schemas">Schemas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mosaicglobalrestrictiontransaction">MosaicGlobalRestrictionTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mosaicaddressrestrictiontransaction">MosaicAddressRestrictionTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mosaicrestrictiontype">MosaicRestrictionType</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cryptography.html">Cryptography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="block.html">Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transaction.html">Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consensus-algorithm.html">Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="harvesting.html">Harvesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inflation.html">Inflation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receipt.html">Receipt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="node.html">Node</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server.html">Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributing.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contributors.html">Contributors</a></li>
+</ul>
+</ul>
+    </li>
+</div>
+        
+    </div>
+</div>
+
+
+        
+        <div class="col-md-7 content">
+            
+  <div class="section" id="mosaic-restriction">
+<h1>Mosaic Restriction<a class="headerlink" href="#mosaic-restriction" title="Permalink to this headline">¶</a></h1>
+<p>Mosaic restrictions allow <a class="reference internal" href="mosaic.html"><span class="doc">mosaic</span></a> creators to decide which accounts can transact - send or receive - with the asset.</p>
+<p>This feature has been specifically tailored for <strong>Security Token Offerings (STO)</strong>. In contrast to the unregulated tokens that were introduced through ICOs, security tokens are blockchain based representation of value that is subject to regulation under security laws, and thus need a way to bypass blockchain autonomy.</p>
+<p>Not all the mosaics of a given network will be subject to mosaic restrictions. The feature will only affect those to which the issuer adds the <code class="docutils literal"><span class="pre">restrictable</span></code> property explicitly at the moment of its creation. This property appears disabled by default, as it is undesirable for autonomous tokens like the public network currency.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">A mosaic only supports the mosaic restrictions feature if the <code class="docutils literal"><span class="pre">restrictable</span></code> property has been set to true at its creation.</p>
+</div>
+<p>Mosaic restrictions are <strong>editable</strong> over time, empowering the mosaic creator to control who can send and receive the mosaic as needed.</p>
+<div class="section" id="global-restriction">
+<h2>Global restriction<a class="headerlink" href="#global-restriction" title="Permalink to this headline">¶</a></h2>
+<p>The mosaic global restrictions are the <strong>network-wide rules</strong> that will determine whether an account will be able to transact a given mosaic.</p>
+<p>One mosaic can handle multiple global restrictions. A <a class="reference internal" href="#mosaic-global-restriction-transaction"><span class="std std-ref">mosaic global restriction</span></a> is composed of:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Mosaic Id</td>
+<td>MosaicId</td>
+<td>Identifier of the affected mosaic. The mosaic creator must be the signer of this transaction.</td>
+</tr>
+<tr class="row-odd"><td>Restriction Key</td>
+<td>uint64</td>
+<td>Restriction key.</td>
+</tr>
+<tr class="row-even"><td>Restriction Value</td>
+<td>uint64</td>
+<td>Restriction value.</td>
+</tr>
+<tr class="row-odd"><td>Restriction Type</td>
+<td>uint8</td>
+<td>Type of constraint to apply. For example, the restriction value should be equal (EQ). See more <a class="reference internal" href="#mosaic-restriction-type"><span class="std std-ref">restriction types</span></a>.</td>
+</tr>
+</tbody>
+</table>
+<p>Only accounts tagged with the key identifiers and values that meet the conditions will be able to execute transactions involving the mosaic.</p>
+<p>Additionally, the mosaic creator can define restrictions that depend directly on global restrictions set on another mosaic - known as <strong>reference mosaic</strong>. The referenced mosaic and the restricted mosaic do not necessarily have to be created by the same account, enabling the delegation of mosaic permissions to a third party.</p>
+</div>
+<div class="section" id="address-restriction">
+<h2>Address restriction<a class="headerlink" href="#address-restriction" title="Permalink to this headline">¶</a></h2>
+<p>Enabling accounts to transact with the token is similar to the process of adding elevated permissions to a user in a company computer network.</p>
+<p>The mosaic creator can <strong>modify the permissions of an account</strong> by sending a mosaic restriction transaction targeting the account address. The <a class="reference internal" href="#mosaic-address-restriction-transaction"><span class="std std-ref">mosaic address restriction transaction</span></a> is composed of:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Mosaic Id</td>
+<td>MosaicId</td>
+<td>Identifier of the affected mosaic. The mosaic creator must be the signer of this transaction.</td>
+</tr>
+<tr class="row-odd"><td>Target Address</td>
+<td>address</td>
+<td>Affected address.</td>
+</tr>
+<tr class="row-even"><td>Restriction Key</td>
+<td>uint64</td>
+<td>Restriction key.</td>
+</tr>
+<tr class="row-odd"><td>Restriction Value</td>
+<td>uint64</td>
+<td>Restriction value.</td>
+</tr>
+</tbody>
+</table>
+<p>If the conditions match with the appropriate values set in the global restrictions, the account will be able to transact with the mosaic.</p>
+<p>Otherwise, the account needs to request the mosaic creator to be granted elevated permissions or wait until the global restrictions are changed.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="verifying-accounts-that-can-buy-assets">
+<h3>Verifying accounts that can buy assets<a class="headerlink" href="#verifying-accounts-that-can-buy-assets" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-center" id="id1">
+<img alt="../_images/mosaic-restriction.png" src="../_images/mosaic-restriction.png" style="width: 400px;" />
+<p class="caption"><span class="caption-text">Example of a mosaic restriction</span></p>
+</div>
+<p>ComfyClothingCompany creates the mosaic <code class="docutils literal"><span class="pre">comfyclothing.shares</span></code>.</p>
+<p>For regulatory reasons, the company wants only the participants that have passed the KYC process  to buy and transact the asset. So the company adds the restriction tier <code class="docutils literal"><span class="pre">{Can_Buy,</span> <span class="pre">EQ,</span> <span class="pre">1}</span></code> to the mosaic <code class="docutils literal"><span class="pre">comfyclothing.shares</span></code>.</p>
+<p>Alice is interested in investing in ComfyClothingCompany so she passes the KYC process. Once Alice has been verified, the company tags Alice’s account with the mosaic address restriction  <code class="docutils literal"><span class="pre">{comfyclothing.shares,</span> <span class="pre">Alice,</span> <span class="pre">Can_Buy,</span> <span class="pre">1}</span></code>.</p>
+<p>Alice can now buy <code class="docutils literal"><span class="pre">comfyclothing.shares</span></code> and start transacting it with other accounts. Bob, on the other hand, is not be able to buy or even receive the asset because he is not verified and tagged accordingly.</p>
+</div>
+<div class="section" id="delegating-the-kyc-process-to-a-specialized-company">
+<h3>Delegating the KYC process to a specialized company<a class="headerlink" href="#delegating-the-kyc-process-to-a-specialized-company" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-center" id="id2">
+<img alt="../_images/mosaic-restriction-delegated.png" src="../_images/mosaic-restriction-delegated.png" style="width: 400px;" />
+<p class="caption"><span class="caption-text">Example of a delegated mosaic restriction</span></p>
+</div>
+<p>Following the previous example, ComfyClothingCompany delegates the KYC process to a company specialized in KYC &amp; AML.</p>
+<p>The KYC provider registers a mosaic named <code class="docutils literal"><span class="pre">kyc</span></code> and adds the mosaic the global restriction <code class="docutils literal"><span class="pre">{</span> <span class="pre">Is_Verified,</span> <span class="pre">EQ,</span> <span class="pre">1}</span></code> to the mosaic.</p>
+<p>The KYC provider also defines the following permission tiers:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Key</th>
+<th class="head">Operator</th>
+<th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Is_Verified</td>
+<td>EQ</td>
+<td>1</td>
+<td>The client has issued a valid passport.</td>
+</tr>
+<tr class="row-odd"><td>Is_Verified</td>
+<td>EQ</td>
+<td>2</td>
+<td>The client has issued a valid proof of address and passport.</td>
+</tr>
+</tbody>
+</table>
+<p>ComfyClothingCompany decides that only accounts with the restriction <code class="docutils literal"><span class="pre">{</span> <span class="pre">KYC::Is_Verified,</span> <span class="pre">2}</span></code> should be enabled to transfer shares. For this reason, the company adds the global mosaic restriction <code class="docutils literal"><span class="pre">{</span> <span class="pre">kyc::Is_Verified,</span> <span class="pre">EQ,</span> <span class="pre">2}</span></code> to the mosaic  <code class="docutils literal"><span class="pre">comfyclothing.shares</span></code>.</p>
+<p>The KYC provider encounters 3 potential investors:</p>
+<ul class="simple">
+<li>Alice provides a valid passport but no proof of address. The KYC provider awards Alice’s account with the mosaic restriction <code class="docutils literal"><span class="pre">{kyc,</span> <span class="pre">Is_Verified,</span> <span class="pre">1}</span></code>.</li>
+<li>Bob provides a valid passport and proof of address. The KYC provider awards Bob’s account with the mosaic restriction <code class="docutils literal"><span class="pre">{kyc,</span> <span class="pre">Is_Verified,</span> <span class="pre">2}</span></code>.</li>
+<li>Carol provides a valid passport and proof of address. The KYC provider awards Carol’s account with the mosaic restriction <code class="docutils literal"><span class="pre">{kyc,</span> <span class="pre">Is_Verified,</span> <span class="pre">2}</span></code>.</li>
+</ul>
+<p>Now, Bob and Carol will be able to buy and send the <code class="docutils literal"><span class="pre">comfyclothing.shares</span></code> units to each other. But Alice - who has not provided a valid proof of address - will not be able to receive shares.</p>
+</div>
+</div>
+<div class="section" id="schemas">
+<h2>Schemas<a class="headerlink" href="#schemas" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mosaicglobalrestrictiontransaction">
+<span id="mosaic-global-restriction-transaction"></span><h3>MosaicGlobalRestrictionTransaction<a class="headerlink" href="#mosaicglobalrestrictiontransaction" title="Permalink to this headline">¶</a></h3>
+<p>Announce a mosaic global restriction transaction to set a restriction rule to a mosaic.</p>
+<p><strong>Version</strong>: 0x01</p>
+<p><strong>Entity type</strong>: 0x4151</p>
+<p><strong>Inlines</strong>:</p>
+<ul class="simple">
+<li><a class="reference internal" href="transaction.html#id4"><span class="std std-ref">Transaction</span></a> or <a class="reference internal" href="transaction.html#embedded-transaction"><span class="std std-ref">EmbeddedTransaction</span></a></li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>mosaicId</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L3">UnresolvedMosaicId</a></td>
+<td>Identifier of the affected mosaic. The mosaic creator must be the signer of this transaction.</td>
+</tr>
+<tr class="row-odd"><td>referenceMosaicId</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L3">UnresolvedMosaicId</a></td>
+<td>Identifier of the reference mosaic. The mosaic global restriction for the mosaic id depend on global restrictions set on the reference mosaic.</td>
+</tr>
+<tr class="row-even"><td>restrictionKey</td>
+<td>uint64</td>
+<td>Restriction key.</td>
+</tr>
+<tr class="row-odd"><td>previousRestrictionValue</td>
+<td>uint64</td>
+<td>Previous restriction value.</td>
+</tr>
+<tr class="row-even"><td>previousRestrictionType</td>
+<td><a class="reference internal" href="#mosaic-restriction-type"><span class="std std-ref">MosaicRestrictionType</span></a></td>
+<td>Previous restriction type.</td>
+</tr>
+<tr class="row-odd"><td>newRestrictionValue</td>
+<td>uint64</td>
+<td>New restriction value.</td>
+</tr>
+<tr class="row-even"><td>newRestrictionType</td>
+<td><a class="reference internal" href="#mosaic-restriction-type"><span class="std std-ref">MosaicRestrictionType</span></a></td>
+<td>New restriction type.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="mosaicaddressrestrictiontransaction">
+<span id="mosaic-address-restriction-transaction"></span><h3>MosaicAddressRestrictionTransaction<a class="headerlink" href="#mosaicaddressrestrictiontransaction" title="Permalink to this headline">¶</a></h3>
+<p>Announce a mosaic address restriction transaction to set a restriction rule to an address.</p>
+<p><strong>Version</strong>: 0x01</p>
+<p><strong>Entity type</strong>: 0x4251</p>
+<p><strong>Inlines</strong>:</p>
+<ul class="simple">
+<li><a class="reference internal" href="transaction.html#id4"><span class="std std-ref">Transaction</span></a> or <a class="reference internal" href="transaction.html#embedded-transaction"><span class="std std-ref">EmbeddedTransaction</span></a></li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>mosaicId</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L3">UnresolvedMosaicId</a></td>
+<td>Identifier of the affected mosaic. The mosaic creator must be the signer of this transaction.</td>
+</tr>
+<tr class="row-odd"><td>restrictionKey</td>
+<td>uint64</td>
+<td>Restriction key.</td>
+</tr>
+<tr class="row-even"><td>targetAddress</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L7">UnresolvedAddress</a></td>
+<td>Affected Address.</td>
+</tr>
+<tr class="row-odd"><td>previousRestrictionValue</td>
+<td>uint64</td>
+<td>Previous restriction value.</td>
+</tr>
+<tr class="row-even"><td>newRestrictionValue</td>
+<td>uint64</td>
+<td>New restriction value.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="mosaicrestrictiontype">
+<span id="mosaic-restriction-type"></span><h3>MosaicRestrictionType<a class="headerlink" href="#mosaicrestrictiontype" title="Permalink to this headline">¶</a></h3>
+<p>Enumeration: uint8</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Id</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>Uninitialized value indicating no restriction.</td>
+</tr>
+<tr class="row-odd"><td>1 (EQ)</td>
+<td>Allow if equal.</td>
+</tr>
+<tr class="row-even"><td>2 (NE)</td>
+<td>Allow if not equal.</td>
+</tr>
+<tr class="row-odd"><td>3 (LT)</td>
+<td>Allow if less than.</td>
+</tr>
+<tr class="row-even"><td>4 (LTE)</td>
+<td>Allow if allow if less than or equal.</td>
+</tr>
+<tr class="row-odd"><td>5 (GT)</td>
+<td>Allow if greater than.</td>
+</tr>
+<tr class="row-even"><td>6 (GTE)</td>
+<td>Allow if greater than or equal.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+            
+            <p class="feedback top-gap">
+                <b>Did you find what you were looking for?</b>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a>
+            </p>
+            
+        </div>
+         
+
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+        <ul>
+<li><a class="reference internal" href="#">Mosaic Restriction</a><ul>
+<li><a class="reference internal" href="#global-restriction">Global restriction</a></li>
+<li><a class="reference internal" href="#address-restriction">Address restriction</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#verifying-accounts-that-can-buy-assets">Verifying accounts that can buy assets</a></li>
+<li><a class="reference internal" href="#delegating-the-kyc-process-to-a-specialized-company">Delegating the KYC process to a specialized company</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#schemas">Schemas</a><ul>
+<li><a class="reference internal" href="#mosaicglobalrestrictiontransaction">MosaicGlobalRestrictionTransaction</a></li>
+<li><a class="reference internal" href="#mosaicaddressrestrictiontransaction">MosaicAddressRestrictionTransaction</a></li>
+<li><a class="reference internal" href="#mosaicrestrictiontype">MosaicRestrictionType</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+
+ 
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-4">
+                <h4>Learn</h4>
+                <ul>
+                    <li>
+                        <a href="../getting-started/what-is-nem.html">Getting Started</a>
+                    </li>
+                    <li>
+                        <a href="account.html">Built-in Features</a>
+                    </li>
+                    <li>
+                        <a href="cryptography.html">Protocol</a>
+                    </li>
+                    <li>
+                        <a href="../guides/category.html">Guides</a>
+                    </li>
+                    <li>
+                        <a href="../api.html">References</a>
+                    </li>
+                    <li>
+                        <a href="../contribute/contributing.html">Contribute</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-sm-4">
+                <h4>References</h4>
+                <ul>
+                    <li><a href="../api.html">REST API</a></li>
+                    <li><a href="../server.html">Server</a></li>
+                    <li><a href="../sdk.html">SDKs</a></li>
+                    <li><a href="../cli.html">Client</a></li>
+                    <li><a href="../extensions.html">Extensions</a></li>
+                </ul>
+            </div>
+
+
+            <div class="col-sm-4">
+                <h4>Community</h4>
+                <ul>
+                    <li>
+                        <a href="http://slack.nemtech.io/">
+                            <i class="fab fa-slack"></i> <span> Join #general discussion</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stackoverflow.com/tags/nem/">
+                            <i class="fab fa-stack-overflow"></i>
+                            <span> Ask development questions</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/NEMofficial">
+                            <i class="fab fa-twitter"></i>
+                            <span> Follow the updates</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/nemtech">
+                            <i class="fab fa-github"></i>
+                            <span> Explore our Github</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <p class="text-center top-gap">
+            
+            
+            &copy; Copyright 2018-2019, NEM.
+            
+            
+            
+        </p>
+    </div>
+</footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '#search',
+        debug: false
+    });
+</script>
+
+  </body>
+</html>

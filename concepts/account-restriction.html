@@ -34,7 +34,7 @@
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Multisig Account" href="multisig-account.html" />
+    <link rel="next" title="Mosaic Restriction" href="mosaic-restriction.html" />
     <link rel="prev" title="Aggregate Transaction" href="aggregate-transaction.html" />
   
 <meta charset='utf-8'>
@@ -140,6 +140,7 @@
 <li class="toctree-l1"><a class="reference internal" href="account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">Mosaic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">Metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Account Restriction</a><ul>
@@ -166,6 +167,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic-restriction.html">Mosaic Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -197,7 +199,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.2</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.3</a></small>
     </p>
 </div>
 
@@ -217,6 +219,7 @@
 <li class="toctree-l1"><a class="reference internal" href="account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">Mosaic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">Metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Account Restriction</a><ul>
@@ -243,6 +246,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic-restriction.html">Mosaic Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -287,10 +291,39 @@
 <h1>Account Restriction<a class="headerlink" href="#account-restriction" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference internal" href="account.html"><span class="doc">Accounts</span></a> may configure a set of smart rules to block announcing or receiving transactions given a series of restrictions.</p>
 <p>The account owners - plural in case of multisig accounts - can edit the account restrictions at a later time announcing the specific <a class="reference internal" href="#account-address-restriction-transaction"><span class="std std-ref">account restriction transaction</span></a>.</p>
+<table border="1" class="docutils" id="id1">
+<caption><span class="caption-text">Restriction types</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="40%" />
+<col width="30%" />
+<col width="30%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Restriction</th>
+<th class="head">Incoming Transactions</th>
+<th class="head">Outgoing Transactions</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>AccountAddressRestriction</td>
+<td>✔️</td>
+<td>✔️</td>
+</tr>
+<tr class="row-odd"><td>AccountMosaicRestriction</td>
+<td>✔️</td>
+<td>❌</td>
+</tr>
+<tr class="row-even"><td>AccountOperationRestriction</td>
+<td>❌</td>
+<td>✔️</td>
+</tr>
+</tbody>
+</table>
 <div class="section" id="address-restriction">
 <h2>Address restriction<a class="headerlink" href="#address-restriction" title="Permalink to this headline">¶</a></h2>
-<p>An account can decide to only <strong>receive</strong> transactions from a list of allowed <a class="reference internal" href="account.html"><span class="doc">addresses</span></a>. Similarly, the account can define a list of blocked addresses.</p>
-<div class="figure align-center" id="id1">
+<p>An account can decide to <strong>only receive</strong> transactions from a list of allowed <strong>addresses</strong>. Alternatively, the account can define a list of blocked addresses.</p>
+<p>Restricting <strong>incoming transactions</strong> is useful when the account will be only receiving transactions from known addresses, or when the account wants to block transactions coming from unknown senders.</p>
+<div class="figure align-center" id="id2">
 <img alt="../_images/account-restrictions-address.png" src="../_images/account-restrictions-address.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">Address restriction diagram</span></p>
 </div>
@@ -299,10 +332,12 @@
 <p class="last">Allow and block restrictions are mutually exclusive. In other words, an account can only configure a block or an allow list per type of restriction.</p>
 </div>
 <p>By default, when there are no restrictions set, all the accounts in the network can announce transactions to the unrestricted account.</p>
+<p>Additionally, an account can decide to apply address restrictions to the <strong>outgoing transactions</strong>, limiting the accounts allowed that are valid recipients.</p>
 </div>
 <div class="section" id="mosaic-restriction">
 <h2>Mosaic restriction<a class="headerlink" href="#mosaic-restriction" title="Permalink to this headline">¶</a></h2>
-<p>An account can configure a restriction to permit <strong>incoming</strong> transactions only if all the <a class="reference internal" href="mosaic.html"><span class="doc">mosaics</span></a> attached are allowed. On the other hand, the account can refuse to accept transactions containing a mosaic listed as blocked.</p>
+<p>Similar to address restrictions, an account can configure a restriction to permit <strong>incoming</strong> transactions only if all the <a class="reference internal" href="mosaic.html"><span class="doc">mosaics</span></a> attached are allowed. On the other hand, the account can refuse to accept transactions containing a mosaic listed as blocked.</p>
+<p>Account mosaic restrictions are generally used to <strong>prevent accounts being tagged with mosaics</strong> not associated to their activity.</p>
 </div>
 <div class="section" id="operation-restriction">
 <h2>Operation restriction<a class="headerlink" href="#operation-restriction" title="Permalink to this headline">¶</a></h2>
@@ -315,7 +350,7 @@
 <p>A pharmaceutical company is using the public chain to certify the quality of their products.</p>
 <p>When the quality verification process concludes, an operator sends a <a class="reference internal" href="mosaic.html"><span class="doc">quality seal</span></a> to the product account.</p>
 <p>The final customers can review the product mosaics scanning a QR code. For that reason, the company only wants to show related transactions, avoiding that others spam their products with non-related information.</p>
-<div class="figure align-center" id="id2">
+<div class="figure align-center" id="id3">
 <img alt="../_images/account-restrictions-spam.png" src="../_images/account-restrictions-spam.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">Blocking spam transactions</span></p>
 </div>
@@ -343,7 +378,7 @@
 </div>
 <div class="section" id="accountaddressrestrictiontransaction">
 <span id="account-address-restriction-transaction"></span><h3>AccountAddressRestrictionTransaction<a class="headerlink" href="#accountaddressrestrictiontransaction" title="Permalink to this headline">¶</a></h3>
-<p>Configure restrictions to prevent receiving transactions from undesired addresses.</p>
+<p>Configure restrictions to prevent receiving or sending transactions from/to undesired addresses.</p>
 <p><strong>Version</strong>: 0x01</p>
 <p><strong>Entity type</strong>: 0x4150</p>
 <p><strong>Inlines</strong>:</p>
@@ -567,25 +602,31 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>0x01</td>
-<td>Allow only receiving transactions from an address.</td>
+<td>Allow only incoming transactions from a given address.</td>
 </tr>
 <tr class="row-odd"><td>0x02</td>
-<td>Allow only receiving transactions containing a mosaic id.</td>
+<td>Allow only incoming transactions containing a a given mosaic identifier.</td>
 </tr>
 <tr class="row-even"><td>0x04</td>
-<td>Allow only sending transactions with a given transaction type.</td>
+<td>Allow only outgoing transactions with a given transaction type.</td>
 </tr>
 <tr class="row-odd"><td>0x05</td>
 <td>Account restriction sentinel.</td>
 </tr>
-<tr class="row-even"><td>0x81</td>
-<td>Block receiving transactions from an address.</td>
+<tr class="row-even"><td>0x41</td>
+<td>Allow only outgoing transactions to a given address.</td>
 </tr>
-<tr class="row-odd"><td>0x82</td>
-<td>Block receiving transactions containing a mosaic id.</td>
+<tr class="row-odd"><td>0x81</td>
+<td>Block incoming transactions from a given address.</td>
 </tr>
-<tr class="row-even"><td>0x84</td>
-<td>Block sending transactions with a given transaction type.</td>
+<tr class="row-even"><td>0x82</td>
+<td>Block incoming transactions containing a given mosaic identifier.</td>
+</tr>
+<tr class="row-odd"><td>0x84</td>
+<td>Block outgoing transactions with a given transaction type.</td>
+</tr>
+<tr class="row-even"><td>0xC1</td>
+<td>Block outgoing transactions to a given address.</td>
 </tr>
 </tbody>
 </table>

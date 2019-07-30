@@ -157,9 +157,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">Metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic-restriction.html">Mosaic Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -191,7 +193,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.2</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.3</a></small>
     </p>
 </div>
 
@@ -228,9 +230,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">Metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic-restriction.html">Mosaic Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -277,7 +281,7 @@
 <p>A mosaic could be a token, but it could also be a collection of more specialized assets such as reward points, shares of stock, signatures, status flags, votes or even other currencies.</p>
 <div class="section" id="properties">
 <h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
-<p>Each mosaic has a unique identifier and a set of configurable properties. During the  <a class="reference internal" href="../guides/mosaic/creating-a-mosaic.html"><span class="doc">mosaic creation</span></a>, you can define:</p>
+<p>Each mosaic has a unique identifier and a set of configurable properties. During the <a class="reference internal" href="../guides/mosaic/creating-a-mosaic.html"><span class="doc">mosaic creation</span></a>, you can define:</p>
 <table border="1" class="docutils" id="mosaic-properties">
 <colgroup>
 <col width="33%" />
@@ -310,6 +314,10 @@
 <tr class="row-even"><td>Transferable</td>
 <td>Boolean</td>
 <td>If set to true, the mosaic can be transferred between arbitrary accounts. Otherwise, the mosaic can be only transferred back to the mosaic creator.</td>
+</tr>
+<tr class="row-odd"><td>Restrictable</td>
+<td>Boolean</td>
+<td>If set to true, the mosaic owner can configure custom <a class="reference internal" href="mosaic-restriction.html"><span class="doc">restrictions</span></a>.</td>
 </tr>
 </tbody>
 </table>
@@ -574,6 +582,9 @@
 </tr>
 <tr class="row-even"><td>0x02</td>
 <td>Mosaic supports transfers between arbitrary accounts. When not set, mosaic can only be transferred to and from mosaic owner.</td>
+</tr>
+<tr class="row-odd"><td>0x04</td>
+<td>Mosaic owner can add rules to restrict which accounts are enabled to send and receive the mosaic.</td>
 </tr>
 </tbody>
 </table>

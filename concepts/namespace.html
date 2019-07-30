@@ -34,7 +34,7 @@
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Transfer Transaction" href="transfer-transaction.html" />
+    <link rel="next" title="Metadata" href="metadata.html" />
     <link rel="prev" title="Mosaic" href="mosaic.html" />
   
 <meta charset='utf-8'>
@@ -162,9 +162,11 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">Metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic-restriction.html">Mosaic Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -196,7 +198,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.2</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.3</a></small>
     </p>
 </div>
 
@@ -238,9 +240,11 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">Metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic-restriction.html">Mosaic Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -284,10 +288,13 @@
   <div class="section" id="namespace">
 <h1>Namespace<a class="headerlink" href="#namespace" title="Permalink to this headline">¶</a></h1>
 <p>Namespaces allow you to <a class="reference internal" href="../guides/namespace/registering-a-namespace.html"><span class="doc">create an on-chain unique place</span></a> for your business and your assets on the NEM blockchain.</p>
+<div class="figure align-center" id="id1">
+<img alt="../_images/namespace-setup.png" src="../_images/namespace-setup.png" style="width: 450px;" />
+<p class="caption"><span class="caption-text">Organizing assets with namespaces</span></p>
+</div>
 <div class="section" id="name">
 <h2>Name<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h2>
-<p>A namespace starts with a name that you choose, similar to an internet domain name. The name must appear as unique  in the network, and may have a maximum length of <code class="docutils literal"><span class="pre">64</span></code> characters. Allowed characters are a, b, c, …, z, 0, 1, 2, …, 9, _ , -.</p>
-<p>An account can link a registered name (namespace or subnamespace) with an <a class="reference internal" href="../guides/namespace/link-a-namespace-to-an-address.html"><span class="doc">account</span></a> or a <a class="reference internal" href="../guides/namespace/link-a-namespace-to-a-mosaic.html"><span class="doc">mosaic</span></a> identifier.</p>
+<p>A namespace starts with a name that you choose, similar to an internet domain name. The name must appear as <strong>unique in the network</strong>, and may have a maximum length of <code class="docutils literal"><span class="pre">64</span></code> characters. Allowed characters are a, b, c, …, z, 0, 1, 2, …, 9, _ , -.</p>
 </div>
 <div class="section" id="subnamespaces">
 <h2>Subnamespaces<a class="headerlink" href="#subnamespaces" title="Permalink to this headline">¶</a></h2>
@@ -297,30 +304,72 @@
 </div>
 <div class="section" id="alias">
 <h2>Alias<a class="headerlink" href="#alias" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference internal" href="#address-alias-transaction"><span class="std std-ref">Alias transactions</span></a> link namespaces to accounts and mosaics.</p>
-<p>An alias or its linked asset can be used interchangeably when sending a transaction. Using the alias makes long addresses rememberable and mosaics recognizable.</p>
-<p>Only the creator of the namespace can link the namespace to an account or mosaic. This link will be editable, so the creator may unlink a previously set alias.</p>
+<p><a class="reference internal" href="#address-alias-transaction"><span class="std std-ref">Alias transactions</span></a> link namespaces to accounts and mosaics. An alias or its linked asset can be used interchangeably when sending a transaction. Using the alias makes <em>long addresses rememberable</em> and <em>mosaics recognizable</em>.</p>
+<p>The creator of the namespace can <a class="reference internal" href="../guides/namespace/link-a-namespace-to-a-mosaic.html"><span class="doc">link the namespace</span></a> to an account or mosaic. This link will be editable, so the creator may unlink a previously set alias and link the namespace to a different asset.</p>
 <p>The block <a class="reference internal" href="receipt.html"><span class="doc">receipts</span></a> store the resolution of the alias for a given transaction.</p>
-<p>Restrictions:</p>
+<p><strong>Restrictions:</strong></p>
 <ul class="simple">
 <li>An account can only associate a name with one account or mosaic, but those can have many aliases linked.</li>
-<li>An account can assign a name to any account that permits receiving <a class="reference internal" href="account-restriction.html"><span class="doc">AddressNamespaceTransactions</span></a>. In contrast, if the account wants to assign the alias to a mosaicId, it should be the creator of the mosaic.</li>
+<li>An account can assign a name to any account that <a class="reference internal" href="account-restriction.html"><span class="doc">permits receiving</span></a> AddressAliasTransaction.</li>
 <li>An account can only link the alias to a mosaicId when the account is the creator of the mosaic.</li>
 </ul>
 </div>
 <div class="section" id="duration">
 <h2>Duration<a class="headerlink" href="#duration" title="Permalink to this headline">¶</a></h2>
-<div class="figure align-center" id="id1">
-<img alt="../_images/namespace-life-cycle.png" src="../_images/namespace-life-cycle.png" style="width: 800px;" />
-<p class="caption"><span class="caption-text">Namespace life-cycle</span></p>
-</div>
 <p>At the time of the namespace <strong>registration</strong>, you must set the number of confirmed blocks you would like to rent the namespace for.</p>
 <p>The maximum namespace duration is <code class="docutils literal"><span class="pre">365</span></code> days. By default, the network is configured to generate a block every <code class="docutils literal"><span class="pre">15</span></code> seconds. You can use the following formula to convert approximately days to blocks:</p>
 <blockquote>
 <div>duration ≈ numberOfDays * 86400 / blockGenerationTargetTimeInSeconds</div></blockquote>
-<p>During the renting period, the namespace owner can create subnamespaces, alias accounts and mosaics. The owner can also <strong>extend the rental</strong> by sending a <a class="reference internal" href="#register-namespace-transaction"><span class="std std-ref">register namespace transaction</span></a> with the desired number of additional blocks.</p>
+<div class="figure align-center" id="id2">
+<img alt="../_images/namespace-life-cycle.png" src="../_images/namespace-life-cycle.png" style="width: 800px;" />
+<p class="caption"><span class="caption-text">Namespace life-cycle</span></p>
+</div>
+<p>During the <strong>renting period</strong>, the namespace owner can create subnamespaces, alias accounts and mosaics. The owner can also <strong>extend the rental</strong> by sending a <a class="reference internal" href="#register-namespace-transaction"><span class="std std-ref">register namespace transaction</span></a> with the desired number of additional blocks.</p>
 <p>The network <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">can define</a> a <strong>grace period</strong> that enables the namespace owner to renew the namespace past the expiration date before it becomes publicly available for registration.</p>
-<p>When the grace period ends, the existing aliases and subnamespaces are pruned, becoming <strong>inactive</strong>. Hence, other accounts can now register the namespace again.</p>
+<p>When the grace period ends, the namespace is <strong>deleted</strong>. At this point, the namespace becomes <strong>available</strong> for its registration again.</p>
+<table border="1" class="docutils" id="id3">
+<caption><span class="caption-text">Permissions by namespace status</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Action</th>
+<th class="head">Available</th>
+<th class="head">Registration Period</th>
+<th class="head">Grace Period</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Register a new namespace</td>
+<td>✔️</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr class="row-odd"><td>Renew the namespace</td>
+<td>❌</td>
+<td>✔️</td>
+<td>✔️</td>
+</tr>
+<tr class="row-even"><td>Create subnamespaces</td>
+<td>❌</td>
+<td>✔️</td>
+<td>❌</td>
+</tr>
+<tr class="row-odd"><td>Link an alias to an address or mosaic</td>
+<td>❌</td>
+<td>✔️</td>
+<td>❌</td>
+</tr>
+<tr class="row-even"><td>Send a transaction using an alias</td>
+<td>❌</td>
+<td>✔️</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="cost">
 <h2>Cost<a class="headerlink" href="#cost" title="Permalink to this headline">¶</a></h2>
@@ -329,24 +378,24 @@
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <p>A customer buys a ticket for an event. The ticket sales company sends a ticket to the customer account.</p>
-<div class="figure align-center" id="id2">
+<div class="figure align-center" id="id4">
 <img alt="../_images/namespace-tickets.png" src="../_images/namespace-tickets.png" style="width: 500px;" />
 <p class="caption"><span class="caption-text">Recognizable mosaics and addresses</span></p>
 </div>
 <div class="section" id="identifying-the-sender">
 <h3>Identifying the sender<a class="headerlink" href="#identifying-the-sender" title="Permalink to this headline">¶</a></h3>
-<p>The ticket seller has registered the namespace <code class="docutils literal"><span class="pre">ticketsales</span></code> to link it to its account as an alias. Customers can quickly recognize incoming transactions from the vendor account.</p>
+<p>The ticket seller has registered the namespace <code class="docutils literal"><span class="pre">ticketcompany</span></code> to link it to its account as an alias. Customers can quickly recognize incoming transactions from the vendor account.</p>
 </div>
 <div class="section" id="identifying-the-ticket">
 <h3>Identifying the ticket<a class="headerlink" href="#identifying-the-ticket" title="Permalink to this headline">¶</a></h3>
 <p>The same company sells tickets for events organized in different venues. The company registers a non-transferable <a class="reference internal" href="mosaic.html"><span class="doc">mosaic</span></a> for each actuation.</p>
-<p>The ticket seller adds a series of subdomains on top of the root domain of <code class="docutils literal"><span class="pre">ticketsales</span></code>. The root plus subdomains are <code class="docutils literal"><span class="pre">ticketsales.event&lt;ID&gt;.ticket</span></code>.</p>
-<p>The company links one registered mosaic with <code class="docutils literal"><span class="pre">ticketsales.event1.ticket</span></code> namespace name.</p>
+<p>The ticket seller adds a series of subdomains on top of the root domain of <code class="docutils literal"><span class="pre">ticketcompany</span></code>. The root plus subdomains are <code class="docutils literal"><span class="pre">ticketcompany.event&lt;ID&gt;.ticket</span></code>.</p>
+<p>The company links one registered mosaic with <code class="docutils literal"><span class="pre">ticketcompany.event1.ticket</span></code> namespace name.</p>
 </div>
 <div class="section" id="identifying-the-buyer">
 <h3>Identifying the buyer<a class="headerlink" href="#identifying-the-buyer" title="Permalink to this headline">¶</a></h3>
 <p>Alice, who wants to buy the ticket, has registered the namespace <code class="docutils literal"><span class="pre">alice</span></code> and assigned it to her account as an alias.</p>
-<p>The ticket vendor can send 1 <code class="docutils literal"><span class="pre">ticketsales.event1.ticket</span></code> to <code class="docutils literal"><span class="pre">alice</span></code> instead of 1  <code class="docutils literal"><span class="pre">0dc67fbe1cad29e3</span></code> to <code class="docutils literal"><span class="pre">SCVG35-ZSPMYP-L2POZQ-JGSVEG-RYOJ3V-BNIU3U-N2E6</span></code>.</p>
+<p>The ticket vendor can send 1 <code class="docutils literal"><span class="pre">ticketcompany.event1.ticket</span></code> to <code class="docutils literal"><span class="pre">alice</span></code> instead of 1  <code class="docutils literal"><span class="pre">0dc67fbe1cad29e3</span></code> to <code class="docutils literal"><span class="pre">SCVG35-ZSPMYP-L2POZQ-JGSVEG-RYOJ3V-BNIU3U-N2E6</span></code>.</p>
 </div>
 </div>
 <div class="section" id="guides">

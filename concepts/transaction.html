@@ -140,9 +140,11 @@
 <li class="toctree-l1"><a class="reference internal" href="account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">Mosaic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">Metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic-restriction.html">Mosaic Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -191,7 +193,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.2</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.3</a></small>
     </p>
 </div>
 
@@ -211,9 +213,11 @@
 <li class="toctree-l1"><a class="reference internal" href="account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">Mosaic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">Metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic-restriction.html">Mosaic Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -291,13 +295,37 @@
 </tr>
 </thead>
 <tbody valign="top">
+<tr class="row-even"><td><strong>Remote harvesting</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>0x414C</td>
+<td><a class="reference internal" href="harvesting.html#account-link-transaction"><span class="std std-ref">Account Link</span></a></td>
+<td>Delegate the account importance to a proxy account.</td>
+</tr>
+<tr class="row-even"><td><strong>Aggregate</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>0x4141</td>
+<td><a class="reference internal" href="aggregate-transaction.html#id1"><span class="std std-ref">Aggregate Complete</span></a></td>
+<td>Send transactions in batches to different accounts.</td>
+</tr>
+<tr class="row-even"><td>0x4241</td>
+<td><a class="reference internal" href="aggregate-transaction.html#id1"><span class="std std-ref">Aggregate Bonded</span></a></td>
+<td>Propose an arrangement of transactions between different accounts.</td>
+</tr>
+<tr class="row-odd"><td>–</td>
+<td><a class="reference internal" href="aggregate-transaction.html#cosignature-transaction"><span class="std std-ref">Cosignature</span></a></td>
+<td>Cosign an aggregate bonded transaction.</td>
+</tr>
 <tr class="row-even"><td><strong>Mosaic</strong></td>
 <td>&#160;</td>
 <td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>0x414D</td>
 <td><a class="reference internal" href="mosaic.html#mosaic-definition-transaction"><span class="std std-ref">Mosaic Definition</span></a></td>
-<td>Register a new <a class="reference internal" href="mosaic.html"><span class="doc">mosaic</span></a>.</td>
+<td>Register a new mosaic.</td>
 </tr>
 <tr class="row-even"><td>0x424D</td>
 <td><a class="reference internal" href="mosaic.html#mosaic-supply-change-transaction"><span class="std std-ref">Mosaic Supply Change</span></a></td>
@@ -309,7 +337,7 @@
 </tr>
 <tr class="row-even"><td>0x414E</td>
 <td><a class="reference internal" href="namespace.html#register-namespace-transaction"><span class="std std-ref">Register Namespace</span></a></td>
-<td>Register a <a class="reference internal" href="mosaic.html"><span class="doc">namespace</span></a> to organize your assets.</td>
+<td>Register namespaces to organize your assets.</td>
 </tr>
 <tr class="row-odd"><td>0x424E</td>
 <td><a class="reference internal" href="namespace.html#address-alias-transaction"><span class="std std-ref">Address Alias</span></a></td>
@@ -319,13 +347,21 @@
 <td><a class="reference internal" href="namespace.html#mosaic-alias-transaction"><span class="std std-ref">Mosaic Alias</span></a></td>
 <td>Attach a namespace name to a mosaic.</td>
 </tr>
-<tr class="row-odd"><td><strong>Transfer</strong></td>
+<tr class="row-odd"><td><strong>Metadata</strong></td>
 <td>&#160;</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>0x4154</td>
-<td><a class="reference internal" href="transfer-transaction.html#id1"><span class="std std-ref">Transfer</span></a></td>
-<td>Send mosaics and messages between two accounts.</td>
+<tr class="row-even"><td>0x4144</td>
+<td><a class="reference internal" href="metadata.html#account-metadata-transaction"><span class="std std-ref">Account Metadata Transaction</span></a></td>
+<td>Associate a key-value state to an account.</td>
+</tr>
+<tr class="row-odd"><td>0x4144</td>
+<td><a class="reference internal" href="metadata.html#mosaic-metadata-transaction"><span class="std std-ref">Mosaic Metadata Transaction</span></a></td>
+<td>Associate a key-value state to a mosaic.</td>
+</tr>
+<tr class="row-even"><td>0x4144</td>
+<td><a class="reference internal" href="metadata.html#namespace-metadata-transaction"><span class="std std-ref">Namespace Metadata Transaction</span></a></td>
+<td>Associate a key-value state to a namespace.</td>
 </tr>
 <tr class="row-odd"><td><strong>Multisignature</strong></td>
 <td>&#160;</td>
@@ -333,59 +369,63 @@
 </tr>
 <tr class="row-even"><td>0x4155</td>
 <td><a class="reference internal" href="multisig-account.html#modify-multisig-account-transaction"><span class="std std-ref">Modify Multisig Account</span></a></td>
-<td>Create or modify a <a class="reference internal" href="multisig-account.html"><span class="doc">multisig contract</span></a>.</td>
+<td>Create or modify a multisig contract.</td>
 </tr>
-<tr class="row-odd"><td>0x4141</td>
-<td><a class="reference internal" href="aggregate-transaction.html#id1"><span class="std std-ref">Aggregate Complete</span></a></td>
-<td>Send transactions in batches to different accounts.</td>
+<tr class="row-odd"><td><strong>Hash Lock</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td>0x4241</td>
-<td><a class="reference internal" href="aggregate-transaction.html#id1"><span class="std std-ref">Aggregate Bonded</span></a></td>
-<td>Propose many transactions between different accounts.</td>
-</tr>
-<tr class="row-odd"><td>0x4148</td>
+<tr class="row-even"><td>0x4148</td>
 <td><a class="reference internal" href="aggregate-transaction.html#hash-lock-transaction"><span class="std std-ref">Hash Lock</span></a></td>
-<td>A deposit before announcing aggregate bonded transactions.</td>
+<td>Lock a deposit needed to announce aggregate bonded transactions.</td>
 </tr>
-<tr class="row-even"><td>–</td>
-<td><a class="reference internal" href="aggregate-transaction.html#cosignature-transaction"><span class="std std-ref">Cosignature</span></a></td>
-<td>Cosign an aggregate bonded transaction.</td>
-</tr>
-<tr class="row-odd"><td><strong>Account restrictions</strong></td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>0x4150</td>
-<td><a class="reference internal" href="account-restriction.html#account-address-restriction-transaction"><span class="std std-ref">Account Address Restriction</span></a></td>
-<td>Allow or block incoming transactions for a given a set of addresses.</td>
-</tr>
-<tr class="row-odd"><td>0x4250</td>
-<td><a class="reference internal" href="account-restriction.html#account-mosaic-restriction-transaction"><span class="std std-ref">Account Mosaic Restriction</span></a></td>
-<td>Allow or block incoming transactions containing a given set of mosaics.</td>
-</tr>
-<tr class="row-even"><td>0x4350</td>
-<td><a class="reference internal" href="account-restriction.html#account-operation-restriction-transaction"><span class="std std-ref">Account Operation Restriction</span></a></td>
-<td>Allow or block outgoing transactions by transaction type.</td>
-</tr>
-<tr class="row-odd"><td><strong>Cross-chain swaps</strong></td>
+<tr class="row-odd"><td><strong>Secret Lock</strong></td>
 <td>&#160;</td>
 <td>&#160;</td>
 </tr>
 <tr class="row-even"><td>0x4152</td>
 <td><a class="reference internal" href="cross-chain-swaps.html#secret-lock-transaction"><span class="std std-ref">Secret Lock</span></a></td>
-<td>Start a <a class="reference internal" href="cross-chain-swaps.html"><span class="doc">token swap</span></a> between different chains.</td>
+<td>Start a token swap between different chains.</td>
 </tr>
 <tr class="row-odd"><td>0x4252</td>
 <td><a class="reference internal" href="cross-chain-swaps.html#secret-proof-transaction"><span class="std std-ref">Secret Proof</span></a></td>
 <td>Conclude a token swap between different chains.</td>
 </tr>
-<tr class="row-even"><td><strong>Remote harvesting</strong></td>
+<tr class="row-even"><td><strong>Account restriction</strong></td>
 <td>&#160;</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>0x414C</td>
-<td><a class="reference internal" href="harvesting.html#account-link-transaction"><span class="std std-ref">Account Link</span></a></td>
-<td>Delegate the account importance to a proxy account.</td>
+<tr class="row-odd"><td>0x4150</td>
+<td><a class="reference internal" href="account-restriction.html#account-address-restriction-transaction"><span class="std std-ref">Account Restriction Address</span></a></td>
+<td>Allow or block incoming and outgoing transactions for a given a set of addresses.</td>
+</tr>
+<tr class="row-even"><td>0x4250</td>
+<td><a class="reference internal" href="account-restriction.html#account-mosaic-restriction-transaction"><span class="std std-ref">Account Restriction Mosaic</span></a></td>
+<td>Allow or block incoming transactions containing a given set of mosaics.</td>
+</tr>
+<tr class="row-odd"><td>0x4350</td>
+<td><a class="reference internal" href="account-restriction.html#account-operation-restriction-transaction"><span class="std std-ref">Account Restriction Entity Type</span></a></td>
+<td>Allow or block outgoing transactions by transaction type.</td>
+</tr>
+<tr class="row-even"><td><strong>Mosaic restriction</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>0x4151</td>
+<td><a class="reference internal" href="mosaic-restriction.html#mosaic-global-restriction-transaction"><span class="std std-ref">Mosaic Restriction Global</span></a></td>
+<td>Set a global restriction to a mosaic.</td>
+</tr>
+<tr class="row-even"><td>0x4251</td>
+<td><a class="reference internal" href="mosaic-restriction.html#mosaic-address-restriction-transaction"><span class="std std-ref">Mosaic Restriction Address</span></a></td>
+<td>Set a mosaic restriction to an specific address.</td>
+</tr>
+<tr class="row-odd"><td><strong>Transfer</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>0x4154</td>
+<td><a class="reference internal" href="transfer-transaction.html#id1"><span class="std std-ref">Transfer</span></a></td>
+<td>Send mosaics and messages between two accounts.</td>
 </tr>
 </tbody>
 </table>

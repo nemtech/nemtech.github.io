@@ -138,9 +138,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">Mosaic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/metadata.html">Metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account-restriction.html">Account Restriction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic-restriction.html">Mosaic Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -172,7 +174,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.2</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.3</a></small>
     </p>
 </div>
 
@@ -192,9 +194,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">Mosaic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/metadata.html">Metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account-restriction.html">Account Restriction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic-restriction.html">Mosaic Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -240,12 +244,13 @@
 <p>Create a 1-of-2 <a class="reference internal" href="../../concepts/multisig-account.html"><span class="doc">multisig account</span></a>.</p>
 <div class="section" id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
-<p>Alice and Bob live together and have separate <a class="reference internal" href="../../concepts/account.html"><span class="doc">accounts</span></a>. They also have a shared account used to buy groceries. If Bob is out shopping, he can buy groceries for both himself and Alice.</p>
-<p>This shared account appears in NEM as 1-of-2 multisig, meaning that one cosignatory needs to cosign the transaction to be included in a block.</p>
+<p>Alice and Bob have separate <a class="reference internal" href="../../concepts/account.html"><span class="doc">accounts</span></a>. They also want to have a shared account to buy groceries, so that if Bob is out shopping, he can buy groceries for both himself and Alice.</p>
+<p>This shared account appears in NEM as <strong>1-of-2 multisig</strong>. Multisig accounts permit Alice and Bob sharing funds in a separate account, requiring only the signature from one of them to transact.</p>
 <div class="figure align-center" id="id1">
 <img alt="../../_images/multisig-1-of-2.png" src="../../_images/multisig-1-of-2.png" style="width: 350px;" />
 <p class="caption"><span class="caption-text">1-of-2 multisig account example</span></p>
 </div>
+<p>In this guide, you are going to create a 1-of-2 multisig account. In future guides, you will learn how to increase the minimum number of cosignatures required, as well as invite and remove cosignatories from the multisig account.</p>
 </div>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
@@ -258,7 +263,7 @@
 <div class="section" id="getting-into-some-code">
 <h2>Getting into some code<a class="headerlink" href="#getting-into-some-code" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>Define who will be the cosignatories of the multisig account: Alice and Bob addresses. Then, open the account that will be converted into multisig by providing its private key.</li>
+<li>First, define the accounts that will be cosginatories of the multisig account. In our case, these are Alice and Bob addresses. Then, open the account that will be converted into multisig using its private key.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id2">
@@ -295,7 +300,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li>Create a <a class="reference internal" href="../../concepts/multisig-account.html#modify-multisig-account-transaction"><span class="std std-ref">modify multisig account transaction</span></a>  to convert the account into a multisig account. As they want to create a 1-of-2 multisig account, set the minimum signatures required to 1.</li>
+<li>Create a <a class="reference internal" href="../../concepts/multisig-account.html#modify-multisig-account-transaction"><span class="std std-ref">modify multisig account transaction</span></a>  to convert the shared account into a multisig account. As you want to create a 1-of-2 multisig account, set the minimum signatures required to <code class="docutils literal"><span class="pre">1</span></code>.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id4">
@@ -494,7 +499,7 @@
 </div>
 <div class="section" id="what-s-next">
 <h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
-<p>Alice an Bob wants to send transactions from the multisig only when both agree. Modify the multisig account you just created, converting it into a 2-of-2 multisig following <a class="reference internal" href="modifying-a-multisig-account.html"><span class="doc">modifying a multisig account</span></a> guide.</p>
+<p>Modify the multisig account you just created, converting it into a 2-of-2 multisig following <a class="reference internal" href="modifying-a-multisig-account.html"><span class="doc">the next guide</span></a>.</p>
 </div>
 </div>
 

@@ -138,9 +138,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">Mosaic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/metadata.html">Metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account-restriction.html">Account Restriction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic-restriction.html">Mosaic Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -172,7 +174,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.2</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.3</a></small>
     </p>
 </div>
 
@@ -192,9 +194,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">Mosaic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/metadata.html">Metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account-restriction.html">Account Restriction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic-restriction.html">Mosaic Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -300,13 +304,13 @@ Private Key:    654..321
 <p>By default, when there is no restriction set, all the accounts in the network can announce transactions to the stated account.</p>
 <p>Returning to our previous example, let us imagine that you want to configure the product account to only accept receiving transactions  that come from the company’s account. You might take the following steps to do so:</p>
 <ol class="arabic simple">
-<li>Define the account restriction modification. Add to the company’s address (SBI774-YMFDZI-FPEPC5-4EKRC2-5DKDZJ-H2QVRW-4HBP) to the “allowed list”.</li>
+<li>Define the account restriction modification. Add to the company’s address <code class="docutils literal"><span class="pre">SBI774-YMFDZI-FPEPC5-4EKRC2-5DKDZJ-H2QVRW-4HBP</span></code> to the allowed list.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id2">
 <div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/AccountAddressRestrictionAllowList.ts">View Code</a></span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">companyAddress</span> <span class="o">=</span> <span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="s1">&#39;SBI774-YMFDZI-FPEPC5-4EKRC2-5DKDZJ-H2QVRW-4HBP&#39;</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">addressRestriction</span> <span class="o">=</span> <span class="nx">AccountPropertyModification</span><span class="p">.</span><span class="nx">createForAddress</span><span class="p">(</span><span class="nx">PropertyModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span> <span class="nx">companyAddress</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">addressRestriction</span> <span class="o">=</span> <span class="nx">AccountRestrictionModification</span><span class="p">.</span><span class="nx">createForAddress</span><span class="p">(</span><span class="nx">RestrictionModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span> <span class="nx">companyAddress</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -317,10 +321,10 @@ Private Key:    654..321
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id3">
 <div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/AccountAddressRestrictionAllowList.ts">View Code</a></span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
-<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">AccountPropertyTransaction</span>
-    <span class="p">.</span><span class="nx">createAddressPropertyModificationTransaction</span><span class="p">(</span>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">AccountRestrictionTransaction</span>
+    <span class="p">.</span><span class="nx">createAddressRestrictionModificationTransaction</span><span class="p">(</span>
         <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
-        <span class="nx">PropertyType</span><span class="p">.</span><span class="nx">AllowAddress</span><span class="p">,</span>
+        <span class="nx">RestrictionType</span><span class="p">.</span><span class="nx">AllowAddress</span><span class="p">,</span>
         <span class="p">[</span><span class="nx">addressRestriction</span><span class="p">],</span>
         <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 </pre></div>
@@ -346,7 +350,7 @@ Private Key:    654..321
 </div>
 </div>
 </div>
-<p>Now, if you send a <a class="reference internal" href="../transaction/sending-a-transfer-transaction.html"><span class="doc">transfer transaction</span></a> from another account, you will get an error as only “SBI774-YMFDZI-FPEPC5-4EKRC2-5DKDZJ-H2QVRW-4HBP” is allowed to send the transactions to the product.</p>
+<p>Now, if you send a <a class="reference internal" href="../transaction/sending-a-transfer-transaction.html"><span class="doc">transfer transaction</span></a> from another account, you will get an error as only <code class="docutils literal"><span class="pre">SBI774-YMFDZI-FPEPC5-4EKRC2-5DKDZJ-H2QVRW-4HBP</span></code> is allowed to send the transactions to the product.</p>
 <p>On the other hand, if you send a transaction from your company account, you will receive a confirmation message as you would normally.</p>
 </div>
 <div class="section" id="blocking-transactions-by-mosaic-id">
@@ -358,29 +362,29 @@ Private Key:    654..321
 <li><code class="docutils literal"><span class="pre">company.safety.seal</span></code>: represents that the product has passed a safety test.</li>
 </ul>
 <p>In this case, it might be useful if the product could only receive seals and not company shares.</p>
-<p>Thus, you could  narrow the type of transactions that the product can receive from the company’s account through the use of negation. Instead of specifically allowing the seals, the product can be set up to block receiving transactions that contain “company.share”. This is how it can be done:</p>
+<p>Thus, you could narrow the type of transactions that the product can receive from the company’s account through the use of negation. Instead of specifically allowing the seals, the product can be set up to block receiving transactions that contain <code class="docutils literal"><span class="pre">company.share</span></code>. This is how it can be done:</p>
 <ol class="arabic simple">
-<li>Define the account restriction modification. Add the mosaic id you want to block to the “blocked list”.</li>
+<li>Define the account restriction modification. Add the mosaic id you want to block to the blocked list.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id5">
 <div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/AccountMosaicRestrictionBlockList.ts">View Code</a></span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">companyShareMosaicId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;2b890153b7a18ff2&#39;</span><span class="p">);</span> <span class="c1">// Replace with the mosaic id representing the company share.</span>
-<span class="kr">const</span> <span class="nx">mosaicRestriction</span> <span class="o">=</span> <span class="nx">AccountPropertyModification</span><span class="p">.</span><span class="nx">createForMosaic</span><span class="p">(</span><span class="nx">PropertyModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span> <span class="nx">companyShareMosaicId</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">mosaicRestriction</span> <span class="o">=</span> <span class="nx">AccountRestrictionModification</span><span class="p">.</span><span class="nx">createForMosaic</span><span class="p">(</span><span class="nx">RestrictionModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span> <span class="nx">companyShareMosaicId</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li>Create an <code class="docutils literal"><span class="pre">AccountRestrictionTransaction</span></code>, with restrictionType “BlockMosaic”.  Add to the array the modification created in the previous step.</li>
+<li>Create an <code class="docutils literal"><span class="pre">AccountRestrictionTransaction</span></code>, with restrictionType <code class="docutils literal"><span class="pre">BlockMosaic</span></code>.  Add to the array the modification created in the previous step.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id6">
 <div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/AccountMosaicRestrictionBlockList.ts">View Code</a></span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
-<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">AccountPropertyTransaction</span>
-    <span class="p">.</span><span class="nx">createMosaicPropertyModificationTransaction</span><span class="p">(</span>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">AccountRestrictionTransaction</span>
+    <span class="p">.</span><span class="nx">createMosaicRestrictionModificationTransaction</span><span class="p">(</span>
         <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
-        <span class="nx">PropertyType</span><span class="p">.</span><span class="nx">BlockMosaic</span><span class="p">,</span>
+        <span class="nx">RestrictionType</span><span class="p">.</span><span class="nx">BlockMosaic</span><span class="p">,</span>
         <span class="p">[</span><span class="nx">mosaicRestriction</span><span class="p">],</span>
         <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 </pre></div>
@@ -406,33 +410,33 @@ Private Key:    654..321
 </div>
 </div>
 </div>
-<p>If the process was successful, the product account can now only receive transactions from the company’s account that does not include any “company.share” mosaic.</p>
+<p>If the process was successful, the product account can now only receive transactions from the company’s account that does not include any <code class="docutils literal"><span class="pre">company.share</span></code> mosaic.</p>
 </div>
 <div class="section" id="removing-a-restriction">
 <h3>Removing a restriction<a class="headerlink" href="#removing-a-restriction" title="Permalink to this headline">¶</a></h3>
 <p>After the company sells the product to the final client, they want to remove the condition that only allowed the company’s account to send transactions to the product. The account restrictions can be removed as easily as they were set up:</p>
 <ol class="arabic simple">
-<li>Define the account restriction modification. Remove from the “allowed list” the company’s address.</li>
+<li>Define the account restriction modification. Remove from the allowed list the company’s address.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id8">
 <div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/AccountAddressRestrictionRemoveRestriction.ts">View Code</a></span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">companyAddress</span> <span class="o">=</span> <span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="s1">&#39;SBI774-YMFDZI-FPEPC5-4EKRC2-5DKDZJ-H2QVRW-4HBP&#39;</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">addressRestriction</span> <span class="o">=</span> <span class="nx">AccountPropertyModification</span><span class="p">.</span><span class="nx">createForAddress</span><span class="p">(</span><span class="nx">PropertyModificationType</span><span class="p">.</span><span class="nx">Remove</span><span class="p">,</span> <span class="nx">companyAddress</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">addressRestriction</span> <span class="o">=</span> <span class="nx">AccountRestrictionModification</span><span class="p">.</span><span class="nx">createForAddress</span><span class="p">(</span><span class="nx">RestrictionModificationType</span><span class="p">.</span><span class="nx">Remove</span><span class="p">,</span> <span class="nx">companyAddress</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li>Create an <code class="docutils literal"><span class="pre">AccountRestrictionTransaction</span></code>, setting the type “AllowAddress”. Add as well the modification created.</li>
+<li>Create an <code class="docutils literal"><span class="pre">AccountRestrictionTransaction</span></code>, setting the type <code class="docutils literal"><span class="pre">AllowAddress</span></code>. Add as well the modification created.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id9">
 <div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/AccountAddressRestrictionRemoveRestriction.ts">View Code</a></span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
-<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">AccountPropertyTransaction</span>
-    <span class="p">.</span><span class="nx">createAddressPropertyModificationTransaction</span><span class="p">(</span>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">AccountRestrictionTransaction</span>
+    <span class="p">.</span><span class="nx">createAddressRestrictionModificationTransaction</span><span class="p">(</span>
         <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
-        <span class="nx">PropertyType</span><span class="p">.</span><span class="nx">AllowAddress</span><span class="p">,</span>
+        <span class="nx">RestrictionType</span><span class="p">.</span><span class="nx">AllowAddress</span><span class="p">,</span>
         <span class="p">[</span><span class="nx">addressRestriction</span><span class="p">],</span>
         <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 </pre></div>

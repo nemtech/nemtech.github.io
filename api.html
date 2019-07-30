@@ -140,9 +140,11 @@
 <li class="toctree-l1"><a class="reference internal" href="concepts/account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/mosaic.html">Mosaic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/metadata.html">Metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/account-restriction.html">Account Restriction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/mosaic-restriction.html">Mosaic Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -193,7 +195,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.2</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.3</a></small>
     </p>
 </div>
 
@@ -213,9 +215,11 @@
 <li class="toctree-l1"><a class="reference internal" href="concepts/account.html">Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/mosaic.html">Mosaic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/metadata.html">Metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/transfer-transaction.html">Transfer Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/account-restriction.html">Account Restriction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/mosaic-restriction.html">Mosaic Restriction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/multisig-account.html">Multisig Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
 </ul>
@@ -593,85 +597,109 @@
 <td>Failure_LockSecret_Invalid_Duration</td>
 <td>Validation failed because duration is too long.</td>
 </tr>
-<tr class="row-odd"><td>0x804D0001</td>
+<tr class="row-odd"><td>0x80440001</td>
+<td>Failure_Metadata_Value_Too_Small</td>
+<td>Validation failed because the metadata value is too small.</td>
+</tr>
+<tr class="row-even"><td>0x80440002</td>
+<td>Failure_Metadata_Value_Too_Large</td>
+<td>Validation failed because the metadata value is too large.</td>
+</tr>
+<tr class="row-odd"><td>0x80440003</td>
+<td>Failure_Metadata_Value_Size_Delta_Too_Large</td>
+<td>Validation failed because the metadata value size delta is larger in magnitude than the value size.</td>
+</tr>
+<tr class="row-even"><td>0x80440004</td>
+<td>Failure_Metadata_Value_Size_Delta_Mismatch</td>
+<td>Validation failed because the metadata value size delta does not match expected value based on the current state.</td>
+</tr>
+<tr class="row-odd"><td>0x80440005</td>
+<td>Failure_Metadata_Value_Change_Irreversible</td>
+<td>Validation failed because a metadata value change (truncation) is irreversible.</td>
+</tr>
+<tr class="row-even"><td>0x804D0001</td>
 <td>Failure_Mosaic_Invalid_Duration</td>
 <td>Validation failed because the duration has an invalid value.</td>
 </tr>
-<tr class="row-even"><td>0x804D0002</td>
+<tr class="row-odd"><td>0x804D0002</td>
 <td>Failure_Mosaic_Invalid_Name</td>
 <td>Validation failed because the name is invalid.</td>
 </tr>
-<tr class="row-odd"><td>0x804D0003</td>
+<tr class="row-even"><td>0x804D0003</td>
 <td>Failure_Mosaic_Name_Id_Mismatch</td>
 <td>Validation failed because the name and id don’t match.</td>
 </tr>
-<tr class="row-even"><td>0x804D0004</td>
+<tr class="row-odd"><td>0x804D0004</td>
 <td>Failure_Mosaic_Expired</td>
 <td>Validation failed because the parent is expired.</td>
 </tr>
-<tr class="row-odd"><td>0x804D0005</td>
+<tr class="row-even"><td>0x804D0005</td>
 <td>Failure_Mosaic_Owner_Conflict</td>
 <td>Validation failed because the parent owner conflicts with the child owner.</td>
 </tr>
-<tr class="row-even"><td>0x804D0006</td>
+<tr class="row-odd"><td>0x804D0006</td>
 <td>Failure_Mosaic_Id_Mismatch</td>
 <td>Validation failed because the id is not the expected id generated from signer and nonce.</td>
 </tr>
-<tr class="row-odd"><td>0x804D0064</td>
+<tr class="row-even"><td>0x804D0064</td>
 <td>Failure_Mosaic_Parent_Id_Conflict</td>
 <td>Validation failed because the existing parent id does not match the supplied parent id.</td>
 </tr>
-<tr class="row-even"><td>0x804D0065</td>
+<tr class="row-odd"><td>0x804D0065</td>
 <td>Failure_Mosaic_Invalid_Property</td>
 <td>Validation failed because a mosaic property is invalid.</td>
 </tr>
-<tr class="row-odd"><td>0x804D0066</td>
+<tr class="row-even"><td>0x804D0066</td>
 <td>Failure_Mosaic_Invalid_Flags</td>
 <td>Validation failed because the mosaic flags are invalid.</td>
 </tr>
-<tr class="row-even"><td>0x804D0067</td>
+<tr class="row-odd"><td>0x804D0067</td>
 <td>Failure_Mosaic_Invalid_Divisibility</td>
 <td>Validation failed because the mosaic divisibility is invalid.</td>
 </tr>
-<tr class="row-odd"><td>0x804D0068</td>
+<tr class="row-even"><td>0x804D0068</td>
 <td>Failure_Mosaic_Invalid_Supply_Change_Direction</td>
 <td>Validation failed because the mosaic supply change direction is invalid.</td>
 </tr>
-<tr class="row-even"><td>0x804D0069</td>
+<tr class="row-odd"><td>0x804D0069</td>
 <td>Failure_Mosaic_Invalid_Supply_Change_Amount</td>
 <td>Validation failed because the mosaic supply change amount is invalid.</td>
 </tr>
-<tr class="row-odd"><td>0x804D006A</td>
+<tr class="row-even"><td>0x804D006A</td>
 <td>Failure_Mosaic_Invalid_Id</td>
 <td>Validation failed because the mosaic id is invalid.</td>
 </tr>
-<tr class="row-even"><td>0x804D006B</td>
+<tr class="row-odd"><td>0x804D006B</td>
 <td>Failure_Mosaic_Modification_Disallowed</td>
 <td>Validation failed because mosaic modification is not allowed.</td>
 </tr>
-<tr class="row-odd"><td>0x804D006C</td>
+<tr class="row-even"><td>0x804D006C</td>
 <td>Failure_Mosaic_Modification_No_Changes</td>
 <td>Validation failed because mosaic modification would not result in any changes.</td>
 </tr>
-<tr class="row-even"><td>0x804D006D</td>
+<tr class="row-odd"><td>0x804D006D</td>
 <td>Failure_Mosaic_Supply_Immutable</td>
 <td>Validation failed because the mosaic supply is immutable.</td>
 </tr>
-<tr class="row-odd"><td>0x804D006E</td>
+<tr class="row-even"><td>0x804D006E</td>
 <td>Failure_Mosaic_Supply_Negative</td>
 <td>Validation failed because the resulting mosaic supply is negative.</td>
 </tr>
-<tr class="row-even"><td>0x804D006F</td>
+<tr class="row-odd"><td>0x804D006F</td>
 <td>Failure_Mosaic_Supply_Exceeded</td>
 <td>Validation failed because the resulting mosaic supply exceeds the maximum allowed value.</td>
 </tr>
-<tr class="row-odd"><td>0x804D0070</td>
+<tr class="row-even"><td>0x804D0070</td>
 <td>Failure_Mosaic_Non_Transferable</td>
 <td>Validation failed because the mosaic is not transferable.</td>
 </tr>
-<tr class="row-even"><td>0x804D0071</td>
+<tr class="row-odd"><td>0x804D0071</td>
 <td>Failure_Mosaic_Max_Mosaics_Exceeded</td>
 <td>Validation failed because the credit of the mosaic would exceed the maximum of different mosaics an account is allowed to own.</td>
+</tr>
+<tr class="row-even"><td>0x804D0072</td>
+<td>Failure_Mosaic_Required_Property_Flag_Unset</td>
+<td>Validation failed because the mosaic has at least one required property flag unset.</td>
 </tr>
 <tr class="row-odd"><td>0x80550001</td>
 <td>Failure_Multisig_Modify_Account_In_Both_Sets</td>
@@ -790,7 +818,7 @@
 <td>Validation failed because alias action is invalid.</td>
 </tr>
 <tr class="row-even"><td>0x804E006D</td>
-<td>Failure_Namespace_Alias_Namespace_Unknown</td>
+<td>Failure_Namespace_Unknown</td>
 <td>Validation failed because namespace does not exist.</td>
 </tr>
 <tr class="row-odd"><td>0x804E006E</td>
@@ -802,150 +830,178 @@
 <td>Validation failed because namespace is not linked to an alias.</td>
 </tr>
 <tr class="row-odd"><td>0x804E0070</td>
-<td>Failure_Namespace_Alias_Owner_Conflict</td>
-<td>Validation failed because namespace has different owner.</td>
-</tr>
-<tr class="row-even"><td>0x804E0071</td>
 <td>Failure_Namespace_Alias_Unlink_Type_Inconsistency</td>
 <td>Validation failed because unlink type is not consistent with existing alias.</td>
 </tr>
-<tr class="row-odd"><td>0x804E0072</td>
+<tr class="row-even"><td>0x804E0071</td>
 <td>Failure_Namespace_Alias_Unlink_Data_Inconsistency</td>
 <td>Validation failed because unlink data is not consistent with existing alias.</td>
 </tr>
-<tr class="row-even"><td>0x804E0073</td>
+<tr class="row-odd"><td>0x804E0072</td>
 <td>Failure_Namespace_Alias_Invalid_Address</td>
 <td>Validation failed because aliased address is invalid.</td>
 </tr>
-<tr class="row-odd"><td>0x80500001</td>
+<tr class="row-even"><td>0x80500001</td>
 <td>Failure_RestrictionAccount_Invalid_Restriction_Type</td>
 <td>Validation failed because the account restriction type is invalid.</td>
 </tr>
-<tr class="row-even"><td>0x80500002</td>
+<tr class="row-odd"><td>0x80500002</td>
 <td>Failure_RestrictionAccount_Modification_Type_Invalid</td>
 <td>Validation failed because a modification type is invalid.</td>
 </tr>
-<tr class="row-odd"><td>0x80500003</td>
+<tr class="row-even"><td>0x80500003</td>
 <td>Failure_RestrictionAccount_Modification_Address_Invalid</td>
 <td>Validation failed because a modification address is invalid.</td>
 </tr>
-<tr class="row-even"><td>0x80500004</td>
+<tr class="row-odd"><td>0x80500004</td>
 <td>Failure_RestrictionAccount_Modification_Operation_Type_Incompatible</td>
 <td>Validation failed because the operation type is incompatible. <em>Note</em>: This indicates that the existing restrictions have a different operation type than that specified in the notification.</td>
 </tr>
-<tr class="row-odd"><td>0x80500005</td>
+<tr class="row-even"><td>0x80500005</td>
 <td>Failure_RestrictionAccount_Modify_Unsupported_Modification_Type</td>
 <td>Validation failed because the modification type is unsupported.</td>
 </tr>
-<tr class="row-even"><td>0x80500006</td>
+<tr class="row-odd"><td>0x80500006</td>
 <td>Failure_RestrictionAccount_Modification_Redundant</td>
 <td>Validation failed because a modification is redundant.</td>
 </tr>
-<tr class="row-odd"><td>0x80500007</td>
+<tr class="row-even"><td>0x80500007</td>
 <td>Failure_RestrictionAccount_Modification_Not_Allowed</td>
 <td>Validation failed because a value is not in the container.</td>
 </tr>
-<tr class="row-even"><td>0x80500008</td>
+<tr class="row-odd"><td>0x80500008</td>
 <td>Failure_RestrictionAccount_Modification_Count_Exceeded</td>
 <td>Validation failed because the transaction has too many modifications.</td>
 </tr>
-<tr class="row-odd"><td>0x80500009</td>
+<tr class="row-even"><td>0x80500009</td>
 <td>Failure_RestrictionAccount_Values_Count_Exceeded</td>
 <td>Validation failed because the resulting account restriction has too many values.</td>
 </tr>
-<tr class="row-even"><td>0x8050000A</td>
+<tr class="row-odd"><td>0x8050000A</td>
 <td>Failure_RestrictionAccount_Value_Invalid</td>
 <td>Validation failed because the account restriction value is invalid.</td>
 </tr>
-<tr class="row-odd"><td>0x8050000B</td>
-<td>Failure_RestrictionAccount_Signer_Address_Interaction_Not_Allowed</td>
-<td>Validation failed because the signer is not allowed to interact with an address involved in the transaction.</td>
+<tr class="row-even"><td>0x8050000B</td>
+<td>Failure_RestrictionAccount_Address_Interaction_Not_Allowed</td>
+<td>Validation failed because the addresses involved in the transaction are not allowed to interact.</td>
 </tr>
-<tr class="row-even"><td>0x8050000C</td>
+<tr class="row-odd"><td>0x8050000C</td>
 <td>Failure_RestrictionAccount_Mosaic_Transfer_Not_Allowed</td>
 <td>Validation failed because the mosaic transfer is prohibited by the recipient.</td>
 </tr>
-<tr class="row-odd"><td>0x8050000D</td>
+<tr class="row-even"><td>0x8050000D</td>
 <td>Failure_RestrictionAccount_Transaction_Type_Not_Allowed</td>
 <td>Validation failed because the transaction type is not allowed to be initiated by the signer.</td>
 </tr>
-<tr class="row-even"><td>0x80540001</td>
+<tr class="row-odd"><td>0x80510001</td>
+<td>Failure_RestrictionMosaic_Invalid_Restriction_Type</td>
+<td>Validation failed because the mosaic restriction type is invalid.</td>
+</tr>
+<tr class="row-even"><td>0x80510002</td>
+<td>Failure_RestrictionMosaic_Previous_Does_Not_Match</td>
+<td>Validation failed because specified previous value does not match current value.</td>
+</tr>
+<tr class="row-odd"><td>0x80510003</td>
+<td>Failure_RestrictionMosaic_Previous_Value_Must_Be_Zero</td>
+<td>Validation failed because specified previous value is nonzero.</td>
+</tr>
+<tr class="row-even"><td>0x80510004</td>
+<td>Failure_RestrictionMosaic_Max_Restrictions_Exceeded</td>
+<td>Validation failed because the maximum number of restrictions would be exeeded.</td>
+</tr>
+<tr class="row-odd"><td>0x80510005</td>
+<td>Failure_RestrictionMosaic_Cannot_Delete_Nonexistent_Restriction</td>
+<td>Validation failed because nonexistent restriction cannot be deleted.</td>
+</tr>
+<tr class="row-even"><td>0x80510006</td>
+<td>Failure_RestrictionMosaic_Global_Restriction_Does_Not_Exist</td>
+<td>Validation failed because required global restriction does not exist.</td>
+</tr>
+<tr class="row-odd"><td>0x80510007</td>
+<td>Failure_RestrictionMosaic_Global_Restriction_Invalid</td>
+<td>Validation failed because mosaic has invalid global restriction.</td>
+</tr>
+<tr class="row-even"><td>0x80510008</td>
+<td>Failure_RestrictionMosaic_Account_Unauthorized</td>
+<td>Validation failed because account is unauthorized to move mosaic.</td>
+</tr>
+<tr class="row-odd"><td>0x80540001</td>
 <td>Failure_Transfer_Message_Too_Large</td>
 <td>Validation failed because the message is too large.</td>
 </tr>
-<tr class="row-odd"><td>0x80540002</td>
+<tr class="row-even"><td>0x80540002</td>
 <td>Failure_Transfer_Out_Of_Order_Mosaics</td>
 <td>Validation failed because mosaics are out of order.</td>
 </tr>
-<tr class="row-even"><td>0x80FF0001</td>
+<tr class="row-odd"><td>0x80FF0001</td>
 <td>Failure_Chain_Unlinked</td>
 <td>Validation failed because a block was received that did not link with the existing chain.</td>
 </tr>
-<tr class="row-odd"><td>0x80FF0002</td>
+<tr class="row-even"><td>0x80FF0002</td>
 <td>Failure_Chain_Block_Not_Hit</td>
 <td>Validation failed because a block was received that is not a hit.</td>
 </tr>
-<tr class="row-even"><td>0x80FF0003</td>
+<tr class="row-odd"><td>0x80FF0003</td>
 <td>Failure_Chain_Block_Inconsistent_State_Hash</td>
 <td>Validation failed because a block was received that has an inconsistent state hash.</td>
 </tr>
-<tr class="row-odd"><td>0x80FF0004</td>
+<tr class="row-even"><td>0x80FF0004</td>
 <td>Failure_Chain_Block_Inconsistent_Receipts_Hash</td>
 <td>Validation failed because a block was received that has an inconsistent receipts hash.</td>
 </tr>
-<tr class="row-even"><td>0x80FF0005</td>
+<tr class="row-odd"><td>0x80FF0005</td>
 <td>Failure_Chain_Unconfirmed_Cache_Too_Full</td>
 <td>Validation failed because the unconfirmed cache is too full.</td>
 </tr>
-<tr class="row-odd"><td>0x80FE0001</td>
+<tr class="row-even"><td>0x80FE0001</td>
 <td>Failure_Consumer_Empty_Input</td>
 <td>Validation failed because the consumer input is empty.</td>
 </tr>
-<tr class="row-even"><td>0x80FE0002</td>
+<tr class="row-odd"><td>0x80FE0002</td>
 <td>Failure_Consumer_Block_Transactions_Hash_Mismatch</td>
 <td>Validation failed because the block transactions hash does not match the calculated value.</td>
 </tr>
-<tr class="row-odd"><td>0x41FE0003</td>
+<tr class="row-even"><td>0x41FE0003</td>
 <td>Neutral_Consumer_Hash_In_Recency_Cache</td>
 <td>Validation failed because an entity hash is present in the recency cache.</td>
 </tr>
-<tr class="row-even"><td>0x80FE0004</td>
+<tr class="row-odd"><td>0x80FE0004</td>
 <td>Failure_Consumer_Remote_Chain_Too_Many_Blocks</td>
 <td>Validation failed because the chain part has too many blocks.</td>
 </tr>
-<tr class="row-odd"><td>0x80FE0005</td>
+<tr class="row-even"><td>0x80FE0005</td>
 <td>Failure_Consumer_Remote_Chain_Improper_Link</td>
 <td>Validation failed because the chain is internally improperly linked.</td>
 </tr>
-<tr class="row-even"><td>0x80FE0006</td>
+<tr class="row-odd"><td>0x80FE0006</td>
 <td>Failure_Consumer_Remote_Chain_Duplicate_Transactions</td>
 <td>Validation failed because the chain part contains duplicate transactions.</td>
 </tr>
-<tr class="row-odd"><td>0x80FE0007</td>
+<tr class="row-even"><td>0x80FE0007</td>
 <td>Failure_Consumer_Remote_Chain_Unlinked</td>
 <td>Validation failed because the chain part does not link to the current chain.</td>
 </tr>
-<tr class="row-even"><td>0x80FE0008</td>
+<tr class="row-odd"><td>0x80FE0008</td>
 <td>Failure_Consumer_Remote_Chain_Mismatched_Difficulties</td>
 <td>Validation failed because the remote chain difficulties do not match the calculated difficulties.</td>
 </tr>
-<tr class="row-odd"><td>0x80FE0009</td>
+<tr class="row-even"><td>0x80FE0009</td>
 <td>Failure_Consumer_Remote_Chain_Score_Not_Better</td>
 <td>Validation failed because the remote chain score is not better.</td>
 </tr>
-<tr class="row-even"><td>0x80FE000A</td>
+<tr class="row-odd"><td>0x80FE000A</td>
 <td>Failure_Consumer_Remote_Chain_Too_Far_Behind</td>
 <td>Validation failed because the remote chain is too far behind.</td>
 </tr>
-<tr class="row-odd"><td>0x80FE000B</td>
+<tr class="row-even"><td>0x80FE000B</td>
 <td>Failure_Consumer_Remote_Chain_Too_Far_In_Future</td>
 <td>Validation failed because the remote chain timestamp is too far in the future.</td>
 </tr>
-<tr class="row-even"><td>0x80450001</td>
+<tr class="row-odd"><td>0x80450001</td>
 <td>Failure_Extension_Partial_Transaction_Cache_Prune</td>
 <td>Validation failed because the partial transaction was pruned from the temporal cache.</td>
 </tr>
-<tr class="row-odd"><td>0x80450002</td>
+<tr class="row-even"><td>0x80450002</td>
 <td>Failure_Extension_Partial_Transaction_Dependency_Removed</td>
 <td>Validation failed because the partial transaction was pruned from the temporal cache due to its dependency being removed.</td>
 </tr>

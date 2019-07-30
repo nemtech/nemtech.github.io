@@ -43,20 +43,19 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
-<!--
 <script type="text/javascript">
     var _paq = window._paq || [];
     _paq.push(['disableCookies']);
     _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);
     (function() {
-        var u="//analytics.nemtech.io/piwik/";
+        var u="https://nemtech.matomo.cloud/";
         _paq.push(['setTrackerUrl', u+'matomo.php']);
         _paq.push(['setSiteId', '1']);
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src='//cdn.matomo.cloud/nemtech.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
     })();
-</script>-->
+</script>
 
   
   <link rel="alternate" type="application/atom+xml"  href="../guides/atom.xml" title="Blog">
@@ -135,6 +134,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">ワークステーションのセットアップ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">はじめてのアプリケーションを作成</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/training.html">自己ペーストレーニング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/migration/migrating-from-nis1-to-catapult.html">NIS1 から Catapult へのマイグレーション</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
@@ -157,17 +157,17 @@
 <li class="toctree-l1"><a class="reference internal" href="inflation.html">インフレーション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receipt.html">レシート</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ノード</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#p2p-component">P2P コンポーネント</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#node-reputation">ノードレピュテーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#peer-node">Peer ノード</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#rocksdb">RocksDB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#node-reputation">ノードレピュテーション</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#api-component">API component</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#api-node">API ノード</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#mongodb">MongoDB</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#zmq">ZMQ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#rest-component">REST component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rest-node">REST ノード</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">ガイド</a></li>
 </ul>
 </li>
@@ -189,7 +189,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.2</a></small>
     </p>
 </div>
 
@@ -202,6 +202,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">ワークステーションのセットアップ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">はじめてのアプリケーションを作成</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/training.html">自己ペーストレーニング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/migration/migrating-from-nis1-to-catapult.html">NIS1 から Catapult へのマイグレーション</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul>
@@ -224,17 +225,17 @@
 <li class="toctree-l1"><a class="reference internal" href="inflation.html">インフレーション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receipt.html">レシート</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ノード</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#p2p-component">P2P コンポーネント</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#node-reputation">ノードレピュテーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#peer-node">Peer ノード</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#rocksdb">RocksDB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#node-reputation">ノードレピュテーション</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#api-component">API component</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#api-node">API ノード</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#mongodb">MongoDB</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#zmq">ZMQ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#rest-component">REST component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rest-node">REST ノード</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#guides">ガイド</a></li>
 </ul>
 </li>
@@ -269,50 +270,58 @@
 <h1>ノード<a class="headerlink" href="#node" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>NEM ブロックチェーンプラットフォームはノードのネットワークによって構築されています。これらのノードはスマートアセットのトランザクションを実行、検索し、速やかにブロックチェーン台帳へ記録する、強力で、安定した、安全なプラットフォームを提供します。</p>
 <div class="figure align-center" id="id1">
-<img alt="../_images/four-layer-architecture.png" src="../_images/four-layer-architecture.png" style="width: 650px;" />
+<img alt="../_images/four-layer-architecture.png" src="../_images/four-layer-architecture.png" style="width: 500px;" />
 <p class="caption"><span class="caption-text">Catapult のパフォーマンス優位性: 4層アーキテクチャ</span></p>
 </div>
 <p>4層アーキテクチャにより、開発者に他の層への影響を避けたアップデートを可能にし、セキュリティを向上させることができます。</p>
-<div class="section" id="p2p-component">
-<h2>P2P コンポーネント<a class="headerlink" href="#p2p-component" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="peer-node">
+<h2>Peer ノード<a class="headerlink" href="#peer-node" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><strong>リポジトリ:</strong> <a href="https://github.com/nemtech/catapult-server" target="_blank">Catapult Server</a></p>
-<p>Peer ノードは、単一のエンティティを排除してもシャットダウンできない、堅牢なネットワークであるブロックチェーンのバックボーンを構成します。ノードの役割は <a class="reference internal" href="transaction.html#transaction-validation"><span class="std std-ref">トランザクション</span></a> と <a class="reference internal" href="block.html"><span class="doc">ブロック</span></a> を検証すること、コンセンサスアルゴリズムの実行、新しいブロックの生成、ネットワークへの変更の伝播を実行することです。</p>
-<p>API は新しいトランザクションを P2P ネットワークにプッシュし、それらは <a class="reference internal" href="harvesting.html"><span class="doc">ブロックに含まれる</span></a> かまたは廃棄されます。ブロックが処理された後に:</p>
-<ul class="simple">
-<li>ブロックのバイナリはフラットなファイルとしてディスクに保存されます。</li>
-<li>更新したチェーンの状態はメモリまたは RocksDB に保存されます。(設定可能)</li>
-</ul>
-<div class="section" id="node-reputation">
-<h3>ノードレピュテーション<a class="headerlink" href="#node-reputation" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>パブリックネットワークでは誰でもノードを実行できます。これらのノードの中には無効な情報を共有したり、ネットワークを妨害しようとするものがあります。</p>
-<p>通信の試行を減らすために、ノードは先行する通信の結果を追跡します。</p>
-<p>ノードがリモートピアに接続すると、最初のノードはリモートへの信頼を増やします。そうでなければ、ノードは失敗カウンタをインクリメントします。同様にノードは要求されたデータを処理した後に信頼カウンタを適宜更新します。</p>
-<p>これらの相互作用からノードは到達したすべてのピアに 500 から 10000 の重みを割り当てます。</p>
-<p>リモートノードを選択する確率はその重みに比例します。4回のノード選択ごとに条件が変更され <a href=" https://en.wikipedia.org/wiki/Sybil_attack" target="_blank">Sybil attacks</a> が防止されます。代わりにノードは重要度の高いピアを選択します。</p>
+<div class="figure align-center" id="id2">
+<img alt="../_images/peer-detail.png" src="../_images/peer-detail.png" style="width: 200px;" />
+<p class="caption"><span class="caption-text">Peer ノードコミュニケーション</span></p>
 </div>
+<p>Peer ノードは、単一のエンティティを排除してもシャットダウンできない、堅牢なネットワークであるブロックチェーンのバックボーンを構成します。ノードの役割は <a class="reference internal" href="transaction.html#transaction-validation"><span class="std std-ref">トランザクション</span></a> と <a class="reference internal" href="block.html"><span class="doc">ブロック</span></a> を検証すること、コンセンサスアルゴリズムの実行、新しいブロックの生成、ネットワークへの変更の伝播を実行することです。</p>
+<p>API ノードが新しいトランザクションを P2P ネットワークにプッシュすると、それらは <a class="reference internal" href="harvesting.html"><span class="doc">ブロックに含まれる</span></a> かまたは廃棄されます。ノードはブロックが処理された後にそれを保存します:</p>
+<ul class="simple">
+<li>各ブロックのバイナリはフラットなファイルとしてディスクに記録されます。</li>
+<li>更新されたチェーンの状態はメモリまたは RocksDB にあります。(設定可能)</li>
+</ul>
 <div class="section" id="rocksdb">
 <h3>RocksDB<a class="headerlink" href="#rocksdb" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><a href=" https://en.wikipedia.org/wiki/RocksDB" target="_blank">RocksDB</a> はチェーン状態を保存します。このキャッシュされたデータ構造はシリアライズされ、対応するキーに値として保存されます。例えば、公開鍵をアドレスにマッピングしている列。他には、対応するアドレスをキーの値とした、アカウント状態のエントリです。</p>
+<p>Peer ノードは <a href=" https://en.wikipedia.org/wiki/RocksDB" target="_blank">RocksDB</a> へチェーンの状態を保存します。このキャッシュされたデータ構造はシリアライズされ、対応するキーに値として保存されます。例えば、ある特定の列は公開鍵をアドレスにマップします。他には、対応するアドレスをキーの値とした、アカウント状態のエントリです。</p>
 <p>RocksDB を使用するよりも状態をメモリに保存しておくことのほうがより高速になります。しかし状態の情報を RocksDB に保存しておくことで、ネットワークのノードが必要とするメモリを少なくできます。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">状態を維持することは、大量のアカウントが存在するネットワークにおいて都合が良いことです。</p>
+<p class="last">RocksDB 上の状態を保持することは、大量のアカウントが存在するネットワークにおいて都合が良いです。</p>
 </div>
 </div>
+<div class="section" id="node-reputation">
+<h3>ノードレピュテーション<a class="headerlink" href="#node-reputation" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>パブリックネットワークでは誰でもノードを実行できます。これらのノードの中には無効な情報を共有したり、ネットワークを妨害しようとするものがあります。</p>
+<p>誤解の機会を減らすために、ノードは先行する通信の結果を追跡します。P2P 機能を持つすべてのノードはそれが対話した他のすべての Peer ノードについて成功および失敗カウンタを保持します。</p>
+<p>ノードは要求されたデータの処理をした後に、それに応じてカウンタを更新します。ノードがリモートピアへの接続に成功すると、最初にリモートピアに対しての成功カウンタをインクリメントします。通信の試行が失敗した場合、ノードはリモートピアの失敗カウンタを増やします。同様にノードは共有データの処理後にピアカウンタを適宜更新します。</p>
+<p>これらのスコアから推定して、ノードは到達したすべてのピアに500〜10000の重みを割り当てます。</p>
+<p>データを読み取るリモートノードを選択する確率はその重みに比例します。4回のノード選択ごとに条件が変更され <a href=" https://en.wikipedia.org/wiki/Sybil_attack" target="_blank">Sybil attacks</a> が防止されます。ノードは重要度の高いピアを選択します。</p>
 </div>
-<div class="section" id="api-component">
-<h2>API component<a class="headerlink" href="#api-component" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="api-node">
+<h2>API ノード<a class="headerlink" href="#api-node" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><strong>リポジトリ:</strong> <a href="https://github.com/nemtech/catapult-server" target="_blank">Catapult Server</a></p>
-<p>Peer ノードは API 層を持つように構成できます。API ノードの主たる役割は MongoDB にデータを読み取り可能な形式で格納することです。</p>
-<p>API ノードは REST ノードから受け取った <a class="reference internal" href="transaction.html#transaction-validation"><span class="std std-ref">トランザクションの検証</span></a> を行い、さらに MongoDB への変更の保存、ZMQ へ転送のブローカープロセスも行います。</p>
+<div class="figure align-center" id="id3">
+<img alt="../_images/api-detail.png" src="../_images/api-detail.png" style="width: 400px;" />
+<p class="caption"><span class="caption-text">API ノードコミュニケーション</span></p>
+</div>
+<p>Catapult サーバソフトウェアは Peer ノードを API ノードとして設定できます。API ノードの主たる役割は MongoDB にデータを読み取り可能な形式で格納することです。</p>
+<p>データを MongoDB に直接書き込む代わりに、ノードはそれを <code class="docutils literal"><span class="pre">spool</span></code> と呼ばれるファイルベースのキューに書き込みます。ブローカーサービスはスプールからのデータを消費し、それに応じて MongoDB を更新します。ブロックが処理されると、ブローカーサービスは ZMQ を使用して Catapult REST インスタンスへの変更を通知します。</p>
 <p>API ノードは <a class="reference internal" href="aggregate-transaction.html"><span class="doc">アグリゲートボンドトランザクション</span></a> の連署名を集める役割も果たし、それが完成したときにだけ処理されます。</p>
 <div class="section" id="mongodb">
 <h3>MongoDB<a class="headerlink" href="#mongodb" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><a href="https://es.wikipedia.org/wiki/MongoDB" target="_blank">MongoDB</a> はブロック、トランザクションとチェーン状態をハイパフォーマンスの実現のために保存します。</p>
-<p>次の場合に API ノードはリンクした MongoDB を更新します:</p>
+<p>次の場合にブローカーサービスはリンクした MongoDB を更新します:</p>
 <ul class="simple">
-<li>新しいブロック/ブロックの束の処理が終了しました。</li>
-<li>新しい未承認トランザクションの処理を完了しました。</li>
+<li>新しいブロック/ブロックの束の処理が終了します。</li>
+<li>新しい未承認トランザクションの処理を完了します。</li>
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
@@ -324,11 +333,15 @@
 <p><a href=" https://en.wikipedia.org/wiki/ZeroMQ" target="_blank">ZeroMQ</a> はリアルタイムの購読を可能にする非同期メッセージングライブラリです。API ノードから ZMQ エンドポイントに通知を転送し、それを Catapult REST が購読します。これは REST WebSocket に代わるもので、パフォーマンスが重要な場合に使用することを目的としています。</p>
 </div>
 </div>
-<div class="section" id="rest-component">
-<h2>REST component<a class="headerlink" href="#rest-component" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="rest-node">
+<h2>REST ノード<a class="headerlink" href="#rest-node" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><strong>リポジトリ:</strong> <a href="https://github.com/nemtech/catapult-rest" target="_blank">Catapult REST</a></p>
-<p>Catapult REST ノードは <strong>JSON API</strong> クライアントリクエストを処理します。MongoDB から読み取り、レスポンスをフォーマットして、それをクライアントに返却します。このコンポーネントは <a class="reference internal" href="../api.html#websockets"><span class="std std-ref">WebSockets</span></a> でクライアントにイベントを返却する役割も果たします。</p>
-<p>各 REST ノードは1つの API インスタンスに接続し、ソケットを使用して新しいトランザクションを送信します。</p>
+<div class="figure align-center" id="id4">
+<img alt="../_images/rest-detail.png" src="../_images/rest-detail.png" style="width: 450px;" />
+<p class="caption"><span class="caption-text">REST ノードコミュニケーション</span></p>
+</div>
+<p>Catapult REST ノードは <a class="reference internal" href="../api.html"><span class="doc">JSON API</span></a> クライアントリクエストを処理します。ノードは MongoDB から読み取り、レスポンスをフォーマットして、それをクライアントに返却します。このコンポーネントは <a class="reference internal" href="../api.html#websockets"><span class="std std-ref">WebSockets</span></a> でクライアントにイベントを返却する役割も果たします。</p>
+<p>各 REST ノードは1つの API インスタンスに接続して、クライアントサイドからトリガーされた新しいトランザクション要求を送信し、ソケットを使用してリアルタイムで更新を受信します。</p>
 </div>
 <div class="section" id="guides">
 <h2>ガイド<a class="headerlink" href="#guides" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -362,17 +375,17 @@
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
 <li><a class="reference internal" href="#">ノード</a><ul>
-<li><a class="reference internal" href="#p2p-component">P2P コンポーネント</a><ul>
-<li><a class="reference internal" href="#node-reputation">ノードレピュテーション</a></li>
+<li><a class="reference internal" href="#peer-node">Peer ノード</a><ul>
 <li><a class="reference internal" href="#rocksdb">RocksDB</a></li>
+<li><a class="reference internal" href="#node-reputation">ノードレピュテーション</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#api-component">API component</a><ul>
+<li><a class="reference internal" href="#api-node">API ノード</a><ul>
 <li><a class="reference internal" href="#mongodb">MongoDB</a></li>
 <li><a class="reference internal" href="#zmq">ZMQ</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#rest-component">REST component</a></li>
+<li><a class="reference internal" href="#rest-node">REST ノード</a></li>
 <li><a class="reference internal" href="#guides">ガイド</a></li>
 </ul>
 </li>

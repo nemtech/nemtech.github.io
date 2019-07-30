@@ -43,20 +43,19 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
-<!--
 <script type="text/javascript">
     var _paq = window._paq || [];
     _paq.push(['disableCookies']);
     _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);
     (function() {
-        var u="//analytics.nemtech.io/piwik/";
+        var u="https://nemtech.matomo.cloud/";
         _paq.push(['setTrackerUrl', u+'matomo.php']);
         _paq.push(['setSiteId', '1']);
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src='//cdn.matomo.cloud/nemtech.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
     })();
-</script>-->
+</script>
 
   
   <link rel="alternate" type="application/atom+xml"  href="../guides/atom.xml" title="Blog">
@@ -135,6 +134,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">ワークステーションのセットアップ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">はじめてのアプリケーションを作成</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/training.html">自己ペーストレーニング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/migration/migrating-from-nis1-to-catapult.html">NIS1 から Catapult へのマイグレーション</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul class="current">
@@ -192,7 +192,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.1</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.2</a></small>
     </p>
 </div>
 
@@ -205,6 +205,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/setup-workstation.html">ワークステーションのセットアップ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/first-application.html">はじめてのアプリケーションを作成</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/training.html">自己ペーストレーニング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/migration/migrating-from-nis1-to-catapult.html">NIS1 から Catapult へのマイグレーション</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Built-in Features</span></p>
 <ul class="current">
@@ -360,7 +361,7 @@
 <p>ただし、NEM モザイクでは自社の株式をトークン化する場合の柔軟性が向上しています。ComfyClothingCompany は可分性を <code class="docutils literal"><span class="pre">2</span></code> に選択し、その株式の最小端数が 0.01 になるようにします。</p>
 <p>分別所有権は 24/7 の取引能力と共に、市場にさらなる流動性をもたらします。これらの同じ特性は小規模投資家にも市場を開放します。</p>
 <p><strong>Supply:</strong> ComfyClothingCompany はモザイクの初期供給量を、一般的なスタートアップにおける授権株式の量である <code class="docutils literal"><span class="pre">10,000,000</span></code> に設定します。会社が成長するにつれて、株式数を増やすことを選択できるので供給可変性は <code class="docutils literal"><span class="pre">true</span></code> に設定されます。</p>
-<p><strong>Transferable:</strong> Once the initial shares are distributed, the shares will be on the market to be traded in public. Thus, the transferability property needs to be set to <code class="docutils literal"><span class="pre">true</span></code>.</p>
+<p><strong>Transferable:</strong> 初期株式が分配されるとその株式は上場して公開されます。したがって譲渡性は <code class="docutils literal"><span class="pre">true</span></code> に設定する必要があります。</p>
 </div>
 <div class="section" id="guides">
 <h2>ガイド<a class="headerlink" href="#guides" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -517,11 +518,11 @@
 <tbody valign="top">
 <tr class="row-even"><td>mosaicId</td>
 <td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L4">MosaicId</a></td>
-<td>Mosaic identifier.</td>
+<td>モザイク識別子</td>
 </tr>
 <tr class="row-odd"><td>amount</td>
 <td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L1">Amount</a></td>
-<td>Amount of the mosaic.</td>
+<td>モザイクの量</td>
 </tr>
 </tbody>
 </table>
@@ -543,11 +544,11 @@
 <tbody valign="top">
 <tr class="row-even"><td>mosaicId</td>
 <td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L3">UnresolvedMosaicId</a></td>
-<td>Mosaic identifier.</td>
+<td>モザイク識別子</td>
 </tr>
 <tr class="row-odd"><td>amount</td>
 <td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L1">Amount</a></td>
-<td>Amount of the mosaic.</td>
+<td>モザイクの量</td>
 </tr>
 </tbody>
 </table>
