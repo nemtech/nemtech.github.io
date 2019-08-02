@@ -35,7 +35,7 @@
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="転送トランザクション" href="transfer-transaction.html" />
+    <link rel="next" title="メタデータ" href="metadata.html" />
     <link rel="prev" title="モザイク" href="mosaic.html" />
   
 <meta charset='utf-8'>
@@ -163,9 +163,11 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">メタデータ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic-restriction.html">モザイク制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
@@ -197,7 +199,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.2</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.3</a></small>
     </p>
 </div>
 
@@ -239,9 +241,11 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">メタデータ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic-restriction.html">モザイク制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
@@ -285,10 +289,13 @@
   <div class="section" id="namespace">
 <h1>ネームスペース<a class="headerlink" href="#namespace" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>ネームスペースによって、NEM ブロックチェーン上にあなたのビジネスと資産のための <a class="reference internal" href="../guides/namespace/registering-a-namespace.html"><span class="doc">一意な場所をチェーン上に作ること</span></a> ができます。</p>
+<div class="figure align-center" id="id1">
+<img alt="../_images/namespace-setup.png" src="../_images/namespace-setup.png" style="width: 450px;" />
+<p class="caption"><span class="caption-text">ネームスペースでアセットを整理する</span></p>
+</div>
 <div class="section" id="name">
 <h2>名称<a class="headerlink" href="#name" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>ネームスペースはインターネットドメイン名と同様に選択した名前で始まります。名前はネットワーク内でユニークで、<code class="docutils literal"><span class="pre">64</span></code> 文字以内の必要があります。利用可能な文字は a, b, c, …, z, 0, 1, 2, …, 9, _ , -  です。</p>
-<p>アカウントは登録済みの名前(ネームスペースまたはサブネームスペース)を <a class="reference internal" href="../guides/namespace/link-a-namespace-to-an-address.html"><span class="doc">アカウント</span></a> または <a class="reference internal" href="../guides/namespace/link-a-namespace-to-a-mosaic.html"><span class="doc">モザイク</span></a> 識別子にリンクすることができます。</p>
+<p>ネームスペースはインターネットドメイン名と同様に選択した名前で始まります。名前はネットワーク内で <strong>一意</strong> で、<code class="docutils literal"><span class="pre">64</span></code> 文字以内の必要があります。利用可能な文字は a, b, c, …, z, 0, 1, 2, …, 9, _ , -  です。</p>
 </div>
 <div class="section" id="subnamespaces">
 <h2>サブネームスペース<a class="headerlink" href="#subnamespaces" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -298,30 +305,72 @@
 </div>
 <div class="section" id="alias">
 <h2>エイリアス<a class="headerlink" href="#alias" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference internal" href="#address-alias-transaction"><span class="std std-ref">エイリアストランザクション</span></a> はネームスペースをとアカウントとモザイクにリンクします。</p>
-<p>エイリアスまたはそのリンク済みアセットはトランザクションを送信するときに互換的に使用できます。エイリアスを使用すると長いアドレスを覚えやすく、モザイクを認識しやすくします。</p>
-<p>ネームスペースをアカウントまたはモザイクにリンクできるのはネームスペース作成者だけです。このリンクは編集可能で、作成者は以前に設定したエイリアスのリンクを解除することができます。</p>
+<p><a class="reference internal" href="#address-alias-transaction"><span class="std std-ref">エイリアストランザクション</span></a> はネームスペースをアカウントまたはモザイクへリンクします。エイリアスまたはそのリンク済みアセットはトランザクションを送信するときに互換的に使用できます。エイリアスを使用すると長いアドレスを覚えやすく、モザイクを認識しやすくします。</p>
+<p>ネームスペース作成者はアカウントまたはモザイクに <a class="reference internal" href="../guides/namespace/link-a-namespace-to-a-mosaic.html"><span class="doc">ネームスペースをリンク</span></a> することができます。このリンクは編集可能で、作成者は以前に設定したエイリアスのリンクを解除したり、別のアセットにネームスペースをリンクすることができます。</p>
 <p>ブロック <a class="reference internal" href="receipt.html"><span class="doc">レシート</span></a> は与えられたトランザクションのエイリアスの解決を保存します。</p>
-<p>制約事項:</p>
+<p><strong>制約事項</strong>:</p>
 <ul class="simple">
 <li>アカウントは１つのアカウントまたはモザイクに名前を関連付けることしかできませんが、たくさんのエイリアスリンクを持つことができます。</li>
-<li>アカウントは <a class="reference internal" href="account-restriction.html"><span class="doc">アドレスネームスペーストランザクション</span></a> の受信を許可している、あらゆるアカウントへ名前を割り当てることができます。対照的に、アカウントがエイリアスをモザイクIDに割り当てたい場合は、モザイク作成者でなければなりません。</li>
+<li>アカウントは AddressAliasTransaction の <a class="reference internal" href="account-restriction.html"><span class="doc">受信を許可している</span></a> どのアドレスに対しても名前を割り当てることができます。</li>
 <li>アカウントがモザイク作成者である場合は、エイリアスを mosaicId にだけリンクできます。</li>
 </ul>
 </div>
 <div class="section" id="duration">
 <h2>期間<a class="headerlink" href="#duration" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="figure align-center" id="id1">
-<img alt="../_images/namespace-life-cycle.png" src="../_images/namespace-life-cycle.png" style="width: 800px;" />
-<p class="caption"><span class="caption-text">ネームスペースのライフサイクル</span></p>
-</div>
 <p>ネームスペース <strong>登録</strong> の際にネームスペースを借りたい確認済みブロックの数を設定する必要があります。</p>
 <p>ネームスペース期間は最大で <code class="docutils literal"><span class="pre">365</span></code> 日です。デフォルトではネットワークは <code class="docutils literal"><span class="pre">15</span></code> 秒毎にブロック生成するように設定されています。次の式を使用しておよその日数をブロックに変換できます。</p>
 <blockquote>
 <div>duration ≈ numberOfDays * 86400 / blockGenerationTargetTimeInSeconds</div></blockquote>
-<p>レンタル期間中、ネームスペース所有者はサブネームスペース、エイリアスアカウント、およびモザイクを作成できます。所有者は <a class="reference internal" href="#register-namespace-transaction"><span class="std std-ref">register namespace transaction</span></a> を希望する追加ブロック数で送信することにより <strong>レンタルを延長する</strong> こともできます。</p>
+<div class="figure align-center" id="id2">
+<img alt="../_images/namespace-life-cycle.png" src="../_images/namespace-life-cycle.png" style="width: 800px;" />
+<p class="caption"><span class="caption-text">ネームスペースのライフサイクル</span></p>
+</div>
+<p>ネームスペース所有者は <strong>レンタル期間中</strong> にサブネームスペース、エイリアスアカウント、およびモザイクを作成できます。所有者は <a class="reference internal" href="#register-namespace-transaction"><span class="std std-ref">ネームスペースの取得トランザクション</span></a> を希望する追加ブロック数で送信することにより <strong>レンタルを延長する</strong> こともできます。</p>
 <p>ネットワークはネームスペース所有者が有効期限を過ぎて登録可能になる前に、名前空間を更新することを可能にする <strong>猶予期間</strong> を <a class="reference external" href="https://github.com/nemtech/catapult-server/blob/master/resources/config-network.properties">定義</a> することができます。</p>
-<p>猶予期間が終了すると、既存のエイリアスとサブネームスペースは整頓され <strong>非アクティブ</strong> になります。すると他のアカウントがネームスペースを再度登録できるようになります。</p>
+<p>猶予期間が終了するとネームスペースは <strong>削除済み</strong> になります。この時点でネームスペースは再び登録可能になります。</p>
+<table border="1" class="docutils" id="id3">
+<caption><span class="caption-text">ネームスペースステータスのパーミッション</span><a class="headerlink" href="#id3" title="このテーブルへのパーマリンク">¶</a></caption>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">アクション</th>
+<th class="head">利用可能</th>
+<th class="head">登録期間</th>
+<th class="head">猶予期間</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>新しいネームスペースの取得</td>
+<td>✔️</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr class="row-odd"><td>ネームスペースの更新</td>
+<td>❌</td>
+<td>✔️</td>
+<td>✔️</td>
+</tr>
+<tr class="row-even"><td>サブネームスペースを作成</td>
+<td>❌</td>
+<td>✔️</td>
+<td>❌</td>
+</tr>
+<tr class="row-odd"><td>アドレスまたはモザイクにエイリアスをリンクする</td>
+<td>❌</td>
+<td>✔️</td>
+<td>❌</td>
+</tr>
+<tr class="row-even"><td>エイリアスを使ってトランザクションを送信する</td>
+<td>❌</td>
+<td>✔️</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="cost">
 <h2>コスト<a class="headerlink" href="#cost" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -330,24 +379,24 @@
 <div class="section" id="example">
 <h2>例<a class="headerlink" href="#example" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>顧客はイベントのチケットを購入します。チケット販売会社は顧客のアカウントへチケットを送信します。</p>
-<div class="figure align-center" id="id2">
+<div class="figure align-center" id="id4">
 <img alt="../_images/namespace-tickets.png" src="../_images/namespace-tickets.png" style="width: 500px;" />
 <p class="caption"><span class="caption-text">認識しやすいモザイクとアドレス</span></p>
 </div>
 <div class="section" id="identifying-the-sender">
 <h3>送信者の識別<a class="headerlink" href="#identifying-the-sender" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>チケット販売者はエイリアスとして自分のアカウントにリンクするために、ネームスペース <code class="docutils literal"><span class="pre">ticketsales</span></code> を登録しました。顧客は販売アカウントからの受信トランザクションであるとすぐに認識することができます。</p>
+<p>チケット販売者はエイリアスとして自分のアカウントにリンクするために、ネームスペース <code class="docutils literal"><span class="pre">ticketcompany</span></code> を登録しました。顧客は販売アカウントからの受信トランザクションであるとすぐに認識することができます。</p>
 </div>
 <div class="section" id="identifying-the-ticket">
 <h3>チケットの識別<a class="headerlink" href="#identifying-the-ticket" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>同じ配給販売者が、異なる会場で開催されるイベントのチケットを販売しています。会社は各作動ごとに、譲渡不可能な <a class="reference internal" href="mosaic.html"><span class="doc">モザイク</span></a> を登録しています。</p>
-<p>チケット販売者はルートドメインである <code class="docutils literal"><span class="pre">ticketsales</span></code> の上にサブドメインの系列を追加します。ルートドメインとサブドメインを合わせると <code class="docutils literal"><span class="pre">Ticketsales.event&lt;ID&gt;.ticket</span></code> になります。</p>
-<p>会社は <code class="docutils literal"><span class="pre">ticketsales.event1.ticket</span></code> として登録されたモザイクをネームスペース名にリンクします。</p>
+<p>チケット販売者はルートドメインである <code class="docutils literal"><span class="pre">ticketcompany</span></code> の上にサブドメインの系列を追加します。ルートドメインとサブドメインを合わせると <code class="docutils literal"><span class="pre">ticketcompany.event&lt;ID&gt;.ticket</span></code> になります。</p>
+<p>会社は <code class="docutils literal"><span class="pre">ticketcompany.event1.ticket</span></code> として登録されたモザイクをネームスペース名にリンクします。</p>
 </div>
 <div class="section" id="identifying-the-buyer">
 <h3>購入者の識別<a class="headerlink" href="#identifying-the-buyer" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>チケットを購入したい Alice は、ネームスペース <code class="docutils literal"><span class="pre">alice</span></code> を登録し、彼女のアカウントへエイリアスとして割り当てます。</p>
-<p>チケット販売者は 1 <code class="docutils literal"><span class="pre">0dc67fbe1cad29e3</span></code> を <code class="docutils literal"><span class="pre">SCVG35-ZSPMYP-L2POZQ-JGSVEG-RYOJ3V-BNIU3U-N2E6</span></code> へ送る代わりに 1 <code class="docutils literal"><span class="pre">ticketsales.event1.ticket</span></code> を <code class="docutils literal"><span class="pre">alice</span></code> へ送ることができます。</p>
+<p>チケット販売者は 1 <code class="docutils literal"><span class="pre">0dc67fbe1cad29e3</span></code> を <code class="docutils literal"><span class="pre">SCVG35-ZSPMYP-L2POZQ-JGSVEG-RYOJ3V-BNIU3U-N2E6</span></code> へ送る代わりに 1 <code class="docutils literal"><span class="pre">ticketcompany.event1.ticket</span></code> を <code class="docutils literal"><span class="pre">alice</span></code> へ送ることができます。</p>
 </div>
 </div>
 <div class="section" id="guides">

@@ -139,9 +139,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">アカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">モザイク</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">ネームスペース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/metadata.html">メタデータ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">アグリゲートトランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account-restriction.html">アカウント制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic-restriction.html">モザイク制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
@@ -173,7 +175,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.2</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.3</a></small>
     </p>
 </div>
 
@@ -193,9 +195,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">アカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">モザイク</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">ネームスペース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/metadata.html">メタデータ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">アグリゲートトランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account-restriction.html">アカウント制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic-restriction.html">モザイク制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
@@ -241,12 +245,13 @@
 <p>1-of-2 の <a class="reference internal" href="../../concepts/multisig-account.html"><span class="doc">マルチシグアカウント</span></a> を作成します。</p>
 <div class="section" id="background">
 <h2>背景<a class="headerlink" href="#background" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Alice と Bob は一緒に住んでいて、それぞれの <a class="reference internal" href="../../concepts/account.html"><span class="doc">アカウント</span></a> を持っています。Bob が買い物に出かける時、彼自身と Alice の二人分の食料雑貨を購入できるように、共有アカウントも持っています。</p>
-<p>この共有アカウントは NEM では 1-of-2 マルチシグとして存在します。これはトランザクションをブロックに取り込んでもらうのに、1人の連署者が必要なことを意味します。</p>
+<p>Alice と Bob はそれぞれの <a class="reference internal" href="../../concepts/account.html"><span class="doc">アカウント</span></a> を持っています。Bob が買い物に出かける時、彼自身と Alice の二人分の食料雑貨を購入できるように、共有アカウントを持ちたいと思っています。</p>
+<p>この共有アカウントは NEM では <strong>1-of-2 マルチシグ</strong> として表されます。マルチシグアカウントは Alice と Bob が別々のアカウントで資産を共有することを可能にし、それらのうちの一方からの署名をトランザクションに必要とします。</p>
 <div class="figure align-center" id="id1">
 <img alt="../../_images/multisig-1-of-2.png" src="../../_images/multisig-1-of-2.png" style="width: 350px;" />
 <p class="caption"><span class="caption-text">1-of-2 マルチシグアカウントの例</span></p>
 </div>
+<p>このガイドでは 1-of-2 のマルチシグアカウントを作成します。今後のガイドでは、必要な連署者の最小数を増やす方法、マルチシグアカウントからの署名者の招待と削除を学習します。</p>
 </div>
 <div class="section" id="prerequisites">
 <h2>前提条件<a class="headerlink" href="#prerequisites" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -259,7 +264,7 @@
 <div class="section" id="getting-into-some-code">
 <h2>それではコードを見ていきましょう<a class="headerlink" href="#getting-into-some-code" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ol class="arabic simple">
-<li>誰がマルチシグアカウントの連署者になるかを決めます: Alice と Bob のアドレス。そして、秘密鍵を提供してマルチシグに変換されるアカウントを開きます。</li>
+<li>まず、マルチシグアカウントの連署者となるアカウントを決めます。私たちのケースにおいて、Alice と Bob のアドレスとします。次に、それ自身の秘密鍵を用いてマルチシグアカウントへ変換するアカウントを作成します。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id2">
@@ -296,7 +301,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li>アカウントをマルチシグアカウントへ変換するために <a class="reference internal" href="../../concepts/multisig-account.html#modify-multisig-account-transaction"><span class="std std-ref">マルチシグアカウント変更トランザクション</span></a> を作成します。彼らには 1-of-2 マルチシグアカウントが欲しいので、最小署名者は 1 名にセットします。</li>
+<li>共有アカウントをマルチシグアカウントへ変換するために <a class="reference internal" href="../../concepts/multisig-account.html#modify-multisig-account-transaction"><span class="std std-ref">マルチシグアカウント変更トランザクション</span></a> を作成します。あなたは 1-of-2 マルチシグアカウントが欲しいので、最小署名者は <code class="docutils literal"><span class="pre">1</span></code> 名にセットします。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id4">
@@ -495,7 +500,7 @@
 </div>
 <div class="section" id="what-s-next">
 <h2>次は？<a class="headerlink" href="#what-s-next" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Alice と Bob は、2人が合意した場合にのみ、マルチシグからトランザクションを送信しようとしています。今しがた作ったこのマルチシグアカウントを <a class="reference internal" href="modifying-a-multisig-account.html"><span class="doc">マルチシグアカウントの変更</span></a> ガイドに従って、2-of-2 マルチシグアカウントに変換してください。</p>
+<p>作成したマルチシグアカウントを <a class="reference internal" href="modifying-a-multisig-account.html"><span class="doc">次のガイド</span></a> に従って 2-of-2 マルチシグアカウントに変更します。</p>
 </div>
 </div>
 

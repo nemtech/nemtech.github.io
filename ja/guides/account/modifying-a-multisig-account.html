@@ -139,9 +139,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">アカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">モザイク</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">ネームスペース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/metadata.html">メタデータ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">アグリゲートトランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account-restriction.html">アカウント制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic-restriction.html">モザイク制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
@@ -173,7 +175,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.2</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.3</a></small>
     </p>
 </div>
 
@@ -193,9 +195,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">アカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">モザイク</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">ネームスペース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/metadata.html">メタデータ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">アグリゲートトランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account-restriction.html">アカウント制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic-restriction.html">モザイク制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
@@ -239,7 +243,7 @@
   <div class="section" id="modifying-a-multisig-account">
 <h1>マルチシグアカウントの変更<a class="headerlink" href="#modifying-a-multisig-account" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>既存の <a class="reference internal" href="../../concepts/multisig-account.html"><span class="doc">マルチシグアカウント</span></a> を変更します。</p>
-<p>まず、1-of-2 マルチシグアカウントを 2-of-2 へ変換します。すると、新しい連署者を追加することで、2-of-3 にできます。その後、連署者を削除し、マルチシグアカウントへ対しての変更操作の方法を理解できるでしょう。</p>
+<p>まず、1-of-2 マルチシグアカウントを 2-of-2 へ変換します。 <strong>新しい連署者を追加する</strong> ことで 2-of-3 にできます。最後に <strong>その後に連署者を削除</strong> しマルチシグアカウントへ対しての変更操作の方法を理解できるでしょう。</p>
 <div class="section" id="prerequisites">
 <h2>前提条件<a class="headerlink" href="#prerequisites" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
@@ -252,10 +256,19 @@
 <h2>それではコードを見ていきましょう<a class="headerlink" href="#getting-into-some-code" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="editing-minapproval">
 <span id="guide-modify-a-multisig-account-min-approval"></span><h3>最小承認の編集<a class="headerlink" href="#editing-minapproval" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Alice と Bob は 1-of-2 マルチシグアカウントの連署者です。マルチシグトランザクションを承認するには、彼らのうち少なくとも一つのアカウントの署名が必要です。言い換えると <code class="docutils literal"><span class="pre">最小承認数</span></code> パラメタが現在は <code class="docutils literal"><span class="pre">1</span></code> に設定されているということになります。</p>
+<p>Alice と Bob は 1-of-2 マルチシグアカウントの連署者です。マルチシグトランザクションを承認するには、彼らのうち少なくとも一つのアカウントの署名が必要なことを意味します。言い換えると <code class="docutils literal"><span class="pre">最小承認数</span></code> パラメタが現在は <code class="docutils literal"><span class="pre">1</span></code> に設定されているということになります。</p>
+<p>マルチシグアカウントはブロックチェーンのレベルで変更可能です。このケースでは、2つの連署者を必要とするように、2-of-2 マルチシグへ移り変わります。これを <code class="docutils literal"><span class="pre">minApproval</span></code> パラメタを1つ増加させることによって達成します。</p>
+<div class="figure align-center" id="id1">
+<img alt="../../_images/multisig-2-of-2.png" src="../../_images/multisig-2-of-2.png" style="width: 300px;" />
+<p class="caption"><span class="caption-text">2-of-2 マルチシグアカウントの例</span></p>
+</div>
+<p>アカウントのうちの一つである例えば Alice が <code class="docutils literal"><span class="pre">minApprovalDelta</span></code> を増加させるために <a class="reference internal" href="../../concepts/multisig-account.html#modify-multisig-account-transaction"><span class="std std-ref">マルチシグアカウント変更トランザクション</span></a> をアナウンスします。</p>
+<ol class="arabic simple">
+<li>まず Alice のアカウントを署名者として定義し、その公開鍵を使用してマルチシグアカウントを定義します。</li>
+</ol>
 <div class="example-code container">
-<div class="literal-block-wrapper container" id="id1">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/ModifyingAMultisigAccountIncreaseMinApproval.ts">View Code</a></span><a class="headerlink" href="#id1" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper container" id="id2">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/ModifyingAMultisigAccountIncreaseMinApproval.ts">View Code</a></span><a class="headerlink" href="#id2" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">cosignatoryPrivateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">COSIGNATORY_PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
@@ -266,8 +279,8 @@
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper container" id="id2">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/account/ModifyingAMultisigAccountIncreaseMinApproval.js">View Code</a></span><a class="headerlink" href="#id2" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper container" id="id3">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/account/ModifyingAMultisigAccountIncreaseMinApproval.js">View Code</a></span><a class="headerlink" href="#id3" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">cosignatoryPrivateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">COSIGNATORY_1_PRIVATE_KEY</span><span class="p">;</span>
@@ -279,14 +292,8 @@
 </div>
 </div>
 </div>
-<p>マルチシグアカウントはブロックチェーンのレベルで変更可能です。このケースでは、2つの連署者を必要とするように、2-of-2 マルチシグへ移り変わります。これを <code class="docutils literal"><span class="pre">minApproval</span></code> パラメタを1つ増加させることによって達成します。</p>
-<div class="figure align-center" id="id3">
-<img alt="../../_images/multisig-2-of-2.png" src="../../_images/multisig-2-of-2.png" style="width: 300px;" />
-<p class="caption"><span class="caption-text">2-of-2 マルチシグアカウントの例</span></p>
-</div>
-<p>アカウントのうち一つ、例えば Alice が <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">アグリゲートトランザクション</span></a> で内包した、<code class="docutils literal"><span class="pre">minApprovalDelta</span></code> を増加させる <a class="reference internal" href="../../concepts/multisig-account.html#modify-multisig-account-transaction"><span class="std std-ref">マルチシグアカウント変更トランザクション</span></a> をアナウンスします。</p>
-<ol class="arabic simple">
-<li>minApprovalDelta を 1 増加させるマルチシグアカウント変更トランザクションを作ります。</li>
+<ol class="arabic simple" start="2">
+<li><code class="docutils literal"><span class="pre">minApprovalDelta</span></code> を 1 単位増加させるマルチシグアカウント変更トランザクションを定義します。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id4">
@@ -312,7 +319,7 @@
 </div>
 </div>
 </div>
-<ol class="arabic simple" start="2">
+<ol class="arabic simple" start="3">
 <li>マルチシグアカウント変更トランザクションをアグリゲートトランザクションで内包し、マルチシグの公開鍵を署名者として添付します。</li>
 </ol>
 <p>ネットワークへアナウンスされる前にすべての連署者が署名をすると、アグリゲートトランザクションは <em>コンプリート</em> になります。正当であれば、ブロックへ取り込まれます。</p>
@@ -353,10 +360,10 @@
 </div>
 </div>
 </div>
-<p>承認されると、マルチシグの最小承認値は 2 となり、2-of-2 マルチシグになります。</p>
+<p>承認されると、マルチシグの <code class="docutils literal"><span class="pre">最小承認数</span></code> は 2 となり、2-of-2 マルチシグになります。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">minApproval パラメタを減少させ、1-of-2 に戻したい場合は、minApprovalDelta を負の値に設定してください。この場合は <code class="docutils literal"><span class="pre">-1</span></code> です。</p>
+<p class="last"><code class="docutils literal"><span class="pre">minApproval</span></code> パラメタを減少させる場合は <code class="docutils literal"><span class="pre">minApprovalDelta</span></code> を負の値に設定してください。この場合は <code class="docutils literal"><span class="pre">-1</span></code> です。</p>
 </div>
 </div>
 <div class="section" id="adding-a-new-cosignatory">
@@ -532,10 +539,6 @@
 </div>
 </div>
 </div>
-<div class="admonition note">
-<p class="first admonition-title">注釈</p>
-<p class="last">クライアントサイドで使用する場合は(例, Angular, React, Vue) <a class="reference internal" href="../transaction/monitoring-a-transaction-status.html#monitoring-transactions-client-side"><span class="std std-ref">リスナーの実装は変わります</span></a> 。</p>
-</div>
 <ol class="arabic simple" start="5">
 <li>Carol のアカウントで <a class="reference internal" href="../transaction/signing-announced-aggregate-bonded-transactions.html"><span class="doc">アグリゲートトランザクションに署名</span></a> します。彼女はマルチシグ連署者になるためにオプトインする必要があります。</li>
 </ol>
@@ -552,10 +555,10 @@
 <div class="section" id="removing-a-cosignatory">
 <span id="guide-modify-a-multisig-account-removing-a-cosignatory"></span><h3>連署者を削除します<a class="headerlink" href="#removing-a-cosignatory" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>このガイドを終了したら、マルチシグから連署者を削除してみましょう。全ての連署者を削除することでマルチシグアカウントを通常のアカウントへ変換できます。そのマルチシグの秘密鍵を所有していることを確認してください！</p>
-<p>以下のコードでは 2-of-3マルチシグの連署者を <code class="docutils literal"><span class="pre">minRemoval</span></code> を 1 にセットすることで削除する方法です。マルチシグ変更トランザクションはアグリゲートコンプリートによって内包され、他者をマルチシグから削除するのに1人を要求します。</p>
+<p>以下のコードでは 2-of-3マルチシグの連署者を <code class="docutils literal"><span class="pre">minRemoval</span></code> を <code class="docutils literal"><span class="pre">1</span></code> にセットすることで削除する方法です。マルチシグ変更トランザクションはアグリゲートコンプリートによって内包され、他者をマルチシグから削除するのに 1 アカウントを要求します。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">minRemoval パラメタは誰かをマルチシグから削除するために必要な署名数を表します。<a class="reference internal" href="#guide-modify-a-multisig-account-min-approval"><span class="std std-ref">minApproval パラメタの変更</span></a> と同じ方法で増加または減少させることができます。</p>
+<p class="last"><code class="docutils literal"><span class="pre">minRemoval</span></code> パラメタはアカウントをマルチシグから削除するために必要な署名数を表します。<a class="reference internal" href="#guide-modify-a-multisig-account-min-approval"><span class="std std-ref">minApproval パラメタの変更</span></a> と同じ方法で増加または減少させることができます。</p>
 </div>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id17">

@@ -141,9 +141,11 @@
 <li class="toctree-l1"><a class="reference internal" href="account.html">アカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">モザイク</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">メタデータ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic-restriction.html">モザイク制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
@@ -193,7 +195,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.2</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.3</a></small>
     </p>
 </div>
 
@@ -213,9 +215,11 @@
 <li class="toctree-l1"><a class="reference internal" href="account.html">アカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">モザイク</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">メタデータ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic-restriction.html">モザイク制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
@@ -326,6 +330,16 @@
 <td><a class="reference internal" href="#balance-change-receipt"><span class="std std-ref">BalanceCredit</span></a></td>
 <td>受信者。アカウントとブロックのハーベスティングにより受け取った手数料の合計。ブロックが <a class="reference internal" href="harvesting.html"><span class="doc">ハーベスト</span></a> されたときに記録されます。</td>
 </tr>
+<tr class="row-even"><td>0x5143</td>
+<td>Inflation</td>
+<td><a class="reference internal" href="#inflation-receipt"><span class="std std-ref">Inflation</span></a></td>
+<td>作成されたネイティブ通貨モザイクの量。レシートはネットワークにインフレ率が設定されたときに記録され、新しいブロックが通貨モザイクの作成をトリガーします。</td>
+</tr>
+<tr class="row-odd"><td>0xE143</td>
+<td>Transaction_Group</td>
+<td><a class="reference internal" href="#id3"><span class="std std-ref">Aggregate</span></a></td>
+<td>与えられたソースの状態変化の集合。状態変化レシートが発行されたときに記録されます。</td>
+</tr>
 <tr class="row-even"><td>0xF143</td>
 <td>Address_Alias_Resolution</td>
 <td><a class="reference internal" href="#id4"><span class="std std-ref">Alias Resolution</span></a></td>
@@ -336,16 +350,6 @@
 <td><a class="reference internal" href="#id4"><span class="std std-ref">Alias Resolution</span></a></td>
 <td>未解決と解決済みエイリアス。トランザクションがモザイクIDの代わりに有効なモザイクエイリアスを示したときに記録されます。</td>
 </tr>
-<tr class="row-even"><td>0xE143</td>
-<td>Transaction_Group</td>
-<td><a class="reference internal" href="#id3"><span class="std std-ref">Aggregate</span></a></td>
-<td>与えられたソースの状態変化の集合。状態変化レシートが発行されたときに記録されます。</td>
-</tr>
-<tr class="row-odd"><td>0x5143</td>
-<td>Inflation</td>
-<td><a class="reference internal" href="#inflation-receipt"><span class="std std-ref">Inflation</span></a></td>
-<td>作成されたネイティブ通貨モザイクの量。レシートはネットワークにインフレ率が設定されたときに記録され、新しいブロックが通貨モザイクの作成をトリガーします。</td>
-</tr>
 <tr class="row-even"><td><strong>Mosaic</strong></td>
 <td>&#160;</td>
 <td>&#160;</td>
@@ -354,9 +358,9 @@
 <tr class="row-odd"><td>0x414D</td>
 <td>Mosaic_Expired</td>
 <td><a class="reference internal" href="#artifact-expiry-receipt"><span class="std std-ref">ArtifactExpiry</span></a></td>
-<td>このブロック内でのモザイクIDの期限切れ。 <a class="reference internal" href="mosaic.html"><span class="doc">モザイク</span></a> の期限が切れたときに記録されます。</td>
+<td>このブロック内でのモザイク識別子の期限切れ。 <a class="reference internal" href="mosaic.html"><span class="doc">モザイク</span></a> のライフタイム期限が切れたときに記録されます。</td>
 </tr>
-<tr class="row-even"><td>0x134D</td>
+<tr class="row-even"><td>0x124D</td>
 <td>Mosaic_Rental_Fee</td>
 <td><a class="reference internal" href="#balance-transfer-receipt"><span class="std std-ref">BalanceTransfer</span></a></td>
 <td>モザイクIDの送信者と受信者とモザイクを登録するためのコストを示す量。モザイクが登録されたときに記録されます。</td>
@@ -369,49 +373,54 @@
 <tr class="row-even"><td>0x414E</td>
 <td>Namespace_Expired</td>
 <td><a class="reference internal" href="#artifact-expiry-receipt"><span class="std std-ref">ArtifactExpiry</span></a></td>
-<td>このブロック内でのネームスペースIDの期限切れ。 <a class="reference internal" href="namespace.html"><span class="doc">ネームスペース</span></a> の期限が切れたときに記録されます。</td>
+<td>このブロック内でのネームスペース識別子の期限切れ。 <a class="reference internal" href="namespace.html"><span class="doc">ネームスペース</span></a> のライフタイム期限が切れたときに記録されます。</td>
 </tr>
-<tr class="row-odd"><td>0x124E</td>
+<tr class="row-odd"><td>0x424E</td>
+<td>Namespace_Deleted</td>
+<td><a class="reference internal" href="#artifact-expiry-receipt"><span class="std std-ref">ArtifactExpiry</span></a></td>
+<td>このブロック内で削除されたネームスペース識別子。 <a class="reference internal" href="namespace.html"><span class="doc">ネームスペース</span></a> のライフタイム猶予が切れたときに記録されます。</td>
+</tr>
+<tr class="row-even"><td>0x134E</td>
 <td>Namespace_Rental_Fee</td>
 <td><a class="reference internal" href="#balance-transfer-receipt"><span class="std std-ref">BalanceTransfer</span></a></td>
 <td>モザイクIDの送信者と受信者、およびネームスペースを延長するためのコストを示す量。ネームスペースが登録されたとき、またはその期間が延長されたときに記録されます。</td>
 </tr>
-<tr class="row-even"><td><strong>HashLock</strong></td>
+<tr class="row-odd"><td><strong>HashLock</strong></td>
 <td>&#160;</td>
 <td>&#160;</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>0x3148</td>
+<tr class="row-even"><td>0x3148</td>
 <td>LockHash_Created</td>
 <td><a class="reference internal" href="#balance-change-receipt"><span class="std std-ref">BalanceDebit</span></a></td>
 <td>ロックされたモザイクと量のロックハッシュ送信者。妥当な <a class="reference internal" href="aggregate-transaction.html#hash-lock-transaction"><span class="std std-ref">HashLockTransaction</span></a> がアナウンスされたときに記録されます。</td>
 </tr>
-<tr class="row-even"><td>0x2248</td>
+<tr class="row-odd"><td>0x2248</td>
 <td>LockHash_Completed</td>
 <td><a class="reference internal" href="#balance-change-receipt"><span class="std std-ref">BalanceCredit</span></a></td>
 <td>ハッシュロック送信者、ロックされたモザイクIDと量。アグリゲートボンドトランザクションがハッシュコンプリートにリンクしたときに記録されます。</td>
 </tr>
-<tr class="row-odd"><td>0x2348</td>
+<tr class="row-even"><td>0x2348</td>
 <td>LockHash_Expired</td>
 <td><a class="reference internal" href="#balance-change-receipt"><span class="std std-ref">BalanceCredit</span></a></td>
 <td>アカウントが受信するロックされたモザイク、モザイクIDとその量。ロックハッシュの期限が切れたときに記録されます。</td>
 </tr>
-<tr class="row-even"><td><strong>SecretLock</strong></td>
+<tr class="row-odd"><td><strong>SecretLock</strong></td>
 <td>&#160;</td>
 <td>&#160;</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>0x3152</td>
+<tr class="row-even"><td>0x3152</td>
 <td>LockSecret_Created</td>
 <td><a class="reference internal" href="#balance-change-receipt"><span class="std std-ref">BalanceDebit</span></a></td>
 <td>ロックされたモザイクと量のシークレットロック送信者。妥当な <a class="reference internal" href="cross-chain-swaps.html#secret-lock-transaction"><span class="std std-ref">SecretLockTransaction</span></a> がアナウンスされたときに記録されます。</td>
 </tr>
-<tr class="row-even"><td>0x2252</td>
+<tr class="row-odd"><td>0x2252</td>
 <td>LockSecret_Completed</td>
 <td><a class="reference internal" href="#balance-change-receipt"><span class="std std-ref">BalanceCredit</span></a></td>
 <td>ロックされたモザイクIDと量のシークレットロックの受信者。シークレットロックが証明されたときに記録されます。</td>
 </tr>
-<tr class="row-odd"><td>0x2352</td>
+<tr class="row-even"><td>0x2352</td>
 <td>LockSecret_Expired</td>
 <td><a class="reference internal" href="#balance-change-receipt"><span class="std std-ref">BalanceCredit</span></a></td>
 <td>アカウントが受信するロックされたモザイク、モザイクIDとその量。シークレットロックの期限が切れたときに記録されます。</td>
@@ -647,7 +656,7 @@
 <p>解決ステートメントはトランザクションで使用されるネームスペースエイリアスと実際のアドレスまたは mosaicId 間の関係を保持します。</p>
 <ul class="simple">
 <li><strong>version</strong>: 0x1</li>
-<li><strong>type</strong>: Address_Alias_Resolution or Mosaic_Alias_Resolution</li>
+<li><strong>type</strong>: Address_Alias_Resolution または Mosaic_Alias_Resolution</li>
 </ul>
 <p><strong>インライン</strong></p>
 <ul class="simple">

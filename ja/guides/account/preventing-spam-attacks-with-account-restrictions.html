@@ -139,9 +139,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">アカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">モザイク</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">ネームスペース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/metadata.html">メタデータ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">アグリゲートトランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account-restriction.html">アカウント制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic-restriction.html">モザイク制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
@@ -173,7 +175,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.2</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.3</a></small>
     </p>
 </div>
 
@@ -193,9 +195,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">アカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">モザイク</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">ネームスペース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/metadata.html">メタデータ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">アグリゲートトランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account-restriction.html">アカウント制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic-restriction.html">モザイク制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
@@ -301,13 +305,13 @@ Private Key:    654..321
 <p>デフォルトでは、制限セットがない場合、ネットワーク内のすべてのアカウントが指定されたアカウントにトランザクションをアナウンスできます。</p>
 <p>前の例に戻り、会社アカウントからの受信トランザクションのみを受け入れるように製品アカウントを構成するとします。これを行うには次の手順を実行します。</p>
 <ol class="arabic simple">
-<li>アカウント制限の変更を定義します。会社アドレス (SBI774-YMFDZI-FPEPC5-4EKRC2-5DKDZJ-H2QVRW-4HBP) を 「許可リスト」 に追加します。</li>
+<li>アカウント制限の変更を定義します。会社アドレス <code class="docutils literal"><span class="pre">SBI774-YMFDZI-FPEPC5-4EKRC2-5DKDZJ-H2QVRW-4HBP</span></code> を許可リストに追加します。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id2">
 <div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/AccountAddressRestrictionAllowList.ts">View Code</a></span><a class="headerlink" href="#id2" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">companyAddress</span> <span class="o">=</span> <span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="s1">&#39;SBI774-YMFDZI-FPEPC5-4EKRC2-5DKDZJ-H2QVRW-4HBP&#39;</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">addressRestriction</span> <span class="o">=</span> <span class="nx">AccountPropertyModification</span><span class="p">.</span><span class="nx">createForAddress</span><span class="p">(</span><span class="nx">PropertyModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span> <span class="nx">companyAddress</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">addressRestriction</span> <span class="o">=</span> <span class="nx">AccountRestrictionModification</span><span class="p">.</span><span class="nx">createForAddress</span><span class="p">(</span><span class="nx">RestrictionModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span> <span class="nx">companyAddress</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -318,10 +322,10 @@ Private Key:    654..321
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id3">
 <div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/AccountAddressRestrictionAllowList.ts">View Code</a></span><a class="headerlink" href="#id3" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">AccountPropertyTransaction</span>
-    <span class="p">.</span><span class="nx">createAddressPropertyModificationTransaction</span><span class="p">(</span>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">AccountRestrictionTransaction</span>
+    <span class="p">.</span><span class="nx">createAddressRestrictionModificationTransaction</span><span class="p">(</span>
         <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
-        <span class="nx">PropertyType</span><span class="p">.</span><span class="nx">AllowAddress</span><span class="p">,</span>
+        <span class="nx">RestrictionType</span><span class="p">.</span><span class="nx">AllowAddress</span><span class="p">,</span>
         <span class="p">[</span><span class="nx">addressRestriction</span><span class="p">],</span>
         <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 </pre></div>
@@ -347,7 +351,7 @@ Private Key:    654..321
 </div>
 </div>
 </div>
-<p>今や <a class="reference internal" href="../transaction/sending-a-transfer-transaction.html"><span class="doc">転送トランザクション</span></a> を送ると、」SBI774-YMFDZI-FPEPC5-4EKRC2-5DKDZJ-H2QVRW-4HBP」 だけが製品へのトランザクション送信が許可されているためエラーが発生します。</p>
+<p>今や <a class="reference internal" href="../transaction/sending-a-transfer-transaction.html"><span class="doc">転送トランザクション</span></a> を送ると <code class="docutils literal"><span class="pre">SBI774-YMFDZI-FPEPC5-4EKRC2-5DKDZJ-H2QVRW-4HBP</span></code> だけが製品へのトランザクション送信が許可されているためエラーが発生します。</p>
 <p>一方であなたの会社アカウントからトランザクションを送った場合は、通常通りに承認メッセージを受け取るでしょう。</p>
 </div>
 <div class="section" id="blocking-transactions-by-mosaic-id">
@@ -359,29 +363,29 @@ Private Key:    654..321
 <li><code class="docutils literal"><span class="pre">company.quality.seal</span></code>: 製品の安全テストの合格を表現</li>
 </ul>
 <p>この場合、製品はシールを受け取ることができるだけで、会社の株は受け取ることができないようにすることに役立ちます。</p>
-<p>したがって、否定を使用することで、製品が会社のアカウントから受け取ることができるトランザクションの種類を絞り込むことができます。シールを明確に許可する代わりに 「company.share」 が含まれる受信トランザクションをブロックするように製品を設定できます。このようにします:</p>
+<p>したがって、否定を使用することで、製品が会社のアカウントから受け取ることができるトランザクションの種類を絞り込むことができます。シールを明確に許可する代わりに <code class="docutils literal"><span class="pre">company.share</span></code> が含まれる受信トランザクションをブロックするように製品を設定できます。このようにします:</p>
 <ol class="arabic simple">
-<li>アカウント制限を定義します。」ブロックリスト」 に追加したいモザイクIDを追加してください。</li>
+<li>アカウント制限を定義します。<code class="docutils literal"><span class="pre">ブロックリスト</span></code> に追加したいモザイクIDを追加してください。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id5">
 <div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/AccountMosaicRestrictionBlockList.ts">View Code</a></span><a class="headerlink" href="#id5" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">companyShareMosaicId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;2b890153b7a18ff2&#39;</span><span class="p">);</span> <span class="c1">// Replace with the mosaic id representing the company share.</span>
-<span class="kr">const</span> <span class="nx">mosaicRestriction</span> <span class="o">=</span> <span class="nx">AccountPropertyModification</span><span class="p">.</span><span class="nx">createForMosaic</span><span class="p">(</span><span class="nx">PropertyModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span> <span class="nx">companyShareMosaicId</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">mosaicRestriction</span> <span class="o">=</span> <span class="nx">AccountRestrictionModification</span><span class="p">.</span><span class="nx">createForMosaic</span><span class="p">(</span><span class="nx">RestrictionModificationType</span><span class="p">.</span><span class="nx">Add</span><span class="p">,</span> <span class="nx">companyShareMosaicId</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li>制限タイプ 「BlockMosaic」 の <code class="docutils literal"><span class="pre">AccountRestrictionTransaction</span></code> を作成してください。前の手順で作成した変更を配列に追加します。</li>
+<li>制限タイプ <code class="docutils literal"><span class="pre">BlockMosaic</span></code> の <code class="docutils literal"><span class="pre">AccountRestrictionTransaction</span></code> を作成してください。前の手順で作成した変更を配列に追加します。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id6">
 <div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/AccountMosaicRestrictionBlockList.ts">View Code</a></span><a class="headerlink" href="#id6" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">AccountPropertyTransaction</span>
-    <span class="p">.</span><span class="nx">createMosaicPropertyModificationTransaction</span><span class="p">(</span>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">AccountRestrictionTransaction</span>
+    <span class="p">.</span><span class="nx">createMosaicRestrictionModificationTransaction</span><span class="p">(</span>
         <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
-        <span class="nx">PropertyType</span><span class="p">.</span><span class="nx">BlockMosaic</span><span class="p">,</span>
+        <span class="nx">RestrictionType</span><span class="p">.</span><span class="nx">BlockMosaic</span><span class="p">,</span>
         <span class="p">[</span><span class="nx">mosaicRestriction</span><span class="p">],</span>
         <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 </pre></div>
@@ -407,33 +411,33 @@ Private Key:    654..321
 </div>
 </div>
 </div>
-<p>プロセスが成功すると、製品アカウントは 「company.share」 モザイクが含まれない会社アカウントからのトランザクションだけを受け取ることができます。</p>
+<p>プロセスが成功すると、製品アカウントは <code class="docutils literal"><span class="pre">company.share</span></code> モザイクが含まれない会社アカウントからのトランザクションだけを受け取ることができます。</p>
 </div>
 <div class="section" id="removing-a-restriction">
 <h3>制限の除去<a class="headerlink" href="#removing-a-restriction" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>会社が最終顧客に商品を販売した後は、彼らは会社アカウントが商品にトランザクションを送信することのみを許可していたという条件を取り除きたいのです。アカウント制限は設定するのと同じくらい簡単に削除できます。</p>
 <ol class="arabic simple">
-<li>アカウント制限の変更を定義します。」許可リスト」から会社アドレスを削除します。</li>
+<li>アカウント制限の変更を定義します。<code class="docutils literal"><span class="pre">許可リスト</span></code> から会社アドレスを削除します。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id8">
 <div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/AccountAddressRestrictionRemoveRestriction.ts">View Code</a></span><a class="headerlink" href="#id8" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">companyAddress</span> <span class="o">=</span> <span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="s1">&#39;SBI774-YMFDZI-FPEPC5-4EKRC2-5DKDZJ-H2QVRW-4HBP&#39;</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">addressRestriction</span> <span class="o">=</span> <span class="nx">AccountPropertyModification</span><span class="p">.</span><span class="nx">createForAddress</span><span class="p">(</span><span class="nx">PropertyModificationType</span><span class="p">.</span><span class="nx">Remove</span><span class="p">,</span> <span class="nx">companyAddress</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">addressRestriction</span> <span class="o">=</span> <span class="nx">AccountRestrictionModification</span><span class="p">.</span><span class="nx">createForAddress</span><span class="p">(</span><span class="nx">RestrictionModificationType</span><span class="p">.</span><span class="nx">Remove</span><span class="p">,</span> <span class="nx">companyAddress</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li>「AllowAddress」 タイプ を設定して <code class="docutils literal"><span class="pre">AccountRestrictionTransaction</span></code> を作成します。作成した変更も追加します。</li>
+<li><code class="docutils literal"><span class="pre">AllowAddress</span></code> タイプ を設定して <code class="docutils literal"><span class="pre">AccountRestrictionTransaction</span></code> を作成します。作成した変更も追加します。</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id9">
 <div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/AccountAddressRestrictionRemoveRestriction.ts">View Code</a></span><a class="headerlink" href="#id9" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">AccountPropertyTransaction</span>
-    <span class="p">.</span><span class="nx">createAddressPropertyModificationTransaction</span><span class="p">(</span>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">AccountRestrictionTransaction</span>
+    <span class="p">.</span><span class="nx">createAddressRestrictionModificationTransaction</span><span class="p">(</span>
         <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
-        <span class="nx">PropertyType</span><span class="p">.</span><span class="nx">AllowAddress</span><span class="p">,</span>
+        <span class="nx">RestrictionType</span><span class="p">.</span><span class="nx">AllowAddress</span><span class="p">,</span>
         <span class="p">[</span><span class="nx">addressRestriction</span><span class="p">],</span>
         <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 </pre></div>

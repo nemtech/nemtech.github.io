@@ -158,9 +158,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">メタデータ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic-restriction.html">モザイク制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
@@ -192,7 +194,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.2</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.3</a></small>
     </p>
 </div>
 
@@ -229,9 +231,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">メタデータ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic-restriction.html">モザイク制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
@@ -312,9 +316,14 @@
 <td>Boolean</td>
 <td>true にセットした場合、モザイクは任意のアカウント間で転送できます。そうでない場合、モザイクはモザイク作成者へ送り返すことしかできません。</td>
 </tr>
+<tr class="row-odd"><td>Restrictable</td>
+<td>Boolean</td>
+<td>真の場合、モザイク所有者は <a class="reference internal" href="mosaic-restriction.html"><span class="doc">制限</span></a> を設定できます。</td>
+</tr>
 </tbody>
 </table>
 </div>
+<hr class="docutils" />
 <div class="section" id="absolute-and-relative-amounts">
 <h2>絶対と相対量<a class="headerlink" href="#absolute-and-relative-amounts" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>NEM はモザイクが可分は場合、カンマを取り除いた絶対量を扱います。絶対量を取得するには作成または送信したいアセットの量に 10<sup>divisibility</sup> を乗じてください。</p>
@@ -425,7 +434,7 @@
 </tr>
 <tr class="row-odd"><td>flags</td>
 <td><a class="reference internal" href="#mosaic-flags"><span class="std std-ref">MosaicFlag</span></a></td>
-<td>Mosaic flags.</td>
+<td>モザイクフラグ</td>
 </tr>
 <tr class="row-even"><td>divisibility</td>
 <td>uint8</td>
@@ -575,6 +584,9 @@
 </tr>
 <tr class="row-even"><td>0x02</td>
 <td>モザイクは任意のアカウント間の振替をサポートします。not を設定した場合はモザイクはモザイクの所有者との間でしか転送できません。</td>
+</tr>
+<tr class="row-odd"><td>0x04</td>
+<td>モザイク所有者はどのアカウントがモザイクを送受信できるのかを制限するルールを追加することができます。</td>
 </tr>
 </tbody>
 </table>

@@ -36,7 +36,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="next" title="クロスチェーンスワップ" href="cross-chain-swaps.html" />
-    <link rel="prev" title="アカウント制限" href="account-restriction.html" />
+    <link rel="prev" title="モザイク制限" href="mosaic-restriction.html" />
   
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -141,9 +141,11 @@
 <li class="toctree-l1"><a class="reference internal" href="account.html">アカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">モザイク</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">メタデータ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic-restriction.html">モザイク制限</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">マルチシグアカウント</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#cosignatories">連署者</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#minimum-approval-and-removal">最小承認数と削除数</a></li>
@@ -195,7 +197,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.2</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.3</a></small>
     </p>
 </div>
 
@@ -215,9 +217,11 @@
 <li class="toctree-l1"><a class="reference internal" href="account.html">アカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">モザイク</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">メタデータ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic-restriction.html">モザイク制限</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">マルチシグアカウント</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#cosignatories">連署者</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#minimum-approval-and-removal">最小承認数と削除数</a></li>
@@ -281,6 +285,10 @@
   <div class="section" id="multisig-account">
 <h1>マルチシグアカウント<a class="headerlink" href="#multisig-account" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>マルチシグ <a class="reference internal" href="account.html"><span class="doc">アカウント</span></a> はアクション/転送を実行するために追加の署名を必要とします。</p>
+<div class="figure align-center" id="id1">
+<img alt="../_images/multisig-2-of-3.png" src="../_images/multisig-2-of-3.png" style="width: 350px;" />
+<p class="caption"><span class="caption-text">2-of-3 マルチシグアカウント</span></p>
+</div>
 <div class="section" id="cosignatories">
 <h2>連署者<a class="headerlink" href="#cosignatories" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>NEM <a class="reference internal" href="account.html"><span class="doc">アカウント</span></a> は <a class="reference internal" href="../guides/account/converting-an-account-to-multisig.html"><span class="doc">マルチシグに変換する</span></a> ことができます。マルチシグの連署者 - 他のアカウント - はこのアカウントのマネージャとなります。</p>
@@ -313,10 +321,6 @@
 <h3>共有アカウント<a class="headerlink" href="#shared-accounts" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>いくつかの家族は地元の切手収集家共同体のメンバーであり、切手を購入するために共有アカウントを使用しています。</p>
 <p>購入するべき古い切手と適切な価格のすべてに合意するために、彼らはマルチシグアカウントを使用します。この方法では、正当なトランザクションとしてブロックチェーンに取り込まれる前に、共同体の全員がトランザクションに同意することが必要です。</p>
-<div class="figure align-center" id="id1">
-<img alt="../_images/multisig-2-of-3.png" src="../_images/multisig-2-of-3.png" style="width: 350px;" />
-<p class="caption"><span class="caption-text">M-of-N マルチシグアカウント</span></p>
-</div>
 </div>
 <div class="section" id="multi-factor-authorization">
 <h3>複数要素認証<a class="headerlink" href="#multi-factor-authorization" title="このヘッドラインへのパーマリンク">¶</a></h3>

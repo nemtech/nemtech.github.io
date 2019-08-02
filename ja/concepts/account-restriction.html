@@ -35,7 +35,7 @@
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="マルチシグアカウント" href="multisig-account.html" />
+    <link rel="next" title="モザイク制限" href="mosaic-restriction.html" />
     <link rel="prev" title="アグリゲートトランザクション" href="aggregate-transaction.html" />
   
 <meta charset='utf-8'>
@@ -141,6 +141,7 @@
 <li class="toctree-l1"><a class="reference internal" href="account.html">アカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">モザイク</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">メタデータ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">アカウント制限</a><ul>
@@ -167,6 +168,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic-restriction.html">モザイク制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
@@ -198,7 +200,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.2</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.3</a></small>
     </p>
 </div>
 
@@ -218,6 +220,7 @@
 <li class="toctree-l1"><a class="reference internal" href="account.html">アカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosaic.html">モザイク</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">メタデータ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">アカウント制限</a><ul>
@@ -244,6 +247,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="mosaic-restriction.html">モザイク制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
@@ -288,10 +292,39 @@
 <h1>アカウント制限<a class="headerlink" href="#account-restriction" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><a class="reference internal" href="account.html"><span class="doc">アカウント</span></a>  はスマートなルールの集合を構成し、一連の制限の下、アナウンスまたはトランザクションを受信をブロックすることができます。</p>
 <p>アカウントの保有者 - マルチシグアカウントの場合は複数 - は後に特定の <a class="reference internal" href="#account-address-restriction-transaction"><span class="std std-ref">アカウント制限トランザクション</span></a> を発表してアカウント制限を編集できます。</p>
+<table border="1" class="docutils" id="id1">
+<caption><span class="caption-text">制限タイプ</span><a class="headerlink" href="#id1" title="このテーブルへのパーマリンク">¶</a></caption>
+<colgroup>
+<col width="40%" />
+<col width="30%" />
+<col width="30%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">制限</th>
+<th class="head">受信トランザクション</th>
+<th class="head">送信トランザクション</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>AccountAddressRestriction</td>
+<td>✔️</td>
+<td>✔️</td>
+</tr>
+<tr class="row-odd"><td>AccountMosaicRestriction</td>
+<td>✔️</td>
+<td>❌</td>
+</tr>
+<tr class="row-even"><td>AccountOperationRestriction</td>
+<td>❌</td>
+<td>✔️</td>
+</tr>
+</tbody>
+</table>
 <div class="section" id="address-restriction">
 <h2>アドレス制限<a class="headerlink" href="#address-restriction" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>アカウントは許可リストの <a class="reference internal" href="account.html"><span class="doc">アドレス</span></a> からだけ、トランザクションの受信を決定することができます。同様に、アカウントはトランザクションを受信したくないアドレスのリストを指定することもできます。</p>
-<div class="figure align-center" id="id1">
+<p>アカウントは許可した <strong>アドレス</strong> リストからのトランザクションを <strong>受信だけ</strong> するように決定できます。あるいはアカウントはブロックするアドレスのリストを定義できます。</p>
+<p><strong>受信トランザクション</strong> を制限することはアカウントが既知のアドレスからのトランザクションのみを受信する場合、またはアカウントが未知の送信者からのトランザクションをブロックしたい場合に役立ちます。</p>
+<div class="figure align-center" id="id2">
 <img alt="../_images/account-restrictions-address.png" src="../_images/account-restrictions-address.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">アドレス制限ダイアグラム</span></p>
 </div>
@@ -300,10 +333,12 @@
 <p class="last">許可とブロックの制限は相互に排他的です。つまり、アカウントは制限タイプごとにブロックまたは許可リストを構成することしかできません。</p>
 </div>
 <p>デフォルトでは、制限セットがない場合、ネットワーク内のすべてのアカウントが指定されたアカウントにトランザクションをアナウンスできます。</p>
+<p>さらにアカウントは <strong>送信トランザクション</strong> にアドレス制限を適用することができ、有効な受信者として許可されるアカウントの制限します。</p>
 </div>
 <div class="section" id="mosaic-restriction">
 <h2>モザイク制限<a class="headerlink" href="#mosaic-restriction" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>アカウントは許可した <a class="reference internal" href="mosaic.html"><span class="doc">モザイク</span></a> が添付されている場合にだけ、受信トランザクションを許可する制限を構成できます。一方で、アカウントはブロックリストにあるモザイクを含んでいるトランザクションを拒否できます。</p>
+<p>アドレス制限のように、アカウントは許可した <a class="reference internal" href="mosaic.html"><span class="doc">モザイク</span></a> が添付されている場合にだけ、受信トランザクションを許可する制限を構成できます。一方で、アカウントはブロックリストにあるモザイクを含んでいるトランザクションを拒否できます。</p>
+<p>一般的にアカウントのモザイク制限は、アカウントがそのアクティビティに関連付けられていない <strong>モザイクでタグ付けされるのを防ぐ</strong> ために使用されます。</p>
 </div>
 <div class="section" id="operation-restriction">
 <h2>操作制限<a class="headerlink" href="#operation-restriction" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -316,7 +351,7 @@
 <p>企業は自社製品の品質を証明するためにパブリックチェーンを使用しています。</p>
 <p>品質確認プロセスが終了すると、オペレータは  <a class="reference internal" href="mosaic.html"><span class="doc">品質シール</span></a>  を製品アカウントに送信します。</p>
 <p>最終的な顧客はQRコードを読み取って、製品モザイクを検証します。そのため、会社としては関連するトランザクションだけをを見せたく、それ以外のスパムなどの製品に関係ない情報を避けたいのです。</p>
-<div class="figure align-center" id="id2">
+<div class="figure align-center" id="id3">
 <img alt="../_images/account-restrictions-spam.png" src="../_images/account-restrictions-spam.png" style="width: 450px;" />
 <p class="caption"><span class="caption-text">スパムトランザクションのブロック</span></p>
 </div>
@@ -344,7 +379,7 @@
 </div>
 <div class="section" id="accountaddressrestrictiontransaction">
 <span id="account-address-restriction-transaction"></span><h3>AccountAddressRestrictionTransaction<a class="headerlink" href="#accountaddressrestrictiontransaction" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>望まないアドレスからトランザクションの受け取りを防ぐ制限の設定。</p>
+<p>望まないアドレスから/へのトランザクションの送信/受信を防ぐ制限の設定。</p>
 <p><strong>Version</strong>: 0x01</p>
 <p><strong>Entity type</strong>: 0x4150</p>
 <p><strong>Inlines</strong>:</p>
@@ -568,25 +603,31 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>0x01</td>
-<td>あるアドレスからのトランザクションの受信のみを許可する</td>
+<td>あるアドレスからの受信トランザクションだけを許可する</td>
 </tr>
 <tr class="row-odd"><td>0x02</td>
-<td>あるモザイクIDを含むトランザクションの受信のみを許可する</td>
+<td>Allow only incoming transactions containing a given mosaic identifier.</td>
 </tr>
-<tr class="row-even"><td>0x04</td>
-<td>特定のトランザクションタイプのトランザクションのみ送信可能にする</td>
-</tr>
-<tr class="row-odd"><td>0x05</td>
+<tr class="row-even"><td>0x05</td>
 <td>アカウント制限センチネル</td>
 </tr>
-<tr class="row-even"><td>0x81</td>
-<td>あるアドレスからのトランザクションの受信をブロックする</td>
+<tr class="row-odd"><td>0x41</td>
+<td>あるアドレスへの送信トランザクションだけを許可する</td>
 </tr>
-<tr class="row-odd"><td>0x82</td>
-<td>あるモザイクIDを含むトランザクションの受信をブロックする</td>
+<tr class="row-even"><td>0x44</td>
+<td>特定のトランザクションタイプの送信トランザクションだけを可能にする</td>
 </tr>
-<tr class="row-even"><td>0x84</td>
-<td>特定のトランザクションタイプのトランザクションの送信をブロックする</td>
+<tr class="row-odd"><td>0x81</td>
+<td>あるアドレスからの受信トランザクションをブロックする</td>
+</tr>
+<tr class="row-even"><td>0x82</td>
+<td>あるモザイクIDを含む受信トランザクションをブロックする</td>
+</tr>
+<tr class="row-odd"><td>0xC1</td>
+<td>あるアドレスへの送信トランザクションをブロックする</td>
+</tr>
+<tr class="row-even"><td>0xC4</td>
+<td>特定のトランザクションタイプの送信トランザクションをブロックする</td>
 </tr>
 </tbody>
 </table>

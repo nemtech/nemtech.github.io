@@ -139,9 +139,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">アカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">モザイク</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">ネームスペース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/metadata.html">メタデータ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">アグリゲートトランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account-restriction.html">アカウント制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic-restriction.html">モザイク制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
@@ -173,7 +175,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.2</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.3</a></small>
     </p>
 </div>
 
@@ -193,9 +195,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">アカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">モザイク</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">ネームスペース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/metadata.html">メタデータ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">転送トランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">アグリゲートトランザクション</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/account-restriction.html">アカウント制限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic-restriction.html">モザイク制限</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">マルチシグアカウント</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">クロスチェーンスワップ</a></li>
 </ul>
@@ -360,13 +364,12 @@
             <span class="nx">filter</span><span class="p">((</span><span class="nx">resolutionStatement</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">resolutionStatement</span><span class="p">.</span><span class="nx">unresolved</span> <span class="k">instanceof</span> <span class="nx">MosaicId</span> <span class="o">&amp;&amp;</span>
                 <span class="nx">resolutionStatement</span><span class="p">.</span><span class="nx">unresolved</span><span class="p">.</span><span class="nx">toHex</span><span class="p">()</span> <span class="o">===</span> <span class="nx">aliasedMosaic</span><span class="p">.</span><span class="nx">id</span><span class="p">.</span><span class="nx">toHex</span><span class="p">())</span>
         <span class="p">)</span>
-        <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">receipt</span> <span class="o">=&gt;</span> <span class="p">{</span>
-            <span class="nx">receipt</span><span class="p">.</span><span class="nx">resolutionEntries</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">entry</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">resolutionStatement</span>:<span class="kt">ResolutionStatement</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="nx">resolutionStatement</span><span class="p">.</span><span class="nx">resolutionEntries</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">entry</span>:<span class="kt">ResolutionEntry</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
                 <span class="kr">const</span> <span class="nx">entryResolved</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">MosaicAlias</span><span class="o">&gt;</span> <span class="nx">entry</span><span class="p">.</span><span class="nx">resolved</span><span class="p">;</span>
                 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Resolved MosaicId: &quot;</span><span class="p">,</span> <span class="nx">entryResolved</span><span class="p">.</span><span class="nx">mosaicId</span><span class="p">.</span><span class="nx">toHex</span><span class="p">());</span>
                 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;PrimaryId: &quot;</span><span class="p">,</span> <span class="nx">entry</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">primaryId</span><span class="p">);</span>
                 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;SecondaryId: &quot;</span><span class="p">,</span> <span class="nx">entry</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">secondaryId</span><span class="p">);</span>
-
             <span class="p">});</span>
         <span class="p">},</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
 <span class="p">});</span>
