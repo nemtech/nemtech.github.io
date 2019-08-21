@@ -164,8 +164,6 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">REST API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#http-requests">Http requests</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#http-errors">Http errors</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#http-status">Http status</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#uint64-lower-and-higher">UInt64: lower and higher</a></li>
 </ul>
 </li>
@@ -195,7 +193,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.3</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.4</a></small>
     </p>
 </div>
 
@@ -239,8 +237,6 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">REST API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#http-requests">Http requests</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#http-errors">Http errors</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#http-status">Http status</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#uint64-lower-and-higher">UInt64: lower and higher</a></li>
 </ul>
 </li>
@@ -295,70 +291,7 @@
 <div><a class="reference external" href="http://localhost:3000">http://localhost:3000</a>/&lt;path-to-API-request&gt;</div></blockquote>
 <p>HTTP PUT and POST requests use JSON structures in the request body. Request returns data using JSON structures. This kind of request cannot usually be executed from within the browser unless you use a <a class="reference internal" href="#tools"><span class="std std-ref">plugin</span></a> which enables you to do it.</p>
 <p>Get the complete list of available endpoints by clicking on the button below:</p>
-<a href="/endpoints.html"><button class="btn btn-default">REST API Endpoints</button></a><div class="section" id="http-errors">
-<span id="id2"></span><h3>Http errors<a class="headerlink" href="#http-errors" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="docutils">
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Status code</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>200</td>
-<td>Ok. The request has succeeded.</td>
-</tr>
-<tr class="row-odd"><td>202</td>
-<td>Accepted. The request has been accepted for processing but the processing has not been completed.</td>
-</tr>
-<tr class="row-even"><td>400</td>
-<td>Bad request. Check your request syntax.</td>
-</tr>
-<tr class="row-odd"><td>404</td>
-<td>Not found. The resource does not exist.</td>
-</tr>
-<tr class="row-even"><td>409</td>
-<td>Conflict. Check your arguments.</td>
-</tr>
-<tr class="row-odd"><td>500</td>
-<td>Internal error. Unexpected condition.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="http-status">
-<span id="id3"></span><h3>Http status<a class="headerlink" href="#http-status" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="docutils">
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Key</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>code</td>
-<td>Error identifier in camelCase.</td>
-</tr>
-<tr class="row-odd"><td>message</td>
-<td>Error explained in human-readable format.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong></p>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;InvalidArgument&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;accountId has an invalid format&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="uint64-lower-and-higher">
+<a href="/endpoints.html"><button class="btn btn-default">REST API Endpoints</button></a><div class="section" id="uint64-lower-and-higher">
 <h3>UInt64: lower and higher<a class="headerlink" href="#uint64-lower-and-higher" title="Permalink to this headline">¶</a></h3>
 <p>Javascript operates on <strong>32-bit</strong> values. The server returns numbers encoded in a UInt64 object to enable numeric representation up to <strong>64 bits</strong>.</p>
 <p>The <strong>UInt64</strong> object returned is composed of two 32-bit numbers: <code class="docutils literal"><span class="pre">lower</span></code> and <code class="docutils literal"><span class="pre">higher</span></code>.</p>
@@ -383,7 +316,7 @@
 </div>
 </div>
 <div class="section" id="websockets">
-<span id="id4"></span><h2>WebSockets<a class="headerlink" href="#websockets" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2>WebSockets<a class="headerlink" href="#websockets" title="Permalink to this headline">¶</a></h2>
 <p>WebSockets make receiving notifications possible when a transaction or event occurs in the blockchain. The notification is received in real time without having to poll the API waiting for a reply.</p>
 <p>Interaction with API WebSockets in <a class="reference internal" href="sdk.html"><span class="doc">NEM2-SDK</span></a> is done with <strong>Listeners</strong>.</p>
 <div class="section" id="channels">
@@ -410,7 +343,7 @@
 <p>The status channel notifies when a transaction related to an address rises an error. The message contains the error message and the transaction hash.</p>
 </div>
 <div class="section" id="status-errors">
-<span id="id5"></span><h3>Status errors<a class="headerlink" href="#status-errors" title="Permalink to this headline">¶</a></h3>
+<span id="id3"></span><h3>Status errors<a class="headerlink" href="#status-errors" title="Permalink to this headline">¶</a></h3>
 <p>This section describes the error messages that can be returned via status channel after announcing a transaction.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -1007,12 +940,10 @@
 </tr>
 </tbody>
 </table>
-<p><a class="reference download internal" href="_downloads/swagger2.yaml" download=""><code class="xref download docutils literal"><span class="pre">OpenAPI</span> <span class="pre">specification</span> <span class="pre">2</span></code></a>
-<a class="reference download internal" href="_downloads/openapi3.yaml" download=""><code class="xref download docutils literal"><span class="pre">OpenAPI</span> <span class="pre">specification</span> <span class="pre">3</span></code></a></p>
 </div>
 </div>
 <div class="section" id="tools">
-<span id="id6"></span><h2>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
+<span id="id4"></span><h2>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
 <p>We recommend using one of the following tools to interact with the available endpoints.</p>
 <div class="section" id="nem2-sdk">
 <h3>NEM2-SDK<a class="headerlink" href="#nem2-sdk" title="Permalink to this headline">¶</a></h3>
@@ -1027,7 +958,7 @@
 <p>An open source HTTP client, available for Mac, Windows and Linux.</p>
 <ol class="arabic simple">
 <li>Download <a href="https://insomnia.rest/" target="_blank">Insomnia app</a> for your operative system.</li>
-<li>Import the <a class="reference download internal" href="_downloads/insomnia.json" download=""><code class="xref download docutils literal"><span class="pre">Insomnia</span> <span class="pre">spec</span></code></a> for NEM.</li>
+<li>Import the <a href="https://github.com/nemtech/nem2-openapi/blob/master/spec/insomnia.json/" target="_blank">Insomnia spec</a> for NEM.</li>
 </ol>
 </div>
 </div>
@@ -1053,8 +984,6 @@
 <li><a class="reference internal" href="#">REST API</a><ul>
 <li><a class="reference internal" href="#installation">Installation</a></li>
 <li><a class="reference internal" href="#http-requests">Http requests</a><ul>
-<li><a class="reference internal" href="#http-errors">Http errors</a></li>
-<li><a class="reference internal" href="#http-status">Http status</a></li>
 <li><a class="reference internal" href="#uint64-lower-and-higher">UInt64: lower and higher</a></li>
 </ul>
 </li>
