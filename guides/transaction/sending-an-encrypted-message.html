@@ -163,7 +163,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -174,7 +173,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.4</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.19.1</a></small>
     </p>
 </div>
 
@@ -219,7 +218,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -246,15 +244,15 @@
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Finish the <a class="reference internal" href="../../getting-started/setup-workstation.html"><span class="doc">getting started section</span></a></li>
-<li>Finish <a class="reference internal" href="sending-a-transfer-transaction.html"><span class="doc">sending a transfer transaction guide</span></a></li>
+<li>Finish <a class="reference internal" href="sending-a-transfer-transaction.html"><span class="doc">sending mosaics and messages between two accounts guide</span></a></li>
 <li>Have one <a class="reference internal" href="../../getting-started/setup-workstation.html#setup-getting-a-test-account"><span class="std std-ref">account with cat.currency</span></a></li>
 </ul>
 </div>
 <div class="section" id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
 <p>Imagine that Alice wants to timestamp a sensitive message to send to an account representing her academic certificate.</p>
-<p>Alice knows that sending a transfer transaction with a plain message through the public network will make the content of the message publicly available.</p>
-<p>Thus, Alice sends an encrypted message that is only readable by herself and those with access to the academic certificate.</p>
+<p>Alice knows that sending a TransferTransaction with a <strong>plain message</strong> through the public network will make the content of the message publicly available.</p>
+<p>Thus, Alice sends an <strong>encrypted message</strong> that is only readable by herself and those with access to the academic certificate.</p>
 </div>
 <div class="section" id="getting-into-some-code">
 <h2>Getting into some code<a class="headerlink" href="#getting-into-some-code" title="Permalink to this headline">¶</a></h2>
@@ -278,7 +276,7 @@ Insert profile name <span class="o">(</span>blank means default and it could ove
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
-<li>Create an encrypted message for the certificate, signing it with Alice’s account.</li>
+<li>Create an <strong>encrypted message</strong> for the certificate, signing it with Alice’s account.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id1">
@@ -295,7 +293,7 @@ Insert profile name <span class="o">(</span>blank means default and it could ove
 </div>
 </div>
 <ol class="arabic simple" start="3">
-<li>Attach the encrypted message to a transfer transaction, setting the certificate address as the recipient.</li>
+<li>Attach the encrypted message to a <strong>TransferTransaction</strong>, setting the certificate address as the recipient.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id2">
@@ -344,7 +342,7 @@ Insert profile name <span class="o">(</span>blank means default and it could ove
 </div>
 </div>
 <ol class="arabic simple" start="6">
-<li>After the transaction gets confirmed, fetch it using the transaction hash output from (3). You can now decrypt the message using either the certificate account or address account.</li>
+<li>After the transaction gets confirmed, fetch it using the transaction hash output from (3). You can now <strong>decrypt the message</strong> using either the certificate account or address account.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id5">
@@ -459,7 +457,7 @@ Insert profile name <span class="o">(</span>blank means default and it could ove
                 <h4>Community</h4>
                 <ul>
                     <li>
-                        <a href="http://slack.nemtech.io/">
+                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLWZmZWRiMjViYTVhZjEzOTA0MzUyMTA1NTA5OWQ0MWUzNTA4NjM5OTJhOGViOTBhNjkxYWVhMWRiZDRkOTE0YmU">
                             <i class="fab fa-slack"></i> <span> Join #general discussion</span>
                         </a>
                     </li>

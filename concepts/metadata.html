@@ -180,7 +180,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -191,7 +190,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.4</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.19.1</a></small>
     </p>
 </div>
 
@@ -251,7 +250,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -285,12 +283,12 @@ Including a signer in this composite identifier allows multiple accounts to spec
 The client application is responsible for encrypting the message or keeping it visible for every blockchain participant.</p>
 <div class="section" id="persistence">
 <h2>Persistence<a class="headerlink" href="#persistence" title="Permalink to this headline">¶</a></h2>
-<p>Metadata entries are stored in the blockchain—like the message of a regular <a class="reference internal" href="transfer-transaction.html"><span class="doc">transfer transaction</span></a>—but also as a <strong>key-value state</strong>.</p>
+<p>Metadata entries are stored in the blockchain—like the message of a regular <a class="reference internal" href="transfer-transaction.html"><span class="doc">TransferTransaction</span></a>—but also as a <strong>key-value state</strong>.</p>
 <p>This feature reduces the reading time of client applications; metadata allows information to be accessed by keys instead of processing the entire account transaction history off-chain to obtain the latest transaction message value.</p>
 </div>
 <div class="section" id="permissions">
 <h2>Permissions<a class="headerlink" href="#permissions" title="Permalink to this headline">¶</a></h2>
-<p>The account, namespace or mosaic owner must <strong>opt-in</strong> to all metadata requests received by giving explicit permission. In practice, this means that all metadata transactions must be wrapped in an aggregate transaction.</p>
+<p>The account, namespace or mosaic owner must <strong>opt-in</strong> to all metadata requests received by giving explicit permission. In practice, this means that all MetadataTransactions must be wrapped in an AggregateTransaction.</p>
 <p>The target account should cosign the aggregate to record the metadata on the blockchain and update the asset state.</p>
 </div>
 <div class="section" id="examples">
@@ -301,7 +299,7 @@ The client application is responsible for encrypting the message or keeping it v
 <img alt="../_images/metadata-certificate.png" src="../_images/metadata-certificate.png" style="width: 400px;" />
 <p class="caption"><span class="caption-text">Metadata used to attach relevant information to an asset</span></p>
 </div>
-<p>Bob works as a digital notary that stamp accounts on the NEM blockchain. When a customer comes to Bob to notarize a document, he checks the authentication of the customer’s documents then <strong>tags the account with a metadata transaction</strong>.</p>
+<p>Bob works as a digital notary that stamp accounts on the NEM blockchain. When a customer comes to Bob to notarize a document, he checks the authentication of the customer’s documents then <strong>tags the account with a MetadataTransaction</strong>.</p>
 <p>Alice a recent graduate and wants her educational certificate accredited to her NEM account to avoid the hassle of repeatedly providing verification of her degree. So she goes to Bob and provides him with proof of her degree. Once Alice pays Bob a fee, Bob verifies the authenticity and stamps Alice’s account with metadata that signifies her degree.</p>
 </div>
 <div class="section" id="access-management">
@@ -324,7 +322,7 @@ The client application is responsible for encrypting the message or keeping it v
 </div>
 <div class="section" id="accountmetadatatransaction">
 <span id="account-metadata-transaction"></span><h3>AccountMetadataTransaction<a class="headerlink" href="#accountmetadatatransaction" title="Permalink to this headline">¶</a></h3>
-<p>Announce an account metadata transaction to associate a key-value state to an account.</p>
+<p>Announce an AccountMetadataTransaction to associate a key-value state to an account.</p>
 <p><strong>Version</strong>: 0x01</p>
 <p><strong>Entity type</strong>: 0x4144</p>
 <p><strong>Inlines</strong>:</p>
@@ -346,7 +344,7 @@ The client application is responsible for encrypting the message or keeping it v
 <tbody valign="top">
 <tr class="row-even"><td>targetPublicKey</td>
 <td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L11">Key</a></td>
-<td>Public key of the target account.</td>
+<td>Metadata target public key.</td>
 </tr>
 <tr class="row-odd"><td>scopedMetadataKey</td>
 <td>uint64</td>
@@ -369,7 +367,7 @@ The client application is responsible for encrypting the message or keeping it v
 </div>
 <div class="section" id="mosaicmetadatatransaction">
 <span id="mosaic-metadata-transaction"></span><h3>MosaicMetadataTransaction<a class="headerlink" href="#mosaicmetadatatransaction" title="Permalink to this headline">¶</a></h3>
-<p>Announce a mosaic metadata transaction to associate a key-value state to a mosaic.</p>
+<p>Announce a MosaicMetadataTransaction to associate a key-value state to a mosaic.</p>
 <p><strong>Version</strong>: 0x01</p>
 <p><strong>Entity type</strong>:  0x4244</p>
 <p><strong>Inlines</strong>:</p>
@@ -391,13 +389,13 @@ The client application is responsible for encrypting the message or keeping it v
 <tbody valign="top">
 <tr class="row-even"><td>targetPublicKey</td>
 <td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L11">Key</a></td>
-<td>Public key of the target mosaic owner.</td>
+<td>Target mosaic owner public key.</td>
 </tr>
 <tr class="row-odd"><td>scopedMetadataKey</td>
 <td>uint64</td>
 <td>Metadata key scoped to source, target and type.</td>
 </tr>
-<tr class="row-even"><td>targetId</td>
+<tr class="row-even"><td>targetMosaicId</td>
 <td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L3">UnresolvedMosaicId</a></td>
 <td>Target mosaic identifier.</td>
 </tr>
@@ -418,7 +416,7 @@ The client application is responsible for encrypting the message or keeping it v
 </div>
 <div class="section" id="namespacemetadatatransaction">
 <span id="namespace-metadata-transaction"></span><h3>NamespaceMetadataTransaction<a class="headerlink" href="#namespacemetadatatransaction" title="Permalink to this headline">¶</a></h3>
-<p>Announce a namespace metadata transaction to associate a key-value state to a namespace.</p>
+<p>Announce a NamespaceMetadataTransaction to associate a key-value state to a namespace.</p>
 <p><strong>Version</strong>: 0x01</p>
 <p><strong>Entity type</strong>:  0x4344</p>
 <p><strong>Inlines</strong>:</p>
@@ -440,13 +438,13 @@ The client application is responsible for encrypting the message or keeping it v
 <tbody valign="top">
 <tr class="row-even"><td>targetPublicKey</td>
 <td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L11">Key</a></td>
-<td>Public key of the target namespace owner.</td>
+<td>Target namespace owner public key.</td>
 </tr>
 <tr class="row-odd"><td>scopedMetadataKey</td>
 <td>uint64</td>
 <td>Metadata key scoped to source, target and type.</td>
 </tr>
-<tr class="row-even"><td>targetId</td>
+<tr class="row-even"><td>targetNamespaceId</td>
 <td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/namespace/namespace_types.cats#L1">NamespaceId</a></td>
 <td>Target namespace identifier.</td>
 </tr>
@@ -555,7 +553,7 @@ The client application is responsible for encrypting the message or keeping it v
                 <h4>Community</h4>
                 <ul>
                     <li>
-                        <a href="http://slack.nemtech.io/">
+                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLWZmZWRiMjViYTVhZjEzOTA0MzUyMTA1NTA5OWQ0MWUzNTA4NjM5OTJhOGViOTBhNjkxYWVhMWRiZDRkOTE0YmU">
                             <i class="fab fa-slack"></i> <span> Join #general discussion</span>
                         </a>
                     </li>

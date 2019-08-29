@@ -163,7 +163,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -174,7 +173,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.4</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.19.1</a></small>
     </p>
 </div>
 
@@ -219,7 +218,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -241,11 +239,12 @@
             
   <div class="section" id="monitoring-a-transaction-status">
 <h1>Monitoring a transaction status<a class="headerlink" href="#monitoring-a-transaction-status" title="Permalink to this headline">¶</a></h1>
-<p>Make sure a <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">transaction</span></a> gets included in the blockchain after being announced.</p>
+<p>Make sure a transaction gets included in the blockchain after being announced.</p>
 <div class="section" id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
-<p>After calling an API method that changes the database state, you usually will receive a response if the change has been applied or failed due to some constraint. The application spends precious time waiting for the response, in the meanwhile other actions can be processed.</p>
-<p>When working with blockchain technology, it is interesting to “fire” the transaction, let the node process it, and receive a notification if it succeeded or failed. Differently, from a traditional database, the average confirmation time of modification is higher, passing from milliseconds to seconds - or minutes in the worst case.</p>
+<p>After calling an API method that changes a database state, the application usually receives a response informing if the change has been applied or failed due to some constraints.</p>
+<p>When working with blockchain technology, it is interesting to <strong>fire the transaction</strong>, let the node process it, and <strong>receive a notification</strong> if it succeeded or failed. Differently, from a traditional database, the average confirmation time of modification is higher, passing from milliseconds to seconds, or even minutes in the worst cases.</p>
+<p>In this guide, you are going to learn how to verify that your transaction has been <strong>recorded permanently</strong> before executing any other critical action.</p>
 </div>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
@@ -255,10 +254,10 @@
 </div>
 <div class="section" id="getting-into-some-code">
 <h2>Getting into some code<a class="headerlink" href="#getting-into-some-code" title="Permalink to this headline">¶</a></h2>
-<p>Catapult enables asynchronous transaction announcement. After you publish a transaction, the API node will always accept it if it is well-formed.</p>
-<p>At this time, the server does not ensure that the transaction is valid - for example, you don’t have the amount of asset units you want to send-, hence is not sure it will be added in a block.</p>
-<p>To make sure the transaction is added in a block, you must track the <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">transaction status</span></a> using <a class="reference internal" href="../../api.html#websockets"><span class="std std-ref">Listeners</span></a>.</p>
-<p>Listeners enable receiving notifications possible when a change in the blockchain occurs. The notification is received in real time without having to poll the API waiting for a reply.</p>
+<p>Catapult enables an <strong>asynchronous transaction announcement</strong>. After an application publishes a transaction, the API node will always accept it if it is well-formed.</p>
+<p>At this time, the server does not ensure that the transaction is valid. For example, you might not have the number of asset units you want to need to send and still, get a positive response from the server. For this reason, the “OK” response does not guarantee getting the transaction included in a block. To make sure the transaction is added in a block, you must track the <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">transaction status</span></a> using <strong>Listeners</strong>.</p>
+<p><a class="reference external" href="websockets">Listeners</a> enable receiving notifications possible when a change in the blockchain occurs. The notification is received in real-time without having to poll the API waiting for a reply.</p>
+<p>Let’s see how transaction monitorization works transferring a <strong>TransferTransaction</strong>.</p>
 <ol class="arabic simple">
 <li>Define the transaction you want to announce. In this case, we are going to send the message <code class="docutils literal"><span class="pre">Test</span></code> to <code class="docutils literal"><span class="pre">SD5DT3-CH4BLA-BL5HIM-EKP2TA-PUKF4N-Y3L5HR-IR54</span></code>.</li>
 </ol>
@@ -295,7 +294,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="3">
-<li>Open a new <a class="reference internal" href="../../api.html#websockets"><span class="std std-ref">Listeners</span></a>. This communicates with the API WebSocket, who will communicate you asynchronously the status of the transaction.</li>
+<li>Open a new <a class="reference internal" href="../../api.html#websockets"><span class="std std-ref">Listener</span></a>. The listener communicates with the API WebSocket, which forward you asynchronously the status of the transaction.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id3">
@@ -312,7 +311,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="4">
-<li>Start monitoring if the WebSocket connection is alive. <a class="reference internal" href="../../concepts/block.html"><span class="doc">Blocks</span></a> are generated every <code class="docutils literal"><span class="pre">15</span></code> seconds in average, so a timeout can be raised if there is no response after 30 seconds approximately.</li>
+<li>Monitor if the WebSocket <strong>connection is alive</strong>. <a class="reference internal" href="../../concepts/block.html"><span class="doc">Blocks</span></a> are generated every <code class="docutils literal"><span class="pre">15</span></code> seconds in average, so a timeout can be raised if there is no response after 30 seconds approximately.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id4">
@@ -338,7 +337,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="5">
-<li>Monitor if there is some validation error with the transaction issued. When you receive a message from status WebSocket channel, it always means the transaction did not meet the requirements. You need to handle the error accordingly, by reviewing the <a class="reference internal" href="../../api.html#status-errors"><span class="std std-ref">error status list</span></a>.</li>
+<li>Monitor if there is some <strong>validation error</strong> with the transaction issued. When you receive a message from status WebSocket channel, it always means <strong>the transaction did not meet the requirements</strong>. You need to handle the error accordingly, by reviewing the <a class="reference internal" href="../../api.html#status-errors"><span class="std std-ref">error status list</span></a>.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id6">
@@ -363,7 +362,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="6">
-<li>Monitor as well if the transaction reaches the network. When you receive a message from unconfirmed WebSocket channel, the transaction is valid and is waiting to be included in a block. This does not mean necessarily that the transaction will be included, as a second validation happens before being finally confirmed.</li>
+<li>Monitor as well if the transaction <strong>reaches the network</strong>. When you receive a message from <strong>unconfirmed WebSocket channel</strong>, the transaction is valid and is waiting to be included in a block. This does not mean necessarily that the transaction will be included, as a second validation happens before being finally confirmed.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id8">
@@ -385,7 +384,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="7">
-<li>Monitor when the transaction gets included in a block. When included, transaction can still be <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">rolled-back</span></a> because of forks. You can decide for yourself that after e.g. 6 blocks the <a class="reference external" href="https://gist.github.com/aleixmorgadas/3d856d318e60f901be09dbd23467b374">transaction is secured</a>.</li>
+<li>Monitor when the transaction gets <strong>included in a block</strong>. When included, transaction can still be <a class="reference internal" href="../../concepts/transaction.html"><span class="doc">rolled-back</span></a> because of forks. You can decide for yourself that after e.g. 6 blocks the <a class="reference external" href="https://gist.github.com/aleixmorgadas/3d856d318e60f901be09dbd23467b374">transaction is secured</a>.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id10">
@@ -447,16 +446,12 @@
 </div>
 <div class="section" id="troubleshooting-monitoring-transactions-on-the-client-side">
 <span id="monitoring-transactions-client-side"></span><h2>Troubleshooting: Monitoring transactions on the client side<a class="headerlink" href="#troubleshooting-monitoring-transactions-on-the-client-side" title="Permalink to this headline">¶</a></h2>
-<p>The nem2-sdk for typescript base Listener was designed to work on Node.js backend environments.</p>
-<p>To make the code work in the client side (e.g., Angular, React, Vue.), pass the browser implementation of the WebSocket to the Listener.</p>
+<p>The NEM2-SDK for typescript base Listener was designed to work on Node.js backend environments.
+To make the code work in the client side (e.g., Angular, React, Vue.), pass the browser implementation of the WebSocket to the Listener.</p>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Listener</span><span class="p">(</span><span class="s1">&#39;ws://localhost:3000&#39;</span><span class="p">,</span> <span class="nx">WebSocket</span><span class="p">);</span>
 <span class="nx">listener</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">...</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="what-s-next">
-<h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
-<p>Run your application and try to <a class="reference internal" href="sending-a-transfer-transaction.html"><span class="doc">send a transfer transaction</span></a> to the selected account. If all goes well, you will see the transaction information in your terminal.</p>
 </div>
 </div>
 
@@ -488,7 +483,6 @@
 <li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
 <li><a class="reference internal" href="#getting-into-some-code">Getting into some code</a></li>
 <li><a class="reference internal" href="#troubleshooting-monitoring-transactions-on-the-client-side">Troubleshooting: Monitoring transactions on the client side</a></li>
-<li><a class="reference internal" href="#what-s-next">What’s next?</a></li>
 </ul>
 </li>
 </ul>
@@ -545,7 +539,7 @@
                 <h4>Community</h4>
                 <ul>
                     <li>
-                        <a href="http://slack.nemtech.io/">
+                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLWZmZWRiMjViYTVhZjEzOTA0MzUyMTA1NTA5OWQ0MWUzNTA4NjM5OTJhOGViOTBhNjkxYWVhMWRiZDRkOTE0YmU">
                             <i class="fab fa-slack"></i> <span> Join #general discussion</span>
                         </a>
                     </li>

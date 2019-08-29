@@ -163,7 +163,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -174,7 +173,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.4</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.19.1</a></small>
     </p>
 </div>
 
@@ -219,7 +218,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -241,12 +239,12 @@
             
   <div class="section" id="registering-a-namespace">
 <h1>Registering a namespace<a class="headerlink" href="#registering-a-namespace" title="Permalink to this headline">¶</a></h1>
-<p>Register your own <a class="reference internal" href="../../concepts/namespace.html"><span class="doc">namespace</span></a>.</p>
+<p>Create a unique place for your assets.</p>
 <div class="section" id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
-<p>Namespaces allow you to create an on-chain <strong>unique place</strong> for your business and your assets on the NEM blockchain.</p>
-<p>A namespace starts with a name that you choose, similar to an internet domain name. If one <a class="reference internal" href="../../concepts/account.html"><span class="doc">account</span></a> creates a namespace, that will appear as unique in the network.</p>
-<p>An account can link a registered name (namespace or subnamespace) with an <a class="reference internal" href="../../concepts/account.html"><span class="doc">account</span></a> or a <a class="reference internal" href="../../concepts/mosaic.html"><span class="doc">mosaic</span></a> identifier.</p>
+<p><a class="reference internal" href="../../concepts/namespace.html"><span class="doc">Namespaces</span></a> allow you to create an on-chain <strong>unique place</strong> for your business and your assets on the NEM blockchain.</p>
+<p>A namespace starts with a name you choose, similar to an internet domain name. If one <a class="reference internal" href="../../concepts/account.html"><span class="doc">account</span></a> creates a namespace, this will appear as unique in the network.</p>
+<p>An account can use the registered namespaces to alias <a class="reference internal" href="../../concepts/account.html"><span class="doc">addresses</span></a> or <a class="reference internal" href="../../concepts/mosaic.html"><span class="doc">mosaics</span></a> identifiers.</p>
 </div>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
@@ -257,9 +255,10 @@
 </div>
 <div class="section" id="getting-into-some-code">
 <h2>Getting into some code<a class="headerlink" href="#getting-into-some-code" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li>Choose a name you like. One common option is to use your company’s or own name. In this example, we will register a namespace called <code class="docutils literal"><span class="pre">foo</span></code>.</li>
-<li>Check if this namespace name is available.</li>
+<p>1. Choose a <strong>unique name</strong> for your namespace. One common option is to use your company’s or own name.
+For this example, we are going to register a namespace named <code class="docutils literal"><span class="pre">foo</span></code>.</p>
+<ol class="arabic simple" start="2">
+<li>Check if your namespace name is <strong>available</strong>.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id1">
@@ -294,11 +293,11 @@
 </div>
 </div>
 <ol class="arabic simple" start="3">
-<li>Is the namespace available? Try to register it before someone else does it! Announce a <a class="reference internal" href="../../concepts/namespace.html#register-namespace-transaction"><span class="std std-ref">register namespace transaction</span></a> with the chosen name and renting duration expressed in blocks.</li>
+<li>Is the namespace available? Try to register it before someone else does it! Announce a <a class="reference internal" href="../../concepts/namespace.html#namespace-registration-transaction"><span class="std std-ref">NamespaceRegistrationTransaction</span></a> with the chosen name and renting duration expressed in blocks.</li>
 </ol>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">A new block completes every <code class="docutils literal"><span class="pre">15</span></code> seconds on average. You will have to renew your namespace before it expires.</p>
+<p class="last">A new block completes every <code class="docutils literal"><span class="pre">15</span></code> seconds on average. Also, the maximum duration you can register a namespace for is <code class="docutils literal"><span class="pre">a</span> <span class="pre">year</span></code>.</p>
 </div>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id4">
@@ -352,6 +351,7 @@
 </div>
 </div>
 </div>
+<p>To keep the ownership of your namespace, you will have to <a class="reference internal" href="extending-a-namespace-registration-period.html"><span class="doc">extend its duration before it expires</span></a>.</p>
 </div>
 <div class="section" id="what-s-next">
 <h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
@@ -443,7 +443,7 @@
                 <h4>Community</h4>
                 <ul>
                     <li>
-                        <a href="http://slack.nemtech.io/">
+                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLWZmZWRiMjViYTVhZjEzOTA0MzUyMTA1NTA5OWQ0MWUzNTA4NjM5OTJhOGViOTBhNjkxYWVhMWRiZDRkOTE0YmU">
                             <i class="fab fa-slack"></i> <span> Join #general discussion</span>
                         </a>
                     </li>

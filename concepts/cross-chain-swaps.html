@@ -175,7 +175,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -186,7 +185,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.4</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.19.1</a></small>
     </p>
 </div>
 
@@ -241,7 +240,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -284,7 +282,7 @@
 <ol class="arabic simple">
 <li>Alice generates a random set of bytes called <code class="docutils literal"><span class="pre">proof</span></code>. The proof should have a size between <code class="docutils literal"><span class="pre">10</span></code> and <code class="docutils literal"><span class="pre">1000</span></code> bytes.</li>
 <li>Alice hashes the obtained proof with one of the <a class="reference internal" href="#lock-hash-algorithm"><span class="std std-ref">available algorithms</span></a> to generate the <code class="docutils literal"><span class="pre">secret</span></code>.</li>
-<li>Alice defines the <a class="reference internal" href="#secret-lock-transaction"><span class="std std-ref">secret lock transaction</span></a> TX1:</li>
+<li>Alice defines the <a class="reference internal" href="#secret-lock-transaction"><span class="std std-ref">SecretLockTransaction</span></a> TX1:</li>
 </ol>
 <ul class="simple">
 <li>Mosaic: 10 alice token</li>
@@ -296,7 +294,7 @@
 </ul>
 <ol class="arabic simple" start="4">
 <li>Alice announces TX1 to the private network and shares with Bob the secret.</li>
-<li>Bob defines announces the following <a class="reference internal" href="#secret-lock-transaction"><span class="std std-ref">secret lock transaction</span></a> TX2 to the public network:</li>
+<li>Bob defines announces the following <a class="reference internal" href="#secret-lock-transaction"><span class="std std-ref">SecretLockTransaction</span></a> TX2 to the public network:</li>
 </ol>
 <ul class="simple">
 <li>Mosaic: 10 bob token</li>
@@ -311,9 +309,9 @@
 <p class="last">The amount of time in which funds can be unlocked should be a smaller time frame than TX1’s. Alice knows the secret, so Bob must be sure he will have some time left after Alice releases the secret.</p>
 </div>
 <ol class="arabic simple" start="6">
-<li>Alice announces the <a class="reference internal" href="#secret-proof-transaction"><span class="std std-ref">secret proof transaction</span></a> TX3 to the public network. This transaction defines the encrypting algorithm used, the original proof and the secret.</li>
+<li>Alice announces the <a class="reference internal" href="#secret-proof-transaction"><span class="std std-ref">SecretProofTransaction</span></a> TX3 to the public network. This transaction defines the encrypting algorithm used, the original proof and the secret.</li>
 <li>Once TX3 is confirmed, the proof is revealed. TX2 transaction is unlocked and Alice receives the locked funds.</li>
-<li>Bob picks the proof and announces the <a class="reference internal" href="#secret-proof-transaction"><span class="std std-ref">secret proof transaction</span></a> TX4 to the private network, receiving the locked funds from TX1.</li>
+<li>Bob picks the proof and announces the <a class="reference internal" href="#secret-proof-transaction"><span class="std std-ref">SecretProofTransaction</span></a> TX4 to the private network, receiving the locked funds from TX1.</li>
 </ol>
 </div>
 <div class="section" id="guides">
@@ -332,8 +330,8 @@
 </div>
 <div class="section" id="secretlocktransaction">
 <span id="secret-lock-transaction"></span><h3>SecretLockTransaction<a class="headerlink" href="#secretlocktransaction" title="Permalink to this headline">¶</a></h3>
-<p>Use a secret lock transaction to transfer mosaics between two accounts. The specified mosaics remain locked until a valid <a class="reference internal" href="#secret-proof-transaction"><span class="std std-ref">Secret Proof Transaction</span></a> unlocks them.</p>
-<p>If the transaction duration is reached without being proved, the locked amount goes back to the initiator of the secret lock transaction.</p>
+<p>Use a SecretLockTransaction to transfer mosaics between two accounts. The specified mosaics remain locked until a valid <a class="reference internal" href="#secret-proof-transaction"><span class="std std-ref">SecretProofTransaction</span></a> unlocks them.</p>
+<p>If the transaction duration is reached without being proved, the locked amount goes back to the initiator of the SecretLockTransaction.</p>
 <p><strong>Version</strong>: 0x01</p>
 <p><strong>Entity type</strong>: 0x4152</p>
 <p><strong>Inlines</strong>:</p>
@@ -359,7 +357,7 @@
 </tr>
 <tr class="row-odd"><td>duration</td>
 <td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L2">BlockDuration</a></td>
-<td>Duration is allowed to lie up to <code class="docutils literal"><span class="pre">30</span></code> days. If reached, the mosaics will be returned to the initiator.</td>
+<td>Number of blocks for which a lock should be valid. Duration is allowed to lie up to <code class="docutils literal"><span class="pre">30</span></code> days. If reached, the mosaics will be returned to the initiator.</td>
 </tr>
 <tr class="row-even"><td>hashAlgorithm</td>
 <td><a class="reference internal" href="#lock-hash-algorithm"><span class="std std-ref">LockHashAlgorithm</span></a></td>
@@ -369,7 +367,7 @@
 <td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L9">Hash256</a></td>
 <td>Proof hashed.</td>
 </tr>
-<tr class="row-even"><td>recipient</td>
+<tr class="row-even"><td>recipientAddress</td>
 <td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L7">UnresolvedAddress</a></td>
 <td>Address that receives the funds once unlocked.</td>
 </tr>
@@ -378,7 +376,7 @@
 </div>
 <div class="section" id="secretprooftransaction">
 <span id="secret-proof-transaction"></span><h3>SecretProofTransaction<a class="headerlink" href="#secretprooftransaction" title="Permalink to this headline">¶</a></h3>
-<p>Use a secret proof transaction to unlock <a class="reference internal" href="#secret-lock-transaction"><span class="std std-ref">secret lock transactions</span></a>.</p>
+<p>Use a SecretProofTransaction to unlock <a class="reference internal" href="#secret-lock-transaction"><span class="std std-ref">SecretLockTransactions</span></a>.</p>
 <p>The transaction must prove that it knows the <em>proof</em> that unlocks the mosaics.</p>
 <p><strong>Version</strong>: 0x01</p>
 <p><strong>Entity type</strong>: 0x4252</p>
@@ -407,7 +405,7 @@
 <td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L9">Hash256</a></td>
 <td>Proof hashed.</td>
 </tr>
-<tr class="row-even"><td>recipient</td>
+<tr class="row-even"><td>recipientAddress</td>
 <td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L7">UnresolvedAddress</a></td>
 <td>Address that receives the funds once unlocked.</td>
 </tr>
@@ -537,7 +535,7 @@
                 <h4>Community</h4>
                 <ul>
                     <li>
-                        <a href="http://slack.nemtech.io/">
+                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLWZmZWRiMjViYTVhZjEzOTA0MzUyMTA1NTA5OWQ0MWUzNTA4NjM5OTJhOGViOTBhNjkxYWVhMWRiZDRkOTE0YmU">
                             <i class="fab fa-slack"></i> <span> Join #general discussion</span>
                         </a>
                     </li>

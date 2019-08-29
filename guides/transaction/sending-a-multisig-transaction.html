@@ -163,7 +163,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -174,7 +173,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.4</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.19.1</a></small>
     </p>
 </div>
 
@@ -219,7 +218,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -241,25 +239,21 @@
             
   <div class="section" id="sending-a-multisig-transaction">
 <h1>Sending a multisig transaction<a class="headerlink" href="#sending-a-multisig-transaction" title="Permalink to this headline">¶</a></h1>
-<p>Send a transaction involving a <a class="reference internal" href="../../concepts/multisig-account.html"><span class="doc">multisig</span></a> account.</p>
+<p>Send a transaction involving a multisig account.</p>
 <div class="section" id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-center" id="id2">
 <img alt="../../_images/multisig-transaction-1-of-2.png" src="../../_images/multisig-transaction-1-of-2.png" style="width: 500px;" />
-<p class="caption"><span class="caption-text">Sending an aggregate complete transaction</span></p>
+<p class="caption"><span class="caption-text">Sending an AggregateCompleteTransaction</span></p>
 </div>
 <p>Alice and Bob have separate <a class="reference internal" href="../../concepts/account.html"><span class="doc">accounts</span></a>. They also want to have a shared account to buy groceries, so that if Bob is out shopping, he can buy groceries for both himself and Alice.</p>
 <p>This shared account appears in NEM as <strong>1-of-2 multisig</strong>. Multisig accounts permit Alice and Bob sharing funds in a separate account, requiring only the signature from one of them to transact.</p>
-<div class="figure align-center" id="id3">
-<img alt="../../_images/multisig-1-of-21.png" src="../../_images/multisig-1-of-21.png" style="width: 350px;" />
-<p class="caption"><span class="caption-text">1-of-2 multisig account example</span></p>
-</div>
 <p>In this guide, you will send a transaction from a multisig account.</p>
 </div>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Finish <a class="reference internal" href="sending-a-transfer-transaction.html"><span class="doc">sending a transfer transaction guide</span></a></li>
+<li>Finish <a class="reference internal" href="sending-a-transfer-transaction.html"><span class="doc">sending mosaics and messages between two accounts guide</span></a></li>
 <li>Finish <a class="reference internal" href="../account/converting-an-account-to-multisig.html"><span class="doc">converting an account to multisig guide</span></a></li>
 <li>Know how to <a class="reference internal" href="../account/creating-and-opening-an-account.html"><span class="doc">create accounts</span></a></li>
 <li>A multisig <a class="reference internal" href="../../getting-started/setup-workstation.html#setup-getting-a-test-account"><span class="std std-ref">account with cat.currency</span></a></li>
@@ -276,8 +270,8 @@
 <li>Define the private key of Bob’s account and the public key of the multisig account shared with Alice.</li>
 </ol>
 <div class="example-code container">
-<div class="literal-block-wrapper container" id="id4">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingAMultisigTransactionAggregateComplete.ts">View Code</a></span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper container" id="id3">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingAMultisigTransactionAggregateComplete.ts">View Code</a></span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span> <span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">cosignatoryPrivateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">COSIGNATORY_1_PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
@@ -290,8 +284,8 @@
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper container" id="id5">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingAMultisigTransactionAggregateComplete.js">View Code</a></span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper container" id="id4">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingAMultisigTransactionAggregateComplete.js">View Code</a></span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span> <span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">cosignatoryPrivateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">COSIGNATORY_PRIVATE_KEY</span> <span class="nx">as</span> <span class="nx">string</span><span class="p">;</span>
@@ -306,7 +300,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li>Define the following <a class="reference internal" href="../../concepts/transfer-transaction.html#id1"><span class="std std-ref">transfer transaction</span></a>:</li>
+<li>Define the following <a class="reference internal" href="../../concepts/transfer-transaction.html#id1"><span class="std std-ref">TransferTransaction</span></a>:</li>
 </ol>
 <ul class="simple">
 <li>Recipient: Grocery’s address</li>
@@ -314,8 +308,8 @@
 <li>Mosaics: [<code class="docutils literal"><span class="pre">10</span> <span class="pre">cat.currency</span></code>]</li>
 </ul>
 <div class="example-code container">
-<div class="literal-block-wrapper container" id="id6">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingAMultisigTransactionAggregateComplete.ts">View Code</a></span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper container" id="id5">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingAMultisigTransactionAggregateComplete.ts">View Code</a></span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transferTransaction</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="nx">recipientAddress</span><span class="p">,</span>
@@ -325,8 +319,8 @@
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper container" id="id7">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingAMultisigTransactionAggregateComplete.js">View Code</a></span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper container" id="id6">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingAMultisigTransactionAggregateComplete.js">View Code</a></span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">transferTransaction</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="nx">recipientAddress</span><span class="p">,</span>
@@ -338,12 +332,12 @@
 </div>
 </div>
 <ol class="arabic simple" start="3">
-<li>Wrap the transfer transaction in an <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate transaction</span></a>, attaching the multisig public key as the signer.</li>
+<li>Wrap the TransferTransaction in an <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">AggregateTransaction</span></a>, attaching the multisig public key as the signer.</li>
 </ol>
-<p>An aggregate transaction is <strong>complete</strong> if before announcing it to the network, all the required cosigners have signed it. In this case the multisig requires only one signature (1-of-2), so you can define the aggregate as complete.</p>
+<p>An AggregateTransaction is <strong>complete</strong> if before announcing it to the network, all the required cosigners have signed it. In this case the multisig requires only one signature (1-of-2), so you can define the aggregate as complete.</p>
 <div class="example-code container">
-<div class="literal-block-wrapper container" id="id8">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingAMultisigTransactionAggregateComplete.ts">View Code</a></span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper container" id="id7">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingAMultisigTransactionAggregateComplete.ts">View Code</a></span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createComplete</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="p">[</span><span class="nx">transferTransaction</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">multisigAccount</span><span class="p">),],</span>
@@ -352,8 +346,8 @@
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper container" id="id9">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingAMultisigTransactionAggregateComplete.js">View Code</a></span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper container" id="id8">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingAMultisigTransactionAggregateComplete.js">View Code</a></span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createComplete</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="p">[</span><span class="nx">transferTransaction</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">multisigAccount</span><span class="p">),],</span>
@@ -367,8 +361,8 @@
 <li>Sign and announce the transaction using Bob’s account.</li>
 </ol>
 <div class="example-code container">
-<div class="literal-block-wrapper container" id="id10">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingAMultisigTransactionAggregateComplete.ts">View Code</a></span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper container" id="id9">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingAMultisigTransactionAggregateComplete.ts">View Code</a></span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">networkGenerationHash</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NETWORK_GENERATION_HASH</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">,</span> <span class="nx">networkGenerationHash</span><span class="p">);</span>
 
@@ -378,8 +372,8 @@
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper container" id="id11">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingAMultisigTransactionAggregateComplete.js">View Code</a></span><a class="headerlink" href="#id11" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper container" id="id10">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingAMultisigTransactionAggregateComplete.js">View Code</a></span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">networkGenerationHash</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NETWORK_GENERATION_HASH</span> <span class="nx">as</span> <span class="nx">string</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">,</span> <span class="nx">networkGenerationHash</span><span class="p">);</span>
 
@@ -393,23 +387,23 @@
 </div>
 <div class="section" id="id1">
 <h3>2-of-2 signatures required<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p>What would have happened if the account was a 2-of-2 multisig instead of a 1-of-2? As all required cosigners did not sign the transaction, it should be announced as <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate bonded</span></a> and cosigned later with Alice’s account.</p>
-<div class="figure align-center" id="id12">
+<p>What would have happened if the account was a <strong>2-of-2 multisig</strong> instead of a 1-of-2? As all required cosigners did not sign the transaction, it should be announced as <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate bonded</span></a> and cosigned later with Alice’s account.</p>
+<div class="figure align-center" id="id11">
 <img alt="../../_images/multisig-transaction-2-of-2.png" src="../../_images/multisig-transaction-2-of-2.png" style="width: 500px;" />
-<p class="caption"><span class="caption-text">Sending an aggregate bonded transaction</span></p>
+<p class="caption"><span class="caption-text">Sending an AggregateBondedTransaction</span></p>
 </div>
 <ol class="arabic simple">
-<li>Open a new terminal to <a class="reference internal" href="monitoring-a-transaction-status.html"><span class="doc">monitor</span></a> the aggregate bonded transaction.</li>
+<li>Open a new terminal to <a class="reference internal" href="monitoring-a-transaction-status.html"><span class="doc">monitor</span></a> the <strong>AggregateBondedTransaction</strong>.</li>
 </ol>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli monitor aggregatebonded --address &lt;your-address-here&gt;
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
-<li>Modify the previous code, defining the transaction as <code class="docutils literal"><span class="pre">aggregate</span> <span class="pre">bonded</span></code>.</li>
+<li>Modify the previous code, defining the transaction as  <strong>bonded</strong>.</li>
 </ol>
 <div class="example-code container">
-<div class="literal-block-wrapper container" id="id13">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingAMultisigTransactionAggregateBonded.ts">View Code</a></span><a class="headerlink" href="#id13" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper container" id="id12">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingAMultisigTransactionAggregateBonded.ts">View Code</a></span><a class="headerlink" href="#id12" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createBonded</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="p">[</span><span class="nx">transferTransaction</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">multisigAccount</span><span class="p">)],</span>
@@ -421,8 +415,8 @@
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper container" id="id14">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingAMultisigTransactionAggregateBonded.js">View Code</a></span><a class="headerlink" href="#id14" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper container" id="id13">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingAMultisigTransactionAggregateBonded.js">View Code</a></span><a class="headerlink" href="#id13" title="Permalink to this code">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createBonded</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="p">[</span><span class="nx">transferTransaction</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">multisigAccount</span><span class="p">)],</span>
@@ -436,11 +430,11 @@
 </div>
 </div>
 <ol class="arabic simple" start="3">
-<li>When an aggregate transaction is bonded, Bob needs to lock at least <code class="docutils literal"><span class="pre">10</span></code> cat.currency to avoid network spamming. Once all cosigners sign the transaction, the amount of cat.currency locked becomes available again in Bob’s account. After <a class="reference internal" href="../../concepts/aggregate-transaction.html#hash-lock-transaction"><span class="std std-ref">hash lock transaction</span></a> has been confirmed, <a class="reference internal" href="../../concepts/aggregate-transaction.html"><span class="doc">announce the aggregate bonded transaction</span></a>.</li>
+<li>When an AggregateTransaction is bonded, Bob needs to <strong>lock at least 10 cat.currency</strong> to prevent spamming the network. Once all cosigners sign the transaction, the amount of cat.currency locked becomes available again in Bob’s account. After <a class="reference internal" href="../../concepts/aggregate-transaction.html#hash-lock-transaction"><span class="std std-ref">HashLockTransaction</span></a> has been confirmed, <a class="reference internal" href="../../concepts/aggregate-transaction.html"><span class="doc">announce the AggregateBondedTransaction</span></a>.</li>
 </ol>
 <div class="example-code container">
-<div class="literal-block-wrapper container" id="id15">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingAMultisigTransactionAggregateBonded.ts">View Code</a></span><a class="headerlink" href="#id15" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper container" id="id14">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SendingAMultisigTransactionAggregateBonded.ts">View Code</a></span><a class="headerlink" href="#id14" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">hashLockTransaction</span> <span class="o">=</span> <span class="nx">HashLockTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="nx">NetworkCurrencyMosaic</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
@@ -469,8 +463,8 @@
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper container" id="id16">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingAMultisigTransactionAggregateBonded.js">View Code</a></span><a class="headerlink" href="#id16" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper container" id="id15">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SendingAMultisigTransactionAggregateBonded.js">View Code</a></span><a class="headerlink" href="#id15" title="Permalink to this code">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">hashLockTransaction</span> <span class="o">=</span> <span class="nx">HashLockTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
     <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
     <span class="nx">NetworkCurrencyMosaic</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
@@ -501,7 +495,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="4">
-<li><a class="reference internal" href="../../cli.html"><span class="doc">Cosign the aggregate transaction</span></a> with Alice’s account. Use the transaction hash output from the first step.</li>
+<li><a class="reference internal" href="../../cli.html"><span class="doc">Cosign the AggregateTransaction</span></a> with Alice’s account. Use the transaction hash output from the first step.</li>
 </ol>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli transaction cosign --hash A6A374E66B32A3D5133018EFA9CD6E3169C8EEA339F7CCBE29C47D07086E068C --profile alice
 </pre></div>
@@ -597,7 +591,7 @@
                 <h4>Community</h4>
                 <ul>
                     <li>
-                        <a href="http://slack.nemtech.io/">
+                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLWZmZWRiMjViYTVhZjEzOTA0MzUyMTA1NTA5OWQ0MWUzNTA4NjM5OTJhOGViOTBhNjkxYWVhMWRiZDRkOTE0YmU">
                             <i class="fab fa-slack"></i> <span> Join #general discussion</span>
                         </a>
                     </li>

@@ -175,7 +175,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -186,7 +185,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.4</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.19.1</a></small>
     </p>
 </div>
 
@@ -241,7 +240,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -309,7 +307,7 @@ The architecture of the TS SDK is inspired in <a href="https://nemproject.github
 <li>Protocol: <a href="https://github.com/nemtech/catbuffer/tree/master/schemas/" target="_blank">Serialization schemas</a></li>
 <li>Guide: <a class="reference internal" href="../transaction/monitoring-a-transaction-status.html"><span class="doc">Monitoring a transaction status</span></a></li>
 </ul>
-<p>Additionally, there is only one transfer transaction version remaining in which mosaics are always pushed in the mosaics array, when available. This is different from NIS1 transfer transactions which, in their first version, attached XEM without using the mosaics array.</p>
+<p>Additionally, there is only one TransferTransaction version remaining in which mosaics are always pushed in the mosaics array, when available. This is different from NIS1 transfer transactions which, in their first version, attached XEM without using the mosaics array.</p>
 </div>
 <div class="section" id="transaction-fees">
 <h2>Transaction fees<a class="headerlink" href="#transaction-fees" title="Permalink to this headline">¶</a></h2>
@@ -330,7 +328,7 @@ In fact, in NIS1, it happened that namespaces would expire altogether with asset
 <li>Guide: <a class="reference internal" href="../namespace/registering-a-namespace.html"><span class="doc">Registering a namespace</span></a></li>
 <li>Guide: <a class="reference internal" href="../namespace/registering-a-subnamespace.html"><span class="doc">Creating a subnamespace</span></a></li>
 </ul>
-<p>Namespaces can still refer to mosaics byways of <a class="reference internal" href="../../concepts/namespace.html#mosaic-alias-transaction"><span class="std std-ref">alias transactions</span></a>. A namespace owner can attach either of an account or a mosaic id to one of its’ namespaces. The namespace information endpoint will return the linked object in the alias field.</p>
+<p>Namespaces can still refer to mosaics byways of <a class="reference internal" href="../../concepts/namespace.html#mosaic-alias-transaction"><span class="std std-ref">AliasTransactions</span></a>. A namespace owner can attach either of an account or a mosaic id to one of its’ namespaces. The namespace information endpoint will return the linked object in the alias field.</p>
 <p>Also, root namespaces have a <code class="docutils literal"><span class="pre">duration</span></code> field that is <strong>expressed in a count of blocks</strong> which means yearly renewal is not mandatory anymore.</p>
 <ul class="simple">
 <li>Guide: <a class="reference internal" href="../namespace/link-a-namespace-to-a-mosaic.html"><span class="doc">Linking a namespace to a mosaic</span></a></li>
@@ -338,8 +336,8 @@ In fact, in NIS1, it happened that namespaces would expire altogether with asset
 </ul>
 <p>In order to facilitate the transfer of mosaics, a mosaic owner should register a namespace and alias the mosaic with that namespace. End-users can <strong>send transactions using the alias</strong> to refer to the mosaic.</p>
 <ul class="simple">
-<li>Guide: <a class="reference internal" href="../namespace/link-a-namespace-to-a-mosaic.html#sending-a-transfer-transaction-with-an-aliased-mosaic"><span class="std std-ref">Sending a transfer transaction with an aliased mosaic</span></a></li>
-<li>Guide: <a class="reference internal" href="../namespace/link-a-namespace-to-an-address.html#sending-a-transfer-transaction-to-an-aliased-address"><span class="std std-ref">Sending a transfer transaction to an aliased address</span></a></li>
+<li>Guide: <a class="reference internal" href="../namespace/link-a-namespace-to-a-mosaic.html#sending-a-transfer-transaction-with-an-aliased-mosaic"><span class="std std-ref">Sending a TransferTransaction with an aliased mosaic</span></a></li>
+<li>Guide: <a class="reference internal" href="../namespace/link-a-namespace-to-an-address.html#sending-a-transfer-transaction-to-an-aliased-address"><span class="std std-ref">Sending a TransferTransaction to an aliased address</span></a></li>
 </ul>
 <p>When a transaction includes an alias, a so-called <strong>resolution</strong> reflects the resolved value of that alias in the block.
 To get the real identifier behind an aliased address or mosaic, the client application needs to fetch the related <a class="reference internal" href="../../concepts/receipt.html"><span class="doc">resolution receipt</span></a> linked to the block where the transaction gets included.</p>
@@ -356,14 +354,14 @@ To get the real identifier behind an aliased address or mosaic, the client appli
 <p>Different to NIS1, the account modification entries now hold fields for <code class="docutils literal"><span class="pre">minimum</span> <span class="pre">approval</span></code> and <code class="docutils literal"><span class="pre">minimum</span> <span class="pre">removal</span></code>:</p>
 <p><strong>Minimum removal</strong>: Defines how many cosignatories are required to broadcast transactions removing cosignatories from the multisignature account.</p>
 <p><strong>Minimum approval</strong>: Defines how many cosignatories are required for any other type of transaction.</p>
-<p>Additionally, cosignatories that are added to multisignature accounts now have to confirm the modification by sending a <strong>cosignature</strong> (opt-in process). In order to facilitate this process, transactions with type <a class="reference internal" href="../../concepts/multisig-account.html#modify-multisig-account-transaction"><span class="std std-ref">ModifyMultisigAccount</span></a> must be wrapped in an <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate transaction</span></a>.</p>
+<p>Additionally, cosignatories that are added to multisignature accounts now have to confirm the modification by sending a <strong>cosignature</strong> (opt-in process). In order to facilitate this process, transactions with type <a class="reference internal" href="../../concepts/multisig-account.html#multisig-account-modification-transaction"><span class="std std-ref">MultisigAccountModificationTransaction</span></a> must be wrapped in an <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">AggregateTransaction</span></a>.</p>
 <ul class="simple">
 <li>Guide: <a class="reference internal" href="../account/converting-an-account-to-multisig.html"><span class="doc">Converting an account to multisignature</span></a></li>
 </ul>
 <ol class="arabic simple" start="2">
 <li>Multi-Signature transactions work with <a class="reference internal" href="../../concepts/aggregate-transaction.html"><span class="doc">aggregate transactions</span></a>.</li>
 </ol>
-<p>The new aggregate transaction permits to wrap multiple transactions together involving different participants. If all the participants cosign the aggregate, the inner transactions are included atomically in the block. Otherwise, none of the transactions will get confirmed.</p>
+<p>The new AggregateTransaction permits to wrap multiple transactions together involving different participants. If all the participants cosign the aggregate, the inner transactions are included atomically in the block. Otherwise, none of the transactions will get confirmed.</p>
 <p>To send a multisig transaction as in NIS1, the initiator of the transaction has to add it <strong>as an inner transaction of the aggregate</strong>. Then, the minimum number of cosignatories defined in the multisignature will have to cosign the aggregate to allow announcing transactions from the shared account.</p>
 <ul class="simple">
 <li>Guide: <a class="reference internal" href="../transaction/sending-a-multisig-transaction.html"><span class="doc">Sending a multisignature transaction</span></a></li>
@@ -465,7 +463,7 @@ In the <a class="reference internal" href="../../getting-started/setup-workstati
                 <h4>Community</h4>
                 <ul>
                     <li>
-                        <a href="http://slack.nemtech.io/">
+                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLWZmZWRiMjViYTVhZjEzOTA0MzUyMTA1NTA5OWQ0MWUzNTA4NjM5OTJhOGViOTBhNjkxYWVhMWRiZDRkOTE0YmU">
                             <i class="fab fa-slack"></i> <span> Join #general discussion</span>
                         </a>
                     </li>

@@ -163,7 +163,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -174,7 +173,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.4</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.19.1</a></small>
     </p>
 </div>
 
@@ -219,7 +218,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -244,13 +242,13 @@
 <p>Get the resolution for a given alias and transaction using receipts.</p>
 <div class="section" id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
-<p>In Catapult, accounts can link their registered namespaces to other accounts or mosaics by announcing an <a class="reference internal" href="../../concepts/namespace.html#mosaic-alias-transaction"><span class="std std-ref">alias transaction</span></a>. This feature allows you to replace long and complex identifiers with short and familiar names for your accounts and mosaics.</p>
+<p>In Catapult, accounts can link their registered namespaces to other accounts or mosaics by announcing an <a class="reference internal" href="../../concepts/namespace.html#mosaic-alias-transaction"><span class="std std-ref">AliasTransaction</span></a>. This feature allows you to replace long and complex identifiers with short and familiar names for your accounts and mosaics.</p>
 <p>Imagine a ticket vendor sending tickets to their customers on the NEM blockchain. The company needs to send <code class="docutils literal"><span class="pre">1</span> <span class="pre">0dc67fbe1cad29e3</span></code> to <code class="docutils literal"><span class="pre">SCVG35-ZSPMYP-L2POZQ-JGSVEG-RYOJ3V-BNIU3U-N2E6</span></code>. With aliases, it can define the same transaction as sending <code class="docutils literal"><span class="pre">1</span> <span class="pre">ticketsales.event1.ticket</span></code> to <code class="docutils literal"><span class="pre">&#64;alice</span></code> instead.</p>
 <div class="figure align-center" id="id1">
 <img alt="../../_images/namespace-tickets1.png" src="../../_images/namespace-tickets1.png" style="width: 500px;" />
 <p class="caption"><span class="caption-text">Recognizable mosaics and addresses</span></p>
 </div>
-<p>To ensure the transactions are being sent to the correct place with the correct mosaic, you can directly query the network about the current mosaic identifier behind a namespace by running the following snippet:</p>
+<p>To ensure the transactions are being sent to the correct place with the correct mosaic, you can directly query the network about the <strong>current mosaic identifier behind a namespace</strong> by running the following snippet:</p>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id2">
 <div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/blockchain/GettingTheCurrentMosaicIdentifierBehindANamespace.ts">View Code</a></span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
@@ -267,13 +265,13 @@
 </div>
 </div>
 </div>
-<p>However, the same method cannot be used to verify transactions of the past. This is due to the facts that:</p>
+<p>However, the same method <strong>cannot be used to verify transactions of the past</strong>. This is due to the facts that:</p>
 <ul class="simple">
 <li>Transactions using aliased mosaics or accounts are stored in the blockchain using the namespace identifier, not the real address or mosaic id behind it.</li>
 <li>Links are editable. The namespace owner can link its namespace to another asset.</li>
 <li>Namespaces expire. The namespace link could be deleted.</li>
 </ul>
-<p>At this point, you might be wondering: how then can we get the accurate relation between a namespace and its real identifier for a past transaction? The answer lies with <a class="reference internal" href="../../concepts/receipt.html"><span class="doc">receipts</span></a>. For each block, Catapult nodes store receipts that contain every invisible state change that cannot be retrieved directly from the transaction or block header.</p>
+<p>At this point, you might be wondering: how then can we get the accurate relation between a namespace and its real identifier for a past transaction? The answer lies with <a class="reference internal" href="../../concepts/receipt.html"><span class="doc">receipts</span></a>. For each block, Catapult nodes store receipts that contain every <strong>invisible state change</strong> that cannot be retrieved directly from the transaction or block header.</p>
 </div>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
@@ -284,9 +282,9 @@
 </div>
 <div class="section" id="getting-into-some-code">
 <h2>Getting into some code<a class="headerlink" href="#getting-into-some-code" title="Permalink to this headline">¶</a></h2>
-<p>In this example, we are going to announce a transfer transaction using <code class="docutils literal"><span class="pre">cat.currency</span></code> instead of the native currency mosaic id. Once the network confirms the transaction, we will get the block height where the transaction has been recorded. With this information, we will then get the namespace-mosaic relation by looking into the block receipts’.</p>
+<p>In this example, we are going to announce a <strong>TransferTransaction</strong> using <code class="docutils literal"><span class="pre">cat.currency</span></code> instead of the native currency mosaic id. Once the network confirms the transaction, we will get the <strong>block height</strong> where the transaction has been recorded. With this information, we will then get the namespace-mosaic relation by looking into the block receipts’.</p>
 <ol class="arabic simple">
-<li>Define the mosaic you want to send. Use a linked namespace identifier (e.g. cat.currency) instead of the mosaic identifier.</li>
+<li>Define the mosaic you want to send. Use a <strong>linked namespace identifier</strong> (e.g. cat.currency) instead of the mosaic identifier.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id3">
@@ -300,7 +298,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li>Attach the mosaic to a transfer transaction.</li>
+<li>Attach the mosaic to a <strong>TransferTransaction</strong>.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id4">
@@ -324,7 +322,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="3">
-<li>Announce the transfer transaction, and wait until it is confirmed.</li>
+<li>Announce the <strong>TransferTransaction</strong>, and wait until it is confirmed.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id5">
@@ -344,7 +342,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="4">
-<li>Then, retrieve the receipts attached to the block where the receipt was confirmed. The RxJs filters will look for the namespace resolution inside the mosaicResolutionStatements collection.</li>
+<li>Then, retrieve the receipts attached to the block where the receipt was confirmed. The <strong>RxJs filters</strong> will look for the namespace resolution inside the <code class="docutils literal"><span class="pre">mosaicResolutionStatements</span></code> collection.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id6">
@@ -383,11 +381,11 @@ SecondaryId:  0
 </pre></div>
 </div>
 <p>It is technically possible to get more than one <code class="docutils literal"><span class="pre">resolutionEntry</span></code> for the same namespaceId. This situation is common when a namespace owner changes the link to another mosaic, leading to two different resolutions in the same block.</p>
-<p>The receipt source <code class="docutils literal"><span class="pre">primaryId</span></code> references the transaction where the alias first appears within the block. The <code class="docutils literal"><span class="pre">secondaryId</span></code> is a non 0 when the transaction is part of an <a class="reference internal" href="../../concepts/aggregate-transaction.html"><span class="doc">aggregate transaction</span></a>, and it will indicate the index position within the aggregate.</p>
+<p>The receipt source <code class="docutils literal"><span class="pre">primaryId</span></code> references the transaction where the alias first appears within the block. The <code class="docutils literal"><span class="pre">secondaryId</span></code> is a non 0 when the transaction is part of an <a class="reference internal" href="../../concepts/aggregate-transaction.html"><span class="doc">AggregateTransaction</span></a>, and it will indicate the index position within the aggregate.</p>
 </div>
 <div class="section" id="what-is-next">
 <h2>What is next?<a class="headerlink" href="#what-is-next" title="Permalink to this headline">¶</a></h2>
-<p>Receipts do not only store resolutions for aliases, but also every invisible state change that is not directly retrievable from transactions or the block header. You can check under the <a class="reference internal" href="../../concepts/receipt.html"><span class="doc">receipts documentation</span></a> the complete list of changes logged.</p>
+<p>Receipts do not only store resolutions for aliases, but also every invisible state change that is not directly retrievable from transactions or the block header. You can check under the <a class="reference internal" href="../../concepts/receipt.html"><span class="doc">receipts documentation</span></a> the <strong>complete list of changes logged</strong>.</p>
 </div>
 </div>
 
@@ -475,7 +473,7 @@ SecondaryId:  0
                 <h4>Community</h4>
                 <ul>
                     <li>
-                        <a href="http://slack.nemtech.io/">
+                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLWZmZWRiMjViYTVhZjEzOTA0MzUyMTA1NTA5OWQ0MWUzNTA4NjM5OTJhOGViOTBhNjkxYWVhMWRiZDRkOTE0YmU">
                             <i class="fab fa-slack"></i> <span> Join #general discussion</span>
                         </a>
                     </li>

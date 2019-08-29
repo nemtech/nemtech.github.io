@@ -180,7 +180,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -191,7 +190,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.4</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.19.1</a></small>
     </p>
 </div>
 
@@ -251,7 +250,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -322,7 +320,7 @@
 <div class="section" id="address-restriction">
 <h2>Address restriction<a class="headerlink" href="#address-restriction" title="Permalink to this headline">¶</a></h2>
 <p>Enabling accounts to transact with the token is similar to the process of adding elevated permissions to a user in a company computer network.</p>
-<p>The mosaic creator can <strong>modify the permissions of an account</strong> by sending a mosaic restriction transaction targeting the account address. The <a class="reference internal" href="#mosaic-address-restriction-transaction"><span class="std std-ref">mosaic address restriction transaction</span></a> is composed of:</p>
+<p>The mosaic creator can <strong>modify the permissions of an account</strong> by sending a mosaic restriction transaction targeting the account address. The <a class="reference internal" href="#mosaic-address-restriction-transaction"><span class="std std-ref">MosaicAddressRestrictionTransaction transaction</span></a> is composed of:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="33%" />
@@ -367,7 +365,7 @@
 </div>
 <p>ComfyClothingCompany creates the mosaic <code class="docutils literal"><span class="pre">comfyclothing.shares</span></code>.</p>
 <p>For regulatory reasons, the company wants only the participants that have passed the KYC process  to buy and transact the asset. So the company adds the restriction tier <code class="docutils literal"><span class="pre">{Can_Buy,</span> <span class="pre">EQ,</span> <span class="pre">1}</span></code> to the mosaic <code class="docutils literal"><span class="pre">comfyclothing.shares</span></code>.</p>
-<p>Alice is interested in investing in ComfyClothingCompany so she passes the KYC process. Once Alice has been verified, the company tags Alice’s account with the mosaic address restriction  <code class="docutils literal"><span class="pre">{comfyclothing.shares,</span> <span class="pre">Alice,</span> <span class="pre">Can_Buy,</span> <span class="pre">1}</span></code>.</p>
+<p>Alice is interested in investing in ComfyClothingCompany so she passes the KYC process. Once Alice has been verified, the company tags Alice’s account with the MosaicAddressRestrictionTransaction  <code class="docutils literal"><span class="pre">{comfyclothing.shares,</span> <span class="pre">Alice,</span> <span class="pre">Can_Buy,</span> <span class="pre">1}</span></code>.</p>
 <p>Alice can now buy <code class="docutils literal"><span class="pre">comfyclothing.shares</span></code> and start transacting it with other accounts. Bob, on the other hand, is not be able to buy or even receive the asset because he is not verified and tagged accordingly.</p>
 </div>
 <div class="section" id="delegating-the-kyc-process-to-a-specialized-company">
@@ -420,7 +418,7 @@
 <h2>Schemas<a class="headerlink" href="#schemas" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="mosaicglobalrestrictiontransaction">
 <span id="mosaic-global-restriction-transaction"></span><h3>MosaicGlobalRestrictionTransaction<a class="headerlink" href="#mosaicglobalrestrictiontransaction" title="Permalink to this headline">¶</a></h3>
-<p>Announce a mosaic global restriction transaction to set a restriction rule to a mosaic.</p>
+<p>Announce a MosaicGlobalRestrictionTransaction to set a restriction rule to a mosaic.</p>
 <p><strong>Version</strong>: 0x01</p>
 <p><strong>Entity type</strong>: 0x4151</p>
 <p><strong>Inlines</strong>:</p>
@@ -442,15 +440,15 @@
 <tbody valign="top">
 <tr class="row-even"><td>mosaicId</td>
 <td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L3">UnresolvedMosaicId</a></td>
-<td>Identifier of the affected mosaic. The mosaic creator must be the signer of this transaction.</td>
+<td>Identifier of the mosaic being restricted. The mosaic creator must be the signer of the transaction.</td>
 </tr>
 <tr class="row-odd"><td>referenceMosaicId</td>
 <td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L3">UnresolvedMosaicId</a></td>
-<td>Identifier of the reference mosaic. The mosaic global restriction for the mosaic id depend on global restrictions set on the reference mosaic.</td>
+<td>Identifier of the mosaic providing the restriction key. The mosaic global restriction for the mosaic id depend on global restrictions set on the reference mosaic.</td>
 </tr>
 <tr class="row-even"><td>restrictionKey</td>
 <td>uint64</td>
-<td>Restriction key.</td>
+<td>Restriction key relative to the reference mosaic identifier.</td>
 </tr>
 <tr class="row-odd"><td>previousRestrictionValue</td>
 <td>uint64</td>
@@ -473,7 +471,7 @@
 </div>
 <div class="section" id="mosaicaddressrestrictiontransaction">
 <span id="mosaic-address-restriction-transaction"></span><h3>MosaicAddressRestrictionTransaction<a class="headerlink" href="#mosaicaddressrestrictiontransaction" title="Permalink to this headline">¶</a></h3>
-<p>Announce a mosaic address restriction transaction to set a restriction rule to an address.</p>
+<p>Announce a MosaicAddressRestrictionTransaction transaction to set a restriction rule to an address.</p>
 <p><strong>Version</strong>: 0x01</p>
 <p><strong>Entity type</strong>: 0x4251</p>
 <p><strong>Inlines</strong>:</p>
@@ -495,7 +493,7 @@
 <tbody valign="top">
 <tr class="row-even"><td>mosaicId</td>
 <td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L3">UnresolvedMosaicId</a></td>
-<td>Identifier of the affected mosaic. The mosaic creator must be the signer of this transaction.</td>
+<td>identifier of the mosaic to which the restriction applies. The mosaic creator must be the signer of the transaction.</td>
 </tr>
 <tr class="row-odd"><td>restrictionKey</td>
 <td>uint64</td>
@@ -503,7 +501,7 @@
 </tr>
 <tr class="row-even"><td>targetAddress</td>
 <td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L7">UnresolvedAddress</a></td>
-<td>Affected Address.</td>
+<td>Address being restricted.</td>
 </tr>
 <tr class="row-odd"><td>previousRestrictionValue</td>
 <td>uint64</td>
@@ -644,7 +642,7 @@
                 <h4>Community</h4>
                 <ul>
                     <li>
-                        <a href="http://slack.nemtech.io/">
+                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLWZmZWRiMjViYTVhZjEzOTA0MzUyMTA1NTA5OWQ0MWUzNTA4NjM5OTJhOGViOTBhNjkxYWVhMWRiZDRkOTE0YmU">
                             <i class="fab fa-slack"></i> <span> Join #general discussion</span>
                         </a>
                     </li>

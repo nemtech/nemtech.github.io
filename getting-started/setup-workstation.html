@@ -176,7 +176,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -187,7 +186,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.4</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.19.1</a></small>
     </p>
 </div>
 
@@ -237,7 +236,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -275,10 +273,6 @@
 ./cmds/start-all -d
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Is catapult service bootstrap not working? Check <a href="https://github.com/tech-bureau/catapult-service-bootstrap#known-issues" target="_blank">these troubleshooting tips</a>.</p>
-</div>
 <ol class="arabic simple" start="2">
 <li>Check if you can get the first block information:</li>
 </ol>
@@ -288,10 +282,10 @@
 </div>
 <div class="section" id="getting-a-test-account">
 <span id="setup-getting-a-test-account"></span><h2>Getting a test account<a class="headerlink" href="#getting-a-test-account" title="Permalink to this headline">¶</a></h2>
-<p>An account is a key pair (private and public key) associated to a mutable state stored in the NEM blockchain. In other words, you have a deposit box on the blockchain, which only you can modify with your key pair. As the name suggests, the private key has to be kept secret at all times. Anyone with access to the private key, ultimately has control over the account.</p>
+<p>An account is a key pair (private and public key) associated to a mutable state stored in the NEM blockchain. In other words, you have a deposit box on the blockchain, which only you can modify with your key pair. As the name suggests, the <strong>private key</strong> has to be kept secret at all times. Anyone with access to the private key, ultimately has control over the account.</p>
 <p>The <strong>public key</strong> is cryptographically derived from the private key. It would take millions of years to do the reverse process and therefore, the public key is safe to be shared.</p>
-<p>Finally, the account address is generated with the public key, following the NEM blockchain protocol. Share this address instead of the public key, as it contains more information, such as a validity check or which network it uses (public, testnet or private).</p>
-<p><a class="reference internal" href="../cli.html"><span class="doc">NEM2-CLI</span></a> conveniently allows you to perform the most commonly used commands from your terminal i.e. using it to interact with the blockchain, setting up an account, sending funds, etc.</p>
+<p>Finally, the account <strong>address</strong> is generated with the public key, following the NEM blockchain protocol. Share this address instead of the public key, as it contains more information, such as a validity check or which network it uses (public, testnet or private).</p>
+<p>The <a class="reference internal" href="../cli.html"><span class="doc">NEM2-CLI</span></a> conveniently allows you to perform the most commonly used commands from your terminal i.e. using it to interact with the blockchain, setting up an account, sending funds, etc.</p>
 <ol class="arabic simple">
 <li>Install NEM2-CLI using <code class="docutils literal"><span class="pre">npm</span></code>.</li>
 </ol>
@@ -355,7 +349,7 @@ JavaScript</div>
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
-<li>nem2-sdk is built with TypeScript language. It is recommended to use <strong>TypeScript instead of JavaScript</strong> when building applications for NEM blockchain.</li>
+<li>We recommend to use <strong>TypeScript instead of JavaScript</strong> when building applications for NEM blockchain.</li>
 </ol>
 <p>Make sure you have at least version 2.5.X installed.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>sudo npm install --global typescript
@@ -471,7 +465,7 @@ typescript --version
                 <h4>Community</h4>
                 <ul>
                     <li>
-                        <a href="http://slack.nemtech.io/">
+                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLWZmZWRiMjViYTVhZjEzOTA0MzUyMTA1NTA5OWQ0MWUzNTA4NjM5OTJhOGViOTBhNjkxYWVhMWRiZDRkOTE0YmU">
                             <i class="fab fa-slack"></i> <span> Join #general discussion</span>
                         </a>
                     </li>

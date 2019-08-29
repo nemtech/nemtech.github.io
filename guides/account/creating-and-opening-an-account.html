@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Creating and opening an account &#8212; NEM Developer Center</title>
+    <title>Creating an account &#8212; NEM Developer Center</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
@@ -163,7 +163,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -174,7 +173,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.4</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.19.1</a></small>
     </p>
 </div>
 
@@ -219,7 +218,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -239,9 +237,9 @@
         
         <div class="col-md-7 content">
             
-  <div class="section" id="creating-and-opening-an-account">
-<h1>Creating and opening an account<a class="headerlink" href="#creating-and-opening-an-account" title="Permalink to this headline">¶</a></h1>
-<p>Create a new <a class="reference internal" href="../../concepts/account.html"><span class="doc">account</span></a> and open it.</p>
+  <div class="section" id="creating-an-account">
+<h1>Creating an account<a class="headerlink" href="#creating-an-account" title="Permalink to this headline">¶</a></h1>
+<p>Set up a new NEM account.</p>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -250,26 +248,28 @@
 </div>
 <div class="section" id="getting-into-some-code">
 <h2>Getting into some code<a class="headerlink" href="#getting-into-some-code" title="Permalink to this headline">¶</a></h2>
-<p>An account is a key pair (private and public key) associated with a mutable state stored in the NEM blockchain.</p>
+<div class="section" id="id1">
+<h3>Creating an account<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Run the following code snippet to create an account.</p>
 <div class="example-code container">
-<div class="literal-block-wrapper container" id="id1">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/CreatingAnAccount.ts">View Code</a></span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper container" id="id2">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/CreatingAnAccount.ts">View Code</a></span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">generateNewAccount</span><span class="p">(</span><span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Your new account address is:&#39;</span><span class="p">,</span> <span class="nx">account</span><span class="p">.</span><span class="nx">address</span><span class="p">.</span><span class="nx">pretty</span><span class="p">(),</span> <span class="s1">&#39;and its private key&#39;</span><span class="p">,</span> <span class="nx">account</span><span class="p">.</span><span class="nx">privateKey</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper container" id="id2">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/account/CreatingAnAccount.js">View Code</a></span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper container" id="id3">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/account/CreatingAnAccount.js">View Code</a></span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">generateNewAccount</span><span class="p">(</span><span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Your new account address is:&#39;</span><span class="p">,</span> <span class="nx">account</span><span class="p">.</span><span class="nx">address</span><span class="p">.</span><span class="nx">pretty</span><span class="p">(),</span> <span class="s1">&#39;and its private key&#39;</span><span class="p">,</span> <span class="nx">account</span><span class="p">.</span><span class="nx">privateKey</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper container" id="id3">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/bash/account/CreatingAnAccount.sh">View Code</a></span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper container" id="id4">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/bash/account/CreatingAnAccount.sh">View Code</a></span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account generate --network MIJIN_TEST
 </pre></div>
 </div>
@@ -277,10 +277,10 @@
 </div>
 <p>The <strong>private key</strong> uniquely identifies a NEM account and holds all of its power. It is a priority to make sure it is stored safely somewhere <strong>offline</strong> and not to share it with anyone.</p>
 <p>The <strong>public key</strong> is cryptographically derived from the private key and safe to be shared. In spite of that, it is preferable to share the <strong>address</strong>, which contains further information such as network and validity check.</p>
-<p>If you already have a private key, it is not necessary to generate a new account:</p>
+<p>If you already have a private key, you can use it to define a new <code class="docutils literal"><span class="pre">Account</span></code> object.</p>
 <div class="example-code container">
-<div class="literal-block-wrapper container" id="id4">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/OpeningAnAccount.ts">View Code</a></span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper container" id="id5">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/OpeningAnAccount.ts">View Code</a></span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
 
 <span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
@@ -289,8 +289,8 @@
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper container" id="id5">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/account/OpeningAnAccount.js">View Code</a></span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper container" id="id6">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/account/OpeningAnAccount.js">View Code</a></span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span><span class="p">;</span>
 
 <span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
@@ -300,12 +300,15 @@
 </div>
 </div>
 </div>
-<p><strong>Using a Wallet</strong></p>
-<p>If the programming language of the SDK you are using allows client-side development, you can create a  wallet.</p>
-<p>A wallet enables you to store your account to sign transactions, encrypting your private key with a password.</p>
+</div>
+<div class="section" id="creating-a-wallet">
+<h3>Creating a wallet<a class="headerlink" href="#creating-a-wallet" title="Permalink to this headline">¶</a></h3>
+<p>If the programming language of the SDK you are using allows <strong>client-side</strong> development, you will be able to create a wallet.
+A <strong>wallet</strong> enables you to store your account to sign transactions, <strong>encrypting your private key</strong> with a password.</p>
+<p>Run the following code snippet to create an account.</p>
 <div class="example-code container">
-<div class="literal-block-wrapper container" id="id6">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/CreatingAnAccountWallet.ts">View Code</a></span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper container" id="id7">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/CreatingAnAccountWallet.ts">View Code</a></span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">password</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Password</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">wallet</span> <span class="o">=</span> <span class="nx">SimpleWallet</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;wallet-name&#39;</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
@@ -316,8 +319,8 @@
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper container" id="id7">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/account/CreatingAnAccountWallet.js">View Code</a></span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper container" id="id8">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/account/CreatingAnAccountWallet.js">View Code</a></span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">password</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Password</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">wallet</span> <span class="o">=</span> <span class="nx">SimpleWallet</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;wallet-name&#39;</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
@@ -328,17 +331,17 @@
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper container" id="id8">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/bash/account/CreatingAnAccountWallet.sh">View Code</a></span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper container" id="id9">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/bash/account/CreatingAnAccountWallet.sh">View Code</a></span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account generate --network MIJIN_TEST --save --url http://localhost:3000 --profile <span class="nb">test</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Do you have a private key? You can create and open a wallet importing your private key.</p>
+<p>Do you have a private key? You can create and open a wallet importing a private key.</p>
 <div class="example-code container">
-<div class="literal-block-wrapper container" id="id9">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/OpeningAnAccountWallet.ts">View Code</a></span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper container" id="id10">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/OpeningAnAccountWallet.ts">View Code</a></span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">password</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Password</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
@@ -351,8 +354,8 @@
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper container" id="id10">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/account/OpeningAnAccountWallet.js">View Code</a></span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper container" id="id11">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/account/OpeningAnAccountWallet.js">View Code</a></span><a class="headerlink" href="#id11" title="Permalink to this code">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">password</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Password</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span><span class="p">;</span>
@@ -365,10 +368,11 @@
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper container" id="id11">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/bash/account/OpeningAnAccountWallet.sh">View Code</a></span><a class="headerlink" href="#id11" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper container" id="id12">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/bash/account/OpeningAnAccountWallet.sh">View Code</a></span><a class="headerlink" href="#id12" title="Permalink to this code">¶</a></div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli profile create --privatekey your_private_key --network MIJIN_TEST --url http://localhost:3000 --profile <span class="nb">test</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -398,9 +402,13 @@
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
-<li><a class="reference internal" href="#">Creating and opening an account</a><ul>
+<li><a class="reference internal" href="#">Creating an account</a><ul>
 <li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
-<li><a class="reference internal" href="#getting-into-some-code">Getting into some code</a></li>
+<li><a class="reference internal" href="#getting-into-some-code">Getting into some code</a><ul>
+<li><a class="reference internal" href="#id1">Creating an account</a></li>
+<li><a class="reference internal" href="#creating-a-wallet">Creating a wallet</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -457,7 +465,7 @@
                 <h4>Community</h4>
                 <ul>
                     <li>
-                        <a href="http://slack.nemtech.io/">
+                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLWZmZWRiMjViYTVhZjEzOTA0MzUyMTA1NTA5OWQ0MWUzNTA4NjM5OTJhOGViOTBhNjkxYWVhMWRiZDRkOTE0YmU">
                             <i class="fab fa-slack"></i> <span> Join #general discussion</span>
                         </a>
                     </li>

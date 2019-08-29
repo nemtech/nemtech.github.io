@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Signing announced aggregate bonded transactions automatically &#8212; NEM Developer Center</title>
+    <title>Cosigning aggregate bonded transactions automatically &#8212; NEM Developer Center</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
@@ -163,7 +163,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -174,7 +173,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.4</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.19.1</a></small>
     </p>
 </div>
 
@@ -219,7 +218,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -239,25 +237,25 @@
         
         <div class="col-md-7 content">
             
-  <div class="section" id="signing-announced-aggregate-bonded-transactions-automatically">
-<h1>Signing announced aggregate bonded transactions automatically<a class="headerlink" href="#signing-announced-aggregate-bonded-transactions-automatically" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="cosigning-aggregate-bonded-transactions-automatically">
+<h1>Cosigning aggregate bonded transactions automatically<a class="headerlink" href="#cosigning-aggregate-bonded-transactions-automatically" title="Permalink to this headline">¶</a></h1>
 <p>Sign automatically transactions pending to be cosigned.</p>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Finish <a class="reference internal" href="creating-an-escrow-with-aggregate-bonded-transaction.html"><span class="doc">creating an escrow with aggregate bonded transaction guide</span></a></li>
-<li>Have received some aggregate bonded transaction</li>
+<li>Finish <a class="reference internal" href="creating-an-escrow-contract-with-aggregate-bonded-transaction.html"><span class="doc">creating an escrow contract guide</span></a></li>
 <li>Have one <a class="reference internal" href="../../getting-started/setup-workstation.html#setup-getting-a-test-account"><span class="std std-ref">account with cat.currency</span></a></li>
 </ul>
 </div>
 <div class="section" id="getting-into-some-code">
 <h2>Getting into some code<a class="headerlink" href="#getting-into-some-code" title="Permalink to this headline">¶</a></h2>
+<p>This guide will show you how to <strong>create a bot to cosign transactions that require your account’s signature</strong> automatically.</p>
 <ol class="arabic simple">
-<li>Create a function to cosign any aggregate bonded transaction.</li>
+<li>Create a function to cosign any <strong>AggregateBondedTransaction</strong>.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id1">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SigningAnnouncedAggregateBondedTransactionsAutomatically.ts">View Code</a></span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/CosigningAggregateBondedTransactionsAutomatically.ts">View Code</a></span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">cosignAggregateBondedTransaction</span> <span class="o">=</span> <span class="p">(</span><span class="nx">transaction</span>: <span class="kt">AggregateTransaction</span><span class="p">,</span> <span class="nx">account</span>: <span class="kt">Account</span><span class="p">)</span><span class="o">:</span> <span class="nx">CosignatureSignedTransaction</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="kr">const</span> <span class="nx">cosignatureTransaction</span> <span class="o">=</span> <span class="nx">CosignatureTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">transaction</span><span class="p">);</span>
     <span class="k">return</span> <span class="nx">account</span><span class="p">.</span><span class="nx">signCosignatureTransaction</span><span class="p">(</span><span class="nx">cosignatureTransaction</span><span class="p">);</span>
@@ -266,7 +264,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper container" id="id2">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SigningAnnouncedAggregateBondedTransactionsAutomatically.js">View Code</a></span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/CosigningAggregateBondedTransactionsAutomatically.js">View Code</a></span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">cosignAggregateBondedTransaction</span> <span class="o">=</span> <span class="p">(</span><span class="nx">transaction</span><span class="p">,</span> <span class="nx">account</span><span class="p">)</span>  <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="kr">const</span> <span class="nx">cosignatureTransaction</span> <span class="o">=</span> <span class="nx">CosignatureTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">transaction</span><span class="p">);</span>
     <span class="k">return</span> <span class="nx">account</span><span class="p">.</span><span class="nx">signCosignatureTransaction</span><span class="p">(</span><span class="nx">cosignatureTransaction</span><span class="p">);</span>
@@ -276,7 +274,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li>Create a new listener to get notified every time a new aggregate bonded transaction requires the signature of your account.</li>
+<li>Create a new <strong>Listener</strong> to get notified every time a new <strong>AggregateBondedTransaction</strong> requires the signature of your account.</li>
 <li>Open the connection. You only need to open the connection once and then connect to all desired channels.</li>
 <li>Start listening for new transactions, subscribing to the <code class="docutils literal"><span class="pre">aggregateBondedAdded</span></code> channel using your account’s address.</li>
 </ol>
@@ -285,12 +283,12 @@
 <p class="last">To automatically sign aggregate bonded transactions that must be signed by multisig cosignatories, refer to the multisig address instead. See <a class="reference internal" href="../account/converting-an-account-to-multisig.html#guide-get-multisig-account-info"><span class="std std-ref">how to get multisig accounts where an account is cosignatory</span></a>.</p>
 </div>
 <ol class="arabic simple" start="5">
-<li>For each received transaction, check if you have not already signed it.  Cosign each pending aggregate bonded transaction using the previously created function.</li>
+<li>For each received transaction, check if you have not already signed it. Cosign each pending <strong>AggregateBondedTransaction</strong> using the previously created function.</li>
 <li>Announce <code class="docutils literal"><span class="pre">CosignatureSignedTransaction</span></code> to the network using the <code class="docutils literal"><span class="pre">TransactionHttp</span></code> repository.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id3">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SigningAnnouncedAggregateBondedTransactionsAutomatically.ts">View Code</a></span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/CosigningAggregateBondedTransactionsAutomatically.ts">View Code</a></span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
@@ -313,7 +311,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper container" id="id4">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/SigningAnnouncedAggregateBondedTransactionsAutomatically.js">View Code</a></span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/CosigningAggregateBondedTransactionsAutomatically.js">View Code</a></span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PRIVATE_KEY</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
 
@@ -339,17 +337,17 @@
 </div>
 <div class="section" id="what-s-next">
 <h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
-<p>Extend the previous function for signing transactions if they follow some constraints.</p>
+<p>Extend the previous function to cosign transactions if they follow some constraints. For example, adapt your bot to only cosign aggregate transactions matching the following conditions:</p>
 <ul class="simple">
-<li>Aggregate transactions with two inner transactions.</li>
-<li>Two inner transactions must be transfer transactions.</li>
-<li>The transaction sending funds must have yourself as the signer.</li>
-<li>The transaction sending funds should have only one mosaic, being this less than <code class="docutils literal"><span class="pre">100</span> <span class="pre">cat.currency</span></code>.</li>
+<li>The aggregate has <strong>two inner transactions</strong>.</li>
+<li>The inner transactions must be <strong>transfer transactions.</strong></li>
+<li>The transaction sending funds must have <strong>yourself as the signer</strong>.</li>
+<li>The transaction sending funds should have <strong>only one mosaic</strong>, being this <strong>less than 100 cat.currency</strong>.</li>
 </ul>
-<p>Try it yourself! Here you have a possible implementation:</p>
+<p>Here you have a possible implementation:</p>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id5">
-<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/SigningAnnouncedAggregateBondedTransactionsAutomaticallyWithConstraints.ts">View Code</a></span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/CosigningAggregateBondedTransactionsAutomaticallyWithConstraints.ts">View Code</a></span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
 <div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">validTransaction</span> <span class="o">=</span> <span class="p">(</span><span class="nx">transaction</span>: <span class="kt">Transaction</span><span class="p">,</span> <span class="nx">publicAccount</span>: <span class="kt">PublicAccount</span><span class="p">)</span><span class="o">:</span> <span class="kr">boolean</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">transaction</span> <span class="k">instanceof</span> <span class="nx">TransferTransaction</span> <span class="o">&amp;&amp;</span>
         <span class="nx">transaction</span><span class="p">.</span><span class="nx">signer</span><span class="o">!</span><span class="p">.</span><span class="nx">equals</span><span class="p">(</span><span class="nx">publicAccount</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
@@ -414,7 +412,7 @@
 <div class="col-md-2">
     <div class="bs-sidenav secondary" role="complementary">
         <ul>
-<li><a class="reference internal" href="#">Signing announced aggregate bonded transactions automatically</a><ul>
+<li><a class="reference internal" href="#">Cosigning aggregate bonded transactions automatically</a><ul>
 <li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
 <li><a class="reference internal" href="#getting-into-some-code">Getting into some code</a></li>
 <li><a class="reference internal" href="#what-s-next">What’s next?</a></li>
@@ -474,7 +472,7 @@
                 <h4>Community</h4>
                 <ul>
                     <li>
-                        <a href="http://slack.nemtech.io/">
+                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLWZmZWRiMjViYTVhZjEzOTA0MzUyMTA1NTA5OWQ0MWUzNTA4NjM5OTJhOGViOTBhNjkxYWVhMWRiZDRkOTE0YmU">
                             <i class="fab fa-slack"></i> <span> Join #general discussion</span>
                         </a>
                     </li>

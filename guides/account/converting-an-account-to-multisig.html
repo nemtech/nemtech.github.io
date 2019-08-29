@@ -163,7 +163,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -174,7 +173,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.4</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.19.1</a></small>
     </p>
 </div>
 
@@ -219,7 +218,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -241,7 +239,7 @@
             
   <div class="section" id="converting-an-account-to-multisig">
 <h1>Converting an account to multisig<a class="headerlink" href="#converting-an-account-to-multisig" title="Permalink to this headline">¶</a></h1>
-<p>Create a 1-of-2 <a class="reference internal" href="../../concepts/multisig-account.html"><span class="doc">multisig account</span></a>.</p>
+<p>Create a 1-of-2 multisig account.</p>
 <div class="section" id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
 <p>Alice and Bob have separate <a class="reference internal" href="../../concepts/account.html"><span class="doc">accounts</span></a>. They also want to have a shared account to buy groceries, so that if Bob is out shopping, he can buy groceries for both himself and Alice.</p>
@@ -300,7 +298,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li>Create a <a class="reference internal" href="../../concepts/multisig-account.html#modify-multisig-account-transaction"><span class="std std-ref">modify multisig account transaction</span></a>  to convert the shared account into a multisig account. As you want to create a 1-of-2 multisig account, set the minimum signatures required to <code class="docutils literal"><span class="pre">1</span></code>.</li>
+<li>Create a <a class="reference internal" href="../../concepts/multisig-account.html#multisig-account-modification-transaction"><span class="std std-ref">MultisigAccountModificationTransaction</span></a>  to convert the shared account into a multisig account. As you want to create a 1-of-2 multisig account, set the minimum signatures required to <code class="docutils literal"><span class="pre">1</span></code>.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id4">
@@ -343,7 +341,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="3">
-<li>Create an <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate bonded transaction</span></a>, wrapping the modify multisig account transaction. This is necessary since Alice and Bob must opt-in to become cosignatories of the new multisig account.</li>
+<li>Create an <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">AggregateBondedTransaction</span></a>, wrapping the <strong>MultisigAccountModificationTransaction</strong>. This action is necessary because Alice and Bob must opt-in to become cosignatories of the new multisig account.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id6">
@@ -366,7 +364,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="4">
-<li>Sign the aggregate transaction using the private key of the multisig account.</li>
+<li>Sign the <strong>AggregateTransaction</strong> using the private key of the multisig account.</li>
 </ol>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -391,7 +389,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="5">
-<li>Before sending an aggregate bonded transaction, the future multisig account needs to <a class="reference internal" href="../../concepts/aggregate-transaction.html#hash-lock-transaction"><span class="std std-ref">lock</span></a> at least <code class="docutils literal"><span class="pre">10</span></code> cat.currency. This transaction is required to prevent network spamming and ensure that the inner transactions are cosigned. After the hash lock transaction has been confirmed, announce the aggregate transaction.</li>
+<li>Before sending an <strong>AggregateBondedTransaction</strong>, the future multisig account needs to <strong>lock at least 10 cat.currency</strong>. This transaction is required to prevent spamming the network. After the <strong>HashLockTransaction</strong> has been confirmed, announce the AggregateTransaction signed in (4).</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id10">
@@ -456,13 +454,13 @@
 </div>
 </div>
 <ol class="arabic simple" start="6">
-<li><a class="reference internal" href="../transaction/signing-announced-aggregate-bonded-transactions.html"><span class="doc">Cosign the aggregate transaction</span></a> with Alice’s account.</li>
+<li><a class="reference internal" href="../transaction/signing-announced-aggregate-bonded-transactions.html"><span class="doc">Cosign the AggregateTransaction</span></a> with Alice’s account.</li>
 </ol>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli transaction cosign --hash A6A374E66B32A3D5133018EFA9CD6E3169C8EEA339F7CCBE29C47D07086E068C --profile alice
 </pre></div>
 </div>
 <ol class="arabic simple" start="7">
-<li><a class="reference internal" href="../transaction/signing-announced-aggregate-bonded-transactions.html"><span class="doc">Cosign the aggregate transaction</span></a> with Bob’s account.</li>
+<li><a class="reference internal" href="../transaction/signing-announced-aggregate-bonded-transactions.html"><span class="doc">Cosign the AggregateTransaction</span></a> with Bob’s account.</li>
 </ol>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli transaction cosign --hash A6A374E66B32A3D5133018EFA9CD6E3169C8EEA339F7CCBE29C47D07086E068C --profile bob
 </pre></div>
@@ -499,7 +497,7 @@
 </div>
 <div class="section" id="what-s-next">
 <h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
-<p>Modify the multisig account you just created, converting it into a 2-of-2 multisig following <a class="reference internal" href="modifying-a-multisig-account.html"><span class="doc">the next guide</span></a>.</p>
+<p>Modify the multisig account you just created, converting it into a <strong>2-of-2 multisig</strong> following <a class="reference internal" href="modifying-a-multisig-account.html"><span class="doc">the next guide</span></a>.</p>
 </div>
 </div>
 
@@ -587,7 +585,7 @@
                 <h4>Community</h4>
                 <ul>
                     <li>
-                        <a href="http://slack.nemtech.io/">
+                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLWZmZWRiMjViYTVhZjEzOTA0MzUyMTA1NTA5OWQ0MWUzNTA4NjM5OTJhOGViOTBhNjkxYWVhMWRiZDRkOTE0YmU">
                             <i class="fab fa-slack"></i> <span> Join #general discussion</span>
                         </a>
                     </li>

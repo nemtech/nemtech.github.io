@@ -34,7 +34,7 @@
     <link rel="shortcut icon" href="_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Prototyping Tool" href="prototyping-tool.html" />
+    <link rel="next" title="Extensions" href="extensions.html" />
     <link rel="prev" title="SDK" href="sdk.html" />
   
 <meta charset='utf-8'>
@@ -179,7 +179,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -190,7 +189,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.4</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.19.1</a></small>
     </p>
 </div>
 
@@ -249,7 +248,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -411,7 +409,7 @@ nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222AED49B0
 <div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account unconfirmedtransactions --publickey C811AC654B77522D5283640CDA7A222AED49B08FF74445F3CD1FD27CD4FB75E3
 </pre></div>
 </div>
-<p><strong>Get Aggregate bonded transactions</strong></p>
+<p><strong>Get aggregate bonded transactions</strong></p>
 <p>Gets an array of aggregate bonded transactions where the account is the sender or requires to cosign the transaction.</p>
 <p>Options</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-p, --publickey &lt;publickey&gt;             - Account public key
@@ -442,10 +440,10 @@ nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222AED49B0
 <div class="section" id="transaction">
 <h3>Transaction<a class="headerlink" href="#transaction" title="Permalink to this headline">¶</a></h3>
 <p>Transactions are signed with the profiles configured with <code class="docutils literal"><span class="pre">nem2-cli</span> <span class="pre">profile</span> <span class="pre">create</span></code>.</p>
-<p><strong>Cosign aggregate bonded transaction</strong></p>
-<p>Cosigns and announces an <a class="reference internal" href="concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate bonded transaction</span></a>.</p>
+<p><strong>Cosign AggregateBondedTransaction</strong></p>
+<p>Cosigns and announces an <a class="reference internal" href="concepts/aggregate-transaction.html#id1"><span class="std std-ref">AggregateBondedTransaction</span></a>.</p>
 <p>Options</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>-h, --hash &lt;hash&gt;       - Aggregate bonded transaction <span class="nb">hash</span> to be signed
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-h, --hash &lt;hash&gt;       - AggregateBondedTransaction <span class="nb">hash</span> to be signed
 </pre></div>
 </div>
 <p>Command</p>
@@ -462,8 +460,8 @@ nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222AED49B0
 <div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli transaction info --hash AF92D0A1DC40F786DF455A54F3754E6ACBCEC1B590646404B5ACC85403A92690
 </pre></div>
 </div>
-<p><strong>Send transfer transaction</strong></p>
-<p>Announces a <a class="reference internal" href="concepts/transfer-transaction.html#id1"><span class="std std-ref">transfer transaction</span></a> to an account exchanging value and/or data. For this transaction provide recipient, message and <a class="reference internal" href="concepts/mosaic.html"><span class="doc">mosaics</span></a>.</p>
+<p><strong>Send TransferTransaction</strong></p>
+<p>Announces a <a class="reference internal" href="concepts/transfer-transaction.html#id1"><span class="std std-ref">TransferTransaction</span></a> to an account exchanging value and/or data. For this transaction provide recipient, message and <a class="reference internal" href="concepts/mosaic.html"><span class="doc">mosaics</span></a>.</p>
 <p>You can send <code class="docutils literal"><span class="pre">multiple</span> <span class="pre">mosaics</span></code> splitting them with a comma, e.g: &#64;cat.currency::10000000,7cdf3b117a3c40cc::10. The <code class="docutils literal"><span class="pre">mosaic</span> <span class="pre">amount</span></code> after :: is in <code class="docutils literal"><span class="pre">absolute</span> <span class="pre">value</span></code> so 1 &#64;cat.currency is 1000000 (divisibility 6).</p>
 <p>Options</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>-r, --recipient &lt;recipient&gt; - Recipient
@@ -740,7 +738,7 @@ nem2-cli account transactions --publickey C811AC654B77522D5283640CDA7A222AED49B0
                 <h4>Community</h4>
                 <ul>
                     <li>
-                        <a href="http://slack.nemtech.io/">
+                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLWZmZWRiMjViYTVhZjEzOTA0MzUyMTA1NTA5OWQ0MWUzNTA4NjM5OTJhOGViOTBhNjkxYWVhMWRiZDRkOTE0YmU">
                             <i class="fab fa-slack"></i> <span> Join #general discussion</span>
                         </a>
                     </li>

@@ -163,7 +163,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -174,7 +173,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.4</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.19.1</a></small>
     </p>
 </div>
 
@@ -219,7 +218,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -241,13 +239,12 @@
             
   <div class="section" id="modifying-a-multisig-account">
 <h1>Modifying a multisig account<a class="headerlink" href="#modifying-a-multisig-account" title="Permalink to this headline">¶</a></h1>
-<p>Modify an existing <a class="reference internal" href="../../concepts/multisig-account.html"><span class="doc">multisig account</span></a>.</p>
+<p>Modify an existing multisig account.</p>
 <p>First, you are going to turn a 1-of-2 multisig account into a 2-of-2. Then, you will <strong>add a new cosignatory</strong>, becoming a 2-of-3. Finally, <strong>after removing a cosignatory</strong>, you will know how to perform all sort of modifications to multisig accounts.</p>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Finish <a class="reference internal" href="converting-an-account-to-multisig.html"><span class="doc">converting an account to multisig guide</span></a></li>
-<li>Have one multisignature account.</li>
 <li>Know how to <a class="reference internal" href="creating-and-opening-an-account.html"><span class="doc">create accounts</span></a></li>
 </ul>
 </div>
@@ -255,13 +252,13 @@
 <h2>Getting into some code<a class="headerlink" href="#getting-into-some-code" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="editing-minapproval">
 <span id="guide-modify-a-multisig-account-min-approval"></span><h3>Editing minApproval<a class="headerlink" href="#editing-minapproval" title="Permalink to this headline">¶</a></h3>
-<p>Alice and Bob are cosignatories of the 1-of-2 multisig account. This means that at least one of their account’s signatures is required to authorize multisig transactions. In other words, we can say that the <code class="docutils literal"><span class="pre">minApproval</span></code> parameter of the multisig is currently set to <code class="docutils literal"><span class="pre">1</span></code>.</p>
-<p>Multisig accounts are editable at the blockchain level. In this case, we want to make both cosignatories required, shifting to a 2-of-2 multisig instead. You can achieve this by increasing <code class="docutils literal"><span class="pre">minApproval</span></code> parameter in one unit.</p>
+<p>Alice and Bob are cosignatories of the 1-of-2 multisig account. This means that at least one of their account’s signatures is required to authorize multisig transactions. In other words, we can say that the <code class="docutils literal"><span class="pre">minApproval</span></code> parameter of the multisig is currently set to 1.</p>
+<p>Multisig accounts are editable at the blockchain level. In this case, we want to make both cosignatories required, shifting to a <strong>2-of-2 multisig</strong> instead. You can achieve this by increasing the <strong>minApproval parameter</strong> in one unit.</p>
 <div class="figure align-center" id="id1">
 <img alt="../../_images/multisig-2-of-2.png" src="../../_images/multisig-2-of-2.png" style="width: 300px;" />
 <p class="caption"><span class="caption-text">2-of-2 multisig account example</span></p>
 </div>
-<p>One of the accounts, for example Alice’s, will announce a <a class="reference internal" href="../../concepts/multisig-account.html#modify-multisig-account-transaction"><span class="std std-ref">modify multisig account transaction</span></a> to increase <code class="docutils literal"><span class="pre">minApprovalDelta</span></code>.</p>
+<p>One of the accounts, for example Alice’s, will announce a <a class="reference internal" href="../../concepts/multisig-account.html#multisig-account-modification-transaction"><span class="std std-ref">MultisigAccountModificationTransaction</span></a> to increase <code class="docutils literal"><span class="pre">minApprovalDelta</span></code>.</p>
 <ol class="arabic simple">
 <li>First, define Alice account as the cosignatory and the multisig account using its public key.</li>
 </ol>
@@ -292,7 +289,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li>Define a modify multisig account transaction to increase the <code class="docutils literal"><span class="pre">minAprovalDelta</span></code> in one unit.</li>
+<li>Define a <strong>MultisigAccountModificationTransaction</strong> to increase the <code class="docutils literal"><span class="pre">minAprovalDelta</span></code> in one unit.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id4">
@@ -319,9 +316,9 @@
 </div>
 </div>
 <ol class="arabic simple" start="3">
-<li>Wrap the modify multisig account transaction in an aggregate transaction, attaching the multisig public key as the signer.</li>
+<li>Wrap the <strong>MultisigAccountModificationTransaction</strong> in an <strong>AggregateTransaction</strong>, attaching the multisig public key as the signer.</li>
 </ol>
-<p>An aggregate transaction is <em>complete</em> if, before announcing it to the network, all required cosignatories have signed it. If valid, it will be included in a block.</p>
+<p>An AggregateTransaction is <em>complete</em> if, before announcing it to the network, all required cosignatories have signed it. If valid, it will be included in a block.</p>
 <p>As only one cosignature is required (1-of-2), Alice can sign the transaction and announce it to the network.</p>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id6">
@@ -359,7 +356,7 @@
 </div>
 </div>
 </div>
-<p>Once confirmed, the <code class="docutils literal"><span class="pre">minApproval</span></code> value of the multisig will be set to 2, having our 2-of-2 multisig.</p>
+<p>Once confirmed, the <code class="docutils literal"><span class="pre">minApproval</span></code> value of the multisig will be set to 2, having our <strong>2-of-2</strong> multisig.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">If you want to decrease the <code class="docutils literal"><span class="pre">minApproval</span></code> parameter, set <code class="docutils literal"><span class="pre">minApprovalDelta</span></code> with a negative value. In this case <code class="docutils literal"><span class="pre">-1</span></code>.</p>
@@ -367,13 +364,13 @@
 </div>
 <div class="section" id="adding-a-new-cosignatory">
 <span id="guide-modify-a-multisig-account-add-new-cosignatory"></span><h3>Adding a new cosignatory<a class="headerlink" href="#adding-a-new-cosignatory" title="Permalink to this headline">¶</a></h3>
-<p>Alice and Bob want to add Carol as a cosignatory of the multisig account to achieve 2-of-3 cosignatures required.</p>
+<p>Alice and Bob want to <strong>add Carol</strong> as a cosignatory of the multisig account to achieve <strong>2-of-3</strong> cosignatures required.</p>
 <div class="figure align-center" id="id8">
 <img alt="../../_images/multisig-2-of-31.png" src="../../_images/multisig-2-of-31.png" style="width: 350px;" />
 <p class="caption"><span class="caption-text">2-of-3 multisig account example</span></p>
 </div>
 <ol class="arabic simple">
-<li>Create a <a class="reference internal" href="../../concepts/multisig-account.html#modify-multisig-account-transaction"><span class="std std-ref">modify multisig account transaction</span></a> adding Carol as a cosignatory. The multisig account will become a 2-of-3, since you are not increasing the <code class="docutils literal"><span class="pre">minApprovalDelta</span></code>.</li>
+<li>Create a <a class="reference internal" href="../../concepts/multisig-account.html#multisig-account-modification-transaction"><span class="std std-ref">MultisigAccountModificationTransaction</span></a> adding Carol as a cosignatory. The multisig account will become a <strong>2-of-3</strong>, since you are not increasing the <code class="docutils literal"><span class="pre">minApprovalDelta</span></code>.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id9">
@@ -416,7 +413,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li>Create a modify multisig account transaction adding the previous modification.</li>
+<li>Create a <strong>MultisigAccountModificationTransaction</strong> adding the previous modification.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id11">
@@ -443,7 +440,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="3">
-<li>Wrap the modify multisig account transaction in an <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">aggregate bonded transaction</span></a> and sign it.</li>
+<li>Wrap the <strong>MultisigAccountModificationTransaction</strong> in an <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">AggregateBondedTransaction</span></a> and sign it.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id13">
@@ -474,7 +471,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="4">
-<li>Before sending an aggregate bonded transaction, Alice needs to <a class="reference internal" href="../../concepts/aggregate-transaction.html#hash-lock-transaction"><span class="std std-ref">lock</span></a> at least <code class="docutils literal"><span class="pre">10</span></code> cat.currency. This transaction is required to prevent network spamming and ensure that transactions are cosigned. After the hash lock transaction has been confirmed, announce the aggregate transaction.</li>
+<li>Before sending an <strong>AggregateBondedTransaction</strong>, Alice needs to <strong>lock at least 10 cat.currency</strong>. This transaction is required to prevent spamming the network. After the HashLockTransaction has been confirmed, announce the AggregateTransaction.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id15">
@@ -539,13 +536,13 @@
 </div>
 </div>
 <ol class="arabic simple" start="5">
-<li><a class="reference internal" href="../transaction/signing-announced-aggregate-bonded-transactions.html"><span class="doc">Cosign the aggregate transaction</span></a> hash with Carols’s account. She has to opt-in to become a multisig cosignatory.</li>
+<li><a class="reference internal" href="../transaction/signing-announced-aggregate-bonded-transactions.html"><span class="doc">Cosign the AggregateTransaction</span></a> hash with Carols’s account. She has to opt-in to become a multisig cosignatory.</li>
 </ol>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli transaction cosign --hash A6A374E66B32A3D5133018EFA9CD6E3169C8EEA339F7CCBE29C47D07086E068C --profile carol
 </pre></div>
 </div>
 <ol class="arabic simple" start="6">
-<li><a class="reference internal" href="../transaction/signing-announced-aggregate-bonded-transactions.html"><span class="doc">Cosign the aggregate transaction</span></a> with Bob’s account. The amount of cat.currency locked becomes available again on Alice’s account and Carol is added to the multisig.</li>
+<li><a class="reference internal" href="../transaction/signing-announced-aggregate-bonded-transactions.html"><span class="doc">Cosign the AggregateTransaction</span></a> with Bob’s account. The amount of cat.currency locked becomes available again on Alice’s account and Carol is added to the multisig.</li>
 </ol>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli transaction cosign --hash A6A374E66B32A3D5133018EFA9CD6E3169C8EEA339F7CCBE29C47D07086E068C --profile bob
 </pre></div>
@@ -553,12 +550,9 @@
 </div>
 <div class="section" id="removing-a-cosignatory">
 <span id="guide-modify-a-multisig-account-removing-a-cosignatory"></span><h3>Removing a cosignatory<a class="headerlink" href="#removing-a-cosignatory" title="Permalink to this headline">¶</a></h3>
-<p>Once you have finished this guide, delete a cosignatory from the multisig. Multisig accounts can be converted again into regular accounts by removing all cosignatories. Make sure you own the multisig private key!</p>
-<p>The following code shows how to remove a cosignatory of a 2-of-3 multisig account with <code class="docutils literal"><span class="pre">minRemoval</span></code> set to <code class="docutils literal"><span class="pre">1</span></code>. The multisig modification transaction is wrapped in an aggregate complete, as only one account is required to delete others from the multisig.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The <code class="docutils literal"><span class="pre">minRemoval</span></code> parameter indicates the number of required signatures to delete an account from the multisig. You can increase or decrease it the same way you <a class="reference internal" href="#guide-modify-a-multisig-account-min-approval"><span class="std std-ref">modify minApproval parameter</span></a>.</p>
-</div>
+<p>Once you have added Carol, let’s <strong>delete a cosignatory</strong> from the multisig.</p>
+<p>The following code shows how to <strong>remove a cosignatory</strong> from the 2-of-3 multisig account with <code class="docutils literal"><span class="pre">minRemoval</span></code> set to 1.</p>
+<p>The <strong>minRemoval parameter</strong> indicates the number of required signatures to delete an account from the multisig. You can increase or decrease it the same way you <a class="reference internal" href="#guide-modify-a-multisig-account-min-approval"><span class="std std-ref">modify minApproval parameter</span></a>.</p>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id17">
 <div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/account/ModifyingAMultisigAccountRemoveCosignatory.ts">View Code</a></span><a class="headerlink" href="#id17" title="Permalink to this code">¶</a></div>
@@ -635,6 +629,7 @@
 </div>
 </div>
 </div>
+<p>The multisig modification transaction is wrapped in an <strong>AggregateCompleteTransaction</strong>, as only one account is required to delete others from the multisig.</p>
 </div>
 </div>
 <div class="section" id="whats-next">
@@ -731,7 +726,7 @@
                 <h4>Community</h4>
                 <ul>
                     <li>
-                        <a href="http://slack.nemtech.io/">
+                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLWZmZWRiMjViYTVhZjEzOTA0MzUyMTA1NTA5OWQ0MWUzNTA4NjM5OTJhOGViOTBhNjkxYWVhMWRiZDRkOTE0YmU">
                             <i class="fab fa-slack"></i> <span> Join #general discussion</span>
                         </a>
                     </li>

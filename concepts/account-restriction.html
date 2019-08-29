@@ -162,7 +162,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#accountoperationrestrictionmodification">AccountOperationRestrictionModification</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#accountrestrictionmodification">AccountRestrictionModification</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#accountrestrictiontype">AccountRestrictionType</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#accountrestrictionmodificationtype">AccountRestrictionModificationType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#accountrestrictionmodificationaction">AccountRestrictionModificationAction</a></li>
 </ul>
 </li>
 </ul>
@@ -188,7 +188,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -199,7 +198,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.4</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.19.1</a></small>
     </p>
 </div>
 
@@ -241,7 +240,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#accountoperationrestrictionmodification">AccountOperationRestrictionModification</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#accountrestrictionmodification">AccountRestrictionModification</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#accountrestrictiontype">AccountRestrictionType</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#accountrestrictionmodificationtype">AccountRestrictionModificationType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#accountrestrictionmodificationaction">AccountRestrictionModificationAction</a></li>
 </ul>
 </li>
 </ul>
@@ -267,7 +266,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -290,7 +288,7 @@
   <div class="section" id="account-restriction">
 <h1>Account Restriction<a class="headerlink" href="#account-restriction" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference internal" href="account.html"><span class="doc">Accounts</span></a> may configure a set of smart rules to block announcing or receiving transactions given a series of restrictions.</p>
-<p>The account owners - plural in case of multisig accounts - can edit the account restrictions at a later time announcing the specific <a class="reference internal" href="#account-address-restriction-transaction"><span class="std std-ref">account restriction transaction</span></a>.</p>
+<p>The account owners - plural in case of multisig accounts - can edit the account restrictions at a later time announcing the specific <a class="reference internal" href="#account-address-restriction-transaction"><span class="std std-ref">AccountRestrictionTransaction</span></a>.</p>
 <table border="1" class="docutils" id="id1">
 <caption><span class="caption-text">Restriction types</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -580,9 +578,9 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>modificationType</td>
-<td><a class="reference internal" href="#account-restriction-modification-type"><span class="std std-ref">AccountRestrictionModificationType</span></a></td>
-<td>Type of the account restriction modification.</td>
+<tr class="row-even"><td>modificationAction</td>
+<td><a class="reference internal" href="#account-restriction-modification-action"><span class="std std-ref">AccountRestrictionModificationAction</span></a></td>
+<td>Modification action.</td>
 </tr>
 </tbody>
 </table>
@@ -631,8 +629,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="accountrestrictionmodificationtype">
-<span id="account-restriction-modification-type"></span><h3>AccountRestrictionModificationType<a class="headerlink" href="#accountrestrictionmodificationtype" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="accountrestrictionmodificationaction">
+<span id="account-restriction-modification-action"></span><h3>AccountRestrictionModificationAction<a class="headerlink" href="#accountrestrictionmodificationaction" title="Permalink to this headline">¶</a></h3>
 <p>Enumeration: uint8</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -646,10 +644,10 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>0x00</td>
-<td>Add account restriction value.</td>
+<td>Remove account restriction value.</td>
 </tr>
 <tr class="row-odd"><td>0x01</td>
-<td>Remove account restriction value.</td>
+<td>Add account restriction value.</td>
 </tr>
 </tbody>
 </table>
@@ -693,7 +691,7 @@
 <li><a class="reference internal" href="#accountoperationrestrictionmodification">AccountOperationRestrictionModification</a></li>
 <li><a class="reference internal" href="#accountrestrictionmodification">AccountRestrictionModification</a></li>
 <li><a class="reference internal" href="#accountrestrictiontype">AccountRestrictionType</a></li>
-<li><a class="reference internal" href="#accountrestrictionmodificationtype">AccountRestrictionModificationType</a></li>
+<li><a class="reference internal" href="#accountrestrictionmodificationaction">AccountRestrictionModificationAction</a></li>
 </ul>
 </li>
 </ul>
@@ -752,7 +750,7 @@
                 <h4>Community</h4>
                 <ul>
                     <li>
-                        <a href="http://slack.nemtech.io/">
+                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLWZmZWRiMjViYTVhZjEzOTA0MzUyMTA1NTA5OWQ0MWUzNTA4NjM5OTJhOGViOTBhNjkxYWVhMWRiZDRkOTE0YmU">
                             <i class="fab fa-slack"></i> <span> Join #general discussion</span>
                         </a>
                     </li>

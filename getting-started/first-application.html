@@ -144,7 +144,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#sending-the-ticket">Sending the ticket</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#what-s-next">What’s next?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#did-you-solve-the-use-case">Did you solve the use case?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="training.html">Self-paced training</a></li>
@@ -180,7 +180,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -191,7 +190,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.4</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.19.1</a></small>
     </p>
 </div>
 
@@ -215,7 +214,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#sending-the-ticket">Sending the ticket</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#what-s-next">What’s next?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#did-you-solve-the-use-case">Did you solve the use case?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="training.html">Self-paced training</a></li>
@@ -251,7 +250,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -286,7 +284,7 @@
 </div>
 <p>The ticket vendor wants to set up a system to:</p>
 <ol class="loweralpha simple">
-<li>Identify each ticket buyer.</li>
+<li>Identify each ticket customer.</li>
 <li>Avoid ticket reselling.</li>
 <li>Avoid non-authentic tickets and duplicate ones.</li>
 </ol>
@@ -310,12 +308,12 @@
 <p>First, identify the actors involved in the problem we want to solve:</p>
 <ul class="simple">
 <li>The ticket vendor.</li>
-<li>The ticket buyer.</li>
+<li>The customer.</li>
 </ul>
-<p>We have decided to represent the ticket vendor and buyer as separate <a class="reference internal" href="../concepts/account.html"><span class="doc">accounts</span></a>. Each account is unique and identified by an address. An account has access to a deposit box in the blockchain, which can be modified with an appropriate private key.</p>
-<p>Have you loaded an account with test <code class="docutils literal"><span class="pre">cat.currency</span></code>? If it is not the case, go back to <a class="reference internal" href="setup-workstation.html"><span class="doc">getting started section</span></a>. The account you have created represents the ticket vendor.</p>
+<p>We have decided to represent the ticket vendor and customer as separate <a class="reference internal" href="../concepts/account.html"><span class="doc">accounts</span></a>. Each account is unique and identified by an address. An account has access to a deposit box in the blockchain, which can be modified with an appropriate private key.</p>
+<p>The account you have loaded in NEM2-CLI represents the <strong>ticket vendor</strong>.</p>
 <ol class="arabic simple">
-<li>After running the following command, you should see on your screen a line similar to:</li>
+<li>Have you loaded an account with test <code class="docutils literal"><span class="pre">cat.currency</span></code>? After running the following command, you should see on your screen a line similar to:</li>
 </ol>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account info
 
@@ -330,17 +328,17 @@ Mosaics
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
-<li>This account owns <code class="docutils literal"><span class="pre">1,000,000</span> <span class="pre">cat.currency</span></code>. If your row after mosaics is empty, follow <a class="reference internal" href="setup-workstation.html"><span class="doc">the previous guide instructions</span></a>.</li>
-<li>Create a second account to identify the ticket buyer.</li>
+<li>This account owns <code class="docutils literal"><span class="pre">1,000,000</span> <span class="pre">cat.currency</span></code>. If your row after mosaics is empty, follow <a class="reference internal" href="setup-workstation.html"><span class="doc">the previous guide instructions</span></a> to get test currency.</li>
+<li>Create a second account to identify the <strong>customer</strong>.</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account generate --network MIJIN_TEST --save --url http://localhost:3000 --profile buyer
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account generate --network MIJIN_TEST --save --url http://localhost:3000 --profile customer
 </pre></div>
 </div>
 </div>
 <div class="section" id="monitoring-the-blockchain">
 <h3>Monitoring the blockchain<a class="headerlink" href="#monitoring-the-blockchain" title="Permalink to this headline">¶</a></h3>
 <p>Accounts change the blockchain state through transactions. Once an account announces a transaction, if properly formed, the server will return an OK response.</p>
-<p>Receiving an OK response does not mean the transaction is valid, which means it is still not included in a block. A good practice is to monitor transactions before being announced.</p>
+<p>Receiving an OK response does not mean the transaction is valid, which means it is still not included in a block. A good practice is to <strong>monitor transactions</strong> before being announced.</p>
 <p>Open three new terminals:</p>
 <ol class="arabic simple">
 <li>The first terminal <a class="reference internal" href="../guides/transaction/monitoring-a-transaction-status.html"><span class="doc">monitors announced transactions</span></a> validation errors.</li>
@@ -363,9 +361,9 @@ Mosaics
 </div>
 <div class="section" id="creating-the-ticket">
 <h3>Creating the ticket<a class="headerlink" href="#creating-the-ticket" title="Permalink to this headline">¶</a></h3>
-<p>We are representing the ticket as a NEM mosaic. <a class="reference internal" href="../concepts/mosaic.html"><span class="doc">Mosaics</span></a> can be used to represent any asset in the blockchain, such as objects, tickets, coupons, stock share representation, and even your cryptocurrency. They have configurable properties, which are defined at the moment of their creation. For example, we opt to set <strong>transferable property to false</strong>. This means that the ticket buyer can only send back the ticket to the creator of the mosaic, avoiding the ticket reselling.</p>
+<p>We are representing the ticket as a NEM <a class="reference internal" href="../concepts/mosaic.html"><span class="doc">mosaic</span></a>. <strong>Mosaics</strong> can be used to represent any asset in the blockchain, such as objects, tickets, coupons, stock share representation, and even your cryptocurrency. They have configurable properties, which are defined at the moment of their creation. For example, we opt to set <strong>transferable property to false</strong>. This means that the customer can only send back the ticket to the creator of the mosaic, avoiding the ticket reselling.</p>
 <ol class="arabic simple">
-<li>Create a  mosaic named <code class="docutils literal"><span class="pre">ticket</span></code>:</li>
+<li>Create a mosaic named <code class="docutils literal"><span class="pre">ticket</span></code>:</li>
 </ol>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli transaction mosaic --amount <span class="m">1000000</span> --supplymutable --divisibility <span class="m">0</span> --duration 1000
 </pre></div>
@@ -414,9 +412,9 @@ Mosaics
 </div>
 <div class="section" id="sending-the-ticket">
 <h3>Sending the ticket<a class="headerlink" href="#sending-the-ticket" title="Permalink to this headline">¶</a></h3>
-<p>Send one <code class="docutils literal"><span class="pre">company.ticket</span></code> to the ticket vendor account announcing a <a class="reference internal" href="../concepts/transfer-transaction.html#id1"><span class="std std-ref">transfer transaction</span></a>, one of the most commonly used actions in NEM.</p>
+<p>Send one <code class="docutils literal"><span class="pre">company.ticket</span></code> to the ticket vendor account announcing a <a class="reference internal" href="../concepts/transfer-transaction.html#id1"><span class="std std-ref">TransferTransaction</span></a>, one of the most commonly used actions in NEM.</p>
 <ol class="arabic simple">
-<li>Prepare the transfer transaction. The following attributes form a transfer transaction:</li>
+<li>Prepare the <strong>TransferTransaction</strong>. The following attributes form a TransferTransaction:</li>
 </ol>
 <table border="1" class="docutils">
 <colgroup>
@@ -544,19 +542,20 @@ Mosaics
 </div>
 </div>
 <ol class="arabic simple" start="4">
-<li>When the transaction is confirmed, check that the ticket buyer has received the ticket.</li>
+<li>When the transaction is confirmed, check if the customer has received the ticket.</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account info --profile buyer
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nem2-cli account info --profile customer
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="what-s-next">
-<h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
-<p>Did you solve the use case?</p>
-<p>✅ Identify each ticket buyer: Creating NEM accounts for each buyer.</p>
-<p>✅ Avoid ticket reselling: Creating a non-transferable mosaic.</p>
-<p>✅ Avoid non-authentic tickets and duplicate ones: Creating a unique mosaic.</p>
+<div class="section" id="did-you-solve-the-use-case">
+<h2>Did you solve the use case?<a class="headerlink" href="#did-you-solve-the-use-case" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>✅ Identify each ticket customer: Creating NEM accounts for each customer.</li>
+<li>✅ Avoid ticket reselling: Creating a non-transferable mosaic.</li>
+<li>✅ Avoid non-authentic tickets and duplicate ones: Creating a unique mosaic.</li>
+</ul>
 <p>Continue learning about more <a class="reference internal" href="../concepts/account.html"><span class="doc">NEM built-in features</span></a>.</p>
 </div>
 </div>
@@ -591,7 +590,7 @@ Mosaics
 <li><a class="reference internal" href="#sending-the-ticket">Sending the ticket</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#what-s-next">What’s next?</a></li>
+<li><a class="reference internal" href="#did-you-solve-the-use-case">Did you solve the use case?</a></li>
 </ul>
 </li>
 </ul>
@@ -648,7 +647,7 @@ Mosaics
                 <h4>Community</h4>
                 <ul>
                     <li>
-                        <a href="http://slack.nemtech.io/">
+                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLWZmZWRiMjViYTVhZjEzOTA0MzUyMTA1NTA5OWQ0MWUzNTA4NjM5OTJhOGViOTBhNjkxYWVhMWRiZDRkOTE0YmU">
                             <i class="fab fa-slack"></i> <span> Join #general discussion</span>
                         </a>
                     </li>

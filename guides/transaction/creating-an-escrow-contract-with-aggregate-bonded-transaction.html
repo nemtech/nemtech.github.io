@@ -1,0 +1,650 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Creating an escrow contract &#8212; NEM Developer Center</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     'Master',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../../_static/examplecode.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon-32x32.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<script type="text/javascript">
+    var _paq = window._paq || [];
+    _paq.push(['disableCookies']);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="https://nemtech.matomo.cloud/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src='//cdn.matomo.cloud/nemtech.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../../guides/atom.xml" title="Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div id="navbar"
+     class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header col-md-3 col-sm-5">
+            <a class="navbar-brand" href="../../index.html">
+                
+                <span><img src="../../_static/logo-nem.svg" alt="NEM logo"></span>
+                
+                developer center
+            </a>
+        </div>
+        <div class="navbar-nav col-md-6 col-sm-7 hidden-xs">
+            <div class="search-box">
+    <input id="search" class="form-control" placeholder="Search for features, guides, or code examples"/>
+    <i class="fas fa-search"></i>
+</div>
+        </div>
+        <div class="navbar-right col-md-3">
+            <ul>
+                <ul class="list-inline">
+    
+    <li id="edit-github" class="hidden-xs hidden-sm">
+        <a href="https://github.com/nemtech/nem2-docs/edit/master/source/guides\transaction\creating-an-escrow-contract-with-aggregate-bonded-transaction.rst"
+           rel="nofollow"> <i class="fab fa-github"></i> Edit</a>
+    </li>
+    
+    <li id="language" class="hidden-xs hidden-sm">
+        <i class="fas fa-language"></i>
+        <select>
+            <option id="english" value="en">English</option>
+            <option id="japanese" value="ja">日本語</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">Translate</option>
+        </select>
+    </li>
+</ul>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div
+         class="container"
+        >
+
+    <div class="row">
+
+        
+
+        
+
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
+    <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/what-is-nem.html">What is NEM?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/setup-workstation.html">Setting up your workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/first-application.html">Writing your first application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/training.html">Self-paced training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration/migrating-from-nis1-to-catapult.html">Migrating from NIS1 to Catapult</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">Mosaic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/metadata.html">Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">Transfer Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account-restriction.html">Account Restriction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic-restriction.html">Mosaic Restriction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">Multisig Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/cryptography.html">Cryptography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/block.html">Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/transaction.html">Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/consensus-algorithm.html">Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/harvesting.html">Harvesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/inflation.html">Inflation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/receipt.html">Receipt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/node.html">Node</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server.html">Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/contributing.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/contributors.html">Contributors</a></li>
+</ul>
+
+    <p class="version">
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.19.1</a></small>
+    </p>
+</div>
+
+<div class="sidebar-xs visible-xs visible-sm">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigation <b class="caret"></b></a>
+        <ul class="dropdown-menu globaltoc"><p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/what-is-nem.html">What is NEM?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/setup-workstation.html">Setting up your workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/first-application.html">Writing your first application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/training.html">Self-paced training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration/migrating-from-nis1-to-catapult.html">Migrating from NIS1 to Catapult</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account.html">Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic.html">Mosaic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/metadata.html">Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/transfer-transaction.html">Transfer Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/aggregate-transaction.html">Aggregate Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/account-restriction.html">Account Restriction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/mosaic-restriction.html">Mosaic Restriction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/multisig-account.html">Multisig Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/cross-chain-swaps.html">Cross-Chain Swaps</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/cryptography.html">Cryptography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/block.html">Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/transaction.html">Transaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/consensus-algorithm.html">Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/harvesting.html">Harvesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/inflation.html">Inflation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/receipt.html">Receipt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/node.html">Node</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server.html">Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/contributing.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/contributors.html">Contributors</a></li>
+</ul>
+</ul>
+    </li>
+</div>
+        
+    </div>
+</div>
+
+
+        
+        <div class="col-md-7 content">
+            
+  <div class="section" id="creating-an-escrow-contract">
+<h1>Creating an escrow contract<a class="headerlink" href="#creating-an-escrow-contract" title="Permalink to this headline">¶</a></h1>
+<p>Learn about aggregate bonded transactions creating an escrow contract.</p>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>An <strong>escrow</strong> is a <em>contractual arrangement</em> in which a <em>third party receives and disburses money</em>
+or documents for the <em>primary transacting parties</em>. This disbursement is dependent on the
+<em>conditions agreed by the transacting parties</em>, or an <em>account established by a broker for holding funds</em>
+on behalf of the broker’s principal or some other person until the consummation or termination of a transaction. See the full description at <a href="https://en.wikipedia.org/wiki/Escrow" target="_blank">Wikipedia</a>.</div></blockquote>
+<p>For this example, imagine that the two parties agree on a virtual service, implying that the escrow can be executed immediately:</p>
+<ol class="arabic simple">
+<li>The buyer and seller agree on terms.</li>
+<li>The buyer submits payment to escrow.</li>
+<li>The seller delivers goods or service to the buyer.</li>
+<li>The buyer approves goods or service.</li>
+<li>The escrow releases payment to the seller.</li>
+</ol>
+<div class="section" id="how-to-create-an-escrow-contract-with-nem">
+<h3>How to create an escrow contract with NEM<a class="headerlink" href="#how-to-create-an-escrow-contract-with-nem" title="Permalink to this headline">¶</a></h3>
+<p>Normalizing the previous description into NEM related concepts:</p>
+<ul class="simple">
+<li><strong>contractual arrangement</strong>: A new type of transaction called <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">AggregateTransaction</span></a>.</li>
+<li><strong>third party receives and disburses money</strong>: There is no third party, we are going to use blockchain technology.</li>
+<li><strong>primary transacting parties</strong>: NEM accounts will represent the participants.</li>
+<li><strong>conditions agreed to by the transacting parties</strong>: When every participant signs the AggregateTransaction.</li>
+<li><strong>account established by a broker for holding funds</strong>: There will not be an intermediate account, the exchange will happen atomically using an AggregateTransaction.</li>
+<li><strong>until the consummation or termination of a transaction</strong>: The transaction gets included in a block or expires.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Know how to <a class="reference internal" href="../account/creating-and-opening-an-account.html"><span class="doc">create accounts</span></a></li>
+<li>Finish <a class="reference internal" href="../mosaic/creating-a-mosaic.html"><span class="doc">creating a mosaic guide</span></a></li>
+<li>Finish <a class="reference internal" href="sending-multiple-transactions-together-with-aggregate-complete-transaction.html"><span class="doc">sending multiple transactions together guide</span></a></li>
+</ul>
+</div>
+<div class="section" id="getting-into-some-code">
+<h2>Getting into some code<a class="headerlink" href="#getting-into-some-code" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center" id="id1">
+<img alt="../../_images/aggregate-escrow-11.png" src="../../_images/aggregate-escrow-11.png" style="width: 450px;" />
+<p class="caption"><span class="caption-text">Multi-Asset Escrowed Transactions</span></p>
+</div>
+<div class="section" id="setting-up-the-required-accounts-and-mosaics">
+<h3>Setting up the required accounts and mosaics<a class="headerlink" href="#setting-up-the-required-accounts-and-mosaics" title="Permalink to this headline">¶</a></h3>
+<p>Alice and a ticket distributor want to swap the following mosaics.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Owner</th>
+<th class="head">Amount</th>
+<th class="head">MosaicId</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Alice</td>
+<td>100</td>
+<td>cat.currency</td>
+<td>Native currency mosaic</td>
+</tr>
+<tr class="row-odd"><td>Ticket distributor</td>
+<td>1</td>
+<td>7cdf3b117a3c40cc</td>
+<td>Represents a museum ticket.</td>
+</tr>
+</tbody>
+</table>
+<p>Before continuing, <a class="reference internal" href="../../getting-started/setup-workstation.html#setup-getting-a-test-account"><span class="std std-ref">create the two accounts</span></a> loaded with cat.currency. You should also <a class="reference internal" href="../mosaic/creating-a-mosaic.html"><span class="doc">create a mosaic</span></a> with the ticket distributor account. This new mosaic will represent the ticket.</p>
+</div>
+<div class="section" id="creating-the-escrow-contract">
+<h3>Creating the escrow contract<a class="headerlink" href="#creating-the-escrow-contract" title="Permalink to this headline">¶</a></h3>
+<p>Alice will send a transaction to the ticket distributor exchanging <code class="docutils literal"><span class="pre">100</span> <span class="pre">cat.currency</span></code> for <code class="docutils literal"><span class="pre">1</span> <span class="pre">7cdf3b117a3c40cc</span></code> (museum ticket).</p>
+<ol class="arabic simple">
+<li>Define two transfer transactions:</li>
+</ol>
+<ol class="upperalpha simple">
+<li>From Alice to the ticket distributor sending <code class="docutils literal"><span class="pre">100</span> <span class="pre">cat.currency</span></code>.</li>
+<li>From the ticket distributor to Alice sending <code class="docutils literal"><span class="pre">1</span> <span class="pre">7cdf3b117a3c40cc</span></code> (museum ticket).</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The museum ticket does not have the id 7cdf3b117a3c40cc in your network. Replace the mosaic identifier for the one you have created in the previous step.</p>
+</div>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id2">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/CreatingAnEscrowContractWithAggregateBondedTransaction.ts">View Code</a></span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">nodeUrl</span> <span class="o">=</span> <span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Listener</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">alicePrivateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">ALICE_PRIVATE_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">aliceAccount</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">alicePrivateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">ticketDistributorPublicKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">TICKET_DISTRIBUTOR_PUBLIC_KEY</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">ticketDistributorPublicAccount</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">ticketDistributorPublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">aliceToTicketDistributorTx</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="nx">ticketDistributorPublicAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">,</span>
+    <span class="p">[</span><span class="nx">NetworkCurrencyMosaic</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">100</span><span class="p">)],</span>
+    <span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;send 100 cat.currency to distributor&#39;</span><span class="p">),</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">ticketDistributorToAliceTx</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">,</span>
+    <span class="p">[</span><span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span><span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;7cdf3b117a3c40cc&#39;</span><span class="p">),</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">1</span><span class="p">))],</span>
+    <span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;send 1 museum ticket to alice&#39;</span><span class="p">),</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id3">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/CreatingAnEscrowContractWithAggregateBondedTransaction.js">View Code</a></span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">nodeUrl</span> <span class="o">=</span> <span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionHttp</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Listener</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">alicePrivateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">ALICE_PRIVATE_KEY</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">aliceAccount</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">alicePrivateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">ticketDistributorPublicKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">TICKET_DISTRIBUTOR_PUBLIC_KEY</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">ticketDistributorPublicAccount</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">ticketDistributorPublicKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">aliceToTicketDistributorTx</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="nx">ticketDistributorPublicAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">,</span>
+    <span class="p">[</span><span class="nx">NetworkCurrencyMosaic</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">100</span><span class="p">)],</span>
+    <span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;send 100 cat.currency to distributor&#39;</span><span class="p">),</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">ticketDistributorToAliceTx</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">,</span>
+    <span class="p">[</span><span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span><span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;7cdf3b117a3c40cc&#39;</span><span class="p">),</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">1</span><span class="p">))],</span>
+    <span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;send 1 museum ticket to alice&#39;</span><span class="p">),</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li>Wrap the defined transactions in an <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">AggregateTransaction</span></a> and sign it. An AggregateTransaction is <em>complete</em> if before announcing it to the network, all required cosigners have signed it. If valid, it will be included in a block. In case that signatures are required from other participants and the transaction is announced to the network, it is considered <em>bonded</em>.</li>
+</ol>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id4">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/CreatingAnEscrowContractWithAggregateBondedTransaction.ts">View Code</a></span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createBonded</span><span class="p">(</span><span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="p">[</span><span class="nx">aliceToTicketDistributorTx</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">),</span>
+        <span class="nx">ticketDistributorToAliceTx</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">ticketDistributorPublicAccount</span><span class="p">)],</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">networkGenerationHash</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NETWORK_GENERATION_HASH</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">,</span> <span class="nx">networkGenerationHash</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Aggregate Transaction Hash: &quot;</span> <span class="o">+</span> <span class="nx">signedTransaction</span><span class="p">.</span><span class="nx">hash</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id5">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/CreatingAnEscrowContractWithAggregateBondedTransaction.js">View Code</a></span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createBonded</span><span class="p">(</span><span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="p">[</span><span class="nx">aliceToTicketDistributorTx</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">),</span>
+        <span class="nx">ticketDistributorToAliceTx</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">ticketDistributorPublicAccount</span><span class="p">)],</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">networkGenerationHash</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NETWORK_GENERATION_HASH</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">,</span> <span class="nx">networkGenerationHash</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Aggregate Transaction Hash: &quot;</span> <span class="o">+</span> <span class="nx">signedTransaction</span><span class="p">.</span><span class="nx">hash</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li>When an <strong>AggregateTransaction is bonded</strong>, Alice will need to <strong>lock 10 cat.currency</strong> to prevent spamming the network. Once the ticket distributor signs the AggregateTransaction, the amount of locked cat.currency becomes available again on Alice’s account, and the exchange will get through.</li>
+</ol>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id6">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/transaction/CreatingAnEscrowContractWithAggregateBondedTransaction.ts">View Code</a></span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">hashLockTransaction</span> <span class="o">=</span> <span class="nx">HashLockTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="nx">NetworkCurrencyMosaic</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+    <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">480</span><span class="p">),</span>
+    <span class="nx">signedTransaction</span><span class="p">,</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">hashLockTransactionSigned</span> <span class="o">=</span> <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">hashLockTransaction</span><span class="p">,</span> <span class="nx">networkGenerationHash</span><span class="p">);</span>
+
+<span class="nx">listener</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+    <span class="nx">transactionHttp</span>
+        <span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">hashLockTransactionSigned</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+
+    <span class="nx">listener</span>
+        <span class="p">.</span><span class="nx">confirmed</span><span class="p">(</span><span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
+            <span class="nx">filter</span><span class="p">((</span><span class="nx">transaction</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span> <span class="o">!==</span> <span class="kc">undefined</span>
+                <span class="o">&amp;&amp;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span><span class="p">.</span><span class="nx">hash</span> <span class="o">===</span> <span class="nx">hashLockTransactionSigned</span><span class="p">.</span><span class="nx">hash</span><span class="p">),</span>
+            <span class="nx">mergeMap</span><span class="p">(</span><span class="nx">ignored</span> <span class="o">=&gt;</span> <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBonded</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">))</span>
+        <span class="p">)</span>
+        <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">announcedAggregateBonded</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">announcedAggregateBonded</span><span class="p">),</span>
+            <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id7">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/javascript/transaction/CreatingAnEscrowContractWithAggregateBondedTransaction.js">View Code</a></span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">hashLockTransaction</span> <span class="o">=</span> <span class="nx">HashLockTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="nx">NetworkCurrencyMosaic</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+    <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mi">480</span><span class="p">),</span>
+    <span class="nx">signedTransaction</span><span class="p">,</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">hashLockTransactionSigned</span> <span class="o">=</span> <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">hashLockTransaction</span><span class="p">,</span> <span class="nx">networkGenerationHash</span><span class="p">);</span>
+
+<span class="nx">listener</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+    <span class="nx">transactionHttp</span>
+        <span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">hashLockTransactionSigned</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+
+    <span class="nx">listener</span>
+        <span class="p">.</span><span class="nx">confirmed</span><span class="p">(</span><span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
+            <span class="nx">filter</span><span class="p">((</span><span class="nx">transaction</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span> <span class="o">!==</span> <span class="kc">undefined</span>
+                <span class="o">&amp;&amp;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span><span class="p">.</span><span class="nx">hash</span> <span class="o">===</span> <span class="nx">hashLockTransactionSigned</span><span class="p">.</span><span class="nx">hash</span><span class="p">),</span>
+            <span class="nx">mergeMap</span><span class="p">(</span><span class="nx">ignored</span> <span class="o">=&gt;</span> <span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announceAggregateBonded</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">))</span>
+        <span class="p">)</span>
+        <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">announcedAggregateBonded</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">announcedAggregateBonded</span><span class="p">),</span>
+            <span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The distributor has not signed the AggregateBondedTransaction yet, so the exchange has not been completed.</p>
+<ol class="arabic simple" start="4">
+<li>Copy the <strong>AggregateTransaction hash</strong> from (2), and check how to <a class="reference internal" href="signing-announced-aggregate-bonded-transactions.html"><span class="doc">cosign the AggregateTransaction</span></a> following the next guide.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="is-it-possible-without-aggregate-transactions">
+<h2>Is it possible without aggregate transactions?<a class="headerlink" href="#is-it-possible-without-aggregate-transactions" title="Permalink to this headline">¶</a></h2>
+<p><strong>It is not secure</strong>, since:</p>
+<ul class="simple">
+<li>Alice could decide not to pay the distributor after receiving the ticket.</li>
+<li>The distributor could choose not to send the ticket after receiving the payment.</li>
+</ul>
+<p>Using the AggregateTransaction feature we ensure that multiple transactions are executed at the same time when all the participants agree.</p>
+</div>
+<div class="section" id="what-s-next">
+<h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
+<p>Try to swap mosaics adding a third participant.</p>
+<div class="figure align-center" id="id8">
+<img alt="../../_images/aggregate-escrow-2.png" src="../../_images/aggregate-escrow-2.png" style="width: 400px;" />
+<p class="caption"><span class="caption-text">Multi-Asset Escrowed Transactions</span></p>
+</div>
+</div>
+</div>
+
+  <div class="section">
+  
+    
+
+
+
+
+  
+  
+  </div>
+
+            
+            <p class="feedback top-gap">
+                <b>Did you find what you were looking for?</b>
+                <a href="https://github.com/nemtech/nem2-docs/issues/new/choose" target="_blank">Give us your feedback.</a>
+            </p>
+            
+        </div>
+         
+
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+        <ul>
+<li><a class="reference internal" href="#">Creating an escrow contract</a><ul>
+<li><a class="reference internal" href="#background">Background</a><ul>
+<li><a class="reference internal" href="#how-to-create-an-escrow-contract-with-nem">How to create an escrow contract with NEM</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#getting-into-some-code">Getting into some code</a><ul>
+<li><a class="reference internal" href="#setting-up-the-required-accounts-and-mosaics">Setting up the required accounts and mosaics</a></li>
+<li><a class="reference internal" href="#creating-the-escrow-contract">Creating the escrow contract</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#is-it-possible-without-aggregate-transactions">Is it possible without aggregate transactions?</a></li>
+<li><a class="reference internal" href="#what-s-next">What’s next?</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+
+ 
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-4">
+                <h4>Learn</h4>
+                <ul>
+                    <li>
+                        <a href="../../getting-started/what-is-nem.html">Getting Started</a>
+                    </li>
+                    <li>
+                        <a href="../../concepts/account.html">Built-in Features</a>
+                    </li>
+                    <li>
+                        <a href="../../concepts/cryptography.html">Protocol</a>
+                    </li>
+                    <li>
+                        <a href="../category.html">Guides</a>
+                    </li>
+                    <li>
+                        <a href="../../api.html">References</a>
+                    </li>
+                    <li>
+                        <a href="../../contribute/contributing.html">Contribute</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-sm-4">
+                <h4>References</h4>
+                <ul>
+                    <li><a href="../../api.html">REST API</a></li>
+                    <li><a href="../../server.html">Server</a></li>
+                    <li><a href="../../sdk.html">SDKs</a></li>
+                    <li><a href="../../cli.html">Client</a></li>
+                    <li><a href="../../extensions.html">Extensions</a></li>
+                </ul>
+            </div>
+
+
+            <div class="col-sm-4">
+                <h4>Community</h4>
+                <ul>
+                    <li>
+                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLWZmZWRiMjViYTVhZjEzOTA0MzUyMTA1NTA5OWQ0MWUzNTA4NjM5OTJhOGViOTBhNjkxYWVhMWRiZDRkOTE0YmU">
+                            <i class="fab fa-slack"></i> <span> Join #general discussion</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stackoverflow.com/tags/nem/">
+                            <i class="fab fa-stack-overflow"></i>
+                            <span> Ask development questions</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/NEMofficial">
+                            <i class="fab fa-twitter"></i>
+                            <span> Follow the updates</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/nemtech">
+                            <i class="fab fa-github"></i>
+                            <span> Explore our Github</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <p class="text-center top-gap">
+            
+            
+            &copy; Copyright 2018-2019, NEM.
+            
+            
+            
+        </p>
+    </div>
+</footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '#search',
+        debug: false
+    });
+</script>
+
+  </body>
+</html>

@@ -147,11 +147,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#schemas">Schemas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#mosaicdefinitiontransaction">MosaicDefinitionTransaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mosaicsupplychangetransaction">MosaicSupplyChangeTransaction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mosaicproperty">MosaicProperty</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id1">Mosaic</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#unresolvedmosaic">UnresolvedMosaic</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mosaicflags">MosaicFlags</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mosaicsupplychangedirection">MosaicSupplyChangeDirection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mosaicsupplychangeaction">MosaicSupplyChangeAction</a></li>
 </ul>
 </li>
 </ul>
@@ -182,7 +181,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -193,7 +191,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.4</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.19.1</a></small>
     </p>
 </div>
 
@@ -220,11 +218,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#schemas">Schemas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#mosaicdefinitiontransaction">MosaicDefinitionTransaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mosaicsupplychangetransaction">MosaicSupplyChangeTransaction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mosaicproperty">MosaicProperty</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id1">Mosaic</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#unresolvedmosaic">UnresolvedMosaic</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mosaicflags">MosaicFlags</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mosaicsupplychangedirection">MosaicSupplyChangeDirection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mosaicsupplychangeaction">MosaicSupplyChangeAction</a></li>
 </ul>
 </li>
 </ul>
@@ -255,7 +252,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -278,7 +274,7 @@
   <div class="section" id="mosaic">
 <h1>Mosaic<a class="headerlink" href="#mosaic" title="Permalink to this headline">¶</a></h1>
 <p>Mosaics are part of what makes the Smart Asset System unique and flexible. They are <strong>fixed assets</strong> on the NEM blockchain that can represent a set of multiple identical things that do not change.</p>
-<p>A mosaic could be a token, but it could also be a collection of more specialized assets such as reward points, shares of stock, signatures, status flags, votes or even other currencies.</p>
+<p>A mosaic could be a <strong>token</strong>, but it could also be a collection of more specialized assets such as reward points, shares of stock, signatures, status flags, votes or even other currencies.</p>
 <div class="section" id="properties">
 <h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
 <p>Each mosaic has a unique identifier and a set of configurable properties. During the <a class="reference internal" href="../guides/mosaic/creating-a-mosaic.html"><span class="doc">mosaic creation</span></a>, you can define:</p>
@@ -325,8 +321,8 @@
 <hr class="docutils" />
 <div class="section" id="absolute-and-relative-amounts">
 <h2>Absolute and relative amounts<a class="headerlink" href="#absolute-and-relative-amounts" title="Permalink to this headline">¶</a></h2>
-<p>NEM works with absolute amounts, removing the comma when the mosaic can be divisible. To get an absolute amount, multiply the amount of assets you want to create or send by 10<sup>divisibility</sup>.</p>
-<p>For example, if the mosaic has divisibility 2, to create or send 10 units (relative) you should define 1000 (absolute) instead.</p>
+<p>NEM works with <strong>absolute amounts</strong>, removing the comma when the mosaic can be divisible. To get an absolute amount, multiply the amount of assets you want to create or send by 10<sup>divisibility</sup>.</p>
+<p>For example, if the mosaic has <strong>divisibility</strong> 2, to create or send 10 units (relative) you should define 1000 (absolute) instead.</p>
 </div>
 <div class="section" id="cost">
 <h2>Cost<a class="headerlink" href="#cost" title="Permalink to this headline">¶</a></h2>
@@ -375,16 +371,16 @@
 <h2>Guides<a class="headerlink" href="#guides" title="Permalink to this headline">¶</a></h2>
 <ul class="postlist-style-circle postlist">
 <li><p class="first"><a class="reference internal" href="../guides/mosaic/creating-a-mosaic.html">Creating a mosaic</a></p>
-<p>Follow this guide to create a <a class="reference internal" href="#"><span class="doc">mosaic</span></a>.</p>
+<p>Tokenize an asset using mosaics.</p>
 </li>
 <li><p class="first"><a class="reference internal" href="../guides/mosaic/modifying-mosaic-supply.html">Modifying mosaic supply</a></p>
 <p>Alter the supply of a mosaic following this guide.</p>
 </li>
 <li><p class="first"><a class="reference internal" href="../guides/namespace/link-a-namespace-to-a-mosaic.html">Linking a namespace to a mosaic</a></p>
-<p>Link a <a class="reference internal" href="namespace.html"><span class="doc">namespace</span></a> to a <a class="reference internal" href="#"><span class="doc">mosaic</span></a>.</p>
+<p>Link a namespace to a mosaic.</p>
 </li>
 <li><p class="first"><a class="reference internal" href="../guides/mosaic/getting-mosaic-information.html">Getting the mosaic information</a></p>
-<p>Get the ownership, divisibility, duration, and flags for a given <a class="reference internal" href="#"><span class="doc">mosaic</span></a> identifier.</p>
+<p>Get the ownership, divisibility, duration, and flags for a given mosaic identifier.</p>
 </li>
 <li><p class="first"><a class="reference internal" href="../guides/blockchain/getting-the-mosaic-identifier-behind-a-namespace-with-receipts.html">Getting the asset identifier behind a namespace with receipts</a></p>
 <p>Get the resolution for a given alias and transaction using receipts.</p>
@@ -399,7 +395,7 @@
 </div>
 <div class="section" id="mosaicdefinitiontransaction">
 <span id="mosaic-definition-transaction"></span><h3>MosaicDefinitionTransaction<a class="headerlink" href="#mosaicdefinitiontransaction" title="Permalink to this headline">¶</a></h3>
-<p>Announce a mosaic definition transaction to create a new mosaic.</p>
+<p>Announce a MosaicDefinitionTransaction to create a new mosaic.</p>
 <p><strong>Version</strong>: 0x01</p>
 <p><strong>Entity type</strong>: 0x414D</p>
 <p><strong>Inlines</strong>:</p>
@@ -419,29 +415,25 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>mosaicNonce</td>
+<tr class="row-even"><td>nonce</td>
 <td>uint32</td>
 <td>Random nonce used to generate the mosaic id.</td>
 </tr>
-<tr class="row-odd"><td>mosaicId</td>
+<tr class="row-odd"><td>id</td>
 <td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L4">MosaicId</a></td>
-<td>Identifier of the mosaic.</td>
+<td>Mosaic identifier.</td>
 </tr>
-<tr class="row-even"><td>propertiesCount</td>
-<td>uint8</td>
-<td>Number of elements in optional properties</td>
-</tr>
-<tr class="row-odd"><td>flags</td>
+<tr class="row-even"><td>flags</td>
 <td><a class="reference internal" href="#mosaic-flags"><span class="std std-ref">MosaicFlag</span></a></td>
 <td>Mosaic flags.</td>
 </tr>
-<tr class="row-even"><td>divisibility</td>
+<tr class="row-odd"><td>divisibility</td>
 <td>uint8</td>
 <td>Mosaic divisibility. Maximum divisibility is <code class="docutils literal"><span class="pre">6</span></code>.</td>
 </tr>
-<tr class="row-odd"><td>properties</td>
-<td>array(<a class="reference internal" href="#mosaic-property"><span class="std std-ref">MosaicProperty</span></a>, propertiesCount)</td>
-<td>Optional mosaic properties.</td>
+<tr class="row-even"><td>duration</td>
+<td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L2">BlockDuration</a></td>
+<td>Mosaic divisibility. Maximum divisibility is <code class="docutils literal"><span class="pre">6</span></code>.</td>
 </tr>
 </tbody>
 </table>
@@ -470,41 +462,15 @@
 <tbody valign="top">
 <tr class="row-even"><td>mosaicId</td>
 <td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L3">UnresolvedMosaicId</a></td>
-<td>Identifier of the affected mosaic.</td>
+<td>Affected mosaic identifier.</td>
 </tr>
 <tr class="row-odd"><td>direction</td>
-<td><a class="reference internal" href="#mosaic-supply-change-direction"><span class="std std-ref">MosaicSupplyChangeDirection</span></a></td>
+<td><a class="reference internal" href="#mosaic-supply-change-action"><span class="std std-ref">MosaicSupplyChangeAction</span></a></td>
 <td>Supply change direction.</td>
 </tr>
 <tr class="row-even"><td>delta</td>
 <td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L1">Amount</a></td>
 <td>Amount of supply to increase or decrease.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="mosaicproperty">
-<span id="mosaic-property"></span><h3>MosaicProperty<a class="headerlink" href="#mosaicproperty" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="docutils">
-<colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Property</th>
-<th class="head">Type</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>id</td>
-<td>uint8</td>
-<td>Mosaic property identifier. (0x02) stands for duration.</td>
-</tr>
-<tr class="row-odd"><td>value</td>
-<td>uint64</td>
-<td>The mosaic property value.</td>
 </tr>
 </tbody>
 </table>
@@ -530,7 +496,7 @@
 </tr>
 <tr class="row-odd"><td>amount</td>
 <td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L1">Amount</a></td>
-<td>Amount of the mosaic.</td>
+<td>Mosaic amount.</td>
 </tr>
 </tbody>
 </table>
@@ -552,11 +518,11 @@
 <tbody valign="top">
 <tr class="row-even"><td>mosaicId</td>
 <td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L3">UnresolvedMosaicId</a></td>
-<td>Mosaic identifier.</td>
+<td>Mosaic identifier. If the most significant bit of byte 0 is set, a namespaceId (alias) is used instead of the real  mosaic identifier.</td>
 </tr>
 <tr class="row-odd"><td>amount</td>
 <td><a class="reference external" href="https://github.com/nemtech/catbuffer/tree/master/schemas/types.cats#L1">Amount</a></td>
-<td>Amount of the mosaic.</td>
+<td>Mosaic amount.</td>
 </tr>
 </tbody>
 </table>
@@ -590,8 +556,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="mosaicsupplychangedirection">
-<span id="mosaic-supply-change-direction"></span><h3>MosaicSupplyChangeDirection<a class="headerlink" href="#mosaicsupplychangedirection" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="mosaicsupplychangeaction">
+<span id="mosaic-supply-change-action"></span><h3>MosaicSupplyChangeAction<a class="headerlink" href="#mosaicsupplychangeaction" title="Permalink to this headline">¶</a></h3>
 <p>Enumeration: uint8</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -604,10 +570,10 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>0</td>
+<tr class="row-even"><td>0x00</td>
 <td>Decrease.</td>
 </tr>
-<tr class="row-odd"><td>1</td>
+<tr class="row-odd"><td>0x01</td>
 <td>Increase.</td>
 </tr>
 </tbody>
@@ -642,11 +608,10 @@
 <li><a class="reference internal" href="#schemas">Schemas</a><ul>
 <li><a class="reference internal" href="#mosaicdefinitiontransaction">MosaicDefinitionTransaction</a></li>
 <li><a class="reference internal" href="#mosaicsupplychangetransaction">MosaicSupplyChangeTransaction</a></li>
-<li><a class="reference internal" href="#mosaicproperty">MosaicProperty</a></li>
 <li><a class="reference internal" href="#id1">Mosaic</a></li>
 <li><a class="reference internal" href="#unresolvedmosaic">UnresolvedMosaic</a></li>
 <li><a class="reference internal" href="#mosaicflags">MosaicFlags</a></li>
-<li><a class="reference internal" href="#mosaicsupplychangedirection">MosaicSupplyChangeDirection</a></li>
+<li><a class="reference internal" href="#mosaicsupplychangeaction">MosaicSupplyChangeAction</a></li>
 </ul>
 </li>
 </ul>
@@ -705,7 +670,7 @@
                 <h4>Community</h4>
                 <ul>
                     <li>
-                        <a href="http://slack.nemtech.io/">
+                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLWZmZWRiMjViYTVhZjEzOTA0MzUyMTA1NTA5OWQ0MWUzNTA4NjM5OTJhOGViOTBhNjkxYWVhMWRiZDRkOTE0YmU">
                             <i class="fab fa-slack"></i> <span> Join #general discussion</span>
                         </a>
                     </li>

@@ -163,7 +163,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -174,7 +173,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.4</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.19.1</a></small>
     </p>
 </div>
 
@@ -219,7 +218,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -245,7 +243,7 @@
 <div class="section" id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
 <p>Imagine you are a company using the public chain to certify the quality of your products.</p>
-<p>When the quality verification process concludes, an operator sends a <a class="reference internal" href="../../concepts/mosaic.html"><span class="doc">quality seal</span></a> to the product account, which the customers can review by scanning a QR code. For the convenience of the customers, you only want to show relevant transactions and prevent spam from cluttering the product account.</p>
+<p>When the quality verification process concludes, an operator sends a <a class="reference internal" href="../../concepts/mosaic.html"><span class="doc">quality seal</span></a> to the product account, which the customers can review by scanning a QR code. For the convenience of the customers, you only want to <strong>show relevant transactions</strong> and prevent spam from cluttering the product account.</p>
 <p>The final customers can review the product mosaics scanning a QR code. For that reason, the company only wants to show related transactions, avoiding that others spam their products with non-related information.</p>
 <div class="figure align-center" id="id1">
 <img alt="../../_images/account-restrictions-spam1.png" src="../../_images/account-restrictions-spam1.png" style="width: 450px;" />
@@ -256,7 +254,7 @@
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Finish <a class="reference internal" href="../transaction/sending-a-transfer-transaction.html"><span class="doc">sending a transfer transaction guide</span></a></li>
+<li>Finish <a class="reference internal" href="../transaction/sending-a-transfer-transaction.html"><span class="doc">sending mosaics and messages between two accounts guide</span></a></li>
 <li>Finish <a class="reference internal" href="../mosaic/creating-a-mosaic.html"><span class="doc">creating a mosaic guide</span></a></li>
 </ul>
 </div>
@@ -304,7 +302,7 @@ Private Key:    654..321
 <p>By default, when there is no restriction set, all the accounts in the network can announce transactions to the stated account.</p>
 <p>Returning to our previous example, let us imagine that you want to configure the product account to only accept receiving transactions  that come from the company’s account. You might take the following steps to do so:</p>
 <ol class="arabic simple">
-<li>Define the account restriction modification. Add to the company’s address <code class="docutils literal"><span class="pre">SBI774-YMFDZI-FPEPC5-4EKRC2-5DKDZJ-H2QVRW-4HBP</span></code> to the allowed list.</li>
+<li>Define the <strong>AccountRestrictionModification</strong>. Add to the company’s address <code class="docutils literal"><span class="pre">SBI774-YMFDZI-FPEPC5-4EKRC2-5DKDZJ-H2QVRW-4HBP</span></code> to the allowed list.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id2">
@@ -316,7 +314,7 @@ Private Key:    654..321
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li>Create an <code class="docutils literal"><span class="pre">AccountRestrictionTransaction</span></code>, with restrictionType “AllowAddress”.  Add to the array the modification created in the previous step.</li>
+<li>Create an <strong>AccountRestrictionTransaction</strong>, with restrictionType <code class="docutils literal"><span class="pre">AllowAddress</span></code>.  Add to the array the modification created in the previous step.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id3">
@@ -350,7 +348,7 @@ Private Key:    654..321
 </div>
 </div>
 </div>
-<p>Now, if you send a <a class="reference internal" href="../transaction/sending-a-transfer-transaction.html"><span class="doc">transfer transaction</span></a> from another account, you will get an error as only <code class="docutils literal"><span class="pre">SBI774-YMFDZI-FPEPC5-4EKRC2-5DKDZJ-H2QVRW-4HBP</span></code> is allowed to send the transactions to the product.</p>
+<p>Now, if you send a <a class="reference internal" href="../transaction/sending-a-transfer-transaction.html"><span class="doc">TransferTransaction</span></a> from another account, you will get an error as only <code class="docutils literal"><span class="pre">SBI774-YMFDZI-FPEPC5-4EKRC2-5DKDZJ-H2QVRW-4HBP</span></code> is allowed to send the transactions to the product.</p>
 <p>On the other hand, if you send a transaction from your company account, you will receive a confirmation message as you would normally.</p>
 </div>
 <div class="section" id="blocking-transactions-by-mosaic-id">
@@ -364,7 +362,7 @@ Private Key:    654..321
 <p>In this case, it might be useful if the product could only receive seals and not company shares.</p>
 <p>Thus, you could narrow the type of transactions that the product can receive from the company’s account through the use of negation. Instead of specifically allowing the seals, the product can be set up to block receiving transactions that contain <code class="docutils literal"><span class="pre">company.share</span></code>. This is how it can be done:</p>
 <ol class="arabic simple">
-<li>Define the account restriction modification. Add the mosaic id you want to block to the blocked list.</li>
+<li>Define the <strong>AccountRestrictionModification</strong>. Add the mosaic id you want to block to the blocked list.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id5">
@@ -376,7 +374,7 @@ Private Key:    654..321
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li>Create an <code class="docutils literal"><span class="pre">AccountRestrictionTransaction</span></code>, with restrictionType <code class="docutils literal"><span class="pre">BlockMosaic</span></code>.  Add to the array the modification created in the previous step.</li>
+<li>Create an <strong>AccountRestrictionTransaction</strong>, with restrictionType <code class="docutils literal"><span class="pre">BlockMosaic</span></code>.  Add to the array the modification created in the previous step.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id6">
@@ -416,7 +414,7 @@ Private Key:    654..321
 <h3>Removing a restriction<a class="headerlink" href="#removing-a-restriction" title="Permalink to this headline">¶</a></h3>
 <p>After the company sells the product to the final client, they want to remove the condition that only allowed the company’s account to send transactions to the product. The account restrictions can be removed as easily as they were set up:</p>
 <ol class="arabic simple">
-<li>Define the account restriction modification. Remove from the allowed list the company’s address.</li>
+<li>Define the <strong>AccountRestrictionModification</strong>. Remove from the allowed list the company’s address.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id8">
@@ -428,7 +426,7 @@ Private Key:    654..321
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li>Create an <code class="docutils literal"><span class="pre">AccountRestrictionTransaction</span></code>, setting the type <code class="docutils literal"><span class="pre">AllowAddress</span></code>. Add as well the modification created.</li>
+<li>Create an <strong>AccountRestrictionTransaction</strong>, setting the type <code class="docutils literal"><span class="pre">AllowAddress</span></code>. Add as well the modification created.</li>
 </ol>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id9">
@@ -555,7 +553,7 @@ Private Key:    654..321
                 <h4>Community</h4>
                 <ul>
                     <li>
-                        <a href="http://slack.nemtech.io/">
+                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLWZmZWRiMjViYTVhZjEzOTA0MzUyMTA1NTA5OWQ0MWUzNTA4NjM5OTJhOGViOTBhNjkxYWVhMWRiZDRkOTE0YmU">
                             <i class="fab fa-slack"></i> <span> Join #general discussion</span>
                         </a>
                     </li>

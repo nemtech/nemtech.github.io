@@ -163,7 +163,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -174,7 +173,7 @@
 </ul>
 
     <p class="version">
-        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.18.4</a></small>
+        <small><b>Version:</b> <a href="https://github.com/nemtech/nem2-docs/releases">0.19.1</a></small>
     </p>
 </div>
 
@@ -219,7 +218,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../server.html">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sdk.html">SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../prototyping-tool.html">Prototyping Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contribute</span></p>
@@ -241,12 +239,12 @@
             
   <div class="section" id="creating-a-subnamespace">
 <h1>Creating a subnamespace<a class="headerlink" href="#creating-a-subnamespace" title="Permalink to this headline">¶</a></h1>
-<p>Create a <a class="reference internal" href="../../concepts/namespace.html"><span class="doc">subnamespace</span></a> following this guide.</p>
+<p>Create subnamespaces to organize your assets.</p>
 <div class="section" id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
-<p>Once you have a registered root namespace, you can create up to <code class="docutils literal"><span class="pre">3</span></code> levels of subnamespaces.</p>
-<p>Subnamespaces do not have a renting duration. They have the same one as their parent namespace.</p>
-<p>It is possible to create multiple subnamespaces with the same name in different namespaces (example: <code class="docutils literal"><span class="pre">foo.bar</span></code> and <code class="docutils literal"><span class="pre">foo2.bar</span></code>).</p>
+<p>Once you have a registered root <a class="reference internal" href="../../concepts/namespace.html"><span class="doc">namespace</span></a>, you can create up to <code class="docutils literal"><span class="pre">3</span></code> levels of subnamespaces to <strong>organize your assets</strong>.</p>
+<p>Unlike root namespaces, the subnamespaces do not have a <strong>renting duration</strong>. They share the duration with its parent namespace.</p>
+<p>It is possible to create multiple subnamespaces with the same name in different namespaces (example: <code class="docutils literal"><span class="pre">foo.bar</span></code> and <code class="docutils literal"><span class="pre">foo2.bar</span></code>), but the combination rootnamespace + subnamespace must remain unique.</p>
 </div>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
@@ -257,8 +255,7 @@
 </div>
 <div class="section" id="getting-into-some-code">
 <h2>Getting into some code<a class="headerlink" href="#getting-into-some-code" title="Permalink to this headline">¶</a></h2>
-<p>The first step is to choose a name for your subnamespace.</p>
-<p>In this example, we have created a subnamespace called <code class="docutils literal"><span class="pre">bar</span></code> under <code class="docutils literal"><span class="pre">foo</span></code> namespace.</p>
+<p>This code example creates a subnamespace called <code class="docutils literal"><span class="pre">bar</span></code> under the namespace <code class="docutils literal"><span class="pre">foo</span></code>.</p>
 <div class="example-code container">
 <div class="literal-block-wrapper container" id="id1">
 <div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/nemtech/nem2-docs/blob/master/source/resources/examples/typescript/namespace/RegisteringASubnamespace.ts">View Code</a></span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
@@ -316,7 +313,7 @@
 </div>
 <div class="section" id="what-s-next">
 <h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
-<p>When the transaction is confirmed, link a namespace with a <a class="reference internal" href="link-a-namespace-to-a-mosaic.html"><span class="doc">mosaic</span></a> or <a class="reference internal" href="link-a-namespace-to-an-address.html"><span class="doc">address</span></a>.</p>
+<p>When the transaction is confirmed, link the subnamespace with a <a class="reference internal" href="link-a-namespace-to-a-mosaic.html"><span class="doc">mosaic</span></a> or <a class="reference internal" href="link-a-namespace-to-an-address.html"><span class="doc">address</span></a>.</p>
 </div>
 </div>
 
@@ -404,7 +401,7 @@
                 <h4>Community</h4>
                 <ul>
                     <li>
-                        <a href="http://slack.nemtech.io/">
+                        <a href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLWZmZWRiMjViYTVhZjEzOTA0MzUyMTA1NTA5OWQ0MWUzNTA4NjM5OTJhOGViOTBhNjkxYWVhMWRiZDRkOTE0YmU">
                             <i class="fab fa-slack"></i> <span> Join #general discussion</span>
                         </a>
                     </li>
