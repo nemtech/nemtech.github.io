@@ -1,0 +1,534 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>スーパーノードプログラムに登録する &#8212; Symbol Documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700&display=swap" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     'Main',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/examplecode.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="モザイク制限" href="../restriction/index.html" />
+    <link rel="prev" title="Symbol Bootstrap の使用" href="using-symbol-bootstrap.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174021413-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-174021413-2');
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../../guides/atom.xml" title="Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div class="navbar navbar-default gradient navbar-fixed-top"
+     id="navbar">
+    <div class="container navbar-top hidden-xs hidden-sm">
+        <div class="row">
+            <div class="col-lg-8 col-md-7">
+                <div id="language">
+    <label class="select">
+        <select>
+            <option id="english" value="en">EN</option>
+            <option id="japanese" value="ja">JA</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </label>
+</div>
+            </div>
+            <div class="col-lg-4 col-md-5">
+                
+                <div id="search-box">
+    <input class="search search-desktop form-control" placeholder="Search"/>
+</div>
+                
+                <ul id="social" class="list-inline">
+    <li>
+        <a href="https://twitter.com/NEMofficial" rel="nofollow"><i class="fab fa-twitter" title="Twitter"></i></a>
+    </li>
+    <li>
+        <a href="https://discord.com/invite/xymcity" rel="nofollow" title="Discord"><i class="fab fa-discord"></i></a>
+    </li>
+    <li>
+        <a href="https://github.com/symbol/" rel="nofollow" title="GitHub"><i class="fab fa-github"></i></a>
+    </li>
+</ul>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="container navbar-main">
+        <div class="row">
+            <div class="navbar-header col-lg-6 col-md-4 col-xs-6">
+                <a class="navbar-brand" href="../../index.html">
+                    
+                    <span><img alt="NEM logo" src="../../_static/logo-symbol.svg"></span>
+                    
+                </a>
+            </div>
+            <div class="navbar-right col-lg-6 col-md-8 hidden-xs hidden-sm">
+                <ul class="list-inline">
+    <li>
+        <a href="/ja/getting-started/what-is-symbol.html" class="">入門</a>
+    </li>
+    <li>
+        <a href="/ja/concepts/overview.html" class="">機能</a>
+    </li>
+    <li>
+        <a href="/ja/guides/category.html" class="active">ガイド</a>
+    </li>
+    <li>
+        <a href="/ja/references/overview.html" class="">ツール</a>
+    </li>
+    <li>
+        <a href="/ja/contribute/community.html" class="">ヘルプ</a>
+    </li>
+</ul>
+            </div>
+            <div class="navbar-right col-xs-6 hidden-lg hidden-md">
+                
+                <div id="search-box">
+    <input class="search search-mobile form-control" placeholder="Search"/>
+</div>
+                
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 sidebar-xs visible-xs visible-sm">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">ナビゲーション <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu globaltoc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">入門</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">ガイド</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../account/index.html">アカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aggregate/index.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blockchain/index.html">ブロックチェーン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../harvesting/index.html">ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/index.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../migration/index.html">NIS1 からのマイグレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monitor/index.html">モニタリング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mosaic/index.html">モザイク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multisig/index.html">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../namespace/index.html">ネームスペース</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">ネットワーク</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="running-a-symbol-node.html">Symbol ノードの立ち上げ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="running-a-symbol-node-manually.html">手動による Symbol ノードの立ち上げ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="running-a-secure-symbol-node.html">セキュアな Symbol ノードの起動</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maintaining-a-symbol-node.html">Symbol ノードの維持管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="non-custodial-node-setup.html">非カストディアルなノードのセットアップ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuring-node-properties.html">ノードのプロパティ設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-a-private-test-net.html">プライベートテストネットワークの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuring-network-properties.html">ネットワークプロパティの設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connecting-to-mongodb.html">MongoDB への接続方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using-symbol-bootstrap.html">Symbol Bootstrap の使用</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">スーパーノードプログラムに登録する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../restriction/index.html">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../secretlock/index.html">シークレットロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transfer/index.html">転送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exchanges/index.html">Exchanges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/overview.html">コンセプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">貢献</a></li>
+</ul>
+</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        
+        
+
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
+    <h4>ナビゲーション</h4>
+    <hr />
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">入門</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">ガイド</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../account/index.html">アカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aggregate/index.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blockchain/index.html">ブロックチェーン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../harvesting/index.html">ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/index.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../migration/index.html">NIS1 からのマイグレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monitor/index.html">モニタリング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mosaic/index.html">モザイク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multisig/index.html">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../namespace/index.html">ネームスペース</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">ネットワーク</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="running-a-symbol-node.html">Symbol ノードの立ち上げ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="running-a-symbol-node-manually.html">手動による Symbol ノードの立ち上げ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="running-a-secure-symbol-node.html">セキュアな Symbol ノードの起動</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maintaining-a-symbol-node.html">Symbol ノードの維持管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="non-custodial-node-setup.html">非カストディアルなノードのセットアップ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuring-node-properties.html">ノードのプロパティ設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-a-private-test-net.html">プライベートテストネットワークの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuring-network-properties.html">ネットワークプロパティの設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connecting-to-mongodb.html">MongoDB への接続方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using-symbol-bootstrap.html">Symbol Bootstrap の使用</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">スーパーノードプログラムに登録する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../restriction/index.html">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../secretlock/index.html">シークレットロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transfer/index.html">転送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exchanges/index.html">Exchanges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/overview.html">コンセプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">貢献</a></li>
+</ul>
+
+</div>
+        
+    </div>
+</div>
+
+
+        
+        <div class="col-md-7 content">
+            
+  <div class="section" id="enrolling-to-the-supernode-program">
+<h1>スーパーノードプログラムに登録する<a class="headerlink" href="#enrolling-to-the-supernode-program" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>このガイドでは、ノードを作成して <strong>スーパーノード</strong> として登録する方法を示します。このガイドを続行する前に <a class="reference internal" href="../../concepts/reward-programs.html#supernode-program"><span class="std std-ref">スーパーノードプログラム</span></a> について理解してください。</p>
+<p><a class="reference internal" href="running-a-symbol-node.html"><span class="doc">Symbol ノードの立ち上げ</span></a> ガイドには Symbol ノードの作成方法の詳細が含まれており、そのコンテンツはこのガイドと <strong>部分的に重複しています</strong> 。そのガイドに従って <strong>通常ノード</strong> を構築するか、このガイドに従って <strong>スーパーノード</strong> を構築できますが <strong>両方</strong> を構築することはできません。</p>
+<p>次の2つのセクションでは、最も簡単な方法である <a class="reference internal" href="#enroll-supernode-with-bootstrap"><span class="std std-ref">Symbol Bootstrap を使用</span></a> してスーパーノードを作成する方法と、 <a class="reference internal" href="#enroll-supernode-manually"><span class="std std-ref">手動</span></a> で作成する方法を説明します。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">スーパーノードプログラムは、現在テストネットでのみテストが行われています。まもなくメインネットでもプログラムが開始される予定です。</p>
+</div>
+<div class="section" id="using-symbol-bootstrap">
+<span id="enroll-supernode-with-bootstrap"></span><h2>Symbol Bootstrap の使用<a class="headerlink" href="#using-symbol-bootstrap" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Symbol Bootstrap は Symbol ノードを作成して、起動するのに <strong>最も簡単な方法</strong> です。使用したことがない場合は <a class="reference internal" href="using-symbol-bootstrap.html"><span class="doc">このツールについての学習</span></a> してください。そのガイドに記載があるように、ノードが機能するためには、ポート 3000 、 7881 、および 7900 が開いていなければならないことに注意してください。</p>
+<ol class="arabic">
+<li><p class="first">以下を実行して、最新の Symbol Bootstrap を使用していることを確認してください。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>npm install -g symbol-bootstrap
+</pre></div>
+</div>
+<p><strong>バージョン 1.0.5</strong> 以上である必要があります。</p>
+</li>
+<li><p class="first">例として <code class="docutils literal"><span class="pre">supernode.yml</span></code> と命名した  <a class="reference internal" href="using-symbol-bootstrap.html#symbol-bootstrap-presets"><span class="std std-ref">カスタムプリセットファイル</span></a> を作成します:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="nt">nodes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">rewardProgram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SuperNode</span>
+    <span class="nt">host</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-symbol-node.com</span> <span class="c1"># Could also be an IP address</span>
+</pre></div>
+</div>
+<p>このプリセットファイルはさらにカスタマイズできます:</p>
+<ul>
+<li><p class="first">ノードを <a class="reference internal" href="../../concepts/block.html#finalization"><span class="std std-ref">投票ノード</span></a> (かつ <a class="reference internal" href="../../concepts/reward-programs.html#voting-node-program"><span class="std std-ref">投票ノード報酬プログラム</span></a> を受けたい) にもする場合は、 <code class="docutils literal"><span class="pre">host</span></code> 行の下に <code class="docutils literal"><span class="pre">voting:</span> <span class="pre">true</span></code> を同じインデントで追加してください。</p>
+</li>
+<li><p class="first">監視エージェントが使用するデフォルトのポート (7881) を変更する場合は、 (例として) <strong>ファイルの先頭に</strong> <code class="docutils literal"><span class="pre">rewardProgramAgentPort:</span> <span class="pre">7882</span></code> を追加できます。</p>
+</li>
+<li><p class="first">必要なノードアカウント (main, transport, remote, VRF または voting) のいくつかをすでに持っている場合は <a class="reference external" href="https://github.com/symbol/symbol-bootstrap/blob/main/docs/presetGuides.md#user-content-specify-the-nodes-private-keys">プリセットファイルにそれらを記述することもできます</a> 。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last"><a class="reference internal" href="../../concepts/multisig-account.html"><span class="doc">マルチシグアカウント</span></a> でノードを管理する場合、上記プリセットファイルの <strong>メイン</strong> アカウントは (連署者では <strong>なく</strong>)  <strong>マルチシグアカウント</strong> でなければなりません。</p>
+</div>
+</li>
+</ul>
+<p><a class="reference external" href="https://github.com/symbol/symbol-bootstrap/blob/main/docs/presetGuides.md">Symbol Bootstrap ドキュメント</a> でカスタマイズ可能なリストを参照してください。</p>
+</li>
+<li><p class="first">新しいプリセットファイルを使用して <strong>ノードを作成して実行します</strong> :</p>
+<p>標準のノードサービスに加えて <strong>監視エージェント</strong> もダウンロードしてインストールします。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>symbol-bootstrap start -p mainnet -a dual -c supernode.yml
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">start</span></code> コマンドはノード設定を作成し、起動を行います。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">テスト目的に <code class="docutils literal"><span class="pre">-p</span> <span class="pre">testnet</span></code> を使うことで Symbol のテストネットを使うことができます。</p>
+</div>
+</li>
+<li><p class="first">あなたのノードが <strong>十分な資産</strong> を保有していることを確認してください。 <a class="reference internal" href="../../concepts/reward-programs.html#supernode-program"><span class="std std-ref">スーパーノードとして適格になる</span></a> には、メインアカウントに <strong>100 万</strong> 以上の <code class="docutils literal"><span class="pre">symbol.xym</span></code> を保有する必要があります。</p>
+<p>ノードのメインアカウントアドレスは <code class="docutils literal"><span class="pre">target/addresses.yml</span></code> ファイルにあります。</p>
+<p>テストネットでは <a class="reference external" href="http://faucet.testnet.symboldev.network">Symbol Faucet</a> を使用して、あなたのノードのメインアカウントに <strong>トークンを送る</strong> ことができます。もしフォーセットが提供できる以上のトークンが必要な場合は <a class="reference external" href="https://t.me/nemhelpdesk">NEM’s Telegram Help Desk</a> で <a class="reference external" href="https://t.me/cryptobeliever">cryptobeliever</a> に連絡をください。</p>
+</li>
+<li><p class="first">リモート、VRF、投票キーをリンクして <strong>ノードを登録します</strong> 。</p>
+<p>Symbol Bootstrap を中断せずに、別のターミナルを開き、先ほどと同じフォルダに移動します。そして下記を実行します:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>symbol-bootstrap link --useKnownRestGateways
+</pre></div>
+</div>
+<p>これにより、指定した鍵をメインアカウントにリンクするトランザクションが送信されます。このトランザクションは少額の <a class="reference internal" href="../../concepts/fees.html"><span class="doc">手数料</span></a> がかかるので、メインアカウントにスーパーノードプログラムの要件を超える <strong>余剰資金</strong> があることを確認してください。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">テスト期間中に重いテストを行うと、トランザクション手数料が人為的に増加する可能性があります。もし <code class="docutils literal"><span class="pre">symbol-bootstrap</span></code> が <code class="docutils literal"><span class="pre">Announcing</span> <span class="pre">Simple</span> <span class="pre">Transaction</span> <span class="pre">hash...</span></code> というメッセージでフリーズする場合は、例えば <code class="docutils literal"><span class="pre">--maxFee</span> <span class="pre">10000000</span></code> パラメータ (この絶対単位は 10 <code class="docutils literal"><span class="pre">symbol.xym</span></code> に対応) を追加して、トランザクション手数料を増やしてみてください。</p>
+</div>
+</li>
+<li><p class="first"><strong>スーパーノードプログラムに登録する</strong></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>symbol-bootstrap enrollRewardProgram --useKnownRestGateways
+</pre></div>
+</div>
+<p>これにより、加入を要求するトランザクションがコントローラアドレスに送信 (前のステップの手数料に関する注釈を参照) されます。</p>
+<p>この時点から、ネットワーク上の <a class="reference internal" href="../../concepts/reward-programs.html#reward-programs-controller"><span class="std std-ref">報酬プログラムコントローラ</span></a> がノードの監視を始めます。</p>
+</li>
+</ol>
+<p>このガイドの最終セクション <strong>検証</strong> にジャンプできます。</p>
+</div>
+<div class="section" id="manually">
+<span id="enroll-supernode-manually"></span><h2>手動<a class="headerlink" href="#manually" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>もし Symbol Bootstrap を使用しない (あるいは使用できない) 場合でも、手動でスーパーノードプログラムに加入することができます。これらの手順は <strong>Linux 向け</strong> のみ利用可能です。</p>
+<p>はじめに、ノードが起動している (または実行できる状態にある) ことを確認します。 <a class="reference internal" href="running-a-symbol-node-manually.html"><span class="doc">手動による Symbol ノードの立ち上げ</span></a> ではノードのセットアップ方法を説明しています。</p>
+<p>After following that guide, you need to <strong>install a monitoring agent</strong> and <strong>announce a special transaction</strong>. You are going to create a few files, so please create a folder to keep your filesystem tidy (for example called <code class="docutils literal"><span class="pre">agent</span></code> inside Catapult client’s <code class="docutils literal"><span class="pre">_build</span></code> folder).</p>
+<ol class="arabic">
+<li><p class="first"><strong>ノードモニタリングエージェントのダウンロード</strong>:</p>
+<p><a class="reference external" href="https://symbol-node-reward.s3-eu-west-1.amazonaws.com/packages/1.0.2-alpha.0/agent_binary/agent-linux.bin">Linux バイナリをダウンロード</a> して、実行可能にします:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>wget https://symbol-node-reward.s3-eu-west-1.amazonaws.com/packages/1.0.2-alpha.0/agent_binary/agent-linux.bin
+chmod +x agent-linux.bin
+</pre></div>
+</div>
+</li>
+<li><p class="first">モニタリングエージェントのための <strong>証明書を作成</strong> します:</p>
+<p>エージェントは <a class="reference internal" href="../../concepts/reward-programs.html#reward-programs-controller"><span class="std std-ref">報酬プログラムコントローラ</span></a> へのすべての接続を <strong>認証</strong> するため、SSL 証明書を作成する必要があります。</p>
+<p><a class="reference external" href="https://www.openssl.org/">OpenSSL</a> が最低でも <strong>バージョン1.1.1</strong> であることを確認します。例えば <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">openssl</span></code> を実行してインストールできます。</p>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">certs</span></code> フォルダを作成して移動します。</p>
+</li>
+<li><p class="first">次の内容で <code class="docutils literal"><span class="pre">agent-ca.cnf</span></code> ファイルを新規作成します。</p>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="k">[ca]</span>
+<span class="na">default_ca</span> <span class="o">=</span> <span class="s">CA_default</span>
+<span class="k">[CA_default]</span>
+<span class="na">policy</span> <span class="o">=</span> <span class="s">policy_catapult</span>
+<span class="k">[policy_catapult]</span>
+<span class="na">commonName</span> <span class="o">=</span> <span class="s">supplied</span>
+<span class="k">[req]</span>
+<span class="na">prompt</span> <span class="o">=</span> <span class="s">no</span>
+<span class="na">distinguished_name</span> <span class="o">=</span> <span class="s">dn</span>
+<span class="k">[dn]</span>
+<span class="na">CN</span> <span class="o">=</span> <span class="s">Agent CA</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">次を実行して証明書を生成します:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># Generate agent CA key pair</span>
+openssl genpkey -out agent-ca.key.pem -outform PEM -algorithm ed25519
+
+<span class="c1"># Create agent CA CSR</span>
+openssl req -config agent-ca.cnf -key agent-ca.key.pem -new -out agent-ca.csr.pem
+
+<span class="c1"># Base64 encode agent CA CSR file for later use</span>
+base64 agent-ca.csr.pem --wrap <span class="m">0</span> <span class="p">;</span> <span class="nb">echo</span>
+</pre></div>
+</div>
+<p>最後のコマンドは文字列を出力します。後で使用するのでコピーします。</p>
+</li>
+<li><p class="first">最後に、エージェントが監視しているノードへの接続を認証するために、Symbol ネットワーク CA 証明書をダウンロード (1 つだけダウンロード) します。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># For MAINNET</span>
+wget https://symbol-node-reward.s3-eu-west-1.amazonaws.com/mainnet/certs/controller-ca-crt.pem
+
+<span class="c1"># For TESTNET</span>
+wget https://symbol-node-reward.s3-eu-west-1.amazonaws.com/testnet/certs/controller-ca-crt.pem
+</pre></div>
+</div>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">certs</span></code> フォルダから移動します。</p>
+</li>
+</ul>
+</li>
+<li><p class="first"><strong>モニタリングエージェントの設定</strong>:</p>
+<p><code class="docutils literal"><span class="pre">agent.properties</span></code> という名前のテキストファイルを作成し、以下の内容を追加し、 <code class="docutils literal"><span class="pre">NODE_PRIVATE_KEY</span></code> と <code class="docutils literal"><span class="pre">REST_GATEWAY_URL</span></code> を適切な値に置き換えます:</p>
+<div class="highlight-properties"><div class="highlight"><pre><span></span><span class="c">; Use 104 for MAINNET or 152 for TESTNET</span>
+<span class="na">NETWORK_TYPE</span><span class="o">=</span><span class="s">104</span>
+<span class="na">LOGGER_FILE</span><span class="o">=</span><span class="s">agent.log</span>
+<span class="c">; Replace with the public host where your node is running (hostname or IP address)</span>
+<span class="na">REST_GATEWAY_URL</span><span class="o">=</span><span class="s">http://my-symbol-node.com:3000</span>
+<span class="na">REWARD_PROGRAM</span><span class="o">=</span><span class="s">SuperNode</span>
+<span class="c">; Replace with the main account&#39;s public key</span>
+<span class="na">MAIN_PUBLIC_KEY</span><span class="o">=</span><span class="s">●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●</span>
+<span class="na">CERTS_CONTROLLER_CA_CERT_FILE</span><span class="o">=</span><span class="s">./certs/controller-ca-crt.pem</span>
+<span class="na">CERTS_AGENT_CA_KEY_FILE</span><span class="o">=</span><span class="s">./certs/agent-ca.key.pem</span>
+<span class="na">CONTROLLER_API_URL</span><span class="o">=</span><span class="s">http://node-monitoring.symbolblockchain.io:7890; MAINNET</span>
+<span class="c">; CONTROLLER_API_URL=http://node-monitoring.testnet.symboldev.network:7890; TESTNET</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">デフォルトでは、エージェントはポート番号 <code class="docutils literal"><span class="pre">7881</span></code> を使って通信を行います。このポートが利用できない場合は <code class="docutils literal"><span class="pre">HTTP_PORT=</span></code> の行を追加して、別のポート番号を指定することができます。</p>
+</div>
+<p>加入プロセスや後のモニタリングの際、コントローラによるノードの REST インターフェースへの接続方法を指定するために <code class="docutils literal"><span class="pre">REST_GATEWAY_URL</span></code> を指定する必要があります。</p>
+</li>
+<li><p class="first"><strong>エージェントの起動</strong>:</p>
+<p>このコマンドを起動し、ノードが動作している間は <strong>起動を続けて</strong> ください。コントローラは定期的にエージェントに問い合わせを行い、エージェントが十分な回数の応答をできなかった場合、あなたのノードは <strong>スーパーノード報酬プログラムから除外される</strong> 可能性があることを覚えておいてください。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>./agent-linux.bin --config agent.properties
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">エージェントが起動すると、登録が完了して、新しい通信証明書が生成されるまで、2 分毎にコントローラをポーリングします。この時点では、エージェントはコントローラからのコマンドを待機しているだけです。</p>
+</div>
+</li>
+<li><p class="first"><strong>加入メッセージの送信</strong></p>
+<p>最後に、自分のノードをスーパーノードプログラムに加入させることを <strong>コントローラに通知します</strong> 。これはモザイクなしの特別なメッセージを含む従来の <a class="reference internal" href="../../serialization/transfer.html#transfer-transaction"><span class="std std-ref">転送トランザクション</span></a>  で行います。</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>enroll AGENT_URL BASE64_ENCODED_AGENT_CA_CSR
+</pre></div>
+</div>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">AGENT_URL</span></code> を <code class="docutils literal"><span class="pre">https://</span></code> + エージェントを動作させているホスト + <code class="docutils literal"><span class="pre">:7881</span></code> に置き換えてください。この URL は <strong>どこからでもアクセスできる</strong> ものでなければなりません。例えば、<a class="reference external" href="https://my-symbol-node.com:7881">https://my-symbol-node.com:7881</a> のようになります。IP アドレスも有効です。デフォルトのポート番号を使用していない場合は、上記ステップ 3 で指定したポート番号を使用してください。</li>
+<li><code class="docutils literal"><span class="pre">BASE64_ENCODED_AGENT_CA_CSR</span></code> をステップ 2 の出力で置き換えます。</li>
+</ul>
+<p>最後に、このトランザクションの受信アドレスは:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">NDG2F6IHON7EDOXZCHSTSJ2YMUHDFXAQ2EUZHFA</span></code> メインネット用</li>
+<li><code class="docutils literal"><span class="pre">TDL73SDUMPDK7EOF7H3O4F5WB5WHG2SX7XUSFZQ</span></code> テストネット</li>
+</ul>
+<p><a class="reference internal" href="../../cli.html"><span class="doc">symbol-cli</span></a> でトランザクションをアナウンスします:</p>
+<div class="highlight-symbol-cli"><div class="highlight"><pre><span></span>symbol-cli transaction transfer --mode normal --sync \
+           --recipient-address NDG2F6IHON7EDOXZCHSTSJ2YMUHDFXAQ2EUZHFA \
+           --message &quot;enrol AGENT_URL BASE64_ENCODED_AGENT_CA_CSR&quot; \
+           --mosaics @symbol.xym::0
+</pre></div>
+</div>
+<p><strong>このトランザクションはノードのメインアカウントによって署名されている必要があります</strong> 。したがって、これが <code class="docutils literal"><span class="pre">symbol-cli</span></code> のデフォルトプロファイルであることを確認してください。</p>
+<p>このトランザクションでは少額の <a class="reference internal" href="../../concepts/fees.html"><span class="doc">手数料</span></a> を支払うため、メインアカウントにスーパーノードプログラムの要件を超える <strong>余剰の資産</strong> があることを確認してください。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p>もし <code class="docutils literal"><span class="pre">symbol-cli</span></code> が使用するデフォルト手数料が、現在のネットワーク状況に対して小さすぎる場合、プログラムが <strong>トランザクション送信</strong> ステップの処理中にスタックする場合があります。</p>
+<p class="last">コマンドが 5 分以内に終了しない場合は、 <code class="docutils literal"><span class="pre">Ctrl+C</span></code> を押し、 <em>1 XYM*</em> の手数料を設定する <code class="docutils literal"><span class="pre">--max-fee</span> <span class="pre">1000000</span></code> パラメータを追加して、再試行します。 <a class="reference internal" href="../../concepts/fees.html"><span class="doc">手数料</span></a> を読んでいるなら、自由に任意の数値を設定してもよいです。</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="validate-the-setup">
+<h2>セットアップの検証<a class="headerlink" href="#validate-the-setup" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>すべてのサービスが正しく動作していることを確認して <strong>ノードを検証</strong> できます。次の URL で有効なデータを返却することを確認できます:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://localhost:3000/chain/info">http://localhost:3000/chain/info</a>: ノードの接続</li>
+<li><a class="reference external" href="http://localhost:3000/node/info">http://localhost:3000/node/info</a>: ノードの状態</li>
+<li><a class="reference external" href="https://localhost:7881/metadata">https://localhost:7881/metadata</a>:エージェントレポート (下記参照)</li>
+</ul>
+<p>次に、パブリックホスト名からアクセスできることをもう一度確認します。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p>最後のエンドポイントにアクセスするには、TLS チェックを無効にできるコマンドラインツールを使用します。例:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl --insecure https://localhost:7881/metadata
+</pre></div>
+</div>
+<p>もしくは:</p>
+<div class="last highlight-bash"><div class="highlight"><pre><span></span>wget --no-check-certificate https://localhost:7881/metadata
+</pre></div>
+</div>
+</div>
+<p>加入が完了したら、 <a class="reference external" href="http://explorer.symbolblockchain.io/nodes">Symbol Explorer (MAINNET)</a> (または <a class="reference external" href="http://explorer.testnet.symboldev.network/">TESTNET</a>) で、自分のノードがリストに表示され、適切な報酬プログラムのマーク (情報は 30 秒ごとに更新) が表示されていることを確認できます。</p>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+            
+            <p class="feedback">
+                <hr/>
+                お探しのものは見つかりましたか？
+                <a href="https://github.com/symbol/symbol-docs/issues/new/choose" target="_blank">フィードバックをください。</a>
+            </p>
+            
+        </div>
+         
+
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+    
+    <div class="edit-github">
+    <a href="https://github.com/symbol/symbol-docs/edit/main/source/guides/network/supernode-enrollment.rst" rel="nofollow"> <i class="fab fa-github"></i> このページを加筆修正する</a>
+</div>
+    <span class="title">このページ</span>
+    <ul>
+<li><a class="reference internal" href="#">スーパーノードプログラムに登録する</a><ul>
+<li><a class="reference internal" href="#using-symbol-bootstrap">Symbol Bootstrap の使用</a></li>
+<li><a class="reference internal" href="#manually">手動</a></li>
+<li><a class="reference internal" href="#validate-the-setup">セットアップの検証</a></li>
+</ul>
+</li>
+</ul>
+
+    
+    </div>
+</div>
+
+ 
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-desktop',
+        debug: false
+    });
+
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-mobile',
+        debug: false
+    });
+</script>
+
+  </body>
+</html>

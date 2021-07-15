@@ -1,0 +1,523 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Using Symbol Bootstrap &#8212; Symbol Documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700&display=swap" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     'Main',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/js/custom.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/examplecode.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Enrolling to the Supernode program" href="supernode-enrollment.html" />
+    <link rel="prev" title="How to connect to MongoDB" href="connecting-to-mongodb.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174021413-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-174021413-2');
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../../guides/atom.xml" title="Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div class="navbar navbar-default gradient navbar-fixed-top"
+     id="navbar">
+    <div class="container navbar-top hidden-xs hidden-sm">
+        <div class="row">
+            <div class="col-lg-8 col-md-7">
+                <div id="language">
+    <label class="select">
+        <select>
+            <option id="english" value="en">EN</option>
+            <option id="japanese" value="ja">JA</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">Translate</option>
+        </select>
+    </label>
+</div>
+            </div>
+            <div class="col-lg-4 col-md-5">
+                
+                <div id="search-box">
+    <input class="search search-desktop form-control" placeholder="Search"/>
+</div>
+                
+                <ul id="social" class="list-inline">
+    <li>
+        <a href="https://twitter.com/NEMofficial" rel="nofollow"><i class="fab fa-twitter" title="Twitter"></i></a>
+    </li>
+    <li>
+        <a href="https://discord.com/invite/xymcity" rel="nofollow" title="Discord"><i class="fab fa-discord"></i></a>
+    </li>
+    <li>
+        <a href="https://github.com/symbol/" rel="nofollow" title="GitHub"><i class="fab fa-github"></i></a>
+    </li>
+</ul>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="container navbar-main">
+        <div class="row">
+            <div class="navbar-header col-lg-6 col-md-4 col-xs-6">
+                <a class="navbar-brand" href="../../index.html">
+                    
+                    <span><img alt="NEM logo" src="../../_static/logo-symbol.svg"></span>
+                    
+                </a>
+            </div>
+            <div class="navbar-right col-lg-6 col-md-8 hidden-xs hidden-sm">
+                <ul class="list-inline">
+    <li>
+        <a href="/getting-started/what-is-symbol.html" class="">Getting Started</a>
+    </li>
+    <li>
+        <a href="/concepts/overview.html" class="">Features</a>
+    </li>
+    <li>
+        <a href="/guides/category.html" class="active">Guides</a>
+    </li>
+    <li>
+        <a href="/references/overview.html" class="">Tools</a>
+    </li>
+    <li>
+        <a href="/contribute/community.html" class="">Help</a>
+    </li>
+</ul>
+            </div>
+            <div class="navbar-right col-xs-6 hidden-lg hidden-md">
+                
+                <div id="search-box">
+    <input class="search search-mobile form-control" placeholder="Search"/>
+</div>
+                
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 sidebar-xs visible-xs visible-sm">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigation <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu globaltoc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Guides</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../account/index.html">Accounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aggregate/index.html">Aggregate transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blockchain/index.html">Blockchain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../harvesting/index.html">Harvesting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/index.html">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../migration/index.html">Migration from NIS1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monitor/index.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mosaic/index.html">Mosaics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multisig/index.html">Multisignature accounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../namespace/index.html">Namespaces</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Network</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="running-a-symbol-node.html">Running a Symbol node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="running-a-symbol-node-manually.html">Running a Symbol node manually</a></li>
+<li class="toctree-l3"><a class="reference internal" href="running-a-secure-symbol-node.html">Running a Secure Symbol node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maintaining-a-symbol-node.html">Maintaining a Symbol Node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="non-custodial-node-setup.html">Non-custodial node setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuring-node-properties.html">Configuring node properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-a-private-test-net.html">Creating private test networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuring-network-properties.html">Configuring network properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connecting-to-mongodb.html">How to connect to MongoDB</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Using Symbol Bootstrap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="supernode-enrollment.html">Enrolling to the Supernode program</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../restriction/index.html">Mosaic restrictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../secretlock/index.html">SecretLock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transfer/index.html">Transfers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exchanges/index.html">Exchanges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/overview.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references/index.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">Contributing</a></li>
+</ul>
+</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        
+        
+
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
+    <h4>Navigation</h4>
+    <hr />
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Guides</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../account/index.html">Accounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aggregate/index.html">Aggregate transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blockchain/index.html">Blockchain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../harvesting/index.html">Harvesting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/index.html">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../migration/index.html">Migration from NIS1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monitor/index.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mosaic/index.html">Mosaics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multisig/index.html">Multisignature accounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../namespace/index.html">Namespaces</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Network</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="running-a-symbol-node.html">Running a Symbol node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="running-a-symbol-node-manually.html">Running a Symbol node manually</a></li>
+<li class="toctree-l3"><a class="reference internal" href="running-a-secure-symbol-node.html">Running a Secure Symbol node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maintaining-a-symbol-node.html">Maintaining a Symbol Node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="non-custodial-node-setup.html">Non-custodial node setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuring-node-properties.html">Configuring node properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-a-private-test-net.html">Creating private test networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuring-network-properties.html">Configuring network properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connecting-to-mongodb.html">How to connect to MongoDB</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Using Symbol Bootstrap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="supernode-enrollment.html">Enrolling to the Supernode program</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../restriction/index.html">Mosaic restrictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../secretlock/index.html">SecretLock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transfer/index.html">Transfers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exchanges/index.html">Exchanges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/overview.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references/index.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">Contributing</a></li>
+</ul>
+
+</div>
+        
+    </div>
+</div>
+
+
+        
+        <div class="col-md-7 content">
+            
+  <div class="section" id="using-symbol-bootstrap">
+<h1>Using Symbol Bootstrap<a class="headerlink" href="#using-symbol-bootstrap" title="Permalink to this headline">¶</a></h1>
+<div class="sidebar">
+<p class="first sidebar-title">Quick Installation</p>
+<p>On Linux systems using <code class="docutils literal"><span class="pre">apt</span></code>:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo apt update
+sudo apt install nodejs npm <span class="se">\</span>
+    docker docker-compose
+node --version
+</pre></div>
+</div>
+<p>If the obtained node version is high enough (see <a class="reference internal" href="#symbol-bootstrap-requirements"><span class="std std-ref">Requirements</span></a>), then you can install Symbol Bootstrap:</p>
+<div class="last highlight-bash"><div class="highlight"><pre><span></span>npm install -g symbol-bootstrap
+</pre></div>
+</div>
+</div>
+<p>This guide explains the concepts behind <a href="https://github.com/symbol/symbol-bootstrap" target="_blank">Symbol Bootstrap</a>, a package which contains the necessary setup scripts to help developers quickly configure and run their own network or node in any of the <strong>supported operating systems</strong> (Windows, Linux and Mac).</p>
+<p>After reading this you will be able to better understand the <a class="reference internal" href="creating-a-private-test-net.html"><span class="doc">Creating private test networks</span></a> and <a class="reference internal" href="running-a-symbol-node.html"><span class="doc">Running a Symbol node</span></a> guides.</p>
+<p><strong>This package replaces the previous tools</strong> <a href="https://github.com/symbol/catapult-service-bootstrap" target="_blank">Catapult Service Bootstrap</a> and <a href="https://github.com/symbol/symbol-testnet-bootstrap" target="_blank">Symbol Testnet Bootstrap</a>.</p>
+<div class="section" id="requirements">
+<span id="symbol-bootstrap-requirements"></span><h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="environment">
+<h3>Environment<a class="headerlink" href="#environment" title="Permalink to this headline">¶</a></h3>
+<p>The setup scripts are automated using <strong>docker</strong>. To run a test net or node, you will need to have installed the following tools:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://nodejs.org/en/download/">node.js</a> version 12 or higher (<strong>It is recommended that you install node.js using</strong> <a class="reference external" href="https://github.com/nvm-sh/nvm">nvm</a>)</li>
+<li><a class="reference external" href="https://docs.docker.com/install/">docker</a></li>
+<li><a class="reference external" href="https://docs.docker.com/compose/install/">docker-compose</a></li>
+</ul>
+</div>
+<div class="section" id="ports">
+<h3>Ports<a class="headerlink" href="#ports" title="Permalink to this headline">¶</a></h3>
+<p>Make sure that the client’s host is accessible from the internet and that <strong>the following ports are open and available</strong>:</p>
+<ul class="simple">
+<li>Port <code class="docutils literal"><span class="pre">7900</span></code> is used by catapult-client to communicate between nodes.</li>
+<li>Port <code class="docutils literal"><span class="pre">3000</span></code> is used by the REST Gateway to expose the endpoints to interact with the node.</li>
+<li>Port <code class="docutils literal"><span class="pre">7881</span></code> is used by the <a class="reference internal" href="../../concepts/reward-programs.html#reward-programs-controller"><span class="std std-ref">monitoring agent</span></a>. Only required when enrolled to some of the <a class="reference internal" href="../../concepts/reward-programs.html"><span class="doc">Reward Programs</span></a>, and can be customized.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p><a href="https://github.com/symbol/symbol-bootstrap" target="_blank">Symbol Bootstrap</a> is provided as an installable tool, there is no need to clone a repository and build it. Just run this from a terminal or command prompt:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>npm install -g symbol-bootstrap
+</pre></div>
+</div>
+<p>Notes:</p>
+<ul>
+<li><p class="first">You can run the above command again to install a newer version of <code class="docutils literal"><span class="pre">symbol-bootstrap</span></code> every time one becomes available.</p>
+<p>Remember to stop <code class="docutils literal"><span class="pre">symbol-bootstrap</span></code> before upgrading and then start it again afterwards, as shown below.</p>
+</li>
+<li><p class="first">If you get permission errors read nodejs’s guide to <a class="reference external" href="https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally">Resolving EACCES permissions errors when installing packages globally</a>.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="presets">
+<span id="symbol-bootstrap-presets"></span><h3>Presets<a class="headerlink" href="#presets" title="Permalink to this headline">¶</a></h3>
+<p>Node configuration is done through a <strong>YAML configuration file</strong> which specifies every possible network parameter. Since the complete file can be several hundred lines long, a number of <strong>presets</strong> are available to simplify its handling:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Preset</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">mainnet</span></code></td>
+<td>A <strong>single node</strong> that connects to the current public <strong>main</strong> network. Nemesis block is copied over. Requires an <code class="docutils literal"><span class="pre">assembly</span></code>, as shown below (<a class="reference external" href="https://github.com/symbol/symbol-bootstrap/blob/main/presets/mainnet/network.yml">configuration file</a>).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">bootstrap</span></code></td>
+<td><strong>Autonomous network</strong> with 1 mongo database, 2 peers, 1 api and 1 rest gateway. Nemesis block is generated (<a class="reference external" href="https://github.com/symbol/symbol-bootstrap/blob/main/presets/bootstrap/network.yml">configuration file</a>). This is the default preset.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">testnet</span></code></td>
+<td>A <strong>single node</strong> that connects to the current public <strong>test</strong> network. Nemesis block is copied over. Requires an <code class="docutils literal"><span class="pre">assembly</span></code>, as shown below (<a class="reference external" href="https://github.com/symbol/symbol-bootstrap/blob/main/presets/testnet/network.yml">configuration file</a>).</td>
+</tr>
+</tbody>
+</table>
+<p>Presets can be further customized by specifying an <strong>assembly</strong> (or flavor) which provides additional parameters:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Preset</th>
+<th class="head">Available assemblies</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">mainnet</span></code></td>
+<td><code class="docutils literal"><span class="pre">peer</span></code></td>
+<td>The node is a harvester (<a class="reference external" href="https://github.com/symbol/symbol-bootstrap/blob/main/presets/mainnet/assembly-peer.yml">configuration file</a>).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">mainnet</span></code></td>
+<td><code class="docutils literal"><span class="pre">api</span></code></td>
+<td>The node runs its own mongo database and rest gateway (<a class="reference external" href="https://github.com/symbol/symbol-bootstrap/blob/main/presets/mainnet/assembly-api.yml">configuration file</a>).</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">mainnet</span></code></td>
+<td><code class="docutils literal"><span class="pre">dual</span></code></td>
+<td>The node is a harvester and runs its own mongo database and rest gateway (<a class="reference external" href="https://github.com/symbol/symbol-bootstrap/blob/main/presets/mainnet/assembly-dual.yml">configuration file</a>).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">bootstrap</span></code></td>
+<td><code class="docutils literal"><span class="pre">light</span></code></td>
+<td>It’s a <strong>lighter version</strong> of <code class="docutils literal"><span class="pre">bootstrap</span></code> with 1 mongo database, 1 dual peer and 1 rest gateway. Great for faster light e2e automatic testing. Nemesis block is generated (<a class="reference external" href="https://github.com/symbol/symbol-bootstrap/blob/main/presets/bootstrap/assembly-light.yml">configuration file</a>).</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">bootstrap</span></code></td>
+<td><code class="docutils literal"><span class="pre">full</span></code></td>
+<td>It’s the default <code class="docutils literal"><span class="pre">bootstrap</span></code> preset plus 1 wallet, 1 explorer and 1 faucet. Great for demonstration purposes. Nemesis block is generated (<a class="reference external" href="https://github.com/symbol/symbol-bootstrap/blob/main/presets/bootstrap/assembly-full.yml">configuration file</a>).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">testnet</span></code></td>
+<td><code class="docutils literal"><span class="pre">peer</span></code></td>
+<td>The node is a harvester (<a class="reference external" href="https://github.com/symbol/symbol-bootstrap/blob/main/presets/testnet/assembly-peer.yml">configuration file</a>).</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">testnet</span></code></td>
+<td><code class="docutils literal"><span class="pre">api</span></code></td>
+<td>The node runs its own mongo database and rest gateway (<a class="reference external" href="https://github.com/symbol/symbol-bootstrap/blob/main/presets/testnet/assembly-api.yml">configuration file</a>).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">testnet</span></code></td>
+<td><code class="docutils literal"><span class="pre">dual</span></code></td>
+<td>The node is a harvester and runs its own mongo database and rest gateway (<a class="reference external" href="https://github.com/symbol/symbol-bootstrap/blob/main/presets/testnet/assembly-dual.yml">configuration file</a>).</td>
+</tr>
+</tbody>
+</table>
+<p>Finally, if additional configuration is required, a <strong>custom YAML file</strong> can be provided. Any value in this file overrides the default values set by the preset or the assembly so it can be combined on top of them. Take a look at the <a class="reference internal" href="configuring-network-properties.html"><span class="doc">Configuring network properties</span></a> guide to know which parameters are available.</p>
+</div>
+<div class="section" id="creating-the-configuration-file">
+<h3>Creating the configuration file<a class="headerlink" href="#creating-the-configuration-file" title="Permalink to this headline">¶</a></h3>
+<p>Before building the network the full configuration file has to be created by using the <a class="reference external" href="https://github.com/symbol/symbol-bootstrap/blob/main/docs/config.md">symbol-bootstrap config</a> command and providing the desired preset and assembly:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>symbol-bootstrap config -p &lt;preset&gt; -a &lt;assembly&gt; -c &lt;custom_parameters_file.yml&gt;
+</pre></div>
+</div>
+<p>Some examples:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>symbol-bootstrap config -p bootstrap
+symbol-bootstrap config -p testnet -a peer
+symbol-bootstrap config -p testnet -a dual
+symbol-bootstrap config -p testnet -a dual -c custom_parameters.yml
+</pre></div>
+</div>
+<p>This will create a folder, called <code class="docutils literal"><span class="pre">target</span></code> by default (It can be changed with the <code class="docutils literal"><span class="pre">-t</span></code> option), containing among other things the generated complete configuration file (<code class="docutils literal"><span class="pre">target/preset.yml</span></code>) ready to be used to build the network.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>On Linux, if you get the error <code class="docutils literal"><span class="pre">Permission</span> <span class="pre">denied</span> <span class="pre">while</span> <span class="pre">trying</span> <span class="pre">to</span> <span class="pre">connect</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">Docker</span> <span class="pre">daemon</span> <span class="pre">socket</span></code> it means that your user does not belong to the <code class="docutils literal"><span class="pre">docker</span></code> group. Add it with:</p>
+<div class="last highlight-bash"><div class="highlight"><pre><span></span>sudo addgroup <span class="nv">$USER</span> docker
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="building-the-network-and-nodes">
+<h2>Building the network and nodes<a class="headerlink" href="#building-the-network-and-nodes" title="Permalink to this headline">¶</a></h2>
+<p>This command prepares the necessary Docker files based on the provided configuration:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>symbol-bootstrap compose
+</pre></div>
+</div>
+<p>It only needs to be run once.</p>
+</div>
+<div class="section" id="running-the-network">
+<h2>Running the network<a class="headerlink" href="#running-the-network" title="Permalink to this headline">¶</a></h2>
+<p>Finally, execute this command to start the necessary Docker instances and boot your network:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>symbol-bootstrap run
+</pre></div>
+</div>
+<p>Stop the process by pressing <code class="docutils literal"><span class="pre">Ctrl+C</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>To run the docker containers in the background of your terminal, you can run the service in detached mode using the option <code class="docutils literal"><span class="pre">--detach</span></code> or <code class="docutils literal"><span class="pre">-d</span></code>.</p>
+<p class="last">You then have to stop them with <code class="docutils literal"><span class="pre">symbol-bootstrap</span> <span class="pre">stop</span></code>.</p>
+</div>
+</div>
+<div class="section" id="the-all-in-one-start-command">
+<span id="symbol-bootstrap-all-in-one"></span><h2>The all-in-one <code class="docutils literal"><span class="pre">start</span></code> command<a class="headerlink" href="#the-all-in-one-start-command" title="Permalink to this headline">¶</a></h2>
+<p>The above three commands (<code class="docutils literal"><span class="pre">config</span></code>, <code class="docutils literal"><span class="pre">compose</span></code> and <code class="docutils literal"><span class="pre">run</span></code>) can be merged into one:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>symbol-bootstrap start -p &lt;preset&gt; -a &lt;assembly&gt;
+</pre></div>
+</div>
+<p>That’s right, a test network or node can be instantiated and booted with a single command!</p>
+</div>
+<div class="section" id="next-steps">
+<h2>Next steps<a class="headerlink" href="#next-steps" title="Permalink to this headline">¶</a></h2>
+<p>Proceed to the following guides to put what you have learned into practice!</p>
+<ul class="simple">
+<li><a class="reference internal" href="creating-a-private-test-net.html"><span class="doc">Creating private test networks</span></a>: How to set up your own private network and access its nodes.</li>
+<li><a class="reference internal" href="running-a-symbol-node.html"><span class="doc">Running a Symbol node</span></a>: How to set up your own node and join Symbol’s network.</li>
+</ul>
+<p>Read the <a class="reference external" href="https://github.com/symbol/symbol-bootstrap/blob/main/README.md#user-content-commands">complete list</a> of <code class="docutils literal"><span class="pre">symbol-bootstrap</span></code> commands.</p>
+</div>
+</div>
+
+  <div class="section">
+  
+    
+
+
+
+
+  
+  
+  </div>
+
+            
+            <p class="feedback">
+                <hr/>
+                Did you find what you were looking for?
+                <a href="https://github.com/symbol/symbol-docs/issues/new/choose" target="_blank">Give us your feedback.</a>
+            </p>
+            
+        </div>
+         
+
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+    
+    <div class="edit-github">
+    <a href="https://github.com/symbol/symbol-docs/edit/main/source/guides/network/using-symbol-bootstrap.rst" rel="nofollow"> <i class="fab fa-github"></i> Improve this page</a>
+</div>
+    <span class="title">On this page</span>
+    <ul>
+<li><a class="reference internal" href="#">Using Symbol Bootstrap</a><ul>
+<li><a class="reference internal" href="#requirements">Requirements</a><ul>
+<li><a class="reference internal" href="#environment">Environment</a></li>
+<li><a class="reference internal" href="#ports">Ports</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#configuration">Configuration</a><ul>
+<li><a class="reference internal" href="#presets">Presets</a></li>
+<li><a class="reference internal" href="#creating-the-configuration-file">Creating the configuration file</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#building-the-network-and-nodes">Building the network and nodes</a></li>
+<li><a class="reference internal" href="#running-the-network">Running the network</a></li>
+<li><a class="reference internal" href="#the-all-in-one-start-command">The all-in-one <code class="docutils literal"><span class="pre">start</span></code> command</a></li>
+<li><a class="reference internal" href="#next-steps">Next steps</a></li>
+</ul>
+</li>
+</ul>
+
+    
+    </div>
+</div>
+
+ 
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-desktop',
+        debug: false
+    });
+
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-mobile',
+        debug: false
+    });
+</script>
+
+  </body>
+</html>

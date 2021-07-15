@@ -1,0 +1,533 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Enrolling to the Supernode program &#8212; Symbol Documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700&display=swap" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     'Main',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/js/custom.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/examplecode.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Mosaic restrictions" href="../restriction/index.html" />
+    <link rel="prev" title="Using Symbol Bootstrap" href="using-symbol-bootstrap.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174021413-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-174021413-2');
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../../guides/atom.xml" title="Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div class="navbar navbar-default gradient navbar-fixed-top"
+     id="navbar">
+    <div class="container navbar-top hidden-xs hidden-sm">
+        <div class="row">
+            <div class="col-lg-8 col-md-7">
+                <div id="language">
+    <label class="select">
+        <select>
+            <option id="english" value="en">EN</option>
+            <option id="japanese" value="ja">JA</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">Translate</option>
+        </select>
+    </label>
+</div>
+            </div>
+            <div class="col-lg-4 col-md-5">
+                
+                <div id="search-box">
+    <input class="search search-desktop form-control" placeholder="Search"/>
+</div>
+                
+                <ul id="social" class="list-inline">
+    <li>
+        <a href="https://twitter.com/NEMofficial" rel="nofollow"><i class="fab fa-twitter" title="Twitter"></i></a>
+    </li>
+    <li>
+        <a href="https://discord.com/invite/xymcity" rel="nofollow" title="Discord"><i class="fab fa-discord"></i></a>
+    </li>
+    <li>
+        <a href="https://github.com/symbol/" rel="nofollow" title="GitHub"><i class="fab fa-github"></i></a>
+    </li>
+</ul>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="container navbar-main">
+        <div class="row">
+            <div class="navbar-header col-lg-6 col-md-4 col-xs-6">
+                <a class="navbar-brand" href="../../index.html">
+                    
+                    <span><img alt="NEM logo" src="../../_static/logo-symbol.svg"></span>
+                    
+                </a>
+            </div>
+            <div class="navbar-right col-lg-6 col-md-8 hidden-xs hidden-sm">
+                <ul class="list-inline">
+    <li>
+        <a href="/getting-started/what-is-symbol.html" class="">Getting Started</a>
+    </li>
+    <li>
+        <a href="/concepts/overview.html" class="">Features</a>
+    </li>
+    <li>
+        <a href="/guides/category.html" class="active">Guides</a>
+    </li>
+    <li>
+        <a href="/references/overview.html" class="">Tools</a>
+    </li>
+    <li>
+        <a href="/contribute/community.html" class="">Help</a>
+    </li>
+</ul>
+            </div>
+            <div class="navbar-right col-xs-6 hidden-lg hidden-md">
+                
+                <div id="search-box">
+    <input class="search search-mobile form-control" placeholder="Search"/>
+</div>
+                
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 sidebar-xs visible-xs visible-sm">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigation <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu globaltoc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Guides</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../account/index.html">Accounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aggregate/index.html">Aggregate transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blockchain/index.html">Blockchain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../harvesting/index.html">Harvesting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/index.html">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../migration/index.html">Migration from NIS1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monitor/index.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mosaic/index.html">Mosaics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multisig/index.html">Multisignature accounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../namespace/index.html">Namespaces</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Network</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="running-a-symbol-node.html">Running a Symbol node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="running-a-symbol-node-manually.html">Running a Symbol node manually</a></li>
+<li class="toctree-l3"><a class="reference internal" href="running-a-secure-symbol-node.html">Running a Secure Symbol node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maintaining-a-symbol-node.html">Maintaining a Symbol Node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="non-custodial-node-setup.html">Non-custodial node setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuring-node-properties.html">Configuring node properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-a-private-test-net.html">Creating private test networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuring-network-properties.html">Configuring network properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connecting-to-mongodb.html">How to connect to MongoDB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using-symbol-bootstrap.html">Using Symbol Bootstrap</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Enrolling to the Supernode program</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../restriction/index.html">Mosaic restrictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../secretlock/index.html">SecretLock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transfer/index.html">Transfers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exchanges/index.html">Exchanges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/overview.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references/index.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">Contributing</a></li>
+</ul>
+</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        
+        
+
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
+    <h4>Navigation</h4>
+    <hr />
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Guides</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../account/index.html">Accounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aggregate/index.html">Aggregate transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blockchain/index.html">Blockchain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../harvesting/index.html">Harvesting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/index.html">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../migration/index.html">Migration from NIS1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monitor/index.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mosaic/index.html">Mosaics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multisig/index.html">Multisignature accounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../namespace/index.html">Namespaces</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Network</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="running-a-symbol-node.html">Running a Symbol node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="running-a-symbol-node-manually.html">Running a Symbol node manually</a></li>
+<li class="toctree-l3"><a class="reference internal" href="running-a-secure-symbol-node.html">Running a Secure Symbol node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maintaining-a-symbol-node.html">Maintaining a Symbol Node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="non-custodial-node-setup.html">Non-custodial node setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuring-node-properties.html">Configuring node properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-a-private-test-net.html">Creating private test networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuring-network-properties.html">Configuring network properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connecting-to-mongodb.html">How to connect to MongoDB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using-symbol-bootstrap.html">Using Symbol Bootstrap</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Enrolling to the Supernode program</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../restriction/index.html">Mosaic restrictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../secretlock/index.html">SecretLock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transfer/index.html">Transfers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exchanges/index.html">Exchanges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/overview.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references/index.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">Contributing</a></li>
+</ul>
+
+</div>
+        
+    </div>
+</div>
+
+
+        
+        <div class="col-md-7 content">
+            
+  <div class="section" id="enrolling-to-the-supernode-program">
+<h1>Enrolling to the Supernode program<a class="headerlink" href="#enrolling-to-the-supernode-program" title="Permalink to this headline">¶</a></h1>
+<p>This guide shows how to create a node and register it as a <strong>Supernode</strong>. Make sure you know about the <a class="reference internal" href="../../concepts/reward-programs.html#supernode-program"><span class="std std-ref">Supernode Program</span></a> before continuing with this guide.</p>
+<p>The <a class="reference internal" href="running-a-symbol-node.html"><span class="doc">Running a Symbol node</span></a> guide contains more details on how to create a Symbol node and its content <strong>partially overlaps</strong> this guide. You can either follow that guide to build a <strong>regular node</strong> or this one to build a <strong>supernode</strong>, but <strong>not both</strong>.</p>
+<p>The next two sections explain how to create your supernode <a class="reference internal" href="#enroll-supernode-with-bootstrap"><span class="std std-ref">using Symbol Bootstrap</span></a>, which is the easiest method, and <a class="reference internal" href="#enroll-supernode-manually"><span class="std std-ref">manually</span></a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The Supernode program is only open for testing on TESTNET right now. The program will be open on MAINNET shortly.</p>
+</div>
+<div class="section" id="using-symbol-bootstrap">
+<span id="enroll-supernode-with-bootstrap"></span><h2>Using Symbol Bootstrap<a class="headerlink" href="#using-symbol-bootstrap" title="Permalink to this headline">¶</a></h2>
+<p>Symbol Bootstrap is the <strong>easiest way</strong> to create and run Symbol nodes. <a class="reference internal" href="using-symbol-bootstrap.html"><span class="doc">Learn about this tool</span></a> if you are not familiar with it. Note that, as stated in that guide, ports 3000, 7881 and 7900 need to be open for the node to work.</p>
+<ol class="arabic">
+<li><p class="first">Make sure you are using the <strong>latest Symbol Bootstrap</strong> by running:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>npm install -g symbol-bootstrap
+</pre></div>
+</div>
+<p>It should be at least <strong>version 1.0.5</strong>.</p>
+</li>
+<li><p class="first">Create a <a class="reference internal" href="using-symbol-bootstrap.html#symbol-bootstrap-presets"><span class="std std-ref">custom preset file</span></a> named, for example, <code class="docutils literal"><span class="pre">supernode.yml</span></code>:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="nt">nodes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">rewardProgram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SuperNode</span>
+    <span class="nt">host</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-symbol-node.com</span> <span class="c1"># Could also be an IP address</span>
+</pre></div>
+</div>
+<p>You can further customize this preset file:</p>
+<ul>
+<li><p class="first">If you want the node to be also a <a class="reference internal" href="../../concepts/block.html#finalization"><span class="std std-ref">Voting node</span></a> (and benefit from the <a class="reference internal" href="../../concepts/reward-programs.html#voting-node-program"><span class="std std-ref">Voting Node rewards program</span></a>) add also <code class="docutils literal"><span class="pre">voting:</span> <span class="pre">true</span></code> below the <code class="docutils literal"><span class="pre">host</span></code> line, with the same indentation as it.</p>
+</li>
+<li><p class="first">If you need to change the default port that the monitoring agent uses (7881) you can add <code class="docutils literal"><span class="pre">rewardProgramAgentPort:</span> <span class="pre">7882</span></code> (for example) <strong>at the top of the file</strong>.</p>
+</li>
+<li><p class="first">If you already have some of the required node accounts (main, transport, remote, VRF or voting) <a class="reference external" href="https://github.com/symbol/symbol-bootstrap/blob/main/docs/presetGuides.md#user-content-specify-the-nodes-private-keys">you can provide them in the preset file too</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">When managing your node through a <a class="reference internal" href="../../concepts/multisig-account.html"><span class="doc">multisig account</span></a>, the <strong>main</strong> account in the above preset file must be <strong>the multisig account</strong> (and <strong>not</strong> any of its cosignatories).</p>
+</div>
+</li>
+</ul>
+<p>See the full list of possible customizations in the <a class="reference external" href="https://github.com/symbol/symbol-bootstrap/blob/main/docs/presetGuides.md">Symbol Bootstrap documentation</a>.</p>
+</li>
+<li><p class="first"><strong>Create and run the node</strong> using the new preset file:</p>
+<p>Along with the standard node services, this will also download and install the <strong>monitoring agent</strong>.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>symbol-bootstrap start -p mainnet -a dual -c supernode.yml
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">start</span></code> command will create the node configuration and then launch it.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For test purposes you can use Symbol’s TESTNET using <code class="docutils literal"><span class="pre">-p</span> <span class="pre">testnet</span></code>.</p>
+</div>
+</li>
+<li><p class="first">Make sure your node is <strong>sufficiently funded</strong>. Your main account must hold at least <strong>1M</strong> <code class="docutils literal"><span class="pre">symbol.xym</span></code> <a class="reference internal" href="../../concepts/reward-programs.html#supernode-program"><span class="std std-ref">to be eligible as a supernode</span></a>.</p>
+<p>You can find the node’s main account address in the <code class="docutils literal"><span class="pre">target/addresses.yml</span></code> file.</p>
+<p>On the TESTNET, you can <strong>send tokens</strong> to your node’s main account using the <a class="reference external" href="http://faucet.testnet.symboldev.network">Symbol Faucet</a>. If you need more tokens than the faucet can serve, connect to <a class="reference external" href="https://t.me/nemhelpdesk">NEM’s Telegram Help Desk</a> and contact <a class="reference external" href="https://t.me/cryptobeliever">cryptobeliever</a>.</p>
+</li>
+<li><p class="first"><strong>Register the node</strong> by linking its remote, VRF and voting keys.</p>
+<p>Without interrupting Symbol Bootstrap, open another terminal and go to the same folder you were before. Then run:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>symbol-bootstrap link --useKnownRestGateways
+</pre></div>
+</div>
+<p>This sends a transaction linking the supplemental keys to the main account. This transaction pays a small <a class="reference internal" href="../../concepts/fees.html"><span class="doc">fee</span></a> so make sure your main account has <strong>extra funds</strong> beyond the requirements of the Supernode program.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">During the test period, heavy testing might artificially increase transaction fees. If <code class="docutils literal"><span class="pre">symbol-bootstrap</span></code> appears to be frozen with the message <code class="docutils literal"><span class="pre">Announcing</span> <span class="pre">Simple</span> <span class="pre">Transaction</span> <span class="pre">hash...</span></code> try increasing the transaction fee by adding a <code class="docutils literal"><span class="pre">--maxFee</span> <span class="pre">10000000</span></code> parameter, for example (these absolute units corespond to 10 <code class="docutils literal"><span class="pre">symbol.xym</span></code>).</p>
+</div>
+</li>
+<li><p class="first"><strong>Enroll in the Supernode program</strong>.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>symbol-bootstrap enrollRewardProgram --useKnownRestGateways
+</pre></div>
+</div>
+<p>This sends a transaction to the Controller address requesting enrollment (see the note regarding fees in the previous step).</p>
+<p>From this point, the <a class="reference internal" href="../../concepts/reward-programs.html#reward-programs-controller"><span class="std std-ref">reward programs controller</span></a> on the network will monitor the node.</p>
+</li>
+</ol>
+<p>You can now jump to the <strong>Validation</strong> section at the end of this guide.</p>
+</div>
+<div class="section" id="manually">
+<span id="enroll-supernode-manually"></span><h2>Manually<a class="headerlink" href="#manually" title="Permalink to this headline">¶</a></h2>
+<p>If you don’t want (or cannot) use Symbol Bootstrap you can still enroll your node in the Supernode program manually. These instructions are only available <strong>for Linux</strong>.</p>
+<p>First off, make sure your node is up and running (or ready to run). The <a class="reference internal" href="running-a-symbol-node-manually.html"><span class="doc">Running a Symbol node manually</span></a> guide explains how to setup the node.</p>
+<p>After following that guide, you need to <strong>install a monitoring agent</strong> and <strong>announce a special transaction</strong>. You are going to create a few files, so please create a folder to keep your filesystem tidy (for example called <code class="docutils literal"><span class="pre">agent</span></code> inside Catapult client’s <code class="docutils literal"><span class="pre">_build</span></code> folder).</p>
+<ol class="arabic">
+<li><p class="first"><strong>Download the node monitoring agent</strong>:</p>
+<p><a class="reference external" href="https://symbol-node-reward.s3-eu-west-1.amazonaws.com/packages/1.0.2-alpha.0/agent_binary/agent-linux.bin">Download the Linux binary</a> and make it executable:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>wget https://symbol-node-reward.s3-eu-west-1.amazonaws.com/packages/1.0.2-alpha.0/agent_binary/agent-linux.bin
+chmod +x agent-linux.bin
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>Create certificates</strong> for the monitoring agent:</p>
+<p>The agent <strong>authenticates</strong> every connection to the <a class="reference internal" href="../../concepts/reward-programs.html#reward-programs-controller"><span class="std std-ref">reward programs controller</span></a>, so you will need to create SSL certificates.</p>
+<p>Make sure you have <a class="reference external" href="https://www.openssl.org/">OpenSSL</a> at least <strong>version 1.1.1</strong>. You can install for example running <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">openssl</span></code>.</p>
+<ul>
+<li><p class="first">Create a folder named <code class="docutils literal"><span class="pre">certs</span></code> and move inside it.</p>
+</li>
+<li><p class="first">Create a new file named <code class="docutils literal"><span class="pre">agent-ca.cnf</span></code> with the following content:</p>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="k">[ca]</span>
+<span class="na">default_ca</span> <span class="o">=</span> <span class="s">CA_default</span>
+<span class="k">[CA_default]</span>
+<span class="na">policy</span> <span class="o">=</span> <span class="s">policy_catapult</span>
+<span class="k">[policy_catapult]</span>
+<span class="na">commonName</span> <span class="o">=</span> <span class="s">supplied</span>
+<span class="k">[req]</span>
+<span class="na">prompt</span> <span class="o">=</span> <span class="s">no</span>
+<span class="na">distinguished_name</span> <span class="o">=</span> <span class="s">dn</span>
+<span class="k">[dn]</span>
+<span class="na">CN</span> <span class="o">=</span> <span class="s">Agent CA</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Then generate the certificate by running:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># Generate agent CA key pair</span>
+openssl genpkey -out agent-ca.key.pem -outform PEM -algorithm ed25519
+
+<span class="c1"># Create agent CA CSR</span>
+openssl req -config agent-ca.cnf -key agent-ca.key.pem -new -out agent-ca.csr.pem
+
+<span class="c1"># Base64 encode agent CA CSR file for later use</span>
+base64 agent-ca.csr.pem --wrap <span class="m">0</span> <span class="p">;</span> <span class="nb">echo</span>
+</pre></div>
+</div>
+<p>The last command outputs a string of characters. Copy them to be used later.</p>
+</li>
+<li><p class="first">Finally, download the Symbol network CA certificate to allow the agent to authenticate connections to the node it is monitoring (Download only one):</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># For MAINNET</span>
+wget https://symbol-node-reward.s3-eu-west-1.amazonaws.com/mainnet/certs/controller-ca-crt.pem
+
+<span class="c1"># For TESTNET</span>
+wget https://symbol-node-reward.s3-eu-west-1.amazonaws.com/testnet/certs/controller-ca-crt.pem
+</pre></div>
+</div>
+</li>
+<li><p class="first">Move out of the <code class="docutils literal"><span class="pre">certs</span></code> folder.</p>
+</li>
+</ul>
+</li>
+<li><p class="first"><strong>Configure the monitoring agent</strong>:</p>
+<p>Create a text file named <code class="docutils literal"><span class="pre">agent.properties</span></code> and add the content below, replacing <code class="docutils literal"><span class="pre">NODE_PRIVATE_KEY</span></code> and <code class="docutils literal"><span class="pre">REST_GATEWAY_URL</span></code> with the appropriate values:</p>
+<div class="highlight-properties"><div class="highlight"><pre><span></span><span class="c">; Use 104 for MAINNET or 152 for TESTNET</span>
+<span class="na">NETWORK_TYPE</span><span class="o">=</span><span class="s">104</span>
+<span class="na">LOGGER_FILE</span><span class="o">=</span><span class="s">agent.log</span>
+<span class="c">; Replace with the public host where your node is running (hostname or IP address)</span>
+<span class="na">REST_GATEWAY_URL</span><span class="o">=</span><span class="s">http://my-symbol-node.com:3000</span>
+<span class="na">REWARD_PROGRAM</span><span class="o">=</span><span class="s">SuperNode</span>
+<span class="c">; Replace with the main account&#39;s public key</span>
+<span class="na">MAIN_PUBLIC_KEY</span><span class="o">=</span><span class="s">●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●</span>
+<span class="na">CERTS_CONTROLLER_CA_CERT_FILE</span><span class="o">=</span><span class="s">./certs/controller-ca-crt.pem</span>
+<span class="na">CERTS_AGENT_CA_KEY_FILE</span><span class="o">=</span><span class="s">./certs/agent-ca.key.pem</span>
+<span class="na">CONTROLLER_API_URL</span><span class="o">=</span><span class="s">http://node-monitoring.symbolblockchain.io:7890; MAINNET</span>
+<span class="c">; CONTROLLER_API_URL=http://node-monitoring.testnet.symboldev.network:7890; TESTNET</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">By default the agent uses port number <code class="docutils literal"><span class="pre">7881</span></code> to communicate. If this port is unavailable you can add an <code class="docutils literal"><span class="pre">HTTP_PORT=</span></code> line with a different port number.</p>
+</div>
+<p>You need to specify <code class="docutils literal"><span class="pre">REST_GATEWAY_URL</span></code> because this URL tells the controller how to contact the node’s REST interface during the enrollment process and later monitoring.</p>
+</li>
+<li><p class="first"><strong>Run the agent</strong>:</p>
+<p>Run this command and <strong>keep it running</strong> for as long as your node runs. Remember that the Controller will periodically query the agent and your node might be <strong>removed from the Supernode reward program</strong> if the agent fails to answer enough times.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>./agent-linux.bin --config agent.properties
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Once the agent starts running, it will poll the Controller every 2 minutes until the enrollment is completed and new communication certificates are generated. At that point the agent just listens for commands from the Controller.</p>
+</div>
+</li>
+<li><p class="first"><strong>Send the enrollment message</strong></p>
+<p>The last bit is to <strong>notify the Controller</strong> that your node wants to enroll in the Supernode program. This is done through a conventional <a class="reference internal" href="../../serialization/transfer.html#transfer-transaction"><span class="std std-ref">Transfer Transaction</span></a> with no mosaics and a special message:</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>enroll AGENT_URL BASE64_ENCODED_AGENT_CA_CSR
+</pre></div>
+</div>
+<ul class="simple">
+<li>Replace <code class="docutils literal"><span class="pre">AGENT_URL</span></code> with <code class="docutils literal"><span class="pre">https://</span></code> + the host where you are running the agent + <code class="docutils literal"><span class="pre">:7881</span></code>. This URL must be <strong>publicly accessible</strong>. For example: <a class="reference external" href="https://my-symbol-node.com:7881">https://my-symbol-node.com:7881</a>. IP addresses are also valid. Use the port number you specified in step 3 above if you didn’t use the standard one.</li>
+<li>Replace <code class="docutils literal"><span class="pre">BASE64_ENCODED_AGENT_CA_CSR</span></code> with the output of step 2.</li>
+</ul>
+<p>Finally, the recipient address for this transaction is:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">NDG2F6IHON7EDOXZCHSTSJ2YMUHDFXAQ2EUZHFA</span></code> for MAINNET.</li>
+<li><code class="docutils literal"><span class="pre">TDL73SDUMPDK7EOF7H3O4F5WB5WHG2SX7XUSFZQ</span></code> for TESTNET.</li>
+</ul>
+<p>The transaction can then be announced using <a class="reference internal" href="../../cli.html"><span class="doc">symbol-cli</span></a>:</p>
+<div class="highlight-symbol-cli"><div class="highlight"><pre><span></span>symbol-cli transaction transfer --mode normal --sync \
+           --recipient-address NDG2F6IHON7EDOXZCHSTSJ2YMUHDFXAQ2EUZHFA \
+           --message &quot;enrol AGENT_URL BASE64_ENCODED_AGENT_CA_CSR&quot; \
+           --mosaics @symbol.xym::0
+</pre></div>
+</div>
+<p><strong>This transaction must be signed by your node’s main account</strong>, so make sure it is the default profile in <code class="docutils literal"><span class="pre">symbol-cli</span></code>.</p>
+<p>This transaction pays a small <a class="reference internal" href="../../concepts/fees.html"><span class="doc">fee</span></a> so make sure your main account has <strong>extra funds</strong> beyond the requirements of the Supernode program.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If the default fee used by <code class="docutils literal"><span class="pre">symbol-cli</span></code> is too small for the current network conditions, you might see the program get stuck processing the <strong>Transaction announced</strong> step.</p>
+<p class="last">If the command does not finish within 5 minutes, press <code class="docutils literal"><span class="pre">Ctrl+C</span></code> and try again adding the <code class="docutils literal"><span class="pre">--max-fee</span> <span class="pre">1000000</span></code> parameter, which uses a <strong>1 XYM</strong> fee. Feel free to use a different number after reading the <a class="reference internal" href="../../concepts/fees.html"><span class="doc">fees documentation</span></a>.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="validate-the-setup">
+<h2>Validate the setup<a class="headerlink" href="#validate-the-setup" title="Permalink to this headline">¶</a></h2>
+<p>You can <strong>validate your node</strong> by checking that all services are running properly. Check that the following URLs return valid data:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://localhost:3000/chain/info">http://localhost:3000/chain/info</a>: Node’s connection to the network.</li>
+<li><a class="reference external" href="http://localhost:3000/node/info">http://localhost:3000/node/info</a>: Node’s health.</li>
+<li><a class="reference external" href="https://localhost:7881/metadata">https://localhost:7881/metadata</a>: Agent’s report (see note below).</li>
+</ul>
+<p>And then check again that they are accessible through your public host name.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>To access the last endpoint you will need to use a commandline tool that allows disabling TLS checks, for example:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl --insecure https://localhost:7881/metadata
+</pre></div>
+</div>
+<p>or:</p>
+<div class="last highlight-bash"><div class="highlight"><pre><span></span>wget --no-check-certificate https://localhost:7881/metadata
+</pre></div>
+</div>
+</div>
+<p>Once enrollment is complete, you can use the <a class="reference external" href="http://explorer.symbolblockchain.io/nodes">Symbol Explorer (MAINNET)</a> (or <a class="reference external" href="http://explorer.testnet.symboldev.network/">TESTNET</a>) to check that your node appears in the list with the appropriate Reward Program box (The information refreshes every 30 seconds).</p>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+            
+            <p class="feedback">
+                <hr/>
+                Did you find what you were looking for?
+                <a href="https://github.com/symbol/symbol-docs/issues/new/choose" target="_blank">Give us your feedback.</a>
+            </p>
+            
+        </div>
+         
+
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+    
+    <div class="edit-github">
+    <a href="https://github.com/symbol/symbol-docs/edit/main/source/guides/network/supernode-enrollment.rst" rel="nofollow"> <i class="fab fa-github"></i> Improve this page</a>
+</div>
+    <span class="title">On this page</span>
+    <ul>
+<li><a class="reference internal" href="#">Enrolling to the Supernode program</a><ul>
+<li><a class="reference internal" href="#using-symbol-bootstrap">Using Symbol Bootstrap</a></li>
+<li><a class="reference internal" href="#manually">Manually</a></li>
+<li><a class="reference internal" href="#validate-the-setup">Validate the setup</a></li>
+</ul>
+</li>
+</ul>
+
+    
+    </div>
+</div>
+
+ 
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-desktop',
+        debug: false
+    });
+
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-mobile',
+        debug: false
+    });
+</script>
+
+  </body>
+</html>

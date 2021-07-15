@@ -1,0 +1,665 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>エスクローコントラクトの作成 &#8212; Symbol Documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700&display=swap" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     'Main',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/examplecode.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="マルチシグトランザクションの送信" href="sending-a-multisig-transaction.html" />
+    <link rel="prev" title="アグリゲートコンプリートトランザクションに連署名を追加する" href="adding-cosginatures-aggregate-complete.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174021413-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-174021413-2');
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../../guides/atom.xml" title="Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div class="navbar navbar-default gradient navbar-fixed-top"
+     id="navbar">
+    <div class="container navbar-top hidden-xs hidden-sm">
+        <div class="row">
+            <div class="col-lg-8 col-md-7">
+                <div id="language">
+    <label class="select">
+        <select>
+            <option id="english" value="en">EN</option>
+            <option id="japanese" value="ja">JA</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </label>
+</div>
+            </div>
+            <div class="col-lg-4 col-md-5">
+                
+                <div id="search-box">
+    <input class="search search-desktop form-control" placeholder="Search"/>
+</div>
+                
+                <ul id="social" class="list-inline">
+    <li>
+        <a href="https://twitter.com/NEMofficial" rel="nofollow"><i class="fab fa-twitter" title="Twitter"></i></a>
+    </li>
+    <li>
+        <a href="https://discord.com/invite/xymcity" rel="nofollow" title="Discord"><i class="fab fa-discord"></i></a>
+    </li>
+    <li>
+        <a href="https://github.com/symbol/" rel="nofollow" title="GitHub"><i class="fab fa-github"></i></a>
+    </li>
+</ul>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="container navbar-main">
+        <div class="row">
+            <div class="navbar-header col-lg-6 col-md-4 col-xs-6">
+                <a class="navbar-brand" href="../../index.html">
+                    
+                    <span><img alt="NEM logo" src="../../_static/logo-symbol.svg"></span>
+                    
+                </a>
+            </div>
+            <div class="navbar-right col-lg-6 col-md-8 hidden-xs hidden-sm">
+                <ul class="list-inline">
+    <li>
+        <a href="/ja/getting-started/what-is-symbol.html" class="">入門</a>
+    </li>
+    <li>
+        <a href="/ja/concepts/overview.html" class="">機能</a>
+    </li>
+    <li>
+        <a href="/ja/guides/category.html" class="active">ガイド</a>
+    </li>
+    <li>
+        <a href="/ja/references/overview.html" class="">ツール</a>
+    </li>
+    <li>
+        <a href="/ja/contribute/community.html" class="">ヘルプ</a>
+    </li>
+</ul>
+            </div>
+            <div class="navbar-right col-xs-6 hidden-lg hidden-md">
+                
+                <div id="search-box">
+    <input class="search search-mobile form-control" placeholder="Search"/>
+</div>
+                
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 sidebar-xs visible-xs visible-sm">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">ナビゲーション <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu globaltoc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">入門</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">ガイド</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../account/index.html">アカウント</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">アグリゲートトランザクション</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="adding-cosginatures-aggregate-complete.html">アグリゲートコンプリートトランザクションに連署名を追加する</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">エスクローコントラクトの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sending-a-multisig-transaction.html">マルチシグトランザクションの送信</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sending-multiple-transactions-together-with-aggregate-complete-transaction.html">複数のトランザクションを同時に送信</a></li>
+<li class="toctree-l3"><a class="reference internal" href="signing-announced-aggregate-bonded-transactions-automatically.html">自動的なアグリゲートボンデッドトランザクションの署名</a></li>
+<li class="toctree-l3"><a class="reference internal" href="signing-announced-aggregate-bonded-transactions.html">アグリゲートボンデッドトランザクションの連署</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../blockchain/index.html">ブロックチェーン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../harvesting/index.html">ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/index.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../migration/index.html">NIS1 からのマイグレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monitor/index.html">モニタリング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mosaic/index.html">モザイク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multisig/index.html">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../namespace/index.html">ネームスペース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">ネットワーク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../restriction/index.html">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../secretlock/index.html">シークレットロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transfer/index.html">転送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exchanges/index.html">Exchanges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/overview.html">コンセプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">貢献</a></li>
+</ul>
+</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        
+        
+
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
+    <h4>ナビゲーション</h4>
+    <hr />
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">入門</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">ガイド</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../account/index.html">アカウント</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">アグリゲートトランザクション</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="adding-cosginatures-aggregate-complete.html">アグリゲートコンプリートトランザクションに連署名を追加する</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">エスクローコントラクトの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sending-a-multisig-transaction.html">マルチシグトランザクションの送信</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sending-multiple-transactions-together-with-aggregate-complete-transaction.html">複数のトランザクションを同時に送信</a></li>
+<li class="toctree-l3"><a class="reference internal" href="signing-announced-aggregate-bonded-transactions-automatically.html">自動的なアグリゲートボンデッドトランザクションの署名</a></li>
+<li class="toctree-l3"><a class="reference internal" href="signing-announced-aggregate-bonded-transactions.html">アグリゲートボンデッドトランザクションの連署</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../blockchain/index.html">ブロックチェーン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../harvesting/index.html">ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/index.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../migration/index.html">NIS1 からのマイグレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monitor/index.html">モニタリング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mosaic/index.html">モザイク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multisig/index.html">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../namespace/index.html">ネームスペース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">ネットワーク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../restriction/index.html">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../secretlock/index.html">シークレットロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transfer/index.html">転送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exchanges/index.html">Exchanges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/overview.html">コンセプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">貢献</a></li>
+</ul>
+
+</div>
+        
+    </div>
+</div>
+
+
+        
+        <div class="col-md-7 content">
+            
+  <div class="section" id="creating-an-escrow-contract">
+<h1>エスクローコントラクトの作成<a class="headerlink" href="#creating-an-escrow-contract" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>エスクローコントラクトの作成でアグリゲートボンドトランザクションについて学習します。</p>
+<div class="section" id="use-case">
+<h2>ユースケース<a class="headerlink" href="#use-case" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<blockquote>
+<div><strong>エスクロー</strong> とは <em>第三者が主要取引当事者のために、金銭または書類を受け取り・支払い</em> をする <em>契約上の取り決め</em> です。この支払いは <em>取引当事者によって合意された条件</em> または 取引の完了または終了までの間、ブローカーの本人または他の人物に代わって <em>資産を保持するためにブローカーによって確立されたアカウント</em> に依存します。より詳しい説明は <a href="https://en.wikipedia.org/wiki/Escrow" target="_blank">Wikipedia</a> を参照してください。</div></blockquote>
+<p>この例では2つの当事者が実質的なサービスに同意すると仮定して、エスクローが即時に実行できることを意味します:</p>
+<ol class="arabic simple">
+<li>買い手と売り手が規約に同意する</li>
+<li>買い手がエスクローへ商品代金を送る</li>
+<li>売り手が商品またはサービスを買い手へ届ける</li>
+<li>買い手は商品またはサービスを受理する</li>
+<li>エスクローは売り手へ商品代を開放する</li>
+</ol>
+<div class="figure align-center" id="id1">
+<img alt="../../_images/aggregate-escrow-11.png" src="../../_images/aggregate-escrow-11.png" style="width: 600px;" />
+<p class="caption"><span class="caption-text">マルチアセットエスクロートランザクション</span></p>
+</div>
+<div class="section" id="how-to-create-an-escrow-contract-with-symbol">
+<h3>Symbol でのエスクローコントラクトの作り方<a class="headerlink" href="#how-to-create-an-escrow-contract-with-symbol" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>前述の説明を Symbol 関連の概念に正規化します:</p>
+<ul class="simple">
+<li><strong>契約上の取り決め</strong>: <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">AggregateTransaction</span></a> と呼ばれる新しいタイプの取引。</li>
+<li><strong>第三者がお金を受け取って支払いをする</strong>: 第三者は介在しない、私たちはブロックチェーン技術を使うつもりです。</li>
+<li><strong>主要取引当事者</strong>: Symbol アカウントが参加者を表現します。</li>
+<li><strong>トランザクション当事者によって合意される条件</strong>: すべての参加者が AggregateTransaction に署名するとき。</li>
+<li><strong>資産を保持するためにブローカーによって確立された口座</strong>: 中間口座はありません、交換は AggregateTransaction を使用してアトミックに行われます。</li>
+<li><strong>取引の完了または終了まで</strong>: トランザクションはブロックに含まれるか期限切れになります。</li>
+</ul>
+</div>
+</div>
+<div class="section" id="prerequisites">
+<h2>前提条件<a class="headerlink" href="#prerequisites" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="../transfer/sending-a-transfer-transaction.html"><span class="doc">モザイクとメッセージを２つのアカウント間で送信する</span></a> ガイドを完了している</li>
+<li>Alice とチケット販売者の <a class="reference internal" href="../../getting-started/setup-workstation.html#setup-creating-a-test-account"><span class="std std-ref">アカウント</span></a> を作成します。</li>
+<li>Alice のアカウントへ最低 200 <code class="docutils literal"><span class="pre">symbol.xym</span></code> 単位を入金します。</li>
+<li>チケット販売者のアカウントでミュージアムのチケットを表現するための <a class="reference internal" href="../mosaic/creating-a-mosaic.html"><span class="doc">新しいモザイク</span></a> を作成します。</li>
+</ul>
+</div>
+<div class="section" id="setting-up-the-required-accounts-and-mosaics">
+<h2>要求されているアカウントとモザイクをセットアップします<a class="headerlink" href="#setting-up-the-required-accounts-and-mosaics" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Alice とチケット販売者は以下のモザイクを交換したいと思っています。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">保有者</th>
+<th class="head">総量</th>
+<th class="head">MosaicId</th>
+<th class="head">説明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Alice</td>
+<td>100</td>
+<td><code class="docutils literal"><span class="pre">symbol.xym</span></code></td>
+<td>ネイティブ通貨モザイク</td>
+</tr>
+<tr class="row-odd"><td>チケット販売者</td>
+<td>1</td>
+<td><code class="docutils literal"><span class="pre">7cdf3b117a3c40cc</span></code></td>
+<td>ミュージアムチケットの表現</td>
+</tr>
+</tbody>
+</table>
+<p>継続する前に <code class="docutils literal"><span class="pre">symbol.xym</span></code> を保有した <a class="reference internal" href="../../getting-started/setup-workstation.html#setup-creating-a-test-account"><span class="std std-ref">アカウントを２つ作成</span></a> します。チケット販売者アカウントで <a class="reference internal" href="../mosaic/creating-a-mosaic.html"><span class="doc">モザイクを作成</span></a> します。この新しいモザイクはチケットを表現します。</p>
+</div>
+<div class="section" id="creating-the-escrow-contract">
+<h2>エスクローコントラクトの作成<a class="headerlink" href="#creating-the-escrow-contract" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ol class="arabic simple">
+<li>新しくファイルを開いて、２つの転送トランザクションを定義:</li>
+</ol>
+<ol class="upperalpha simple">
+<li>Alice からチケット販売者へ 100  <code class="docutils literal"><span class="pre">symbol.xym</span></code> を送信します</li>
+<li>チケット販売者から Alice へ 1 <code class="docutils literal"><span class="pre">7cdf3b117a3c40cc</span></code> (museum ticket) を送信する TransferTransaction</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">博物館のチケットはネットワーク内の ID <code class="docutils literal"><span class="pre">7cdf3b117a3c40cc</span></code> を持っていません。前の手順で作成したものにモザイク識別子を置き換えてください。</p>
+</div>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id2">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/aggregate/CreatingAnEscrowContractWithAggregateBondedTransaction.ts">View Code</a></span><a class="headerlink" href="#id2" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="c1">// replace with network type</span>
+<span class="kd">const</span> <span class="nx">networkType</span> <span class="o">=</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">TEST_NET</span><span class="p">;</span>
+<span class="c1">// replace with alice private key</span>
+<span class="kd">const</span> <span class="nx">alicePrivateKey</span> <span class="o">=</span>
+  <span class="s1">&#39;1111111111111111111111111111111111111111111111111111111111111111&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">aliceAccount</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">alicePrivateKey</span><span class="p">,</span> <span class="nx">networkType</span><span class="p">);</span>
+<span class="c1">// replace with ticket distributor public key</span>
+<span class="kd">const</span> <span class="nx">ticketDistributorPublicKey</span> <span class="o">=</span>
+  <span class="s1">&#39;20330294DC18D96BDEEF32FB02338A6462A0469CB451A081DE2F05B4302C0C0A&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">ticketDistributorPublicAccount</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span>
+  <span class="nx">ticketDistributorPublicKey</span><span class="p">,</span>
+  <span class="nx">networkType</span><span class="p">,</span>
+<span class="p">);</span>
+<span class="c1">// replace with ticket mosaic id</span>
+<span class="kd">const</span> <span class="nx">ticketMosaicId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;7cdf3b117a3c40cc&#39;</span><span class="p">);</span>
+<span class="c1">// replace with ticket mosaic id divisibility</span>
+<span class="kd">const</span> <span class="nx">ticketDivisibility</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
+<span class="c1">// replace with symbol.xym id</span>
+<span class="kd">const</span> <span class="nx">networkCurrencyMosaicId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;5E62990DCAC5BE8A&#39;</span><span class="p">);</span>
+<span class="c1">// replace with network currency divisibility</span>
+<span class="kd">const</span> <span class="nx">networkCurrencyDivisibility</span> <span class="o">=</span> <span class="mf">6</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">aliceToTicketDistributorTx</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+  <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">epochAdjustment</span><span class="p">),</span>
+  <span class="nx">ticketDistributorPublicAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">,</span>
+  <span class="p">[</span>
+    <span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span>
+      <span class="nx">networkCurrencyMosaicId</span><span class="p">,</span>
+      <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">100</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">10</span><span class="p">,</span> <span class="nx">networkCurrencyDivisibility</span><span class="p">)),</span>
+    <span class="p">),</span>
+  <span class="p">],</span>
+  <span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;send 100 symbol.xym to distributor&#39;</span><span class="p">),</span>
+  <span class="nx">networkType</span><span class="p">,</span>
+<span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">ticketDistributorToAliceTx</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+  <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">epochAdjustment</span><span class="p">),</span>
+  <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">,</span>
+  <span class="p">[</span>
+    <span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span>
+      <span class="nx">ticketMosaicId</span><span class="p">,</span>
+      <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">1</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">10</span><span class="p">,</span> <span class="nx">ticketDivisibility</span><span class="p">)),</span>
+    <span class="p">),</span>
+  <span class="p">],</span>
+  <span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;send 1 museum ticket to customer&#39;</span><span class="p">),</span>
+  <span class="nx">networkType</span><span class="p">,</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id3">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/aggregate/CreatingAnEscrowContractWithAggregateBondedTransaction.js">View Code</a></span><a class="headerlink" href="#id3" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// replace with network type</span>
+<span class="kd">const</span> <span class="nx">networkType</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">NetworkType</span><span class="p">.</span><span class="nx">TEST_NET</span><span class="p">;</span>
+<span class="c1">// replace with alice private key</span>
+<span class="kd">const</span> <span class="nx">alicePrivateKey</span> <span class="o">=</span> <span class="s1">&#39;1111111111111111111111111111111111111111111111111111111111111111&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">aliceAccount</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">alicePrivateKey</span><span class="p">,</span> <span class="nx">networkType</span><span class="p">);</span>
+<span class="c1">// replace with ticket distributor public key</span>
+<span class="kd">const</span> <span class="nx">ticketDistributorPublicKey</span> <span class="o">=</span> <span class="s1">&#39;20330294DC18D96BDEEF32FB02338A6462A0469CB451A081DE2F05B4302C0C0A&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">ticketDistributorPublicAccount</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">ticketDistributorPublicKey</span><span class="p">,</span> <span class="nx">networkType</span><span class="p">);</span>
+<span class="c1">// replace with ticket mosaic id</span>
+<span class="kd">const</span> <span class="nx">ticketMosaicId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;7cdf3b117a3c40cc&#39;</span><span class="p">);</span>
+<span class="c1">// replace with ticket mosaic id divisibility</span>
+<span class="kd">const</span> <span class="nx">ticketDivisibility</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
+<span class="c1">// replace with symbol.xym id</span>
+<span class="kd">const</span> <span class="nx">networkCurrencyMosaicId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;5E62990DCAC5BE8A&#39;</span><span class="p">);</span>
+<span class="c1">// replace with network currency divisibility</span>
+<span class="kd">const</span> <span class="nx">networkCurrencyDivisibility</span> <span class="o">=</span> <span class="mf">6</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">aliceToTicketDistributorTx</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">epochAdjustment</span><span class="p">),</span> <span class="nx">ticketDistributorPublicAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">,</span> <span class="p">[</span>
+    <span class="k">new</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Mosaic</span><span class="p">(</span><span class="nx">networkCurrencyMosaicId</span><span class="p">,</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">100</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">10</span><span class="p">,</span> <span class="nx">networkCurrencyDivisibility</span><span class="p">))),</span>
+<span class="p">],</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;send 100 symbol.xym to distributor&#39;</span><span class="p">),</span> <span class="nx">networkType</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">ticketDistributorToAliceTx</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">epochAdjustment</span><span class="p">),</span> <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">,</span> <span class="p">[</span>
+    <span class="k">new</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Mosaic</span><span class="p">(</span><span class="nx">ticketMosaicId</span><span class="p">,</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">1</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">10</span><span class="p">,</span> <span class="nx">ticketDivisibility</span><span class="p">))),</span>
+<span class="p">],</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;send 1 museum ticket to customer&#39;</span><span class="p">),</span> <span class="nx">networkType</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id4">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/java/src/test/java/symbol/guides/examples/aggregate/CreatingAnEscrowContractWithAggregateBondedTransaction.java">View Code</a></span><a class="headerlink" href="#id4" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>            <span class="n">NetworkType</span> <span class="n">networkType</span> <span class="o">=</span> <span class="n">repositoryFactory</span><span class="p">.</span><span class="na">getNetworkType</span><span class="p">().</span><span class="na">toFuture</span><span class="p">().</span><span class="na">get</span><span class="p">();</span>
+
+            <span class="c1">// replace with alice private key</span>
+            <span class="n">String</span> <span class="n">alicePrivatekey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+            <span class="n">Account</span> <span class="n">aliceAccount</span> <span class="o">=</span> <span class="n">Account</span><span class="p">.</span><span class="na">createFromPrivateKey</span><span class="p">(</span><span class="n">alicePrivatekey</span><span class="p">,</span> <span class="n">networkType</span><span class="p">);</span>
+
+            <span class="c1">// replace with bob public key</span>
+            <span class="n">String</span> <span class="n">ticketDistributorPublicKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+            <span class="n">PublicAccount</span> <span class="n">ticketDistributorPublicAccount</span> <span class="o">=</span> <span class="n">PublicAccount</span>
+                <span class="p">.</span><span class="na">createFromPublicKey</span><span class="p">(</span><span class="n">ticketDistributorPublicKey</span><span class="p">,</span> <span class="n">networkType</span><span class="p">);</span>
+
+            <span class="c1">// replace with ticket mosaic id</span>
+            <span class="n">MosaicId</span> <span class="n">ticketMosaicId</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MosaicId</span><span class="p">(</span><span class="s">&quot;7cdf3b117a3c40cc&quot;</span><span class="p">);</span>
+            <span class="kt">int</span> <span class="n">ticketDivisibility</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="n">NetworkCurrency</span> <span class="n">ticketCurrency</span> <span class="o">=</span> <span class="k">new</span> <span class="n">NetworkCurrencyBuilder</span><span class="p">(</span><span class="n">ticketMosaicId</span><span class="p">,</span> <span class="n">ticketDivisibility</span><span class="p">).</span><span class="na">build</span><span class="p">();</span>
+            <span class="c1">// replace with ticket mosaic id divisibility</span>
+            <span class="n">NetworkCurrency</span> <span class="n">networkCurrency</span> <span class="o">=</span> <span class="n">repositoryFactory</span><span class="p">.</span><span class="na">getNetworkCurrency</span><span class="p">().</span><span class="na">toFuture</span><span class="p">().</span><span class="na">get</span><span class="p">();</span>
+
+            <span class="n">TransferTransaction</span> <span class="n">aliceToTicketDistributorTx</span> <span class="o">=</span> <span class="n">TransferTransactionFactory</span>
+                <span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">networkType</span><span class="p">,</span> <span class="n">ticketDistributorPublicAccount</span><span class="p">.</span><span class="na">getAddress</span><span class="p">(),</span>
+                    <span class="n">Collections</span><span class="p">.</span><span class="na">singletonList</span><span class="p">(</span><span class="n">networkCurrency</span><span class="p">.</span><span class="na">createRelative</span><span class="p">(</span><span class="n">BigInteger</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="mi">100</span><span class="p">))),</span>
+                    <span class="n">PlainMessage</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&quot;send 100 symbol.xym to distributor&quot;</span><span class="p">)).</span><span class="na">build</span><span class="p">();</span>
+
+            <span class="n">TransferTransaction</span> <span class="n">ticketDistributorToAliceTx</span> <span class="o">=</span> <span class="n">TransferTransactionFactory</span>
+                <span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">networkType</span><span class="p">,</span> <span class="n">aliceAccount</span><span class="p">.</span><span class="na">getAddress</span><span class="p">(),</span>
+                    <span class="n">Collections</span><span class="p">.</span><span class="na">singletonList</span><span class="p">(</span><span class="n">ticketCurrency</span><span class="p">.</span><span class="na">createRelative</span><span class="p">(</span><span class="n">BigInteger</span><span class="p">.</span><span class="na">ONE</span><span class="p">)),</span>
+                    <span class="n">PlainMessage</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&quot;send 1 museum ticket to customer&quot;</span><span class="p">)).</span><span class="na">build</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>2. Wrap the defined transactions in an <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">AggregateTransaction</span></a> and sign it with Alice’s account.
+An AggregateTransaction is <em>complete</em> if before announcing it to the network, all required cosigners have signed it.
+If valid, it will be included in a block.
+In case that signatures are required from other participants—the ticket distributor—it is considered <em>bonded</em>.</p>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id5">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/aggregate/CreatingAnEscrowContractWithAggregateBondedTransaction.ts">View Code</a></span><a class="headerlink" href="#id5" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kd">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createBonded</span><span class="p">(</span>
+  <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">epochAdjustment</span><span class="p">),</span>
+  <span class="p">[</span>
+    <span class="nx">aliceToTicketDistributorTx</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">),</span>
+    <span class="nx">ticketDistributorToAliceTx</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">ticketDistributorPublicAccount</span><span class="p">),</span>
+  <span class="p">],</span>
+  <span class="nx">networkType</span><span class="p">,</span>
+  <span class="p">[],</span>
+  <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">2000000</span><span class="p">),</span>
+<span class="p">);</span>
+
+<span class="c1">// replace with meta.networkGenerationHash (nodeUrl + &#39;/node/info&#39;)</span>
+<span class="kd">const</span> <span class="nx">networkGenerationHash</span> <span class="o">=</span>
+  <span class="s1">&#39;1DFB2FAA9E7F054168B0C5FCB84F4DEB62CC2B4D317D861F3168D161F54EA78B&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span>
+  <span class="nx">aggregateTransaction</span><span class="p">,</span>
+  <span class="nx">networkGenerationHash</span><span class="p">,</span>
+<span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Aggregate Transaction Hash:&#39;</span><span class="p">,</span> <span class="nx">signedTransaction</span><span class="p">.</span><span class="nx">hash</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id6">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/aggregate/CreatingAnEscrowContractWithAggregateBondedTransaction.js">View Code</a></span><a class="headerlink" href="#id6" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createBonded</span><span class="p">(</span><span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">epochAdjustment</span><span class="p">),</span> <span class="p">[</span>
+    <span class="nx">aliceToTicketDistributorTx</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">),</span>
+    <span class="nx">ticketDistributorToAliceTx</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">ticketDistributorPublicAccount</span><span class="p">),</span>
+<span class="p">],</span> <span class="nx">networkType</span><span class="p">,</span> <span class="p">[],</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">2000000</span><span class="p">));</span>
+<span class="c1">// replace with meta.networkGenerationHash (nodeUrl + &#39;/node/info&#39;)</span>
+<span class="kd">const</span> <span class="nx">networkGenerationHash</span> <span class="o">=</span> <span class="s1">&#39;1DFB2FAA9E7F054168B0C5FCB84F4DEB62CC2B4D317D861F3168D161F54EA78B&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">,</span> <span class="nx">networkGenerationHash</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Aggregate Transaction Hash:&#39;</span><span class="p">,</span> <span class="nx">signedTransaction</span><span class="p">.</span><span class="nx">hash</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id7">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/java/src/test/java/symbol/guides/examples/aggregate/CreatingAnEscrowContractWithAggregateBondedTransaction.java">View Code</a></span><a class="headerlink" href="#id7" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>            <span class="n">AggregateTransaction</span> <span class="n">aggregateTransaction</span> <span class="o">=</span> <span class="n">AggregateTransactionFactory</span><span class="p">.</span><span class="na">createBonded</span><span class="p">(</span><span class="n">networkType</span><span class="p">,</span> <span class="n">Arrays</span>
+                <span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="n">aliceToTicketDistributorTx</span><span class="p">.</span><span class="na">toAggregate</span><span class="p">(</span><span class="n">aliceAccount</span><span class="p">.</span><span class="na">getPublicAccount</span><span class="p">()),</span>
+                    <span class="n">ticketDistributorToAliceTx</span><span class="p">.</span><span class="na">toAggregate</span><span class="p">(</span><span class="n">ticketDistributorPublicAccount</span><span class="p">)))</span>
+                <span class="p">.</span><span class="na">maxFee</span><span class="p">(</span><span class="n">BigInteger</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="mi">2000000</span><span class="p">)).</span><span class="na">build</span><span class="p">();</span>
+
+            <span class="n">String</span> <span class="n">generationHash</span> <span class="o">=</span> <span class="n">repositoryFactory</span><span class="p">.</span><span class="na">getGenerationHash</span><span class="p">().</span><span class="na">toFuture</span><span class="p">().</span><span class="na">get</span><span class="p">();</span>
+            <span class="n">SignedTransaction</span> <span class="n">signedTransaction</span> <span class="o">=</span> <span class="n">aliceAccount</span><span class="p">.</span><span class="na">sign</span><span class="p">(</span><span class="n">aggregateTransaction</span><span class="p">,</span> <span class="n">generationHash</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>3. When an <strong>AggregateTransaction is bonded</strong>, Alice will need to lock <code class="docutils literal"><span class="pre">10</span></code> <code class="docutils literal"><span class="pre">symbol.xym</span></code> to prevent spamming the network.
+Once the ticket distributor signs the AggregateTransaction, the amount of locked <code class="docutils literal"><span class="pre">symbol.xym</span></code> becomes available again on Alice’s account, and the exchange will get through.</p>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id8">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/aggregate/CreatingAnEscrowContractWithAggregateBondedTransaction.ts">View Code</a></span><a class="headerlink" href="#id8" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kd">const</span> <span class="nx">hashLockTransaction</span> <span class="o">=</span> <span class="nx">HashLockTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+  <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">epochAdjustment</span><span class="p">),</span>
+  <span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span>
+    <span class="nx">networkCurrencyMosaicId</span><span class="p">,</span>
+    <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">10</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">10</span><span class="p">,</span> <span class="nx">networkCurrencyDivisibility</span><span class="p">)),</span>
+  <span class="p">),</span>
+  <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">480</span><span class="p">),</span>
+  <span class="nx">signedTransaction</span><span class="p">,</span>
+  <span class="nx">networkType</span><span class="p">,</span>
+  <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">2000000</span><span class="p">),</span>
+<span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">signedHashLockTransaction</span> <span class="o">=</span> <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span>
+  <span class="nx">hashLockTransaction</span><span class="p">,</span>
+  <span class="nx">networkGenerationHash</span><span class="p">,</span>
+<span class="p">);</span>
+
+<span class="c1">// replace with node endpoint</span>
+<span class="kd">const</span> <span class="nx">nodeUrl</span> <span class="o">=</span> <span class="s1">&#39;http://ngl-dual-101.testnet.symboldev.network:3000&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">repositoryFactory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RepositoryFactoryHttp</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">listener</span> <span class="o">=</span> <span class="nx">repositoryFactory</span><span class="p">.</span><span class="nx">createListener</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">receiptHttp</span> <span class="o">=</span> <span class="nx">repositoryFactory</span><span class="p">.</span><span class="nx">createReceiptRepository</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="nx">repositoryFactory</span><span class="p">.</span><span class="nx">createTransactionRepository</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">transactionService</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionService</span><span class="p">(</span><span class="nx">transactionHttp</span><span class="p">,</span> <span class="nx">receiptHttp</span><span class="p">);</span>
+
+<span class="nx">listener</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">transactionService</span>
+    <span class="p">.</span><span class="nx">announceHashLockAggregateBonded</span><span class="p">(</span>
+      <span class="nx">signedHashLockTransaction</span><span class="p">,</span>
+      <span class="nx">signedTransaction</span><span class="p">,</span>
+      <span class="nx">listener</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span>
+      <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
+      <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">),</span>
+      <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">listener</span><span class="p">.</span><span class="nx">close</span><span class="p">(),</span>
+    <span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id9">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/aggregate/CreatingAnEscrowContractWithAggregateBondedTransaction.js">View Code</a></span><a class="headerlink" href="#id9" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">const</span> <span class="nx">hashLockTransaction</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">HashLockTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">epochAdjustment</span><span class="p">),</span> <span class="k">new</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Mosaic</span><span class="p">(</span><span class="nx">networkCurrencyMosaicId</span><span class="p">,</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">10</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">10</span><span class="p">,</span> <span class="nx">networkCurrencyDivisibility</span><span class="p">))),</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">480</span><span class="p">),</span> <span class="nx">signedTransaction</span><span class="p">,</span> <span class="nx">networkType</span><span class="p">,</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">2000000</span><span class="p">));</span>
+<span class="kd">const</span> <span class="nx">signedHashLockTransaction</span> <span class="o">=</span> <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">hashLockTransaction</span><span class="p">,</span> <span class="nx">networkGenerationHash</span><span class="p">);</span>
+<span class="c1">// replace with node endpoint</span>
+<span class="kd">const</span> <span class="nx">nodeUrl</span> <span class="o">=</span> <span class="s1">&#39;http://ngl-dual-101.testnet.symboldev.network:3000&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">repositoryFactory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">RepositoryFactoryHttp</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">listener</span> <span class="o">=</span> <span class="nx">repositoryFactory</span><span class="p">.</span><span class="nx">createListener</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">receiptHttp</span> <span class="o">=</span> <span class="nx">repositoryFactory</span><span class="p">.</span><span class="nx">createReceiptRepository</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="nx">repositoryFactory</span><span class="p">.</span><span class="nx">createTransactionRepository</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">transactionService</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">TransactionService</span><span class="p">(</span><span class="nx">transactionHttp</span><span class="p">,</span> <span class="nx">receiptHttp</span><span class="p">);</span>
+<span class="nx">listener</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">transactionService</span>
+        <span class="p">.</span><span class="nx">announceHashLockAggregateBonded</span><span class="p">(</span><span class="nx">signedHashLockTransaction</span><span class="p">,</span> <span class="nx">signedTransaction</span><span class="p">,</span> <span class="nx">listener</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">x</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">),</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">listener</span><span class="p">.</span><span class="nx">close</span><span class="p">());</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id10">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/java/src/test/java/symbol/guides/examples/aggregate/CreatingAnEscrowContractWithAggregateBondedTransaction.java">View Code</a></span><a class="headerlink" href="#id10" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>            <span class="n">HashLockTransaction</span> <span class="n">hashLockTransaction</span> <span class="o">=</span> <span class="n">HashLockTransactionFactory</span>
+                <span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">networkType</span><span class="p">,</span> <span class="n">networkCurrency</span><span class="p">.</span><span class="na">createRelative</span><span class="p">(</span><span class="n">BigDecimal</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="mi">10</span><span class="p">)),</span> <span class="n">BigInteger</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="mi">480</span><span class="p">),</span>
+                    <span class="n">signedTransaction</span><span class="p">).</span><span class="na">build</span><span class="p">();</span>
+
+            <span class="n">SignedTransaction</span> <span class="n">signedHashLockTransaction</span> <span class="o">=</span> <span class="n">aliceAccount</span><span class="p">.</span><span class="na">sign</span><span class="p">(</span><span class="n">hashLockTransaction</span><span class="p">,</span> <span class="n">generationHash</span><span class="p">);</span>
+            <span class="k">try</span> <span class="p">(</span><span class="n">Listener</span> <span class="n">listener</span> <span class="o">=</span> <span class="n">repositoryFactory</span><span class="p">.</span><span class="na">createListener</span><span class="p">())</span> <span class="p">{</span>
+                <span class="n">listener</span><span class="p">.</span><span class="na">open</span><span class="p">().</span><span class="na">get</span><span class="p">();</span>
+                <span class="n">TransactionService</span> <span class="n">transactionService</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TransactionServiceImpl</span><span class="p">(</span><span class="n">repositoryFactory</span><span class="p">);</span>
+
+                <span class="n">transactionService</span><span class="p">.</span><span class="na">announceHashLockAggregateBonded</span><span class="p">(</span><span class="n">listener</span><span class="p">,</span> <span class="n">signedHashLockTransaction</span><span class="p">,</span> <span class="n">signedTransaction</span><span class="p">).</span><span class="na">toFuture</span><span class="p">()</span>
+                    <span class="p">.</span><span class="na">get</span><span class="p">();</span>
+            <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>販売者はまだ AggregateBondedTransaction に署名していないため、交換は完了していません。</p>
+<ol class="arabic simple" start="4">
+<li><strong>AggregateTransaction のハッシュ</strong> を (2) からコピーして <a class="reference internal" href="signing-announced-aggregate-bonded-transactions.html"><span class="doc">次のガイド</span></a> で AggregateTransaction に署名をする方法を確認してください。</li>
+</ol>
+</div>
+<div class="section" id="is-it-possible-without-aggregate-transactions">
+<h2>この取引をアグリゲートトランザクション無しに可能でしょうか？<a class="headerlink" href="#is-it-possible-without-aggregate-transactions" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><strong>これは安全ではありません</strong> なぜなら:</p>
+<ul class="simple">
+<li>Alice はチケットを受け取った後に配給業者に支払いをしない可能性があります。</li>
+<li>配給業者は支払いを受領した後にチケットを送付しない可能性があります。</li>
+</ul>
+<p>AggregateTransaction 機能を使用して、すべての参加者が合意したときに複数のトランザクションが同時に実行されるようにします。</p>
+</div>
+</div>
+
+  <div class="section">
+  
+    
+
+
+
+
+  
+  
+  </div>
+
+            
+            <p class="feedback">
+                <hr/>
+                お探しのものは見つかりましたか？
+                <a href="https://github.com/symbol/symbol-docs/issues/new/choose" target="_blank">フィードバックをください。</a>
+            </p>
+            
+        </div>
+         
+
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+    
+    <div class="edit-github">
+    <a href="https://github.com/symbol/symbol-docs/edit/main/source/guides/aggregate/creating-an-escrow-contract-with-aggregate-bonded-transaction.rst" rel="nofollow"> <i class="fab fa-github"></i> このページを加筆修正する</a>
+</div>
+    <span class="title">このページ</span>
+    <ul>
+<li><a class="reference internal" href="#">エスクローコントラクトの作成</a><ul>
+<li><a class="reference internal" href="#use-case">ユースケース</a><ul>
+<li><a class="reference internal" href="#how-to-create-an-escrow-contract-with-symbol">Symbol でのエスクローコントラクトの作り方</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#prerequisites">前提条件</a></li>
+<li><a class="reference internal" href="#setting-up-the-required-accounts-and-mosaics">要求されているアカウントとモザイクをセットアップします</a></li>
+<li><a class="reference internal" href="#creating-the-escrow-contract">エスクローコントラクトの作成</a></li>
+<li><a class="reference internal" href="#is-it-possible-without-aggregate-transactions">この取引をアグリゲートトランザクション無しに可能でしょうか？</a></li>
+</ul>
+</li>
+</ul>
+
+    
+    </div>
+</div>
+
+ 
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-desktop',
+        debug: false
+    });
+
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-mobile',
+        debug: false
+    });
+</script>
+
+  </body>
+</html>

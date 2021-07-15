@@ -1,0 +1,495 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>モザイク制限 &#8212; Symbol Documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700&display=swap" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'Main',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/examplecode.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="マルチシグアカウント" href="multisig-account.html" />
+    <link rel="prev" title="モザイク" href="mosaic.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174021413-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-174021413-2');
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../guides/atom.xml" title="Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div class="navbar navbar-default gradient navbar-fixed-top"
+     id="navbar">
+    <div class="container navbar-top hidden-xs hidden-sm">
+        <div class="row">
+            <div class="col-lg-8 col-md-7">
+                <div id="language">
+    <label class="select">
+        <select>
+            <option id="english" value="en">EN</option>
+            <option id="japanese" value="ja">JA</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </label>
+</div>
+            </div>
+            <div class="col-lg-4 col-md-5">
+                
+                <div id="search-box">
+    <input class="search search-desktop form-control" placeholder="Search"/>
+</div>
+                
+                <ul id="social" class="list-inline">
+    <li>
+        <a href="https://twitter.com/NEMofficial" rel="nofollow"><i class="fab fa-twitter" title="Twitter"></i></a>
+    </li>
+    <li>
+        <a href="https://discord.com/invite/xymcity" rel="nofollow" title="Discord"><i class="fab fa-discord"></i></a>
+    </li>
+    <li>
+        <a href="https://github.com/symbol/" rel="nofollow" title="GitHub"><i class="fab fa-github"></i></a>
+    </li>
+</ul>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="container navbar-main">
+        <div class="row">
+            <div class="navbar-header col-lg-6 col-md-4 col-xs-6">
+                <a class="navbar-brand" href="../index.html">
+                    
+                    <span><img alt="NEM logo" src="../_static/logo-symbol.svg"></span>
+                    
+                </a>
+            </div>
+            <div class="navbar-right col-lg-6 col-md-8 hidden-xs hidden-sm">
+                <ul class="list-inline">
+    <li>
+        <a href="/ja/getting-started/what-is-symbol.html" class="">入門</a>
+    </li>
+    <li>
+        <a href="/ja/concepts/overview.html" class="active">機能</a>
+    </li>
+    <li>
+        <a href="/ja/guides/category.html" class="">ガイド</a>
+    </li>
+    <li>
+        <a href="/ja/references/overview.html" class="">ツール</a>
+    </li>
+    <li>
+        <a href="/ja/contribute/community.html" class="">ヘルプ</a>
+    </li>
+</ul>
+            </div>
+            <div class="navbar-right col-xs-6 hidden-lg hidden-md">
+                
+                <div id="search-box">
+    <input class="search search-mobile form-control" placeholder="Search"/>
+</div>
+                
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 sidebar-xs visible-xs visible-sm">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">ナビゲーション <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu globaltoc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">ガイド</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">コンセプト</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="account.html">アカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="block.html">ブロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consensus-algorithm.html">コンセンサス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cryptography.html">暗号理論</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-validation.html">データバリデーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fees.html">手数料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inflation.html">インフレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic.html">モザイク</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html">ノード</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin.html">Symbol の拡張</a></li>
+<li class="toctree-l2"><a class="reference internal" href="receipt.html">レシート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reward-programs.html">報酬プログラム</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html">トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">貢献</a></li>
+</ul>
+</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        
+        
+
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
+    <h4>ナビゲーション</h4>
+    <hr />
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">ガイド</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">コンセプト</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="account.html">アカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="block.html">ブロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consensus-algorithm.html">コンセンサス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cryptography.html">暗号理論</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-validation.html">データバリデーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fees.html">手数料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inflation.html">インフレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic.html">モザイク</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html">ノード</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin.html">Symbol の拡張</a></li>
+<li class="toctree-l2"><a class="reference internal" href="receipt.html">レシート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reward-programs.html">報酬プログラム</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html">トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">貢献</a></li>
+</ul>
+
+</div>
+        
+    </div>
+</div>
+
+
+        
+        <div class="col-md-7 content">
+            
+  <div class="section" id="mosaic-restriction">
+<h1>モザイク制限<a class="headerlink" href="#mosaic-restriction" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>モザイク制限は <a class="reference internal" href="mosaic.html"><span class="doc">モザイク</span></a> 作成者に、どのアカウントがアセットを取引できるかを決定できるようにします。</p>
+<p>この機能は特に <strong>Security Token Offerings (STO)</strong> に向けて調整されています。ICO を通じて導入された規制されていないトークンとは対照的に、セキュリティトークンはセキュリティ法に基づく規制の対象となる、価値のブロックチェーンベースの表現であるため、ブロックチェーン自治を回避する方法が必要です。</p>
+<p>特定のネットワークのすべてのモザイクがモザイク制限を受けるわけではありません。この機能は発行時に発行者が明示的に <code class="docutils literal"><span class="pre">restrictable</span></code> <a class="reference internal" href="mosaic.html#mosaic-properties"><span class="std std-ref">プロパティ</span></a> を追加したもののみに影響します。このプロパティはパブリックネットワーク通貨のような自律トークンには望ましくないため、デフォルトでは無効になっています。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last"><code class="docutils literal"><span class="pre">restrictable</span></code> プロパティが作成時に true に設定されている場合、モザイクはモザイク制限機能のみをサポートします。</p>
+</div>
+<p>モザイク制限は時間の経過とともに <strong>編集可能</strong> であり、モザイク作成者は必要に応じてモザイクを送受信できるユーザーを制御できます。</p>
+<div class="section" id="global-restriction">
+<h2>グローバル制限<a class="headerlink" href="#global-restriction" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>モザイクのグローバル制限はアカウントが特定のモザイクを送受信できるかどうかを決定する <strong>ネットワーク全体のルール</strong> です。</p>
+<p>一つのモザイクは <code class="docutils literal"><span class="pre">20</span></code> までのグローバル制限を扱うことができます。このパラメータは <a class="reference internal" href="../guides/network/configuring-network-properties.html#config-network-properties"><span class="std std-ref">ネットワークごとに設定可能</span></a> です。 <a class="reference internal" href="../serialization/restriction_mosaic.html#mosaic-global-restriction-transaction"><span class="std std-ref">モザイクグローバル制限</span></a> は次で構成されます:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">プロパティ</th>
+<th class="head">タイプ</th>
+<th class="head">説明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Mosaic Id</td>
+<td>MosaicId</td>
+<td>影響を受けるモザイク識別子。モザイク作成者はトランザクションの署名者である必要があります。</td>
+</tr>
+<tr class="row-odd"><td>Restriction Key</td>
+<td>uint64</td>
+<td>制限キー</td>
+</tr>
+<tr class="row-even"><td>Restriction Value</td>
+<td>uint64</td>
+<td>制限値</td>
+</tr>
+<tr class="row-odd"><td>Restriction Type</td>
+<td>uint8</td>
+<td>適用する制約の種類。たとえば、制限値が等しい (EQ) 必要がある場合。より詳細は <a class="reference internal" href="../serialization/restriction_mosaic.html#mosaic-restriction-type"><span class="std std-ref">制限タイプ</span></a> を参照してください。</td>
+</tr>
+</tbody>
+</table>
+<p>条件を満たすキー識別子と値でタグ付けされたアカウントだけがモザイクを含むトランザクションを実行できます。</p>
+<p>さらに、モザイク作成者は別のモザイク - <strong>参照モザイク</strong> と呼びます - に設定されたグローバル制限に直接依存する制限を定義できます。参照モザイクと制限付きモザイクは必ずしも同じアカウントで作成する必要はないため、モザイク権限を第三者に委任することができます。</p>
+</div>
+<div class="section" id="address-restriction">
+<h2>アドレス制限<a class="headerlink" href="#address-restriction" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>トークンを使用して取引するためにアカウントを有効にするのは、会社のコンピュータネットワーク内のユーザーに権限昇格を追加するプロセスに似ています。</p>
+<p>モザイク作成者はアカウントアドレスを対象としたモザイク制限トランザクションを送信することで <strong>アカウントのアクセス権を変更する</strong> ことができます。 <a class="reference internal" href="../serialization/restriction_mosaic.html#mosaic-address-restriction-transaction"><span class="std std-ref">MosaicAddressRestrictionTransaction</span></a> は以下で構成されます:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">プロパティ</th>
+<th class="head">タイプ</th>
+<th class="head">説明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Mosaic Id</td>
+<td>MosaicId</td>
+<td>影響を受けるモザイク識別子。モザイク作成者はトランザクションの署名者である必要があります。</td>
+</tr>
+<tr class="row-odd"><td>Target Address</td>
+<td>address</td>
+<td>影響を受けるアドレス</td>
+</tr>
+<tr class="row-even"><td>Restriction Key</td>
+<td>uint64</td>
+<td>制限キー</td>
+</tr>
+<tr class="row-odd"><td>Restriction Value</td>
+<td>uint64</td>
+<td>制限値</td>
+</tr>
+</tbody>
+</table>
+<p>条件がグローバル制限で設定された適切な値と一致する場合、アカウントはモザイクと取引することができます。</p>
+<p>それ以外の場合は、アカウントはモザイク作成者に昇格権限を付与するように要求するか、グローバル制限が変更されるまで待つ必要があります。</p>
+</div>
+<div class="section" id="examples">
+<h2>例<a class="headerlink" href="#examples" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="verifying-accounts-that-can-buy-assets">
+<h3>アカウントがアセットを購入できるかの確認<a class="headerlink" href="#verifying-accounts-that-can-buy-assets" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="figure align-center" id="id1">
+<img alt="../_images/mosaic-restriction.png" src="../_images/mosaic-restriction.png" style="width: 400px;" />
+<p class="caption"><span class="caption-text">モザイク制限の例</span></p>
+</div>
+<p>ComfyClothingCompany はモザイク <code class="docutils literal"><span class="pre">comfyclothing.shares</span></code> を作成しました。規制上の理由から、同社は KYC プロセスに合格した参加者だけが、資産の購入および取引をできるように望んでいます。したがって、同社はモザイク <code class="docutils literal"><span class="pre">comfyclothing.shares</span></code> に制限階層 <code class="docutils literal"><span class="pre">{comfyclothing.shares,</span> <span class="pre">Can_Buy,</span> <span class="pre">EQ</span> <span class="pre">=</span> <span class="pre">1}</span></code> を追加しました。</p>
+<p>潜在顧客である Alice は ComfyClothingCompany への投資に興味を持っており、彼女は KYC プロセスを通過します。Alice が検証されると会社は Alice のアカウントに MosaicAddressRestrictionTransaction で  <code class="docutils literal"><span class="pre">{comfyclothing.shares,</span> <span class="pre">Alice,</span> <span class="pre">Can_Buy,</span> <span class="pre">1}</span></code> タグを付けます。</p>
+<p>今や Alice は <code class="docutils literal"><span class="pre">comfyclothing.shares</span></code> を購入し、他のアカウントと取引を始めることができます。一方で Bob は確認およびタグ付けされていないため、アセットの購入または受け取りはできません。</p>
+</div>
+<div class="section" id="delegating-the-kyc-process-to-a-specialized-company">
+<h3>KYC プロセスを専門会社に委任する<a class="headerlink" href="#delegating-the-kyc-process-to-a-specialized-company" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="figure align-center" id="id2">
+<img alt="../_images/mosaic-restriction-delegated.png" src="../_images/mosaic-restriction-delegated.png" style="width: 400px;" />
+<p class="caption"><span class="caption-text">委任モザイク制限の例</span></p>
+</div>
+<p>前例に従って ComfyClothingCompany は KYC プロセスを KYC と AML を専門とする会社に委任します。</p>
+<p>KYC プロバイダは <code class="docutils literal"><span class="pre">kyc</span></code> という名前のモザイクを登録し、そのモザイクにグローバル制限 <code class="docutils literal"><span class="pre">{kyc,</span> <span class="pre">Is_Verified,</span> <span class="pre">EQ</span> <span class="pre">=</span> <span class="pre">1}</span></code> をモザイクに追加します。</p>
+<p>KYC プロバイダは次の権限層も定義します。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">キー</th>
+<th class="head">Operator</th>
+<th class="head">値</th>
+<th class="head">説明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Is_Verified</td>
+<td>EQ</td>
+<td>1</td>
+<td>クライアントが有効なパスポートを発行しました。</td>
+</tr>
+<tr class="row-odd"><td>Is_Verified</td>
+<td>EQ</td>
+<td>2</td>
+<td>クライアントは有効な住所証明とパスポートを発行しました。</td>
+</tr>
+</tbody>
+</table>
+<p>ComfyClothingCompany は制限 <code class="docutils literal"><span class="pre">{</span> <span class="pre">kyc::Is_Verified,</span> <span class="pre">2}</span></code> を持つアカウントだけが <code class="docutils literal"><span class="pre">cc.shares</span></code> の転送を有効にされるべきであると決定します。そのため、会社はグローバルモザイク制限の <code class="docutils literal"><span class="pre">{comfyclothing.shares,</span> <span class="pre">kyc::Is_Verified,</span> <span class="pre">EQ</span> <span class="pre">=</span> <span class="pre">2}</span></code> を追加します。</p>
+<p>KYC プロバイダーは 3 人の潜在的投資家と出会います。</p>
+<ul class="simple">
+<li>Alice は有効なパスポートを提供しますがアドレスの証明は提供しません。KYC プロバイダは Alice のアカウントにモザイク制限の <code class="docutils literal"><span class="pre">{kyc,</span> <span class="pre">Is_Verified,</span> <span class="pre">1}</span></code> を授与します。</li>
+<li>Bob は有効なパスポートと住所証明を提供します。KYC プロバイダは Bob のアカウントにモザイク制限の <code class="docutils literal"><span class="pre">{kyc,</span> <span class="pre">Is_Verified,</span> <span class="pre">2}</span></code> を授与します。</li>
+<li>Carol は有効なパスポートと住所証明を提供します。KYC プロバイダは Carol のアカウントにモザイク制限の <code class="docutils literal"><span class="pre">{kyc,</span> <span class="pre">Is_Verified,</span> <span class="pre">2}</span></code> を授与します。</li>
+</ul>
+<p>現在 Bob と Carol はお互いに <code class="docutils literal"><span class="pre">comfyclothing.shares</span></code> ユニットを購入して送ることができるでしょう。それでも、有効な住所証明を提示していない Alice は株式を受け取ることができません。</p>
+</div>
+</div>
+<div class="section" id="related-transactions">
+<h2>関連トランザクション<a class="headerlink" href="#related-transactions" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="30%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Id</th>
+<th class="head">タイプ</th>
+<th class="head">説明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x4151</td>
+<td><a class="reference internal" href="../serialization/restriction_mosaic.html#mosaic-global-restriction-transaction"><span class="std std-ref">MosaicGlobalRestrictionTransaction</span></a></td>
+<td>制限可能モザイクの転送にグローバルルールを設定します。</td>
+</tr>
+<tr class="row-odd"><td>0x4251</td>
+<td><a class="reference internal" href="../serialization/restriction_mosaic.html#mosaic-address-restriction-transaction"><span class="std std-ref">MosaicAddressRestrictionTransaction</span></a></td>
+<td>制限可能モザイクの転送に特定アドレスを設定します。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="guides">
+<h2>ガイド<a class="headerlink" href="#guides" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="postlist-style-circle postlist">
+<li><p class="first"><a class="reference internal" href="../guides/restriction/restricting-mosaics-transfers.html">モザイク転送の制限</a></p>
+<p>モザイク制限でアカウントが処理できる手段を制限します。</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../guides/restriction/delegating-mosaic-restrictions-to-a-third-party.html">モザイクの制限を第三者に委任する</a></p>
+<p>別のアカウントがモザイクに制限を追加できるようにします。</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../guides/restriction/getting-mosaic-global-restrictions-attached-to-a-mosaic.html">モザイクにアタッチされたグローバルモザイク制限を取得する</a></p>
+<p>モザイクのグローバル制限リストの取得</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../guides/restriction/getting-mosaic-address-restrictions-attached-to-an-account.html">アカウントにアタッチされたモザイクアドレス制限を取得する</a></p>
+<p>モザイクのアドレス制限リストの取得</p>
+</li>
+</ul>
+<p>次項: <a class="reference internal" href="multisig-account.html"><span class="doc">マルチシグアカウント</span></a></p>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+            
+            <p class="feedback">
+                <hr/>
+                お探しのものは見つかりましたか？
+                <a href="https://github.com/symbol/symbol-docs/issues/new/choose" target="_blank">フィードバックをください。</a>
+            </p>
+            
+        </div>
+         
+
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+    
+    <div class="edit-github">
+    <a href="https://github.com/symbol/symbol-docs/edit/main/source/concepts/mosaic-restriction.rst" rel="nofollow"> <i class="fab fa-github"></i> このページを加筆修正する</a>
+</div>
+    <span class="title">このページ</span>
+    <ul>
+<li><a class="reference internal" href="#">モザイク制限</a><ul>
+<li><a class="reference internal" href="#global-restriction">グローバル制限</a></li>
+<li><a class="reference internal" href="#address-restriction">アドレス制限</a></li>
+<li><a class="reference internal" href="#examples">例</a><ul>
+<li><a class="reference internal" href="#verifying-accounts-that-can-buy-assets">アカウントがアセットを購入できるかの確認</a></li>
+<li><a class="reference internal" href="#delegating-the-kyc-process-to-a-specialized-company">KYC プロセスを専門会社に委任する</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#related-transactions">関連トランザクション</a></li>
+<li><a class="reference internal" href="#guides">ガイド</a></li>
+</ul>
+</li>
+</ul>
+
+    
+    </div>
+</div>
+
+ 
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-desktop',
+        debug: false
+    });
+
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-mobile',
+        debug: false
+    });
+</script>
+
+  </body>
+</html>

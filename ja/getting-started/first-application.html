@@ -1,0 +1,642 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>はじめてのアプリケーションを作成 &#8212; Symbol Documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700&display=swap" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'Main',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/examplecode.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="NIS1 から Symbol へのマイグレーション" href="../guides/migration/migrating-from-nem-to-symbol.html" />
+    <link rel="prev" title="ワークステーションのセットアップ" href="setup-workstation.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174021413-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-174021413-2');
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../guides/atom.xml" title="Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div class="navbar navbar-default gradient navbar-fixed-top"
+     id="navbar">
+    <div class="container navbar-top hidden-xs hidden-sm">
+        <div class="row">
+            <div class="col-lg-8 col-md-7">
+                <div id="language">
+    <label class="select">
+        <select>
+            <option id="english" value="en">EN</option>
+            <option id="japanese" value="ja">JA</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </label>
+</div>
+            </div>
+            <div class="col-lg-4 col-md-5">
+                
+                <div id="search-box">
+    <input class="search search-desktop form-control" placeholder="Search"/>
+</div>
+                
+                <ul id="social" class="list-inline">
+    <li>
+        <a href="https://twitter.com/NEMofficial" rel="nofollow"><i class="fab fa-twitter" title="Twitter"></i></a>
+    </li>
+    <li>
+        <a href="https://discord.com/invite/xymcity" rel="nofollow" title="Discord"><i class="fab fa-discord"></i></a>
+    </li>
+    <li>
+        <a href="https://github.com/symbol/" rel="nofollow" title="GitHub"><i class="fab fa-github"></i></a>
+    </li>
+</ul>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="container navbar-main">
+        <div class="row">
+            <div class="navbar-header col-lg-6 col-md-4 col-xs-6">
+                <a class="navbar-brand" href="../index.html">
+                    
+                    <span><img alt="NEM logo" src="../_static/logo-symbol.svg"></span>
+                    
+                </a>
+            </div>
+            <div class="navbar-right col-lg-6 col-md-8 hidden-xs hidden-sm">
+                <ul class="list-inline">
+    <li>
+        <a href="/ja/getting-started/what-is-symbol.html" class="active">入門</a>
+    </li>
+    <li>
+        <a href="/ja/concepts/overview.html" class="">機能</a>
+    </li>
+    <li>
+        <a href="/ja/guides/category.html" class="">ガイド</a>
+    </li>
+    <li>
+        <a href="/ja/references/overview.html" class="">ツール</a>
+    </li>
+    <li>
+        <a href="/ja/contribute/community.html" class="">ヘルプ</a>
+    </li>
+</ul>
+            </div>
+            <div class="navbar-right col-xs-6 hidden-lg hidden-md">
+                
+                <div id="search-box">
+    <input class="search search-mobile form-control" placeholder="Search"/>
+</div>
+                
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 sidebar-xs visible-xs visible-sm">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">ナビゲーション <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu globaltoc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">入門</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="what-is-symbol.html">Symbol とは？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup-workstation.html">ワークステーションのセットアップ</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">はじめてのアプリケーションを作成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/migration/migrating-from-nem-to-symbol.html">NIS1 から Symbol へのマイグレーション</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">ガイド</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/overview.html">コンセプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">貢献</a></li>
+</ul>
+</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        
+        
+
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
+    <h4>ナビゲーション</h4>
+    <hr />
+    <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">入門</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="what-is-symbol.html">Symbol とは？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup-workstation.html">ワークステーションのセットアップ</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">はじめてのアプリケーションを作成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/migration/migrating-from-nem-to-symbol.html">NIS1 から Symbol へのマイグレーション</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">ガイド</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/overview.html">コンセプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">貢献</a></li>
+</ul>
+
+</div>
+        
+    </div>
+</div>
+
+
+        
+        <div class="col-md-7 content">
+            
+  <div class="section" id="writing-your-first-application">
+<h1>はじめてのアプリケーションを作成<a class="headerlink" href="#writing-your-first-application" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>このガイドでは Symbol Developer Documentation 開発サイクルについて説明します。</p>
+<p>はじめに Symbol Developer Documentation で利用可能な組み込み機能の <a class="reference internal" href="../concepts/mosaic.html"><span class="doc">モザイク</span></a> や <a class="reference internal" href="../concepts/account.html"><span class="doc">アカウント</span></a> を組み合わせてソリューションを設計します。このガイドを修了すれば、ブロックチェーンでトランザクションの発行および監視する方法を理解しているでしょう。</p>
+<div class="section" id="use-case">
+<h2>ユースケース<a class="headerlink" href="#use-case" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>チケット二次市場は、再販市場としても知られており、最初の販売者からチケットを購入した後に個人間で行われるチケット交換です。最初の販売者は、イベントウェブサイト、オンラインチケット販売プラットフォーム、イベントの入口にあるショップまたは売店であったりします。</p>
+<p>最初の販売者ではない人からチケットを購入しても、必ずしもそのチケットの追加料金を支払うという意味ではありません。これは最初の販売者が問題の解決に何もできず、偽造もしくは複製されたチケットを購入してしまう、被害者となる機会です。</p>
+<div class="section" id="what-do-we-want-to-solve">
+<h3>私達は何を解決したいのでしょう？<a class="headerlink" href="#what-do-we-want-to-solve" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="figure align-center" id="id1">
+<img alt="../_images/getting-started.png" src="../_images/getting-started.png" style="width: 600px;" />
+<p class="caption"><span class="caption-text">認証モデル</span></p>
+</div>
+<p>チケット販売者はシステムのセットアップを望んでいます:</p>
+<ol class="loweralpha simple">
+<li>各チケットと購入者の識別。</li>
+<li>チケット転売の防止。</li>
+<li>未認証チケットとその複製の防止。</li>
+</ol>
+</div>
+<div class="section" id="why-symbol-is-the-right-choice">
+<h3>なぜ Symbol は正しい選択なのでしょう？<a class="headerlink" href="#why-symbol-is-the-right-choice" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ブロックチェーンテクノロジーはこのようなケースに適用できます:</p>
+<ul class="simple">
+<li>様々な参加者が関係します。</li>
+<li>参加者はお互いに信頼する必要があります。</li>
+<li>不変のイベントの集合を追跡し続ける必要があります。</li>
+</ul>
+<p>Symbol は <strong>フレキシブルなブロックチェーン</strong> テクノロジーです。すべてのアプリケーションロジックをブロックチェーンにアップロードする代わりに、 <strong>API 呼び出し</strong> によってテスト済みの機能を使用して、価値、認可、トレーサビリティ、そして認証の移転と格納を行うことができます。</p>
+<p>残りのコードは <strong>オフチェーン</strong> のままです。これにより必要に応じてプロセスを変更できるため、固有の不変性リスクが軽減されます。</p>
+</div>
+</div>
+<div class="section" id="creating-an-account-for-each-participant">
+<h2>各参加者のアカウントを作成<a class="headerlink" href="#creating-an-account-for-each-participant" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>まず、解決したいユースケースに関与するアクターを特定します:</p>
+<ul class="simple">
+<li>チケット販売者</li>
+<li>購入者</li>
+</ul>
+<p>チケット販売者と顧客を別々の <a class="reference internal" href="../concepts/account.html"><span class="doc">アカウント</span></a> として表現することにしました。アカウントとは対応する秘密鍵で変更できる、ブロックチェーン上の預金金庫と考えてください。各アカウントは一意であり、アドレスによって識別されます。</p>
+<p>テスト <code class="docutils literal"><span class="pre">symbol.xym</span></code> をアカウントへ入金しましたか？ <a class="reference internal" href="setup-workstation.html#setup-creating-a-test-account"><span class="std std-ref">前のガイド</span></a> では Symbol CLI を使用してアカウントの作り方を学習しました。このアカウントは <strong>チケット販売者</strong> アカウントとして表現します。</p>
+<ol class="arabic simple">
+<li>次のコマンドを実行して、チケット販売者のアカウントに <code class="docutils literal"><span class="pre">symbol.xym</span></code> 単位があることを確認します。</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>symbol-cli account info --profile testnet
+</pre></div>
+</div>
+<p>このような行がスクリーンに表示されているはずです:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>Account Information
+┌───────────────────┬────────────────────────────────────────────────┐
+│ Property          │ Value                                          │
+├───────────────────┼────────────────────────────────────────────────┤
+│ Address           │ TCWYXK-VYBMO4-NBCUF3-AXKJMX-CGVSYQ-OS7ZG2-TLI  │
+├───────────────────┼────────────────────────────────────────────────┤
+│ Address Height    │ <span class="m">1</span>                                              │
+├───────────────────┼────────────────────────────────────────────────┤
+│ Public Key        │ <span class="m">203</span>...C0A                                      │
+├───────────────────┼────────────────────────────────────────────────┤
+│ Public Key Height │ <span class="m">3442</span>                                           │
+├───────────────────┼────────────────────────────────────────────────┤
+│ Importance        │ <span class="m">0</span>                                              │
+├───────────────────┼────────────────────────────────────────────────┤
+│ Importance Height │ <span class="m">0</span>                                              │
+└───────────────────┴────────────────────────────────────────────────┘
+
+Balance Information
+┌──────────────────┬─────────────────┬─────────────────┬───────────────────┐
+│ Mosaic Id        │ Relative Amount │ Absolute Amount │ Expiration Height │
+├──────────────────┼─────────────────┼─────────────────┼───────────────────┤
+│ 5E62990DCAC5BE8A │ <span class="m">750</span>.0           │ <span class="m">750000000</span>       │ Never             │
+└──────────────────┴─────────────────┴─────────────────┴───────────────────┘
+</pre></div>
+</div>
+<p>アカウントは 750 <code class="docutils literal"><span class="pre">symbol.xym</span></code> 相対単位を保有しています。もし 「Balance Information」 の次の行が空の場合は、テスト用通貨を手に入れるために <a class="reference internal" href="setup-workstation.html"><span class="doc">前のガイド</span></a> に従ってください。</p>
+<ol class="arabic simple" start="2">
+<li><strong>購入者</strong> を識別するための2つ目のアカウントを CLI で作成します。</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>symbol-cli account generate --network TEST_NET --save --url http://ngl-dual-101.testnet.symboldev.network:3000 --profile customer
+
+New Account
+
+┌─────────────┬────────────────────────────────────────────────┐
+│ Property    │ Value                                          │
+├─────────────┼────────────────────────────────────────────────┤
+│ Address     │ TCHBDE-NCLKEB-ILBPWP-3JPB2X-NY64OE-7PYHHE-32I  │
+├─────────────┼────────────────────────────────────────────────┤
+│ Public Key  │ E59...82F                                      │
+├─────────────┼────────────────────────────────────────────────┤
+│ Private Key │ <span class="m">111</span>...111                                      │
+└─────────────┴────────────────────────────────────────────────┘
+</pre></div>
+</div>
+</div>
+<div class="section" id="monitoring-the-blockchain">
+<h2>ブロックチェーンの監視<a class="headerlink" href="#monitoring-the-blockchain" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>アカウントはトランザクションを通じてブロックチェーンの状態を変更します。アカウントがトランザクションをアナウンスすると、正しく構成されている場合、サーバーは OK のレスポンスを返します。</p>
+<p>ただし OK レスポンスを受信して​​も、トランザクションが有効であったり、ブロックに含まれるわけではありません。たとえば、発行者に十分な <code class="docutils literal"><span class="pre">symbol.xym</span></code> がない、メッセージセットが大きすぎる、手数料の指定が少なすぎるなど、トランザクションが拒否される可能性があります。</p>
+<p>ネットワークによって承認または拒否されるタイミングを検知するために、アナウンスする前に <strong>トランザクションを監視する</strong> ことを推奨します。</p>
+<p>新しいターミナルで、チケット販売者のアカウントに関するトランザクションを監視して、ネットワークによって承認または拒否されたかを確認します。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>symbol-cli monitor all --address TCWYXK-VYBMO4-NBCUF3-AXKJMX-CGVSYQ-OS7ZG2-TLI
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-the-ticket">
+<h2>チケットの作成<a class="headerlink" href="#creating-the-ticket" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Symbol <a class="reference internal" href="../concepts/mosaic.html"><span class="doc">モザイク</span></a> でチケットを表現します。この機能は物体、チケット、クーポン、株式に相当するもの、あなたの暗号通貨さえも、いかなるアセットをブロックチェーン上に表現することができます。</p>
+<p>モザイクは作成時に定義される変更可能なプロパティを持ちます。例えば <strong>転送可能プロパティを false</strong> に設定します。これは、チケットの転売を防止するために、購入者がモザイク作成者だけに送り返すことしかできないことを意味します。</p>
+<ol class="arabic simple">
+<li>CLI を使用し、チケット販売者アカウントでチケットを表現する新しいモザイクを作成します。この新しいモザイクは次のように構成します:</li>
+</ol>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="15%" />
+<col width="65%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">プロパティ</th>
+<th class="head">値</th>
+<th class="head">説明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Divisibility</td>
+<td>0</td>
+<td>“0.5 tickets” が送信できないように、モザイクは可分できないようにします。</td>
+</tr>
+<tr class="row-odd"><td>Duration</td>
+<td>1000</td>
+<td>モザイクは 1000 ブロック登録されます。</td>
+</tr>
+<tr class="row-even"><td>Amount</td>
+<td>99</td>
+<td>作成するチケットの量</td>
+</tr>
+<tr class="row-odd"><td>Supply mutable</td>
+<td>True</td>
+<td>モザイク供給量は後に変更可能です。</td>
+</tr>
+<tr class="row-even"><td>Transferable</td>
+<td>False</td>
+<td>モザイクはモザイク作成者だけに送り返すことしかできません。</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>symbol-cli transaction mosaic --amount <span class="m">99</span> --supply-mutable --divisibility <span class="m">0</span> --duration <span class="m">1000</span> --max-fee <span class="m">2000000</span> --sync --profile testnet
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>トランザクションをアナウンスしたら、ターミナルに表示された MosaicID コピーしてください。</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>The new mosaic id is: 7cdf3b117a3c40cc
+</pre></div>
+</div>
+<p>トランザクションは最大30秒で承認済みとして現れてきます。ターミナルでエラーが起きた場合、エラーコードの意味は <a class="reference external" href="https://github.com/symbol/symbol-openapi/blob/main/spec/core/transaction/schemas/TransactionStatusEnum.yml">こちら</a> を参照してください。</p>
+</div>
+<div class="section" id="sending-the-ticket">
+<h2>チケットの送信<a class="headerlink" href="#sending-the-ticket" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>モザイクを定義したので、1 つのチケット単位を  <a class="reference internal" href="../serialization/transfer.html#transfer-transaction"><span class="std std-ref">TransferTransaction</span></a> をアナウンスして顧客に送信します。</p>
+<ol class="arabic simple">
+<li>新しいファイルを開き、次の値で <strong>TransferTransaction</strong> を定義してください。</li>
+</ol>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="30%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">プロパティ</th>
+<th class="head">値</th>
+<th class="head">説明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Deadline</td>
+<td>デフォルト (2 時間)</td>
+<td>The maximum amount of time to wait for the transaction to be included on the blockchain. A transaction will be dropped if it stays unconfirmed after this amount of time. The parameter is defined in hours and must be in the 1 to 6 range (1 to 48 for <a class="reference internal" href="../concepts/aggregate-transaction.html#aggregate-bonded"><span class="std std-ref">アグリゲートボンド</span></a> transactions).</td>
+</tr>
+<tr class="row-odd"><td>Recipient</td>
+<td>TCHBDE…32I</td>
+<td>受信のアカウントアドレス。このケースでは顧客のアドレスです。</td>
+</tr>
+<tr class="row-even"><td>Mosaics</td>
+<td>[1 <code class="docutils literal"><span class="pre">7cdf3b117a3c40cc</span></code>]</td>
+<td>送信するモザイクの配列</td>
+</tr>
+<tr class="row-odd"><td>Message</td>
+<td>enjoy your ticket</td>
+<td>添付されたメッセージ</td>
+</tr>
+<tr class="row-even"><td>Network</td>
+<td>TEST_NET</td>
+<td>ネットワークタイプ</td>
+</tr>
+</tbody>
+</table>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id2">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/transfer/FirstApplication.ts">View Code</a></span><a class="headerlink" href="#id2" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="c1">// replace with mosaic id</span>
+<span class="kd">const</span> <span class="nx">mosaicIdHex</span> <span class="o">=</span> <span class="s1">&#39;7cdf3b117a3c40cc&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">mosaicId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="nx">mosaicIdHex</span><span class="p">);</span>
+<span class="c1">// replace with customer address</span>
+<span class="kd">const</span> <span class="nx">rawAddress</span> <span class="o">=</span> <span class="s1">&#39;TCHBDE-NCLKEB-ILBPWP-3JPB2X-NY64OE-7PYHHE-32I&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">recipientAddress</span> <span class="o">=</span> <span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="nx">rawAddress</span><span class="p">);</span>
+<span class="c1">// replace with network type</span>
+<span class="kd">const</span> <span class="nx">networkType</span> <span class="o">=</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">TEST_NET</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">transferTransaction</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+  <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">epochAdjustment</span><span class="p">),</span>
+  <span class="nx">recipientAddress</span><span class="p">,</span>
+  <span class="p">[</span><span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span><span class="nx">mosaicId</span><span class="p">,</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">1</span><span class="p">))],</span>
+  <span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;enjoy your ticket&#39;</span><span class="p">),</span>
+  <span class="nx">networkType</span><span class="p">,</span>
+  <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">2000000</span><span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id3">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/transfer/FirstApplication.js">View Code</a></span><a class="headerlink" href="#id3" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// replace with mosaic id</span>
+<span class="kd">const</span> <span class="nx">mosaicIdHex</span> <span class="o">=</span> <span class="s1">&#39;7cdf3b117a3c40cc&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">mosaicId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">MosaicId</span><span class="p">(</span><span class="nx">mosaicIdHex</span><span class="p">);</span>
+<span class="c1">// replace with customer address</span>
+<span class="kd">const</span> <span class="nx">rawAddress</span> <span class="o">=</span> <span class="s1">&#39;TCHBDE-NCLKEB-ILBPWP-3JPB2X-NY64OE-7PYHHE-32I&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">recipientAddress</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="nx">rawAddress</span><span class="p">);</span>
+<span class="c1">// replace with network type</span>
+<span class="kd">const</span> <span class="nx">networkType</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">NetworkType</span><span class="p">.</span><span class="nx">TEST_NET</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">transferTransaction</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">epochAdjustment</span><span class="p">),</span> <span class="nx">recipientAddress</span><span class="p">,</span> <span class="p">[</span><span class="k">new</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Mosaic</span><span class="p">(</span><span class="nx">mosaicId</span><span class="p">,</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">1</span><span class="p">))],</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;enjoy your ticket&#39;</span><span class="p">),</span> <span class="nx">networkType</span><span class="p">,</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">2000000</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id4">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/java/src/test/java/symbol/guides/examples/transfer/FirstApplication.java">View Code</a></span><a class="headerlink" href="#id4" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="c1">// replace with node endpoint</span>
+        <span class="k">try</span> <span class="p">(</span><span class="kd">final</span> <span class="n">RepositoryFactory</span> <span class="n">repositoryFactory</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RepositoryFactoryVertxImpl</span><span class="p">(</span>
+                <span class="s">&quot;http://ngl-dual-101.testnet.symboldev.network:3000&quot;</span><span class="p">))</span> <span class="p">{</span>
+            <span class="c1">// replace with mosaic id</span>
+            <span class="kd">final</span> <span class="n">String</span> <span class="n">mosaicIdHex</span> <span class="o">=</span> <span class="s">&quot;7cdf3b117a3c40cc&quot;</span><span class="p">;</span>
+            <span class="kd">final</span> <span class="n">MosaicId</span> <span class="n">mosaicId</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MosaicId</span><span class="p">(</span><span class="n">mosaicIdHex</span><span class="p">);</span>
+
+            <span class="c1">// replace with customer address</span>
+            <span class="kd">final</span> <span class="n">String</span> <span class="n">rawAddress</span> <span class="o">=</span> <span class="s">&quot;TCHBDE-NCLKEB-ILBPWP-3JPB2X-NY64OE-7PYHHE-32I&quot;</span><span class="p">;</span>
+            <span class="kd">final</span> <span class="n">UnresolvedAddress</span> <span class="n">recipientAddress</span> <span class="o">=</span> <span class="n">Address</span><span class="p">.</span><span class="na">createFromRawAddress</span><span class="p">(</span><span class="n">rawAddress</span><span class="p">);</span>
+            <span class="kd">final</span> <span class="n">NetworkType</span> <span class="n">networkType</span> <span class="o">=</span> <span class="n">repositoryFactory</span><span class="p">.</span><span class="na">getNetworkType</span><span class="p">().</span><span class="na">toFuture</span><span class="p">().</span><span class="na">get</span><span class="p">();</span>
+
+            <span class="kd">final</span> <span class="n">Mosaic</span> <span class="n">mosaic</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Mosaic</span><span class="p">(</span><span class="n">mosaicId</span><span class="p">,</span> <span class="n">BigInteger</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+            <span class="kd">final</span> <span class="n">TransferTransaction</span> <span class="n">transferTransaction</span> <span class="o">=</span> <span class="n">TransferTransactionFactory</span>
+                    <span class="p">.</span><span class="na">create</span><span class="p">(</span>
+                            <span class="n">networkType</span><span class="p">,</span>
+                            <span class="n">recipientAddress</span><span class="p">,</span>
+                            <span class="n">Collections</span><span class="p">.</span><span class="na">singletonList</span><span class="p">(</span><span class="n">mosaic</span><span class="p">),</span>
+                            <span class="n">PlainMessage</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&quot;Enjoy your ticket&quot;</span><span class="p">))</span>
+                    <span class="p">.</span><span class="na">maxFee</span><span class="p">(</span><span class="n">BigInteger</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="mi">2000000</span><span class="p">)).</span><span class="na">build</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>トランザクションは定義されましたが、まだネットワークへはアナウンスされていません。</p>
+<ol class="arabic simple" start="2">
+<li>ネットワークがトランザクションの信頼性を検証できるように <strong>チケット販売者のアカウント</strong> でトランザクションに署名をします。</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">あなたのネットワークでだけ妥当なトランザクションを作るには、ネットワークジェネレーションハッシュを含めてください。新しいブラウザタブで <code class="docutils literal"><span class="pre">nodeUrl</span> <span class="pre">+</span> <span class="pre">'/node/info'</span></code> を開いて <code class="docutils literal"><span class="pre">meta.networkGenerationHash</span></code> の値をコピーします。</p>
+</div>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id5">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/transfer/FirstApplication.ts">View Code</a></span><a class="headerlink" href="#id5" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="c1">// replace with ticket vendor private key</span>
+<span class="kd">const</span> <span class="nx">privateKey</span> <span class="o">=</span>
+  <span class="s1">&#39;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">networkType</span><span class="p">);</span>
+<span class="c1">// replace with meta.networkGenerationHash (nodeUrl + &#39;/node/info&#39;)</span>
+<span class="kd">const</span> <span class="nx">networkGenerationHash</span> <span class="o">=</span>
+  <span class="s1">&#39;1DFB2FAA9E7F054168B0C5FCB84F4DEB62CC2B4D317D861F3168D161F54EA78B&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span>
+  <span class="nx">transferTransaction</span><span class="p">,</span>
+  <span class="nx">networkGenerationHash</span><span class="p">,</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id6">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/transfer/FirstApplication.js">View Code</a></span><a class="headerlink" href="#id6" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// replace with ticket vendor private key</span>
+<span class="kd">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="s1">&#39;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">networkType</span><span class="p">);</span>
+<span class="c1">// replace with meta.networkGenerationHash (nodeUrl + &#39;/node/info&#39;)</span>
+<span class="kd">const</span> <span class="nx">networkGenerationHash</span> <span class="o">=</span> <span class="s1">&#39;1DFB2FAA9E7F054168B0C5FCB84F4DEB62CC2B4D317D861F3168D161F54EA78B&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">transferTransaction</span><span class="p">,</span> <span class="nx">networkGenerationHash</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id7">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/java/src/test/java/symbol/guides/examples/transfer/FirstApplication.java">View Code</a></span><a class="headerlink" href="#id7" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>            <span class="c1">// replace with ticket vendor private key</span>
+            <span class="kd">final</span> <span class="n">String</span> <span class="n">privateKey</span> <span class="o">=</span> <span class="s">&quot;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&quot;</span><span class="p">;</span>
+            <span class="c1">// replace with network generation hash</span>
+            <span class="kd">final</span> <span class="n">String</span> <span class="n">generationHash</span> <span class="o">=</span> <span class="n">repositoryFactory</span><span class="p">.</span><span class="na">getGenerationHash</span><span class="p">().</span><span class="na">toFuture</span><span class="p">().</span><span class="na">get</span><span class="p">();</span>
+
+            <span class="kd">final</span> <span class="n">Account</span> <span class="n">account</span> <span class="o">=</span> <span class="n">Account</span>
+                    <span class="p">.</span><span class="na">createFromPrivateKey</span><span class="p">(</span><span class="n">privateKey</span><span class="p">,</span> <span class="n">networkType</span><span class="p">);</span>
+            <span class="kd">final</span> <span class="n">SignedTransaction</span> <span class="n">signedTransaction</span> <span class="o">=</span> <span class="n">account</span>
+                    <span class="p">.</span><span class="na">sign</span><span class="p">(</span><span class="n">transferTransaction</span><span class="p">,</span> <span class="n">generationHash</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li>署名が終わったら、トランザクションをネットワークへアナウンスします。</li>
+</ol>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id8">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/transfer/FirstApplication.ts">View Code</a></span><a class="headerlink" href="#id8" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="c1">// replace with node endpoint</span>
+<span class="kd">const</span> <span class="nx">nodeUrl</span> <span class="o">=</span> <span class="s1">&#39;http://ngl-dual-101.testnet.symboldev.network:3000&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">repositoryFactory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RepositoryFactoryHttp</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="nx">repositoryFactory</span><span class="p">.</span><span class="nx">createTransactionRepository</span><span class="p">();</span>
+
+<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
+  <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
+  <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id9">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/transfer/FirstApplication.js">View Code</a></span><a class="headerlink" href="#id9" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// replace with node endpoint</span>
+<span class="kd">const</span> <span class="nx">nodeUrl</span> <span class="o">=</span> <span class="s1">&#39;http://ngl-dual-101.testnet.symboldev.network:3000&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">repositoryFactory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">RepositoryFactoryHttp</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="nx">repositoryFactory</span><span class="p">.</span><span class="nx">createTransactionRepository</span><span class="p">();</span>
+<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">x</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id10">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/java/src/test/java/symbol/guides/examples/transfer/FirstApplication.java">View Code</a></span><a class="headerlink" href="#id10" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>            <span class="kd">final</span> <span class="n">TransactionRepository</span> <span class="n">transactionRepository</span> <span class="o">=</span> <span class="n">repositoryFactory</span>
+                    <span class="p">.</span><span class="na">createTransactionRepository</span><span class="p">();</span>
+            <span class="n">transactionRepository</span><span class="p">.</span><span class="na">announce</span><span class="p">(</span><span class="n">signedTransaction</span><span class="p">).</span><span class="na">toFuture</span><span class="p">().</span><span class="na">get</span><span class="p">();</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>symbol-cli transaction transfer --recipient-address TCHBDE-NCLKEB-ILBPWP-3JPB2X-NY64OE-7PYHHE-32I --mosaics 7cdf3b117a3c40cc::1 --message enjoy_your_ticket --max-fee <span class="m">2000000</span> --sync
+</pre></div>
+</div>
+</div>
+<ol class="arabic simple" start="4">
+<li>トランザクションを監視しているターミナルウィンドウを確認します。トランザクションが承認されたら、次のコマンドで顧客がチケットを受け取ったかどうかを確認できます。</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>symbol-cli account info --profile customer
+</pre></div>
+</div>
+</div>
+<div class="section" id="did-we-solve-the-use-case">
+<h2>このユースケースを解決できたのでしょうか？<a class="headerlink" href="#did-we-solve-the-use-case" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>✅ 各購入者の識別: 各購入者の Symbol アカウントの作成</li>
+<li>✅ チケットの転売防止: 転送不可能なモザイクの作成</li>
+<li>✅ 未認証なチケットとその複製: 一意なモザイクの作成</li>
+</ul>
+<p>Symbol <a class="reference internal" href="../concepts/overview.html"><span class="doc">ビルドイン機能</span></a> の学習を続ける。</p>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+            
+            <p class="feedback">
+                <hr/>
+                お探しのものは見つかりましたか？
+                <a href="https://github.com/symbol/symbol-docs/issues/new/choose" target="_blank">フィードバックをください。</a>
+            </p>
+            
+        </div>
+         
+
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+    
+    <div class="edit-github">
+    <a href="https://github.com/symbol/symbol-docs/edit/main/source/getting-started/first-application.rst" rel="nofollow"> <i class="fab fa-github"></i> このページを加筆修正する</a>
+</div>
+    <span class="title">このページ</span>
+    <ul>
+<li><a class="reference internal" href="#">はじめてのアプリケーションを作成</a><ul>
+<li><a class="reference internal" href="#use-case">ユースケース</a><ul>
+<li><a class="reference internal" href="#what-do-we-want-to-solve">私達は何を解決したいのでしょう？</a></li>
+<li><a class="reference internal" href="#why-symbol-is-the-right-choice">なぜ Symbol は正しい選択なのでしょう？</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#creating-an-account-for-each-participant">各参加者のアカウントを作成</a></li>
+<li><a class="reference internal" href="#monitoring-the-blockchain">ブロックチェーンの監視</a></li>
+<li><a class="reference internal" href="#creating-the-ticket">チケットの作成</a></li>
+<li><a class="reference internal" href="#sending-the-ticket">チケットの送信</a></li>
+<li><a class="reference internal" href="#did-we-solve-the-use-case">このユースケースを解決できたのでしょうか？</a></li>
+</ul>
+</li>
+</ul>
+
+    
+    </div>
+</div>
+
+ 
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-desktop',
+        debug: false
+    });
+
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-mobile',
+        debug: false
+    });
+</script>
+
+  </body>
+</html>

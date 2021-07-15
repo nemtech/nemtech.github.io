@@ -1,0 +1,395 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Cryptography &#8212; Symbol Documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700&display=swap" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'Main',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/custom.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/examplecode.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data Validation" href="data-validation.html" />
+    <link rel="prev" title="Cross-Chain Swaps" href="cross-chain-swaps.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174021413-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-174021413-2');
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../guides/atom.xml" title="Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div class="navbar navbar-default gradient navbar-fixed-top"
+     id="navbar">
+    <div class="container navbar-top hidden-xs hidden-sm">
+        <div class="row">
+            <div class="col-lg-8 col-md-7">
+                <div id="language">
+    <label class="select">
+        <select>
+            <option id="english" value="en">EN</option>
+            <option id="japanese" value="ja">JA</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">Translate</option>
+        </select>
+    </label>
+</div>
+            </div>
+            <div class="col-lg-4 col-md-5">
+                
+                <div id="search-box">
+    <input class="search search-desktop form-control" placeholder="Search"/>
+</div>
+                
+                <ul id="social" class="list-inline">
+    <li>
+        <a href="https://twitter.com/NEMofficial" rel="nofollow"><i class="fab fa-twitter" title="Twitter"></i></a>
+    </li>
+    <li>
+        <a href="https://discord.com/invite/xymcity" rel="nofollow" title="Discord"><i class="fab fa-discord"></i></a>
+    </li>
+    <li>
+        <a href="https://github.com/symbol/" rel="nofollow" title="GitHub"><i class="fab fa-github"></i></a>
+    </li>
+</ul>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="container navbar-main">
+        <div class="row">
+            <div class="navbar-header col-lg-6 col-md-4 col-xs-6">
+                <a class="navbar-brand" href="../index.html">
+                    
+                    <span><img alt="NEM logo" src="../_static/logo-symbol.svg"></span>
+                    
+                </a>
+            </div>
+            <div class="navbar-right col-lg-6 col-md-8 hidden-xs hidden-sm">
+                <ul class="list-inline">
+    <li>
+        <a href="/getting-started/what-is-symbol.html" class="">Getting Started</a>
+    </li>
+    <li>
+        <a href="/concepts/overview.html" class="active">Features</a>
+    </li>
+    <li>
+        <a href="/guides/category.html" class="">Guides</a>
+    </li>
+    <li>
+        <a href="/references/overview.html" class="">Tools</a>
+    </li>
+    <li>
+        <a href="/contribute/community.html" class="">Help</a>
+    </li>
+</ul>
+            </div>
+            <div class="navbar-right col-xs-6 hidden-lg hidden-md">
+                
+                <div id="search-box">
+    <input class="search search-mobile form-control" placeholder="Search"/>
+</div>
+                
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 sidebar-xs visible-xs visible-sm">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigation <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu globaltoc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">Guides</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">Concepts</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="account.html">Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="block.html">Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consensus-algorithm.html">Consensus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Cryptography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-validation.html">Data Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fees.html">Fees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="harvesting.html">Harvesting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inflation.html">Inflation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic.html">Mosaic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic-restriction.html">Mosaic Restriction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html">Namespace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html">Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin.html">Extending Symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="receipt.html">Receipt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reward-programs.html">Reward Programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html">Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references/index.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">Contributing</a></li>
+</ul>
+</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        
+        
+
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
+    <h4>Navigation</h4>
+    <hr />
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">Guides</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">Concepts</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="account.html">Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="block.html">Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consensus-algorithm.html">Consensus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Cryptography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-validation.html">Data Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fees.html">Fees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="harvesting.html">Harvesting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inflation.html">Inflation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic.html">Mosaic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic-restriction.html">Mosaic Restriction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html">Namespace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html">Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin.html">Extending Symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="receipt.html">Receipt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reward-programs.html">Reward Programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html">Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references/index.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">Contributing</a></li>
+</ul>
+
+</div>
+        
+    </div>
+</div>
+
+
+        
+        <div class="col-md-7 content">
+            
+  <div class="section" id="cryptography">
+<h1>Cryptography<a class="headerlink" href="#cryptography" title="Permalink to this headline">¶</a></h1>
+<p>Symbol uses <a class="reference external" href="https://en.wikipedia.org/wiki/Elliptic-curve_cryptography">elliptic curve cryptography</a> to verify data integrity and to authenticate a signer’s identity.</p>
+<div class="section" id="key-pair">
+<span id="keypair"></span><h2>Key pair<a class="headerlink" href="#key-pair" title="Permalink to this headline">¶</a></h2>
+<p>Elliptic curve cryptography is based on <strong>key pairs</strong>: a private and a matching public key. In particular, Symbol uses the <a class="reference external" href="https://en.wikipedia.org/wiki/Twisted_Edwards_curve">Twisted Edwards curve</a> with the digital signature algorithm named <a class="reference external" href="https://ed25519.cr.yp.to">Ed25519</a> and hashing algorithm <strong>SHA-512</strong>:</p>
+<ul class="simple">
+<li><strong>Private key</strong>: A random 256-bit (32 byte) integer used to sign <a class="reference internal" href="../serialization/entity.html#verifiable-entity"><span class="std std-ref">entities</span></a> known by the owner.</li>
+<li><strong>Public key</strong>: A 256-bit (32 bytes) integer derived from the private key. It serves as the public identifier of the key pair and can be disseminated widely. It is used to prove that an entity was signed with the paired private key.</li>
+</ul>
+<p>The public key can be derived from the private key, but <strong>not the other way around</strong>.</p>
+<div class="section" id="codename-keys">
+<span id="symbol-keys"></span><h3>Symbol keys<a class="headerlink" href="#codename-keys" title="Permalink to this headline">¶</a></h3>
+<p>Key pairs are used in Symbol in different places, for <strong>different purposes</strong>. This is a summary of the keys used:</p>
+<ul class="simple">
+<li><strong>Main</strong>: This key pair manages a <strong>regular</strong> <a class="reference internal" href="account.html"><span class="doc">Account</span></a>, containing assets like mosaics or namespaces.</li>
+<li><strong>Remote</strong>: This key pair manages the <strong>remote account</strong> used in <a class="reference internal" href="harvesting.html#remote-harvesting"><span class="std std-ref">Remote harvesting</span></a>.</li>
+<li><strong>VRF</strong>: Required <a class="reference internal" href="harvesting.html#account-eligibility"><span class="std std-ref">for harvesting</span></a>.</li>
+<li><strong>Voting</strong>: Required for nodes participating in the <a class="reference internal" href="block.html#finalization"><span class="std std-ref">Finalization</span></a> process.</li>
+<li><strong>Transport</strong>: This key pair is used by nodes for secure transport over <a class="reference external" href="https://en.wikipedia.org/wiki/Transport_Layer_Security">TLS</a>.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>As a rule of thumb, the <strong>private key</strong> in any key pair should be kept secret at all times. However, <strong>how bad is it to have a private key stolen?</strong></p>
+<table border="1" class="last docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Key</th>
+<th class="head">Severity</th>
+<th class="head">Impact</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>Main</strong></td>
+<td>🔴 HIGH</td>
+<td>Funds could be transferred to another account.</td>
+</tr>
+<tr class="row-odd"><td><strong>Remote</strong></td>
+<td>🟠 MED</td>
+<td>Harmless to the account or the node. Easily reverted by linking another remote account. An attacker grabbing a large number of remote keys could gain a lot of harvesting power, influencing which blocks are added to the blockchain.</td>
+</tr>
+<tr class="row-even"><td><strong>VRF</strong></td>
+<td>🟡 LOW</td>
+<td>Harmless without the key used for harvesting.</td>
+</tr>
+<tr class="row-odd"><td><strong>Voting</strong></td>
+<td>🟠 MED</td>
+<td>Harmless to the account or the node. Easily reverted by linking another voting account. An attacker grabbing more than 50% of the network’s voting keys could influence block finalization.</td>
+</tr>
+<tr class="row-even"><td><strong>Transport</strong></td>
+<td>🟡 LOW</td>
+<td>An attacker could steal harvesting delegations away from the node, but harmless otherwise.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="signature">
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
+<p><strong>All transactions are signed</strong> using a private key, producing 512-bit (64 byte) <strong>signatures</strong>.</p>
+<p>As part of the regular workflow of the protocol, signatures are <strong>validated</strong> using the matching public key. This ensures the authenticity of the signer of an entity.</p>
+</div>
+<div class="section" id="address">
+<span id="id1"></span><h2>Address<a class="headerlink" href="#address" title="Permalink to this headline">¶</a></h2>
+<p>Symbol public keys can be shared in a <strong>shorter form</strong> as 39-character addresses.</p>
+<p>First, a 24-byte triplet is built, consisting of:</p>
+<ul class="simple">
+<li>A network-id byte.</li>
+<li>A 160-bit (20 byte) hash of the account’s public key.</li>
+<li>A 3-byte checksum, to allow the quick recognition of mistyped addresses.</li>
+</ul>
+<p>Then, the whole string is <a class="reference external" href="https://en.wikipedia.org/wiki/Base32">Base32-encoded</a> to produce the 39-character address.</p>
+<p>It is possible to create an address without interacting with the blockchain. In fact, the blockchain only tracks addresses and public keys when they first appear in a transaction.</p>
+</div>
+<div class="section" id="hd-wallets-and-mnemonics">
+<span id="hdwallets-and-mnemonics"></span><h2>HD-Wallets and Mnemonics<a class="headerlink" href="#hd-wallets-and-mnemonics" title="Permalink to this headline">¶</a></h2>
+<p><strong>Hierarchical Deterministic Wallets</strong> (HD-Wallets for short) can <strong>derive a series of accounts</strong> from a single seed account. This allows handling a group of accounts using a single <a class="reference internal" href="#keypair"><span class="std std-ref">key pair</span></a>, greatly simplifying their management:</p>
+<ul class="simple">
+<li>Only one key to protect.</li>
+<li>Multiple accounts can be stored in a single QR code or <strong>mnemonic phrase</strong>.</li>
+</ul>
+<p>A <strong>Mnemonic Phrase</strong> is human-friendly representation for a private key, composed of <strong>24 random English words</strong>. Mnemonic phrases are sometimes used instead of private keys as they are <strong>easier for humans to remember and write down</strong>.</p>
+<p>However, they are <strong>equivalent to private keys</strong> so it is critical that they are kept secret at all times. Even more so in the Symbol <a class="reference internal" href="../wallets.html#wallet-desktop"><span class="std std-ref">Desktop Wallet</span></a>, where <strong>the mnemonic phrase encodes the seed account’s key</strong>.</p>
+<p>See the <a class="reference external" href="https://github.com/symbol/NIP/blob/main/NIPs/nip-0006.md">NIP-6</a> document for technical details on Symbol’s mechanism to create HD Wallets.</p>
+<p>Continue: <a class="reference internal" href="block.html"><span class="doc">Block</span></a>.</p>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+            
+            <p class="feedback">
+                <hr/>
+                Did you find what you were looking for?
+                <a href="https://github.com/symbol/symbol-docs/issues/new/choose" target="_blank">Give us your feedback.</a>
+            </p>
+            
+        </div>
+         
+
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+    
+    <div class="edit-github">
+    <a href="https://github.com/symbol/symbol-docs/edit/main/source/concepts/cryptography.rst" rel="nofollow"> <i class="fab fa-github"></i> Improve this page</a>
+</div>
+    <span class="title">On this page</span>
+    <ul>
+<li><a class="reference internal" href="#">Cryptography</a><ul>
+<li><a class="reference internal" href="#key-pair">Key pair</a><ul>
+<li><a class="reference internal" href="#codename-keys">Symbol keys</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#signature">Signature</a></li>
+<li><a class="reference internal" href="#address">Address</a></li>
+<li><a class="reference internal" href="#hd-wallets-and-mnemonics">HD-Wallets and Mnemonics</a></li>
+</ul>
+</li>
+</ul>
+
+    
+    </div>
+</div>
+
+ 
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-desktop',
+        debug: false
+    });
+
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-mobile',
+        debug: false
+    });
+</script>
+
+  </body>
+</html>

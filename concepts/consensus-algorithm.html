@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Consensus &#8212; Symbol Documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700&display=swap" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'Main',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/custom.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/examplecode.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Cross-Chain Swaps" href="cross-chain-swaps.html" />
+    <link rel="prev" title="Block" href="block.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174021413-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-174021413-2');
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../guides/atom.xml" title="Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div class="navbar navbar-default gradient navbar-fixed-top"
+     id="navbar">
+    <div class="container navbar-top hidden-xs hidden-sm">
+        <div class="row">
+            <div class="col-lg-8 col-md-7">
+                <div id="language">
+    <label class="select">
+        <select>
+            <option id="english" value="en">EN</option>
+            <option id="japanese" value="ja">JA</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">Translate</option>
+        </select>
+    </label>
+</div>
+            </div>
+            <div class="col-lg-4 col-md-5">
+                
+                <div id="search-box">
+    <input class="search search-desktop form-control" placeholder="Search"/>
+</div>
+                
+                <ul id="social" class="list-inline">
+    <li>
+        <a href="https://twitter.com/NEMofficial" rel="nofollow"><i class="fab fa-twitter" title="Twitter"></i></a>
+    </li>
+    <li>
+        <a href="https://discord.com/invite/xymcity" rel="nofollow" title="Discord"><i class="fab fa-discord"></i></a>
+    </li>
+    <li>
+        <a href="https://github.com/symbol/" rel="nofollow" title="GitHub"><i class="fab fa-github"></i></a>
+    </li>
+</ul>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="container navbar-main">
+        <div class="row">
+            <div class="navbar-header col-lg-6 col-md-4 col-xs-6">
+                <a class="navbar-brand" href="../index.html">
+                    
+                    <span><img alt="NEM logo" src="../_static/logo-symbol.svg"></span>
+                    
+                </a>
+            </div>
+            <div class="navbar-right col-lg-6 col-md-8 hidden-xs hidden-sm">
+                <ul class="list-inline">
+    <li>
+        <a href="/getting-started/what-is-symbol.html" class="">Getting Started</a>
+    </li>
+    <li>
+        <a href="/concepts/overview.html" class="active">Features</a>
+    </li>
+    <li>
+        <a href="/guides/category.html" class="">Guides</a>
+    </li>
+    <li>
+        <a href="/references/overview.html" class="">Tools</a>
+    </li>
+    <li>
+        <a href="/contribute/community.html" class="">Help</a>
+    </li>
+</ul>
+            </div>
+            <div class="navbar-right col-xs-6 hidden-lg hidden-md">
+                
+                <div id="search-box">
+    <input class="search search-mobile form-control" placeholder="Search"/>
+</div>
+                
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 sidebar-xs visible-xs visible-sm">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigation <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu globaltoc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">Guides</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">Concepts</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="account.html">Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="block.html">Block</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Consensus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cryptography.html">Cryptography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-validation.html">Data Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fees.html">Fees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="harvesting.html">Harvesting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inflation.html">Inflation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic.html">Mosaic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic-restriction.html">Mosaic Restriction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html">Namespace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html">Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin.html">Extending Symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="receipt.html">Receipt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reward-programs.html">Reward Programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html">Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references/index.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">Contributing</a></li>
+</ul>
+</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        
+        
+
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
+    <h4>Navigation</h4>
+    <hr />
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">Guides</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">Concepts</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="account.html">Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="block.html">Block</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Consensus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cryptography.html">Cryptography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-validation.html">Data Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fees.html">Fees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="harvesting.html">Harvesting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inflation.html">Inflation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic.html">Mosaic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic-restriction.html">Mosaic Restriction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html">Namespace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html">Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin.html">Extending Symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="receipt.html">Receipt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reward-programs.html">Reward Programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html">Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references/index.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">Contributing</a></li>
+</ul>
+
+</div>
+        
+    </div>
+</div>
+
+
+        
+        <div class="col-md-7 content">
+            
+  <div class="section" id="consensus">
+<h1>Consensus<a class="headerlink" href="#consensus" title="Permalink to this headline">¶</a></h1>
+<p>The consensus protocol is the dynamic method through which nodes in a blockchain system <strong>reach an agreement</strong> and <strong>make decisions</strong>.</p>
+<p>Symbol utilizes an innovative mechanism called the <strong>Proof-of-Stake Plus</strong> (PoS+), a modified version of the popular <strong>Proof-of-Stake</strong> (<a href="https://en.wikipedia.org/wiki/Proof_of_stake" target="_blank">PoS</a>) protocol.</p>
+<p>In a basic <strong>PoS</strong> consensus algorithm, the formation of a new block in the blockchain is stochastically assigned to a node based on a combination of factors <strong>related exclusively to the node owner’s wealth</strong>.</p>
+<p>The <strong>PoS+</strong> protocol considers the account’s stakes too, but it also promotes the ecosystem’s health by rewarding participants <strong>based on their activity</strong>.</p>
+<div class="section" id="factors">
+<span id="importance-calculation"></span><h2>Factors<a class="headerlink" href="#factors" title="Permalink to this headline">¶</a></h2>
+<p>The algorithm considers the following factors when calculating an account’s <strong>importance</strong>, the measure that will ultimately be used to choose the next harvesting node:</p>
+<ul class="simple">
+<li><strong>Stake</strong>: The total amount of <a class="reference internal" href="harvesting.html#harvesting-mosaic"><span class="std std-ref">harvesting mosaic</span></a> held, since owners with larger balances have the incentive to see the ecosystem flourish. Only accounts holding more than 10‘000 harvesting mosaics (<strong>high-value accounts</strong>) are <a class="reference internal" href="harvesting.html#account-eligibility"><span class="std std-ref">eligible</span></a> for harvesting.</li>
+<li><strong>Transactions</strong>: The total amount of <a class="reference internal" href="fees.html"><span class="doc">fees</span></a> paid by an account. This encourages being an active account in the network.</li>
+<li><strong>Nodes</strong>: The number of times an account has been the <a class="reference internal" href="harvesting.html#harvesting-rewards"><span class="std std-ref">beneficiary</span></a> of the fees collected by a node. Thus the network incentivizes accounts which run nodes.</li>
+</ul>
+<p>Periodically, an <strong>importance score</strong> based on these three factors is calculated for all high-value accounts. The importance score determines an account’s probability to <a class="reference internal" href="harvesting.html"><span class="doc">harvest</span></a> the next block.</p>
+</div>
+<div class="section" id="partial-scores">
+<h2>Partial scores<a class="headerlink" href="#partial-scores" title="Permalink to this headline">¶</a></h2>
+<p>The network calculates first the following <strong>partial scores</strong> for all high-value accounts at the end of each importance period (720 blocks, roughly 6 hours. See <code class="docutils literal"><span class="pre">importanceGrouping</span></code> in <a class="reference internal" href="../guides/network/configuring-network-properties.html#config-network-properties"><span class="std std-ref">Network configuration</span></a>):</p>
+<ul>
+<li><p class="first"><strong>Stake Score</strong> (<span class="math">\(S\)</span>): Account’s balance divided by the balance of all high value accounts, at the end of the period.</p>
+</li>
+<li><p class="first"><strong>Transaction Score</strong> (<span class="math">\(T\)</span>): Total amount of fees paid by the account divided by the total amount of fees paid by all high value accounts during the period.</p>
+</li>
+<li><p class="first"><strong>Node Score</strong> (<span class="math">\(N\)</span>): Number of times the account has been the <a class="reference internal" href="harvesting.html#harvesting-rewards"><span class="std std-ref">beneficiary</span></a> of a node fee divided by the number of times all high value accounts have been the beneficiary of a node fee, during the period.</p>
+</li>
+<li><p class="first"><strong>Activity Score</strong> (<span class="math">\(A\)</span>): Average of the <span class="math">\(T\)</span> and <span class="math">\(N\)</span> scores weighted <strong>80%</strong> and <strong>20%</strong> respectively, divided by the account’s balance. Dividing by the account’s balance gives some boost to small accounts, because their importance score will depend more on their activity and less on their stake.</p>
+<p>An absolute activity score (<span class="math">\(A'\)</span>) is calculated first:</p>
+<div class="math">
+\[A' = \frac{10000}{Balance}(0.8T+0.2N)\]</div>
+<p>And the actual activity score (<span class="math">\(A\)</span>) is calculated by dividing <span class="math">\(A'\)</span> by the sum of the absolute activity scores of all high value accounts.</p>
+</li>
+</ul>
+<p>The importance score is then calculated based on the above partial scores.</p>
+</div>
+<div class="section" id="importance-score">
+<h2>Importance score<a class="headerlink" href="#importance-score" title="Permalink to this headline">¶</a></h2>
+<p>The importance score <span class="math">\(I\)</span> is calculated as the average of the <span class="math">\(S\)</span> and <span class="math">\(A\)</span> scores, weighted by an activity factor <span class="math">\(\gamma\)</span>:</p>
+<div class="math">
+\[I = \gamma A + (1-\gamma)S\]</div>
+<p>In the Symbol network <span class="math">\(\gamma\)</span> is 0.05 (<strong>5%</strong>)</p>
+<p>Finally, among all accounts <a class="reference internal" href="harvesting.html#account-eligibility"><span class="std std-ref">eligible for harvesting</span></a>, the probability that a particular one is chosen is proportional to its <strong>effective importance score</strong>, which is defined as <strong>the smaller of the previous two importance scores</strong> <span class="math">\(I\)</span>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Since scores are calculated every 720 blocks (roughly 6 hours) and the smaller of the previous <strong>two scores</strong> is used when calculating harvesting probabilities, when you first fund an account it will require <strong>12 hours</strong> to have a probability greater than zero.</p>
+</div>
+</div>
+<div class="section" id="customization">
+<h2>Customization<a class="headerlink" href="#customization" title="Permalink to this headline">¶</a></h2>
+<p>Private networks can <strong>customize the consensus algorithm</strong> by changing the following configuration properties. See <a class="reference internal" href="../guides/network/configuring-network-properties.html#config-network-properties"><span class="std std-ref">Network configuration</span></a>.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="15%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Default</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">importanceGrouping</span></code></td>
+<td>720 blocks</td>
+<td>How often importance is calculated.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">minHarvesterBalance</span></code></td>
+<td>10000</td>
+<td>Minimum balance required to be eligible for harvesting.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">importanceActivityPercentage</span></code></td>
+<td>0.05</td>
+<td>Contribution of the activity score (<span class="math">\(\gamma\)</span>). When it is 0, PoS+ consensus behaves like conventional PoS.</td>
+</tr>
+</tbody>
+</table>
+<p>Continue: <a class="reference internal" href="harvesting.html"><span class="doc">Harvesting</span></a>.</p>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+            
+            <p class="feedback">
+                <hr/>
+                Did you find what you were looking for?
+                <a href="https://github.com/symbol/symbol-docs/issues/new/choose" target="_blank">Give us your feedback.</a>
+            </p>
+            
+        </div>
+         
+
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+    
+    <div class="edit-github">
+    <a href="https://github.com/symbol/symbol-docs/edit/main/source/concepts/consensus-algorithm.rst" rel="nofollow"> <i class="fab fa-github"></i> Improve this page</a>
+</div>
+    <span class="title">On this page</span>
+    <ul>
+<li><a class="reference internal" href="#">Consensus</a><ul>
+<li><a class="reference internal" href="#factors">Factors</a></li>
+<li><a class="reference internal" href="#partial-scores">Partial scores</a></li>
+<li><a class="reference internal" href="#importance-score">Importance score</a></li>
+<li><a class="reference internal" href="#customization">Customization</a></li>
+</ul>
+</li>
+</ul>
+
+    
+    </div>
+</div>
+
+ 
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-desktop',
+        debug: false
+    });
+
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-mobile',
+        debug: false
+    });
+</script>
+
+  </body>
+</html>

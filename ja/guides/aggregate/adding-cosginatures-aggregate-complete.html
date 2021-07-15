@@ -1,0 +1,604 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>アグリゲートコンプリートトランザクションに連署名を追加する &#8212; Symbol Documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700&display=swap" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     'Main',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/examplecode.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="エスクローコントラクトの作成" href="creating-an-escrow-contract-with-aggregate-bonded-transaction.html" />
+    <link rel="prev" title="アグリゲートトランザクション" href="index.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174021413-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-174021413-2');
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../../guides/atom.xml" title="Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div class="navbar navbar-default gradient navbar-fixed-top"
+     id="navbar">
+    <div class="container navbar-top hidden-xs hidden-sm">
+        <div class="row">
+            <div class="col-lg-8 col-md-7">
+                <div id="language">
+    <label class="select">
+        <select>
+            <option id="english" value="en">EN</option>
+            <option id="japanese" value="ja">JA</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </label>
+</div>
+            </div>
+            <div class="col-lg-4 col-md-5">
+                
+                <div id="search-box">
+    <input class="search search-desktop form-control" placeholder="Search"/>
+</div>
+                
+                <ul id="social" class="list-inline">
+    <li>
+        <a href="https://twitter.com/NEMofficial" rel="nofollow"><i class="fab fa-twitter" title="Twitter"></i></a>
+    </li>
+    <li>
+        <a href="https://discord.com/invite/xymcity" rel="nofollow" title="Discord"><i class="fab fa-discord"></i></a>
+    </li>
+    <li>
+        <a href="https://github.com/symbol/" rel="nofollow" title="GitHub"><i class="fab fa-github"></i></a>
+    </li>
+</ul>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="container navbar-main">
+        <div class="row">
+            <div class="navbar-header col-lg-6 col-md-4 col-xs-6">
+                <a class="navbar-brand" href="../../index.html">
+                    
+                    <span><img alt="NEM logo" src="../../_static/logo-symbol.svg"></span>
+                    
+                </a>
+            </div>
+            <div class="navbar-right col-lg-6 col-md-8 hidden-xs hidden-sm">
+                <ul class="list-inline">
+    <li>
+        <a href="/ja/getting-started/what-is-symbol.html" class="">入門</a>
+    </li>
+    <li>
+        <a href="/ja/concepts/overview.html" class="">機能</a>
+    </li>
+    <li>
+        <a href="/ja/guides/category.html" class="active">ガイド</a>
+    </li>
+    <li>
+        <a href="/ja/references/overview.html" class="">ツール</a>
+    </li>
+    <li>
+        <a href="/ja/contribute/community.html" class="">ヘルプ</a>
+    </li>
+</ul>
+            </div>
+            <div class="navbar-right col-xs-6 hidden-lg hidden-md">
+                
+                <div id="search-box">
+    <input class="search search-mobile form-control" placeholder="Search"/>
+</div>
+                
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 sidebar-xs visible-xs visible-sm">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">ナビゲーション <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu globaltoc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">入門</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">ガイド</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../account/index.html">アカウント</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">アグリゲートトランザクション</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">アグリゲートコンプリートトランザクションに連署名を追加する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-an-escrow-contract-with-aggregate-bonded-transaction.html">エスクローコントラクトの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sending-a-multisig-transaction.html">マルチシグトランザクションの送信</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sending-multiple-transactions-together-with-aggregate-complete-transaction.html">複数のトランザクションを同時に送信</a></li>
+<li class="toctree-l3"><a class="reference internal" href="signing-announced-aggregate-bonded-transactions-automatically.html">自動的なアグリゲートボンデッドトランザクションの署名</a></li>
+<li class="toctree-l3"><a class="reference internal" href="signing-announced-aggregate-bonded-transactions.html">アグリゲートボンデッドトランザクションの連署</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../blockchain/index.html">ブロックチェーン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../harvesting/index.html">ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/index.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../migration/index.html">NIS1 からのマイグレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monitor/index.html">モニタリング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mosaic/index.html">モザイク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multisig/index.html">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../namespace/index.html">ネームスペース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">ネットワーク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../restriction/index.html">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../secretlock/index.html">シークレットロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transfer/index.html">転送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exchanges/index.html">Exchanges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/overview.html">コンセプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">貢献</a></li>
+</ul>
+</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        
+        
+
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
+    <h4>ナビゲーション</h4>
+    <hr />
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">入門</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">ガイド</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../account/index.html">アカウント</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">アグリゲートトランザクション</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">アグリゲートコンプリートトランザクションに連署名を追加する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-an-escrow-contract-with-aggregate-bonded-transaction.html">エスクローコントラクトの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sending-a-multisig-transaction.html">マルチシグトランザクションの送信</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sending-multiple-transactions-together-with-aggregate-complete-transaction.html">複数のトランザクションを同時に送信</a></li>
+<li class="toctree-l3"><a class="reference internal" href="signing-announced-aggregate-bonded-transactions-automatically.html">自動的なアグリゲートボンデッドトランザクションの署名</a></li>
+<li class="toctree-l3"><a class="reference internal" href="signing-announced-aggregate-bonded-transactions.html">アグリゲートボンデッドトランザクションの連署</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../blockchain/index.html">ブロックチェーン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../harvesting/index.html">ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/index.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../migration/index.html">NIS1 からのマイグレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monitor/index.html">モニタリング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mosaic/index.html">モザイク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multisig/index.html">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../namespace/index.html">ネームスペース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">ネットワーク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../restriction/index.html">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../secretlock/index.html">シークレットロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transfer/index.html">転送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exchanges/index.html">Exchanges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/overview.html">コンセプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">貢献</a></li>
+</ul>
+
+</div>
+        
+    </div>
+</div>
+
+
+        
+        <div class="col-md-7 content">
+            
+  <div class="section" id="adding-cosignatures-to-aggregate-complete-trasactions">
+<h1>アグリゲートコンプリートトランザクションに連署名を追加する<a class="headerlink" href="#adding-cosignatures-to-aggregate-complete-trasactions" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>このガイドでは、パーシャルキャッシュを使用せずに、アグリゲートコンプリートトランザクションに連署名を追加する方法を説明します。</p>
+<p>この方法は、セキュリティ上の理由で、秘密鍵をオフラインデバイス (コールドウォレット) に保管している場合に有用です。オフラインで連署名を追加することで、連署者は秘密鍵の安全を保ったまま、コールドウォレットからトランザクションを実行できます。さらに <a class="reference internal" href="../../concepts/aggregate-transaction.html#aggregate-bonded"><span class="std std-ref">aggregate bonded transactions</span></a> による、意図しない資産ロックを回避することもできます。</p>
+<div class="section" id="use-case">
+<h2>ユースケース<a class="headerlink" href="#use-case" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="figure align-center" id="id1">
+<img alt="../../_images/aggregate-escrow-11.png" src="../../_images/aggregate-escrow-11.png" style="width: 450px;" />
+<p class="caption"><span class="caption-text">マルチアセットエスクロートランザクション</span></p>
+</div>
+<p>Alice (<code class="docutils literal"><span class="pre">TDPXWF2H5G7U2NKZRJD47QR4KZPRULPAMQ4O54IK</span></code>) は 100 <code class="docutils literal"><span class="pre">symbol.xym</span></code> を Bob (<code class="docutils literal"><span class="pre">TCHS3AOXFGWGTN2QUUHDCXJ4SBYLIQIPNUPHHA2N</span></code>) に送信し、1 <cite>collectible</cite> モザイクを返却する、アグリゲートコンプリートトランザクションを構築していきます。</p>
+</div>
+<div class="section" id="prerequisites">
+<h2>前提条件<a class="headerlink" href="#prerequisites" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>2 つのアカウント <a class="reference internal" href="../../getting-started/setup-workstation.html#setup-creating-a-test-account"><span class="std std-ref">アカウント</span></a></li>
+<li>アカウントに手数料を支払うために十分な <code class="docutils literal"><span class="pre">symbol.xym</span></code> を入金してください。</li>
+<li>アカウントのうち 1 つは <code class="docutils literal"><span class="pre">symbol.xym</span></code> 以外のモザイクを所有している必要があります。</li>
+<li>オフラインとオンラインの両方で <a class="reference internal" href="../../getting-started/setup-workstation.html"><span class="doc">ワークステーション</span></a> は Symbol-CLI と Symbol-SDK 用に設定されています。</li>
+</ul>
+</div>
+<div class="section" id="step-1-construct-the-aggregate-complete-transaction">
+<h2>ステップ 1: アグリゲートコンプリートトランザクションの構築<a class="headerlink" href="#step-1-construct-the-aggregate-complete-transaction" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ol class="arabic simple">
+<li>テキストエディタを開きます。そして、Alice のアカウントを使用して、アグリゲートコンプリートトランザクションを構築します。</li>
+</ol>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id2">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/aggregate/AddingCosignaturesAggregateComplete.ts">View Code</a></span><a class="headerlink" href="#id2" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kd">const</span> <span class="nx">networkType</span> <span class="o">=</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">TEST_NET</span><span class="p">;</span>
+
+<span class="c1">// replace with alice private key</span>
+<span class="kd">const</span> <span class="nx">alicePrivatekey</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">aliceAccount</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">alicePrivatekey</span><span class="p">,</span> <span class="nx">networkType</span><span class="p">);</span>
+
+<span class="c1">// replace with bob public key</span>
+<span class="kd">const</span> <span class="nx">bobPublicKey</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">bobPublicAccount</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span>
+  <span class="nx">bobPublicKey</span><span class="p">,</span>
+  <span class="nx">networkType</span><span class="p">,</span>
+<span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">aliceTransferTransaction</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+  <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">epochAdjustment</span><span class="p">),</span>
+  <span class="nx">bobPublicAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">,</span>
+  <span class="p">[</span><span class="nx">NetworkCurrencies</span><span class="p">.</span><span class="nx">PUBLIC</span><span class="p">.</span><span class="nx">currency</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mf">1000</span><span class="p">)],</span>
+  <span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;payout&#39;</span><span class="p">),</span>
+  <span class="nx">networkType</span><span class="p">,</span>
+<span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">bobTransferTransaction</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+  <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">epochAdjustment</span><span class="p">),</span>
+  <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">,</span>
+  <span class="p">[</span><span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span><span class="k">new</span> <span class="nx">NamespaceId</span><span class="p">(</span><span class="s1">&#39;collectible&#39;</span><span class="p">),</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">1</span><span class="p">))],</span>
+  <span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;payout&#39;</span><span class="p">),</span>
+  <span class="nx">networkType</span><span class="p">,</span>
+<span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createComplete</span><span class="p">(</span>
+  <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">epochAdjustment</span><span class="p">),</span>
+  <span class="p">[</span>
+    <span class="nx">aliceTransferTransaction</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">),</span>
+    <span class="nx">bobTransferTransaction</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">bobPublicAccount</span><span class="p">),</span>
+  <span class="p">],</span>
+  <span class="nx">networkType</span><span class="p">,</span>
+  <span class="p">[],</span>
+  <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">2000000</span><span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id3">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/aggregate/AddingCosignaturesAggregateComplete.js">View Code</a></span><a class="headerlink" href="#id3" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">const</span> <span class="nx">networkType</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">NetworkType</span><span class="p">.</span><span class="nx">TEST_NET</span><span class="p">;</span>
+<span class="c1">// replace with alice private key</span>
+<span class="kd">const</span> <span class="nx">alicePrivatekey</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">aliceAccount</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">alicePrivatekey</span><span class="p">,</span> <span class="nx">networkType</span><span class="p">);</span>
+<span class="c1">// replace with bob public key</span>
+<span class="kd">const</span> <span class="nx">bobPublicKey</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">bobPublicAccount</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">bobPublicKey</span><span class="p">,</span> <span class="nx">networkType</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">aliceTransferTransaction</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">epochAdjustment</span><span class="p">),</span> <span class="nx">bobPublicAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">,</span> <span class="p">[</span><span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">NetworkCurrencies</span><span class="p">.</span><span class="nx">PUBLIC</span><span class="p">.</span><span class="nx">currency</span><span class="p">.</span><span class="nx">createRelative</span><span class="p">(</span><span class="mf">1000</span><span class="p">)],</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;payout&#39;</span><span class="p">),</span> <span class="nx">networkType</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">bobTransferTransaction</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">epochAdjustment</span><span class="p">),</span> <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">,</span> <span class="p">[</span><span class="k">new</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Mosaic</span><span class="p">(</span><span class="k">new</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">NamespaceId</span><span class="p">(</span><span class="s1">&#39;collectible&#39;</span><span class="p">),</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">1</span><span class="p">))],</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;payout&#39;</span><span class="p">),</span> <span class="nx">networkType</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createComplete</span><span class="p">(</span><span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">epochAdjustment</span><span class="p">),</span> <span class="p">[</span>
+    <span class="nx">aliceTransferTransaction</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">),</span>
+    <span class="nx">bobTransferTransaction</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">bobPublicAccount</span><span class="p">),</span>
+<span class="p">],</span> <span class="nx">networkType</span><span class="p">,</span> <span class="p">[],</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">2000000</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id4">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/java/src/test/java/symbol/guides/examples/aggregate/AddingCosignaturesAggregateComplete.java">View Code</a></span><a class="headerlink" href="#id4" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>            <span class="n">NetworkType</span> <span class="n">networkType</span> <span class="o">=</span> <span class="n">repositoryFactory</span><span class="p">.</span><span class="na">getNetworkType</span><span class="p">().</span><span class="na">toFuture</span><span class="p">().</span><span class="na">get</span><span class="p">();</span>
+            <span class="n">NetworkCurrency</span> <span class="n">networkCurrency</span> <span class="o">=</span> <span class="n">repositoryFactory</span><span class="p">.</span><span class="na">getNetworkCurrency</span><span class="p">().</span><span class="na">toFuture</span><span class="p">()</span>
+                <span class="p">.</span><span class="na">get</span><span class="p">();</span>
+
+            <span class="c1">// replace with alice private key</span>
+            <span class="n">String</span> <span class="n">alicePrivatekey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+            <span class="n">Account</span> <span class="n">aliceAccount</span> <span class="o">=</span> <span class="n">Account</span><span class="p">.</span><span class="na">createFromPrivateKey</span><span class="p">(</span><span class="n">alicePrivatekey</span><span class="p">,</span> <span class="n">networkType</span><span class="p">);</span>
+
+            <span class="c1">// replace with bob public key</span>
+            <span class="n">String</span> <span class="n">bobPublicKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+            <span class="n">PublicAccount</span> <span class="n">bobPublicAccount</span> <span class="o">=</span> <span class="n">PublicAccount</span>
+                <span class="p">.</span><span class="na">createFromPublicKey</span><span class="p">(</span><span class="n">bobPublicKey</span><span class="p">,</span> <span class="n">networkType</span><span class="p">);</span>
+
+            <span class="n">TransferTransaction</span> <span class="n">aliceTransferTransaction</span> <span class="o">=</span> <span class="n">TransferTransactionFactory</span>
+                <span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">networkType</span><span class="p">,</span> <span class="n">bobPublicAccount</span><span class="p">.</span><span class="na">getAddress</span><span class="p">(),</span>
+                    <span class="n">Collections</span>
+                        <span class="p">.</span><span class="na">singletonList</span><span class="p">(</span><span class="n">networkCurrency</span><span class="p">.</span><span class="na">createRelative</span><span class="p">(</span><span class="n">BigInteger</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="mi">1000</span><span class="p">))),</span>
+                    <span class="n">PlainMessage</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&quot;payout&quot;</span><span class="p">)).</span><span class="na">build</span><span class="p">();</span>
+
+            <span class="n">TransferTransaction</span> <span class="n">bobTransferTransaction</span> <span class="o">=</span> <span class="n">TransferTransactionFactory</span>
+                <span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">networkType</span><span class="p">,</span> <span class="n">aliceAccount</span><span class="p">.</span><span class="na">getAddress</span><span class="p">(),</span>
+                    <span class="n">Collections</span><span class="p">.</span><span class="na">singletonList</span><span class="p">(</span>
+                        <span class="k">new</span> <span class="n">Mosaic</span><span class="p">(</span><span class="k">new</span> <span class="n">NamespaceId</span><span class="p">(</span><span class="s">&quot;collectible&quot;</span><span class="p">),</span> <span class="n">BigInteger</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="mi">1</span><span class="p">))),</span>
+                    <span class="n">PlainMessage</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&quot;payout&quot;</span><span class="p">)).</span><span class="na">build</span><span class="p">();</span>
+
+            <span class="n">AggregateTransaction</span> <span class="n">aggregateTransaction</span> <span class="o">=</span> <span class="n">AggregateTransactionFactory</span>
+                <span class="p">.</span><span class="na">createComplete</span><span class="p">(</span><span class="n">networkType</span><span class="p">,</span> <span class="n">Arrays</span>
+                    <span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="n">aliceTransferTransaction</span><span class="p">.</span><span class="na">toAggregate</span><span class="p">(</span><span class="n">aliceAccount</span><span class="p">.</span><span class="na">getPublicAccount</span><span class="p">()),</span>
+                        <span class="n">bobTransferTransaction</span><span class="p">.</span><span class="na">toAggregate</span><span class="p">(</span><span class="n">bobPublicAccount</span><span class="p">)))</span>
+                <span class="p">.</span><span class="na">maxFee</span><span class="p">(</span><span class="n">BigInteger</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="mi">2000000</span><span class="p">)).</span><span class="na">build</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alice の秘密鍵と Bob の公開鍵が適切に設定されていることを確認してください。</p>
+<ol class="arabic simple" start="2">
+<li>Alice のキーでトランザクションに署名します。</li>
+</ol>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id5">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/aggregate/AddingCosignaturesAggregateComplete.ts">View Code</a></span><a class="headerlink" href="#id5" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="c1">// replace with meta.networkGenerationHash (nodeUrl + &#39;/node/info&#39;)</span>
+<span class="kd">const</span> <span class="nx">generationHash</span> <span class="o">=</span>
+  <span class="s1">&#39;1DFB2FAA9E7F054168B0C5FCB84F4DEB62CC2B4D317D861F3168D161F54EA78B&#39;</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">signedTransactionNotComplete</span> <span class="o">=</span> <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span>
+  <span class="nx">aggregateTransaction</span><span class="p">,</span>
+  <span class="nx">generationHash</span><span class="p">,</span>
+<span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">signedTransactionNotComplete</span><span class="p">.</span><span class="nx">payload</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id6">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/aggregate/AddingCosignaturesAggregateComplete.js">View Code</a></span><a class="headerlink" href="#id6" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// replace with meta.networkGenerationHash (nodeUrl + &#39;/node/info&#39;)</span>
+<span class="kd">const</span> <span class="nx">generationHash</span> <span class="o">=</span> <span class="s1">&#39;1DFB2FAA9E7F054168B0C5FCB84F4DEB62CC2B4D317D861F3168D161F54EA78B&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">signedTransactionNotComplete</span> <span class="o">=</span> <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">,</span> <span class="nx">generationHash</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">signedTransactionNotComplete</span><span class="p">.</span><span class="nx">payload</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id7">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/java/src/test/java/symbol/guides/examples/aggregate/AddingCosignaturesAggregateComplete.java">View Code</a></span><a class="headerlink" href="#id7" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>            <span class="n">String</span> <span class="n">generationHash</span> <span class="o">=</span> <span class="n">repositoryFactory</span><span class="p">.</span><span class="na">getGenerationHash</span><span class="p">().</span><span class="na">toFuture</span><span class="p">().</span><span class="na">get</span><span class="p">();</span>
+
+            <span class="n">SignedTransaction</span> <span class="n">signedTransactionNotComplete</span> <span class="o">=</span> <span class="n">aliceAccount</span>
+                <span class="p">.</span><span class="na">sign</span><span class="p">(</span><span class="n">aggregateTransaction</span><span class="p">,</span> <span class="n">generationHash</span><span class="p">);</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">signedTransactionNotComplete</span><span class="p">.</span><span class="na">getPayload</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>3. Save the TypeScript file, then run it on your terminal.
+Copy the returned payload and send it over to Bob.</p>
+</div>
+<div class="section" id="step-2-add-the-second-cosignature">
+<h2>ステップ 2: 二つ目の連署名を追加<a class="headerlink" href="#step-2-add-the-second-cosignature" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ol class="arabic simple">
+<li>Bob は前回のステップで取得したペイロードに連署名します。</li>
+</ol>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id8">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/aggregate/AddingCosignaturesAggregateComplete.ts">View Code</a></span><a class="headerlink" href="#id8" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="c1">// replace with bob private key</span>
+<span class="kd">const</span> <span class="nx">bobPrivateKey</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">bobAccount</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">bobPrivateKey</span><span class="p">,</span> <span class="nx">networkType</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">cosignedTransactionBob</span> <span class="o">=</span> <span class="nx">CosignatureTransaction</span><span class="p">.</span><span class="nx">signTransactionPayload</span><span class="p">(</span>
+  <span class="nx">bobAccount</span><span class="p">,</span>
+  <span class="nx">signedTransactionNotComplete</span><span class="p">.</span><span class="nx">payload</span><span class="p">,</span>
+  <span class="nx">generationHash</span><span class="p">,</span>
+<span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cosignedTransactionBob</span><span class="p">.</span><span class="nx">signature</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cosignedTransactionBob</span><span class="p">.</span><span class="nx">parentHash</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id9">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/aggregate/AddingCosignaturesAggregateComplete.js">View Code</a></span><a class="headerlink" href="#id9" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// replace with bob private key</span>
+<span class="kd">const</span> <span class="nx">bobPrivateKey</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">bobAccount</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">bobPrivateKey</span><span class="p">,</span> <span class="nx">networkType</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">cosignedTransactionBob</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">CosignatureTransaction</span><span class="p">.</span><span class="nx">signTransactionPayload</span><span class="p">(</span><span class="nx">bobAccount</span><span class="p">,</span> <span class="nx">signedTransactionNotComplete</span><span class="p">.</span><span class="nx">payload</span><span class="p">,</span> <span class="nx">generationHash</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cosignedTransactionBob</span><span class="p">.</span><span class="nx">signature</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cosignedTransactionBob</span><span class="p">.</span><span class="nx">parentHash</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id10">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/java/src/test/java/symbol/guides/examples/aggregate/AddingCosignaturesAggregateComplete.java">View Code</a></span><a class="headerlink" href="#id10" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>            <span class="c1">// replace with bob private key</span>
+            <span class="n">String</span> <span class="n">bobPrivateKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+            <span class="n">Account</span> <span class="n">bobAccount</span> <span class="o">=</span> <span class="n">Account</span><span class="p">.</span><span class="na">createFromPrivateKey</span><span class="p">(</span><span class="n">bobPrivateKey</span><span class="p">,</span> <span class="n">networkType</span><span class="p">);</span>
+            <span class="n">CosignatureSignedTransaction</span> <span class="n">cosignedTransactionBob</span> <span class="o">=</span> <span class="n">CosignatureTransaction</span>
+                <span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">aggregateTransaction</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">signWith</span><span class="p">(</span><span class="n">bobAccount</span><span class="p">);</span>
+
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">cosignedTransactionBob</span><span class="p">.</span><span class="na">getSignature</span><span class="p">());</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">cosignedTransactionBob</span><span class="p">.</span><span class="na">getParentHash</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>2. Bob runs the code snippet in the terminal and obtains the transaction signature and the parent hash.
+Finally, he shares the information back with Alice.</p>
+</div>
+<div class="section" id="step-3-announce-the-aggregate-complete-transaction">
+<h2>ステップ 3: アグリゲートコンプリートトランザクションのアナウンス<a class="headerlink" href="#step-3-announce-the-aggregate-complete-transaction" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Bob の公開鍵、連署トランザクションハッシュ、署名を使用してトランザクションを再作成し、コンプリートとしてネットワークへアナウンスします。</p>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id11">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/aggregate/AddingCosignaturesAggregateComplete.ts">View Code</a></span><a class="headerlink" href="#id11" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kd">const</span> <span class="nx">cosignatureSignedTransactions</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="k">new</span> <span class="nx">CosignatureSignedTransaction</span><span class="p">(</span>
+    <span class="nx">cosignedTransactionBob</span><span class="p">.</span><span class="nx">parentHash</span><span class="p">,</span>
+    <span class="nx">cosignedTransactionBob</span><span class="p">.</span><span class="nx">signature</span><span class="p">,</span>
+    <span class="nx">cosignedTransactionBob</span><span class="p">.</span><span class="nx">signerPublicKey</span><span class="p">,</span>
+  <span class="p">),</span>
+<span class="p">];</span>
+<span class="kd">const</span> <span class="nx">rectreatedAggregateTransactionFromPayload</span> <span class="o">=</span> <span class="nx">TransactionMapping</span><span class="p">.</span><span class="nx">createFromPayload</span><span class="p">(</span>
+  <span class="nx">signedTransactionNotComplete</span><span class="p">.</span><span class="nx">payload</span><span class="p">,</span>
+<span class="p">)</span> <span class="kr">as</span> <span class="nx">AggregateTransaction</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">signedTransactionComplete</span> <span class="o">=</span> <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">signTransactionGivenSignatures</span><span class="p">(</span>
+  <span class="nx">rectreatedAggregateTransactionFromPayload</span><span class="p">,</span>
+  <span class="nx">cosignatureSignedTransactions</span><span class="p">,</span>
+  <span class="nx">generationHash</span><span class="p">,</span>
+<span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">signedTransactionComplete</span><span class="p">.</span><span class="nx">hash</span><span class="p">);</span>
+
+<span class="c1">// replace with node endpoint</span>
+<span class="kd">const</span> <span class="nx">nodeUrl</span> <span class="o">=</span> <span class="s1">&#39;http://ngl-dual-101.testnet.symboldev.network:3000&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">repositoryFactory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RepositoryFactoryHttp</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="nx">repositoryFactory</span><span class="p">.</span><span class="nx">createTransactionRepository</span><span class="p">();</span>
+
+<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransactionComplete</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
+  <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
+  <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id12">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/aggregate/AddingCosignaturesAggregateComplete.js">View Code</a></span><a class="headerlink" href="#id12" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">const</span> <span class="nx">cosignatureSignedTransactions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="k">new</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">CosignatureSignedTransaction</span><span class="p">(</span><span class="nx">cosignedTransactionBob</span><span class="p">.</span><span class="nx">parentHash</span><span class="p">,</span> <span class="nx">cosignedTransactionBob</span><span class="p">.</span><span class="nx">signature</span><span class="p">,</span> <span class="nx">cosignedTransactionBob</span><span class="p">.</span><span class="nx">signerPublicKey</span><span class="p">),</span>
+<span class="p">];</span>
+<span class="kd">const</span> <span class="nx">rectreatedAggregateTransactionFromPayload</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">TransactionMapping</span><span class="p">.</span><span class="nx">createFromPayload</span><span class="p">(</span><span class="nx">signedTransactionNotComplete</span><span class="p">.</span><span class="nx">payload</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">signedTransactionComplete</span> <span class="o">=</span> <span class="nx">aliceAccount</span><span class="p">.</span><span class="nx">signTransactionGivenSignatures</span><span class="p">(</span><span class="nx">rectreatedAggregateTransactionFromPayload</span><span class="p">,</span> <span class="nx">cosignatureSignedTransactions</span><span class="p">,</span> <span class="nx">generationHash</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">signedTransactionComplete</span><span class="p">.</span><span class="nx">hash</span><span class="p">);</span>
+<span class="c1">// replace with node endpoint</span>
+<span class="kd">const</span> <span class="nx">nodeUrl</span> <span class="o">=</span> <span class="s1">&#39;http://ngl-dual-101.testnet.symboldev.network:3000&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">repositoryFactory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">RepositoryFactoryHttp</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="nx">repositoryFactory</span><span class="p">.</span><span class="nx">createTransactionRepository</span><span class="p">();</span>
+<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransactionComplete</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">x</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id13">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/java/src/test/java/symbol/guides/examples/aggregate/AddingCosignaturesAggregateComplete.java">View Code</a></span><a class="headerlink" href="#id13" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>            <span class="n">BinarySerialization</span> <span class="n">serialization</span> <span class="o">=</span> <span class="n">BinarySerializationImpl</span><span class="p">.</span><span class="na">INSTANCE</span><span class="p">;</span>
+
+            <span class="n">AggregateTransactionFactory</span> <span class="n">rectreatedAggregateTransactionFromPayload</span> <span class="o">=</span> <span class="p">(</span><span class="n">AggregateTransactionFactory</span><span class="p">)</span> <span class="n">serialization</span>
+                <span class="p">.</span><span class="na">deserializeToFactory</span><span class="p">(</span>
+                    <span class="n">ConvertUtils</span><span class="p">.</span><span class="na">getBytes</span><span class="p">(</span><span class="n">signedTransactionNotComplete</span><span class="p">.</span><span class="na">getPayload</span><span class="p">()));</span>
+
+            <span class="c1">//Added a new cosignature.</span>
+            <span class="n">rectreatedAggregateTransactionFromPayload</span><span class="p">.</span><span class="na">addCosignatures</span><span class="p">(</span><span class="n">cosignedTransactionBob</span><span class="p">);</span>
+
+            <span class="n">SignedTransaction</span> <span class="n">signedTransactionComplete</span> <span class="o">=</span> <span class="n">aliceAccount</span>
+                <span class="p">.</span><span class="na">sign</span><span class="p">(</span><span class="n">rectreatedAggregateTransactionFromPayload</span><span class="p">.</span><span class="na">build</span><span class="p">(),</span> <span class="n">generationHash</span><span class="p">);</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">signedTransactionComplete</span><span class="p">.</span><span class="na">getHash</span><span class="p">());</span>
+
+            <span class="n">TransactionRepository</span> <span class="n">transactionHttp</span> <span class="o">=</span> <span class="n">repositoryFactory</span><span class="p">.</span><span class="na">createTransactionRepository</span><span class="p">();</span>
+
+            <span class="n">transactionHttp</span><span class="p">.</span><span class="na">announce</span><span class="p">(</span><span class="n">signedTransactionComplete</span><span class="p">).</span><span class="na">toFuture</span><span class="p">().</span><span class="na">get</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>成功すれば、Alice は 100 <code class="docutils literal"><span class="pre">symbol.xym</span></code> を Bob へ送信し、1 <code class="docutils literal"><span class="pre">collectible</span></code> モザイクを返却します。</p>
+</div>
+</div>
+
+  <div class="section">
+  
+    
+
+
+
+
+  
+  
+  </div>
+
+            
+            <p class="feedback">
+                <hr/>
+                お探しのものは見つかりましたか？
+                <a href="https://github.com/symbol/symbol-docs/issues/new/choose" target="_blank">フィードバックをください。</a>
+            </p>
+            
+        </div>
+         
+
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+    
+    <div class="edit-github">
+    <a href="https://github.com/symbol/symbol-docs/edit/main/source/guides/aggregate/adding-cosginatures-aggregate-complete.rst" rel="nofollow"> <i class="fab fa-github"></i> このページを加筆修正する</a>
+</div>
+    <span class="title">このページ</span>
+    <ul>
+<li><a class="reference internal" href="#">アグリゲートコンプリートトランザクションに連署名を追加する</a><ul>
+<li><a class="reference internal" href="#use-case">ユースケース</a></li>
+<li><a class="reference internal" href="#prerequisites">前提条件</a></li>
+<li><a class="reference internal" href="#step-1-construct-the-aggregate-complete-transaction">ステップ 1: アグリゲートコンプリートトランザクションの構築</a></li>
+<li><a class="reference internal" href="#step-2-add-the-second-cosignature">ステップ 2: 二つ目の連署名を追加</a></li>
+<li><a class="reference internal" href="#step-3-announce-the-aggregate-complete-transaction">ステップ 3: アグリゲートコンプリートトランザクションのアナウンス</a></li>
+</ul>
+</li>
+</ul>
+
+    
+    </div>
+</div>
+
+ 
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-desktop',
+        debug: false
+    });
+
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-mobile',
+        debug: false
+    });
+</script>
+
+  </body>
+</html>

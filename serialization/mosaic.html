@@ -1,0 +1,521 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Mosaic Schemas &#8212; Symbol Documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700&display=swap" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'Main',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/custom.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/examplecode.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Multisig Schemas" href="multisig.html" />
+    <link rel="prev" title="Metadata Schemas" href="metadata.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174021413-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-174021413-2');
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../guides/atom.xml" title="Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div class="navbar navbar-default gradient navbar-fixed-top"
+     id="navbar">
+    <div class="container navbar-top hidden-xs hidden-sm">
+        <div class="row">
+            <div class="col-lg-8 col-md-7">
+                <div id="language">
+    <label class="select">
+        <select>
+            <option id="english" value="en">EN</option>
+            <option id="japanese" value="ja">JA</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">Translate</option>
+        </select>
+    </label>
+</div>
+            </div>
+            <div class="col-lg-4 col-md-5">
+                
+                <div id="search-box">
+    <input class="search search-desktop form-control" placeholder="Search"/>
+</div>
+                
+                <ul id="social" class="list-inline">
+    <li>
+        <a href="https://twitter.com/NEMofficial" rel="nofollow"><i class="fab fa-twitter" title="Twitter"></i></a>
+    </li>
+    <li>
+        <a href="https://discord.com/invite/xymcity" rel="nofollow" title="Discord"><i class="fab fa-discord"></i></a>
+    </li>
+    <li>
+        <a href="https://github.com/symbol/" rel="nofollow" title="GitHub"><i class="fab fa-github"></i></a>
+    </li>
+</ul>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="container navbar-main">
+        <div class="row">
+            <div class="navbar-header col-lg-6 col-md-4 col-xs-6">
+                <a class="navbar-brand" href="../index.html">
+                    
+                    <span><img alt="NEM logo" src="../_static/logo-symbol.svg"></span>
+                    
+                </a>
+            </div>
+            <div class="navbar-right col-lg-6 col-md-8 hidden-xs hidden-sm">
+                <ul class="list-inline">
+    <li>
+        <a href="/getting-started/what-is-symbol.html" class="">Getting Started</a>
+    </li>
+    <li>
+        <a href="/concepts/overview.html" class="active">Features</a>
+    </li>
+    <li>
+        <a href="/guides/category.html" class="">Guides</a>
+    </li>
+    <li>
+        <a href="/references/overview.html" class="">Tools</a>
+    </li>
+    <li>
+        <a href="/contribute/community.html" class="">Help</a>
+    </li>
+</ul>
+            </div>
+            <div class="navbar-right col-xs-6 hidden-lg hidden-md">
+                
+                <div id="search-box">
+    <input class="search search-mobile form-control" placeholder="Search"/>
+</div>
+                
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 sidebar-xs visible-xs visible-sm">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigation <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu globaltoc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/overview.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../references/index.html">References</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../references/overview.html">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../server.html">Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html">REST Gateway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdk.html">SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli.html">CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wallets.html">Wallets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../compatibility.html">Compatibility Matrix</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Transaction serialization</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="account_link.html">Account Link Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aggregate.html">Hash Lock Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="coresystem.html">Core System Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="entity.html">Entity Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lock_hash.html">Lock Hash Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lock_secret.html">Lock Secret Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html">Metadata Schemas</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Mosaic Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multisig.html">Multisig Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="namespace.html">Namespace Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="receipts.html">Receipts Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="resolution_statement.html">Resolution Statement Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="restriction_account.html">Restriction Account Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="restriction_mosaic.html">Restriction Mosaic Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transaction.html">Transaction Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transfer.html">Transfer Schemas</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">Contributing</a></li>
+</ul>
+</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        
+        
+
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
+    <h4>Navigation</h4>
+    <hr />
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/overview.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../references/index.html">References</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../references/overview.html">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../server.html">Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html">REST Gateway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdk.html">SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli.html">CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wallets.html">Wallets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../compatibility.html">Compatibility Matrix</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Transaction serialization</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="account_link.html">Account Link Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aggregate.html">Hash Lock Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="coresystem.html">Core System Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="entity.html">Entity Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lock_hash.html">Lock Hash Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lock_secret.html">Lock Secret Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html">Metadata Schemas</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Mosaic Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multisig.html">Multisig Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="namespace.html">Namespace Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="receipts.html">Receipts Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="resolution_statement.html">Resolution Statement Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="restriction_account.html">Restriction Account Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="restriction_mosaic.html">Restriction Mosaic Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transaction.html">Transaction Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transfer.html">Transfer Schemas</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">Contributing</a></li>
+</ul>
+
+</div>
+        
+    </div>
+</div>
+
+
+        
+        <div class="col-md-7 content">
+            
+  <div class="section" id="mosaic-schemas">
+<h1>Mosaic Schemas<a class="headerlink" href="#mosaic-schemas" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <a class="reference external" href="https://github.com/symbol/catbuffer-schemas">catbuffer schemas</a> repository defines how each transaction type should be serialized. In combination with the <a class="reference external" href="https://github.com/symbol/catbuffer-generators">catbuffer-generators</a> project, developers can generate builder classes for a given set of programming languages.</p>
+</div>
+<div class="section" id="mosaic-definition">
+<h2>Mosaic Definition<a class="headerlink" href="#mosaic-definition" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mosaicdefinitiontransaction">
+<span id="mosaic-definition-transaction"></span><h3>MosaicDefinitionTransaction<a class="headerlink" href="#mosaicdefinitiontransaction" title="Permalink to this headline">¶</a></h3>
+<p>Announce a MosaicDefinitionTransaction to create a new mosaic.</p>
+<p><strong>Version</strong>: 0x01</p>
+<p><strong>EntityType</strong>: 0x414D</p>
+<p><strong>Inlines</strong>:</p>
+<ul class="simple">
+<li><a class="reference internal" href="transaction.html#id1"><span class="std std-ref">Transaction</span></a> or <a class="reference internal" href="transaction.html#embedded-transaction"><span class="std std-ref">EmbeddedTransaction</span></a></li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>id</td>
+<td><a class="reference external" href="https://github.com/symbol/catbuffer-schemas/blob/main/schemas/types.cats">MosaicId</a></td>
+<td>Identifier of the mosaic.</td>
+</tr>
+<tr class="row-odd"><td>duration</td>
+<td><a class="reference external" href="https://github.com/symbol/catbuffer-schemas/blob/main/schemas/types.cats">BlockDuration</a></td>
+<td>Mosaic duration expressed in blocks. If set to 0, the mosaic is non-expiring.</td>
+</tr>
+<tr class="row-even"><td>nonce</td>
+<td>uint32</td>
+<td>Random nonce used to generate the mosaic id.</td>
+</tr>
+<tr class="row-odd"><td>flags</td>
+<td><a class="reference internal" href="#mosaic-flags"><span class="std std-ref">MosaicFlag</span></a></td>
+<td>Mosaic flags.</td>
+</tr>
+<tr class="row-even"><td>divisibility</td>
+<td>uint8</td>
+<td>Mosaic divisibility.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="mosaic-supply-change">
+<h2>Mosaic Supply Change<a class="headerlink" href="#mosaic-supply-change" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mosaicsupplychangetransaction">
+<span id="mosaic-supply-change-transaction"></span><h3>MosaicSupplyChangeTransaction<a class="headerlink" href="#mosaicsupplychangetransaction" title="Permalink to this headline">¶</a></h3>
+<p>Announce a supply change transaction to increase or decrease a mosaic’s supply.</p>
+<p><strong>Version</strong>: 0x01</p>
+<p><strong>EntityType</strong>: 0x424D</p>
+<p><strong>Inlines</strong>:</p>
+<ul class="simple">
+<li><a class="reference internal" href="transaction.html#id1"><span class="std std-ref">Transaction</span></a> or <a class="reference internal" href="transaction.html#embedded-transaction"><span class="std std-ref">EmbeddedTransaction</span></a></li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>mosaicId</td>
+<td><a class="reference external" href="https://github.com/symbol/catbuffer-schemas/blob/main/schemas/types.cats">UnresolvedMosaicId</a></td>
+<td>Affected mosaic identifier.</td>
+</tr>
+<tr class="row-odd"><td>delta</td>
+<td><a class="reference external" href="https://github.com/symbol/catbuffer-schemas/blob/main/schemas/types.cats">Amount</a></td>
+<td>Amount of supply to increase or decrease.</td>
+</tr>
+<tr class="row-even"><td>action</td>
+<td><a class="reference internal" href="#mosaic-supply-change-action"><span class="std std-ref">MosaicSupplyChangeAction</span></a></td>
+<td>Supply change action.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="mosaic-types">
+<h2>Mosaic Types<a class="headerlink" href="#mosaic-types" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mosaic">
+<span id="id1"></span><h3>Mosaic<a class="headerlink" href="#mosaic" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>mosaicId</td>
+<td><a class="reference external" href="https://github.com/symbol/catbuffer-schemas/blob/main/schemas/types.cats">MosaicId</a></td>
+<td>Mosaic identifier.</td>
+</tr>
+<tr class="row-odd"><td>amount</td>
+<td><a class="reference external" href="https://github.com/symbol/catbuffer-schemas/blob/main/schemas/types.cats">Amount</a></td>
+<td>Mosaic amount.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="unresolvedmosaic">
+<span id="unresolved-mosaic"></span><h3>UnresolvedMosaic<a class="headerlink" href="#unresolvedmosaic" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>mosaicId</td>
+<td><a class="reference external" href="https://github.com/symbol/catbuffer-schemas/blob/main/schemas/types.cats">UnresolvedMosaicId</a></td>
+<td>Mosaic identifier. If the most significant bit of byte 0 is set, a namespaceId (alias) is used instead of the real mosaic identifier.</td>
+</tr>
+<tr class="row-odd"><td>amount</td>
+<td><a class="reference external" href="https://github.com/symbol/catbuffer-schemas/blob/main/schemas/types.cats">Amount</a></td>
+<td>Mosaic amount.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="mosaicflags">
+<span id="mosaic-flags"></span><h3>MosaicFlags<a class="headerlink" href="#mosaicflags" title="Permalink to this headline">¶</a></h3>
+<p>Enumeration: uint8</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Id</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>No flags present.</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>Mosaic supports supply changes even when the mosaic creator owns partial supply.</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>Mosaic supports transfers between arbitrary accounts. When not set, the mosaic can only be transferred to/from the mosaic creator.</td>
+</tr>
+<tr class="row-odd"><td>0x04</td>
+<td>Mosaic creator can add rules to restrict which accounts are enabled to send and receive the mosaic.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="mosaicsupplychangeaction">
+<span id="mosaic-supply-change-action"></span><h3>MosaicSupplyChangeAction<a class="headerlink" href="#mosaicsupplychangeaction" title="Permalink to this headline">¶</a></h3>
+<p>Enumeration: uint8</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Id</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>Decrease.</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>Increase.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+            
+            <p class="feedback">
+                <hr/>
+                Did you find what you were looking for?
+                <a href="https://github.com/symbol/symbol-docs/issues/new/choose" target="_blank">Give us your feedback.</a>
+            </p>
+            
+        </div>
+         
+
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+    
+    <div class="edit-github">
+    <a href="https://github.com/symbol/symbol-docs/edit/main/source/serialization/mosaic.rst" rel="nofollow"> <i class="fab fa-github"></i> Improve this page</a>
+</div>
+    <span class="title">On this page</span>
+    <ul>
+<li><a class="reference internal" href="#">Mosaic Schemas</a><ul>
+<li><a class="reference internal" href="#mosaic-definition">Mosaic Definition</a><ul>
+<li><a class="reference internal" href="#mosaicdefinitiontransaction">MosaicDefinitionTransaction</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mosaic-supply-change">Mosaic Supply Change</a><ul>
+<li><a class="reference internal" href="#mosaicsupplychangetransaction">MosaicSupplyChangeTransaction</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mosaic-types">Mosaic Types</a><ul>
+<li><a class="reference internal" href="#mosaic">Mosaic</a></li>
+<li><a class="reference internal" href="#unresolvedmosaic">UnresolvedMosaic</a></li>
+<li><a class="reference internal" href="#mosaicflags">MosaicFlags</a></li>
+<li><a class="reference internal" href="#mosaicsupplychangeaction">MosaicSupplyChangeAction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    
+    </div>
+</div>
+
+ 
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-desktop',
+        debug: false
+    });
+
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-mobile',
+        debug: false
+    });
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,398 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>リモートハーベスティングの有効化 &#8212; Symbol Documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700&display=swap" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     'Main',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/examplecode.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="メタデータ" href="../metadata/index.html" />
+    <link rel="prev" title="デリゲートハーベスティングを手動で有効化" href="activating-delegated-harvesting-manual.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174021413-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-174021413-2');
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../../guides/atom.xml" title="Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div class="navbar navbar-default gradient navbar-fixed-top"
+     id="navbar">
+    <div class="container navbar-top hidden-xs hidden-sm">
+        <div class="row">
+            <div class="col-lg-8 col-md-7">
+                <div id="language">
+    <label class="select">
+        <select>
+            <option id="english" value="en">EN</option>
+            <option id="japanese" value="ja">JA</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </label>
+</div>
+            </div>
+            <div class="col-lg-4 col-md-5">
+                
+                <div id="search-box">
+    <input class="search search-desktop form-control" placeholder="Search"/>
+</div>
+                
+                <ul id="social" class="list-inline">
+    <li>
+        <a href="https://twitter.com/NEMofficial" rel="nofollow"><i class="fab fa-twitter" title="Twitter"></i></a>
+    </li>
+    <li>
+        <a href="https://discord.com/invite/xymcity" rel="nofollow" title="Discord"><i class="fab fa-discord"></i></a>
+    </li>
+    <li>
+        <a href="https://github.com/symbol/" rel="nofollow" title="GitHub"><i class="fab fa-github"></i></a>
+    </li>
+</ul>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="container navbar-main">
+        <div class="row">
+            <div class="navbar-header col-lg-6 col-md-4 col-xs-6">
+                <a class="navbar-brand" href="../../index.html">
+                    
+                    <span><img alt="NEM logo" src="../../_static/logo-symbol.svg"></span>
+                    
+                </a>
+            </div>
+            <div class="navbar-right col-lg-6 col-md-8 hidden-xs hidden-sm">
+                <ul class="list-inline">
+    <li>
+        <a href="/ja/getting-started/what-is-symbol.html" class="">入門</a>
+    </li>
+    <li>
+        <a href="/ja/concepts/overview.html" class="">機能</a>
+    </li>
+    <li>
+        <a href="/ja/guides/category.html" class="active">ガイド</a>
+    </li>
+    <li>
+        <a href="/ja/references/overview.html" class="">ツール</a>
+    </li>
+    <li>
+        <a href="/ja/contribute/community.html" class="">ヘルプ</a>
+    </li>
+</ul>
+            </div>
+            <div class="navbar-right col-xs-6 hidden-lg hidden-md">
+                
+                <div id="search-box">
+    <input class="search search-mobile form-control" placeholder="Search"/>
+</div>
+                
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 sidebar-xs visible-xs visible-sm">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">ナビゲーション <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu globaltoc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">入門</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">ガイド</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../account/index.html">アカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aggregate/index.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blockchain/index.html">ブロックチェーン</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">ハーベスティング</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="activating-delegated-harvesting-wallet.html">デリゲートハーベスティングをデスクトップウォレットで有効化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="activating-delegated-harvesting-manual.html">デリゲートハーベスティングを手動で有効化</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">リモートハーベスティングの有効化</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/index.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../migration/index.html">NIS1 からのマイグレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monitor/index.html">モニタリング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mosaic/index.html">モザイク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multisig/index.html">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../namespace/index.html">ネームスペース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">ネットワーク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../restriction/index.html">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../secretlock/index.html">シークレットロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transfer/index.html">転送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exchanges/index.html">Exchanges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/overview.html">コンセプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">貢献</a></li>
+</ul>
+</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        
+        
+
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
+    <h4>ナビゲーション</h4>
+    <hr />
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">入門</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">ガイド</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../account/index.html">アカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aggregate/index.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blockchain/index.html">ブロックチェーン</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">ハーベスティング</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="activating-delegated-harvesting-wallet.html">デリゲートハーベスティングをデスクトップウォレットで有効化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="activating-delegated-harvesting-manual.html">デリゲートハーベスティングを手動で有効化</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">リモートハーベスティングの有効化</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/index.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../migration/index.html">NIS1 からのマイグレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monitor/index.html">モニタリング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mosaic/index.html">モザイク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multisig/index.html">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../namespace/index.html">ネームスペース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">ネットワーク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../restriction/index.html">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../secretlock/index.html">シークレットロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transfer/index.html">転送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exchanges/index.html">Exchanges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/overview.html">コンセプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">貢献</a></li>
+</ul>
+
+</div>
+        
+    </div>
+</div>
+
+
+        
+        <div class="col-md-7 content">
+            
+  <div class="section" id="activating-remote-harvesting">
+<h1>リモートハーベスティングの有効化<a class="headerlink" href="#activating-remote-harvesting" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>セキュリティ強化のために、プロキシアカウントを介して新しいブロックのハーベスティングします。</p>
+<div class="section" id="introduction">
+<h2>紹介<a class="headerlink" href="#introduction" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference internal" href="../../concepts/harvesting.html#remote-harvesting"><span class="std std-ref">リモートハーベスティング</span></a> は <strong>ノード所有者</strong> に、ノード設定ファイルにメインアカウントの秘密鍵を <strong>公開せずに</strong> 新しいブロックの生成報酬を受け取ることができます。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">ブロックはノードだけがハーベストできます。ノードは所有していないが、ハーベスティング手数料を受け取りたい場合は <a class="reference internal" href="../../concepts/harvesting.html#delegated-harvesting"><span class="std std-ref">デリゲートハーベスティング</span></a> で <strong>ノードにハーベスティングをリクエスト</strong> します。</p>
+</div>
+<p>このガイドでは <strong>２つのセクション</strong> があり、 <a href="https://github.com/symbol/symbol-bootstrap" target="_blank">Symbol Bootstrap</a> を使用して、または手動でノードを構築したかによります。</p>
+</div>
+<div class="section" id="activation-through-symbol-bootstrap">
+<h2>Symbol Bootstrap を使用して有効化<a class="headerlink" href="#activation-through-symbol-bootstrap" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference internal" href="../network/running-a-symbol-node.html"><span class="doc">Symbol ノードの立ち上げ</span></a> ガイドに従った場合は、ノードを構築する際に <a href="https://github.com/symbol/symbol-bootstrap" target="_blank">Symbol Bootstrap</a> を使用したはずです。 <strong>すぐに使用できるプリセットにより、デフォルトでリモートハーベスティングが可能になる</strong> ので、そのガイドに従い、ハーベスティングを有効にした場合は、何もする必要はありません。</p>
+<p>明確にするために、 <a href="https://github.com/symbol/symbol-bootstrap" target="_blank">Symbol Bootstrap</a> はリモートアカウント (<code class="docutils literal"><span class="pre">addresses.yml</span></code> ファイルで <code class="docutils literal"><span class="pre">remote</span></code> とラベル付けされている) を自動的に作成し、それを新しいブロックの署名者として設定します。 (<code class="docutils literal"><span class="pre">harvesterSigningPrivateKey</span></code> プロパティの秘密鍵を使用) 次に <code class="docutils literal"><span class="pre">symbol-bootstrap</span> <span class="pre">link</span></code> コマンドは、アクティベーションを完了するために必要な <a class="reference internal" href="../../serialization/account_link.html#account-key-link-transaction"><span class="std std-ref">AccountKeyLink</span></a> および <a class="reference internal" href="../../serialization/coresystem.html#vrf-key-link-transaction"><span class="std std-ref">VrfKeyLink</span></a> トランザクションをアナウンスします。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p>注目すべき点として <strong>非推奨です</strong> が <a class="reference internal" href="../network/using-symbol-bootstrap.html#symbol-bootstrap-presets"><span class="std std-ref">カスタムプリセットファイル</span></a> のこの行を使用して、リモートアカウントを省略し <strong>メインアカウントで直接</strong> 新しいブロックに署名できます:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="nt">nodeUseRemoteAccount</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+</pre></div>
+</div>
+<p class="last">メインアカウントの秘密鍵はノード設定ファイルに存在し、ノードに侵入されたはアクセスされる恐れがあることは言うまでもありません。</p>
+</div>
+</div>
+<div class="section" id="manual-activation">
+<h2>手動で有効化<a class="headerlink" href="#manual-activation" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>If you have deployed a node yourself, for example by following <a class="reference external" href="https://github.com/symbol/catapult-client/blob/main/docs/RUNPEERLIN.md">the catapult-client instructions</a>, then you have to <strong>enable harvesting manually</strong>.</p>
+<p>The <a class="reference external" href="https://github.com/symbol/catapult-client/blob/main/docs/RUNPEERLIN.md#user-content-enable-harvesting">catapult-client documentation</a> explains how to enable <a class="reference internal" href="../../concepts/harvesting.html#local-harvesting"><span class="std std-ref">local harvesting</span></a>, which stores your main account’s private key on the client. This section explains how to enable <a class="reference internal" href="../../concepts/harvesting.html#remote-harvesting"><span class="std std-ref">remote harvesting</span></a> instead, which uses a proxy account and is therefore <strong>much more secure</strong>.</p>
+<p>これは <a class="reference internal" href="../../cli.html"><span class="doc">symbol-cli</span></a> ツールを使用して実行されます。必要な手順は次のとおりです:</p>
+<ol class="arabic simple">
+<li>ノード設定にハーベスタとして <strong>リモートアカウント</strong> を設定します。</li>
+<li>メインとリモートアカウントのリンクに <a class="reference internal" href="../../serialization/account_link.html#account-key-link-transaction"><span class="std std-ref">AccountKeyLink transaction</span></a> をアナウンスします。</li>
+<li>(任意) <strong>VRFアカウント</strong> が未設定の場合は構成を行います。</li>
+</ol>
+<div class="section" id="step-1-setup-the-remote-account">
+<h3>ステップ 1: リモートアカウントのセットアップ<a class="headerlink" href="#step-1-setup-the-remote-account" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><strong>リモートアカウント</strong> として機能する新しいアカウントを作成します。このアカウントは <strong>トランザクションを送受信したことがない</strong> 必要があり、リモートアカウントとして機能している間はトランザクションに関与できないため、最初から作成するのが最も安全です。</p>
+<p>これをターミナルで実行します:</p>
+<div class="example-code container">
+<div class="highlight-catapult-client"><div class="highlight"><pre><span></span>catapult.tools.addressgen --network public
+<span class="c1"># Change the network type to suit your needs</span>
+</pre></div>
+</div>
+<div class="highlight-symbol-cli"><div class="highlight"><pre><span></span>symbol-cli account generate
+# Do NOT save the account, and set the import type to PrivateKey
+</pre></div>
+</div>
+</div>
+<p>新規アカウントの <strong>公開鍵</strong> と <strong>秘密鍵</strong> を書き留めてください。</p>
+<p>Now edit the <code class="docutils literal"><span class="pre">config-harvesting.properties</span></code> file (it should be in a <code class="docutils literal"><span class="pre">resources</span></code> directory if you followed <a class="reference external" href="https://github.com/symbol/catapult-client/blob/main/docs/RUNPEERLIN.md">the catapult-client instructions</a>). Look for the <code class="docutils literal"><span class="pre">harvesterSigningPrivateKey</span></code> field and write the remote account’s private key.</p>
+</div>
+<div class="section" id="step-2-link-the-remote-and-main-accounts">
+<h3>ステップ 2: リモートとメインアカウントをリンクする<a class="headerlink" href="#step-2-link-the-remote-and-main-accounts" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>メインアカウントをデフォルトプロファイルとして <a class="reference internal" href="../../cli.html"><span class="doc">symbol-cli</span></a> を設定してください。 (そうでない場合は <code class="docutils literal"><span class="pre">--profile</span></code> パラメータを使用します)</p>
+<p>このコマンドをターミナルで実行します:</p>
+<div class="highlight-symbol-cli"><div class="highlight"><pre><span></span>symbol-cli transaction accountkeylink --action Link -u &lt;PUBLIC-REMOTE-KEY&gt; --sync
+</pre></div>
+</div>
+<p>ステップ 1 で取得した <code class="docutils literal"><span class="pre">&lt;PUBLIC-REMOTE-KEY&gt;</span></code> を使用します。 <code class="docutils literal"><span class="pre">--sync</span></code> パラメータは、トランザクションが承認されるまで待機します。このトランザクションをアナウンスするために支払う手数料は <a class="reference internal" href="../../concepts/fees.html"><span class="doc">手数料ドキュメント</span></a> を確認してください。</p>
+</div>
+<div class="section" id="step-3-configure-the-vrf-account">
+<h3>ステップ 3: VRF アカウントの設定<a class="headerlink" href="#step-3-configure-the-vrf-account" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>すべての <a class="reference internal" href="../../concepts/harvesting.html#account-eligibility"><span class="std std-ref">適格アカウント</span></a> は VRF キーを登録する必要があります。 <code class="docutils literal"><span class="pre">config-harvesting.properties</span></code> ファイルの <code class="docutils literal"><span class="pre">harvesterVrfPrivateKey</span></code> フィールドを確認してください。すでに入力されている場合はこの手順をスキップできます。</p>
+<p>それ以外の場合は、手順 1 と同じように別のアカウントを作成して、VRF アカウントとします。</p>
+<div class="example-code container">
+<div class="highlight-catapult-client"><div class="highlight"><pre><span></span>catapult.tools.addressgen --network public
+<span class="c1"># Change the network type to suit your needs</span>
+</pre></div>
+</div>
+<div class="highlight-symbol-cli"><div class="highlight"><pre><span></span>symbol-cli account generate
+# Do NOT save the account, and set the import type to PrivateKey
+</pre></div>
+</div>
+</div>
+<p>構成ファイルの <code class="docutils literal"><span class="pre">harvesterVrfPrivateKey</span></code> フィールドに <strong>秘密鍵</strong> を書き込み、VRF とメインアカウントをリンクするために <a class="reference internal" href="../../serialization/coresystem.html#vrf-key-link-transaction"><span class="std std-ref">VrfKeyLink トランザクション</span></a> をアナウンスします:</p>
+<div class="highlight-symbol-cli"><div class="highlight"><pre><span></span>symbol-cli transaction vrfkeylink --action Link -u &lt;PUBLIC-VRF-KEY&gt; --sync
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="final-words">
+<h2>最後に<a class="headerlink" href="#final-words" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>これでノードはリモートハーベスティング構成になりました。ただし、次の重要な点に注意してください。</p>
+<ul class="simple">
+<li><strong>インポータンスが高いアカウントは、ハーベスティングを実行するためにより頻繁に選択されます</strong>。正常にリモートハーベスティングを有効にしても、メインアカウントの <a class="reference internal" href="../../concepts/consensus-algorithm.html#importance-calculation"><span class="std std-ref">インポータンススコア</span></a> が十分に高くない限りは、ブロックをハーベストする (手数料報酬を受け取る) ことはありません。</li>
+<li><strong>インポータンススコアの計算は継続的に行われません</strong>。デフォルトでは、アカウントインポータンススコアは、1440 ブロックごと (約 12 時間ごと) に再計算されます。 <a class="reference internal" href="../network/configuring-network-properties.html#config-network-properties"><span class="std std-ref">ネットワークプロパティの設定</span></a> ガイドの <code class="docutils literal"><span class="pre">importanceGrouping</span></code> プロパティを参照してください。</li>
+</ul>
+</div>
+</div>
+
+  <div class="section">
+  
+    
+
+
+
+
+  
+  
+  </div>
+
+            
+            <p class="feedback">
+                <hr/>
+                お探しのものは見つかりましたか？
+                <a href="https://github.com/symbol/symbol-docs/issues/new/choose" target="_blank">フィードバックをください。</a>
+            </p>
+            
+        </div>
+         
+
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+    
+    <div class="edit-github">
+    <a href="https://github.com/symbol/symbol-docs/edit/main/source/guides/harvesting/activating-remote-harvesting.rst" rel="nofollow"> <i class="fab fa-github"></i> このページを加筆修正する</a>
+</div>
+    <span class="title">このページ</span>
+    <ul>
+<li><a class="reference internal" href="#">リモートハーベスティングの有効化</a><ul>
+<li><a class="reference internal" href="#introduction">紹介</a></li>
+<li><a class="reference internal" href="#activation-through-symbol-bootstrap">Symbol Bootstrap を使用して有効化</a></li>
+<li><a class="reference internal" href="#manual-activation">手動で有効化</a><ul>
+<li><a class="reference internal" href="#step-1-setup-the-remote-account">ステップ 1: リモートアカウントのセットアップ</a></li>
+<li><a class="reference internal" href="#step-2-link-the-remote-and-main-accounts">ステップ 2: リモートとメインアカウントをリンクする</a></li>
+<li><a class="reference internal" href="#step-3-configure-the-vrf-account">ステップ 3: VRF アカウントの設定</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#final-words">最後に</a></li>
+</ul>
+</li>
+</ul>
+
+    
+    </div>
+</div>
+
+ 
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-desktop',
+        debug: false
+    });
+
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-mobile',
+        debug: false
+    });
+</script>
+
+  </body>
+</html>

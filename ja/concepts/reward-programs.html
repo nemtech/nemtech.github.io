@@ -1,0 +1,455 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>報酬プログラム &#8212; Symbol Documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700&display=swap" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'Main',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/examplecode.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="トランザクション" href="transaction.html" />
+    <link rel="prev" title="レシート" href="receipt.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174021413-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-174021413-2');
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../guides/atom.xml" title="Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div class="navbar navbar-default gradient navbar-fixed-top"
+     id="navbar">
+    <div class="container navbar-top hidden-xs hidden-sm">
+        <div class="row">
+            <div class="col-lg-8 col-md-7">
+                <div id="language">
+    <label class="select">
+        <select>
+            <option id="english" value="en">EN</option>
+            <option id="japanese" value="ja">JA</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </label>
+</div>
+            </div>
+            <div class="col-lg-4 col-md-5">
+                
+                <div id="search-box">
+    <input class="search search-desktop form-control" placeholder="Search"/>
+</div>
+                
+                <ul id="social" class="list-inline">
+    <li>
+        <a href="https://twitter.com/NEMofficial" rel="nofollow"><i class="fab fa-twitter" title="Twitter"></i></a>
+    </li>
+    <li>
+        <a href="https://discord.com/invite/xymcity" rel="nofollow" title="Discord"><i class="fab fa-discord"></i></a>
+    </li>
+    <li>
+        <a href="https://github.com/symbol/" rel="nofollow" title="GitHub"><i class="fab fa-github"></i></a>
+    </li>
+</ul>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="container navbar-main">
+        <div class="row">
+            <div class="navbar-header col-lg-6 col-md-4 col-xs-6">
+                <a class="navbar-brand" href="../index.html">
+                    
+                    <span><img alt="NEM logo" src="../_static/logo-symbol.svg"></span>
+                    
+                </a>
+            </div>
+            <div class="navbar-right col-lg-6 col-md-8 hidden-xs hidden-sm">
+                <ul class="list-inline">
+    <li>
+        <a href="/ja/getting-started/what-is-symbol.html" class="">入門</a>
+    </li>
+    <li>
+        <a href="/ja/concepts/overview.html" class="active">機能</a>
+    </li>
+    <li>
+        <a href="/ja/guides/category.html" class="">ガイド</a>
+    </li>
+    <li>
+        <a href="/ja/references/overview.html" class="">ツール</a>
+    </li>
+    <li>
+        <a href="/ja/contribute/community.html" class="">ヘルプ</a>
+    </li>
+</ul>
+            </div>
+            <div class="navbar-right col-xs-6 hidden-lg hidden-md">
+                
+                <div id="search-box">
+    <input class="search search-mobile form-control" placeholder="Search"/>
+</div>
+                
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 sidebar-xs visible-xs visible-sm">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">ナビゲーション <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu globaltoc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">ガイド</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">コンセプト</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="account.html">アカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="block.html">ブロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consensus-algorithm.html">コンセンサス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cryptography.html">暗号理論</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-validation.html">データバリデーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fees.html">手数料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inflation.html">インフレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic.html">モザイク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic-restriction.html">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html">ノード</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin.html">Symbol の拡張</a></li>
+<li class="toctree-l2"><a class="reference internal" href="receipt.html">レシート</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">報酬プログラム</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html">トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">貢献</a></li>
+</ul>
+</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        
+        
+
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
+    <h4>ナビゲーション</h4>
+    <hr />
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">ガイド</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">コンセプト</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="account.html">アカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="block.html">ブロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consensus-algorithm.html">コンセンサス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cryptography.html">暗号理論</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-validation.html">データバリデーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fees.html">手数料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inflation.html">インフレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic.html">モザイク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic-restriction.html">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html">ノード</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin.html">Symbol の拡張</a></li>
+<li class="toctree-l2"><a class="reference internal" href="receipt.html">レシート</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">報酬プログラム</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html">トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">貢献</a></li>
+</ul>
+
+</div>
+        
+    </div>
+</div>
+
+
+        
+        <div class="col-md-7 content">
+            
+  <div class="section" id="reward-programs">
+<h1>報酬プログラム<a class="headerlink" href="#reward-programs" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference internal" href="node.html"><span class="doc">ノード</span></a> はブロックを生成しては保存するので、 <strong>いかなるブロックチェーンにおいても大黒柱です</strong> 。したがって、ネットワーク内には常にできるだけ多くのノードがアクティブであることが <strong>重要</strong> です。</p>
+<p>ノードがブロックを生成すると取得する <strong>ブロック報酬</strong> (<span class="xref std std-doc">手数料</span> と <span class="xref std std-doc">インフレーション</span>) による直接な報酬の他に、 Symbol ユーザによるノードの作成および維持を奨励することを目的とした <strong>一連の特別な報酬プログラムを提供</strong> します。</p>
+<p>これらの各プログラムは <strong>ネットワークのさまざまな側面</strong> で報酬を与えます:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#supernode-program"><span class="std std-ref">スーパーノードプログラム</span></a>: 強力な、高可用、高スループットのノード向け</li>
+<li><a class="reference internal" href="#voting-node-program"><span class="std std-ref">投票ノードプログラム</span></a>: ファイナライズと Symbol のフォーク解決メカニズムを支持するノード向け</li>
+</ul>
+<p>ほとんどの場合、これらのプログラムの恩恵を受けたいノード所有者は、明示的に <strong>登録</strong> する必要があります。各プログラムへの登録方法は、以下の説明に <strong>ガイド</strong> が含まれています。</p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">None of the reward programs has launched yet. The information shown below is subject to change until the programs officially start.</p>
+</div>
+<div class="section" id="supernode-program">
+<span id="id1"></span><h2>スーパーノードプログラム<a class="headerlink" href="#supernode-program" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>このプログラムの目的は、ネットワークの円滑な機能を保証するために、十分な数の <strong>強力なノード</strong> が常に利用可能であることを保証するためです。</p>
+<div class="section" id="requirements">
+<h3>要求事項<a class="headerlink" href="#requirements" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>スーパーノードとは、次の追加のハードウェアおよび運用要件を満たす、通常ノードです:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="70%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">パラメータ</th>
+<th class="head">要求事項</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>ノードタイプ</strong></td>
+<td>デュアルノード (<a class="reference internal" href="node.html#peer-node"><span class="std std-ref">Peer</span></a> と <a class="reference internal" href="node.html#api-node"><span class="std std-ref">API</span></a> ノードの両方) である必要があります。</td>
+</tr>
+<tr class="row-odd"><td><strong>帯域</strong></td>
+<td><strong>5’000 kbit/s</strong> 以上、ネットワーク上にある、他の3つのランダムなノードから、2MB のファイルダウンロードによって計測されます。</td>
+</tr>
+<tr class="row-even"><td><strong>チェーン高</strong></td>
+<td>チェーンは基準の高さから <strong>4 ブロック</strong> 以内に同期できていなければなりません。</td>
+</tr>
+<tr class="row-odd"><td><strong>チェーン部分</strong></td>
+<td>チェーンの <strong>50個のランダムなブロックハッシュ</strong> を正確にアップロードします。これらを正確さのために参照チェーンのハッシュと比較します。</td>
+</tr>
+<tr class="row-even"><td><strong>計算力</strong></td>
+<td>最低でも <strong>1 秒あたり 2,000回反復</strong> をハッシュ計算を行います。ノードは 32 byte シードを 10,000 回の反復の計算を要求されます。速度と精度を測定します。</td>
+</tr>
+<tr class="row-odd"><td><strong>Bonded Deposit</strong></td>
+<td>ノードには最低でも <strong>1, 2, 3 百万</strong> <code class="docutils literal"><span class="pre">symbol.xym</span></code> の保有が求められます。総量で報酬形態が変わります。 (以下を参照)</td>
+</tr>
+<tr class="row-even"><td><strong>バージョン</strong></td>
+<td>Symbol must be <strong>up to date</strong>. Nodes should be updated within <strong>10 days</strong> of each new Symbol release.</td>
+</tr>
+<tr class="row-odd"><td><strong>Ping</strong></td>
+<td><strong>200ms 以下のレスポンス</strong> ノードはネットワーク上の他のノードに 20 回のランダムな ping の実行を要求され、最低 1 回の ping 応答がテストに合格しなければなりません (各ノードは 5 回 ping され、応答時間は平均化されます)</td>
+</tr>
+<tr class="row-even"><td><strong>応答性</strong></td>
+<td><strong>1秒</strong>: 10 個のブロックチェーン高がリクエストされ、最低でも 9 個を 1 秒以内に応答しなければなりません。</td>
+</tr>
+</tbody>
+</table>
+<p id="reward-programs-controller">To ensure all of the above, a <strong>lightweight monitoring agent</strong> is installed on the node which reports to a controller on the network. The controller performs all the above checks <strong>a few times per day</strong> on each registered supernode and makes daily payments.</p>
+</div>
+<div class="section" id="rewards">
+<h3>報酬<a class="headerlink" href="#rewards" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="sidebar">
+<p class="first sidebar-title">Total daily rewards</p>
+<table border="1" class="right-align last docutils">
+<colgroup>
+<col width="30%" />
+<col width="70%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Year 1</td>
+<td>15’000 <code class="docutils literal"><span class="pre">symbol.xym</span></code></td>
+</tr>
+<tr class="row-even"><td>Year 2</td>
+<td>15’000 <code class="docutils literal"><span class="pre">symbol.xym</span></code></td>
+</tr>
+<tr class="row-odd"><td>Year 3</td>
+<td>15’000 <code class="docutils literal"><span class="pre">symbol.xym</span></code></td>
+</tr>
+<tr class="row-even"><td>Year 4</td>
+<td>14’000 <code class="docutils literal"><span class="pre">symbol.xym</span></code></td>
+</tr>
+<tr class="row-odd"><td>Year 5</td>
+<td>10’000 <code class="docutils literal"><span class="pre">symbol.xym</span></code></td>
+</tr>
+<tr class="row-even"><td>Year 6</td>
+<td>5’000 <code class="docutils literal"><span class="pre">symbol.xym</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This program will last for <strong>6 years</strong> after the launch date of Symbol, with decreasing rewards each year.</p>
+<p>Supernodes are divided in <strong>3 tiers</strong> according to their staked <code class="docutils literal"><span class="pre">symbol.xym</span></code>: More than 1 million, more than 2 million and more than 3 million.</p>
+<p>The available <strong>Total daily rewards</strong> are split among all program participants according to their tier in the following fashion:</p>
+<ul class="simple">
+<li>Each tier 1 nodes gets 17.33% of the <strong>Total daily reward</strong> divided by the total number of participating nodes.</li>
+<li>Each tier 2 nodes gets 46.67% of the <strong>Total daily reward</strong> divided by the total number of participating nodes.</li>
+<li>Tier 3 nodes get the remainder, uniformly distributed among them.</li>
+</ul>
+<p>完全な <a class="reference external" href="https://drive.google.com/file/d/1Q51SJNxeKVFWXQOogRSUrcn8e1Le-k2-/view?usp=sharing">利用規約</a> はこちらを参照してください。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last"><a class="reference internal" href="../guides/network/supernode-enrollment.html"><span class="doc">スーパーノードプログラムに参加するにはこのガイドに従ってください</span></a></p>
+</div>
+</div>
+</div>
+<div class="section" id="voting-node-program">
+<span id="id2"></span><h2>投票ノードプログラム<a class="headerlink" href="#voting-node-program" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Symbol provides <strong>fast response times</strong> even when <strong>network disconnections</strong> isolate some of the nodes. When connectivity is restored any <strong>conflicts</strong> which might have arisen (network forks) are resolved by the <a class="reference internal" href="block.html#finalization"><span class="std std-ref">ファイナライゼーション</span></a> process. This process requires some nodes to periodically <strong>vote</strong> on which branches are valid according to their records. Blocks deemed invalid are then <a class="reference internal" href="block.html#rollbacks"><span class="std std-ref">rolled back</span></a>.</p>
+<p>This program aims at ensuring that enough <strong>voting nodes</strong> are always present in the network so fork resolution is conducted reliably.</p>
+<div class="section" id="id3">
+<h3>要求事項<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>投票ノードとは、次の追加要件を満たす、通常ノードです:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="70%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">パラメータ</th>
+<th class="head">要求事項</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>Bonded Deposit</strong></td>
+<td>ノードには最低でも <strong>300 万</strong> <code class="docutils literal"><span class="pre">symbol.xym</span></code> のステークが必要です。</td>
+</tr>
+<tr class="row-odd"><td><strong>投票キー</strong></td>
+<td>The node must signal its interest in becoming a voting node by registering its <a class="reference internal" href="../serialization/coresystem.html#voting-key-link-transaction"><span class="std std-ref">Voting Key</span></a>.</td>
+</tr>
+</tbody>
+</table>
+<p>Although not mandatory, it is <strong>recommended</strong> that voting nodes meet the same hardware requirements as <a class="reference internal" href="#supernode-program"><span class="std std-ref">supernodes</span></a>. In fact, it is expected that participants of the Voting Node Program will also enroll to the Supernode program.</p>
+</div>
+<div class="section" id="id4">
+<h3>報酬<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><strong>5% of all block harvesting rewards</strong> is set aside for voting nodes. After each <a class="reference internal" href="block.html#finalization"><span class="std std-ref">finalization round</span></a> these rewards are <strong>evenly distributed</strong> among all nodes that participated in that round (and paid on a daily basis). There is <strong>no explicit enrollment required</strong> for this program.</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p>Symbol Bootstrap を使用してノードを作成した場合は <a class="reference internal" href="../guides/network/running-a-symbol-node.html#bootstrap-enable-voting"><span class="std std-ref">このガイドに従って投票</span></a> を有効にしてください。</p>
+<p class="last">または <a class="reference internal" href="../guides/network/running-a-symbol-node-manually.html#manual-enable-voting"><span class="std std-ref">このガイドに従い、手動で投票を有効化</span></a> します。</p>
+</div>
+<p>完全な <a class="reference external" href="https://drive.google.com/file/d/1Q-Ph2KGKN3Vr6GVampFvlfitZHirhthA/view?usp=sharing">利用規約</a> はこちらを参照してください。</p>
+</div>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+            
+            <p class="feedback">
+                <hr/>
+                お探しのものは見つかりましたか？
+                <a href="https://github.com/symbol/symbol-docs/issues/new/choose" target="_blank">フィードバックをください。</a>
+            </p>
+            
+        </div>
+         
+
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+    
+    <div class="edit-github">
+    <a href="https://github.com/symbol/symbol-docs/edit/main/source/concepts/reward-programs.rst" rel="nofollow"> <i class="fab fa-github"></i> このページを加筆修正する</a>
+</div>
+    <span class="title">このページ</span>
+    <ul>
+<li><a class="reference internal" href="#">報酬プログラム</a><ul>
+<li><a class="reference internal" href="#supernode-program">スーパーノードプログラム</a><ul>
+<li><a class="reference internal" href="#requirements">要求事項</a></li>
+<li><a class="reference internal" href="#rewards">報酬</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#voting-node-program">投票ノードプログラム</a><ul>
+<li><a class="reference internal" href="#id3">要求事項</a></li>
+<li><a class="reference internal" href="#id4">報酬</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    
+    </div>
+</div>
+
+ 
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-desktop',
+        debug: false
+    });
+
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-mobile',
+        debug: false
+    });
+</script>
+
+  </body>
+</html>

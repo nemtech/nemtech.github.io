@@ -1,0 +1,357 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ドキュメント変更の提案 &#8212; Symbol Documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700&display=swap" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'Main',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/examplecode.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="ガイドを記述する" href="writing-a-guide.html" />
+    <link rel="prev" title="スタイルガイド" href="style-guide.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174021413-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-174021413-2');
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../guides/atom.xml" title="Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div class="navbar navbar-default gradient navbar-fixed-top"
+     id="navbar">
+    <div class="container navbar-top hidden-xs hidden-sm">
+        <div class="row">
+            <div class="col-lg-8 col-md-7">
+                <div id="language">
+    <label class="select">
+        <select>
+            <option id="english" value="en">EN</option>
+            <option id="japanese" value="ja">JA</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </label>
+</div>
+            </div>
+            <div class="col-lg-4 col-md-5">
+                
+                <div id="search-box">
+    <input class="search search-desktop form-control" placeholder="Search"/>
+</div>
+                
+                <ul id="social" class="list-inline">
+    <li>
+        <a href="https://twitter.com/NEMofficial" rel="nofollow"><i class="fab fa-twitter" title="Twitter"></i></a>
+    </li>
+    <li>
+        <a href="https://discord.com/invite/xymcity" rel="nofollow" title="Discord"><i class="fab fa-discord"></i></a>
+    </li>
+    <li>
+        <a href="https://github.com/symbol/" rel="nofollow" title="GitHub"><i class="fab fa-github"></i></a>
+    </li>
+</ul>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="container navbar-main">
+        <div class="row">
+            <div class="navbar-header col-lg-6 col-md-4 col-xs-6">
+                <a class="navbar-brand" href="../index.html">
+                    
+                    <span><img alt="NEM logo" src="../_static/logo-symbol.svg"></span>
+                    
+                </a>
+            </div>
+            <div class="navbar-right col-lg-6 col-md-8 hidden-xs hidden-sm">
+                <ul class="list-inline">
+    <li>
+        <a href="/ja/getting-started/what-is-symbol.html" class="">入門</a>
+    </li>
+    <li>
+        <a href="/ja/concepts/overview.html" class="">機能</a>
+    </li>
+    <li>
+        <a href="/ja/guides/category.html" class="">ガイド</a>
+    </li>
+    <li>
+        <a href="/ja/references/overview.html" class="">ツール</a>
+    </li>
+    <li>
+        <a href="/ja/contribute/community.html" class="active">ヘルプ</a>
+    </li>
+</ul>
+            </div>
+            <div class="navbar-right col-xs-6 hidden-lg hidden-md">
+                
+                <div id="search-box">
+    <input class="search search-mobile form-control" placeholder="Search"/>
+</div>
+                
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 sidebar-xs visible-xs visible-sm">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">ナビゲーション <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu globaltoc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">ガイド</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/overview.html">コンセプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references/index.html">リファレンス</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../contribute/index.html">貢献</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../contribute/community.html">コミュニティ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../contribute/contributing.html">ガイドライン</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="writing-a-schema.html">スキーマの記述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk-development.html">SDK 開発</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk-documentation.html">SDK ドキュメント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generating-transaction-builders.html">トランザクションビルダの生成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="style-guide.html">スタイルガイド</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ドキュメント変更の提案</a></li>
+<li class="toctree-l3"><a class="reference internal" href="writing-a-guide.html">ガイドを記述する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="translating-the-documentation.html">ドキュメントの翻訳</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../contribute/glossary.html">Glossary</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        
+        
+
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
+    <h4>ナビゲーション</h4>
+    <hr />
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">ガイド</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/overview.html">コンセプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references/index.html">リファレンス</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../contribute/index.html">貢献</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../contribute/community.html">コミュニティ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../contribute/contributing.html">ガイドライン</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="writing-a-schema.html">スキーマの記述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk-development.html">SDK 開発</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk-documentation.html">SDK ドキュメント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generating-transaction-builders.html">トランザクションビルダの生成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="style-guide.html">スタイルガイド</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ドキュメント変更の提案</a></li>
+<li class="toctree-l3"><a class="reference internal" href="writing-a-guide.html">ガイドを記述する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="translating-the-documentation.html">ドキュメントの翻訳</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../contribute/glossary.html">Glossary</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+        
+    </div>
+</div>
+
+
+        
+        <div class="col-md-7 content">
+            
+  <div class="section" id="suggesting-documentation-changes">
+<h1>ドキュメント変更の提案<a class="headerlink" href="#suggesting-documentation-changes" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Symbol Developer Documentation はオープンソースプロジェクトであり、私達のコミュニティからの貢献を待っています - そう、あなたのことです！ガイドを書くこと、ドキュメントを改良すること、エラーや要求を提出すること、あるいはドキュメント自体に組み込むことができる新しいドキュメントを書くこと、多くの方法で貢献することができます。</p>
+<div class="section" id="error-reports">
+<h2>エラーの報告<a class="headerlink" href="#error-reports" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Symbol Developer Documentation で誤植を発見したと思われる場合は、まず Symbol Developer Documentation の最新バージョンに対してテストしていることを確認してください - あなたの問題は既に修正されている可能性があります。そうでない場合、同様の問題が既に開かれていないか、GitHub の <a href="https://github.com/symbol/symbol-docs/issues" target="_blank">issue</a> リストを検索してください。</p>
+<p>エラーの再現の準備をしていただけるととても助かります。問題を発見して修正するための手助けとなります。</p>
+<p>問題の報告には次のテンプレートを使うことを考慮してください:</p>
+<blockquote>
+<div><p><strong>エラーの説明</strong></p>
+<p>発生したエラーについての明確で簡潔な説明。</p>
+<p><strong>再現方法</strong></p>
+<p>挙動を再現する方法:</p>
+<ol class="arabic simple">
+<li>『…』 へ移動する</li>
+<li>『….』 をクリックする</li>
+<li>『….』 へスクロールする</li>
+<li>エラーを確認する</li>
+</ol>
+<p><strong>意図していた挙動</strong></p>
+<p>期待していた挙動についての明確で簡潔な説明。</p>
+<p><strong>スクリーンショット</strong></p>
+<p>該当する場合は、問題を説明するためにスクリーンショットを追加してください。</p>
+</div></blockquote>
+<p>新しい <a href="https://github.com/symbol/symbol-docs/issues" target="_blank">issue</a> をここから開いてください。</p>
+</div>
+<div class="section" id="requests">
+<h2>要望<a class="headerlink" href="#requests" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>あなたが望んでいるコンテンツが Symbol Developer Documentation に存在しないと思っているなら、それはあなただけではないのかもしれません。現在 Symbol Developer Documentation が提供しているドキュメントやガイドの多くは、ユーザーが必要と感じたため追加されました。不足しているドキュメントや必要だと思う改善は GitHub のissueリストに <a href="https://github.com/symbol/symbol-docs/issues" target="_blank">issue</a> を開いてください。</p>
+<p>改善がドキュメントに関連するものではなく、特定のプロジェクトである場合は、プロジェクトリポジトリの CONTRIBUTING.md を確認してください。</p>
+</div>
+<div class="section" id="contributing-code-and-documentation-changes">
+<h2>コードやドキュメントへの貢献による変更<a class="headerlink" href="#contributing-code-and-documentation-changes" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Symbol Developer Documentation を拡張し改善するには、先にそれに関する <a href="https://github.com/symbol/symbol-docs/issues" target="_blank">issue</a> を見つけてください。そして、あなたが何をしたいかを話してください。誰かが既にそれに取り組んでいるか、変更を実装する前に知っておくべき特定の問題があるかもしれません。</p>
+<p>私たちは貢献者と協力してプルリクエストを受け入れています。</p>
+<div class="section" id="building-symbol-docs">
+<h3>symbol-docs のビルド<a class="headerlink" href="#building-symbol-docs" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ドキュメントの変更が小さい場合は、画面の右上にある <em>「Edit on Github」</em> ボタンを使用してください。</p>
+<p>かなりの変更もしくは貢献をする場合、 <a href="https://github.com/symbol/symbol-docs/" target="_blank">symbol-docs repository</a> リポジトリをフォークして、あなたのマシンへクローンする必要があるかもしれません。 <a href="https://help.github.com/articles/fork-a-repo/" target="_blank">github help</a> を参照してください。</p>
+<p>はじめに Python 2.7 または 3.4+ と pip がインストールされていることを確認してください。</p>
+<p>そして pip を使用して要求環境のインストールします:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>pip install -r requirements.txt
+</pre></div>
+</div>
+<p>次のコマンドを実行して提供された URL をブラウザで開きます。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>make livehtml
+</pre></div>
+</div>
+</div>
+<div class="section" id="submitting-your-changes">
+<h3>変更の提出<a class="headerlink" href="#submitting-your-changes" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>あなたの変更とテストがレビューに提出する準備ができたら:</p>
+<ol class="arabic simple">
+<li>あなたの変更をテスト</li>
+</ol>
+<p><code class="docutils literal"><span class="pre">make</span> <span class="pre">livehtml</span></code> を実行し、変更した部分をプレビューしてください。</p>
+<ol class="arabic simple" start="2">
+<li>プルリクエストの提出</li>
+</ol>
+<p>ローカルでの変更をフォークしたリポジトリのコピーにプッシュし <a href="https://help.github.com/articles/about-pull-requests/" target="_blank">submit a pull request</a> を送信します。プルリクエストであなたの変更を要約するタイトルを記入し、変更が何をしているかの詳細を本文に記入します。また、議論が行われた場合の issue 番号、例えば 「Closes＃123」 も記入します。</p>
+<p>それが済んだら休憩して待ちましょう。プルリクエストについての議論をして、その変更が必要な場合はプルリクエストを symbol-docs にマージするための協力をしたいと思います。</p>
+</div>
+<div class="section" id="contributing-license-notice">
+<h3>貢献ライセンスの通知<a class="headerlink" href="#contributing-license-notice" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>コードを投稿すると、その投稿はオリジナルの作品であり、プロジェクトのオープンソースライセンスの下でプロジェクトにライセンス供与されているとみなします。</p>
+<p>これを明示的に述べているかどうかにかかわらず、著作権で保護された素材をプルリクエスト、電子メール、またはその他の方法で提出することは、プロジェクトのオープンソースライセンスの下での素材のライセンスを取得することに同意し、法的権限を有することを保証します。</p>
+<p><em>CONTRIBUTING.md</em> は <a class="reference external" href="https://github.com/nayafia/contributing-template/blob/master/CONTRIBUTING-template.md">CONTRIBUTING-template.md</a> と <a class="reference external" href="https://github.com/elastic/elasticsearch/blob/master/CONTRIBUTING.md">elasticsearch/CONTRIBUTING</a> と <a class="reference external" href="https://github.com/apache/spark/blob/master/CONTRIBUTING.md">spark/CONTRIBUTING</a> をベースとしています。</p>
+</div>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+            
+            <p class="feedback">
+                <hr/>
+                お探しのものは見つかりましたか？
+                <a href="https://github.com/symbol/symbol-docs/issues/new/choose" target="_blank">フィードバックをください。</a>
+            </p>
+            
+        </div>
+         
+
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+    
+    <div class="edit-github">
+    <a href="https://github.com/symbol/symbol-docs/edit/main/source/guidelines/suggesting-changes.rst" rel="nofollow"> <i class="fab fa-github"></i> このページを加筆修正する</a>
+</div>
+    <span class="title">このページ</span>
+    <ul>
+<li><a class="reference internal" href="#">ドキュメント変更の提案</a><ul>
+<li><a class="reference internal" href="#error-reports">エラーの報告</a></li>
+<li><a class="reference internal" href="#requests">要望</a></li>
+<li><a class="reference internal" href="#contributing-code-and-documentation-changes">コードやドキュメントへの貢献による変更</a><ul>
+<li><a class="reference internal" href="#building-symbol-docs">symbol-docs のビルド</a></li>
+<li><a class="reference internal" href="#submitting-your-changes">変更の提出</a></li>
+<li><a class="reference internal" href="#contributing-license-notice">貢献ライセンスの通知</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    
+    </div>
+</div>
+
+ 
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-desktop',
+        debug: false
+    });
+
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-mobile',
+        debug: false
+    });
+</script>
+
+  </body>
+</html>

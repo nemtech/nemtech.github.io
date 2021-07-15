@@ -1,0 +1,445 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Retrieving your XYM from a post-launch opt-in &#8212; Symbol Documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700&display=swap" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     'Main',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/js/custom.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/examplecode.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Monitoring" href="../monitor/index.html" />
+    <link rel="prev" title="Retrieving your XYM from a pre-launch opt-in" href="post-optin-xym-retrieval.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174021413-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-174021413-2');
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../../guides/atom.xml" title="Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div class="navbar navbar-default gradient navbar-fixed-top"
+     id="navbar">
+    <div class="container navbar-top hidden-xs hidden-sm">
+        <div class="row">
+            <div class="col-lg-8 col-md-7">
+                <div id="language">
+    <label class="select">
+        <select>
+            <option id="english" value="en">EN</option>
+            <option id="japanese" value="ja">JA</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">Translate</option>
+        </select>
+    </label>
+</div>
+            </div>
+            <div class="col-lg-4 col-md-5">
+                
+                <div id="search-box">
+    <input class="search search-desktop form-control" placeholder="Search"/>
+</div>
+                
+                <ul id="social" class="list-inline">
+    <li>
+        <a href="https://twitter.com/NEMofficial" rel="nofollow"><i class="fab fa-twitter" title="Twitter"></i></a>
+    </li>
+    <li>
+        <a href="https://discord.com/invite/xymcity" rel="nofollow" title="Discord"><i class="fab fa-discord"></i></a>
+    </li>
+    <li>
+        <a href="https://github.com/symbol/" rel="nofollow" title="GitHub"><i class="fab fa-github"></i></a>
+    </li>
+</ul>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="container navbar-main">
+        <div class="row">
+            <div class="navbar-header col-lg-6 col-md-4 col-xs-6">
+                <a class="navbar-brand" href="../../index.html">
+                    
+                    <span><img alt="NEM logo" src="../../_static/logo-symbol.svg"></span>
+                    
+                </a>
+            </div>
+            <div class="navbar-right col-lg-6 col-md-8 hidden-xs hidden-sm">
+                <ul class="list-inline">
+    <li>
+        <a href="/getting-started/what-is-symbol.html" class="">Getting Started</a>
+    </li>
+    <li>
+        <a href="/concepts/overview.html" class="">Features</a>
+    </li>
+    <li>
+        <a href="/guides/category.html" class="active">Guides</a>
+    </li>
+    <li>
+        <a href="/references/overview.html" class="">Tools</a>
+    </li>
+    <li>
+        <a href="/contribute/community.html" class="">Help</a>
+    </li>
+</ul>
+            </div>
+            <div class="navbar-right col-xs-6 hidden-lg hidden-md">
+                
+                <div id="search-box">
+    <input class="search search-mobile form-control" placeholder="Search"/>
+</div>
+                
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 sidebar-xs visible-xs visible-sm">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigation <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu globaltoc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Guides</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../account/index.html">Accounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aggregate/index.html">Aggregate transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blockchain/index.html">Blockchain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../harvesting/index.html">Harvesting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/index.html">Metadata</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Migration from NIS1</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="post-optin-xym-retrieval.html">Retrieving your XYM from a pre-launch opt-in</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Retrieving your XYM from a post-launch opt-in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrating-from-nem-to-symbol.html">Migrating from NIS1 to Symbol</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../monitor/index.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mosaic/index.html">Mosaics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multisig/index.html">Multisignature accounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../namespace/index.html">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../restriction/index.html">Mosaic restrictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../secretlock/index.html">SecretLock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transfer/index.html">Transfers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exchanges/index.html">Exchanges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/overview.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references/index.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">Contributing</a></li>
+</ul>
+</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        
+        
+
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
+    <h4>Navigation</h4>
+    <hr />
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Guides</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../account/index.html">Accounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aggregate/index.html">Aggregate transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blockchain/index.html">Blockchain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../harvesting/index.html">Harvesting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/index.html">Metadata</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Migration from NIS1</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="post-optin-xym-retrieval.html">Retrieving your XYM from a pre-launch opt-in</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Retrieving your XYM from a post-launch opt-in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrating-from-nem-to-symbol.html">Migrating from NIS1 to Symbol</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../monitor/index.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mosaic/index.html">Mosaics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multisig/index.html">Multisignature accounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../namespace/index.html">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../restriction/index.html">Mosaic restrictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../secretlock/index.html">SecretLock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transfer/index.html">Transfers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exchanges/index.html">Exchanges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/overview.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references/index.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">Contributing</a></li>
+</ul>
+
+</div>
+        
+    </div>
+</div>
+
+
+        
+        <div class="col-md-7 content">
+            
+  <div class="section" id="retrieving-your-xym-from-a-post-launch-opt-in">
+<h1>Retrieving your XYM from a post-launch opt-in<a class="headerlink" href="#retrieving-your-xym-from-a-post-launch-opt-in" title="Permalink to this headline">¶</a></h1>
+<p>This guide explains how to enroll in the opt-in process once Symbol has launched (this is, after March 12, 2021).</p>
+<p>If you opted-in before the launch and you are looking to retrieve your new Symbol currency, read the <a class="reference internal" href="post-optin-xym-retrieval.html"><span class="doc">Retrieving your XYM from a pre-launch opt-in</span></a> guide instead.</p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p><strong>NEM NIS1 is the original blockchain</strong> offering from NEM, created by the community, and has been running since 2015.</p>
+<p><strong>Symbol is the next-generation blockchain</strong> from NEM, rewritten from scratch, and launched in March, 2021.</p>
+<p>To quickstart Symbol’s adoption, an <strong>opt-in</strong> process was established which awarded <strong>one XYM</strong> in the new Symbol blockchain <strong>for every XEM</strong> (NIS1’s native currency) held in the NIS1 blockchain.</p>
+<div class="section" id="the-opt-in-process">
+<h3>The opt-in Process<a class="headerlink" href="#the-opt-in-process" title="Permalink to this headline">¶</a></h3>
+<p>On <strong>March 12th, 2021</strong> the <strong>NIS1 Snapshot</strong> took place: When the NIS1 blockchain reached block height 3‘105‘500 a picture was taken of all accounts and their assets.</p>
+<p>Then, on <strong>March 16th, 2021</strong> the <strong>Symbol blockchain was launched</strong>.</p>
+<p>After the launch, <strong>all accounts that held at least 2 XEM at the snapshot can still reclaim an equal amount of XYM</strong>, to be transferred to a Symbol account.</p>
+<p>This process is called the <strong>opt-in</strong>, and will be <strong>open for 6 years after the launch</strong>.</p>
+<p>This guide explains how to participate in the opt-in.</p>
+</div>
+</div>
+<div class="section" id="guide">
+<h2>Guide<a class="headerlink" href="#guide" title="Permalink to this headline">¶</a></h2>
+<div class="sidebar">
+<p class="first sidebar-title">Multisignature accounts</p>
+<p class="last">If the account you want to opt-in is a multisig account make sure you read the <a class="reference internal" href="#post-launch-optin-multisig"><span class="std std-ref">Notes on multisig accounts</span></a>.</p>
+</div>
+<p>The opt-in process is conducted entirely from within the <a class="reference external" href="https://nemplatform.com/wallets/#desktop">NEM Wallet</a>, but first, you need to retrieve the <strong>public key</strong> of the Symbol account where you want to receive the XYM:</p>
+<ol class="arabic">
+<li><p class="first"><strong>Download and install</strong> the <a class="reference internal" href="../../wallets.html"><span class="doc">Symbol Desktop Wallet</span></a> for your platform, if you don’t already have it.</p>
+<p>Please note that this is different from the NEM Wallet used to interact with the NIS1 blockchain.</p>
+</li>
+<li><p class="first"><strong>Create the Symbol account</strong> where you would like to receive the assets, if you don’t already have one.</p>
+<p>Read the <a class="reference internal" href="../account/creating-an-account.html"><span class="doc">Creating an account</span></a> guide to know how to do this.</p>
+</li>
+<li><p class="first"><strong>Find your account’s public key</strong> in the <code class="docutils literal"><span class="pre">Accounts</span></code> tab. You will need it later.</p>
+<a class="reference external image-reference" href="/_images/post-launch-optin-1.png"><img alt="../../_images/post-launch-optin-1.png" class="with-shadow align-center" src="../../_images/post-launch-optin-1.png" style="width: 50%;" /></a>
+<p>Use the <strong>copy</strong> button to the right of the key (do not try to select and copy the key’s text directly as it is too long and it is truncated).</p>
+</li>
+</ol>
+<p>Now that you know where do you want your XYM transferred, you can start the opt-in process:</p>
+<ol class="arabic" start="4">
+<li><p class="first"><strong>Download and install</strong> the <a class="reference external" href="https://nemplatform.com/wallets/#desktop">NEM Wallet</a> for your platform, if you don’t already have it.</p>
+<p>Make sure you have installed <strong>at least version 2.6.0</strong>, so the post-launch opt-in module is present.</p>
+<a class="reference external image-reference" href="/_images/post-launch-optin-2.png"><img alt="../../_images/post-launch-optin-2.png" class="with-shadow align-center" src="../../_images/post-launch-optin-2.png" style="width: 50%;" /></a>
+</li>
+<li><p class="first"><strong>Log in to the account</strong> containing XEM at the snapshot.</p>
+<a class="reference external image-reference" href="/_images/post-launch-optin-3.png"><img alt="../../_images/post-launch-optin-3.png" class="with-shadow align-center" src="../../_images/post-launch-optin-3.png" style="width: 50%;" /></a>
+</li>
+</ol>
+<div class="topic">
+<p class="topic-title first">Importing from another wallet</p>
+<p>If your NIS1 account is held in a wallet other than the NEM Wallet, you will need to <strong>import</strong> it into the NEM Wallet.</p>
+<p>First, you need to <strong>retrieve the account’s private key</strong> from the wallet. The procedure depends on the wallet but here are instructions for a few popular ones:
+<a class="reference external" href="https://support.atomicwallet.io/article/19-how-to-view-your-private-keys-backup-phrase">Atomic Wallet</a>,
+<a class="reference external" href="https://support.exodus.com/article/86-how-can-i-view-my-private-keys">Exodus</a>,
+<a class="reference external" href="https://coinomi.freshdesk.com/support/solutions/articles/29000009717-what-is-the-recovery-tool-and-how-do-i-export-my-private-keys-">Coinomi</a>,
+<a class="reference external" href="https://davecube-com.medium.com/how-to-extract-the-private-key-from-your-magnum-wallet-95453dccacd4">Magnum</a>.</p>
+<p>Then, you need to <strong>import the private key into the NEM Wallet</strong>:</p>
+<ul class="simple">
+<li>Click on <code class="docutils literal"><span class="pre">SIGN</span> <span class="pre">UP</span></code> in top right corner.</li>
+<li>Click on the <code class="docutils literal"><span class="pre">Private</span> <span class="pre">key</span> <span class="pre">wallet</span></code> button and then on <code class="docutils literal"><span class="pre">Ready</span></code>.</li>
+<li>Choose the <code class="docutils literal"><span class="pre">Mainnet</span></code> network and click on <code class="docutils literal"><span class="pre">Next</span></code>.</li>
+<li>Give your new wallet a <strong>name</strong> and a <strong>password</strong> to protect it.</li>
+<li>Enter the account’s <strong>private key</strong> that you retrieved from your other wallet. Your NEM address will be presented.</li>
+<li>Read carefully the <strong>security notices</strong> and finish the import process.</li>
+<li>Back to the LOGIN screen, select the new wallet, enter its password and click on <code class="docutils literal"><span class="pre">Sign</span> <span class="pre">In</span></code>.</li>
+</ul>
+</div>
+<div class="topic">
+<p class="topic-title first">Importing from a wallet (.wlt) file</p>
+<p>If you keep your NIS1 account in a .wlt file you will need to <strong>import</strong> it into the NEM Wallet too:</p>
+<ul class="simple">
+<li>In the LOGIN screen, click on the <code class="docutils literal"><span class="pre">Import</span> <span class="pre">Wallet</span></code> yellow button.</li>
+<li><strong>Select the wallet file</strong> (the one with .wlt extension) and finish the import process.</li>
+<li>Back to the LOGIN screen, select the new wallet, enter its password and click on <code class="docutils literal"><span class="pre">Sign</span> <span class="pre">In</span></code>.</li>
+</ul>
+</div>
+<ol class="arabic" start="6">
+<li><p class="first">Once you are logged in to your NIS1 account, <strong>click on the Symbol opt-in module</strong> in the <code class="docutils literal"><span class="pre">Services</span></code> tab:</p>
+<a class="reference external image-reference" href="/_images/post-launch-optin-4.png"><img alt="../../_images/post-launch-optin-4.png" class="with-shadow align-center" src="../../_images/post-launch-optin-4.png" style="width: 50%;" /></a>
+</li>
+<li><p class="first"><strong>Click on the READY</strong> button:</p>
+<a class="reference external image-reference" href="/_images/post-launch-optin-5.png"><img alt="../../_images/post-launch-optin-5.png" class="with-shadow align-center" src="../../_images/post-launch-optin-5.png" style="width: 50%;" /></a>
+</li>
+</ol>
+<ol class="arabic" start="7">
+<li><p class="first"><strong>Select the account you want to opt-in</strong>. If you only have one account in the wallet, there will only be one option.</p>
+<a class="reference external image-reference" href="/_images/post-launch-optin-6.png"><img alt="../../_images/post-launch-optin-6.png" class="with-shadow align-center" src="../../_images/post-launch-optin-6.png" style="width: 50%;" /></a>
+<p>The screen shows a summary of the process and highlights any problems, if there are any.</p>
+<p>Remember that the <strong>Amount to claim</strong> is the amount present in the account <strong>at the snapshot</strong>.</p>
+<p>If everything is right, click on <strong>START OPT-IN</strong>.</p>
+</li>
+<li><p class="first"><strong>Enter your Symbol account’s public key</strong>. This is the public key your copied in Step 3 above.</p>
+<a class="reference external image-reference" href="/_images/post-launch-optin-7.png"><img alt="../../_images/post-launch-optin-7.png" class="with-shadow align-center" src="../../_images/post-launch-optin-7.png" style="width: 50%;" /></a>
+<p>Once you enter a valid public key, more details will appear. Check that the <strong>Symbol account’s address</strong> corresponds to the desired account and click on <strong>NEXT</strong>.</p>
+</li>
+<li><p class="first"><strong>Final verification and acceptance</strong>.</p>
+<a class="reference external image-reference" href="/_images/post-launch-optin-8.png"><img alt="../../_images/post-launch-optin-8.png" class="with-shadow align-center" src="../../_images/post-launch-optin-8.png" style="width: 50%;" /></a>
+<ul class="simple">
+<li>Do one last check of the destination Symbol account and balance.</li>
+<li>Accept the <code class="docutils literal"><span class="pre">terms</span> <span class="pre">and</span> <span class="pre">conditions</span></code> and the <code class="docutils literal"><span class="pre">privacy</span> <span class="pre">policy</span></code>.</li>
+<li>The opt-in process involves registering a transaction on the NIS1 blockchain. This has a fee, shown on this summary screen.</li>
+<li>Enter your NEM Wallet password to confirm the process.</li>
+<li>Click on <strong>SEND</strong>.</li>
+</ul>
+</li>
+</ol>
+<p>If the opt-in is successfull you will be taken to the initial Summary screen where you can see the status of the process:</p>
+<a class="reference external image-reference" href="/_images/post-launch-optin-9.png"><img alt="../../_images/post-launch-optin-9.png" class="with-shadow align-center" src="../../_images/post-launch-optin-9.png" style="width: 50%;" /></a>
+<p>Since it can take more than a week for the XYM to be transferred, you can come back to this screen to check on the opt-in status.</p>
+<div class="topic" id="post-launch-optin-multisig">
+<p class="topic-title first">Notes on multisig accounts</p>
+<p>When opting-in <a class="reference internal" href="../../concepts/multisig-account.html"><span class="doc">multi-signature accounts (multisig)</span></a> a few points need to be taken into account:</p>
+<ul>
+<li><p class="first">The multisig account <strong>cannot opt-in for itself</strong>, it needs to be opted-in by ALL of its cosigners:</p>
+<ul class="simple">
+<li>The opt-in process <strong>must be initiated by one of the cosigners</strong>, selecting the multisig account as the account to opt-in, and entering the Symbol account’s public key.</li>
+<li>The rest of the cosigners <strong>must opt-in the multisig account too</strong>, but they won’t be required to enter the Symbol account.</li>
+</ul>
+<p>For clarity, the wallet shows which cosigners have already opted-in the multisig account and which ones are missing:</p>
+<a class="reference external image-reference" href="/_images/post-launch-optin-10.png"><img alt="../../_images/post-launch-optin-10.png" class="with-shadow align-center" src="../../_images/post-launch-optin-10.png" style="width: 50%;" /></a>
+</li>
+<li><p class="first">The Symbol account that will receive the opted-in XYM <strong>must be a multisig account</strong> too, with the <strong>same amount of cosigners</strong>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<p>This is a short list of items to check should you encounter any problem when opting-in your accounts.</p>
+<ul class="simple">
+<li>Check that the <strong>balance on your NIS1 account</strong> was at least <strong>2 XEM</strong> at the time of the snapshot.</li>
+<li>Check that the NIS1 account has not already opted-in <strong>pre-launch</strong> (Following the <a class="reference internal" href="post-optin-xym-retrieval.html"><span class="doc">Retrieving your XYM from a pre-launch opt-in</span></a> guide).</li>
+<li>Check that the NIS1 account has not already opted-in <strong>post-launch</strong>.</li>
+<li>Check that the destination Symbol account is <strong>not</strong> a <a class="reference internal" href="../../concepts/harvesting.html#remote-harvesting"><span class="std std-ref">Remote harvesting</span></a> account.</li>
+<li>The <strong>NEM Helpdesk</strong> can help you if everything else fails:<ul>
+<li><a class="reference external" href="https://t.me/nemhelpdesk">NEM’s Telegram Help Desk</a></li>
+<li>Send an email to <a class="reference external" href="mailto:support&#37;&#52;&#48;nem&#46;group">support<span>&#64;</span>nem<span>&#46;</span>group</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+  <div class="section">
+  
+    
+
+
+
+
+  
+  
+  </div>
+
+            
+            <p class="feedback">
+                <hr/>
+                Did you find what you were looking for?
+                <a href="https://github.com/symbol/symbol-docs/issues/new/choose" target="_blank">Give us your feedback.</a>
+            </p>
+            
+        </div>
+         
+
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+    
+    <div class="edit-github">
+    <a href="https://github.com/symbol/symbol-docs/edit/main/source/guides/migration/post-launch-optin-xym-retrieval.rst" rel="nofollow"> <i class="fab fa-github"></i> Improve this page</a>
+</div>
+    <span class="title">On this page</span>
+    <ul>
+<li><a class="reference internal" href="#">Retrieving your XYM from a post-launch opt-in</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a><ul>
+<li><a class="reference internal" href="#the-opt-in-process">The opt-in Process</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#guide">Guide</a></li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+
+    
+    </div>
+</div>
+
+ 
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-desktop',
+        debug: false
+    });
+
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-mobile',
+        debug: false
+    });
+</script>
+
+  </body>
+</html>

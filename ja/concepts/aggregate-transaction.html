@@ -1,0 +1,420 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>アグリゲートトランザクション &#8212; Symbol Documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700&display=swap" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'Main',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/examplecode.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="ブロック" href="block.html" />
+    <link rel="prev" title="アカウント制限" href="account-restriction.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174021413-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-174021413-2');
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../guides/atom.xml" title="Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div class="navbar navbar-default gradient navbar-fixed-top"
+     id="navbar">
+    <div class="container navbar-top hidden-xs hidden-sm">
+        <div class="row">
+            <div class="col-lg-8 col-md-7">
+                <div id="language">
+    <label class="select">
+        <select>
+            <option id="english" value="en">EN</option>
+            <option id="japanese" value="ja">JA</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </label>
+</div>
+            </div>
+            <div class="col-lg-4 col-md-5">
+                
+                <div id="search-box">
+    <input class="search search-desktop form-control" placeholder="Search"/>
+</div>
+                
+                <ul id="social" class="list-inline">
+    <li>
+        <a href="https://twitter.com/NEMofficial" rel="nofollow"><i class="fab fa-twitter" title="Twitter"></i></a>
+    </li>
+    <li>
+        <a href="https://discord.com/invite/xymcity" rel="nofollow" title="Discord"><i class="fab fa-discord"></i></a>
+    </li>
+    <li>
+        <a href="https://github.com/symbol/" rel="nofollow" title="GitHub"><i class="fab fa-github"></i></a>
+    </li>
+</ul>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="container navbar-main">
+        <div class="row">
+            <div class="navbar-header col-lg-6 col-md-4 col-xs-6">
+                <a class="navbar-brand" href="../index.html">
+                    
+                    <span><img alt="NEM logo" src="../_static/logo-symbol.svg"></span>
+                    
+                </a>
+            </div>
+            <div class="navbar-right col-lg-6 col-md-8 hidden-xs hidden-sm">
+                <ul class="list-inline">
+    <li>
+        <a href="/ja/getting-started/what-is-symbol.html" class="">入門</a>
+    </li>
+    <li>
+        <a href="/ja/concepts/overview.html" class="active">機能</a>
+    </li>
+    <li>
+        <a href="/ja/guides/category.html" class="">ガイド</a>
+    </li>
+    <li>
+        <a href="/ja/references/overview.html" class="">ツール</a>
+    </li>
+    <li>
+        <a href="/ja/contribute/community.html" class="">ヘルプ</a>
+    </li>
+</ul>
+            </div>
+            <div class="navbar-right col-xs-6 hidden-lg hidden-md">
+                
+                <div id="search-box">
+    <input class="search search-mobile form-control" placeholder="Search"/>
+</div>
+                
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 sidebar-xs visible-xs visible-sm">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">ナビゲーション <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu globaltoc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">ガイド</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">コンセプト</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="account.html">アカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">アグリゲートトランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="block.html">ブロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consensus-algorithm.html">コンセンサス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cryptography.html">暗号理論</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-validation.html">データバリデーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fees.html">手数料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inflation.html">インフレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic.html">モザイク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic-restriction.html">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html">ノード</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin.html">Symbol の拡張</a></li>
+<li class="toctree-l2"><a class="reference internal" href="receipt.html">レシート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reward-programs.html">報酬プログラム</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html">トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">貢献</a></li>
+</ul>
+</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        
+        
+
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
+    <h4>ナビゲーション</h4>
+    <hr />
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">ガイド</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">コンセプト</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="account.html">アカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">アグリゲートトランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="block.html">ブロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consensus-algorithm.html">コンセンサス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cryptography.html">暗号理論</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-validation.html">データバリデーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fees.html">手数料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inflation.html">インフレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic.html">モザイク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic-restriction.html">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html">ノード</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin.html">Symbol の拡張</a></li>
+<li class="toctree-l2"><a class="reference internal" href="receipt.html">レシート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reward-programs.html">報酬プログラム</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html">トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">貢献</a></li>
+</ul>
+
+</div>
+        
+    </div>
+</div>
+
+
+        
+        <div class="col-md-7 content">
+            
+  <div class="section" id="aggregate-transaction">
+<h1>アグリゲートトランザクション<a class="headerlink" href="#aggregate-transaction" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p id="id1">アグリゲートトランザクションは複数のトランザクションを一つにまとめ、 <strong>トラストレスな交換</strong> や高度なロジックを可能にします。 Symbol は一度きりの破棄可能なスマートコントラクトを生成することでこれを実現しています。</p>
+<div class="figure align-center" id="id4">
+<img alt="../_images/aggregate-escrow-1.png" src="../_images/aggregate-escrow-1.png" style="width: 450px;" />
+<p class="caption"><span class="caption-text">2人の参加者間における AggregateTransaction の例</span></p>
+</div>
+<p>AggregateTransaction へ全ての <a class="reference internal" href="account.html"><span class="doc">アカウント</span></a> が署名をすると、全てのインナートランザクションは同時に実行されます。</p>
+<p>Symbol <a class="reference internal" href="../guides/network/configuring-network-properties.html#config-network-properties"><span class="std std-ref">パブリックネットワーク</span></a> は <code class="docutils literal"><span class="pre">1,000</span></code> までのインナートランザクションを内包し、 <code class="docutils literal"><span class="pre">25</span></code> の連署者を参加させたアグリゲートトランザクションをサポートしています。他のアグリゲートトランザクションをインナートランザクションとして内包することはできません。</p>
+<div class="section" id="aggregate-complete">
+<span id="id2"></span><h2>アグリゲートコンプリート<a class="headerlink" href="#aggregate-complete" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>要求されている参加者全員が署名した場合、AggregateTransaction は <strong>コンプリート</strong> になります。</p>
+<p>連署者はそのトランザクションに、ブロックチェーンを使うことなく署名することができます。必要な署名をすべて取得したら、彼らのうちの1人がネットワークにアナウンスできます。インナートランザクションのセットアップが正当で、バリデーションエラーがない場合、トランザクションは同時に実行されます。</p>
+<p>アグリゲートコンプリートトランザクションは、複数のインナートランザクションを集めることで、ブロックへさらに多くのトランザクションを追加できます。</p>
+</div>
+<div class="section" id="aggregate-bonded">
+<span id="id3"></span><h2>アグリゲートボンド<a class="headerlink" href="#aggregate-bonded" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>他の参加者からの署名が必要な場合、AggregateTransaction は <strong>ボンデッド</strong> になります。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last"><strong>AggregateBondedTransaction</strong> を送信する前に、アカウントは <a class="reference internal" href="../serialization/lock_hash.html#hash-lock-transaction"><span class="std std-ref">HashLockTransaction</span></a> をアナウンスして承認されており <code class="docutils literal"><span class="pre">10</span></code> <code class="docutils literal"><span class="pre">symbol.xym</span></code> をロックしなければなりません。</p>
+</div>
+<p>アグリゲートボンドがアナウンスされると、パーシャル状態— <code class="docutils literal"><span class="pre">2日間</span></code> まで存続可能—になり、WebSocket または HTTP API 呼び出しによって状態を通知します。</p>
+<p>連署者がトランザクションに署名して、アグリゲートボンド <a class="reference internal" href="../serialization/aggregate.html#id2"><span class="std std-ref">連署</span></a> をアナウンスするたびに、ネットワークは必要な連署者が署名しているかどうかをチェックします。すべての署名が取得されると、ネットワークがそれをブロックに含めるまで、トランザクションは未承認状態へ遷移します。</p>
+<div class="figure align-center" id="id5">
+<img alt="../_images/aggregate-bonded-transaction-cycle.png" src="../_images/aggregate-bonded-transaction-cycle.png" style="width: 900px;" />
+<p class="caption"><span class="caption-text">AggregateBondedTransaction サイクル</span></p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>例<a class="headerlink" href="#examples" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="sending-multiple-transactions-together">
+<h3>複数のトランザクションを同時に送信<a class="headerlink" href="#sending-multiple-transactions-together" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Dan は二つの転送トランザクションを集約した AggregateTransaction をアナウンスします。Alice と Bob は同時にモザイクを受け取るでしょう。</p>
+<div class="figure align-center" id="id6">
+<img alt="../_images/aggregate-sending-payouts.png" src="../_images/aggregate-sending-payouts.png" style="width: 450px;" />
+<p class="caption"><span class="caption-text">アグリゲート完了トランザクションによって支払を送信する</span></p>
+</div>
+</div>
+<div class="section" id="multi-asset-escrowed-transactions">
+<h3>マルチアセットエスクロートランザクション<a class="headerlink" href="#multi-asset-escrowed-transactions" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>この例では Alice がチケットを <code class="docutils literal"><span class="pre">currency:euro</span></code>  <a class="reference internal" href="mosaic.html"><span class="doc">モザイク</span></a> で購入しています。チケット販売者は AggregateTransaction に署名し、交換はアトミックに起こります。</p>
+<div class="figure align-center" id="id7">
+<img alt="../_images/aggregate-escrow-1.png" src="../_images/aggregate-escrow-1.png" style="width: 450px;" />
+<p class="caption"><span class="caption-text">マルチアセットエスクロートランザクション</span></p>
+</div>
+</div>
+<div class="section" id="paying-for-others-fees">
+<h3>他人の手数料を支払う<a class="headerlink" href="#paying-for-others-fees" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Alice は 10 <code class="docutils literal"><span class="pre">currency.euro</span></code> を Bob へ支払うためにアプリで送ります。しかし、彼女はブロックチェーンのトランザクション手数料を支払う分の <code class="docutils literal"><span class="pre">symbol.xym</span></code> を持っていません。</p>
+<p>AggregateBondedTransaction を作ることで、彼女は <code class="docutils literal"><span class="pre">currency.euro</span></code> を手数料のための <code class="docutils literal"><span class="pre">symbol.xym</span></code> に替えることができます。これで Alice と Bob は <code class="docutils literal"><span class="pre">symbol.xym</span></code> を購入したり保有することなく、 Symbol のパブリックブロックチェーンを使うことができます。</p>
+<p>アプリの製作者はオープンソースの支払いアプリに独自ブランドを付けられるので、Alice と Bob は彼らがブロックチェーン技術を使っていることに気が付かないでしょう。</p>
+<div class="figure align-center" id="id8">
+<img alt="../_images/aggregate-paying-for-others-fees.png" src="../_images/aggregate-paying-for-others-fees.png" style="width: 450px;" />
+<p class="caption"><span class="caption-text">他人の手数料を支払う</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="related-transactions">
+<h2>関連トランザクション<a class="headerlink" href="#related-transactions" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="30%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Id</th>
+<th class="head">タイプ</th>
+<th class="head">説明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x4141</td>
+<td><a class="reference internal" href="#id1"><span class="std std-ref">AggregateCompleteTransaction</span></a></td>
+<td>異なるアカウントにトランザクションをバッチ送信します。</td>
+</tr>
+<tr class="row-odd"><td>0x4241</td>
+<td><a class="reference internal" href="#id1"><span class="std std-ref">AggregateBondedTransaction</span></a></td>
+<td>異なるアカウント間のトランザクションの手配を提案します。</td>
+</tr>
+<tr class="row-even"><td>–</td>
+<td><a class="reference internal" href="../serialization/aggregate.html#cosignature-transaction"><span class="std std-ref">CosignatureTransaction</span></a></td>
+<td>AggregateBondedTransaction へ連署します。</td>
+</tr>
+<tr class="row-odd"><td>0x4148</td>
+<td><a class="reference internal" href="../serialization/lock_hash.html#hash-lock-transaction"><span class="std std-ref">HashLockTransaction</span></a></td>
+<td>アグリゲートボンドトランザクションのアナウンスに必要なデポジットをロック</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="guides">
+<h2>ガイド<a class="headerlink" href="#guides" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="postlist-style-circle postlist">
+<li><p class="first"><a class="reference internal" href="../guides/aggregate/sending-multiple-transactions-together-with-aggregate-complete-transaction.html">複数のトランザクションを同時に送信</a></p>
+<p>異なるアカウントへトランザクションを同時に送信するには、アグリゲートトランザクションを使用します。</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../guides/aggregate/creating-an-escrow-contract-with-aggregate-bonded-transaction.html">エスクローコントラクトの作成</a></p>
+<p>エスクローコントラクトの作成でアグリゲートボンドトランザクションについて学習します。</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../guides/aggregate/signing-announced-aggregate-bonded-transactions-automatically.html">自動的なアグリゲートボンデッドトランザクションの署名</a></p>
+<p>アカウントの署名が必要なトランザクションへ自動的に署名をするボットを作成します。</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../guides/aggregate/signing-announced-aggregate-bonded-transactions.html">アグリゲートボンデッドトランザクションの連署</a></p>
+<p>署名待ちの <a class="reference internal" href="#aggregate-bonded"><span class="std std-ref">アグリゲート</span></a> トランザクションに署名</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../guides/aggregate/adding-cosginatures-aggregate-complete.html">アグリゲートコンプリートトランザクションに連署名を追加する</a></p>
+<p>このガイドでは、パーシャルキャッシュを使用せずに、アグリゲートコンプリートトランザクションに連署名を追加する方法を説明します。</p>
+</li>
+</ul>
+<p>次項: <a class="reference internal" href="account-restriction.html"><span class="doc">アカウント制限</span></a></p>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+            
+            <p class="feedback">
+                <hr/>
+                お探しのものは見つかりましたか？
+                <a href="https://github.com/symbol/symbol-docs/issues/new/choose" target="_blank">フィードバックをください。</a>
+            </p>
+            
+        </div>
+         
+
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+    
+    <div class="edit-github">
+    <a href="https://github.com/symbol/symbol-docs/edit/main/source/concepts/aggregate-transaction.rst" rel="nofollow"> <i class="fab fa-github"></i> このページを加筆修正する</a>
+</div>
+    <span class="title">このページ</span>
+    <ul>
+<li><a class="reference internal" href="#">アグリゲートトランザクション</a><ul>
+<li><a class="reference internal" href="#aggregate-complete">アグリゲートコンプリート</a></li>
+<li><a class="reference internal" href="#aggregate-bonded">アグリゲートボンド</a></li>
+<li><a class="reference internal" href="#examples">例</a><ul>
+<li><a class="reference internal" href="#sending-multiple-transactions-together">複数のトランザクションを同時に送信</a></li>
+<li><a class="reference internal" href="#multi-asset-escrowed-transactions">マルチアセットエスクロートランザクション</a></li>
+<li><a class="reference internal" href="#paying-for-others-fees">他人の手数料を支払う</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#related-transactions">関連トランザクション</a></li>
+<li><a class="reference internal" href="#guides">ガイド</a></li>
+</ul>
+</li>
+</ul>
+
+    
+    </div>
+</div>
+
+ 
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-desktop',
+        debug: false
+    });
+
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-mobile',
+        debug: false
+    });
+</script>
+
+  </body>
+</html>

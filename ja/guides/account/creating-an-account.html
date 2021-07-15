@@ -1,0 +1,460 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>アカウントの作成 &#8212; Symbol Documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700&display=swap" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     'Main',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/examplecode.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="アカウントの情報を取得する" href="getting-account-information.html" />
+    <link rel="prev" title="アカウント" href="index.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174021413-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-174021413-2');
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../../guides/atom.xml" title="Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div class="navbar navbar-default gradient navbar-fixed-top"
+     id="navbar">
+    <div class="container navbar-top hidden-xs hidden-sm">
+        <div class="row">
+            <div class="col-lg-8 col-md-7">
+                <div id="language">
+    <label class="select">
+        <select>
+            <option id="english" value="en">EN</option>
+            <option id="japanese" value="ja">JA</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </label>
+</div>
+            </div>
+            <div class="col-lg-4 col-md-5">
+                
+                <div id="search-box">
+    <input class="search search-desktop form-control" placeholder="Search"/>
+</div>
+                
+                <ul id="social" class="list-inline">
+    <li>
+        <a href="https://twitter.com/NEMofficial" rel="nofollow"><i class="fab fa-twitter" title="Twitter"></i></a>
+    </li>
+    <li>
+        <a href="https://discord.com/invite/xymcity" rel="nofollow" title="Discord"><i class="fab fa-discord"></i></a>
+    </li>
+    <li>
+        <a href="https://github.com/symbol/" rel="nofollow" title="GitHub"><i class="fab fa-github"></i></a>
+    </li>
+</ul>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="container navbar-main">
+        <div class="row">
+            <div class="navbar-header col-lg-6 col-md-4 col-xs-6">
+                <a class="navbar-brand" href="../../index.html">
+                    
+                    <span><img alt="NEM logo" src="../../_static/logo-symbol.svg"></span>
+                    
+                </a>
+            </div>
+            <div class="navbar-right col-lg-6 col-md-8 hidden-xs hidden-sm">
+                <ul class="list-inline">
+    <li>
+        <a href="/ja/getting-started/what-is-symbol.html" class="">入門</a>
+    </li>
+    <li>
+        <a href="/ja/concepts/overview.html" class="">機能</a>
+    </li>
+    <li>
+        <a href="/ja/guides/category.html" class="active">ガイド</a>
+    </li>
+    <li>
+        <a href="/ja/references/overview.html" class="">ツール</a>
+    </li>
+    <li>
+        <a href="/ja/contribute/community.html" class="">ヘルプ</a>
+    </li>
+</ul>
+            </div>
+            <div class="navbar-right col-xs-6 hidden-lg hidden-md">
+                
+                <div id="search-box">
+    <input class="search search-mobile form-control" placeholder="Search"/>
+</div>
+                
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 sidebar-xs visible-xs visible-sm">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">ナビゲーション <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu globaltoc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">入門</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">ガイド</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">アカウント</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">アカウントの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-account-information.html">アカウントの情報を取得する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-the-amount-of-assets-sent-to-an-account.html">アカウントへ送信したアセットの総量の取得</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reading-transactions-from-an-account.html">トランザクションをアカウントから読み込む</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../aggregate/index.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blockchain/index.html">ブロックチェーン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../harvesting/index.html">ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/index.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../migration/index.html">NIS1 からのマイグレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monitor/index.html">モニタリング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mosaic/index.html">モザイク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multisig/index.html">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../namespace/index.html">ネームスペース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">ネットワーク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../restriction/index.html">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../secretlock/index.html">シークレットロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transfer/index.html">転送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exchanges/index.html">Exchanges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/overview.html">コンセプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">貢献</a></li>
+</ul>
+</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        
+        
+
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
+    <h4>ナビゲーション</h4>
+    <hr />
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">入門</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">ガイド</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">アカウント</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">アカウントの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-account-information.html">アカウントの情報を取得する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-the-amount-of-assets-sent-to-an-account.html">アカウントへ送信したアセットの総量の取得</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reading-transactions-from-an-account.html">トランザクションをアカウントから読み込む</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../aggregate/index.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blockchain/index.html">ブロックチェーン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../harvesting/index.html">ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/index.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../migration/index.html">NIS1 からのマイグレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monitor/index.html">モニタリング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mosaic/index.html">モザイク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multisig/index.html">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../namespace/index.html">ネームスペース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">ネットワーク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../restriction/index.html">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../secretlock/index.html">シークレットロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transfer/index.html">転送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exchanges/index.html">Exchanges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/overview.html">コンセプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">貢献</a></li>
+</ul>
+
+</div>
+        
+    </div>
+</div>
+
+
+        
+        <div class="col-md-7 content">
+            
+  <div class="section" id="creating-an-account">
+<h1>アカウントの作成<a class="headerlink" href="#creating-an-account" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>トランザクションの送信と受信をするために、新しい Symbol アカウントを作成します。</p>
+<div class="section" id="prerequisites">
+<h2>前提条件<a class="headerlink" href="#prerequisites" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="../../getting-started/setup-workstation.html"><span class="doc">入門セクション</span></a> を完了している</li>
+</ul>
+</div>
+<div class="section" id="method-01-using-the-desktop-wallet">
+<h2>方法 #01: デスクトップウォレットを使用する<a class="headerlink" href="#method-01-using-the-desktop-wallet" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ol class="arabic">
+<li><p class="first"><a class="reference internal" href="../../wallets.html#wallet-desktop"><span class="std std-ref">Symbol デスクトップウォレット</span></a> アプリケーションを開き <code class="docutils literal"><span class="pre">新しいプロファイルを作成?</span></code> ボタンを押下します。</p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="/_images/desktop-create-account-0.png"><img alt="../../_images/desktop-create-account-0.png" class="with-shadow" src="../../_images/desktop-create-account-0.png" style="width: 100%;" /></a>
+</div>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">ニーモニックの作成</span></code> をクリックします</p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="/_images/desktop-create-account-1.png"><img alt="../../_images/desktop-create-account-1.png" class="with-shadow" src="../../_images/desktop-create-account-1.png" style="width: 100%;" /></a>
+</div>
+</li>
+<li><p class="first">いくつかのプロファイルデータを入力します。プロファイルには複数の Symbol アカウントを含めることができ、それらを整理するのに役立ちます。</p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="/_images/desktop-create-account-2.png"><img alt="../../_images/desktop-create-account-2.png" class="with-shadow" src="../../_images/desktop-create-account-2.png" style="width: 100%;" /></a>
+</div>
+<ul class="simple">
+<li>個人的な使用目的でプロファイルに <strong>名前</strong> を付けます。</li>
+<li><code class="docutils literal"><span class="pre">メインネット</span></code> <strong>ネットワークタイプ</strong> を選択します。</li>
+<li>プロファイルを保護するために <strong>パスワード</strong> を入力して確認します。</li>
+<li>パスワードを忘れた場合に備えて <strong>ヒント</strong> を入力して忘れないようにしてください。</li>
+<li><code class="docutils literal"><span class="pre">次へ</span></code> をクリックします。</li>
+</ul>
+</li>
+<li><p class="first">次のページでは、デスクトップウォレットがマウスの動きを使用して、ウォレットのランダムなニーモニック語群を生成します。</p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="/_images/desktop-create-account-3.png"><img alt="../../_images/desktop-create-account-3.png" class="with-shadow" src="../../_images/desktop-create-account-3.png" style="width: 100%;" /></a>
+</div>
+<p>進行状況バーが 100％ に達し、アプリケーションが自動的に次のページに移動するまで、画面上でマウスを動かします。</p>
+</li>
+<li><p class="first">プライベートニーモニック語群を表示するには <code class="docutils literal"><span class="pre">ニーモニック語を表示</span></code> をクリックします。</p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="/_images/desktop-create-account-4.png"><img alt="../../_images/desktop-create-account-4.png" class="with-shadow" src="../../_images/desktop-create-account-4.png" style="width: 100%;" /></a>
+</div>
+</li>
+<li><p class="first">コピーボタンをクリック</p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="/_images/desktop-create-account-5.png"><img alt="../../_images/desktop-create-account-5.png" class="with-shadow" src="../../_images/desktop-create-account-5.png" style="width: 100%;" /></a>
+</div>
+<p>この情報をオフラインで安全にバックアップして、誰とも共有せず、資産の復元のために鍵を保管してください。 <code class="docutils literal"><span class="pre">次へ</span></code> をクリックします。</p>
+</li>
+<li><p class="first">ニーモニックフレーズを正しくバックアップしたことを確認します。フレーズ内の各単語を正しい順序でクリックします。終了したら <code class="docutils literal"><span class="pre">次へ</span></code> クリックします。</p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="/_images/desktop-create-account-6.png"><img alt="../../_images/desktop-create-account-6.png" class="with-shadow" src="../../_images/desktop-create-account-6.png" style="width: 100%;" /></a>
+</div>
+</li>
+<li><p class="first">次ページの安全に関するヒントを読んでください。</p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="/_images/desktop-create-account-7.png"><img alt="../../_images/desktop-create-account-7.png" class="with-shadow" src="../../_images/desktop-create-account-7.png" style="width: 100%;" /></a>
+</div>
+<p><strong>利用規約</strong> に同意して <code class="docutils literal"><span class="pre">完了</span></code> をクリックします:</p>
+</li>
+</ol>
+<ol class="arabic" start="8">
+<li><p class="first">ウォレットのメイン画面が表示されます。おめでとう！アカウントの準備が整いました。</p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="/_images/desktop-create-account-8.png"><img alt="../../_images/desktop-create-account-8.png" class="with-shadow" src="../../_images/desktop-create-account-8.png" style="width: 100%;" /></a>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="method-02-using-the-sdk">
+<h2>方法 #02: SDK を使用する<a class="headerlink" href="#method-02-using-the-sdk" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>新しいファイルを開き、次のコードスニペットを実行します。 <code class="docutils literal"><span class="pre">NetworkType.TEST_NET</span></code> を目的に合った正しいネットワークタイプに編集してください。</p>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id1">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/account/CreatingAnAccount.ts">View Code</a></span><a class="headerlink" href="#id1" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kd">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">generateNewAccount</span><span class="p">(</span><span class="nx">NetworkType</span><span class="p">.</span><span class="nx">TEST_NET</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+  <span class="s1">&#39;Your new account address is:&#39;</span><span class="p">,</span>
+  <span class="nx">account</span><span class="p">.</span><span class="nx">address</span><span class="p">.</span><span class="nx">pretty</span><span class="p">(),</span>
+  <span class="s1">&#39;and its private key&#39;</span><span class="p">,</span>
+  <span class="nx">account</span><span class="p">.</span><span class="nx">privateKey</span><span class="p">,</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id2">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/account/CreatingAnAccount.js">View Code</a></span><a class="headerlink" href="#id2" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Account</span><span class="p">.</span><span class="nx">generateNewAccount</span><span class="p">(</span><span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">NetworkType</span><span class="p">.</span><span class="nx">TEST_NET</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Your new account address is:&#39;</span><span class="p">,</span> <span class="nx">account</span><span class="p">.</span><span class="nx">address</span><span class="p">.</span><span class="nx">pretty</span><span class="p">(),</span> <span class="s1">&#39;and its private key&#39;</span><span class="p">,</span> <span class="nx">account</span><span class="p">.</span><span class="nx">privateKey</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id3">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/java/src/test/java/symbol/guides/examples/account/CreatingAnAccount.java">View Code</a></span><a class="headerlink" href="#id3" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="kd">final</span> <span class="n">Account</span> <span class="n">account</span> <span class="o">=</span> <span class="n">Account</span><span class="p">.</span><span class="na">generateNewAccount</span><span class="p">(</span><span class="n">NetworkType</span><span class="p">.</span><span class="na">TEST_NET</span><span class="p">);</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Your new account address is: %s and its private key: %s&quot;</span><span class="p">,</span>
+            <span class="n">account</span><span class="p">.</span><span class="na">getAddress</span><span class="p">().</span><span class="na">plain</span><span class="p">(),</span> <span class="n">account</span><span class="p">.</span><span class="na">getPrivateKey</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>既に秘密鍵を持っている場合は、それを使用して <code class="docutils literal"><span class="pre">Account</span></code> オブジェクトを定義することができます。</p>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id4">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/account/OpeningAnAccount.ts">View Code</a></span><a class="headerlink" href="#id4" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="c1">// replace with private key</span>
+<span class="kd">const</span> <span class="nx">privateKey</span> <span class="o">=</span>
+  <span class="s1">&#39;0000000000000000000000000000000000000000000000000000000000000000&#39;</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">TEST_NET</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+  <span class="s1">&#39;Your account address is:&#39;</span><span class="p">,</span>
+  <span class="nx">account</span><span class="p">.</span><span class="nx">address</span><span class="p">.</span><span class="nx">pretty</span><span class="p">(),</span>
+  <span class="s1">&#39;and its private key&#39;</span><span class="p">,</span>
+  <span class="nx">account</span><span class="p">.</span><span class="nx">privateKey</span><span class="p">,</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id5">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/account/OpeningAnAccount.js">View Code</a></span><a class="headerlink" href="#id5" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// replace with private key</span>
+<span class="kd">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="s1">&#39;0000000000000000000000000000000000000000000000000000000000000000&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">NetworkType</span><span class="p">.</span><span class="nx">TEST_NET</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Your account address is:&#39;</span><span class="p">,</span> <span class="nx">account</span><span class="p">.</span><span class="nx">address</span><span class="p">.</span><span class="nx">pretty</span><span class="p">(),</span> <span class="s1">&#39;and its private key&#39;</span><span class="p">,</span> <span class="nx">account</span><span class="p">.</span><span class="nx">privateKey</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id6">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/java/src/test/java/symbol/guides/examples/account/OpeningAnAccount.java">View Code</a></span><a class="headerlink" href="#id6" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="c1">// Replace with a private key</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">privateKey</span> <span class="o">=</span> <span class="s">&quot;0000000000000000000000000000000000000000000000000000000000000000&quot;</span><span class="p">;</span>
+        <span class="kd">final</span> <span class="n">Account</span> <span class="n">account</span> <span class="o">=</span> <span class="n">Account</span><span class="p">.</span><span class="na">createFromPrivateKey</span><span class="p">(</span><span class="n">privateKey</span><span class="p">,</span> <span class="n">NetworkType</span><span class="p">.</span><span class="na">TEST_NET</span><span class="p">);</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Your account address is: %s and its private key: %s&quot;</span><span class="p">,</span>
+            <span class="n">account</span><span class="p">.</span><span class="na">getAddress</span><span class="p">().</span><span class="na">plain</span><span class="p">(),</span> <span class="n">account</span><span class="p">.</span><span class="na">getPrivateKey</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="method-03-using-the-cli">
+<h2>方法 #03: CLI を使用する<a class="headerlink" href="#method-03-using-the-cli" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ターミナルを開き、次のコマンドを実行します。</p>
+<div class="literal-block-wrapper container" id="id7">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/bash/account/CreatingAnAccount.sh">View Code</a></span><a class="headerlink" href="#id7" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>symbol-cli account generate
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+  <div class="section">
+  
+    
+
+
+
+
+  
+  
+  </div>
+
+            
+            <p class="feedback">
+                <hr/>
+                お探しのものは見つかりましたか？
+                <a href="https://github.com/symbol/symbol-docs/issues/new/choose" target="_blank">フィードバックをください。</a>
+            </p>
+            
+        </div>
+         
+
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+    
+    <div class="edit-github">
+    <a href="https://github.com/symbol/symbol-docs/edit/main/source/guides/account/creating-an-account.rst" rel="nofollow"> <i class="fab fa-github"></i> このページを加筆修正する</a>
+</div>
+    <span class="title">このページ</span>
+    <ul>
+<li><a class="reference internal" href="#">アカウントの作成</a><ul>
+<li><a class="reference internal" href="#prerequisites">前提条件</a></li>
+<li><a class="reference internal" href="#method-01-using-the-desktop-wallet">方法 #01: デスクトップウォレットを使用する</a></li>
+<li><a class="reference internal" href="#method-02-using-the-sdk">方法 #02: SDK を使用する</a></li>
+<li><a class="reference internal" href="#method-03-using-the-cli">方法 #03: CLI を使用する</a></li>
+</ul>
+</li>
+</ul>
+
+    
+    </div>
+</div>
+
+ 
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-desktop',
+        debug: false
+    });
+
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-mobile',
+        debug: false
+    });
+</script>
+
+  </body>
+</html>

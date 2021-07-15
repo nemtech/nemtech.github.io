@@ -1,0 +1,552 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>マルチシグアカウントに新しい署名者の追加 &#8212; Symbol Documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700&display=swap" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     'Main',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/examplecode.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="マルチレベルマルチシグアカウントの作成" href="creating-a-multi-level-multisig-account.html" />
+    <link rel="prev" title="マルチシグアカウント" href="index.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174021413-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-174021413-2');
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../../guides/atom.xml" title="Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div class="navbar navbar-default gradient navbar-fixed-top"
+     id="navbar">
+    <div class="container navbar-top hidden-xs hidden-sm">
+        <div class="row">
+            <div class="col-lg-8 col-md-7">
+                <div id="language">
+    <label class="select">
+        <select>
+            <option id="english" value="en">EN</option>
+            <option id="japanese" value="ja">JA</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </label>
+</div>
+            </div>
+            <div class="col-lg-4 col-md-5">
+                
+                <div id="search-box">
+    <input class="search search-desktop form-control" placeholder="Search"/>
+</div>
+                
+                <ul id="social" class="list-inline">
+    <li>
+        <a href="https://twitter.com/NEMofficial" rel="nofollow"><i class="fab fa-twitter" title="Twitter"></i></a>
+    </li>
+    <li>
+        <a href="https://discord.com/invite/xymcity" rel="nofollow" title="Discord"><i class="fab fa-discord"></i></a>
+    </li>
+    <li>
+        <a href="https://github.com/symbol/" rel="nofollow" title="GitHub"><i class="fab fa-github"></i></a>
+    </li>
+</ul>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="container navbar-main">
+        <div class="row">
+            <div class="navbar-header col-lg-6 col-md-4 col-xs-6">
+                <a class="navbar-brand" href="../../index.html">
+                    
+                    <span><img alt="NEM logo" src="../../_static/logo-symbol.svg"></span>
+                    
+                </a>
+            </div>
+            <div class="navbar-right col-lg-6 col-md-8 hidden-xs hidden-sm">
+                <ul class="list-inline">
+    <li>
+        <a href="/ja/getting-started/what-is-symbol.html" class="">入門</a>
+    </li>
+    <li>
+        <a href="/ja/concepts/overview.html" class="">機能</a>
+    </li>
+    <li>
+        <a href="/ja/guides/category.html" class="active">ガイド</a>
+    </li>
+    <li>
+        <a href="/ja/references/overview.html" class="">ツール</a>
+    </li>
+    <li>
+        <a href="/ja/contribute/community.html" class="">ヘルプ</a>
+    </li>
+</ul>
+            </div>
+            <div class="navbar-right col-xs-6 hidden-lg hidden-md">
+                
+                <div id="search-box">
+    <input class="search search-mobile form-control" placeholder="Search"/>
+</div>
+                
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 sidebar-xs visible-xs visible-sm">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">ナビゲーション <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu globaltoc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">入門</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">ガイド</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../account/index.html">アカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aggregate/index.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blockchain/index.html">ブロックチェーン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../harvesting/index.html">ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/index.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../migration/index.html">NIS1 からのマイグレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monitor/index.html">モニタリング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mosaic/index.html">モザイク</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">マルチシグアカウント</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">マルチシグアカウントに新しい署名者の追加</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-a-multi-level-multisig-account.html">マルチレベルマルチシグアカウントの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-a-multisig-account.html">マルチシグアカウントの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modifying-a-multisig-account-min-approval.html">マルチシグアカウントの最小承認の変更</a></li>
+<li class="toctree-l3"><a class="reference internal" href="removing-a-signer-from-a-multisig-account.html">マルチシグアカウントからの署名者の削除</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../namespace/index.html">ネームスペース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">ネットワーク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../restriction/index.html">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../secretlock/index.html">シークレットロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transfer/index.html">転送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exchanges/index.html">Exchanges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/overview.html">コンセプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">貢献</a></li>
+</ul>
+</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        
+        
+
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
+    <h4>ナビゲーション</h4>
+    <hr />
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">入門</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">ガイド</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../account/index.html">アカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aggregate/index.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blockchain/index.html">ブロックチェーン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../harvesting/index.html">ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/index.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../migration/index.html">NIS1 からのマイグレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monitor/index.html">モニタリング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mosaic/index.html">モザイク</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">マルチシグアカウント</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">マルチシグアカウントに新しい署名者の追加</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-a-multi-level-multisig-account.html">マルチレベルマルチシグアカウントの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-a-multisig-account.html">マルチシグアカウントの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modifying-a-multisig-account-min-approval.html">マルチシグアカウントの最小承認の変更</a></li>
+<li class="toctree-l3"><a class="reference internal" href="removing-a-signer-from-a-multisig-account.html">マルチシグアカウントからの署名者の削除</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../namespace/index.html">ネームスペース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">ネットワーク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../restriction/index.html">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../secretlock/index.html">シークレットロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transfer/index.html">転送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exchanges/index.html">Exchanges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/overview.html">コンセプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">貢献</a></li>
+</ul>
+
+</div>
+        
+    </div>
+</div>
+
+
+        
+        <div class="col-md-7 content">
+            
+  <div class="section" id="adding-a-new-signer-to-a-multisig-account">
+<h1>マルチシグアカウントに新しい署名者の追加<a class="headerlink" href="#adding-a-new-signer-to-a-multisig-account" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>このガイドでは、マルチシグアカウントに新しい署名者を追加する方法を説明します。</p>
+<div class="section" id="use-case">
+<span id="guide-modify-a-multisig-account-add-new-cosignatory"></span><h2>ユースケース<a class="headerlink" href="#use-case" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Alice と Bob は <strong>2-of-2</strong> マルチシグアカウントの連署者として <strong>Carol を追加</strong> したいと仮定します。しかし、彼らはトランザクションを受け入れるために必要な署名数を増やしたくないので、新しいアカウントはトランザクションに ** 2-of-3** の署名を必要とするようにします。</p>
+<div class="figure align-center" id="id1">
+<img alt="../../_images/multisig-2-of-31.png" src="../../_images/multisig-2-of-31.png" style="width: 400px;" />
+<p class="caption"><span class="caption-text">2-of-3 マルチシグアカウントの例</span></p>
+</div>
+</div>
+<div class="section" id="prerequisites">
+<h2>前提条件<a class="headerlink" href="#prerequisites" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="creating-a-multisig-account.html"><span class="doc">マルチシグアカウントへの変換</span></a> ガイドを終了している</li>
+</ul>
+</div>
+<div class="section" id="method-01-using-the-desktop-wallet">
+<h2>方法 #01: デスクトップウォレットを使用する<a class="headerlink" href="#method-01-using-the-desktop-wallet" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ol class="arabic simple">
+<li>マルチシグアカウントの連署者アカウントにログインします。これは Alice または Bob のアカウントである可能性があります。</li>
+<li>左側のメニューの 「<strong>マルチシグ</strong>」 をクリックします。</li>
+<li>上部のフィールドのドロップダウンメニューから変更するマルチシグウォレットを選択します。これにより 「<strong>Operation Type</strong>」 が 「<strong>Modifying account multisig properties</strong>」 に変換されます。</li>
+<li>「<strong>署名者の追加</strong>」 をクリックして、マルチシグに新しい署名者として追加するアカウントのアドレスまたは公開鍵を入力します。 「<strong>送信</strong>」 をクリックします。ポップアップの情報を確認します。ウォレットパスワードを入力して 「<strong>確認</strong>」 をクリックします。</li>
+</ol>
+<div class="figure align-center">
+<img alt="../../_images/add-signer-1.gif" src="../../_images/add-signer-1.gif" style="width: 800px;" />
+</div>
+<ol class="arabic simple" start="5">
+<li>マルチシグアカウントの 「<strong>最小承認数</strong>」 が 1 より大きい数に設定されている場合は、別の連署者アカウントにログインし <a class="reference internal" href="../aggregate/signing-announced-aggregate-bonded-transactions.html"><span class="doc">トランザクションに署名します</span></a> 。最小承認数が満たされるまで、この手順を繰り返します。</li>
+</ol>
+<div class="figure align-center">
+<img alt="../../_images/add-signer-21.gif" src="../../_images/add-signer-21.gif" style="width: 800px;" />
+</div>
+<ol class="arabic simple" start="6">
+<li>「マルチシグ」 ページに移動すると、新しい署名者が追加されたことを確認できます。新しい署名者は 「<strong>署名者</strong>」 の下に表示されます。</li>
+</ol>
+<div class="figure align-center">
+<img alt="../../_images/add-signer-3.png" src="../../_images/add-signer-3.png" style="width: 800px;" />
+</div>
+</div>
+<div class="section" id="method-02-using-the-sdk">
+<h2>方法 #02: SDK を使用する<a class="headerlink" href="#method-02-using-the-sdk" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ol class="arabic simple">
+<li>新しいファイルを開きます。マルチシグアカウントの公開鍵と追加する新しいアカウントを変数へ格納して定義します。</li>
+</ol>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id2">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/multisig/ModifyingAMultisigAccountAddCosignatory.ts">View Code</a></span><a class="headerlink" href="#id2" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="c1">// replace with network type</span>
+<span class="kd">const</span> <span class="nx">networkType</span> <span class="o">=</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">TEST_NET</span><span class="p">;</span>
+<span class="c1">// replace with multisig public key</span>
+<span class="kd">const</span> <span class="nx">multisigAccountPublicKey</span> <span class="o">=</span>
+  <span class="s1">&#39;3A537D5A1AF51158C42F80A199BB58351DBF3253C4A6A1B7BD1014682FB595EA&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">multisigAccount</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span>
+  <span class="nx">multisigAccountPublicKey</span><span class="p">,</span>
+  <span class="nx">networkType</span><span class="p">,</span>
+<span class="p">);</span>
+<span class="c1">// replace with new cosignatory public key</span>
+<span class="kd">const</span> <span class="nx">newCosignatoryPublicKey</span> <span class="o">=</span>
+  <span class="s1">&#39;17E42BDF5B7FF5001DC96A262A1141FFBE3F09A3A45DE7C095AAEA14F45C0DA0&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">newCosignatoryAccount</span> <span class="o">=</span> <span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span>
+  <span class="nx">newCosignatoryPublicKey</span><span class="p">,</span>
+  <span class="nx">networkType</span><span class="p">,</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id3">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/multisig/ModifyingAMultisigAccountAddCosignatory.js">View Code</a></span><a class="headerlink" href="#id3" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// replace with network type</span>
+<span class="kd">const</span> <span class="nx">networkType</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">NetworkType</span><span class="p">.</span><span class="nx">TEST_NET</span><span class="p">;</span>
+<span class="c1">// replace with multisig public key</span>
+<span class="kd">const</span> <span class="nx">multisigAccountPublicKey</span> <span class="o">=</span> <span class="s1">&#39;3A537D5A1AF51158C42F80A199BB58351DBF3253C4A6A1B7BD1014682FB595EA&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">multisigAccount</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">multisigAccountPublicKey</span><span class="p">,</span> <span class="nx">networkType</span><span class="p">);</span>
+<span class="c1">// replace with new cosignatory public key</span>
+<span class="kd">const</span> <span class="nx">newCosignatoryPublicKey</span> <span class="o">=</span> <span class="s1">&#39;17E42BDF5B7FF5001DC96A262A1141FFBE3F09A3A45DE7C095AAEA14F45C0DA0&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">newCosignatoryAccount</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">PublicAccount</span><span class="p">.</span><span class="nx">createFromPublicKey</span><span class="p">(</span><span class="nx">newCosignatoryPublicKey</span><span class="p">,</span> <span class="nx">networkType</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><strong>MultisigAccountModificationTransaction</strong> を作り、連署者として新しい参加者を追加します。</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">前の例に続いて、新しい署名者を追加しているが <code class="docutils literal"><span class="pre">minApprovalDelta</span></code> を増加させていないため、マルチシグアカウントは <strong>2-of-3</strong> になります。</p>
+</div>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id4">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/multisig/ModifyingAMultisigAccountAddCosignatory.ts">View Code</a></span><a class="headerlink" href="#id4" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kd">const</span> <span class="nx">multisigAccountModificationTransaction</span> <span class="o">=</span> <span class="nx">MultisigAccountModificationTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+  <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">epochAdjustment</span><span class="p">),</span>
+  <span class="mf">0</span><span class="p">,</span>
+  <span class="mf">0</span><span class="p">,</span>
+  <span class="p">[</span><span class="nx">newCosignatoryAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">],</span>
+  <span class="p">[],</span>
+  <span class="nx">networkType</span><span class="p">,</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id5">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/multisig/ModifyingAMultisigAccountAddCosignatory.js">View Code</a></span><a class="headerlink" href="#id5" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">const</span> <span class="nx">multisigAccountModificationTransaction</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">MultisigAccountModificationTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">epochAdjustment</span><span class="p">),</span> <span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">,</span> <span class="p">[</span><span class="nx">newCosignatoryAccount</span><span class="p">.</span><span class="nx">address</span><span class="p">],</span> <span class="p">[],</span> <span class="nx">networkType</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><strong>MultisigAccountModificationTransaction</strong> を <a class="reference internal" href="../../concepts/aggregate-transaction.html#id1"><span class="std std-ref">AggregateBondedTransaction</span></a> へラップします。それに、元のマルチシグアカウントの連署者で署名します。</li>
+</ol>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id6">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/multisig/ModifyingAMultisigAccountAddCosignatory.ts">View Code</a></span><a class="headerlink" href="#id6" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="kd">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createBonded</span><span class="p">(</span>
+  <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">epochAdjustment</span><span class="p">),</span>
+  <span class="p">[</span><span class="nx">multisigAccountModificationTransaction</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">multisigAccount</span><span class="p">)],</span>
+  <span class="nx">networkType</span><span class="p">,</span>
+  <span class="p">[],</span>
+  <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">2000000</span><span class="p">),</span>
+<span class="p">);</span>
+
+<span class="c1">// replace with cosignatory private key</span>
+<span class="kd">const</span> <span class="nx">cosignatoryPrivateKey</span> <span class="o">=</span>
+  <span class="s1">&#39;1111111111111111111111111111111111111111111111111111111111111111&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">cosignatoryAccount</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span>
+  <span class="nx">cosignatoryPrivateKey</span><span class="p">,</span>
+  <span class="nx">networkType</span><span class="p">,</span>
+<span class="p">);</span>
+<span class="c1">// replace with meta.networkGenerationHash (nodeUrl + &#39;/node/info&#39;)</span>
+<span class="kd">const</span> <span class="nx">networkGenerationHash</span> <span class="o">=</span>
+  <span class="s1">&#39;1DFB2FAA9E7F054168B0C5FCB84F4DEB62CC2B4D317D861F3168D161F54EA78B&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span>
+  <span class="nx">aggregateTransaction</span><span class="p">,</span>
+  <span class="nx">networkGenerationHash</span><span class="p">,</span>
+<span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">.</span><span class="nx">hash</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id7">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/multisig/ModifyingAMultisigAccountAddCosignatory.js">View Code</a></span><a class="headerlink" href="#id7" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createBonded</span><span class="p">(</span><span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">epochAdjustment</span><span class="p">),</span> <span class="p">[</span><span class="nx">multisigAccountModificationTransaction</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">multisigAccount</span><span class="p">)],</span> <span class="nx">networkType</span><span class="p">,</span> <span class="p">[],</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">2000000</span><span class="p">));</span>
+<span class="c1">// replace with cosignatory private key</span>
+<span class="kd">const</span> <span class="nx">cosignatoryPrivateKey</span> <span class="o">=</span> <span class="s1">&#39;1111111111111111111111111111111111111111111111111111111111111111&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">cosignatoryAccount</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">cosignatoryPrivateKey</span><span class="p">,</span> <span class="nx">networkType</span><span class="p">);</span>
+<span class="c1">// replace with meta.networkGenerationHash (nodeUrl + &#39;/node/info&#39;)</span>
+<span class="kd">const</span> <span class="nx">networkGenerationHash</span> <span class="o">=</span> <span class="s1">&#39;1DFB2FAA9E7F054168B0C5FCB84F4DEB62CC2B4D317D861F3168D161F54EA78B&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">aggregateTransaction</span><span class="p">,</span> <span class="nx">networkGenerationHash</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">.</span><span class="nx">hash</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>4. Before sending an <strong>AggregateBondedTransaction</strong>, an account must lock at least <code class="docutils literal"><span class="pre">10</span></code> <code class="docutils literal"><span class="pre">symbol.xym</span></code>.
+This transaction is required to prevent spamming the network.
+After the HashLockTransaction has been confirmed, announce the AggregateTransaction.</p>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id8">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/multisig/ModifyingAMultisigAccountAddCosignatory.ts">View Code</a></span><a class="headerlink" href="#id8" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="c1">// replace with symbol.xym id</span>
+<span class="kd">const</span> <span class="nx">networkCurrencyMosaicId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;5E62990DCAC5BE8A&#39;</span><span class="p">);</span>
+<span class="c1">// replace with network currency divisibility</span>
+<span class="kd">const</span> <span class="nx">networkCurrencyDivisibility</span> <span class="o">=</span> <span class="mf">6</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">hashLockTransaction</span> <span class="o">=</span> <span class="nx">HashLockTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+  <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">epochAdjustment</span><span class="p">),</span>
+  <span class="k">new</span> <span class="nx">Mosaic</span><span class="p">(</span>
+    <span class="nx">networkCurrencyMosaicId</span><span class="p">,</span>
+    <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">10</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">10</span><span class="p">,</span> <span class="nx">networkCurrencyDivisibility</span><span class="p">)),</span>
+  <span class="p">),</span>
+  <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">480</span><span class="p">),</span>
+  <span class="nx">signedTransaction</span><span class="p">,</span>
+  <span class="nx">networkType</span><span class="p">,</span>
+  <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">2000000</span><span class="p">),</span>
+<span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">signedHashLockTransaction</span> <span class="o">=</span> <span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span>
+  <span class="nx">hashLockTransaction</span><span class="p">,</span>
+  <span class="nx">networkGenerationHash</span><span class="p">,</span>
+<span class="p">);</span>
+
+<span class="c1">// replace with node endpoint</span>
+<span class="kd">const</span> <span class="nx">nodeUrl</span> <span class="o">=</span> <span class="s1">&#39;http://ngl-dual-101.testnet.symboldev.network:3000&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">repositoryFactory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RepositoryFactoryHttp</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">listener</span> <span class="o">=</span> <span class="nx">repositoryFactory</span><span class="p">.</span><span class="nx">createListener</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">receiptHttp</span> <span class="o">=</span> <span class="nx">repositoryFactory</span><span class="p">.</span><span class="nx">createReceiptRepository</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="nx">repositoryFactory</span><span class="p">.</span><span class="nx">createTransactionRepository</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">transactionService</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TransactionService</span><span class="p">(</span><span class="nx">transactionHttp</span><span class="p">,</span> <span class="nx">receiptHttp</span><span class="p">);</span>
+
+<span class="nx">listener</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">transactionService</span>
+    <span class="p">.</span><span class="nx">announceHashLockAggregateBonded</span><span class="p">(</span>
+      <span class="nx">signedHashLockTransaction</span><span class="p">,</span>
+      <span class="nx">signedTransaction</span><span class="p">,</span>
+      <span class="nx">listener</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span>
+      <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
+      <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">),</span>
+      <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">listener</span><span class="p">.</span><span class="nx">close</span><span class="p">(),</span>
+    <span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id9">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/multisig/ModifyingAMultisigAccountAddCosignatory.js">View Code</a></span><a class="headerlink" href="#id9" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// replace with symbol.xym id</span>
+<span class="kd">const</span> <span class="nx">networkCurrencyMosaicId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">MosaicId</span><span class="p">(</span><span class="s1">&#39;5E62990DCAC5BE8A&#39;</span><span class="p">);</span>
+<span class="c1">// replace with network currency divisibility</span>
+<span class="kd">const</span> <span class="nx">networkCurrencyDivisibility</span> <span class="o">=</span> <span class="mf">6</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">hashLockTransaction</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">HashLockTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">epochAdjustment</span><span class="p">),</span> <span class="k">new</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Mosaic</span><span class="p">(</span><span class="nx">networkCurrencyMosaicId</span><span class="p">,</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">10</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">10</span><span class="p">,</span> <span class="nx">networkCurrencyDivisibility</span><span class="p">))),</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">480</span><span class="p">),</span> <span class="nx">signedTransaction</span><span class="p">,</span> <span class="nx">networkType</span><span class="p">,</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">2000000</span><span class="p">));</span>
+<span class="kd">const</span> <span class="nx">signedHashLockTransaction</span> <span class="o">=</span> <span class="nx">cosignatoryAccount</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">hashLockTransaction</span><span class="p">,</span> <span class="nx">networkGenerationHash</span><span class="p">);</span>
+<span class="c1">// replace with node endpoint</span>
+<span class="kd">const</span> <span class="nx">nodeUrl</span> <span class="o">=</span> <span class="s1">&#39;http://ngl-dual-101.testnet.symboldev.network:3000&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">repositoryFactory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">RepositoryFactoryHttp</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">listener</span> <span class="o">=</span> <span class="nx">repositoryFactory</span><span class="p">.</span><span class="nx">createListener</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">receiptHttp</span> <span class="o">=</span> <span class="nx">repositoryFactory</span><span class="p">.</span><span class="nx">createReceiptRepository</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="nx">repositoryFactory</span><span class="p">.</span><span class="nx">createTransactionRepository</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">transactionService</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">TransactionService</span><span class="p">(</span><span class="nx">transactionHttp</span><span class="p">,</span> <span class="nx">receiptHttp</span><span class="p">);</span>
+<span class="nx">listener</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">transactionService</span>
+        <span class="p">.</span><span class="nx">announceHashLockAggregateBonded</span><span class="p">(</span><span class="nx">signedHashLockTransaction</span><span class="p">,</span> <span class="nx">signedTransaction</span><span class="p">,</span> <span class="nx">listener</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">x</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">),</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">listener</span><span class="p">.</span><span class="nx">close</span><span class="p">());</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>5. The new account must opt-in first in order to become a cosignatory of the multisig account.
+<a class="reference internal" href="../aggregate/signing-announced-aggregate-bonded-transactions.html"><span class="doc">Cosign the AggregateTransaction hash</span></a>  with the account to be added to the multisig.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>symbol-cli transaction cosign --hash A6A374E66B32A3D5133018EFA9CD6E3169C8EEA339F7CCBE29C47D07086E068C --profile carol
+</pre></div>
+</div>
+<p>6. <a class="reference internal" href="../aggregate/signing-announced-aggregate-bonded-transactions.html"><span class="doc">Cosign the AggregateTransaction</span></a> with all other multisig account participants required to reach quorum.
+The amount of <code class="docutils literal"><span class="pre">symbol.xym</span></code> locked becomes available again on the account that sent the HashLockTransaction, and the new participant is added to the multisig.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>symbol-cli transaction cosign --hash A6A374E66B32A3D5133018EFA9CD6E3169C8EEA339F7CCBE29C47D07086E068C --profile bob
+</pre></div>
+</div>
+<p><a class="reference internal" href="removing-a-signer-from-a-multisig-account.html"><span class="doc">次のガイド</span></a> に従って、マルチシグアカウントから署名者を削除します。</p>
+</div>
+</div>
+
+  <div class="section">
+  
+    
+
+
+
+
+  
+  
+  </div>
+
+            
+            <p class="feedback">
+                <hr/>
+                お探しのものは見つかりましたか？
+                <a href="https://github.com/symbol/symbol-docs/issues/new/choose" target="_blank">フィードバックをください。</a>
+            </p>
+            
+        </div>
+         
+
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+    
+    <div class="edit-github">
+    <a href="https://github.com/symbol/symbol-docs/edit/main/source/guides/multisig/adding-a-new-signer-to-a-multisig-account.rst" rel="nofollow"> <i class="fab fa-github"></i> このページを加筆修正する</a>
+</div>
+    <span class="title">このページ</span>
+    <ul>
+<li><a class="reference internal" href="#">マルチシグアカウントに新しい署名者の追加</a><ul>
+<li><a class="reference internal" href="#use-case">ユースケース</a></li>
+<li><a class="reference internal" href="#prerequisites">前提条件</a></li>
+<li><a class="reference internal" href="#method-01-using-the-desktop-wallet">方法 #01: デスクトップウォレットを使用する</a></li>
+<li><a class="reference internal" href="#method-02-using-the-sdk">方法 #02: SDK を使用する</a></li>
+</ul>
+</li>
+</ul>
+
+    
+    </div>
+</div>
+
+ 
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-desktop',
+        debug: false
+    });
+
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-mobile',
+        debug: false
+    });
+</script>
+
+  </body>
+</html>

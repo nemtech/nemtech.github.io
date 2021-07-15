@@ -1,0 +1,496 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>モザイク供給量の変更 &#8212; Symbol Documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700&display=swap" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     'Main',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/examplecode.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="マルチシグアカウント" href="../multisig/index.html" />
+    <link rel="prev" title="モザイクの情報を取得する" href="getting-mosaic-information.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174021413-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-174021413-2');
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../../guides/atom.xml" title="Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div class="navbar navbar-default gradient navbar-fixed-top"
+     id="navbar">
+    <div class="container navbar-top hidden-xs hidden-sm">
+        <div class="row">
+            <div class="col-lg-8 col-md-7">
+                <div id="language">
+    <label class="select">
+        <select>
+            <option id="english" value="en">EN</option>
+            <option id="japanese" value="ja">JA</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </label>
+</div>
+            </div>
+            <div class="col-lg-4 col-md-5">
+                
+                <div id="search-box">
+    <input class="search search-desktop form-control" placeholder="Search"/>
+</div>
+                
+                <ul id="social" class="list-inline">
+    <li>
+        <a href="https://twitter.com/NEMofficial" rel="nofollow"><i class="fab fa-twitter" title="Twitter"></i></a>
+    </li>
+    <li>
+        <a href="https://discord.com/invite/xymcity" rel="nofollow" title="Discord"><i class="fab fa-discord"></i></a>
+    </li>
+    <li>
+        <a href="https://github.com/symbol/" rel="nofollow" title="GitHub"><i class="fab fa-github"></i></a>
+    </li>
+</ul>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="container navbar-main">
+        <div class="row">
+            <div class="navbar-header col-lg-6 col-md-4 col-xs-6">
+                <a class="navbar-brand" href="../../index.html">
+                    
+                    <span><img alt="NEM logo" src="../../_static/logo-symbol.svg"></span>
+                    
+                </a>
+            </div>
+            <div class="navbar-right col-lg-6 col-md-8 hidden-xs hidden-sm">
+                <ul class="list-inline">
+    <li>
+        <a href="/ja/getting-started/what-is-symbol.html" class="">入門</a>
+    </li>
+    <li>
+        <a href="/ja/concepts/overview.html" class="">機能</a>
+    </li>
+    <li>
+        <a href="/ja/guides/category.html" class="active">ガイド</a>
+    </li>
+    <li>
+        <a href="/ja/references/overview.html" class="">ツール</a>
+    </li>
+    <li>
+        <a href="/ja/contribute/community.html" class="">ヘルプ</a>
+    </li>
+</ul>
+            </div>
+            <div class="navbar-right col-xs-6 hidden-lg hidden-md">
+                
+                <div id="search-box">
+    <input class="search search-mobile form-control" placeholder="Search"/>
+</div>
+                
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 sidebar-xs visible-xs visible-sm">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">ナビゲーション <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu globaltoc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">入門</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">ガイド</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../account/index.html">アカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aggregate/index.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blockchain/index.html">ブロックチェーン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../harvesting/index.html">ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/index.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../migration/index.html">NIS1 からのマイグレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monitor/index.html">モニタリング</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">モザイク</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="creating-a-mosaic.html">モザイクの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-mosaic-information.html">モザイクの情報を取得する</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">モザイク供給量の変更</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../multisig/index.html">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../namespace/index.html">ネームスペース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">ネットワーク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../restriction/index.html">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../secretlock/index.html">シークレットロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transfer/index.html">転送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exchanges/index.html">Exchanges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/overview.html">コンセプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">貢献</a></li>
+</ul>
+</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        
+        
+
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
+    <h4>ナビゲーション</h4>
+    <hr />
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">入門</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">ガイド</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../account/index.html">アカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aggregate/index.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blockchain/index.html">ブロックチェーン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../harvesting/index.html">ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/index.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../migration/index.html">NIS1 からのマイグレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monitor/index.html">モニタリング</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">モザイク</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="creating-a-mosaic.html">モザイクの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-mosaic-information.html">モザイクの情報を取得する</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">モザイク供給量の変更</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../multisig/index.html">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../namespace/index.html">ネームスペース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">ネットワーク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../restriction/index.html">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../secretlock/index.html">シークレットロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transfer/index.html">転送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exchanges/index.html">Exchanges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/overview.html">コンセプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">貢献</a></li>
+</ul>
+
+</div>
+        
+    </div>
+</div>
+
+
+        
+        <div class="col-md-7 content">
+            
+  <div class="section" id="modifying-the-mosaic-supply">
+<h1>モザイク供給量の変更<a class="headerlink" href="#modifying-the-mosaic-supply" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>「<strong>Supply Mutable</strong>」 プロパティを使用してモザイクを作成した場合、トークンを増やすか、総供給量を減らすことができます。</p>
+<div class="section" id="prerequisites">
+<h2>前提条件<a class="headerlink" href="#prerequisites" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="creating-a-mosaic.html"><span class="doc">モザイクの作成</span></a> ガイドを完了している</li>
+<li>供給量を変えることができるモザイクを作成している</li>
+</ul>
+</div>
+<div class="section" id="method-01-using-the-desktop-wallet">
+<h2>方法 #01: デスクトップウォレットを使用する<a class="headerlink" href="#method-01-using-the-desktop-wallet" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ol class="arabic simple">
+<li>左側のメニューの 「<strong>モザイク</strong>」 タブをクリックします。</li>
+</ol>
+<div class="figure align-center">
+<img alt="../../_images/modify-mosaic-supply-1.gif" src="../../_images/modify-mosaic-supply-1.gif" style="width: 800px;" />
+</div>
+<p>2. Click on the edit icon (represented by a pen) on the right side of the mosaic that you desire to edit. Click 「<strong>modify supply</strong>」.
+Note:</p>
+<div class="figure align-center">
+<img alt="../../_images/modify-mosaic-supply-2.gif" src="../../_images/modify-mosaic-supply-2.gif" style="width: 800px;" />
+</div>
+<ol class="arabic simple" start="3">
+<li>供給量を増加/減少を指定する 「<strong>Supply Change Direction</strong>」 を選択してください。次に、相対供給量に変更する量を入力します。&nbsp;」<strong>送信</strong>」 をクリックします。次のページの情報を確認し、ウォレットのパスワードを入力します。 「<strong>確認</strong>」 をクリックします。</li>
+</ol>
+<p>この例では、相対供給量が 1,000,000 増加します。モザイクの可分性プロパティは 0 なので、絶対供給量の変化は同じです。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">負の数を入力すると、指示された 「<strong>供給変更方向</strong>」 の逆になります。たとえば、 -100 の増加を選択した場合、相対供給量は 100 減少します。供給量を減らすには、モザイクの所有者が、少なくとも削除する単位の数を保有している必要があります。</p>
+</div>
+<div class="figure align-center">
+<img alt="../../_images/modify-mosaic-supply-3.gif" src="../../_images/modify-mosaic-supply-3.gif" style="width: 800px;" />
+</div>
+<ol class="arabic simple" start="4">
+<li>「<strong>モザイク</strong>」 ページで供給量の変更を確認できます。それでも古い供給量が表示される場合は、右上の更新アイコンをクリックしてみてください。</li>
+</ol>
+<div class="figure align-center">
+<img alt="../../_images/modify-mosaic-supply-4.gif" src="../../_images/modify-mosaic-supply-4.gif" style="width: 800px;" />
+</div>
+</div>
+<div class="section" id="method-02-using-the-sdk">
+<h2>方法 #02: SDK を使用する<a class="headerlink" href="#method-02-using-the-sdk" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>1. Define a <a class="reference internal" href="../../serialization/mosaic.html#mosaic-supply-change-transaction"><span class="std std-ref">MosaicSupplyChangeTransaction</span></a> as in the next code snippet.
+Then, replace the <code class="docutils literal"><span class="pre">mosaicId</span></code> and <code class="docutils literal"><span class="pre">divisibility</span></code> with the current mosaic properties.
+Edit <code class="docutils literal"><span class="pre">delta</span></code> with the relative amount of mosaics you want to increase.</p>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id1">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/mosaic/ModifyingMosaicSupply.ts">View Code</a></span><a class="headerlink" href="#id1" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="c1">// replace with network type</span>
+<span class="kd">const</span> <span class="nx">networkType</span> <span class="o">=</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">TEST_NET</span><span class="p">;</span>
+<span class="c1">// replace with private key</span>
+<span class="kd">const</span> <span class="nx">privateKey</span> <span class="o">=</span>
+  <span class="s1">&#39;1111111111111111111111111111111111111111111111111111111111111111&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">networkType</span><span class="p">);</span>
+<span class="c1">// replace with mosaic id</span>
+<span class="kd">const</span> <span class="nx">mosaicIdHex</span> <span class="o">=</span> <span class="s1">&#39;7cdf3b117a3c40cc&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">mosaicId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MosaicId</span><span class="p">(</span><span class="nx">mosaicIdHex</span><span class="p">);</span>
+<span class="c1">// replace with mosaic divisibility</span>
+<span class="kd">const</span> <span class="nx">divisibility</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
+<span class="c1">// replace with mosaic units to increase</span>
+<span class="kd">const</span> <span class="nx">delta</span> <span class="o">=</span> <span class="mf">1000000</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">mosaicSupplyChangeTransaction</span> <span class="o">=</span> <span class="nx">MosaicSupplyChangeTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+  <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">epochAdjustment</span><span class="p">),</span>
+  <span class="nx">mosaicId</span><span class="p">,</span>
+  <span class="nx">MosaicSupplyChangeAction</span><span class="p">.</span><span class="nx">Increase</span><span class="p">,</span>
+  <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="nx">delta</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">10</span><span class="p">,</span> <span class="nx">divisibility</span><span class="p">)),</span>
+  <span class="nx">networkType</span><span class="p">,</span>
+  <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">2000000</span><span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id2">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/mosaic/ModifyingMosaicSupply.js">View Code</a></span><a class="headerlink" href="#id2" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// replace with network type</span>
+<span class="kd">const</span> <span class="nx">networkType</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">NetworkType</span><span class="p">.</span><span class="nx">TEST_NET</span><span class="p">;</span>
+<span class="c1">// replace with private key</span>
+<span class="kd">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="s1">&#39;1111111111111111111111111111111111111111111111111111111111111111&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Account</span><span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="nx">networkType</span><span class="p">);</span>
+<span class="c1">// replace with mosaic id</span>
+<span class="kd">const</span> <span class="nx">mosaicIdHex</span> <span class="o">=</span> <span class="s1">&#39;7cdf3b117a3c40cc&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">mosaicId</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">MosaicId</span><span class="p">(</span><span class="nx">mosaicIdHex</span><span class="p">);</span>
+<span class="c1">// replace with mosaic divisibility</span>
+<span class="kd">const</span> <span class="nx">divisibility</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
+<span class="c1">// replace with mosaic units to increase</span>
+<span class="kd">const</span> <span class="nx">delta</span> <span class="o">=</span> <span class="mf">1000000</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">mosaicSupplyChangeTransaction</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">MosaicSupplyChangeTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">epochAdjustment</span><span class="p">),</span> <span class="nx">mosaicId</span><span class="p">,</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">MosaicSupplyChangeAction</span><span class="p">.</span><span class="nx">Increase</span><span class="p">,</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="nx">delta</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">10</span><span class="p">,</span> <span class="nx">divisibility</span><span class="p">)),</span> <span class="nx">networkType</span><span class="p">,</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">2000000</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id3">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/java/src/test/java/symbol/guides/examples/mosaic/ModifyingMosaicSupply.java">View Code</a></span><a class="headerlink" href="#id3" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>        <span class="c1">// replace with node endpoint</span>
+        <span class="k">try</span> <span class="p">(</span><span class="kd">final</span> <span class="n">RepositoryFactory</span> <span class="n">repositoryFactory</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RepositoryFactoryVertxImpl</span><span class="p">(</span>
+                <span class="s">&quot;http://ngl-dual-101.testnet.symboldev.network:3000&quot;</span><span class="p">))</span> <span class="p">{</span>
+            <span class="kd">final</span> <span class="n">NetworkType</span> <span class="n">networkType</span> <span class="o">=</span> <span class="n">repositoryFactory</span><span class="p">.</span><span class="na">getNetworkType</span><span class="p">().</span><span class="na">toFuture</span><span class="p">().</span><span class="na">get</span><span class="p">();</span>
+            <span class="c1">// replace with private key</span>
+            <span class="kd">final</span> <span class="n">String</span> <span class="n">privateKey</span> <span class="o">=</span> <span class="s">&quot;1111111111111111111111111111111111111111111111111111111111111111&quot;</span><span class="p">;</span>
+            <span class="kd">final</span> <span class="n">Account</span> <span class="n">account</span> <span class="o">=</span> <span class="n">Account</span>
+                    <span class="p">.</span><span class="na">createFromPrivateKey</span><span class="p">(</span><span class="n">privateKey</span><span class="p">,</span> <span class="n">networkType</span><span class="p">);</span>
+            <span class="c1">// replace with mosaic id</span>
+            <span class="kd">final</span> <span class="n">String</span> <span class="n">mosaicIdHex</span> <span class="o">=</span> <span class="s">&quot;7cdf3b117a3c40cc&quot;</span><span class="p">;</span>
+            <span class="kd">final</span> <span class="n">MosaicId</span> <span class="n">mosaicId</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MosaicId</span><span class="p">(</span><span class="n">mosaicIdHex</span><span class="p">);</span>
+            <span class="c1">// replace with mosaic divisibility</span>
+            <span class="kd">final</span> <span class="kt">int</span> <span class="n">divisibility</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="c1">// replace with mosaic units to increase</span>
+            <span class="kd">final</span> <span class="kt">int</span> <span class="n">delta</span> <span class="o">=</span> <span class="mi">1000000</span><span class="p">;</span>
+
+            <span class="kd">final</span> <span class="n">MosaicSupplyChangeTransaction</span> <span class="n">mosaicSupplyChangeTransaction</span> <span class="o">=</span> <span class="n">MosaicSupplyChangeTransactionFactory</span>
+                    <span class="p">.</span><span class="na">create</span><span class="p">(</span>
+                            <span class="n">networkType</span><span class="p">,</span>
+                            <span class="n">mosaicId</span><span class="p">,</span>
+                            <span class="n">MosaicSupplyChangeActionType</span><span class="p">.</span><span class="na">INCREASE</span><span class="p">,</span>
+                            <span class="n">BigDecimal</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">delta</span> <span class="o">*</span> <span class="n">Math</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">divisibility</span><span class="p">)).</span><span class="na">toBigInteger</span><span class="p">())</span>
+                    <span class="p">.</span><span class="na">maxFee</span><span class="p">(</span><span class="n">BigInteger</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="mi">2000000</span><span class="p">)).</span><span class="na">build</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">Symbol は <strong>絶対量</strong> を扱います。絶対量を取得するには、増減するアセットの量に 10<sup>divisibility</sup> を乗じてください。例えば、モザイクが <strong>可分性</strong> 2 である場合、10 単位 (相対) 増減するには 1000 (絶対) と定義します。</p>
+</div>
+<ol class="arabic simple" start="2">
+<li>モザイク作成者のアカウントでトランザクションに署名して、ネットワークにアナウンスします。</li>
+</ol>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id4">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/mosaic/ModifyingMosaicSupply.ts">View Code</a></span><a class="headerlink" href="#id4" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="c1">// replace with meta.networkGenerationHash (nodeUrl + &#39;/node/info&#39;)</span>
+<span class="kd">const</span> <span class="nx">networkGenerationHash</span> <span class="o">=</span>
+  <span class="s1">&#39;1DFB2FAA9E7F054168B0C5FCB84F4DEB62CC2B4D317D861F3168D161F54EA78B&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span>
+  <span class="nx">mosaicSupplyChangeTransaction</span><span class="p">,</span>
+  <span class="nx">networkGenerationHash</span><span class="p">,</span>
+<span class="p">);</span>
+<span class="c1">// replace with node endpoint</span>
+<span class="kd">const</span> <span class="nx">nodeUrl</span> <span class="o">=</span> <span class="s1">&#39;http://ngl-dual-101.testnet.symboldev.network:3000&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">repositoryFactory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RepositoryFactoryHttp</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="nx">repositoryFactory</span><span class="p">.</span><span class="nx">createTransactionRepository</span><span class="p">();</span>
+
+<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
+  <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
+  <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id5">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/mosaic/ModifyingMosaicSupply.js">View Code</a></span><a class="headerlink" href="#id5" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// replace with meta.networkGenerationHash (nodeUrl + &#39;/node/info&#39;)</span>
+<span class="kd">const</span> <span class="nx">networkGenerationHash</span> <span class="o">=</span> <span class="s1">&#39;1DFB2FAA9E7F054168B0C5FCB84F4DEB62CC2B4D317D861F3168D161F54EA78B&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">mosaicSupplyChangeTransaction</span><span class="p">,</span> <span class="nx">networkGenerationHash</span><span class="p">);</span>
+<span class="c1">// replace with node endpoint</span>
+<span class="kd">const</span> <span class="nx">nodeUrl</span> <span class="o">=</span> <span class="s1">&#39;http://ngl-dual-101.testnet.symboldev.network:3000&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">repositoryFactory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">RepositoryFactoryHttp</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">transactionHttp</span> <span class="o">=</span> <span class="nx">repositoryFactory</span><span class="p">.</span><span class="nx">createTransactionRepository</span><span class="p">();</span>
+<span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">x</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id6">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/java/src/test/java/symbol/guides/examples/mosaic/ModifyingMosaicSupply.java">View Code</a></span><a class="headerlink" href="#id6" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-java"><div class="highlight"><pre><span></span>            <span class="kd">final</span> <span class="n">String</span> <span class="n">generationHash</span> <span class="o">=</span> <span class="n">repositoryFactory</span><span class="p">.</span><span class="na">getGenerationHash</span><span class="p">().</span><span class="na">toFuture</span><span class="p">().</span><span class="na">get</span><span class="p">();</span>
+
+            <span class="kd">final</span> <span class="n">SignedTransaction</span> <span class="n">signedTransaction</span> <span class="o">=</span> <span class="n">account</span>
+                    <span class="p">.</span><span class="na">sign</span><span class="p">(</span><span class="n">mosaicSupplyChangeTransaction</span><span class="p">,</span> <span class="n">generationHash</span><span class="p">);</span>
+
+
+            <span class="kd">final</span> <span class="n">TransactionRepository</span> <span class="n">transactionRepository</span> <span class="o">=</span> <span class="n">repositoryFactory</span>
+                    <span class="p">.</span><span class="na">createTransactionRepository</span><span class="p">();</span>
+            <span class="n">transactionRepository</span><span class="p">.</span><span class="na">announce</span><span class="p">(</span><span class="n">signedTransaction</span><span class="p">).</span><span class="na">toFuture</span><span class="p">().</span><span class="na">get</span><span class="p">();</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>それ以外の場合は <code class="docutils literal"><span class="pre">MosaicSupplyChangeAction.Increase</span></code> を <code class="docutils literal"><span class="pre">MosaicSupplyChangeAction.Decrease</span></code> に変更することでモザイクの供給を減らすことができます。この2番目の場合、モザイク作成者アカウントはモザイクの供給を減らすために、少なくとも <code class="docutils literal"><span class="pre">delta</span></code> 単位を保有していなければなりません。</p>
+</div>
+<div class="section" id="method-03-using-the-cli">
+<h2>方法 #03: CLI を使用する<a class="headerlink" href="#method-03-using-the-cli" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ターミナルを開き、次のコマンドを実行します。</p>
+<p><code class="docutils literal"><span class="pre">7cdf3b117a3c40cc</span></code> をモザイク識別子に、 <code class="docutils literal"><span class="pre">1000000</span></code> を増加させたい絶対量に置き換えます。</p>
+<div class="literal-block-wrapper container" id="id7">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/bash/mosaic/ModifyingMosaicSupply.sh">View Code</a></span><a class="headerlink" href="#id7" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>symbol-cli transaction mosaicsupplychange --action Increase --mosaic-id 7cdf3b117a3c40cc --delta <span class="m">1000000</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+  <div class="section">
+  
+    
+
+
+
+
+  
+  
+  </div>
+
+            
+            <p class="feedback">
+                <hr/>
+                お探しのものは見つかりましたか？
+                <a href="https://github.com/symbol/symbol-docs/issues/new/choose" target="_blank">フィードバックをください。</a>
+            </p>
+            
+        </div>
+         
+
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+    
+    <div class="edit-github">
+    <a href="https://github.com/symbol/symbol-docs/edit/main/source/guides/mosaic/modifying-mosaic-supply.rst" rel="nofollow"> <i class="fab fa-github"></i> このページを加筆修正する</a>
+</div>
+    <span class="title">このページ</span>
+    <ul>
+<li><a class="reference internal" href="#">モザイク供給量の変更</a><ul>
+<li><a class="reference internal" href="#prerequisites">前提条件</a></li>
+<li><a class="reference internal" href="#method-01-using-the-desktop-wallet">方法 #01: デスクトップウォレットを使用する</a></li>
+<li><a class="reference internal" href="#method-02-using-the-sdk">方法 #02: SDK を使用する</a></li>
+<li><a class="reference internal" href="#method-03-using-the-cli">方法 #03: CLI を使用する</a></li>
+</ul>
+</li>
+</ul>
+
+    
+    </div>
+</div>
+
+ 
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-desktop',
+        debug: false
+    });
+
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-mobile',
+        debug: false
+    });
+</script>
+
+  </body>
+</html>

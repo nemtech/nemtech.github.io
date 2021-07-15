@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ガイド &#8212; Symbol Documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700&display=swap" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'Main',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/examplecode.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="アカウント" href="account/index.html" />
+    <link rel="prev" title="NIS1 から Symbol へのマイグレーション" href="migration/migrating-from-nem-to-symbol.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174021413-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-174021413-2');
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../guides/atom.xml" title="Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div class="navbar navbar-default gradient navbar-fixed-top"
+     id="navbar">
+    <div class="container navbar-top hidden-xs hidden-sm">
+        <div class="row">
+            <div class="col-lg-8 col-md-7">
+                <div id="language">
+    <label class="select">
+        <select>
+            <option id="english" value="en">EN</option>
+            <option id="japanese" value="ja">JA</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </label>
+</div>
+            </div>
+            <div class="col-lg-4 col-md-5">
+                
+                <div id="search-box">
+    <input class="search search-desktop form-control" placeholder="Search"/>
+</div>
+                
+                <ul id="social" class="list-inline">
+    <li>
+        <a href="https://twitter.com/NEMofficial" rel="nofollow"><i class="fab fa-twitter" title="Twitter"></i></a>
+    </li>
+    <li>
+        <a href="https://discord.com/invite/xymcity" rel="nofollow" title="Discord"><i class="fab fa-discord"></i></a>
+    </li>
+    <li>
+        <a href="https://github.com/symbol/" rel="nofollow" title="GitHub"><i class="fab fa-github"></i></a>
+    </li>
+</ul>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="container navbar-main">
+        <div class="row">
+            <div class="navbar-header col-lg-6 col-md-4 col-xs-6">
+                <a class="navbar-brand" href="../index.html">
+                    
+                    <span><img alt="NEM logo" src="../_static/logo-symbol.svg"></span>
+                    
+                </a>
+            </div>
+            <div class="navbar-right col-lg-6 col-md-8 hidden-xs hidden-sm">
+                <ul class="list-inline">
+    <li>
+        <a href="/ja/getting-started/what-is-symbol.html" class="">入門</a>
+    </li>
+    <li>
+        <a href="/ja/concepts/overview.html" class="">機能</a>
+    </li>
+    <li>
+        <a href="/ja/guides/category.html" class="active">ガイド</a>
+    </li>
+    <li>
+        <a href="/ja/references/overview.html" class="">ツール</a>
+    </li>
+    <li>
+        <a href="/ja/contribute/community.html" class="">ヘルプ</a>
+    </li>
+</ul>
+            </div>
+            <div class="navbar-right col-xs-6 hidden-lg hidden-md">
+                
+                <div id="search-box">
+    <input class="search search-mobile form-control" placeholder="Search"/>
+</div>
+                
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 sidebar-xs visible-xs visible-sm">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">ナビゲーション <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu globaltoc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">入門</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ガイド</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="account/index.html">アカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate/index.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blockchain/index.html">ブロックチェーン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="harvesting/index.html">ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata/index.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration/index.html">NIS1 からのマイグレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="monitor/index.html">モニタリング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic/index.html">モザイク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig/index.html">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace/index.html">ネームスペース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network/index.html">ネットワーク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restriction/index.html">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secretlock/index.html">シークレットロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transfer/index.html">転送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exchanges/index.html">Exchanges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/overview.html">コンセプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">貢献</a></li>
+</ul>
+</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        
+        
+
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
+    <h4>ナビゲーション</h4>
+    <hr />
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">入門</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ガイド</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="account/index.html">アカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate/index.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blockchain/index.html">ブロックチェーン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="harvesting/index.html">ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata/index.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration/index.html">NIS1 からのマイグレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="monitor/index.html">モニタリング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic/index.html">モザイク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig/index.html">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace/index.html">ネームスペース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network/index.html">ネットワーク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restriction/index.html">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secretlock/index.html">シークレットロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transfer/index.html">転送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exchanges/index.html">Exchanges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/overview.html">コンセプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">貢献</a></li>
+</ul>
+
+</div>
+        
+    </div>
+</div>
+
+
+        
+        <div class="col-md-7 content">
+            
+  <div class="section" id="guides">
+<h1>ガイド<a class="headerlink" href="#guides" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="sidebar">
+<p class="first sidebar-title">Featured guides</p>
+<ul class="last simple">
+<li><a class="reference internal" href="transfer/sending-a-transfer-transaction.html"><span class="doc">２つのアカウント間でモザイクとメッセージを送信</span></a></li>
+<li><a class="reference internal" href="mosaic/creating-a-mosaic.html"><span class="doc">モザイクの作成</span></a></li>
+<li><a class="reference internal" href="multisig/creating-a-multisig-account.html"><span class="doc">マルチシグアカウントの作成</span></a></li>
+<li><a class="reference internal" href="network/running-a-symbol-node.html"><span class="doc">Symbol ノードの立ち上げ</span></a></li>
+<li><a class="reference internal" href="network/creating-a-private-test-net.html"><span class="doc">プライベートテストネットワークの作成</span></a></li>
+</ul>
+</div>
+<p>ガイドは次の <strong>トピック</strong> に分割されています。 <strong>タグ</strong> でグループ化されたガイドを表示するには <a class="reference external" href="https://docs.symbolplatform.com/guides/category.html">ガイドカタログ</a> を参照してください。</p>
+<p class="h3"><a class="reference internal" href="account/index.html"><span class="doc">アカウント</span></a></p>
+<p><a class="reference internal" href="../concepts/account.html"><span class="doc">アカウント</span></a> の扱いに関するガイド</p>
+<p class="h3"><a class="reference internal" href="aggregate/index.html"><span class="doc">アグリゲートトランザクション</span></a></p>
+<p><a class="reference internal" href="../concepts/aggregate-transaction.html"><span class="doc">アグリゲートトランザクション</span></a> の扱いに関するガイド</p>
+<p class="h3"><a class="reference internal" href="blockchain/index.html"><span class="doc">ブロックチェーン</span></a></p>
+<p>ブロックチェーンの扱いに関するガイド</p>
+<p class="h3"><a class="reference internal" href="harvesting/index.html"><span class="doc">ハーベスティング</span></a></p>
+<p>Symbol はノードを所有しているかどうか、有効のために使用するツールに応じて <strong>異なるハーベスティング方法</strong> がサポートされています。</p>
+<p class="h3"><a class="reference internal" href="metadata/index.html"><span class="doc">メタデータ</span></a></p>
+<p><a class="reference internal" href="../concepts/metadata.html"><span class="doc">メタデータ</span></a> の扱いに関するガイド</p>
+<p class="h3"><a class="reference internal" href="migration/index.html"><span class="doc">NIS1 からのマイグレーション</span></a></p>
+<p>NIS1 から Symbol へ移行に関するガイド</p>
+<p class="h3"><a class="reference internal" href="monitor/index.html"><span class="doc">モニタリング</span></a></p>
+<p>トランザクションの監視に関するガイド</p>
+<p class="h3"><a class="reference internal" href="mosaic/index.html"><span class="doc">モザイク</span></a></p>
+<p><a class="reference internal" href="../concepts/mosaic.html"><span class="doc">モザイク</span></a> の扱いに関するガイド</p>
+<p class="h3"><a class="reference internal" href="multisig/index.html"><span class="doc">マルチシグアカウント</span></a></p>
+<p><a class="reference internal" href="../concepts/multisig-account.html"><span class="doc">マルチシグネチャアカウント</span></a> (マルチシグ) の扱いに関するガイド</p>
+<p class="h3"><a class="reference internal" href="namespace/index.html"><span class="doc">ネームスペース</span></a></p>
+<p><a class="reference internal" href="../concepts/namespace.html"><span class="doc">ネームスペース</span></a> の扱いに関するガイド</p>
+<p class="h3"><a class="reference internal" href="network/index.html"><span class="doc">ネットワーク</span></a></p>
+<p>ノードの作成とテストネットワークの扱いに関するガイド</p>
+<p class="h3"><a class="reference internal" href="restriction/index.html"><span class="doc">モザイク制限</span></a></p>
+<p><a class="reference internal" href="../concepts/mosaic-restriction.html"><span class="doc">モザイク制限</span></a> の扱いに関するガイド</p>
+<p class="h3"><a class="reference internal" href="secretlock/index.html"><span class="doc">シークレットロック</span></a></p>
+<p>シークレットロックの扱いに関するガイド</p>
+<p class="h3"><a class="reference internal" href="transfer/index.html"><span class="doc">転送</span></a></p>
+<p><a class="reference internal" href="../concepts/transfer-transaction.html"><span class="doc">転送トランザクション</span></a> の扱いに関するガイド</p>
+<p class="h3"><a class="reference internal" href="exchanges/index.html"><span class="doc">Exchanges</span></a></p>
+<p>Guides related to integrating Symbol with an Exchange.</p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+            
+            <p class="feedback">
+                <hr/>
+                お探しのものは見つかりましたか？
+                <a href="https://github.com/symbol/symbol-docs/issues/new/choose" target="_blank">フィードバックをください。</a>
+            </p>
+            
+        </div>
+         
+
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+    
+    <div class="edit-github">
+    <a href="https://github.com/symbol/symbol-docs/edit/main/source/guides/index.rst" rel="nofollow"> <i class="fab fa-github"></i> このページを加筆修正する</a>
+</div>
+    <span class="title">このページ</span>
+    <ul>
+<li><a class="reference internal" href="#">ガイド</a></li>
+</ul>
+
+    
+    </div>
+</div>
+
+ 
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-desktop',
+        debug: false
+    });
+
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-mobile',
+        debug: false
+    });
+</script>
+
+  </body>
+</html>

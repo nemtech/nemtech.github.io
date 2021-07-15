@@ -1,0 +1,799 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>セキュアな Symbol ノードの起動 &#8212; Symbol Documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx_tabs/tabs.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx_tabs/semantic-ui-2.2.10/segment.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx_tabs/semantic-ui-2.2.10/menu.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700&display=swap" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     'Main',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/sphinx_tabs/tabs.js"></script>
+    <script type="text/javascript" src="../../_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/examplecode.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="Symbol ノードの維持管理" href="maintaining-a-symbol-node.html" />
+    <link rel="prev" title="手動による Symbol ノードの立ち上げ" href="running-a-symbol-node-manually.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174021413-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-174021413-2');
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../../guides/atom.xml" title="Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div class="navbar navbar-default gradient navbar-fixed-top"
+     id="navbar">
+    <div class="container navbar-top hidden-xs hidden-sm">
+        <div class="row">
+            <div class="col-lg-8 col-md-7">
+                <div id="language">
+    <label class="select">
+        <select>
+            <option id="english" value="en">EN</option>
+            <option id="japanese" value="ja">JA</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </label>
+</div>
+            </div>
+            <div class="col-lg-4 col-md-5">
+                
+                <div id="search-box">
+    <input class="search search-desktop form-control" placeholder="Search"/>
+</div>
+                
+                <ul id="social" class="list-inline">
+    <li>
+        <a href="https://twitter.com/NEMofficial" rel="nofollow"><i class="fab fa-twitter" title="Twitter"></i></a>
+    </li>
+    <li>
+        <a href="https://discord.com/invite/xymcity" rel="nofollow" title="Discord"><i class="fab fa-discord"></i></a>
+    </li>
+    <li>
+        <a href="https://github.com/symbol/" rel="nofollow" title="GitHub"><i class="fab fa-github"></i></a>
+    </li>
+</ul>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="container navbar-main">
+        <div class="row">
+            <div class="navbar-header col-lg-6 col-md-4 col-xs-6">
+                <a class="navbar-brand" href="../../index.html">
+                    
+                    <span><img alt="NEM logo" src="../../_static/logo-symbol.svg"></span>
+                    
+                </a>
+            </div>
+            <div class="navbar-right col-lg-6 col-md-8 hidden-xs hidden-sm">
+                <ul class="list-inline">
+    <li>
+        <a href="/ja/getting-started/what-is-symbol.html" class="">入門</a>
+    </li>
+    <li>
+        <a href="/ja/concepts/overview.html" class="">機能</a>
+    </li>
+    <li>
+        <a href="/ja/guides/category.html" class="active">ガイド</a>
+    </li>
+    <li>
+        <a href="/ja/references/overview.html" class="">ツール</a>
+    </li>
+    <li>
+        <a href="/ja/contribute/community.html" class="">ヘルプ</a>
+    </li>
+</ul>
+            </div>
+            <div class="navbar-right col-xs-6 hidden-lg hidden-md">
+                
+                <div id="search-box">
+    <input class="search search-mobile form-control" placeholder="Search"/>
+</div>
+                
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 sidebar-xs visible-xs visible-sm">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">ナビゲーション <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu globaltoc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">入門</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">ガイド</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../account/index.html">アカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aggregate/index.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blockchain/index.html">ブロックチェーン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../harvesting/index.html">ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/index.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../migration/index.html">NIS1 からのマイグレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monitor/index.html">モニタリング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mosaic/index.html">モザイク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multisig/index.html">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../namespace/index.html">ネームスペース</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">ネットワーク</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="running-a-symbol-node.html">Symbol ノードの立ち上げ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="running-a-symbol-node-manually.html">手動による Symbol ノードの立ち上げ</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">セキュアな Symbol ノードの起動</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maintaining-a-symbol-node.html">Symbol ノードの維持管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="non-custodial-node-setup.html">非カストディアルなノードのセットアップ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuring-node-properties.html">ノードのプロパティ設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-a-private-test-net.html">プライベートテストネットワークの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuring-network-properties.html">ネットワークプロパティの設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connecting-to-mongodb.html">MongoDB への接続方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using-symbol-bootstrap.html">Symbol Bootstrap の使用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="supernode-enrollment.html">スーパーノードプログラムに登録する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../restriction/index.html">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../secretlock/index.html">シークレットロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transfer/index.html">転送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exchanges/index.html">Exchanges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/overview.html">コンセプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">貢献</a></li>
+</ul>
+</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        
+        
+
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
+    <h4>ナビゲーション</h4>
+    <hr />
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">入門</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">ガイド</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../account/index.html">アカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aggregate/index.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blockchain/index.html">ブロックチェーン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../harvesting/index.html">ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/index.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../migration/index.html">NIS1 からのマイグレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monitor/index.html">モニタリング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mosaic/index.html">モザイク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multisig/index.html">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../namespace/index.html">ネームスペース</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">ネットワーク</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="running-a-symbol-node.html">Symbol ノードの立ち上げ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="running-a-symbol-node-manually.html">手動による Symbol ノードの立ち上げ</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">セキュアな Symbol ノードの起動</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maintaining-a-symbol-node.html">Symbol ノードの維持管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="non-custodial-node-setup.html">非カストディアルなノードのセットアップ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuring-node-properties.html">ノードのプロパティ設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-a-private-test-net.html">プライベートテストネットワークの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuring-network-properties.html">ネットワークプロパティの設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connecting-to-mongodb.html">MongoDB への接続方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using-symbol-bootstrap.html">Symbol Bootstrap の使用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="supernode-enrollment.html">スーパーノードプログラムに登録する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../restriction/index.html">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../secretlock/index.html">シークレットロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transfer/index.html">転送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exchanges/index.html">Exchanges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/overview.html">コンセプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">貢献</a></li>
+</ul>
+
+</div>
+        
+    </div>
+</div>
+
+
+        
+        <div class="col-md-7 content">
+            
+  <div class="section" id="running-a-secure-symbol-node">
+<h1>セキュアな Symbol ノードの起動<a class="headerlink" href="#running-a-secure-symbol-node" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference internal" href="running-a-symbol-node.html"><span class="doc">Symbol ノードの立ち上げ</span></a> ガイドでは <strong>Symbol Bootstrap を使用してノードを簡単に作成</strong> する方法について説明しています。このガイドでは、セットアッププロセスはノードをホストするマシン上で実行されます。つまり、秘密鍵はインターネットに接続されたマシンで生成されます。 <strong>より強固なレベルのセキュリティ</strong> が必要な場合は、このガイドに従いますが、より複雑なセットアップ手順が要求されます。</p>
+<p>この <strong>要約</strong> は <code class="docutils literal"><span class="pre">symbol-bootstrap</span> <span class="pre">start</span></code> コマンドを <code class="docutils literal"><span class="pre">config</span></code> フェーズに分割して、オフラインで実行し、設定フォルダが生成され、それ以外の <code class="docutils literal"><span class="pre">start</span></code> コマンドはノードのホスト先である、オンラインのマシンで実行されます。 <strong>メインアカウントの秘密鍵がオフラインマシン以外に暴露されることはありません</strong> 。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">マシン</th>
+<th class="head">機能</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>設定</strong></td>
+<td><ul class="first last simple">
+<li>ソフトウェアをオンラインでインストールしたら、その後オフラインにします。</li>
+<li>設定ファイルの作成。</li>
+<li>セットアップトランザクションの準備。</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><strong>ノード</strong></td>
+<td><ul class="first last simple">
+<li>恒久的にオンラインです。</li>
+<li>ノードの起動。</li>
+<li>セットアップトランザクションのアナウンス。</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>ノードはすべてのハーベスト報酬が、このアカウントの秘密鍵を必要とせずに <strong>外部アカウント</strong> に送られるように設定することもできます。これは <strong>非カストディアルセットアップ</strong> と呼ばれ、 <strong>ノードが稼働してから</strong> 設定する必要があるため、このページの最後に適切なガイドへの案内があります。</p>
+<div class="section" id="configuration-machine">
+<h2>マシンの設定<a class="headerlink" href="#configuration-machine" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="setup">
+<h3>セットアップ<a class="headerlink" href="#setup" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><strong>マシンの設定</strong> 中はオフラインです:</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="using-symbol-bootstrap.html"><span class="doc">Symbol Bootstrap の使用</span></a> ガイドに示されるように <strong>Symbol Bootstrap のインストール</strong>  をします。プリセットとアセンブリについて理解するために、そのガイドの <strong>構成</strong> セクションを必ず確認してください。</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../cli.html"><span class="doc">symbol-cli</span></a> ガイドで示されるように <strong>Symbol CLI をインストール</strong> して、次のように実行します:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>npm install --global symbol-cli
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>初回の Symbol Bootstrap の実行</strong> ではイメージのダウンロードが必要です:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>symbol-bootstrap config -p mainnet -a &lt;assembly&gt; --noPassword
+rm -rf target
+</pre></div>
+</div>
+<p>この最初の実行の出力は使用しないため <code class="docutils literal"><span class="pre">--noPassword</span></code> を使用し、 <code class="docutils literal"><span class="pre">target</span></code> フォルダは削除します。</p>
+</li>
+<li><p class="first">このマシンで秘密鍵を生成するため <strong>設定マシンをインターネットから切断</strong> します。</p>
+</li>
+</ul>
+</div>
+<div class="section" id="create-configuration">
+<h3>設定の作成<a class="headerlink" href="#create-configuration" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="profile">
+<h4>プロファイル<a class="headerlink" href="#profile" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p><strong>メインアカウントのプロファイルを作成</strong> これはすべてのハーベスティング手数料を受け取り、ハーベスト時に <a class="reference internal" href="../../concepts/consensus-algorithm.html#importance-calculation"><span class="std std-ref">インポータンススコア</span></a> が使用されるアカウントです。</p>
+<p><strong>このガイドの目的は、アカウントの秘密鍵がオンラインマシン上で使用されないようにすることです</strong></p>
+<p>このステップでは、メインアカウントを保持し、その秘密鍵を使用してトランザクションに署名する <code class="docutils literal"><span class="pre">symbol-cli</span></code> プロファイルを作成します。マシンは現在オフラインなので、ネットワーク関連のデータを提供する必要があります。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">以下のコマンドは、 <strong>新しい</strong> メインアカウントを作成することを前提に <code class="docutils literal"><span class="pre">profile</span> <span class="pre">create</span></code> コマンドを使用します。メインとして使用したい <strong>アカウント</strong> が既にある場合は、代わりに <code class="docutils literal"><span class="pre">profile</span> <span class="pre">import</span></code> コマンドを使用してください。</p>
+</div>
+<div class="sphinx-tabs container">
+<div class="ui top attached tabular menu sphinx-menu container">
+<div class="active item sphinx-data-tab-0-0 container">
+<div class="container">
+MAINNET</div>
+</div>
+<div class="item sphinx-data-tab-0-1 container">
+<div class="container">
+TESTNET</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-0-0 active container">
+<div class="highlight-bash"><div class="highlight"><pre><span></span>symbol-cli profile create --profile offline-main --default <span class="se">\</span>
+   --url http://localhost:3000 --network MAIN_NET <span class="se">\</span>
+   --generation-hash 57F7DA205008026C776CB6AED843393F04CD458E0AA2D9F1D5F31A402072B2D6 <span class="se">\</span>
+   --namespace-id symbol.xym --divisibility <span class="m">6</span> <span class="se">\</span>
+   --epoch-adjustment <span class="m">1615853185</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-0-1 container">
+<div class="highlight-bash"><div class="highlight"><pre><span></span>symbol-cli profile create --profile offline-test --default <span class="se">\</span>
+   --url http://localhost:3000 --network TEST_NET <span class="se">\</span>
+   --generation-hash 45FBCF2F0EA36EFA7923C9BC923D6503169651F7FA4EFC46A8EAF5AE09057EBD <span class="se">\</span>
+   --namespace-id symbol.xym --divisibility <span class="m">6</span> <span class="se">\</span>
+   --epoch-adjustment <span class="m">1573430400</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>プロンプトが表示されたら、プロファイルを保護するためのパスワードを入力して <code class="docutils literal"><span class="pre">PrivateKey</span></code> インポートタイプを選択します。</p>
+<div class="highlight-symbol-cli"><div class="highlight"><pre><span></span><span class="gi">✔ </span>Enter your wallet password: … *********
+<span class="gi">✔ </span>Select an import type: › PrivateKey
+
+<span class="cp">Account</span>
+┌───────────────┬──────────────────────────────────────────────────────────────────────┐
+│ <span class="cp">Property</span>      │ <span class="cp">Value</span>                                                                │
+├───────────────┼──────────────────────────────────────────────────────────────────────┤
+│ Address       │ NCCE5O-BMZHWM-IYZKR6-4WZKFD-4P7DTS-IRXJZ2-3LI                        │
+├───────────────┼──────────────────────────────────────────────────────────────────────┤
+│ Public Key    │ 51C2CB98B61D666A993FA9B25EEBCB48DE5F0B1B7D8B79ECB7AFCB1E5E601108     │
+├───────────────┼──────────────────────────────────────────────────────────────────────┤
+│ Private Key   │ ●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●     │
+├───────────────┼──────────────────────────────────────────────────────────────────────┤
+│ Password      │ ●●●●●●●●●                                                            │
+└───────────────┴──────────────────────────────────────────────────────────────────────┘
+
+<span class="gi">SUCCESS </span>Stored offline-main profile
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">symbol-cli</span></code> が後に使用できるようになりました。すべてのトランザクションはメインアカウントが署名するため、 <a class="reference internal" href="../../concepts/fees.html"><span class="doc">手数料</span></a> の支払いにいくらかの資産があることを確認してください。</p>
+<p><strong>メインアカウントの秘密鍵をメモして、安全な場所に保管してください</strong></p>
+</div>
+<div class="section" id="preset">
+<h4>プリセット<a class="headerlink" href="#preset" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>Symbol Bootstrap 用に <code class="docutils literal"><span class="pre">custom.yml</span></code> と命名して <a class="reference internal" href="using-symbol-bootstrap.html#symbol-bootstrap-presets"><span class="std std-ref">カスタムプリセットファイル</span></a> を <strong>作成</strong> します。これには最低でも次の行を含める必要があります:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="nt">privateKeySecurityMode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">PROMPT_MAIN</span>
+<span class="nt">nodes</span><span class="p">:</span>
+<span class="p p-Indicator">-</span>
+  <span class="nt">mainPrivateKey</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●</span>
+</pre></div>
+</div>
+<p>これらのプロパティの詳細については、Symbol Bootstrap のドキュメントの <a class="reference external" href="https://github.com/symbol/symbol-bootstrap/blob/main/docs/presetGuides.md#user-content-private-key-security-mode">セキュリティーモードのセクション</a> を参照してください。</p>
+<p><a class="reference internal" href="../../concepts/block.html#finalization"><span class="std std-ref">投票</span></a> の有効化や <a class="reference internal" href="../../concepts/reward-programs.html"><span class="doc">報酬プログラム</span></a> への加入などのカスタマイズを行う場合は、それらを提供することもできます。</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="nt">privateKeySecurityMode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">PROMPT_MAIN</span>
+<span class="nt">nodes</span><span class="p">:</span>
+<span class="p p-Indicator">-</span>
+  <span class="nt">mainPrivateKey</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●</span>
+  <span class="nt">voting</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="nt">rewardProgram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SuperNode</span>
+  <span class="nt">host</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-symbol-node.com</span> <span class="c1"># Could also be an IP address</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure">
+<h4>設定<a class="headerlink" href="#configure" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p><strong>Symbol Bootstrap を再度実行</strong> 今回は必要なすべてのパラメータを使用します:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>symbol-bootstrap config -p mainnet -a &lt;assembly&gt; -c custom.yml
+</pre></div>
+</div>
+<p><strong>設定ファイル</strong> の暗号化に使用する <strong>パスワード</strong> の入力を求められます。</p>
+<div class="highlight-symbol-bootstrap"><div class="highlight"><pre><span></span><span class="gi">? </span>Enter password to use to encrypt and decrypt custom presets, addresses.yml,
+  and preset.yml files. When providing a password, private keys will be
+  encrypted. Keep this password in a secure place! ******
+<span class="gi">info </span>    Password has been provided
+<span class="gi">info </span>    Generating config from preset testnet
+<span class="gi">info </span>    Assembly preset dual
+<span class="gi">info </span>    Generating Main account...
+<span class="gi">info </span>    Generating Transport account...
+<span class="gi">info </span>    Generating Remote account...
+<span class="gi">info </span>    Generating VRF account...
+<span class="gi">info </span>    User for docker resolved: 1000:1000
+<span class="gi">info </span>    Running image using Exec: symbolplatform/symbol-server:tools-gcc-0.10.1.8 bash createNodeCertificates.sh
+<span class="gi">info </span>    Certificate for node api-node created
+<span class="gi">info </span>    Generating api-node server configuration
+<span class="gi">info </span>    Generating api-broker broker configuration
+<span class="gi">info </span>    Non-voting node api-node.
+<span class="gi">info </span>    Configuration generated.
+</pre></div>
+</div>
+<p>これにより、 <code class="docutils literal"><span class="pre">addresses.yml</span></code> ファイルと複数の構成ファイルを含む <code class="docutils literal"><span class="pre">target</span></code> ディレクトリが生成されます。</p>
+<p><strong>メインアカウントの秘密鍵は、これらのファイルのいずれにも存在しません</strong></p>
+<p>It is worth noting that Symbol Bootstrap enables <a class="reference internal" href="../../concepts/harvesting.html#remote-harvesting"><span class="std std-ref">リモートハーベスティング</span></a> by default, meaning that the <strong>main private key is never available in a plain text file</strong> in the client. Only the remote key is, which acts as a proxy between the node and its main account.</p>
+</div>
+<div class="section" id="copy-configuration">
+<h4>設定をコピー<a class="headerlink" href="#copy-configuration" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">custom.yml</span></code> を開いて <code class="docutils literal"><span class="pre">mainPrivateKey</span></code> が含まれる <strong>行を削除して</strong> ください。</p>
+<p>すでに Symbol Bootstrap は <code class="docutils literal"><span class="pre">config</span></code> ステージで使用したので、そのような機密キーをプレーンテキストファイルに置く必要はありません。</p>
+</li>
+<li><p class="first">後で使用するので <code class="docutils literal"><span class="pre">target</span></code> ディレクトリ全体をペンドライブ (またはネットワークに繋がっていない媒体) に <strong>コピー</strong> します。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="prepare-transactions">
+<h3>トランザクションの準備<a class="headerlink" href="#prepare-transactions" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Still in the offline Configuration machine, you are now going to <strong>prepare a series of link transactions manually</strong>. These transactions will be created by <code class="docutils literal"><span class="pre">symbol-cli</span></code>, signed by your main account, and will be moved to an online machine to be announced later on.</p>
+<p>The following commands all use <code class="docutils literal"><span class="pre">--max-fee</span> <span class="pre">1000000</span></code> which means that <strong>1 XYM</strong> will be paid for each transaction. Feel free to use a different number after reading the <a class="reference internal" href="../../concepts/fees.html"><span class="doc">fees documentation</span></a>.</p>
+<div class="topic">
+<p class="topic-title first">Concerning deadlines</p>
+<p>All transactions have a deadline, meaning that they must be announced (and confirmed) <strong>before the deadline expires</strong>.</p>
+<p>There is currently a limitation in <code class="docutils literal"><span class="pre">symbol-cli</span></code> which sets this deadline to <strong>2 hours</strong> after transaction creation, for all non-multisig transactions.</p>
+<p><a class="reference external" href="https://github.com/symbol/symbol-cli/issues/373">追跡中</a> の既知の制限</p>
+</div>
+<div class="section" id="remote-key-link">
+<h4>リモートキーリンク<a class="headerlink" href="#remote-key-link" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p><a class="reference internal" href="../../serialization/account_link.html#account-key-link-transaction"><span class="std std-ref">アカウントキーリンクトランザクション</span></a> ペイロードを取得します。</p>
+<p>This links your main account to the <strong>remote account</strong> used for <a class="reference internal" href="../../concepts/harvesting.html#remote-harvesting"><span class="std std-ref">リモートハーベスティング</span></a>. Symbol Bootstrap generated this account for you, and you can find its public key in the <code class="docutils literal"><span class="pre">target/addresses.yml</span></code> file:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="nt">remote</span><span class="p">:</span>
+    <span class="nt">publicKey</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1544FE6F504A8B8536C2407664916AFB5C917400FD1B941B981933CDFE52AE3F</span>
+</pre></div>
+</div>
+<p>In the <code class="docutils literal"><span class="pre">--linked-public-key</span></code> parameter below, use the <strong>remote account public key</strong>:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>symbol-cli transaction accountkeylink --max-fee <span class="m">1000000</span> --mode normal <span class="se">\</span>
+   --linked-public-key 1544FE6F504A8B8536C2407664916AFB5C917400FD1B941B981933CDFE52AE3F <span class="se">\</span>
+   --action Link
+</pre></div>
+</div>
+<p>Enter the password you used when you created the <code class="docutils literal"><span class="pre">symbol-cli</span></code> profile and do <strong>not</strong> announce the transaction (the machine is offline).</p>
+<div class="highlight-symbol-cli"><div class="highlight"><pre><span></span><span class="gi">✔ </span>Enter your wallet password: … *********
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│                                 ACCOUNT_KEY_LINK                                 │
+├───────────────┬──────────────────────────────────────────────────────────────────┤
+│ Max fee:      │ 1,000,000                                                        │
+├───────────────┼──────────────────────────────────────────────────────────────────┤
+│ Network type: │ TEST_NET                                                         │
+├───────────────┼──────────────────────────────────────────────────────────────────┤
+│ Deadline:     │ 2021-03-27 10:41:41.286                                          │
+├───────────────┼──────────────────────────────────────────────────────────────────┤
+│ Action:       │ Link                                                             │
+├───────────────┼──────────────────────────────────────────────────────────────────┤
+│ Linked key:   │ 1544FE6F504A8B8536C2407664916AFB5C917400FD1B941B981933CDFE52AE3F │
+├───────────────┴──────────────────────────────────────────────────────────────────┤
+│                                Signature details                                 │
+├───────────────┬──────────────────────────────────────────────────────────────────┤
+│ Payload:      │ A10000000000000042E0E0A0B8D7E1F27805F3537F80BFEAB6FEAC318908C486 │
+│               │ 4D03260B83ED1D0332D6EA6E086A4B68C578DB690D78D50BDA5C706B1DC66472 │
+│               │ 9326511547E42E0FCC6D13D64FB9BF69B72846C3FE99127D48C3293F473D528F │
+│               │ B902600CB7DA10330000000001984C4140420F000000000026F54C1B0A000000 │
+│               │ 1544FE6F504A8B8536C2407664916AFB5C917400FD1B941B981933CDFE52AE3F │
+│               │ 01                                                               │
+├───────────────┼──────────────────────────────────────────────────────────────────┤
+│ Hash:         │ 08C63D3AFAC3767F43053AFF1ACA61381FE81929B2384B91C450010A547AFA4A │
+├───────────────┼──────────────────────────────────────────────────────────────────┤
+│ Signer:       │ CC6D13D64FB9BF69B72846C3FE99127D48C3293F473D528FB902600CB7DA1033 │
+└───────────────┴──────────────────────────────────────────────────────────────────┘
+<span class="gi">✔ </span>Do you want to announce this transaction? … no
+</pre></div>
+</div>
+<p>Select all the text in the <code class="docutils literal"><span class="pre">Payload</span></code> box and paste it into a new text file named <code class="docutils literal"><span class="pre">payloads.txt</span></code>. <strong>Remove all spaces and other decorations</strong> to obtain a single line <strong>containing only</strong> numbers and uppercase letters:</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>A100000000000000703C88DEDC4ABC2917F00ADB12C45F2C333B1113405C3CFAB289E78D9C54DDFCB1FE7C3048B6DA735568A935C6C08AF7E70AEC614A2EE9590967A7A044E52B0DCC6D13D64FB9BF69B72846C3FE99127D48C3293F473D528FB902600CB7DA10330000000001984C4140420F000000000038F32C1B0A0000001544FE6F504A8B8536C2407664916AFB5C917400FD1B941B981933CDFE52AE3F01
+</pre></div>
+</div>
+</div>
+<div class="section" id="vrf-key-link">
+<h4>VRF キーリンク<a class="headerlink" href="#vrf-key-link" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p><a class="reference internal" href="../../serialization/coresystem.html#vrf-key-link-transaction"><span class="std std-ref">VRF キーリンクトランザクション</span></a> ペイロードを取得します。</p>
+<p>この鍵はハーベスティングに必要です。</p>
+<p>Again, Symbol Bootstrap has already generated this key for you and you can find it in the <code class="docutils literal"><span class="pre">target/addresses.yml</span></code> file:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="nt">vrf</span><span class="p">:</span>
+    <span class="nt">publicKey</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">856B6CCA574508158D66046CACEA2D81CB626DEEFDD3B6C466514CE31F32A52B</span>
+</pre></div>
+</div>
+<p>Use the <strong>VRF account public key</strong> in the <code class="docutils literal"><span class="pre">--linked-public-key</span></code> parameter below and do <strong>not</strong> announce the transaction (the machine is offline):</p>
+<div class="highlight-symbol-cli"><div class="highlight"><pre><span></span>symbol-cli transaction vrfkeylink --max-fee 1000000 --mode normal \
+   --linked-public-key 856B6CCA574508158D66046CACEA2D81CB626DEEFDD3B6C466514CE31F32A52B \
+   --action Link
+</pre></div>
+</div>
+<p>Again, copy the content of the <code class="docutils literal"><span class="pre">Payload</span></code> box, trim it, and add it to <code class="docutils literal"><span class="pre">payloads.txt</span></code>, in a new line.</p>
+</div>
+<div class="section" id="voting-key-link">
+<h4>投票キーリンク<a class="headerlink" href="#voting-key-link" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p><a class="reference internal" href="../../serialization/coresystem.html#voting-key-link-transaction"><span class="std std-ref">投票キーリンクトランザクション</span></a> ペイロードを取得します。</p>
+<p>このキーは投票ノードにのみ必要です。</p>
+<p>If you added <code class="docutils literal"><span class="pre">voting:</span> <span class="pre">true</span></code> to <code class="docutils literal"><span class="pre">custom.yml</span></code> when creating the configuration, then Symbol Bootstrap has created this key too in <code class="docutils literal"><span class="pre">target/addresses.yml</span></code>:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="nt">voting</span><span class="p">:</span>
+    <span class="nt">publicKey</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">05693B4300ABFD28CD6BA434DD26F9FAF2342927FE32840898DCB895B8A17E84</span>
+</pre></div>
+</div>
+<p>Use the <strong>Voting account public key</strong> in the <code class="docutils literal"><span class="pre">--linked-public-key</span></code> parameter below and do <strong>not</strong> announce the transaction (the machine is offline):</p>
+<div class="highlight-symbol-cli"><div class="highlight"><pre><span></span>symbol-cli transaction votingkeylink --max-fee 1000000 --mode normal \
+   --linked-public-key 05693B4300ABFD28CD6BA434DD26F9FAF2342927FE32840898DCB895B8A17E84 \
+   --action Link --start-point 1 --end-point 360
+</pre></div>
+</div>
+<p>Again, copy the content of the <code class="docutils literal"><span class="pre">Payload</span></code> box, trim it, and add it to <code class="docutils literal"><span class="pre">payloads.txt</span></code>, in a new line.</p>
+</div>
+<div class="section" id="copy-payloads">
+<h4>ペイロードのコピー<a class="headerlink" href="#copy-payloads" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>以前に <code class="docutils literal"><span class="pre">target</span></code> フォルダをコピーしたペンドライブに <code class="docutils literal"><span class="pre">payloads.txt</span></code> をコピーします。</p>
+</div>
+</div>
+</div>
+<div class="section" id="online-machine">
+<h2>マシンのオンライン<a class="headerlink" href="#online-machine" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Move now to the online machine, the one that is permanently connected to the Internet and will host the node. Plug in the pen drive with the node configuration.</p>
+<div class="section" id="id1">
+<h3>セットアップ<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul>
+<li><p class="first"><a class="reference internal" href="using-symbol-bootstrap.html"><span class="doc">Symbol Bootstrap の使用</span></a> ガイドで示されるように <strong>Symbol Bootstrap をインストール</strong> します。</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../cli.html"><span class="doc">symbol-cli</span></a> ガイドで示されるように <strong>Symbol CLI をインストール</strong> して、次のように実行します:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>npm install --global symbol-cli
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>Create an announcer profile</strong> for <code class="docutils literal"><span class="pre">symbol-cli</span></code>. This is only a temporary account used to announce the payloads; it does not require funds:</p>
+<div class="sphinx-tabs container">
+<div class="ui top attached tabular menu sphinx-menu container">
+<div class="active item sphinx-data-tab-1-0 container">
+<div class="container">
+<p>MAINNET</p>
+</div>
+</div>
+<div class="item sphinx-data-tab-1-1 container">
+<div class="container">
+<p>TESTNET</p>
+</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-1-0 active container">
+<div class="highlight-bash"><div class="highlight"><pre><span></span>symbol-cli profile create --profile announcer --default <span class="se">\</span>
+   --network MAIN_NET <span class="se">\</span>
+   --url http://ngl-api-001.symbolblockchain.io:3000
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-1-1 container">
+<div class="highlight-bash"><div class="highlight"><pre><span></span>symbol-cli profile create --profile announcer --default <span class="se">\</span>
+   --network TEST_NET <span class="se">\</span>
+   --url http://ngl-dual-101.testnet.symboldev.network:3000
+</pre></div>
+</div>
+</div>
+</div>
+<p>When prompted, enter a password to secure your profile, and select the <code class="docutils literal"><span class="pre">PrivateKey</span></code> import type:</p>
+<div class="highlight-symbol-cli"><div class="highlight"><pre><span></span><span class="gi">✔ </span>Enter your wallet password: ... *********
+<span class="gi">✔ </span>Select an import type: » PrivateKey
+...
+<span class="gi">SUCCESS </span>Stored announcer profile
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="announce-links">
+<h3>リンクをアナウンス<a class="headerlink" href="#announce-links" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>You will now use <code class="docutils literal"><span class="pre">symbol-cli</span></code> to announce to the network the transactions you prepared in <code class="docutils literal"><span class="pre">payloads.txt</span></code>.</p>
+<div class="section" id="id2">
+<h4>リモートキーリンク<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>リモートキーリンクのアナウンス:</p>
+<div class="highlight-symbol-cli"><div class="highlight"><pre><span></span>symbol-cli transaction payload --sync --announce
+<span class="gi">✔ </span>Enter the transaction payload:
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">payloads.txt</span></code> から最初の長いテキスト行を貼り付けて、 Enter キーを押下します:</p>
+<div class="highlight-symbol-cli"><div class="highlight"><pre><span></span><span class="gi">SUCCESS </span>Transaction loaded:
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│                                 ACCOUNT_KEY_LINK                                 │
+├───────────────┬──────────────────────────────────────────────────────────────────┤
+│ Max fee:      │ 1,000,000                                                        │
+├───────────────┼──────────────────────────────────────────────────────────────────┤
+│ Network type: │ TEST_NET                                                         │
+├───────────────┼──────────────────────────────────────────────────────────────────┤
+│ Deadline:     │ 2021-03-27 10:41:41.286                                          │
+├───────────────┼──────────────────────────────────────────────────────────────────┤
+│ Signer:       │ TBGPYD-CO35V2-AMOYEJ-LEM44H-372M3I-6RWVFY-QCY                    │
+├───────────────┼──────────────────────────────────────────────────────────────────┤
+│ Action:       │ Link                                                             │
+├───────────────┼──────────────────────────────────────────────────────────────────┤
+│ Linked key:   │ 1544FE6F504A8B8536C2407664916AFB5C917400FD1B941B981933CDFE52AE3F │
+└───────────────┴──────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│                                 ACCOUNT_KEY_LINK                                 │
+├───────────────┬──────────────────────────────────────────────────────────────────┤
+│ Max fee:      │ 1,000,000                                                        │
+├───────────────┼──────────────────────────────────────────────────────────────────┤
+│ Network type: │ TEST_NET                                                         │
+├───────────────┼──────────────────────────────────────────────────────────────────┤
+│ Deadline:     │ 2021-03-27 10:41:41.286                                          │
+├───────────────┼──────────────────────────────────────────────────────────────────┤
+│ Signer:       │ CC6D13D64FB9BF69B72846C3FE99127D48C3293F473D528FB902600CB7DA1033 │
+├───────────────┼──────────────────────────────────────────────────────────────────┤
+│ Action:       │ Link                                                             │
+├───────────────┼──────────────────────────────────────────────────────────────────┤
+│ Linked key:   │ 1544FE6F504A8B8536C2407664916AFB5C917400FD1B941B981933CDFE52AE3F │
+├───────────────┴──────────────────────────────────────────────────────────────────┤
+│                                Signature details                                 │
+├───────────────┬──────────────────────────────────────────────────────────────────┤
+│ Payload:      │ A10000000000000042E0E0A0B8D7E1F27805F3537F80BFEAB6FEAC318908C486 │
+│               │ 4D03260B83ED1D0332D6EA6E086A4B68C578DB690D78D50BDA5C706B1DC66472 │
+│               │ 9326511547E42E0FCC6D13D64FB9BF69B72846C3FE99127D48C3293F473D528F │
+│               │ B902600CB7DA10330000000001984C4140420F000000000026F54C1B0A000000 │
+│               │ 1544FE6F504A8B8536C2407664916AFB5C917400FD1B941B981933CDFE52AE3F │
+│               │ 01                                                               │
+├───────────────┼──────────────────────────────────────────────────────────────────┤
+│ Hash:         │ 08C63D3AFAC3767F43053AFF1ACA61381FE81929B2384B91C450010A547AFA4A │
+└───────────────┴──────────────────────────────────────────────────────────────────┘
+...
+<span class="gi">SUCCESS </span>Transaction announced
+<span class="gi">SUCCESS </span>Transaction confirmed
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p>If the transaction is <strong>announced</strong> but it never gets <strong>confirmed</strong> (<code class="docutils literal"><span class="pre">symbol-cli</span></code> is stuck in <code class="docutils literal"><span class="pre">Processing</span></code> for more than a minute) it can be due to a number of things. Without interrupting <code class="docutils literal"><span class="pre">symbol-cli</span></code>, copy the <strong>transaction hash</strong>, open a new terminal and run:</p>
+<div class="highlight-symbol-cli"><div class="highlight"><pre><span></span>symbol-cli transaction status --hash &lt;transaction hash&gt;
+</pre></div>
+</div>
+<p>If there has been any issue with the transaction, this should give you the cause and you can then interrupt <code class="docutils literal"><span class="pre">symbol-cli</span></code>.</p>
+<p>If you need to try again, <strong>never re-announce the same payload</strong>. Create a new one (from the Configuration machine) and announce it again.</p>
+<p>よく発生する問題:</p>
+<ul class="last simple">
+<li><strong>Not enough funds</strong> (<code class="docutils literal"><span class="pre">Failure_Core_Insufficient_Balance</span></code>): The main account (which signed the transaction) does not have enough funds to pay the fee. Transfer some funds and try with a new payload.</li>
+<li><strong>Deadline expired</strong> (<code class="docutils literal"><span class="pre">Failure_Core_Past_Deadline</span></code>): Create a new payload and announce it again before the deadline expires (See the <strong>Concerning deadlines</strong> box above).</li>
+<li><strong>Insufficient fee</strong>: No error will be reported but if the fee is too low most nodes will ignore it. Try again with a higher fee or be ready to wait for a long time.</li>
+<li><strong>Payload re-announced</strong>: <code class="docutils literal"><span class="pre">symbol-cli</span></code> will be stuck in <code class="docutils literal"><span class="pre">Processing</span></code> and you will get no relevant information from the <code class="docutils literal"><span class="pre">transaction</span> <span class="pre">status</span></code>. Just don’t announce the same payload more than once.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id3">
+<h4>VRF キーリンク<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>VRF キーリンクのアナウンス:</p>
+<div class="highlight-symbol-cli"><div class="highlight"><pre><span></span>symbol-cli transaction payload --sync --announce
+<span class="gi">✔ </span>Enter the transaction payload:
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">payloads.txt</span></code> から 2 つ目の長いテキスト行を貼り付けて、トランザクションが承認されるのを待ちます。</p>
+</div>
+<div class="section" id="id4">
+<h4>投票キーリンク<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>投票キーリンクをアナウンスします (投票ノードの場合):</p>
+<div class="highlight-symbol-cli"><div class="highlight"><pre><span></span>symbol-cli transaction payload --sync --announce
+<span class="gi">✔ </span>Enter the transaction payload:
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">payloads.txt</span></code> から 3 つ目の長いテキスト行を貼り付けて、トランザクションが承認されるのを待ちます。</p>
+</div>
+</div>
+<div class="section" id="start-the-node">
+<h3>Start the node<a class="headerlink" href="#start-the-node" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>すべてのキーリンクトランザクションが承認されたら、ノードが設定され、最終的には起動することができます。</p>
+<p><strong>Go to the directory</strong> containing the <code class="docutils literal"><span class="pre">target</span></code> directory copied from the Configuration machine and <strong>start the node</strong>:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>symbol-bootstrap start
+</pre></div>
+</div>
+<p>他のパラメータは必要なく、すでに設定は <code class="docutils literal"><span class="pre">target</span></code> ディレクトリにあり、 Symbol Bootstrap がそれを使用します。</p>
+<p>ノードが起動すると多くのデバッグ出力が画面に表示されます。</p>
+<div class="highlight-symbol-bootstrap"><div class="highlight"><pre><span></span><span class="gi">info </span>    Password has been provided
+<span class="gi">info </span>    The generated preset target/preset.yml already exist, ignoring configuration. (run -r to reset or --upgrade to upgrade)
+...
+</pre></div>
+</div>
+<p>これでノードは <strong>稼働中</strong> になり、そのメイン秘密鍵が設定した (オフライン) マシンを離れることはありません。</p>
+<p>For added security, you can now turn the node’s main account into a <a class="reference internal" href="../../concepts/multisig-account.html"><span class="doc">マルチシグアカウント</span></a>. This is useful, for example, for node providers that work in a <strong>non-custodial</strong> manner. Read about this process in the <a class="reference internal" href="non-custodial-node-setup.html"><span class="doc">非カストディアルなノードのセットアップ</span></a> guide.</p>
+</div>
+</div>
+</div>
+
+  <div class="section">
+  
+    
+
+
+
+
+  
+  
+  </div>
+
+            
+            <p class="feedback">
+                <hr/>
+                お探しのものは見つかりましたか？
+                <a href="https://github.com/symbol/symbol-docs/issues/new/choose" target="_blank">フィードバックをください。</a>
+            </p>
+            
+        </div>
+         
+
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+    
+    <div class="edit-github">
+    <a href="https://github.com/symbol/symbol-docs/edit/main/source/guides/network/running-a-secure-symbol-node.rst" rel="nofollow"> <i class="fab fa-github"></i> このページを加筆修正する</a>
+</div>
+    <span class="title">このページ</span>
+    <ul>
+<li><a class="reference internal" href="#">セキュアな Symbol ノードの起動</a><ul>
+<li><a class="reference internal" href="#configuration-machine">マシンの設定</a><ul>
+<li><a class="reference internal" href="#setup">セットアップ</a></li>
+<li><a class="reference internal" href="#create-configuration">設定の作成</a><ul>
+<li><a class="reference internal" href="#profile">プロファイル</a></li>
+<li><a class="reference internal" href="#preset">プリセット</a></li>
+<li><a class="reference internal" href="#configure">設定</a></li>
+<li><a class="reference internal" href="#copy-configuration">設定をコピー</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#prepare-transactions">トランザクションの準備</a><ul>
+<li><a class="reference internal" href="#remote-key-link">リモートキーリンク</a></li>
+<li><a class="reference internal" href="#vrf-key-link">VRF キーリンク</a></li>
+<li><a class="reference internal" href="#voting-key-link">投票キーリンク</a></li>
+<li><a class="reference internal" href="#copy-payloads">ペイロードのコピー</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#online-machine">マシンのオンライン</a><ul>
+<li><a class="reference internal" href="#id1">セットアップ</a></li>
+<li><a class="reference internal" href="#announce-links">リンクをアナウンス</a><ul>
+<li><a class="reference internal" href="#id2">リモートキーリンク</a></li>
+<li><a class="reference internal" href="#id3">VRF キーリンク</a></li>
+<li><a class="reference internal" href="#id4">投票キーリンク</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#start-the-node">Start the node</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    
+    </div>
+</div>
+
+ 
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-desktop',
+        debug: false
+    });
+
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-mobile',
+        debug: false
+    });
+</script>
+
+  </body>
+</html>

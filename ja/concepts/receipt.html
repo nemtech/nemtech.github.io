@@ -1,0 +1,463 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>レシート &#8212; Symbol Documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700&display=swap" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'Main',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/examplecode.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="報酬プログラム" href="reward-programs.html" />
+    <link rel="prev" title="Symbol の拡張" href="plugin.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174021413-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-174021413-2');
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../guides/atom.xml" title="Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div class="navbar navbar-default gradient navbar-fixed-top"
+     id="navbar">
+    <div class="container navbar-top hidden-xs hidden-sm">
+        <div class="row">
+            <div class="col-lg-8 col-md-7">
+                <div id="language">
+    <label class="select">
+        <select>
+            <option id="english" value="en">EN</option>
+            <option id="japanese" value="ja">JA</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </label>
+</div>
+            </div>
+            <div class="col-lg-4 col-md-5">
+                
+                <div id="search-box">
+    <input class="search search-desktop form-control" placeholder="Search"/>
+</div>
+                
+                <ul id="social" class="list-inline">
+    <li>
+        <a href="https://twitter.com/NEMofficial" rel="nofollow"><i class="fab fa-twitter" title="Twitter"></i></a>
+    </li>
+    <li>
+        <a href="https://discord.com/invite/xymcity" rel="nofollow" title="Discord"><i class="fab fa-discord"></i></a>
+    </li>
+    <li>
+        <a href="https://github.com/symbol/" rel="nofollow" title="GitHub"><i class="fab fa-github"></i></a>
+    </li>
+</ul>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="container navbar-main">
+        <div class="row">
+            <div class="navbar-header col-lg-6 col-md-4 col-xs-6">
+                <a class="navbar-brand" href="../index.html">
+                    
+                    <span><img alt="NEM logo" src="../_static/logo-symbol.svg"></span>
+                    
+                </a>
+            </div>
+            <div class="navbar-right col-lg-6 col-md-8 hidden-xs hidden-sm">
+                <ul class="list-inline">
+    <li>
+        <a href="/ja/getting-started/what-is-symbol.html" class="">入門</a>
+    </li>
+    <li>
+        <a href="/ja/concepts/overview.html" class="active">機能</a>
+    </li>
+    <li>
+        <a href="/ja/guides/category.html" class="">ガイド</a>
+    </li>
+    <li>
+        <a href="/ja/references/overview.html" class="">ツール</a>
+    </li>
+    <li>
+        <a href="/ja/contribute/community.html" class="">ヘルプ</a>
+    </li>
+</ul>
+            </div>
+            <div class="navbar-right col-xs-6 hidden-lg hidden-md">
+                
+                <div id="search-box">
+    <input class="search search-mobile form-control" placeholder="Search"/>
+</div>
+                
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 sidebar-xs visible-xs visible-sm">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">ナビゲーション <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu globaltoc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">ガイド</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">コンセプト</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="account.html">アカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="block.html">ブロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consensus-algorithm.html">コンセンサス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cryptography.html">暗号理論</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-validation.html">データバリデーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fees.html">手数料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inflation.html">インフレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic.html">モザイク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic-restriction.html">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html">ノード</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin.html">Symbol の拡張</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">レシート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reward-programs.html">報酬プログラム</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html">トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">貢献</a></li>
+</ul>
+</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        
+        
+
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
+    <h4>ナビゲーション</h4>
+    <hr />
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">ガイド</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">コンセプト</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="account.html">アカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="block.html">ブロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consensus-algorithm.html">コンセンサス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cryptography.html">暗号理論</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-validation.html">データバリデーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fees.html">手数料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inflation.html">インフレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic.html">モザイク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic-restriction.html">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html">ノード</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin.html">Symbol の拡張</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">レシート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reward-programs.html">報酬プログラム</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html">トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">貢献</a></li>
+</ul>
+
+</div>
+        
+    </div>
+</div>
+
+
+        
+        <div class="col-md-7 content">
+            
+  <div class="section" id="receipt">
+<h1>レシート<a class="headerlink" href="#receipt" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>バックグラウンドでの条件付き状態変化により、複雑なトランザクションが可能になります。例えば <a class="reference internal" href="../serialization/lock_hash.html#hash-lock-transaction"><span class="std std-ref">ハッシュロック</span></a> は <a class="reference internal" href="aggregate-transaction.html"><span class="doc">AggregateBondedTransaction</span></a> が承認され次第、終了します。ロックされた資金が自動的に口座に返却されるとき、追加で <a class="reference internal" href="transaction.html"><span class="doc">トランザクション</span></a> は記録されません。これは <a class="reference internal" href="account.html"><span class="doc">アカウント</span></a> の残高が増える <em>隠された変更</em> として現れるかもしれません。</p>
+<p>レシートはすべての隠された変更の証拠を提供します。レシートのハッシュは <a class="reference internal" href="data-validation.html"><span class="doc">マークル木</span></a> に入ると <a class="reference internal" href="block.html"><span class="doc">ブロック</span></a> にリンクされます。ブロックヘッダはルートハッシュを格納し、ブロックがレシートを持ったときに 0 ではなくなります。</p>
+<div class="section" id="transaction-statement">
+<h2>トランザクションステートメント<a class="headerlink" href="#transaction-statement" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference internal" href="../serialization/receipts.html#transaction-statement"><span class="std std-ref">トランザクションステートメント</span></a> は特定のブロック内のトランザクションにリンクしたレシート集合です。ステートメントは以下の基礎タイプをもつレシートを含みます:</p>
+<ul class="simple">
+<li><strong>Balance Transfer</strong>: モザイク転送によりトリガされた不可視の状態変化。</li>
+<li><strong>Balance Change</strong>: アカウントの残高変化によりトリガされた不可視の状態変化。</li>
+<li><strong>Mosaic Expiry</strong>: モザイクの期限切れ</li>
+<li><strong>Namespace Expiry</strong>: ネームスペースの期限切れ</li>
+<li><strong>インフレーション</strong>: <a class="reference internal" href="inflation.html"><span class="doc">インフレーション</span></a> のために作り出されたネットワーク通貨モザイク。</li>
+</ul>
+</div>
+<div class="section" id="resolution-statement">
+<span id="receipt-resolution-statement"></span><h2>解決ステートメント<a class="headerlink" href="#resolution-statement" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>トランザクションが <a class="reference internal" href="namespace.html"><span class="doc">エイリアス</span></a> を含むとき、 <a class="reference internal" href="../serialization/resolution_statement.html#resolution-statement"><span class="std std-ref">解決ステートメント</span></a> と呼ばれ、そのブロックの解決済みの値を反映します:</p>
+<ul class="simple">
+<li><strong>Address Resolution</strong>: このブロックで使用されたアカウントエイリアス。</li>
+<li><strong>Mosaic Resolution</strong>: このブロックで使用されたモザイクエイリアス。</li>
+</ul>
+<p>エイリアスレシートはブロック内で使用された(未解決、解決済み)エイリアスペアの最初の出現を記録します。</p>
+<p>同じ namespace id とブロックに対して1つ以上の解決を取得することは技術的に可能です。この状況はネームスペース作成者が別のアセットへリンクを変更し、同じブロック内で2つの異なる解決になる場合によく見られます。</p>
+<p>レシートソース <code class="docutils literal"><span class="pre">primaryId</span></code> はエイリアスがブロック内で最初に現れるトランザクションを参照します。トランザクションが <a class="reference internal" href="aggregate-transaction.html"><span class="doc">AggregateTransaction</span></a> の一部である場合は <code class="docutils literal"><span class="pre">secondaryId</span></code> が 0 以外になり、アグリゲート内のインデックス位置を示します。</p>
+</div>
+<div class="section" id="recorded-receipts">
+<h2>記録済みレシート<a class="headerlink" href="#recorded-receipts" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Symbol は以下のエントリに不可視な状態変化を記録します。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="30%" />
+<col width="25%" />
+<col width="30%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Id</th>
+<th class="head">レシート</th>
+<th class="head">基本タイプ</th>
+<th class="head">説明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>Core</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>0x2143</td>
+<td>Harvest_Fee</td>
+<td><a class="reference internal" href="../serialization/receipts.html#balance-change-receipt"><span class="std std-ref">BalanceCredit</span></a></td>
+<td>受信者。アカウントとブロックのハーベスティングにより受け取った手数料の合計。ブロックが <a class="reference internal" href="harvesting.html"><span class="doc">ハーベスト</span></a> されたときに記録されます。</td>
+</tr>
+<tr class="row-even"><td>0x5143</td>
+<td>Inflation</td>
+<td><a class="reference internal" href="../serialization/receipts.html#inflation-receipt"><span class="std std-ref">Inflation</span></a></td>
+<td>作成されたネイティブ通貨モザイクの量。レシートはネットワークにインフレ率が設定されたときに記録され、新しいブロックが通貨モザイクの作成をトリガーします。</td>
+</tr>
+<tr class="row-odd"><td>0xE143</td>
+<td>Transaction_Group</td>
+<td><a class="reference internal" href="../serialization/receipts.html#transaction-statement"><span class="std std-ref">Aggregate</span></a></td>
+<td>与えられたソースの状態変化の集合。状態変化レシートが発行されたときに記録されます。</td>
+</tr>
+<tr class="row-even"><td>0xF143</td>
+<td>Address_Alias_Resolution</td>
+<td><a class="reference internal" href="../serialization/resolution_statement.html#resolution-statement"><span class="std std-ref">Alias Resolution</span></a></td>
+<td>未解決と解決済み <a class="reference internal" href="namespace.html"><span class="doc">エイリアス</span></a> 。トランザクションがアドレスの代わりに有効なアドレスエイリアスを示したときに記録されます。</td>
+</tr>
+<tr class="row-odd"><td>0xF243</td>
+<td>Mosaic_Alias_Resolution</td>
+<td><a class="reference internal" href="../serialization/resolution_statement.html#resolution-statement"><span class="std std-ref">Alias Resolution</span></a></td>
+<td>未解決と解決済みエイリアス。トランザクションが mosaic id の代わりに有効なモザイクエイリアスを示したときに記録されます。</td>
+</tr>
+<tr class="row-even"><td><strong>Mosaic</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>0x414D</td>
+<td>Mosaic_Expired</td>
+<td><a class="reference internal" href="../serialization/receipts.html#mosaic-expiry-receipt"><span class="std std-ref">MosaicExpiry</span></a></td>
+<td>このブロック内でのモザイク識別子の期限切れ。 <a class="reference internal" href="mosaic.html"><span class="doc">モザイク</span></a> のライフタイム期限が切れたときに記録されます。</td>
+</tr>
+<tr class="row-even"><td>0x124D</td>
+<td>Mosaic_Rental_Fee</td>
+<td><a class="reference internal" href="../serialization/receipts.html#balance-transfer-receipt"><span class="std std-ref">BalanceTransfer</span></a></td>
+<td>mosaic id の送信者と受信者とモザイクを登録するためのコストを示す量。モザイクが登録されたときに記録されます。</td>
+</tr>
+<tr class="row-odd"><td><strong>Namespace</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>0x414E</td>
+<td>Namespace_Expired</td>
+<td><a class="reference internal" href="../serialization/namespace.html#namespace-expiry-receipt"><span class="std std-ref">NamespaceExpiry</span></a></td>
+<td>このブロック内でのネームスペース識別子の期限切れ。 <a class="reference internal" href="namespace.html"><span class="doc">ネームスペース</span></a> のライフタイム期限が切れたときに記録されます。</td>
+</tr>
+<tr class="row-odd"><td>0x424E</td>
+<td>Namespace_Deleted</td>
+<td><a class="reference internal" href="../serialization/namespace.html#namespace-expiry-receipt"><span class="std std-ref">NamespaceExpiry</span></a></td>
+<td>このブロック内で削除されたネームスペース識別子。 <a class="reference internal" href="namespace.html"><span class="doc">ネームスペース</span></a> のライフタイム猶予が切れたときに記録されます。</td>
+</tr>
+<tr class="row-even"><td>0x134E</td>
+<td>Namespace_Rental_Fee</td>
+<td><a class="reference internal" href="../serialization/receipts.html#balance-transfer-receipt"><span class="std std-ref">BalanceTransfer</span></a></td>
+<td>mosaic id の送信者と受信者、およびネームスペースを延長するためのコストを示す量。ネームスペースが登録されたとき、またはその期間が延長されたときに記録されます。</td>
+</tr>
+<tr class="row-odd"><td><strong>HashLock</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>0x3148</td>
+<td>LockHash_Created</td>
+<td><a class="reference internal" href="../serialization/receipts.html#balance-change-receipt"><span class="std std-ref">BalanceDebit</span></a></td>
+<td>とロックハッシュ送信者、ロックされた mosaic id と量。有効な <a class="reference internal" href="../serialization/lock_hash.html#hash-lock-transaction"><span class="std std-ref">HashLockTransaction</span></a> がアナウンスされたときに記録されます。</td>
+</tr>
+<tr class="row-odd"><td>0x2248</td>
+<td>LockHash_Completed</td>
+<td><a class="reference internal" href="../serialization/receipts.html#balance-change-receipt"><span class="std std-ref">BalanceCredit</span></a></td>
+<td>ハッシュロック送信者、ロックされた mosaic id と量。AggregateBondedTransaction がハッシュコンプリートにリンクしたときに記録されます。</td>
+</tr>
+<tr class="row-even"><td>0x2348</td>
+<td>LockHash_Expired</td>
+<td><a class="reference internal" href="../serialization/receipts.html#balance-change-receipt"><span class="std std-ref">BalanceCredit</span></a></td>
+<td>アカウントが受信するロックされたモザイク、 mosaic id とその量。ロックハッシュの期限が切れたときに記録されます。</td>
+</tr>
+<tr class="row-odd"><td><strong>SecretLock</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>0x3152</td>
+<td>LockSecret_Created</td>
+<td><a class="reference internal" href="../serialization/receipts.html#balance-change-receipt"><span class="std std-ref">BalanceDebit</span></a></td>
+<td>シークレットロック送信者、ロックされた mosaic id と量。有効な <a class="reference internal" href="../serialization/lock_secret.html#secret-lock-transaction"><span class="std std-ref">SecretLockTransaction</span></a> がアナウンスされたときに記録されます。</td>
+</tr>
+<tr class="row-odd"><td>0x2252</td>
+<td>LockSecret_Completed</td>
+<td><a class="reference internal" href="../serialization/receipts.html#balance-change-receipt"><span class="std std-ref">BalanceCredit</span></a></td>
+<td>ロックされた mosaic id と量のシークレットロックの受信者。シークレットロックが証明されたときに記録されます。</td>
+</tr>
+<tr class="row-even"><td>0x2352</td>
+<td>LockSecret_Expired</td>
+<td><a class="reference internal" href="../serialization/receipts.html#balance-change-receipt"><span class="std std-ref">BalanceCredit</span></a></td>
+<td>アカウントが受信するロックされたモザイク、mosaic id とその量。シークレットロックの期限が切れたときに記録されます。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="guides">
+<h2>ガイド<a class="headerlink" href="#guides" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="postlist-style-circle postlist">
+<li><p class="first"><a class="reference internal" href="../guides/blockchain/getting-the-mosaic-identifier-behind-a-namespace-with-receipts.html">レシート付きネームスペースの背後にあるアセットの識別子を取得</a></p>
+<p>レシートを使用して特定のエイリアスとトランザクションの解決を取得します。</p>
+</li>
+</ul>
+<p>次項: <a class="reference internal" href="inflation.html"><span class="doc">データバリデーション</span></a></p>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+            
+            <p class="feedback">
+                <hr/>
+                お探しのものは見つかりましたか？
+                <a href="https://github.com/symbol/symbol-docs/issues/new/choose" target="_blank">フィードバックをください。</a>
+            </p>
+            
+        </div>
+         
+
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+    
+    <div class="edit-github">
+    <a href="https://github.com/symbol/symbol-docs/edit/main/source/concepts/receipt.rst" rel="nofollow"> <i class="fab fa-github"></i> このページを加筆修正する</a>
+</div>
+    <span class="title">このページ</span>
+    <ul>
+<li><a class="reference internal" href="#">レシート</a><ul>
+<li><a class="reference internal" href="#transaction-statement">トランザクションステートメント</a></li>
+<li><a class="reference internal" href="#resolution-statement">解決ステートメント</a></li>
+<li><a class="reference internal" href="#recorded-receipts">記録済みレシート</a></li>
+<li><a class="reference internal" href="#guides">ガイド</a></li>
+</ul>
+</li>
+</ul>
+
+    
+    </div>
+</div>
+
+ 
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-desktop',
+        debug: false
+    });
+
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-mobile',
+        debug: false
+    });
+</script>
+
+  </body>
+</html>

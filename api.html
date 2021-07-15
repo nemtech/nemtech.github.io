@@ -1,0 +1,591 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>REST Gateway &#8212; Symbol Documentation</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700&display=swap" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'Main',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/custom.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/examplecode.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="SDK" href="sdk.html" />
+    <link rel="prev" title="Client" href="server.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174021413-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-174021413-2');
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="guides/atom.xml" title="Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div class="navbar navbar-default gradient navbar-fixed-top"
+     id="navbar">
+    <div class="container navbar-top hidden-xs hidden-sm">
+        <div class="row">
+            <div class="col-lg-8 col-md-7">
+                <div id="language">
+    <label class="select">
+        <select>
+            <option id="english" value="en">EN</option>
+            <option id="japanese" value="ja">JA</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">Translate</option>
+        </select>
+    </label>
+</div>
+            </div>
+            <div class="col-lg-4 col-md-5">
+                
+                <div id="search-box">
+    <input class="search search-desktop form-control" placeholder="Search"/>
+</div>
+                
+                <ul id="social" class="list-inline">
+    <li>
+        <a href="https://twitter.com/NEMofficial" rel="nofollow"><i class="fab fa-twitter" title="Twitter"></i></a>
+    </li>
+    <li>
+        <a href="https://discord.com/invite/xymcity" rel="nofollow" title="Discord"><i class="fab fa-discord"></i></a>
+    </li>
+    <li>
+        <a href="https://github.com/symbol/" rel="nofollow" title="GitHub"><i class="fab fa-github"></i></a>
+    </li>
+</ul>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="container navbar-main">
+        <div class="row">
+            <div class="navbar-header col-lg-6 col-md-4 col-xs-6">
+                <a class="navbar-brand" href="index.html">
+                    
+                    <span><img alt="NEM logo" src="_static/logo-symbol.svg"></span>
+                    
+                </a>
+            </div>
+            <div class="navbar-right col-lg-6 col-md-8 hidden-xs hidden-sm">
+                <ul class="list-inline">
+    <li>
+        <a href="/getting-started/what-is-symbol.html" class="">Getting Started</a>
+    </li>
+    <li>
+        <a href="/concepts/overview.html" class="">Features</a>
+    </li>
+    <li>
+        <a href="/guides/category.html" class="">Guides</a>
+    </li>
+    <li>
+        <a href="/references/overview.html" class="active">Tools</a>
+    </li>
+    <li>
+        <a href="/contribute/community.html" class="">Help</a>
+    </li>
+</ul>
+            </div>
+            <div class="navbar-right col-xs-6 hidden-lg hidden-md">
+                
+                <div id="search-box">
+    <input class="search search-mobile form-control" placeholder="Search"/>
+</div>
+                
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 sidebar-xs visible-xs visible-sm">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigation <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu globaltoc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/index.html">Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/overview.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="references/index.html">References</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="references/overview.html">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="server.html">Client</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">REST Gateway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdk.html">SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli.html">CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallets.html">Wallets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compatibility.html">Compatibility Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialization/index.html">Transaction serialization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contribute/index.html">Contributing</a></li>
+</ul>
+</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        
+        
+
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
+    <h4>Navigation</h4>
+    <hr />
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/index.html">Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/overview.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="references/index.html">References</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="references/overview.html">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="server.html">Client</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">REST Gateway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdk.html">SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli.html">CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallets.html">Wallets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compatibility.html">Compatibility Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialization/index.html">Transaction serialization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contribute/index.html">Contributing</a></li>
+</ul>
+
+</div>
+        
+    </div>
+</div>
+
+
+        
+        <div class="col-md-7 content">
+            
+  <div class="section" id="rest-gateway">
+<h1>REST Gateway<a class="headerlink" href="#rest-gateway" title="Permalink to this headline">¶</a></h1>
+<p><a href="https://github.com/symbol/catapult-rest" target="_blank">Catapult REST</a> combines HTTP and WebSockets to perform read and write actions on the blockchain.</p>
+<div class="section" id="http-requests">
+<span id="id1"></span><h2>Http requests<a class="headerlink" href="#http-requests" title="Permalink to this headline">¶</a></h2>
+<p>The REST Gateway uses the port <code class="docutils literal"><span class="pre">3000</span></code> and accepts both HTTP <strong>GET</strong>, <strong>PUT</strong> and <strong>POST</strong> requests.</p>
+<p>Assuming that Catapult REST is running locally, HTTP GET requests can be executed from a browser and have the form:</p>
+<blockquote>
+<div><a class="reference external" href="http://localhost:3000">http://localhost:3000</a>/&lt;path-to-API-request&gt;</div></blockquote>
+<p>Conversely, HTTP PUT and POST requests have the same structure but use JSON structures in the request body.
+This kind of request cannot usually be executed from within the browser unless you use a plugin which enables you to do it.</p>
+<div class="section" id="endpoints">
+<h3>Endpoints<a class="headerlink" href="#endpoints" title="Permalink to this headline">¶</a></h3>
+<p>Refer to the next documentation to get the list of available endpoints.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.symbolplatform.com/symbol-openapi/v1.0.1">v1.0.1 (next)</a></li>
+<li><a class="reference external" href="https://docs.symbolplatform.com/symbol-openapi/v1.0.0">v1.0.0 (latest)</a></li>
+<li><a class="reference external" href="https://docs.symbolplatform.com/symbol-openapi/v0.11.3">v0.11.3</a></li>
+<li><a class="reference external" href="https://docs.symbolplatform.com/symbol-openapi/v0.11.2">v0.11.2</a></li>
+<li><a class="reference external" href="https://docs.symbolplatform.com/symbol-openapi/v0.11.1">v0.11.1</a></li>
+<li><a class="reference external" href="https://docs.symbolplatform.com/symbol-openapi/v0.10.6">v0.10.6</a></li>
+<li><a class="reference external" href="https://docs.symbolplatform.com/symbol-openapi/v0.10.5">v0.10.5</a></li>
+<li><a class="reference external" href="https://docs.symbolplatform.com/symbol-openapi/v0.10.4">v0.10.4</a></li>
+<li><a class="reference external" href="https://docs.symbolplatform.com/symbol-openapi/v0.10.1">v0.10.1</a></li>
+<li><a class="reference external" href="https://docs.symbolplatform.com/symbol-openapi/v0.10.0">v0.10.0</a></li>
+<li><a class="reference external" href="https://docs.symbolplatform.com/symbol-openapi/v0.9.7">v0.9.7</a></li>
+<li><a class="reference external" href="https://docs.symbolplatform.com/symbol-openapi/v0.9.6">v0.9.6</a></li>
+<li><a class="reference external" href="https://docs.symbolplatform.com/symbol-openapi/v0.9.5">v0.9.5</a></li>
+<li><a class="reference external" href="https://docs.symbolplatform.com/symbol-openapi/v0.9.4">v0.9.4</a></li>
+<li><a class="reference external" href="https://docs.symbolplatform.com/symbol-openapi/v0.8.11">v0.8.11</a></li>
+</ul>
+<p>To check the compatibility between the API specification and the REST Gateway implementation, see <a class="reference internal" href="compatibility.html"><span class="doc">Product Compatibility Matrix</span></a>.</p>
+</div>
+<div class="section" id="response-codes">
+<h3>Response codes<a class="headerlink" href="#response-codes" title="Permalink to this headline">¶</a></h3>
+<p>Symbol uses conventional HTTP response codes to indicate the success or failure of an API request.</p>
+<ul class="simple">
+<li>Codes in the <code class="docutils literal"><span class="pre">2xx</span></code> range indicate success.</li>
+<li>Codes in the <code class="docutils literal"><span class="pre">4xx</span></code> range indicate an error occurred with the information provided by the user.</li>
+<li>Codes in the <code class="docutils literal"><span class="pre">5xx</span></code> range indicate an error with the node.</li>
+</ul>
+<table border="1" class="docutils" id="id5">
+<caption><span class="caption-text">HTTP Status Code Summary</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Error Code</th>
+<th class="head">Response</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>200</td>
+<td>OK</td>
+<td>Everything worked as expected.</td>
+</tr>
+<tr class="row-odd"><td>202</td>
+<td>Accepted</td>
+<td>The request has been accepted, but the processing has not been completed.</td>
+</tr>
+<tr class="row-even"><td>400</td>
+<td>InvalidContent</td>
+<td>The provided argument was not of an acceptable type of input.</td>
+</tr>
+<tr class="row-odd"><td>404</td>
+<td>ResourceNotFound</td>
+<td>The requested resource does not exist.</td>
+</tr>
+<tr class="row-even"><td>409</td>
+<td>InvalidArgument</td>
+<td>The required arguments were missing or unacceptable for the request.</td>
+</tr>
+<tr class="row-odd"><td>500</td>
+<td>InternalServiceError</td>
+<td>An error occurred within the REST Gateway.</td>
+</tr>
+<tr class="row-even"><td>503</td>
+<td>ServiceUnavailable</td>
+<td>Either API node or database service is unavailable or unreachable from the REST Gateway.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="pagination">
+<h3>Pagination<a class="headerlink" href="#pagination" title="Permalink to this headline">¶</a></h3>
+<p>When a query returns more than one result, the REST Gateway paginates the responses by default.
+The query parameters can be customized to advance through the pages and filter the contents returned.</p>
+<p>Each pageable endpoint defines its own set of filters.
+However, the following table shows the query params present in every searchable endpoint:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Query Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+<th class="head">Default</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">pageSize</span></code></td>
+<td>integer <code class="docutils literal"><span class="pre">[10..100]</span></code></td>
+<td>Selects the number of entries to return. Example: <code class="docutils literal"><span class="pre">http://localhost:3000/blocks?pageSize=100</span></code> returns 100 entries per <code class="docutils literal"><span class="pre">page</span></code></td>
+<td><code class="docutils literal"><span class="pre">10</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">pageNumber</span></code></td>
+<td>integer <code class="docutils literal"><span class="pre">&gt;=1</span></code></td>
+<td>Filters by page number. Example: <code class="docutils literal"><span class="pre">http://localhost:3000/blocks?page=2</span></code> returns page 2</td>
+<td><code class="docutils literal"><span class="pre">1</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">offset</span></code></td>
+<td>string</td>
+<td>Identifies the entry at which to start pagination. Example: <code class="docutils literal"><span class="pre">http://localhost:3000/blocks?id=EE94FD819A1B30D6C5D1C03</span></code>.</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">order</span></code></td>
+<td>string</td>
+<td>Sorts the responses in ascending or descending order based on the collection property set on the parameter <code class="docutils literal"><span class="pre">orderBy</span></code>. If the requests does not specify <code class="docutils literal"><span class="pre">orderBy</span></code>, REST returns the collection ordered by id. Example: <code class="docutils literal"><span class="pre">http://localhost:3000/blocks?order=asc</span></code> returns the block entries in ascending order.</td>
+<td>desc</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">orderBy</span></code></td>
+<td>string</td>
+<td>Chooses the parameter to sort by. By default, all the collections are sortable by id, but the collection could define additional properties.</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<p>Multiple query parameters can be combined in the same call.
+For example, <code class="docutils literal"><span class="pre">http://localhost:3000/blocks?pageSize=100&amp;id=EE94FD819A1B30D6C5D1C03</span></code> will return 100 block entries per page starting with block id <code class="docutils literal"><span class="pre">EE94FD819A1B30D6C5D1C03</span></code>.</p>
+<p>The responses also include meta-information about the pagination total number of entries, current page number, and the total number of pages.
+Here is an example response meta-information of the pagination:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;pagination&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;pageNumber&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;pageSize&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;totalEntries&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;totalPages&quot;</span><span class="p">:</span> <span class="mi">0</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="websockets">
+<span id="id2"></span><h2>WebSockets<a class="headerlink" href="#websockets" title="Permalink to this headline">¶</a></h2>
+<p>To get <strong>live updates</strong> when an event occurs on the blockchain, Catapult REST publishes WebSockets.
+Client applications can open a WebSocket connection and get a unique identifier.
+With this identifier, applications qualify to subscribe to the available channels instead of constantly polling the API for updates.
+When an event occurs in a channel, the REST Gateway sends a notification to every subscribed client in real-time.</p>
+<p>WebSocket URIs share the same host and port as the HTTP requests URIs, but use the <code class="docutils literal"><span class="pre">ws://</span></code> protocol:</p>
+<blockquote>
+<div>ws://localhost:3000/ws</div></blockquote>
+<ul class="simple">
+<li>Guide: <a class="reference internal" href="guides/blockchain/listening-new-blocks.html"><span class="doc">Subscribing to WebSockets channels</span></a></li>
+</ul>
+<div class="section" id="response-format">
+<h3>Response format<a class="headerlink" href="#response-format" title="Permalink to this headline">¶</a></h3>
+<p>All channels share the same response format, which is:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;{subscribed-channel}&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">topic</span></code> contains the name of the subscribed channel, so the same websocket can be used to monitor multiple channels (<code class="docutils literal"><span class="pre">topic</span></code> matches the <code class="docutils literal"><span class="pre">subscribe</span></code> field provided in the request body when subscribing).</li>
+<li><code class="docutils literal"><span class="pre">data</span></code> is a channel-specific object. Each channel listed below describes the data object it returns.</li>
+</ul>
+</div>
+<div class="section" id="channels">
+<h3>Channels<a class="headerlink" href="#channels" title="Permalink to this headline">¶</a></h3>
+<p><strong>block</strong></p>
+<p>The <code class="docutils literal"><span class="pre">block</span></code> channel notifies subscribed clients every time a new block is harvested.
+Each returned message contains information about a harvested block.</p>
+<p><em>Request body</em></p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;uid&quot;</span><span class="p">:</span> <span class="s2">&quot;{uid}&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;subscribe&quot;</span><span class="p">:</span> <span class="s2">&quot;block&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><em>Response data</em></p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/symbol/symbol-openapi/blob/main/spec/core/block/schemas/BlockInfoDTO.yml">BlockInfoDTO</a></li>
+</ul>
+<p><strong>finalizedBlock</strong></p>
+<p>The <code class="docutils literal"><span class="pre">finalizedBlock</span></code> channel notifies subscribed clients every time a set of blocks is <a class="reference internal" href="concepts/block.html#finalization"><span class="std std-ref">finalized</span></a>.
+Each returned message contains information about the <strong>highest block</strong> in the finalization round. All blocks with a smaller height are assumed finalized.</p>
+<p><em>Request body</em></p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;uid&quot;</span><span class="p">:</span> <span class="s2">&quot;{uid}&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;subscribe&quot;</span><span class="p">:</span> <span class="s2">&quot;finalizedBlock&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><em>Response data</em></p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/symbol/symbol-openapi/blob/main/spec/core/chain/schemas/FinalizedBlockDTO.yml">FinalizedBlockDTO</a></li>
+</ul>
+<p><strong>confirmedAdded/{address}</strong></p>
+<p>The <code class="docutils literal"><span class="pre">confirmedAdded</span></code> channel notifies subscribed clients when a transaction related to the given address is included in a block.
+Each returned message contains information about a confirmed transaction.</p>
+<p><em>Request body</em></p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;uid&quot;</span><span class="p">:</span> <span class="s2">&quot;{uid}&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;subscribe&quot;</span><span class="p">:</span> <span class="s2">&quot;confirmedAdded/{address}&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><em>Response data</em></p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/symbol/symbol-openapi/blob/main/spec/core/transaction/schemas/TransactionInfoDTO.yml">TransactionInfoDTO</a></li>
+</ul>
+<p><strong>unconfirmedAdded/{address}</strong></p>
+<p>The <code class="docutils literal"><span class="pre">unconfirmedAdded</span></code> channel notifies subscribed clients when a transaction related to the given address enters the unconfirmed state, waiting to be included in a block.
+Each returned message contains information about an unconfirmed transaction.</p>
+<p>Possible scenarios when this message is received are: the transaction is announced to the network via the <code class="docutils literal"><span class="pre">PUT</span> <span class="pre">/transaction</span></code> HTTP endpoint or an <a class="reference internal" href="concepts/aggregate-transaction.html#aggregate-bonded"><span class="std std-ref">AggregateBondedTransaction</span></a> has all required cosigners and changes its state from partial to unconfirmed.</p>
+<p><em>Request body</em></p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;uid&quot;</span><span class="p">:</span> <span class="s2">&quot;{uid}&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;subscribe&quot;</span><span class="p">:</span> <span class="s2">&quot;unconfirmedAdded/{address}&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><em>Response data</em></p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/symbol/symbol-openapi/blob/main/spec/core/transaction/schemas/TransactionInfoDTO.yml">TransactionInfoDTO</a></li>
+</ul>
+<p><strong>unconfirmedRemoved/{address}</strong></p>
+<p>The <code class="docutils literal"><span class="pre">unconfirmedRemoved</span></code> channel notifies subscribed clients when a transaction related to the given address exits the unconfirmed state.
+Each returned message contains a no-longer-unconfirmed transaction hash.</p>
+<p>Possible scenarios when this message is received are: the transaction is now confirmed, or the deadline was reached and the transaction was not included in a block.</p>
+<p><em>Request body</em></p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;uid&quot;</span><span class="p">:</span><span class="s2">&quot;{uid}&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;subscribe&quot;</span><span class="p">:</span><span class="s2">&quot;unconfirmedRemoved/{address}&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><em>Response data</em></p>
+<ul class="simple">
+<li>Hash</li>
+</ul>
+<p><strong>partialAdded/{address}</strong></p>
+<p>The <code class="docutils literal"><span class="pre">partialAdded</span></code> channel notifies subscribed clients when an <a class="reference internal" href="concepts/aggregate-transaction.html#aggregate-bonded"><span class="std std-ref">AggregateBondedTransaction</span></a> related to the given address enters the partial state, waiting for all required cosignatures to complete.
+Each returned message contains information about an added partial transaction.</p>
+<p><em>Request body</em></p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;uid&quot;</span><span class="p">:</span> <span class="s2">&quot;{uid}&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;subscribe&quot;</span><span class="p">:</span> <span class="s2">&quot;partialAdded/{address}&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><em>Response data</em></p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/symbol/symbol-openapi/blob/main/spec/core/transaction/schemas/TransactionInfoDTO.yml">TransactionInfoDTO</a></li>
+</ul>
+<p><strong>partialRemoved/{address}</strong></p>
+<p>The <code class="docutils literal"><span class="pre">partialRemoved</span></code> channel notifies subscribed clients when a transaction related to the given address exits the partial state.
+Each returned message contains a removed partial transaction hash.</p>
+<p>Possible scenarios when this message is emitted are: all required cosignatures were received and the transaction is now unconfirmed, or the deadline was reached and the transaction was not included in a block.</p>
+<p><em>Request body</em></p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;uid&quot;</span><span class="p">:</span> <span class="s2">&quot;{uid}&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;subscribe&quot;</span><span class="p">:</span> <span class="s2">&quot;partialRemoved/{address}&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><em>Response data</em></p>
+<ul class="simple">
+<li>Hash</li>
+</ul>
+<p><strong>cosignature/{address}</strong></p>
+<p>The <code class="docutils literal"><span class="pre">cosignature</span></code> channel notifies subscribed clients when a cosignature-signed transaction related to the given address is added to an <a class="reference internal" href="concepts/aggregate-transaction.html#aggregate-bonded"><span class="std std-ref">AggregateBondedTransaction</span></a> in the partial state.
+Each returned message contains a cosignature-signed transaction.</p>
+<p><em>Request body</em></p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;uid&quot;</span><span class="p">:</span> <span class="s2">&quot;{uid}&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;subscribe&quot;</span><span class="p">:</span> <span class="s2">&quot;cosignature/{address}&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><em>Response data</em></p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/symbol/symbol-openapi/blob/main/spec/plugins/aggregate/schemas/CosignatureDTO.yml">CosignatureDTO</a></li>
+</ul>
+<p><strong>status/{address}</strong></p>
+<p>The <code class="docutils literal"><span class="pre">status</span></code> channel notifies subscribed clients when a transaction related to the given address signals an error.
+Each returned message contains an error message and a transaction hash.</p>
+<p><em>Request body</em></p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;uid&quot;</span><span class="p">:</span> <span class="s2">&quot;{uid}&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;subscribe&quot;</span><span class="p">:</span> <span class="s2">&quot;status/{address}&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><em>Response data</em></p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/symbol/symbol-openapi/blob/main/spec/core/transaction/schemas/TransactionStatusDTO.yml">TransactionStatusDTO</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+            
+            <p class="feedback">
+                <hr/>
+                Did you find what you were looking for?
+                <a href="https://github.com/symbol/symbol-docs/issues/new/choose" target="_blank">Give us your feedback.</a>
+            </p>
+            
+        </div>
+         
+
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+    
+    <div class="edit-github">
+    <a href="https://github.com/symbol/symbol-docs/edit/main/source/api.rst" rel="nofollow"> <i class="fab fa-github"></i> Improve this page</a>
+</div>
+    <span class="title">On this page</span>
+    <ul>
+<li><a class="reference internal" href="#">REST Gateway</a><ul>
+<li><a class="reference internal" href="#http-requests">Http requests</a><ul>
+<li><a class="reference internal" href="#endpoints">Endpoints</a></li>
+<li><a class="reference internal" href="#response-codes">Response codes</a></li>
+<li><a class="reference internal" href="#pagination">Pagination</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#websockets">WebSockets</a><ul>
+<li><a class="reference internal" href="#response-format">Response format</a></li>
+<li><a class="reference internal" href="#channels">Channels</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    
+    </div>
+</div>
+
+ 
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-desktop',
+        debug: false
+    });
+
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-mobile',
+        debug: false
+    });
+</script>
+
+  </body>
+</html>

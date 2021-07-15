@@ -1,0 +1,511 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Data Validation &#8212; Symbol Documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700&display=swap" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'Main',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/custom.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/examplecode.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Fees" href="fees.html" />
+    <link rel="prev" title="Cryptography" href="cryptography.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174021413-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-174021413-2');
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../guides/atom.xml" title="Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div class="navbar navbar-default gradient navbar-fixed-top"
+     id="navbar">
+    <div class="container navbar-top hidden-xs hidden-sm">
+        <div class="row">
+            <div class="col-lg-8 col-md-7">
+                <div id="language">
+    <label class="select">
+        <select>
+            <option id="english" value="en">EN</option>
+            <option id="japanese" value="ja">JA</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">Translate</option>
+        </select>
+    </label>
+</div>
+            </div>
+            <div class="col-lg-4 col-md-5">
+                
+                <div id="search-box">
+    <input class="search search-desktop form-control" placeholder="Search"/>
+</div>
+                
+                <ul id="social" class="list-inline">
+    <li>
+        <a href="https://twitter.com/NEMofficial" rel="nofollow"><i class="fab fa-twitter" title="Twitter"></i></a>
+    </li>
+    <li>
+        <a href="https://discord.com/invite/xymcity" rel="nofollow" title="Discord"><i class="fab fa-discord"></i></a>
+    </li>
+    <li>
+        <a href="https://github.com/symbol/" rel="nofollow" title="GitHub"><i class="fab fa-github"></i></a>
+    </li>
+</ul>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="container navbar-main">
+        <div class="row">
+            <div class="navbar-header col-lg-6 col-md-4 col-xs-6">
+                <a class="navbar-brand" href="../index.html">
+                    
+                    <span><img alt="NEM logo" src="../_static/logo-symbol.svg"></span>
+                    
+                </a>
+            </div>
+            <div class="navbar-right col-lg-6 col-md-8 hidden-xs hidden-sm">
+                <ul class="list-inline">
+    <li>
+        <a href="/getting-started/what-is-symbol.html" class="">Getting Started</a>
+    </li>
+    <li>
+        <a href="/concepts/overview.html" class="active">Features</a>
+    </li>
+    <li>
+        <a href="/guides/category.html" class="">Guides</a>
+    </li>
+    <li>
+        <a href="/references/overview.html" class="">Tools</a>
+    </li>
+    <li>
+        <a href="/contribute/community.html" class="">Help</a>
+    </li>
+</ul>
+            </div>
+            <div class="navbar-right col-xs-6 hidden-lg hidden-md">
+                
+                <div id="search-box">
+    <input class="search search-mobile form-control" placeholder="Search"/>
+</div>
+                
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 sidebar-xs visible-xs visible-sm">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigation <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu globaltoc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">Guides</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">Concepts</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="account.html">Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="block.html">Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consensus-algorithm.html">Consensus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cryptography.html">Cryptography</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Data Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fees.html">Fees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="harvesting.html">Harvesting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inflation.html">Inflation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic.html">Mosaic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic-restriction.html">Mosaic Restriction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html">Namespace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html">Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin.html">Extending Symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="receipt.html">Receipt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reward-programs.html">Reward Programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html">Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references/index.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">Contributing</a></li>
+</ul>
+</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        
+        
+
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
+    <h4>Navigation</h4>
+    <hr />
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">Guides</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">Concepts</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="account.html">Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account-restriction.html">Account Restriction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html">Aggregate Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="block.html">Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consensus-algorithm.html">Consensus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html">Cross-Chain Swaps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cryptography.html">Cryptography</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Data Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fees.html">Fees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="harvesting.html">Harvesting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inflation.html">Inflation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic.html">Mosaic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic-restriction.html">Mosaic Restriction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig-account.html">Multisig Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html">Namespace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html">Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin.html">Extending Symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="receipt.html">Receipt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reward-programs.html">Reward Programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html">Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transfer-transaction.html">Transfer Transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references/index.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">Contributing</a></li>
+</ul>
+
+</div>
+        
+    </div>
+</div>
+
+
+        
+        <div class="col-md-7 content">
+            
+  <div class="section" id="data-validation">
+<h1>Data Validation<a class="headerlink" href="#data-validation" title="Permalink to this headline">¶</a></h1>
+<p>Symbol uses tree structures to store large data associated with a block that cannot be retrieved directly from the <a class="reference internal" href="block.html"><span class="doc">block header</span></a>.
+This allows light clients to verify if an element (e.g. <a class="reference internal" href="transaction.html"><span class="doc">transaction</span></a>, <a class="reference internal" href="receipt.html"><span class="doc">receipt statement</span></a>) exists without demanding the entire ledger history.</p>
+<div class="section" id="merkle-tree">
+<h2>Merkle tree<a class="headerlink" href="#merkle-tree" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center" id="id1">
+
+            <style>
+            /* mermaid issue 527 workaround */
+            .section {
+                opacity: 1.0 !important;
+            }
+            </style>
+            <script>mermaid.initialize({startOnLoad:true});</script><div class="mermaid">
+            graph TD
+   A --&gt; H1[&quot;H1 = H(A)&quot;]
+   B --&gt; H2[&quot;H2 = H(B)&quot;]
+   C --&gt; H3[&quot;H3 = H(C)&quot;]
+   D --&gt; H4[&quot;H4 = H(D)&quot;]
+   E --&gt; H5[&quot;H5 = H(E)&quot;]
+   H1 --&gt; H6[&quot;H6 = H(H1 +H2)&quot;]
+   H2 --&gt; H6
+   H3 --&gt; H7[&quot;H7 = H(H3 + H4)&quot;]
+   H4 --&gt; H7
+   H5 --&gt; H8[&quot;H8 = H(H5+H5)&quot;]
+   H6 --&gt; H9[&quot;H9 = H(H6+H7)&quot;]
+   H7 --&gt; H9
+   H8  --&gt; H10[&quot;H10 = H(H8+H8)&quot;]
+   H9  --&gt; R[&quot;HRoot = H(H9+H10)&quot;]
+   H10 --&gt; R
+
+        </div><p class="caption"><span class="caption-text">Diagram of a Binary Merkle Tree</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>A Merkle tree is a structure of nodes labeled by hashes.
+Pictured above is the simplest form of a Merkle tree, the binary Merkle tree.
+In particular, Symbol generates two Merkle Trees per block:</p>
+<ul class="simple">
+<li><strong>Transactions Merkle Tree</strong>: Stores all the transactions included in the block.</li>
+<li><strong>Receipts Merkle Tree</strong>: Stores all the receipt statements linked to a block.</li>
+</ul>
+<div class="section" id="leaf-nodes">
+<h3>Leaf nodes<a class="headerlink" href="#leaf-nodes" title="Permalink to this headline">¶</a></h3>
+<p>A leaf node of the tree contains the <strong>SHA3-256</strong> hash of an element attached to the block.
+The leaves are ordered by index as they appear on the block.
+A Merkle tree is built by hashing together two hashes, from left to right, repeating the process until a singular hash is created.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If there is a layer with an odd number of hashes (and the number is different to 1), the last hash is doubled.</p>
+</div>
+</div>
+<div class="section" id="merkle-root">
+<h3>Merkle root<a class="headerlink" href="#merkle-root" title="Permalink to this headline">¶</a></h3>
+<p>The hash at the bottom of the tree is called the Merkle root.
+The Merkle root hashes for receipts and transactions are included in block headers to summarize the data linked.</p>
+<p>The following example shows how to verify that a block is composed of all its transactions:</p>
+<ol class="arabic simple">
+<li>Obtain HRoot; in Symbol, this is stored in the block header.</li>
+<li>Calculate HRoot’ creating a Merkle tree with all the transactions within the block in natural order.</li>
+<li>Compare HRoot and HRoot’.</li>
+</ol>
+<div class="literal-block-wrapper container" id="id2">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/blockchain/CalculatingMerkleRootFromBlockTransactions.ts">View Code</a></span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="p">{</span> <span class="nx">sha3_256</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;js-sha3&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MerkleTree</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;merkletreejs/index&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">QueryParams</span><span class="p">,</span> <span class="nx">RepositoryFactoryHttp</span><span class="p">,</span> <span class="nx">UInt64</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;symbol-sdk&#39;</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">example</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span><span class="o">:</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="kr">boolean</span><span class="o">&gt;</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// replace with node url</span>
+  <span class="kd">const</span> <span class="nx">nodeUrl</span> <span class="o">=</span> <span class="s1">&#39;http://ngl-dual-101.testnet.symboldev.network:3000&#39;</span><span class="p">;</span>
+  <span class="kd">const</span> <span class="nx">repositoryHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RepositoryFactoryHttp</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">blockHttp</span> <span class="o">=</span> <span class="nx">repositoryHttp</span><span class="p">.</span><span class="nx">createBlockRepository</span><span class="p">();</span>
+  <span class="c1">// replace with block height</span>
+  <span class="kd">const</span> <span class="nx">height</span> <span class="o">=</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span>
+
+  <span class="c1">// 1. Obtain HRoot; in Symbol, this is stored in the block header.</span>
+  <span class="kd">const</span> <span class="nx">HRoot</span> <span class="o">=</span> <span class="p">(</span><span class="k">await</span> <span class="nx">blockHttp</span><span class="p">.</span><span class="nx">getBlockByHeight</span><span class="p">(</span><span class="nx">height</span><span class="p">).</span><span class="nx">toPromise</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">blockTransactionsHash</span><span class="p">;</span>
+  <span class="c1">// 2. Calculate HRoot&#39; creating a Merkle tree with all the transactions within the block in natural order.</span>
+  <span class="c1">// Note: This code snippet assumes that the block has less than 100 transactions.</span>
+  <span class="kd">const</span> <span class="nx">queryParams</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">QueryParams</span><span class="p">({</span> <span class="nx">pageSize</span>: <span class="kt">100</span> <span class="p">});</span>
+  <span class="kd">const</span> <span class="nx">transactions</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">blockHttp</span>
+    <span class="p">.</span><span class="nx">getBlockTransactions</span><span class="p">(</span><span class="nx">height</span><span class="p">,</span> <span class="nx">queryParams</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">toPromise</span><span class="p">();</span>
+  <span class="kd">const</span> <span class="nx">leaves</span> <span class="o">=</span> <span class="nx">transactions</span>
+    <span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">n1</span><span class="p">,</span> <span class="nx">n2</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">n1</span><span class="p">.</span><span class="nx">transactionInfo</span><span class="o">!</span><span class="p">.</span><span class="nx">index</span> <span class="o">-</span> <span class="nx">n2</span><span class="p">.</span><span class="nx">transactionInfo</span><span class="o">!</span><span class="p">.</span><span class="nx">index</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">transaction</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span><span class="o">!</span><span class="p">.</span><span class="nx">hash</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">tree</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MerkleTree</span><span class="p">(</span><span class="nx">leaves</span><span class="p">,</span> <span class="nx">sha3_256</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">duplicateOdd</span>: <span class="kt">true</span><span class="p">,</span>
+    <span class="nx">hashLeaves</span>: <span class="kt">false</span><span class="p">,</span>
+    <span class="nx">sort</span>: <span class="kt">false</span><span class="p">,</span>
+    <span class="nx">sortLeaves</span>: <span class="kt">false</span><span class="p">,</span>
+    <span class="nx">sortPairs</span>: <span class="kt">false</span><span class="p">,</span>
+    <span class="nx">isBitcoinTree</span>: <span class="kt">false</span><span class="p">,</span>
+  <span class="p">});</span>
+  <span class="kd">const</span> <span class="nx">HRoot0</span> <span class="o">=</span> <span class="nx">tree</span><span class="p">.</span><span class="nx">getRoot</span><span class="p">().</span><span class="nx">toString</span><span class="p">(</span><span class="s1">&#39;hex&#39;</span><span class="p">);</span>
+  <span class="c1">// 3. Compare HRoot and HRoot&#39;.</span>
+  <span class="k">return</span> <span class="nx">HRoot</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">===</span> <span class="nx">HRoot0</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="merkle-proof">
+<h3>Merkle proof<a class="headerlink" href="#merkle-proof" title="Permalink to this headline">¶</a></h3>
+<p>A Merkle proof (also known as <strong>Merkle path</strong>) is the minimum number of nodes required to calculate the Merkle root again.</p>
+<div class="figure align-center" id="id3">
+
+            <style>
+            /* mermaid issue 527 workaround */
+            .section {
+                opacity: 1.0 !important;
+            }
+            </style>
+            <div class="mermaid">
+            graph TD
+   style B stroke:#333,stroke-width:4px
+   style H1 stroke:#333,stroke-width:4px
+   style H7 stroke:#333,stroke-width:4px
+   style H10 stroke:#333,stroke-width:4px
+   A --&gt; H1[&quot;H1 = H(A)&quot;]
+   B --&gt; H2[&quot;H2 = H(B) (target)&quot;]
+   C --&gt; H3[&quot;H3 = H(C)&quot;]
+   D --&gt; H4[&quot;H4 = H(D)&quot;]
+   E --&gt; H5[&quot;H5 = H(E)&quot;]
+   H1 --&gt; H6[&quot;H6 = H(H1 +H2)&quot;]
+   H2 --&gt; H6
+   H3 --&gt; H7[&quot;H7 = H(H3 + H4)&quot;]
+   H4 --&gt; H7
+   H5 --&gt; H8[&quot;H8 = H(H5+H5)&quot;]
+   H6 --&gt; H9[&quot;H9 = H(H6+H7)&quot;]
+   H7 --&gt; H9
+   H8  --&gt; H10[&quot;H10 = H(H8+H8)&quot;]
+   H9  --&gt; R[&quot;HRoot = H(H9+H10)&quot;]
+   H10 --&gt; R
+
+        </div><p class="caption"><span class="caption-text">The nodes highlighted belongs to the Merkle proof of B.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<p>The following steps are taken to validate if an element belongs to a given block:</p>
+<ol class="arabic simple">
+<li>Calculate H(B); the hash of the element you want to validate if exists within a block.</li>
+<li>Obtain HRoot; in Symbol, this is stored in the block header.</li>
+<li>Request the merkleProof: H1, H7, H10.</li>
+<li>Calculate HRoot’. Concatenate H(B) with the first unprocessed item from the merkleProof list as follows:</li>
+</ol>
+<ol class="loweralpha simple">
+<li>If item.position == left -&gt; proofHash = sha_256(item.hash + proofHash).</li>
+<li>If item.position == right -&gt; proofHash = sha_256(proofHash+ item.hash).</li>
+</ol>
+<p>Repeat 4. for every item in the MerkleProof list.</p>
+<ol class="arabic simple" start="5">
+<li>Compare if the HRoot’ equals to HRoot.</li>
+</ol>
+<div class="literal-block-wrapper container" id="id4">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/blockchain/ValidatingTransactionWithinBlock.ts">View Code</a></span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="p">{</span> <span class="nx">sha3_256</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;js-sha3&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span>
+  <span class="nx">BlockRepository</span><span class="p">,</span>
+  <span class="nx">MerklePosition</span><span class="p">,</span>
+  <span class="nx">RepositoryFactoryHttp</span><span class="p">,</span>
+  <span class="nx">UInt64</span><span class="p">,</span>
+<span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;symbol-sdk&#39;</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">validateTransactionInBlock</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span>
+  <span class="nx">leaf</span>: <span class="kt">string</span><span class="p">,</span>
+  <span class="nx">height</span>: <span class="kt">UInt64</span><span class="p">,</span>
+  <span class="nx">blockHttp</span>: <span class="kt">BlockRepository</span><span class="p">,</span>
+<span class="p">)</span><span class="o">:</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="kr">boolean</span><span class="o">&gt;</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// 2. Obtain HRoot; in Symbol, this is stored in the block header.</span>
+  <span class="kd">const</span> <span class="nx">HRoot</span> <span class="o">=</span> <span class="p">(</span><span class="k">await</span> <span class="nx">blockHttp</span><span class="p">.</span><span class="nx">getBlockByHeight</span><span class="p">(</span><span class="nx">height</span><span class="p">).</span><span class="nx">toPromise</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">blockTransactionsHash</span><span class="p">;</span>
+  <span class="c1">// 3. Request the merkleProof: H1, H7, H10</span>
+  <span class="kd">const</span> <span class="nx">merkleProof</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="k">await</span> <span class="nx">blockHttp</span><span class="p">.</span><span class="nx">getMerkleTransaction</span><span class="p">(</span><span class="nx">height</span><span class="p">,</span> <span class="nx">leaf</span><span class="p">).</span><span class="nx">toPromise</span><span class="p">()</span>
+  <span class="p">).</span><span class="nx">merklePath</span><span class="o">!</span><span class="p">;</span>
+  <span class="c1">// 4. Calculate HRoot&#39;.</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">merkleProof</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mf">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// There is a single item in the tree, so HRoot&#39; = leaf.</span>
+    <span class="k">return</span> <span class="nx">leaf</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">===</span> <span class="nx">HRoot</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="kd">const</span> <span class="nx">HRoot0</span> <span class="o">=</span> <span class="nx">merkleProof</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">proofHash</span><span class="p">,</span> <span class="nx">pathItem</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">hasher</span> <span class="o">=</span> <span class="nx">sha3_256</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">pathItem</span><span class="p">.</span><span class="nx">position</span> <span class="o">===</span> <span class="nx">MerklePosition</span><span class="p">.</span><span class="nx">Left</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">hasher</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">pathItem</span><span class="p">.</span><span class="nx">hash</span> <span class="o">+</span> <span class="nx">proofHash</span><span class="p">,</span> <span class="s1">&#39;hex&#39;</span><span class="p">)).</span><span class="nx">hex</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">hasher</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">proofHash</span> <span class="o">+</span> <span class="nx">pathItem</span><span class="p">.</span><span class="nx">hash</span><span class="p">,</span> <span class="s1">&#39;hex&#39;</span><span class="p">)).</span><span class="nx">hex</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="nx">leaf</span><span class="p">);</span>
+  <span class="c1">// 5. Compare if the HRoot&#39; equals to HRoot.</span>
+  <span class="k">return</span> <span class="nx">HRoot</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">===</span> <span class="nx">HRoot0</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">nodeUrl</span> <span class="o">=</span> <span class="s1">&#39;http://ngl-dual-101.testnet.symboldev.network:3000&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">repositoryHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RepositoryFactoryHttp</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">blockHttp</span> <span class="o">=</span> <span class="nx">repositoryHttp</span><span class="p">.</span><span class="nx">createBlockRepository</span><span class="p">();</span>
+<span class="c1">// Define block height</span>
+<span class="kd">const</span> <span class="nx">height</span> <span class="o">=</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span>
+<span class="c1">// 1. Calculate H(B); the hash of the element you want to validate if exists within a block.</span>
+<span class="kd">const</span> <span class="nx">leaf</span> <span class="o">=</span> <span class="s1">&#39;1F4B55D42C9C91805E73317319DDDA633667D5E44EB0F03678FF7F130555DF4B&#39;</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">();</span>
+<span class="nx">validateTransactionInBlock</span><span class="p">(</span><span class="nx">leaf</span><span class="p">,</span> <span class="nx">height</span><span class="p">,</span> <span class="nx">blockHttp</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">result</span><span class="p">)</span> <span class="o">=&gt;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<p>Continue: <a class="reference internal" href="consensus-algorithm.html"><span class="doc">Consensus Algorithm</span></a>.</p>
+</div>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+            
+            <p class="feedback">
+                <hr/>
+                Did you find what you were looking for?
+                <a href="https://github.com/symbol/symbol-docs/issues/new/choose" target="_blank">Give us your feedback.</a>
+            </p>
+            
+        </div>
+         
+
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+    
+    <div class="edit-github">
+    <a href="https://github.com/symbol/symbol-docs/edit/main/source/concepts/data-validation.rst" rel="nofollow"> <i class="fab fa-github"></i> Improve this page</a>
+</div>
+    <span class="title">On this page</span>
+    <ul>
+<li><a class="reference internal" href="#">Data Validation</a><ul>
+<li><a class="reference internal" href="#merkle-tree">Merkle tree</a><ul>
+<li><a class="reference internal" href="#leaf-nodes">Leaf nodes</a></li>
+<li><a class="reference internal" href="#merkle-root">Merkle root</a></li>
+<li><a class="reference internal" href="#merkle-proof">Merkle proof</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    
+    </div>
+</div>
+
+ 
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-desktop',
+        debug: false
+    });
+
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-mobile',
+        debug: false
+    });
+</script>
+
+  </body>
+</html>

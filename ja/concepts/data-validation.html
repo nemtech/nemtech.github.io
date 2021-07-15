@@ -1,0 +1,506 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>データバリデーション &#8212; Symbol Documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700&display=swap" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'Main',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/examplecode.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="手数料" href="fees.html" />
+    <link rel="prev" title="暗号理論" href="cryptography.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174021413-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-174021413-2');
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../guides/atom.xml" title="Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div class="navbar navbar-default gradient navbar-fixed-top"
+     id="navbar">
+    <div class="container navbar-top hidden-xs hidden-sm">
+        <div class="row">
+            <div class="col-lg-8 col-md-7">
+                <div id="language">
+    <label class="select">
+        <select>
+            <option id="english" value="en">EN</option>
+            <option id="japanese" value="ja">JA</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </label>
+</div>
+            </div>
+            <div class="col-lg-4 col-md-5">
+                
+                <div id="search-box">
+    <input class="search search-desktop form-control" placeholder="Search"/>
+</div>
+                
+                <ul id="social" class="list-inline">
+    <li>
+        <a href="https://twitter.com/NEMofficial" rel="nofollow"><i class="fab fa-twitter" title="Twitter"></i></a>
+    </li>
+    <li>
+        <a href="https://discord.com/invite/xymcity" rel="nofollow" title="Discord"><i class="fab fa-discord"></i></a>
+    </li>
+    <li>
+        <a href="https://github.com/symbol/" rel="nofollow" title="GitHub"><i class="fab fa-github"></i></a>
+    </li>
+</ul>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="container navbar-main">
+        <div class="row">
+            <div class="navbar-header col-lg-6 col-md-4 col-xs-6">
+                <a class="navbar-brand" href="../index.html">
+                    
+                    <span><img alt="NEM logo" src="../_static/logo-symbol.svg"></span>
+                    
+                </a>
+            </div>
+            <div class="navbar-right col-lg-6 col-md-8 hidden-xs hidden-sm">
+                <ul class="list-inline">
+    <li>
+        <a href="/ja/getting-started/what-is-symbol.html" class="">入門</a>
+    </li>
+    <li>
+        <a href="/ja/concepts/overview.html" class="active">機能</a>
+    </li>
+    <li>
+        <a href="/ja/guides/category.html" class="">ガイド</a>
+    </li>
+    <li>
+        <a href="/ja/references/overview.html" class="">ツール</a>
+    </li>
+    <li>
+        <a href="/ja/contribute/community.html" class="">ヘルプ</a>
+    </li>
+</ul>
+            </div>
+            <div class="navbar-right col-xs-6 hidden-lg hidden-md">
+                
+                <div id="search-box">
+    <input class="search search-mobile form-control" placeholder="Search"/>
+</div>
+                
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 sidebar-xs visible-xs visible-sm">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">ナビゲーション <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu globaltoc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">ガイド</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">コンセプト</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="account.html">アカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="block.html">ブロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consensus-algorithm.html">コンセンサス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cryptography.html">暗号理論</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">データバリデーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fees.html">手数料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inflation.html">インフレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic.html">モザイク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic-restriction.html">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html">ノード</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin.html">Symbol の拡張</a></li>
+<li class="toctree-l2"><a class="reference internal" href="receipt.html">レシート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reward-programs.html">報酬プログラム</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html">トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">貢献</a></li>
+</ul>
+</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        
+        
+
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
+    <h4>ナビゲーション</h4>
+    <hr />
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">ガイド</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">コンセプト</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="account.html">アカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="block.html">ブロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consensus-algorithm.html">コンセンサス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cryptography.html">暗号理論</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">データバリデーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fees.html">手数料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inflation.html">インフレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic.html">モザイク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic-restriction.html">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html">ノード</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin.html">Symbol の拡張</a></li>
+<li class="toctree-l2"><a class="reference internal" href="receipt.html">レシート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reward-programs.html">報酬プログラム</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html">トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">貢献</a></li>
+</ul>
+
+</div>
+        
+    </div>
+</div>
+
+
+        
+        <div class="col-md-7 content">
+            
+  <div class="section" id="data-validation">
+<h1>データバリデーション<a class="headerlink" href="#data-validation" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Symbol は <a class="reference internal" href="block.html"><span class="doc">ブロックヘッダ</span></a>  から直接取り出すことの出来ないブロックに関連する大きなデータを保存するために木構造を用いています。これにより軽量クライアントは要素 (例: <a class="reference internal" href="transaction.html"><span class="doc">トランザクション</span></a> や <a class="reference internal" href="receipt.html"><span class="doc">レシートステートメント</span></a>) を帳簿全体の履歴を必要とすることなく検証できるようになります。</p>
+<div class="section" id="merkle-tree">
+<h2>マークル木<a class="headerlink" href="#merkle-tree" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="figure align-center" id="id1">
+
+            <style>
+            /* mermaid issue 527 workaround */
+            .section {
+                opacity: 1.0 !important;
+            }
+            </style>
+            <script>mermaid.initialize({startOnLoad:true});</script><div class="mermaid">
+            graph TD
+   A --&gt; H1[&quot;H1 = H(A)&quot;]
+   B --&gt; H2[&quot;H2 = H(B)&quot;]
+   C --&gt; H3[&quot;H3 = H(C)&quot;]
+   D --&gt; H4[&quot;H4 = H(D)&quot;]
+   E --&gt; H5[&quot;H5 = H(E)&quot;]
+   H1 --&gt; H6[&quot;H6 = H(H1 +H2)&quot;]
+   H2 --&gt; H6
+   H3 --&gt; H7[&quot;H7 = H(H3 + H4)&quot;]
+   H4 --&gt; H7
+   H5 --&gt; H8[&quot;H8 = H(H5+H5)&quot;]
+   H6 --&gt; H9[&quot;H9 = H(H6+H7)&quot;]
+   H7 --&gt; H9
+   H8  --&gt; H10[&quot;H10 = H(H8+H8)&quot;]
+   H9  --&gt; R[&quot;HRoot = H(H9+H10)&quot;]
+   H10 --&gt; R
+
+        </div><p class="caption"><span class="caption-text">Diagram of a Binary Merkle Tree</span><a class="headerlink" href="#id1" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<p>マークル木とはハッシュによってラベル付けされたノード構造です。前述の図はマークル木の単純な形状で、マークル二分木です。具体的には Symbol はブロックごとに２つのマークル木を生成します。</p>
+<ul class="simple">
+<li><strong>トランザクションマークル木</strong>: ブロックに含まれるすべてのトランザクションを保存します。</li>
+<li><strong>レシートマークル木</strong>: ブロックにリンクしたすべてのレシートステートメントを保存します。</li>
+</ul>
+<div class="section" id="leaf-nodes">
+<h3>葉ノード<a class="headerlink" href="#leaf-nodes" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ツリーの葉ノードにはブロックにアタッチされた要素の ** SHA3-256** ハッシュが含まれます。葉はブロックに現れるインデックス順に並べられます。マークルツリーは 2 つのハッシュを左から右にハッシュすることで構築され、特異ハッシュが作成されるまでプロセスを繰り返します。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">ハッシュの数が奇数である (そしてその数が 1 ではない) 場合、最後のハッシュは 2 倍になります。</p>
+</div>
+</div>
+<div class="section" id="merkle-root">
+<h3>マークルルート<a class="headerlink" href="#merkle-root" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ツリーの下部にあるハッシュはマークルルートと呼ばれます。レシートおよびトランザクションのマークルルートハッシュはブロックヘッダーに含まれ、リンクされているデータを要約しています。</p>
+<p>次の例示では、ブロックがすべてのトランザクションで構成されていることを確認する方法を示しています。</p>
+<ol class="arabic simple">
+<li>HRoot を取得します。 Symbol では、ブロックヘッダーに格納されます。</li>
+<li>HRoot』 を計算して、ブロック内のすべてのトランザクションを自然な順序でマークルツリーを作成します。</li>
+<li>HRoot と HRoot』 を比較する。</li>
+</ol>
+<div class="literal-block-wrapper container" id="id2">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/blockchain/CalculatingMerkleRootFromBlockTransactions.ts">View Code</a></span><a class="headerlink" href="#id2" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="p">{</span> <span class="nx">sha3_256</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;js-sha3&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MerkleTree</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;merkletreejs/index&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">QueryParams</span><span class="p">,</span> <span class="nx">RepositoryFactoryHttp</span><span class="p">,</span> <span class="nx">UInt64</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;symbol-sdk&#39;</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">example</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span><span class="o">:</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="kr">boolean</span><span class="o">&gt;</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// replace with node url</span>
+  <span class="kd">const</span> <span class="nx">nodeUrl</span> <span class="o">=</span> <span class="s1">&#39;http://ngl-dual-101.testnet.symboldev.network:3000&#39;</span><span class="p">;</span>
+  <span class="kd">const</span> <span class="nx">repositoryHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RepositoryFactoryHttp</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">blockHttp</span> <span class="o">=</span> <span class="nx">repositoryHttp</span><span class="p">.</span><span class="nx">createBlockRepository</span><span class="p">();</span>
+  <span class="c1">// replace with block height</span>
+  <span class="kd">const</span> <span class="nx">height</span> <span class="o">=</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span>
+
+  <span class="c1">// 1. Obtain HRoot; in Symbol, this is stored in the block header.</span>
+  <span class="kd">const</span> <span class="nx">HRoot</span> <span class="o">=</span> <span class="p">(</span><span class="k">await</span> <span class="nx">blockHttp</span><span class="p">.</span><span class="nx">getBlockByHeight</span><span class="p">(</span><span class="nx">height</span><span class="p">).</span><span class="nx">toPromise</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">blockTransactionsHash</span><span class="p">;</span>
+  <span class="c1">// 2. Calculate HRoot&#39; creating a Merkle tree with all the transactions within the block in natural order.</span>
+  <span class="c1">// Note: This code snippet assumes that the block has less than 100 transactions.</span>
+  <span class="kd">const</span> <span class="nx">queryParams</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">QueryParams</span><span class="p">({</span> <span class="nx">pageSize</span>: <span class="kt">100</span> <span class="p">});</span>
+  <span class="kd">const</span> <span class="nx">transactions</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">blockHttp</span>
+    <span class="p">.</span><span class="nx">getBlockTransactions</span><span class="p">(</span><span class="nx">height</span><span class="p">,</span> <span class="nx">queryParams</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">toPromise</span><span class="p">();</span>
+  <span class="kd">const</span> <span class="nx">leaves</span> <span class="o">=</span> <span class="nx">transactions</span>
+    <span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">n1</span><span class="p">,</span> <span class="nx">n2</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">n1</span><span class="p">.</span><span class="nx">transactionInfo</span><span class="o">!</span><span class="p">.</span><span class="nx">index</span> <span class="o">-</span> <span class="nx">n2</span><span class="p">.</span><span class="nx">transactionInfo</span><span class="o">!</span><span class="p">.</span><span class="nx">index</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">transaction</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">transactionInfo</span><span class="o">!</span><span class="p">.</span><span class="nx">hash</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">tree</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MerkleTree</span><span class="p">(</span><span class="nx">leaves</span><span class="p">,</span> <span class="nx">sha3_256</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">duplicateOdd</span>: <span class="kt">true</span><span class="p">,</span>
+    <span class="nx">hashLeaves</span>: <span class="kt">false</span><span class="p">,</span>
+    <span class="nx">sort</span>: <span class="kt">false</span><span class="p">,</span>
+    <span class="nx">sortLeaves</span>: <span class="kt">false</span><span class="p">,</span>
+    <span class="nx">sortPairs</span>: <span class="kt">false</span><span class="p">,</span>
+    <span class="nx">isBitcoinTree</span>: <span class="kt">false</span><span class="p">,</span>
+  <span class="p">});</span>
+  <span class="kd">const</span> <span class="nx">HRoot0</span> <span class="o">=</span> <span class="nx">tree</span><span class="p">.</span><span class="nx">getRoot</span><span class="p">().</span><span class="nx">toString</span><span class="p">(</span><span class="s1">&#39;hex&#39;</span><span class="p">);</span>
+  <span class="c1">// 3. Compare HRoot and HRoot&#39;.</span>
+  <span class="k">return</span> <span class="nx">HRoot</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">===</span> <span class="nx">HRoot0</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="merkle-proof">
+<h3>マークル証明<a class="headerlink" href="#merkle-proof" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>マークルプルーフ ( <strong>マークルパス</strong> とも呼ばれる) は、マークルルートを再度計算するために必要な最小ノード数です。</p>
+<div class="figure align-center" id="id3">
+
+            <style>
+            /* mermaid issue 527 workaround */
+            .section {
+                opacity: 1.0 !important;
+            }
+            </style>
+            <div class="mermaid">
+            graph TD
+   style B stroke:#333,stroke-width:4px
+   style H1 stroke:#333,stroke-width:4px
+   style H7 stroke:#333,stroke-width:4px
+   style H10 stroke:#333,stroke-width:4px
+   A --&gt; H1[&quot;H1 = H(A)&quot;]
+   B --&gt; H2[&quot;H2 = H(B) (target)&quot;]
+   C --&gt; H3[&quot;H3 = H(C)&quot;]
+   D --&gt; H4[&quot;H4 = H(D)&quot;]
+   E --&gt; H5[&quot;H5 = H(E)&quot;]
+   H1 --&gt; H6[&quot;H6 = H(H1 +H2)&quot;]
+   H2 --&gt; H6
+   H3 --&gt; H7[&quot;H7 = H(H3 + H4)&quot;]
+   H4 --&gt; H7
+   H5 --&gt; H8[&quot;H8 = H(H5+H5)&quot;]
+   H6 --&gt; H9[&quot;H9 = H(H6+H7)&quot;]
+   H7 --&gt; H9
+   H8  --&gt; H10[&quot;H10 = H(H8+H8)&quot;]
+   H9  --&gt; R[&quot;HRoot = H(H9+H10)&quot;]
+   H10 --&gt; R
+
+        </div><p class="caption"><span class="caption-text">The nodes highlighted belongs to the Merkle proof of B.</span><a class="headerlink" href="#id3" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<p>ある要素が特定のブロックに属しているかどうかを検証するには、次の手順を実行します。</p>
+<ol class="arabic simple">
+<li>H(B) を計算します。ブロック内に存在するかどうかを検証する要素のハッシュ。</li>
+<li>HRoot を取得します。 Symbol では、ブロックヘッダーに格納されます。</li>
+<li>マークルプルーフを要求: H1, H7, H10.</li>
+<li>HRoot』 を計算します。 H(B) を次のように merkleProof リストの最初の未処理のアイテムと連結します:</li>
+</ol>
+<ol class="loweralpha simple">
+<li>If item.position == left -&gt; proofHash = sha_256(item.hash + proofHash).</li>
+<li>If item.position == right -&gt; proofHash = sha_256(proofHash+ item.hash).</li>
+</ol>
+<p>4 を繰り返す。マークル証明リストの各アイテムごとに。</p>
+<ol class="arabic simple" start="5">
+<li>HRoot』 が HRoot と等しいかどうかを比較します。</li>
+</ol>
+<div class="literal-block-wrapper container" id="id4">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/blockchain/ValidatingTransactionWithinBlock.ts">View Code</a></span><a class="headerlink" href="#id4" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="p">{</span> <span class="nx">sha3_256</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;js-sha3&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span>
+  <span class="nx">BlockRepository</span><span class="p">,</span>
+  <span class="nx">MerklePosition</span><span class="p">,</span>
+  <span class="nx">RepositoryFactoryHttp</span><span class="p">,</span>
+  <span class="nx">UInt64</span><span class="p">,</span>
+<span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;symbol-sdk&#39;</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">validateTransactionInBlock</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span>
+  <span class="nx">leaf</span>: <span class="kt">string</span><span class="p">,</span>
+  <span class="nx">height</span>: <span class="kt">UInt64</span><span class="p">,</span>
+  <span class="nx">blockHttp</span>: <span class="kt">BlockRepository</span><span class="p">,</span>
+<span class="p">)</span><span class="o">:</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="kr">boolean</span><span class="o">&gt;</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// 2. Obtain HRoot; in Symbol, this is stored in the block header.</span>
+  <span class="kd">const</span> <span class="nx">HRoot</span> <span class="o">=</span> <span class="p">(</span><span class="k">await</span> <span class="nx">blockHttp</span><span class="p">.</span><span class="nx">getBlockByHeight</span><span class="p">(</span><span class="nx">height</span><span class="p">).</span><span class="nx">toPromise</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">blockTransactionsHash</span><span class="p">;</span>
+  <span class="c1">// 3. Request the merkleProof: H1, H7, H10</span>
+  <span class="kd">const</span> <span class="nx">merkleProof</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="k">await</span> <span class="nx">blockHttp</span><span class="p">.</span><span class="nx">getMerkleTransaction</span><span class="p">(</span><span class="nx">height</span><span class="p">,</span> <span class="nx">leaf</span><span class="p">).</span><span class="nx">toPromise</span><span class="p">()</span>
+  <span class="p">).</span><span class="nx">merklePath</span><span class="o">!</span><span class="p">;</span>
+  <span class="c1">// 4. Calculate HRoot&#39;.</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">merkleProof</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mf">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// There is a single item in the tree, so HRoot&#39; = leaf.</span>
+    <span class="k">return</span> <span class="nx">leaf</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">===</span> <span class="nx">HRoot</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="kd">const</span> <span class="nx">HRoot0</span> <span class="o">=</span> <span class="nx">merkleProof</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">proofHash</span><span class="p">,</span> <span class="nx">pathItem</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">hasher</span> <span class="o">=</span> <span class="nx">sha3_256</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">pathItem</span><span class="p">.</span><span class="nx">position</span> <span class="o">===</span> <span class="nx">MerklePosition</span><span class="p">.</span><span class="nx">Left</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">hasher</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">pathItem</span><span class="p">.</span><span class="nx">hash</span> <span class="o">+</span> <span class="nx">proofHash</span><span class="p">,</span> <span class="s1">&#39;hex&#39;</span><span class="p">)).</span><span class="nx">hex</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">hasher</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">proofHash</span> <span class="o">+</span> <span class="nx">pathItem</span><span class="p">.</span><span class="nx">hash</span><span class="p">,</span> <span class="s1">&#39;hex&#39;</span><span class="p">)).</span><span class="nx">hex</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="nx">leaf</span><span class="p">);</span>
+  <span class="c1">// 5. Compare if the HRoot&#39; equals to HRoot.</span>
+  <span class="k">return</span> <span class="nx">HRoot</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">===</span> <span class="nx">HRoot0</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">nodeUrl</span> <span class="o">=</span> <span class="s1">&#39;http://ngl-dual-101.testnet.symboldev.network:3000&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">repositoryHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RepositoryFactoryHttp</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">blockHttp</span> <span class="o">=</span> <span class="nx">repositoryHttp</span><span class="p">.</span><span class="nx">createBlockRepository</span><span class="p">();</span>
+<span class="c1">// Define block height</span>
+<span class="kd">const</span> <span class="nx">height</span> <span class="o">=</span> <span class="nx">UInt64</span><span class="p">.</span><span class="nx">fromUint</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span>
+<span class="c1">// 1. Calculate H(B); the hash of the element you want to validate if exists within a block.</span>
+<span class="kd">const</span> <span class="nx">leaf</span> <span class="o">=</span> <span class="s1">&#39;1F4B55D42C9C91805E73317319DDDA633667D5E44EB0F03678FF7F130555DF4B&#39;</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">();</span>
+<span class="nx">validateTransactionInBlock</span><span class="p">(</span><span class="nx">leaf</span><span class="p">,</span> <span class="nx">height</span><span class="p">,</span> <span class="nx">blockHttp</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">result</span><span class="p">)</span> <span class="o">=&gt;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<p>次項: <a class="reference internal" href="consensus-algorithm.html"><span class="doc">コンセンサスアルゴリズム</span></a></p>
+</div>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+            
+            <p class="feedback">
+                <hr/>
+                お探しのものは見つかりましたか？
+                <a href="https://github.com/symbol/symbol-docs/issues/new/choose" target="_blank">フィードバックをください。</a>
+            </p>
+            
+        </div>
+         
+
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+    
+    <div class="edit-github">
+    <a href="https://github.com/symbol/symbol-docs/edit/main/source/concepts/data-validation.rst" rel="nofollow"> <i class="fab fa-github"></i> このページを加筆修正する</a>
+</div>
+    <span class="title">このページ</span>
+    <ul>
+<li><a class="reference internal" href="#">データバリデーション</a><ul>
+<li><a class="reference internal" href="#merkle-tree">マークル木</a><ul>
+<li><a class="reference internal" href="#leaf-nodes">葉ノード</a></li>
+<li><a class="reference internal" href="#merkle-root">マークルルート</a></li>
+<li><a class="reference internal" href="#merkle-proof">マークル証明</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    
+    </div>
+</div>
+
+ 
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-desktop',
+        debug: false
+    });
+
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-mobile',
+        debug: false
+    });
+</script>
+
+  </body>
+</html>

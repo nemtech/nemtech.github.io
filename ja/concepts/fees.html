@@ -1,0 +1,443 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>手数料 &#8212; Symbol Documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700&display=swap" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/examplecode.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'Main',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/custom.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/examplecode.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="ハーベスティング" href="harvesting.html" />
+    <link rel="prev" title="データバリデーション" href="data-validation.html" />
+  
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174021413-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-174021413-2');
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../guides/atom.xml" title="Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+
+<div class="navbar navbar-default gradient navbar-fixed-top"
+     id="navbar">
+    <div class="container navbar-top hidden-xs hidden-sm">
+        <div class="row">
+            <div class="col-lg-8 col-md-7">
+                <div id="language">
+    <label class="select">
+        <select>
+            <option id="english" value="en">EN</option>
+            <option id="japanese" value="ja">JA</option>
+            <!--<option id="chinese" value="zh_CN">中文</option>-->
+            <option id="translate" value="translate">翻訳する</option>
+        </select>
+    </label>
+</div>
+            </div>
+            <div class="col-lg-4 col-md-5">
+                
+                <div id="search-box">
+    <input class="search search-desktop form-control" placeholder="Search"/>
+</div>
+                
+                <ul id="social" class="list-inline">
+    <li>
+        <a href="https://twitter.com/NEMofficial" rel="nofollow"><i class="fab fa-twitter" title="Twitter"></i></a>
+    </li>
+    <li>
+        <a href="https://discord.com/invite/xymcity" rel="nofollow" title="Discord"><i class="fab fa-discord"></i></a>
+    </li>
+    <li>
+        <a href="https://github.com/symbol/" rel="nofollow" title="GitHub"><i class="fab fa-github"></i></a>
+    </li>
+</ul>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="container navbar-main">
+        <div class="row">
+            <div class="navbar-header col-lg-6 col-md-4 col-xs-6">
+                <a class="navbar-brand" href="../index.html">
+                    
+                    <span><img alt="NEM logo" src="../_static/logo-symbol.svg"></span>
+                    
+                </a>
+            </div>
+            <div class="navbar-right col-lg-6 col-md-8 hidden-xs hidden-sm">
+                <ul class="list-inline">
+    <li>
+        <a href="/ja/getting-started/what-is-symbol.html" class="">入門</a>
+    </li>
+    <li>
+        <a href="/ja/concepts/overview.html" class="active">機能</a>
+    </li>
+    <li>
+        <a href="/ja/guides/category.html" class="">ガイド</a>
+    </li>
+    <li>
+        <a href="/ja/references/overview.html" class="">ツール</a>
+    </li>
+    <li>
+        <a href="/ja/contribute/community.html" class="">ヘルプ</a>
+    </li>
+</ul>
+            </div>
+            <div class="navbar-right col-xs-6 hidden-lg hidden-md">
+                
+                <div id="search-box">
+    <input class="search search-mobile form-control" placeholder="Search"/>
+</div>
+                
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 sidebar-xs visible-xs visible-sm">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">ナビゲーション <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu globaltoc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">ガイド</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">コンセプト</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="account.html">アカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="block.html">ブロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consensus-algorithm.html">コンセンサス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cryptography.html">暗号理論</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-validation.html">データバリデーション</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">手数料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inflation.html">インフレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic.html">モザイク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic-restriction.html">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html">ノード</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin.html">Symbol の拡張</a></li>
+<li class="toctree-l2"><a class="reference internal" href="receipt.html">レシート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reward-programs.html">報酬プログラム</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html">トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">貢献</a></li>
+</ul>
+</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        
+        
+
+<div class="col-md-3">
+    <div id="sidebar" class="bs-sidenav" role="complementary">
+        
+        <div class="sidebar-md hidden-xs hidden-sm">
+    <h4>ナビゲーション</h4>
+    <hr />
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">ガイド</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">コンセプト</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="account.html">アカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account-restriction.html">アカウント制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aggregate-transaction.html">アグリゲートトランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="block.html">ブロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consensus-algorithm.html">コンセンサス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cross-chain-swaps.html">クロスチェーンスワップ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cryptography.html">暗号理論</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-validation.html">データバリデーション</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">手数料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="harvesting.html">ハーベスティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inflation.html">インフレーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">メタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic.html">モザイク</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mosaic-restriction.html">モザイク制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig-account.html">マルチシグアカウント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html">ネームスペース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html">ノード</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin.html">Symbol の拡張</a></li>
+<li class="toctree-l2"><a class="reference internal" href="receipt.html">レシート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reward-programs.html">報酬プログラム</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html">トランザクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transfer-transaction.html">転送トランザクション</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">貢献</a></li>
+</ul>
+
+</div>
+        
+    </div>
+</div>
+
+
+        
+        <div class="col-md-7 content">
+            
+  <div class="section" id="fees">
+<h1>手数料<a class="headerlink" href="#fees" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Announcing <a class="reference internal" href="transaction.html"><span class="doc">transactions</span></a> has an associated cost. This cost is necessary to provide an incentive for the <a class="reference internal" href="harvesting.html"><span class="doc">harvesters</span></a> who secure the network and run the infrastructure.</p>
+<div class="section" id="network-currency">
+<h2>ネットワーク通貨<a class="headerlink" href="#network-currency" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>デフォルトでは、手数料は Symbol ネットワーク基軸通貨で支払われます。</p>
+<table border="1" class="docutils" id="id1">
+<caption><span class="caption-text">ネットワークタイプごとのデフォルトネットワーク通貨</span><a class="headerlink" href="#id1" title="このテーブルへのパーマリンク">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">ネットワークタイプ</th>
+<th class="head">モザイク名</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>PRIVATE</td>
+<td><code class="docutils literal"><span class="pre">cat.currency</span></code></td>
+</tr>
+<tr class="row-odd"><td>MAINNET, TESTNET</td>
+<td><code class="docutils literal"><span class="pre">symbol.xym</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>プライベートチェーンでは、ニーズに合わせるために手数料を無くしたり、他の <a class="reference internal" href="mosaic.html"><span class="doc">モザイク</span></a> を使用するために  <a class="reference internal" href="../guides/network/configuring-network-properties.html#config-network-properties"><span class="std std-ref">ネットワークの設定を編集</span></a> できます。</p>
+</div>
+<div class="section" id="transaction-fee">
+<h2>トランザクション手数料<a class="headerlink" href="#transaction-fee" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>トランザクションに関連する手数料は、主としてトランザクションの (バイト) サイズによって異なります。トランザクションを送信するアカウントから差し引かれる実効手数料はトランザクションのサイズとブロックをハーベストするノードによって設定される手数料乗数の積として計算されます。</p>
+<div class="math">
+\[effectiveFee = transaction::size * block::feeMultiplier\]</div>
+<p>ノード所有者は <a class="reference internal" href="../guides/network/configuring-node-properties.html#node-properties"><span class="std std-ref">手数料乗数</span></a> を 0 を含むすべての正の値に設定できます。ノードが新しいブロックをハーベストするとき <code class="docutils literal"><span class="pre">fee_multiplier</span></code> は <a class="reference internal" href="block.html#block-header"><span class="std std-ref">ブロックヘッダー</span></a> に格納され、含まれるトランザクションすべてに対して支払われた有効な手数料を決定します。</p>
+<p>トランザクションを送信する前に、トランザクション定義の中で <code class="docutils literal"><span class="pre">max_fee</span></code> を指定する必要があり、これはアカウントがこのトランザクションに費やせる最大手数料を示しています。</p>
+<p><code class="docutils literal"><span class="pre">effective_fee</span></code> が <code class="docutils literal"><span class="pre">max_fee</span></code> 以下の場合、ハーベスタはトランザクションをブロックに含める選択ができます。ハーベスティングノードはそれらの <a class="reference internal" href="../guides/network/configuring-node-properties.html#node-properties"><span class="std std-ref">トランザクションインクルード戦略</span></a> を設定できます:</p>
+<ul class="simple">
+<li><strong>Prefer-oldest</strong>：高いトランザクションスループットが要求されるネットワークに適しています。最も古いトランザクションを最初に含めます。</li>
+<li><strong>Minimize-fees</strong>: 慈善事業なノード。他のノードが含めたくない最初のトランザクションを含めます。</li>
+<li><strong>Maximize-fees</strong>: パブリックネットワークで最も一般的です。より高い手数料の最初のトランザクションを含みます。</li>
+</ul>
+<p><code class="docutils literal"><span class="pre">max_fee</span></code> を不必要に高く設定せずにトランザクションが確実に含まれるようにするためには、トランザクション送信者は <a class="reference internal" href="../api.html"><span class="doc">REST ゲートウェイ</span></a> に直近 60 ブロック  (<a class="reference internal" href="../guides/network/configuring-network-properties.html#config-network-properties"><span class="std std-ref">maxDifficultyBlocks</span></a>) のネットワークの乗数の中央値、平均値、最高値、または最低値を問い合わせることができます。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p>この情報を取得する簡単な方法は、次をブラウザで確認します:</p>
+<p class="last"><a class="reference external" href="http://ngl-dual-101.testnet.symboldev.network:3000/network/fees/transaction">&lt;NODE_URL&gt;:3000/network/fees/transaction</a></p>
+</div>
+<p>たとえば、送信者はトランザクションの max_fee を次のように設定できます:</p>
+<div class="math">
+\[maxFee = transaction::size ∗ network::medianFeeMultiplier\]</div>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id2">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/transfer/DefiningMaxFee.ts">View Code</a></span><a class="headerlink" href="#id2" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span>  <span class="kd">const</span> <span class="nx">publicAccount1</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">generateNewAccount</span><span class="p">(</span><span class="nx">NetworkType</span><span class="p">.</span><span class="nx">TEST_NET</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">publicAccount</span><span class="p">;</span>
+  <span class="kd">const</span> <span class="nx">publicAccount2</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">generateNewAccount</span><span class="p">(</span><span class="nx">NetworkType</span><span class="p">.</span><span class="nx">TEST_NET</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">publicAccount</span><span class="p">;</span>
+  <span class="c1">// Get median fee multiplier</span>
+  <span class="kd">const</span> <span class="nx">nodeUrl</span> <span class="o">=</span> <span class="s1">&#39;http://ngl-dual-101.testnet.symboldev.network:3000&#39;</span><span class="p">;</span>
+  <span class="kd">const</span> <span class="nx">repositoryHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RepositoryFactoryHttp</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">networkHttp</span> <span class="o">=</span> <span class="nx">repositoryHttp</span><span class="p">.</span><span class="nx">createNetworkRepository</span><span class="p">();</span>
+  <span class="kd">const</span> <span class="nx">medianFeeMultiplier</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="k">await</span> <span class="nx">networkHttp</span><span class="p">.</span><span class="nx">getTransactionFees</span><span class="p">().</span><span class="nx">toPromise</span><span class="p">()</span>
+  <span class="p">).</span><span class="nx">medianFeeMultiplier</span><span class="p">;</span>
+
+  <span class="c1">// Define transaction and set max fee</span>
+  <span class="kd">const</span> <span class="nx">rawAddress</span> <span class="o">=</span> <span class="s1">&#39;TB6Q5E-YACWBP-CXKGIL-I6XWCH-DRFLTB-KUK34I-YJQ&#39;</span><span class="p">;</span>
+  <span class="kd">const</span> <span class="nx">recipientAddress</span> <span class="o">=</span> <span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="nx">rawAddress</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">transferTransaction</span> <span class="o">=</span> <span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">epochAdjustment</span><span class="p">),</span>
+    <span class="nx">recipientAddress</span><span class="p">,</span>
+    <span class="p">[],</span>
+    <span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;This is a test message&#39;</span><span class="p">),</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">TEST_NET</span><span class="p">,</span>
+  <span class="p">).</span><span class="nx">setMaxFee</span><span class="p">(</span><span class="nx">medianFeeMultiplier</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id3">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/transfer/DefiningMaxFee.js">View Code</a></span><a class="headerlink" href="#id3" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>    <span class="kd">const</span> <span class="nx">publicAccount1</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Account</span><span class="p">.</span><span class="nx">generateNewAccount</span><span class="p">(</span><span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">NetworkType</span><span class="p">.</span><span class="nx">TEST_NET</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">publicAccount</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">publicAccount2</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Account</span><span class="p">.</span><span class="nx">generateNewAccount</span><span class="p">(</span><span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">NetworkType</span><span class="p">.</span><span class="nx">TEST_NET</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">publicAccount</span><span class="p">;</span>
+    <span class="c1">// Get median fee multiplier</span>
+    <span class="kd">const</span> <span class="nx">nodeUrl</span> <span class="o">=</span> <span class="s1">&#39;http://ngl-dual-101.testnet.symboldev.network:3000&#39;</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">repositoryHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">RepositoryFactoryHttp</span><span class="p">(</span><span class="nx">nodeUrl</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">networkHttp</span> <span class="o">=</span> <span class="nx">repositoryHttp</span><span class="p">.</span><span class="nx">createNetworkRepository</span><span class="p">();</span>
+    <span class="kd">const</span> <span class="nx">medianFeeMultiplier</span> <span class="o">=</span> <span class="p">(</span><span class="k">await</span> <span class="nx">networkHttp</span><span class="p">.</span><span class="nx">getTransactionFees</span><span class="p">().</span><span class="nx">toPromise</span><span class="p">()).</span><span class="nx">medianFeeMultiplier</span><span class="p">;</span>
+    <span class="c1">// Define transaction and set max fee</span>
+    <span class="kd">const</span> <span class="nx">rawAddress</span> <span class="o">=</span> <span class="s1">&#39;TB6Q5E-YACWBP-CXKGIL-I6XWCH-DRFLTB-KUK34I-YJQ&#39;</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">recipientAddress</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Address</span><span class="p">.</span><span class="nx">createFromRawAddress</span><span class="p">(</span><span class="nx">rawAddress</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">transferTransaction</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">TransferTransaction</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">epochAdjustment</span><span class="p">),</span> <span class="nx">recipientAddress</span><span class="p">,</span> <span class="p">[],</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">PlainMessage</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;This is a test message&#39;</span><span class="p">),</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">NetworkType</span><span class="p">.</span><span class="nx">TEST_NET</span><span class="p">).</span><span class="nx">setMaxFee</span><span class="p">(</span><span class="nx">medianFeeMultiplier</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">設定した乗数が少なすぎる場合、トランザクションが承認されることを保証できません。承認される可能性を高めるためには、トランザクション送信者が <code class="docutils literal"><span class="pre">medianNetworkFeeMultiplier</span></code> と <code class="docutils literal"><span class="pre">highestFeeMultiplier</span></code> の間で任意の値を使用してください。</p>
+</div>
+<p><a class="reference internal" href="aggregate-transaction.html"><span class="doc">アグリゲートボンデッドトランザクション</span></a> のサイズを決定するには、トランザクションに署名する必要がある参加者アカウントの数を事前に知っておく必要があります。</p>
+<div class="example-code container">
+<div class="literal-block-wrapper container" id="id4">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/transfer/DefiningMaxFee.ts">View Code</a></span><a class="headerlink" href="#id4" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-typescript"><div class="highlight"><pre><span></span>  <span class="c1">// Define transaction and set max fee</span>
+  <span class="kd">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createBonded</span><span class="p">(</span>
+    <span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">epochAdjustment</span><span class="p">),</span>
+    <span class="p">[</span>
+      <span class="nx">transferTransaction</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">publicAccount1</span><span class="p">),</span>
+      <span class="nx">transferTransaction</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">publicAccount2</span><span class="p">),</span>
+    <span class="p">],</span>
+    <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">TEST_NET</span><span class="p">,</span>
+    <span class="p">[],</span>
+  <span class="p">).</span><span class="nx">setMaxFeeForAggregate</span><span class="p">(</span><span class="nx">medianFeeMultiplier</span><span class="p">,</span> <span class="mf">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="id5">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/symbol/symbol-docs/blob/main/source/resources/examples/typescript/transfer/DefiningMaxFee.js">View Code</a></span><a class="headerlink" href="#id5" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>    <span class="c1">// Define transaction and set max fee</span>
+    <span class="kd">const</span> <span class="nx">aggregateTransaction</span> <span class="o">=</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">AggregateTransaction</span><span class="p">.</span><span class="nx">createBonded</span><span class="p">(</span><span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">Deadline</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">epochAdjustment</span><span class="p">),</span> <span class="p">[</span>
+        <span class="nx">transferTransaction</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">publicAccount1</span><span class="p">),</span>
+        <span class="nx">transferTransaction</span><span class="p">.</span><span class="nx">toAggregate</span><span class="p">(</span><span class="nx">publicAccount2</span><span class="p">),</span>
+    <span class="p">],</span> <span class="nx">symbol_sdk_1</span><span class="p">.</span><span class="nx">NetworkType</span><span class="p">.</span><span class="nx">TEST_NET</span><span class="p">,</span> <span class="p">[]).</span><span class="nx">setMaxFeeForAggregate</span><span class="p">(</span><span class="nx">medianFeeMultiplier</span><span class="p">,</span> <span class="mf">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="dynamic-fee-multiplier">
+<span id="fees-dynamic-multiplier"></span><h2>動的手数料乗数<a class="headerlink" href="#dynamic-fee-multiplier" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ブロックチェーンに追加された各ブロックには、それを収集したノードによって設定された異なる手数料乗数があります。また、ネットワークは <strong>動的手数料乗数</strong> を、最終の <a class="reference internal" href="../guides/network/configuring-network-properties.html#config-network-properties"><span class="std std-ref">maxDifficultyBlocks</span></a> ハーベストブロックの <strong>中央値</strong> (デフォルトでは 60) として定義します。</p>
+<p>この値は、ノードとトランザクション作成者が、最新ブロックで合意した最も一般的な手数料乗数に近似して <a class="reference internal" href="namespace.html#namespace-rental-fee"><span class="std std-ref">ネームスペース</span></a> および <a class="reference internal" href="mosaic.html#mosaic-rental-fee"><span class="std std-ref">モザイク</span></a> のレンタル手数料の計算に使用されます。</p>
+<p>ブロックにトランザクションが含んでいない場合、乗数が 0 になるのを避けるために <a class="reference internal" href="../guides/network/configuring-network-properties.html#config-network-properties"><span class="std std-ref">defaultDynamicFeeMultiplier</span></a> (デフォルトでは 100) の値を使用します。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p>現在の動的手数料乗数値は <a class="reference internal" href="../api.html"><span class="doc">REST ゲートウェイ</span></a> が返却する <code class="docutils literal"><span class="pre">medianFeeMultiplier</span></code> プロパティにあります:</p>
+<p class="last"><a class="reference external" href="http://ngl-dual-101.testnet.symboldev.network:3000/network/fees/transaction">&lt;NODE_URL&gt;:3000/network/fees/transaction</a></p>
+</div>
+<p>次項: <a class="reference internal" href="receipt.html"><span class="doc">レシート</span></a></p>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+            
+            <p class="feedback">
+                <hr/>
+                お探しのものは見つかりましたか？
+                <a href="https://github.com/symbol/symbol-docs/issues/new/choose" target="_blank">フィードバックをください。</a>
+            </p>
+            
+        </div>
+         
+
+<div class="col-md-2">
+    <div class="bs-sidenav secondary" role="complementary">
+    
+    <div class="edit-github">
+    <a href="https://github.com/symbol/symbol-docs/edit/main/source/concepts/fees.rst" rel="nofollow"> <i class="fab fa-github"></i> このページを加筆修正する</a>
+</div>
+    <span class="title">このページ</span>
+    <ul>
+<li><a class="reference internal" href="#">手数料</a><ul>
+<li><a class="reference internal" href="#network-currency">ネットワーク通貨</a></li>
+<li><a class="reference internal" href="#transaction-fee">トランザクション手数料</a></li>
+<li><a class="reference internal" href="#dynamic-fee-multiplier">動的手数料乗数</a></li>
+</ul>
+</li>
+</ul>
+
+    
+    </div>
+</div>
+
+ 
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-desktop',
+        debug: false
+    });
+
+    docsearch({
+        apiKey: 'fea87a364e2d51e3729a3a4889f7fe61',
+        indexName: 'nemtech',
+        inputSelector: '.search-mobile',
+        debug: false
+    });
+</script>
+
+  </body>
+</html>
